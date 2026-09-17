@@ -12,6 +12,39 @@ import utest._
 object DownloadBufferCostTests extends TestSuite {
   val tests = Tests {
     test("small bodies do not initialize the buffer element by element") {
+      val entries = scala.collection.mutable.LinkedHashSet.empty[String]
+      var loader: ClassLoader = getClass.getClassLoader
+      while (loader != null) {
+        loader match {
+          case urls: java.net.URLClassLoader =>
+            urls.getURLs.foreach(url => entries += new java.io.File(url.toURI).getAbsolutePath)
+          case _ =>
+        }
+        loader = loader.getParent
+      }
+      System.getProperty("java.class.path").split(java.io.File.pathSeparator)
+        .foreach(entries += _)
+      val process = new ProcessBuilder(
+        new java.io.File(System.getProperty("java.home"), "bin/java").getAbsolutePath,
+        "-XX:TieredStopAtLevel=1", "-cp", entries.mkString(java.io.File.pathSeparator),
+        "coursier.cache.DownloadBufferCostProbe"
+      ).redirectErrorStream(true).start()
+      try {
+        val output = scala.io.Source.fromInputStream(process.getInputStream)
+        val text = try output.mkString finally output.close()
+        val exit = process.waitFor()
+        println(text)
+        assert(exit == 0)
+      }
+      finally {
+        if (process.isAlive) { process.destroyForcibly(); process.waitFor() }
+      }
+    }
+  }
+}
+
+object DownloadBufferCostProbe {
+  def main(args: Array[String]): Unit = {
       val server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
       val workers = Executors.newCachedThreadPool()
       val pool = Executors.newFixedThreadPool(2)
@@ -57,6 +90,5 @@ object DownloadBufferCostTests extends TestSuite {
         assert(pool.awaitTermination(10, java.util.concurrent.TimeUnit.SECONDS))
         os.remove.all(os.Path(directory))
       }
-    }
   }
 }
