@@ -13,3 +13,5 @@ taskset -c 0,1 ./mill --no-server 'cache.jvm[2.13.16].jar'
 ```
 
 Package the resulting thin JAR with the published 2.1.30 POM, changing only its root version to 2.1.31-buffer2. Do not change dependency versions. Restore the four overlaid source files after packaging; the patch remains the durable release recipe. Full test results and final JAR hash will be appended after verification.
+
+Verified release build:88/88 cache-module tests pass, wall214.839/user129.459/system17.578 seconds. The public CPU comparison is540/540ms (ratio1.0). Of176 class files,175 are byte-for-byte equal to deployed2.1.30; only coursier/cache/internal/Downloader$.class differs. JAR SHA25620307f9eabb1532b8630fcb0ade84c990fd11c175afebac7b0465c471a4d2406. Published source JAR SHA256ce092ffb004c8bcba40e24c792e1ddf05649bb385785f7a4f4bc7d4c57363fa9. POM SHA256aa6e3c4eedab931e74c22868ea28ec189145914f6968bf45e3f91b0da9965d62. Source overlay restored after packaging.
