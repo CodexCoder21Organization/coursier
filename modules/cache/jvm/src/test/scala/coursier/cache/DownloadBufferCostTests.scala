@@ -80,7 +80,7 @@ object DownloadBufferCostProbe {
         val small = measure(8192)
         val large = measure(1024 * 1024)
         println(s"DOWNLOAD_BUFFER_CPU smallNs=$small largeNs=$large ratio=${large.toDouble / small}")
-        assert(large < small * 4)
+        assert(large < small * 2)
       }
       finally {
         server.stop(0)

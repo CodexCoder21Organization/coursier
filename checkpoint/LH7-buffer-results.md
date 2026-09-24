@@ -26,3 +26,14 @@ wall=55.010 user=19.783 system=2.605
 wall=86.740 user=32.135 system=3.416
 ```
 
+## second host, threshold tightened from 4x to 2x (2026-09-24)
+
+On a 16-core arm64 host (same `taskset -c 0,1`, C1 child JVM) the original allocation measured only 3.19x and 3.16x, so the earlier `large < small * 4` assertion passed with the defect present. The assertion is now `large < small * 2`.
+
+```text
+fix reverted  ratio=3.1904761904761907  Failed (2x threshold)
+fix reverted  ratio=3.1578947368421053  Failed (2x threshold)
+fixed         ratio=0.7368421052631579  Passed
+fixed         ratio=0.8823529411764706  Passed
+fixed         ratio=1.0                 Passed
+```
