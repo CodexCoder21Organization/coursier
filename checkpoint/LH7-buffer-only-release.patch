@@ -1,0 +1,100 @@
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/ArtifactError.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/ArtifactError.scala
+@@ -40,20 +40,12 @@
+   // format: off
+   final class NotFound(
+     val file: String,
+-    val permanent: Option[Boolean] = None,
+-    causeOpt: Option[Throwable] = None
++    val permanent: Option[Boolean] = None
+   ) extends ArtifactError(
+     "not found",
+-    file,
+-    causeOpt
+-  ) {
+-    // format: on
+-
+-    def this(
+-      file: String,
+-      permanent: Option[Boolean]
+-    ) = this(file, permanent, None)
+-  }
++    file
++  )
++  // format: on
+ 
+   // format: off
+   final class Forbidden(
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/CacheUrl.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/CacheUrl.scala
+@@ -73,18 +73,17 @@
+             }
+         }
+ 
+-        val handlerOpt = handlerFactoryOpt.flatMap {
+-          factory =>
+-            try Some(factory.createURLStreamHandler(protocol))
+-            catch {
+-              case NonFatal(e) =>
+-                scala.Console.err.println(
+-                  s"Cannot get handler for $protocol from $clsName: " +
+-                    e.toString +
+-                    Option(e.getMessage).fold("")(" (" + _ + ")")
+-                )
+-                None
+-            }
++        val handlerOpt = handlerFactoryOpt.flatMap { factory =>
++          try Option(factory.createURLStreamHandler(protocol))
++          catch {
++            case NonFatal(e) =>
++              scala.Console.err.println(
++                s"Cannot get handler for $protocol from $clsName: " +
++                  e.toString +
++                  Option(e.getMessage).fold("")(" (" + _ + ")")
++              )
++              None
++          }
+         }
+ 
+         val prevOpt = Option(handlerClsCache.putIfAbsent(protocol, handlerOpt))
+@@ -118,7 +117,7 @@
+     
+     // Try custom handler factory first
+     val customHandler = customHandlerFactory.flatMap { factory =>
+-      try Some(factory.createURLStreamHandler(protocol))
++      try Option(factory.createURLStreamHandler(protocol))
+       catch {
+         case _: Exception => None
+       }
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala
+@@ -445,7 +445,7 @@
+   private def auxiliaryFilePrefix(file: File): String =
+     s".${file.getName}__"
+ 
+-  private[coursier] def clearAuxiliaryFiles(file: File): Unit = {
++  private[cache] def clearAuxiliaryFiles(file: File): Unit = {
+     val prefix = auxiliaryFilePrefix(file)
+     val filter: FilenameFilter = new FilenameFilter {
+       def accept(dir: File, name: String): Boolean =
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+@@ -599,18 +599,6 @@
+           case err @ Left(nf: ArtifactError.NotFound) if nf.permanent.contains(true) =>
+             createErrFileBlocking()
+             err: Either[ArtifactError, Unit]
+-          case err @ Left(err0: ArtifactError.DownloadError)
+-              if err0.getCause.isInstanceOf[IOException] =>
+-            if (referenceFileOpt.exists(_.exists()) && errFile0.exists())
+-              // We got a download error, but we also got a not-found error
+-              // in the past. We assume the download error is transient
+-              // (user is offline for example), and return the cached
+-              // not-found error.
+-              Left(new ArtifactError.NotFound(url, permanent = Some(true), causeOpt = Some(err0)))
+-            else {
+-              deleteErrFileBlocking()
+-              err: Either[ArtifactError, Unit]
+-            }
+           case other =>
+             deleteErrFileBlocking()
+             other

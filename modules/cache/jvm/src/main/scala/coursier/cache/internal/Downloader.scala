@@ -790,7 +790,7 @@ object Downloader {
     bufferSize: Int
   ): Unit = {
 
-    val b = Array.fill[Byte](bufferSize)(0)
+    val b = new Array[Byte](bufferSize)
 
     @tailrec
     def helper(count: Long): Unit = {
