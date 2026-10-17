@@ -47,7 +47,7 @@ object FileCacheLocationOwnershipTests extends TestSuite {
           .withPool(downloadWorkers).withChecksums(Seq(None))
 
         val first = firstCache.file(artifact).run.future()(firstCache.ec)
-        assert(ownerEntered.await(30, TimeUnit.secondS))
+        assert(ownerEntered.await(30, TimeUnit.SECONDS))
         val second = secondCache.file(artifact).run.future()(secondCache.ec)
         // The first response remains held: another location owns independent work.
         assert(secondEntered.await(30, TimeUnit.SECONDS))
@@ -65,8 +65,8 @@ object FileCacheLocationOwnershipTests extends TestSuite {
         server.stop(0)
         downloadWorkers.shutdownNow()
         serverWorkers.shutdownNow()
-        assert(downloadWorkers.awaitTermination(10, TimeUnit.secondS))
-        assert(serverWorkers.awaitTermination(10, TimeUnit.secondS))
+        assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+        assert(serverWorkers.awaitTermination(10, TimeUnit.SECONDS))
         os.remove.all(os.Path(directory))
       }
     }
@@ -103,7 +103,7 @@ object FileCacheLocationOwnershipTests extends TestSuite {
           .withPool(downloadWorkers).withChecksums(Seq(None))
 
         val first = firstCache.file(artifact).run.future()(firstCache.ec)
-        assert(ownerEntered.await(30, TimeUnit.secondS))
+        assert(ownerEntered.await(30, TimeUnit.SECONDS))
         val second = secondCache.file(artifact).run.future()(secondCache.ec)
         // The first response remains held: another location owns independent work.
         assert(secondEntered.await(30, TimeUnit.SECONDS))
@@ -113,7 +113,8 @@ object FileCacheLocationOwnershipTests extends TestSuite {
         releaseOwner.countDown()
         val firstResult = Await.result(first, 30.seconds)
         assert(firstResult.isLeft)
-        assert(firstResult.left.toOption.get.describe.contains("500"))
+        assert(firstResult.left.toOption.get.describe ==
+          s"download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: ${artifact.url}) while downloading ${artifact.url}")
         assert(requests.get() == 2)
       }
       finally {
@@ -121,8 +122,8 @@ object FileCacheLocationOwnershipTests extends TestSuite {
         server.stop(0)
         downloadWorkers.shutdownNow()
         serverWorkers.shutdownNow()
-        assert(downloadWorkers.awaitTermination(10, TimeUnit.secondS))
-        assert(serverWorkers.awaitTermination(10, TimeUnit.secondS))
+        assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+        assert(serverWorkers.awaitTermination(10, TimeUnit.SECONDS))
         os.remove.all(os.Path(directory))
       }
     }
@@ -155,14 +156,14 @@ object FileCacheLocationOwnershipTests extends TestSuite {
         val artifact = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
         val firstCache = FileCache[Task](directory.resolve("first").toFile)
           .withPool(downloadWorkers).withChecksums(Seq(None))
-        val secondCache = FileCache[Task](directory.resolve("first").toFile)
+        val secondCache = FileCache[Task](directory.resolve("first/../first").toFile)
           .withPool(downloadWorkers).withChecksums(Seq(None))
           .withLogger(new CacheLogger {
             override def downloadingArtifact(url: String, artifact: Artifact): Unit =
               secondEntered.countDown()
           })
         val first = firstCache.file(artifact).run.future()(firstCache.ec)
-        assert(ownerEntered.await(30, TimeUnit.firstS))
+        assert(ownerEntered.await(30, TimeUnit.SECONDS))
         val second = secondCache.file(artifact).run.future()(secondCache.ec)
         // A shared cache must still publish one file from one HTTP response.
         assert(secondEntered.await(30, TimeUnit.SECONDS))
@@ -179,8 +180,8 @@ object FileCacheLocationOwnershipTests extends TestSuite {
         server.stop(0)
         downloadWorkers.shutdownNow()
         serverWorkers.shutdownNow()
-        assert(downloadWorkers.awaitTermination(10, TimeUnit.firstS))
-        assert(serverWorkers.awaitTermination(10, TimeUnit.firstS))
+        assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+        assert(serverWorkers.awaitTermination(10, TimeUnit.SECONDS))
         os.remove.all(os.Path(directory))
       }
     }
