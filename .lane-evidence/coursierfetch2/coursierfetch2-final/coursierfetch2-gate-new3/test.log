@@ -1,0 +1,495 @@
+Downloading mill 0.12.15 from https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/0.12.15/mill-dist-0.12.15.exe ...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 72.6M  100 72.6M    0     0   197M      0 --:--:-- --:--:-- --:--:--  197M
+Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /home/runner/work/coursier/coursier/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /home/runner/work/coursier/coursier/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[169/306] util.jvm[2.13.16].javacSystemJvm
+[169] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[170/306] paths.javacSystemJvm
+[170] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_3/2.13.0/scala-collection-compat_3-2.13.0.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.13.0/cats-free_2.13-2.13.0.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/case-app_3/2.1.0/case-app_3-2.1.0.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-cli_3/2.1.25-M26/coursier-cli_3-2.1.25-M26.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/class-path-util_3/0.1.4/class-path-util_3-0.1.4.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/os-lib_3/0.11.8/os-lib_3-0.11.8.jar
+[171/306] cache-util.javacSystemJvm
+[171] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/os-lib_3/0.11.8/os-lib_3-0.11.8.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/class-path-util_3/0.1.4/class-path-util_3-0.1.4.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_3/2.13.0/scala-collection-compat_3-2.13.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/case-app_3/2.1.0/case-app_3-2.1.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.13.0/cats-free_2.13-2.13.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-cli_3/2.1.25-M26/coursier-cli_3-2.1.25-M26.jar
+[169] Downloaded 1 missing file(s) / 86
+[170] Downloaded 1 missing file(s) / 86
+[169] Downloaded 2 missing file(s) / 86
+[171] Downloaded 1 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/pprint_3/0.9.6/pprint_3-0.9.6.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/pprint_3/0.9.6/pprint_3-0.9.6.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.18/slf4j-nop-2.0.18.jar
+[170] Downloaded 2 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.18/slf4j-nop-2.0.18.jar
+[171] Downloaded 2 missing file(s) / 86
+[169] Downloaded 3 missing file(s) / 86
+[170] Downloaded 3 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.4/scala3-library_3-3.7.4.jar
+[171] Downloaded 3 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.4/scala3-library_3-3.7.4.jar
+[169] Downloaded 4 missing file(s) / 86
+[169] Downloaded 5 missing file(s) / 86
+[169] Downloaded 6 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier_2.13/2.1.25-M26/coursier_2.13-2.1.25-M26.jar
+[170] Downloaded 4 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier_2.13/2.1.25-M26/coursier_2.13-2.1.25-M26.jar
+[171] Downloaded 4 missing file(s) / 86
+[170] Downloaded 5 missing file(s) / 86
+[171] Downloaded 5 missing file(s) / 86
+[171] Downloaded 6 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-sbt-maven-repository_2.13/2.1.25-M26/coursier-sbt-maven-repository_2.13-2.1.25-M26.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-install_2.13/2.1.25-M26/coursier-install_2.13-2.1.25-M26.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-sbt-maven-repository_2.13/2.1.25-M26/coursier-sbt-maven-repository_2.13-2.1.25-M26.jar
+[170] Downloaded 6 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-install_2.13/2.1.25-M26/coursier-install_2.13-2.1.25-M26.jar
+[169] Downloaded 7 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-jvm_2.13/2.1.25-M26/coursier-jvm_2.13-2.1.25-M26.jar
+[171] Downloaded 7 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-jvm_2.13/2.1.25-M26/coursier-jvm_2.13-2.1.25-M26.jar
+[170] Downloaded 7 missing file(s) / 86
+[169] Downloaded 8 missing file(s) / 86
+[169] Downloaded 9 missing file(s) / 86
+[169] Downloaded 10 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-docker_3/2.1.25-M26/coursier-docker_3-2.1.25-M26.jar
+[170] Downloaded 8 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-launcher_2.13/2.1.25-M26/coursier-launcher_2.13-2.1.25-M26.jar
+[170] Downloaded 9 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-docker_3/2.1.25-M26/coursier-docker_3-2.1.25-M26.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-cache-server_2.13/2.1.25-M26/coursier-cache-server_2.13-2.1.25-M26.jar
+[170] Downloaded 10 missing file(s) / 86
+[171] Downloaded 8 missing file(s) / 86
+[171] Downloaded 9 missing file(s) / 86
+[171] Downloaded 10 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-launcher_2.13/2.1.25-M26/coursier-launcher_2.13-2.1.25-M26.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-cache-server_2.13/2.1.25-M26/coursier-cache-server_2.13-2.1.25-M26.jar
+[169] Downloaded 11 missing file(s) / 86
+[169] Downloaded 12 missing file(s) / 86
+[169] Downloaded 13 missing file(s) / 86
+[170] Downloaded 11 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.4.3-M5/sourcecode_3-0.4.3-M5.jar
+[170] Downloaded 12 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/case-app-annotations_3/2.1.0/case-app-annotations_3-2.1.0.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/case-app-util_3/2.1.0/case-app-util_3-2.1.0.jar
+[170] Downloaded 13 missing file(s) / 86
+[171] Downloaded 11 missing file(s) / 86
+[171] Downloaded 12 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/case-app-annotations_3/2.1.0/case-app-annotations_3-2.1.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.4.3-M5/sourcecode_3-0.4.3-M5.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/case-app-util_3/2.1.0/case-app-util_3-2.1.0.jar
+[171] Downloaded 13 missing file(s) / 86
+[169] Downloaded 14 missing file(s) / 86
+[169] Downloaded 15 missing file(s) / 86
+[170] Downloaded 14 missing file(s) / 86
+[169] Downloaded 16 missing file(s) / 86
+[170] Downloaded 15 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.18/scala-library-2.13.18.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.13.0/cats-core_2.13-2.13.0.jar
+[171] Downloaded 14 missing file(s) / 86
+[171] Downloaded 15 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.13.0/cats-core_2.13-2.13.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.18/scala-library-2.13.18.jar
+[171] Downloaded 16 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/geny_3/1.1.1/geny_3-1.1.1.jar
+[170] Downloaded 16 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/geny_3/1.1.1/geny_3-1.1.1.jar
+[169] Downloaded 17 missing file(s) / 86
+[170] Downloaded 17 missing file(s) / 86
+[169] Downloaded 18 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/os-zip/0.11.8/os-zip-0.11.8.jar
+[171] Downloaded 17 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/os-zip/0.11.8/os-zip-0.11.8.jar
+[171] Downloaded 18 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/fansi_3/0.5.1/fansi_3-0.5.1.jar
+[170] Downloaded 18 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/fansi_3/0.5.1/fansi_3-0.5.1.jar
+[169] Downloaded 19 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.18/slf4j-api-2.0.18.jar
+[171] Downloaded 19 missing file(s) / 86
+[169] Downloaded 20 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.18/slf4j-api-2.0.18.jar
+[170] Downloaded 19 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/dependency_2.13/0.3.2/dependency_2.13-0.3.2.jar
+[171] Downloaded 20 missing file(s) / 86
+[169] Downloaded 21 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/dependency_2.13/0.3.2/dependency_2.13-0.3.2.jar
+[170] Downloaded 20 missing file(s) / 86
+[170] Downloaded 21 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/plokhotnyuk/jsoniter-scala/jsoniter-scala-core_2.13/2.13.5/jsoniter-scala-core_2.13-2.13.5.jar
+[169] Downloaded 22 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/plokhotnyuk/jsoniter-scala/jsoniter-scala-core_2.13/2.13.5/jsoniter-scala-core_2.13-2.13.5.jar
+[171] Downloaded 21 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-core_2.13/2.1.25-M26/coursier-core_2.13-2.1.25-M26.jar
+[171] Downloaded 22 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-core_2.13/2.1.25-M26/coursier-core_2.13-2.1.25-M26.jar
+[170] Downloaded 22 missing file(s) / 86
+[169] Downloaded 23 missing file(s) / 86
+[170] Downloaded 23 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-cache_2.13/2.1.25-M26/coursier-cache_2.13-2.1.25-M26.jar
+[171] Downloaded 23 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-cache_2.13/2.1.25-M26/coursier-cache_2.13-2.1.25-M26.jar
+[169] Downloaded 24 missing file(s) / 86
+[170] Downloaded 24 missing file(s) / 86
+[171] Downloaded 24 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-proxy-setup/2.1.25-M26/coursier-proxy-setup-2.1.25-M26.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-proxy-setup/2.1.25-M26/coursier-proxy-setup-2.1.25-M26.jar
+[169] Downloaded 25 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/argonaut-shapeless_6.3_2.13/1.3.1/argonaut-shapeless_6.3_2.13-1.3.1.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/alexarchambault/argonaut-shapeless_6.3_2.13/1.3.1/argonaut-shapeless_6.3_2.13-1.3.1.jar
+[170] Downloaded 25 missing file(s) / 86
+[171] Downloaded 25 missing file(s) / 86
+[169] Downloaded 26 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-env_2.13/2.1.25-M26/coursier-env_2.13-2.1.25-M26.jar
+[170] Downloaded 26 missing file(s) / 86
+[169] Downloaded 27 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-archive-cache_2.13/2.1.25-M26/coursier-archive-cache_2.13-2.1.25-M26.jar
+[170] Downloaded 27 missing file(s) / 86
+[169] Downloaded 28 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-archive-cache_2.13/2.1.25-M26/coursier-archive-cache_2.13-2.1.25-M26.jar
+[171] Downloaded 26 missing file(s) / 86
+[171] Downloaded 27 missing file(s) / 86
+[169] Downloaded 29 missing file(s) / 86
+[170] Downloaded 28 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-exec/2.1.25-M26/coursier-exec-2.1.25-M26.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/mwiede/jsch/2.28.3/jsch-2.28.3.jar
+[170] Downloaded 29 missing file(s) / 86
+[169] Downloaded 30 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/plokhotnyuk/jsoniter-scala/jsoniter-scala-core_3/2.13.5/jsoniter-scala-core_3-2.13.5.jar
+[170] Downloaded 30 missing file(s) / 86
+[169] Downloaded 31 missing file(s) / 86
+[171] Downloaded 28 missing file(s) / 86
+[171] Downloaded 29 missing file(s) / 86
+[171] Downloaded 30 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/plokhotnyuk/jsoniter-scala/jsoniter-scala-core_3/2.13.5/jsoniter-scala-core_3-2.13.5.jar
+[170] Downloaded 31 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scodec/scodec-core_3/2.3.3/scodec-core_3-2.3.3.jar
+[169] Downloaded 32 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scodec/scodec-core_3/2.3.3/scodec-core_3-2.3.3.jar
+[171] Downloaded 31 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.13.0/scala-collection-compat_2.13-2.13.0.jar
+[170] Downloaded 32 missing file(s) / 86
+[170] Downloaded 33 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/ai/kien/python-native-libs_2.13/0.2.5/python-native-libs_2.13-0.2.5.jar
+[169] Downloaded 33 missing file(s) / 86
+[169] Downloaded 34 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/ai/kien/python-native-libs_2.13/0.2.5/python-native-libs_2.13-0.2.5.jar
+[171] Downloaded 32 missing file(s) / 86
+[171] Downloaded 33 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/os-lib_2.13/0.11.8/os-lib_2.13-0.11.8.jar
+[170] Downloaded 34 missing file(s) / 86
+[169] Downloaded 35 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/lihaoyi/os-lib_2.13/0.11.8/os-lib_2.13-0.11.8.jar
+[171] Downloaded 34 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/undertow/undertow-core/2.4.1.Final/undertow-core-2.4.1.Final.jar
+[170] Downloaded 35 missing file(s) / 86
+[169] Downloaded 36 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/undertow/undertow-core/2.4.1.Final/undertow-core-2.4.1.Final.jar
+[171] Downloaded 35 missing file(s) / 86
+[170] Downloaded 36 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.13.0/cats-kernel_2.13-2.13.0.jar
+[169] Downloaded 37 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.13.0/cats-kernel_2.13-2.13.0.jar
+[171] Downloaded 36 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/versions_2.13/0.5.3/versions_2.13-0.5.3.jar
+[170] Downloaded 37 missing file(s) / 86
+[169] Downloaded 38 missing file(s) / 86
+[169] Downloaded 39 missing file(s) / 86
+[170] Downloaded 38 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/github/alexarchambault/concurrent-reference-hash-map/1.1.0/concurrent-reference-hash-map-1.1.0.jar
+[170] Downloaded 39 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.13/2.4.0/scala-xml_2.13-2.4.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/github/alexarchambault/concurrent-reference-hash-map/1.1.0/concurrent-reference-hash-map-1.1.0.jar
+[171] Downloaded 37 missing file(s) / 86
+[171] Downloaded 38 missing file(s) / 86
+[169] Downloaded 40 missing file(s) / 86
+[170] Downloaded 40 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-util_2.13/2.1.25-M26/coursier-util_2.13-2.1.25-M26.jar
+[171] Downloaded 39 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.13/2.4.0/scala-xml_2.13-2.4.0.jar
+[169] Downloaded 41 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-util_2.13/2.1.25-M26/coursier-util_2.13-2.1.25-M26.jar
+[171] Downloaded 40 missing file(s) / 86
+[170] Downloaded 41 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/virtuslab/scala-cli/config_3/1.14.0/config_3-1.14.0.jar
+[169] Downloaded 42 missing file(s) / 86
+[171] Downloaded 41 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/github/alexarchambault/windows-ansi/windows-ansi/0.0.6/windows-ansi-0.0.6.jar
+[170] Downloaded 42 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/virtuslab/scala-cli/config_3/1.14.0/config_3-1.14.0.jar
+[169] Downloaded 43 missing file(s) / 86
+[170] Downloaded 43 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/cache-util/2.1.25-M26/cache-util-2.1.25-M26.jar
+[171] Downloaded 42 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/github/alexarchambault/windows-ansi/windows-ansi/0.0.6/windows-ansi-0.0.6.jar
+[169] Downloaded 44 missing file(s) / 86
+[169] Downloaded 45 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-paths/2.1.25-M26/coursier-paths-2.1.25-M26.jar
+[170] Downloaded 44 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/argonaut/argonaut_2.13/6.3.8/argonaut_2.13-6.3.8.jar
+[170] Downloaded 45 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/coursier-paths/2.1.25-M26/coursier-paths-2.1.25-M26.jar
+[171] Downloaded 43 missing file(s) / 86
+[171] Downloaded 44 missing file(s) / 86
+[169] Downloaded 46 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/argonaut/argonaut_2.13/6.3.8/argonaut_2.13-6.3.8.jar
+[171] Downloaded 45 missing file(s) / 86
+[169] Downloaded 47 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.9/shapeless_2.13-2.3.9.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/get-coursier/jniutils/windows-jni-utils/0.3.4/windows-jni-utils-0.3.4.jar
+[170] Downloaded 46 missing file(s) / 86
+[170] Downloaded 47 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.9/shapeless_2.13-2.3.9.jar
+[171] Downloaded 46 missing file(s) / 86
+[169] Downloaded 48 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-archiver/4.12.0/plexus-archiver-4.12.0.jar
+[170] Downloaded 48 missing file(s) / 86
+[169] Downloaded 49 missing file(s) / 86
+[171] Downloaded 47 missing file(s) / 86
+[171] Downloaded 48 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar
+[171] Downloaded 49 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar
+[170] Downloaded 49 missing file(s) / 86
+[169] Downloaded 50 missing file(s) / 86
+[171] Downloaded 50 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-utils/4.0.3/plexus-utils-4.0.3.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-utils/4.0.3/plexus-utils-4.0.3.jar
+[170] Downloaded 50 missing file(s) / 86
+[171] Downloaded 51 missing file(s) / 86
+[169] Downloaded 51 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/tika/tika-core/3.3.1/tika-core-3.3.1.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/tika/tika-core/3.3.1/tika-core-3.3.1.jar
+[170] Downloaded 51 missing file(s) / 86
+[169] Downloaded 52 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.7-11/zstd-jni-1.5.7-11.jar
+[171] Downloaded 52 missing file(s) / 86
+[171] Downloaded 53 missing file(s) / 86
+[169] Downloaded 53 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.19.1/jna-5.19.1.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.7-11/zstd-jni-1.5.7-11.jar
+[170] Downloaded 52 missing file(s) / 86
+[171] Downloaded 54 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scodec/scodec-bits_3/1.2.4/scodec-bits_3-1.2.4.jar
+[169] Downloaded 54 missing file(s) / 86
+[170] Downloaded 53 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.19.1/jna-5.19.1.jar
+[171] Downloaded 55 missing file(s) / 86
+[169] Downloaded 55 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/jboss/logging/jboss-logging/3.6.2.Final/jboss-logging-3.6.2.Final.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scodec/scodec-bits_3/1.2.4/scodec-bits_3-1.2.4.jar
+[170] Downloaded 54 missing file(s) / 86
+[169] Downloaded 56 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/jboss/xnio/xnio-api/3.8.16.Final/xnio-api-3.8.16.Final.jar
+[171] Downloaded 56 missing file(s) / 86
+[169] Downloaded 57 missing file(s) / 86
+[171] Downloaded 57 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/jboss/xnio/xnio-nio/3.8.16.Final/xnio-nio-3.8.16.Final.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/jboss/xnio/xnio-nio/3.8.16.Final/xnio-nio-3.8.16.Final.jar
+[170] Downloaded 55 missing file(s) / 86
+[170] Downloaded 56 missing file(s) / 86
+[170] Downloaded 57 missing file(s) / 86
+[171] Downloaded 58 missing file(s) / 86
+[169] Downloaded 58 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/jboss/threads/jboss-threads/3.9.2/jboss-threads-3.9.2.jar
+[171] Downloaded 59 missing file(s) / 86
+[171] Downloaded 60 missing file(s) / 86
+[170] Downloaded 58 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/jboss/threads/jboss-threads/3.9.2/jboss-threads-3.9.2.jar
+[170] Downloaded 59 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/virtuslab/scala-cli/specification-level_3/1.14.0/specification-level_3-1.14.0.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/github/alexarchambault/is-terminal/0.1.2/is-terminal-0.1.2.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/virtuslab/scala-cli/specification-level_3/1.14.0/specification-level_3-1.14.0.jar
+[169] Downloaded 59 missing file(s) / 86
+[170] Downloaded 60 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/github/alexarchambault/is-terminal/0.1.2/is-terminal-0.1.2.jar
+[169] Downloaded 60 missing file(s) / 86
+[169] Downloaded 61 missing file(s) / 86
+[171] Downloaded 61 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.8/scala-reflect-2.13.8.jar
+[171] Downloaded 62 missing file(s) / 86
+[170] Downloaded 61 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar
+[170] Downloaded 62 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.8/scala-reflect-2.13.8.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar
+[169] Downloaded 62 missing file(s) / 86
+[170] Downloaded 63 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-io/3.6.0/plexus-io-3.6.0.jar
+[169] Downloaded 63 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-io/3.6.0/plexus-io-3.6.0.jar
+[171] Downloaded 63 missing file(s) / 86
+[171] Downloaded 64 missing file(s) / 86
+[170] Downloaded 64 missing file(s) / 86
+[170] Downloaded 65 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar
+[169] Downloaded 64 missing file(s) / 86
+[169] Downloaded 65 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/commons-io/commons-io/2.22.0/commons-io-2.22.0.jar
+[170] Downloaded 66 missing file(s) / 86
+[171] Downloaded 65 missing file(s) / 86
+[171] Downloaded 66 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/commons-io/commons-io/2.22.0/commons-io-2.22.0.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/tukaani/xz/1.12/xz-1.12.jar
+[169] Downloaded 66 missing file(s) / 86
+[169] Downloaded 67 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/tukaani/xz/1.12/xz-1.12.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar
+[170] Downloaded 67 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar
+[171] Downloaded 67 missing file(s) / 86
+[169] Downloaded 68 missing file(s) / 86
+[170] Downloaded 68 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar
+[171] Downloaded 68 missing file(s) / 86
+[171] Downloaded 69 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/wildfly/common/wildfly-common/2.0.1/wildfly-common-2.0.1.jar
+[170] Downloaded 69 missing file(s) / 86
+[169] Downloaded 69 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/wildfly/common/wildfly-common/2.0.1/wildfly-common-2.0.1.jar
+[171] Downloaded 70 missing file(s) / 86
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/wildfly/client/wildfly-client-config/1.0.1.Final/wildfly-client-config-1.0.1.Final.jar
+[169] Downloaded 70 missing file(s) / 86
+[170] Downloaded 70 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/wildfly/client/wildfly-client-config/1.0.1.Final/wildfly-client-config-1.0.1.Final.jar
+[169] Downloaded 71 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-annotation/2.14.0/smallrye-common-annotation-2.14.0.jar
+[170] Downloaded 71 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-annotation/2.14.0/smallrye-common-annotation-2.14.0.jar
+[171] Downloaded 71 missing file(s) / 86
+[171] Downloaded 72 missing file(s) / 86
+[170] Downloaded 72 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-constraint/2.12.0/smallrye-common-constraint-2.12.0.jar
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-constraint/2.12.0/smallrye-common-constraint-2.12.0.jar
+[169] Downloaded 72 missing file(s) / 86
+[169] Downloaded 73 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-cpu/2.14.0/smallrye-common-cpu-2.14.0.jar
+[170] Downloaded 73 missing file(s) / 86
+[171] Downloaded 73 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-cpu/2.14.0/smallrye-common-cpu-2.14.0.jar
+[170] Downloaded 74 missing file(s) / 86
+[171] Downloaded 74 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-function/2.14.0/smallrye-common-function-2.14.0.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-function/2.14.0/smallrye-common-function-2.14.0.jar
+[169] Downloaded 74 missing file(s) / 86
+[170] Downloaded 75 missing file(s) / 86
+[169] Downloaded 75 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar
+[169] Downloaded 76 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar
+[171] Downloaded 75 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar
+[170] Downloaded 76 missing file(s) / 86
+[171] Downloaded 76 missing file(s) / 86
+[169] Downloaded 77 missing file(s) / 86
+[170] Downloaded 77 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-expression/2.4.0/smallrye-common-expression-2.4.0.jar
+[171] Downloaded 77 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-expression/2.4.0/smallrye-common-expression-2.4.0.jar
+[171] Downloaded 78 missing file(s) / 86
+[170] Downloaded 78 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-net/2.12.0/smallrye-common-net-2.12.0.jar
+[169] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-net/2.12.0/smallrye-common-net-2.12.0.jar
+[169] Downloaded 78 missing file(s) / 86
+[169] Downloaded 79 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-os/2.4.0/smallrye-common-os-2.4.0.jar
+[170] Downloaded 79 missing file(s) / 86
+[170] Downloaded 80 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-os/2.4.0/smallrye-common-os-2.4.0.jar
+[171] Downloaded 79 missing file(s) / 86
+[169] Downloaded 80 missing file(s) / 86
+[170] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-ref/2.4.0/smallrye-common-ref-2.4.0.jar
+[171] Downloaded 80 missing file(s) / 86
+[171] Waiting for ongoing concurrent download for https://repo1.maven.org/maven2/io/smallrye/common/smallrye-common-ref/2.4.0/smallrye-common-ref-2.4.0.jar
+[171] Downloaded 81 missing file(s) / 86
+[170] Downloaded 81 missing file(s) / 86
+[169] Downloaded 81 missing file(s) / 86
+[169] Downloaded 82 missing file(s) / 86
+[169] Downloaded 83 missing file(s) / 86
+[169] Downloaded 84 missing file(s) / 86
+[169] Downloaded 85 missing file(s) / 86
+[170] Downloaded 82 missing file(s) / 86
+[170] Downloaded 83 missing file(s) / 86
+[171] Downloaded 82 missing file(s) / 86
+[171] Downloaded 83 missing file(s) / 86
+[171] Downloaded 84 missing file(s) / 86
+[170] Downloaded 84 missing file(s) / 86
+[171] Downloaded 85 missing file(s) / 86
+[170] Downloaded 85 missing file(s) / 86
+[170] Downloaded 86 missing file(s) / 86
+[171] Downloaded 86 missing file(s) / 86
+[169] Downloaded 86 missing file(s) / 86
+[172/306] cache.jvm[2.13.16].javacSystemJvm
+[172] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[174/306] custom-protocol-for-test.javacSystemJvm
+[174] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[224/306] mill.scalalib.ZincWorkerModule.worker
+[224] Compiling compiler interface...
+[266/306] paths.compile
+[261/306] cache-util.compile
+[266] [info] compiling 5 Java sources to /home/runner/work/coursier/coursier/out/paths/compile.dest/classes ...
+[261] [info] compiling 1 Java source to /home/runner/work/coursier/coursier/out/cache-util/compile.dest/classes ...
+[261] [warn] source value 8 is obsolete and will be removed in a future release
+[261] [warn] target value 8 is obsolete and will be removed in a future release
+[261] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[266] [warn] source value 8 is obsolete and will be removed in a future release
+[266] [warn] target value 8 is obsolete and will be removed in a future release
+[266] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[261] [info] done compiling
+[266] [info] done compiling
+[267/306] util.jvm[2.13.16].compile
+[276/306] custom-protocol-for-test.compile
+[276] [info] compiling 1 Scala source to /home/runner/work/coursier/coursier/out/custom-protocol-for-test/compile.dest/classes ...
+[267] [info] compiling 16 Scala sources to /home/runner/work/coursier/coursier/out/util/jvm/2.13.16/compile.dest/classes ...
+[276] [info] done compiling
+[267] [info] done compiling
+[291/306] cache.jvm[2.13.16].compile
+[291] [info] compiling 42 Scala sources and 1 Java source to /home/runner/work/coursier/coursier/out/cache/jvm/2.13.16/compile.dest/classes ...
+[291] [warn] source value 8 is obsolete and will be removed in a future release
+[291] [warn] target value 8 is obsolete and will be removed in a future release
+[291] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[291] [info] done compiling
+[299/306] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 10 Scala sources to /home/runner/work/coursier/coursier/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[298/306] =============== cache.jvm[2.13.16].test.t...heLocationOwnershipTests =============== 60s
+[299] cache.jvm[2.13.16].test.compile 1s
+[299] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m311ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m18ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m44ms[0m  
+[306] Tests: 3, Passed: 3, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...heLocationOwnershipTests =============== 63s

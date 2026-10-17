@@ -65,3 +65,27 @@ OBSERVED: Final exact-source workflow is https://github.com/CodexCoder21Organiza
 ## 02:48 UTC compilation correction — no test verdict
 OBSERVED: Run https://github.com/CodexCoder21Organization/coursier/actions/runs/38996063010 produces zero native rows in every job, because the generated FileCache.apply methods accept complete prefix overloads rather than arbitrary named defaults. The first fixture constructors report `overloaded method apply ... cannot be applied to (...)`; the whole compile log is retained in coursierfetch2-compile-no-verdict. This is my fixture-code error, not a test failure or gate success.
 OBSERVED: Corrected all six calls to supply every constructor argument, including the literal booleans, optional factories, constant buffer size, empty loader list and ordinary clock. No assertion, time bound, scenario ordering or product byte changed. This correction will receive a new exact-source gate; no existing positive gate has passed yet.
+
+## 02:49 UTC corrected exact-source selection
+OBSERVED: Corrected source is https://github.com/CodexCoder21Organization/coursier/commit/5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3 . Every FileCache.apply call now supplies all 21 parameters, matching the available generated full-argument overload. The only fixture difference after the no-verdict compile is supplying the omitted constant/default fields; all test assertions and operation bounds are unchanged. Full current delta relative to the reviewed source is one test file, 157 additions and 35 deletions.
+OBSERVED: The corrected exact-source gate is https://github.com/CodexCoder21Organization/coursier/actions/runs/38996343860 with the same pre-registered six jobs and expected native counts. Compile-only evidence is durable at https://github.com/CodexCoder21Organization/coursier/commit/25dfda62928f40bd63977dbfcc46319a74ccb39b ; no failed compilation is counted as a baseline assertion or a positive.
+
+## 02:53 UTC final native gate and control refutation
+OBSERVED: Exact candidate https://github.com/CodexCoder21Organization/coursier/commit/5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3 passes 18/18 native first attempts in https://github.com/CodexCoder21Organization/coursier/actions/runs/38996343860 : three ordinary ownership runs 3/3 each (9); malformed-config suite 3/3; unchanged FileCacheTests neighbors 6/6. Every XML has zero skipped and zero earlier-attempt/history elements. Every checkout SHA and four selected file hashes matches the exact candidate; the control's two product hashes instead match b051ebea. No further test batch will be submitted.
+OBSERVED: Config control is red 0/3 at reviewed source -> green 3/3 at corrected source. The same-file waiter guard is green in each of three ordinary runs (3/3) and in the malformed-config run (1/1). Its callback fires with watching=true while both futures remain pending and GET count is exactly one, before owner release.
+OBSERVED: Previous URL-based product reproduces both independent-case assertions `assert(secondEntered.await(30, TimeUnit.SECONDS))`, each with count 1. The strengthened same-file guard passes 1/1 at that same old product, including all new alias/waiter assertions. Thus the requested same-file assertion-red old-product result is REFUTED, with a native result and a direct mechanism: equal URLs select the same old coordinator, which already calls this waiter branch. A deliberately failing extra assertion about internal coordinator selection would test a different contract and was not added.
+OBSERVED: The proposed previous-product identifier 91c1001b~1 is independently refuted by source/history: it is 519bb1d0, the product-fix commit. The correct previous URL-based product used here is b051ebea6dcadacf3f781687c1a97e89f4eb69f9.
+
+## Per-file change summary
+OBSERVED: git diff --stat 91c1001b...HEAD: FileCacheLocationOwnershipTests.scala only, 157 additions and 35 deletions. It supplies complete constructor inputs and requires a real same-file wait through an owned symlink before releasing the HTTP owner. No product, README, dependency, other test or bound is changed in round 2.
+
+## Brief item audit
+- DONE: Six constructors supply credentials=Nil and explicit settings before default evaluation; native malformed-config baseline 0/3 -> fixed 3/3.
+- DONE: Real symbolic-link alias, lexical/canonical destination assertions, watching=true gate and unchanged byte/count assertions; ordinary guard 3/3 first attempts.
+- REFUTED: Same-file guard must be red on old URL-based product; it is green 1/1 because equal URLs already join. Two independent cases are red 2/2 under the same product-only reversal.
+- REFUTED: 91c1001b~1 names pre-fix product; source/history show that parent contains the fix. Corrected control is verified against real pre-fix main b051ebea.
+- DONE: Retained module command, native XML and exact-source/hash audit; ordinary suites 9/9, config 3/3, neighbors 6/6.
+- IN PROGRESS: Update existing draft PR and its description; preserve all evidence remotely and remove workflow branch/processes.
+
+## FLAKES ENCOUNTERED — previous-product control
+OBSERVED: The control in run 38996343860 has the two intended independent-location assertion failures at secondEntered.await with latch count 1. These reproduce the known product defect fixed in round 1, with only product files reversed. Native errors/traces and run/source proofs are retained in coursierfetch2-final/coursierfetch2-gate-control; no unexpected first-attempt failure occurred.

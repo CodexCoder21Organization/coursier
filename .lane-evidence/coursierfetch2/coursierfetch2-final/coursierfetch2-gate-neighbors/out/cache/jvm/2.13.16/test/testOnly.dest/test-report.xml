@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="6" failures="0" errors="0" skipped="0" time="2.614">
+        <testsuite name="coursier.cache.FileCacheTests" tests="6" failures="0" errors="0" skipped="0" time="2.614" timestamp="2026-10-17T02:49:54">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheTests" name="check for updates once" time="2.509">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.0" time="0.032">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.1" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.2" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.3" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.4" time="0.015">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

@@ -1,0 +1,144 @@
+{
+  "new1": [
+    {
+      "name": "independent locations",
+      "time": "0.33",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "0.021",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "0.048",
+      "passed": true,
+      "messages": []
+    }
+  ],
+  "new2": [
+    {
+      "name": "independent locations",
+      "time": "0.342",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "0.014",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "0.042",
+      "passed": true,
+      "messages": []
+    }
+  ],
+  "new3": [
+    {
+      "name": "independent locations",
+      "time": "0.311",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "0.018",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "0.044",
+      "passed": true,
+      "messages": []
+    }
+  ],
+  "config": [
+    {
+      "name": "independent locations",
+      "time": "0.278",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "0.015",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "0.043",
+      "passed": true,
+      "messages": []
+    }
+  ],
+  "neighbors": [
+    {
+      "name": "check for updates once",
+      "time": "2.509",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "check extra artifact.0",
+      "time": "0.032",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "check extra artifact.1",
+      "time": "0.022",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "check extra artifact.2",
+      "time": "0.02",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "check extra artifact.3",
+      "time": "0.016",
+      "passed": true,
+      "messages": []
+    },
+    {
+      "name": "check extra artifact.4",
+      "time": "0.015",
+      "passed": true,
+      "messages": []
+    }
+  ],
+  "control": [
+    {
+      "name": "independent locations",
+      "time": "30.224",
+      "passed": false,
+      "messages": [
+        "<failure message=\"assert(secondEntered.await(30, TimeUnit.SECONDS)) secondEntered: CountDownLatch = java.util.concurrent.CountDownLatch@5ce8d869[Count = 1]\" type=\"utest.AssertionError\">\n          utest.AssertionError: assert(secondEntered.await(30, TimeUnit.SECONDS))\nsecondEntered: CountDownLatch = java.util.concurrent.CountDownLatch@5ce8d869[Count = 1]\n    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)\n    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)\n    at utest.asserts.Util$.makeAssertError(Util.scala:25)\n    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)\n    at coursier.cache.FileCacheLocationOwnershipTests$.$anonfun$tests$2(FileCacheLocationOwnershipTests.scala:101)\n    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)\n    at utest.framework.TestCallTree.run(Model.scala:43)\n    at utest.framework.TestCallTree.run(Model.scala:41)\n    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)\n    at utest.framework.Executor.utestWrap(Executor.scala:12)\n    at utest.framework.Executor.utestWrap$(Executor.scala:10)\n    at utest.TestSuite.utestWrap(TestSuite.scala:12)\n    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)\n    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)\n    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)\n    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)\n    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)\n    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)\n    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)\n    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)\n    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)\n    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)\n    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)\n    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)\n    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)\n    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)\n    at utest.TestRunner$.runAsync(TestRunner.scala:99)\n    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)\n    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)\n    at utest.runner.Task.execute(Task.scala:20)\n    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)\n    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)\n    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)\n    at scala.collection.immutable.List.foreach(List.scala:334)\n    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)\n    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)\n    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)\n    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)\n    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n    at java.lang.reflect.Method.invoke(Method.java:580)\n    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)\n        </failure>\n        "
+      ]
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "30.009",
+      "passed": false,
+      "messages": [
+        "<failure message=\"assert(secondEntered.await(30, TimeUnit.SECONDS)) secondEntered: CountDownLatch = java.util.concurrent.CountDownLatch@75f95314[Count = 1]\" type=\"utest.AssertionError\">\n          utest.AssertionError: assert(secondEntered.await(30, TimeUnit.SECONDS))\nsecondEntered: CountDownLatch = java.util.concurrent.CountDownLatch@75f95314[Count = 1]\n    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)\n    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)\n    at utest.asserts.Util$.makeAssertError(Util.scala:25)\n    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)\n    at coursier.cache.FileCacheLocationOwnershipTests$.$anonfun$tests$17(FileCacheLocationOwnershipTests.scala:205)\n    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)\n    at utest.framework.TestCallTree.run(Model.scala:43)\n    at utest.framework.TestCallTree.run(Model.scala:41)\n    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)\n    at utest.framework.Executor.utestWrap(Executor.scala:12)\n    at utest.framework.Executor.utestWrap$(Executor.scala:10)\n    at utest.TestSuite.utestWrap(TestSuite.scala:12)\n    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)\n    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)\n    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)\n    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)\n    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)\n    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)\n    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)\n    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)\n    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)\n    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)\n    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)\n    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)\n    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)\n    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)\n    at utest.TestRunner$.runAsync(TestRunner.scala:99)\n    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)\n    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)\n    at utest.runner.Task.execute(Task.scala:20)\n    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)\n    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)\n    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)\n    at scala.collection.immutable.List.foreach(List.scala:334)\n    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)\n    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)\n    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)\n    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)\n    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n    at java.lang.reflect.Method.invoke(Method.java:580)\n    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)\n        </failure>\n        "
+      ]
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "0.048",
+      "passed": true,
+      "messages": []
+    }
+  ]
+}
