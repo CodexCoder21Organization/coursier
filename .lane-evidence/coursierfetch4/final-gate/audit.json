@@ -1,0 +1,284 @@
+[
+  {
+    "job": "ordinary1",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.099"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.331"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.025"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.048"
+      }
+    ]
+  },
+  {
+    "job": "ordinary2",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.1"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.314"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.02"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.045"
+      }
+    ]
+  },
+  {
+    "job": "ordinary3",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.102"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.268"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.019"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.047"
+      }
+    ]
+  },
+  {
+    "job": "property1",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.1"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.304"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.024"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.046"
+      }
+    ]
+  },
+  {
+    "job": "property2",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.095"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.296"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.015"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.041"
+      }
+    ]
+  },
+  {
+    "job": "property3",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.1"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.298"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.021"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.043"
+      }
+    ]
+  },
+  {
+    "job": "multiplier",
+    "rows": 1,
+    "passed": 1,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.309"
+      }
+    ]
+  },
+  {
+    "job": "config",
+    "rows": 4,
+    "passed": 4,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "0.099"
+      },
+      {
+        "name": "independent locations",
+        "duration": "0.384"
+      },
+      {
+        "name": "independent locations after an owner error",
+        "duration": "0.02"
+      },
+      {
+        "name": "same location joins its owner",
+        "duration": "0.046"
+      }
+    ]
+  },
+  {
+    "job": "neighbors",
+    "rows": 6,
+    "passed": 6,
+    "failed": 0,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 0,
+    "details": [],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "check for updates once",
+        "duration": "2.351"
+      },
+      {
+        "name": "check extra artifact.0",
+        "duration": "0.038"
+      },
+      {
+        "name": "check extra artifact.1",
+        "duration": "0.019"
+      },
+      {
+        "name": "check extra artifact.2",
+        "duration": "0.022"
+      },
+      {
+        "name": "check extra artifact.3",
+        "duration": "0.021"
+      },
+      {
+        "name": "check extra artifact.4",
+        "duration": "0.023"
+      }
+    ]
+  },
+  {
+    "job": "mutation",
+    "rows": 1,
+    "passed": 0,
+    "failed": 1,
+    "priorAttempts": 0,
+    "skipped": 0,
+    "exit": 1,
+    "details": [
+      {
+        "test": "explicit retry settings govern same-file waiting",
+        "failure": {
+          "message": "assert(waiterEntered.await(30, TimeUnit.SECONDS)) waiterEntered: CountDownLatch = java.util.concurrent.CountDownLatch@e70f13a[Count = 1]",
+          "type": "utest.AssertionError"
+        }
+      }
+    ],
+    "hashes": "all six match expected source",
+    "tests": [
+      {
+        "name": "explicit retry settings govern same-file waiting",
+        "duration": "30.167"
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+A BuildTestRunner gate on identical source had one machine stop in dependency preparation while sibling jobs finished in about 46 seconds: https://github.com/CodexCoder21Organization/BuildTestRunner/actions/runs/38988677881 . Expanded worker capture reproduced the first-attempt failure and located the wait in Coursier's URL-lock polling: https://github.com/CodexCoder21Organization/BuildTestRunner/actions/runs/38991888268 . This is part of the BuildTest utilization / projections campaign tracked in handoff url://handoff/handoffs/hf-2026-08-24-fix-startup-compaction-delta-heap-exhaustion-then-revalidate-the-extreme-suite .
+
+Downloads with the same URL shared one JVM-wide owner even when their cache directories differed. A waiting cache inspected only its own file, which the other cache never writes, then entered growing polling delays. Ownership now follows the canonical destination path, so independent cache locations proceed separately and aliases of one destination still share one owner. The destination coordination change is unchanged in this round.
+
+The hermeticity review found a second, independent bug: `FileCache.download` supplied its retry count only to the deprecated `Downloader.sslRetry` argument and omitted all three active retry settings. A caller's explicit delay was replaced by the JVM retry-delay property, making the same-file test time out even with a complete explicit constructor. This round forwards the instance retry count, initial delay and multiplier to the matching active Downloader arguments. Defaults, time limits, dependencies and release versions are unchanged.
+
+Public tests use owned loopback HTTP servers, temporary directories and executors. The existing ownership suite covers independent success, independent owner error and real same-file waiting through a symbolic-link alias. The new `FileCacheRetrySettingsTests` keeps a real owner pending until its peer reports three public waiter events, then requires both callers to return exact complete bytes with only one GET. Three events exercise both the initial delay and its multiplier; no test changes JVM properties.
+
+Validation on exact candidate `d5eec8d10bf59305b4263bb96e741e45408c9f85`:
+
+- Red first at `5470aee6`: the original ownership suite with only the test-JVM one-minute delay property is **2/3**, with the same-file wait reporting `Future timed out after [30 seconds]`. The new public regression is **0/1** on unchanged product, with the waiter-progress assertion failing. [Native baseline and full traces](https://github.com/CodexCoder21Organization/coursier/tree/wip/coursierfetch4-evidence/.lane-evidence/coursierfetch4).
+- Final first attempts: **35/35** — ordinary ownership plus retry suite **12/12** across three runs; the same suites with the one-minute delay property **12/12** across three runs; separate multiplier-property control **1/1**; malformed-config suites **4/4**; unchanged `FileCacheTests` neighbors **6/6**. [Exact-source final gate](https://github.com/CodexCoder21Organization/coursier/actions/runs/38998189119).
+- Fix-only reversal: **1/1** intended waiter-progress assertion failure with the new test retained. Only `FileCache.scala` is restored from `5470aee6`; canonical destination coordination and all test bytes remain at the candidate.
+- Native XML, prior-attempt/history elements, exit codes, complete source SHAs and six file hashes are audited. No skipped or earlier-attempt rows count as passes. The owning repository uses its native Mill/uTest `cache.jvm[2.13.16].test.testOnly` command on isolated GitHub machines.
+- The changed Scala files pass the repository's scalafmt 3.9.6 check. An earlier candidate's workflow was stopped for formatting before final validation; it is excluded from every gate count. [Stopped run](https://github.com/CodexCoder21Organization/coursier/actions/runs/38998059167).
+
+The original destination-lock change was also proven by two independent-location assertion failures on the old URL-based product; equal-URL same-file joining correctly passes both implementations. [Earlier ownership gate](https://github.com/CodexCoder21Organization/coursier/actions/runs/38996343860). Earlier fixture review also established that all six constructors needed explicit credentials and cache settings; the malformed-config baseline was 0/3 and the corrected fixture was 3/3. [Earlier malformed-config baseline](https://github.com/CodexCoder21Organization/coursier/actions/runs/38995746243).
+
+Existing-test edit ledger:
+
+- `FileCacheTests`: unchanged.
+- All three ownership scenarios, earlier round: replace six default-reading constructors and chained setters with complete equivalent explicit constructor values and `credentials = Nil`. The same-file case replaces a normalized dot path and an early callback with a real symlink, a public `watching=true` callback, and additional lexical/canonical, pending-future and single-GET assertions. Existing complete-byte/result/count assertions and wait bounds are retained.
+- All three ownership scenarios, this round: repository formatter layout only. All 31 assertion expressions, six complete FileCache constructor lists and six `Await.result` calls are unchanged after whitespace normalization. This addresses the required formatting check without changing test behavior.
+- `FileCacheRetrySettingsTests`: a new suite. No existing assertion, iteration count or timeout is weakened.
+
+The PR remains draft. No artifact is published and no downstream version is changed. Workflows, logs and investigation files are retained only on separate wip branches; the PR contains source, tests and README only.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)

@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/CodexCoder21Organization/coursier/pull/5",
+  "state": "open",
+  "draft": true,
+  "head": "d5eec8d10bf59305b4263bb96e741e45408c9f85",
+  "title": "Coordinate downloads by cache destination and honor retry settings",
+  "bodyExactReadback": true
+}

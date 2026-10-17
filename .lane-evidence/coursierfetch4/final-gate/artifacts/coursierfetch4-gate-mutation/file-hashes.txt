@@ -1,0 +1,6 @@
+3ac682a60dc578f9f620ad654c9a586d378d76e980b57cf3bba6dc75b98aa40b  README.md
+aace772ebebf98cf0898bf95ef9ae931c2db1fd3295c5ad7ae6e7495f8a36f1a  modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala
+69cdf1711dcfdaed8392b6ec5d5d379c4d0d7a665fa9376b47ca2e75c5a86f07  modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala
+b43b1d2798e022d3e6ddee1ba7579173bc2dc623356384f2f924346578d2c82f  modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+c994d4e37498194b846e9f9690cfe9c91607ed30362550ada493a505dff635b8  modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala
+bb2b0cf59632287293182b938f3d628a64061d1c98f0c71bf5d47b888e480fa6  modules/cache/jvm/src/test/scala/coursier/cache/FileCacheRetrySettingsTests.scala

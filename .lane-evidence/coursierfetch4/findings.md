@@ -3,10 +3,10 @@ Started 2026-10-17 03:08 UTC; deadline 03:48 UTC (40 minutes).
 
 ## Plan
 - DONE: Required documentation and both named findings read; fresh clone, repository README, initial fetch/rebase; OPEN/DRAFT head 5470aee6 verified.
-- IN PROGRESS: Red property control at 5470aee6 and new public retry-policy regression test, then first failing-test checkpoint.
-- PENDING: Forward the three active settings in FileCache.download only; keep canonical destination lock untouched.
-- PENDING: Fix-only reversal; exact-source three ordinary and three property runs, malformed config and unchanged FileCacheTests neighbors once; audit native first attempts.
-- PENDING: Separate test/code reviews, draft PR description update, durable evidence checkpoint and process cleanup.
+- DONE: Red property control at 5470aee6, new public regression and failing-test checkpoint.
+- DONE: Forward three active settings in FileCache.download; canonical destination lock untouched.
+- DONE: Fix-only reversal; exact-source ordinary/property 3/3 repetitions, malformed config, multiplier and unchanged neighbors; native first attempts audited.
+- DONE: Separate test/code reviews, draft PR update, durable evidence checkpoints and process cleanup.
 
 ## Required reading
 OBSERVED: Read Testing Architecture sections Test-Driven Development, Never Calibrate a Reproducer to a Machine, Tests Must Be Hermetically Sealed, Test Verdicts Must Be Hardware-Independent; Engineering Philosophy sections Reproduce a Bug Before You Fix It, A Refuted Hypothesis Is a Successful Outcome, Never Hide a Failure. Read complete coursierfetch3 and revcoursier2 findings and root README. Root AGENTS.md is absent. Applied github-repos skill. Status reporting stays in this findings file per lane instructions; no handoff or challenge service operation is authorized.
@@ -74,4 +74,38 @@ OBSERVED: Live PR read at 03:17 UTC confirms https://github.com/CodexCoder21Orga
 OBSERVED: Final round diff stat is four files, 215 additions and 86 deletions: README.md adds explicit-settings precedence; FileCache.scala forwards three active arguments; FileCacheLocationOwnershipTests.scala receives only formatter layout; FileCacheRetrySettingsTests.scala adds the public waiting regression. All investigation data and workflows remain off the PR branch.
 
 ## 03:19 UTC — stopped-run audit
-OBSERVED: The stopped Actions monitor exited and downloaded all ten artifact directories. Native completed rows in that obsolete candidate were property2-style control name property1 (4 successful rows), multiplier (1 successful row) and neighbors (6 successful rows), all exit zero. Other jobs have no result rows. There are no native assertion/error failures in this stopped run. All 11 completed rows remain excluded from final counts because the final formatted source has a different SHA. No test was re-run past an unexplained first-attempt failure.
+OBSERVED: The stopped Actions monitor exited and downloaded all ten artifact directories. Native completed rows in that obsolete candidate were one-minute-delay control property1 (4 successful rows), multiplier (1 successful row) and neighbors (6 successful rows), all exit zero. Other jobs have no result rows. There are no native assertion/error failures in this stopped run. All 11 completed rows remain excluded from final counts because the final formatted source has a different SHA. No test was re-run past an unexplained first-attempt failure.
+
+## 03:20 UTC — final gate met; no more verification batches
+OBSERVED: Exact-source final run https://github.com/CodexCoder21Organization/coursier/actions/runs/38998189119 completed, monitor exited zero, and all ten artifact directories downloaded. Strict native audit passes: ordinary1/2/3 each 4/4 (12); property1/2/3 each 4/4 (12); multiplier 1/1; malformed config 4/4; unchanged neighbors 6/6. Total positive 35/35 FIRST ATTEMPTS, zero skipped and zero prior-attempt/history elements. Every command exits zero for positive jobs. No further test batch will run.
+OBSERVED: Property control is native 2/3 at 5470aee6 -> 3/3 in each of three final ownership runs, total 9/9. The new direct public regression is ordinary 3/3 and property 3/3, plus multiplier 1/1 and malformed-config 1/1. Each source SHA and all six file hashes match d5eec8d10bf59305b4263bb96e741e45408c9f85, with only the declared invocation-only build patch where needed.
+OBSERVED: Fix-only reversal retains final test, README and canonical coordination bytes and restores only FileCache.scala from 5470aee6. Native regression is 0/1 with one intended utest.AssertionError at `assert(waiterEntered.await(30, TimeUnit.SECONDS))`, exit one; no skipped/history. Thus mutation-control gate is 1/1 intended assertion failure. Full trace is retained in native XML.
+OBSERVED: Both independent review passes are complete above. Formatting check passes. Existing-test edit ledger is complete. The initial red control and new assertion-red test were pushed before the product edit. Next steps are PR source/body update, final evidence push and cleanup only; PR CI is owned by the orchestrator.
+
+## FLAKES ENCOUNTERED — final audit
+OBSERVED: Only assigned red controls failed: original same-file property case (Future timed out after [30 seconds], local exact head), new public regression waiter-progress assertion on unchanged product (local), and the intended FileCache-only reversal in final Actions run. No unrelated first-attempt defect occurred. Every final positive row passed its first attempt.
+
+## 03:21 UTC — PR updated and temporary workflow removed
+OBSERVED: https://github.com/CodexCoder21Organization/coursier/pull/5 is updated to exact tested d5eec8d10bf59305b4263bb96e741e45408c9f85 and remains OPEN and DRAFT. The API update response verifies that state and head. Why-first description preserves the original dependency-fetch motivation and exact handoff URL; a separate paragraph explains the independent forwarding defect. Title now covers both destination coordination and instance retry settings. Native gate numbers and run URL, complete existing-test edit ledger, red controls and fix-only reversal are recorded. Required gh pr view body readback exactly matches the submitted file.
+OBSERVED: Remote and local wip/gha-run/coursierfetch4 branches are removed after the workflow terminated. PR source contains no workflow, investigation, log or artifact file. No test or build was run after the final gate. No PR CI monitor was started; the orchestrator owns that wait.
+OBSERVED: Final source-level review after formatting confirms the same three argument additions and unchanged canonical coordinator. Formatting changes only layout, with original assertions, constructor lists and waits independently compared. Both local red runs have native first-attempt history count zero and no skipped rows.
+
+## Brief item audit
+- DONE: Read both named findings and required documentation; fresh clone and single initial fetch/rebase.
+- DONE: Verify six constructors already explicit and record production forwarding mechanism before edits.
+- DONE: Original retry-property control red 2/3 on 5470aee6; new public regression assertion-red 0/1 on unchanged product; failing-test remote checkpoint precedes fix.
+- DONE: Forward active count, initial delay and multiplier in FileCache.download; destination lock implementation untouched.
+- DONE: New public regression green 3/3 ordinary and 3/3 property; ownership suite 3/3 ordinary repetitions and 3/3 property repetitions; malformed config 4/4; unchanged neighbors 6/6; independent multiplier control 1/1.
+- DONE: Product-only reversal produces 1/1 intended assertion failure while preserving test and destination coordination bytes.
+- DONE: Dedicated test and code reviews, required formatting, full existing-test edit ledger; all final native rows first attempt.
+- DONE: PR source and why-first body updated, exact readback checked, DRAFT retained; no merge, readiness change, publication, deployment, production connection, model delegation, remote test submission, handoff or challenge-service operation.
+- DONE: Final native evidence push and cleanup/process audit.
+
+
+## Final status — 2026-10-17 03:22 UTC
+OBSERVED: Final source d5eec8d10bf59305b4263bb96e741e45408c9f85 is on the updated OPEN/DRAFT PR https://github.com/CodexCoder21Organization/coursier/pull/5 . Gate is 35/35 positive first attempts; original property ownership control is red 2/3 at 5470aee6 -> green 3/3 each in three final runs; new regression red 0/1 -> ordinary/property each 3/3; independent multiplier 1/1; malformed config 4/4; neighbors 6/6. FileCache-only reversal is 1/1 intended assertion failure. Gate URL: https://github.com/CodexCoder21Organization/coursier/actions/runs/38998189119 .
+OBSERVED: All native XML, full controlled-failure traces, exact-source/hash audit, workflow, format evidence, complete description, live PR metadata and process audit are retained on https://github.com/CodexCoder21Organization/coursier/tree/wip/coursierfetch4-evidence/.lane-evidence/coursierfetch4 . The stopped formatting candidate is retained separately and excluded from gate counts. No further verification batch was run after meeting the final gate.
+OBSERVED: Both local commands and both Actions monitors have exited. Process audit finds no remaining lane-owned Java, build, watcher or timeout process and no held build slot. Compiled local run output is removed; invocation tools will be removed after the evidence push. Remote/local temporary workflow branches are deleted. Checkout source changes are committed; investigation files remain only on the evidence branch.
+OBSERVED: A direct cleanup command was rejected by the local tool rule. Cleanup completed using Python after verifying the exact lane root, an ordinary directory beneath it, and zero tracked files under the generated output path. This did not change source or any gate.
+INFER: Assigned product forwarding correction is complete and ready for orchestrator review. The orchestrator owns all PR CI/full-suite waiting and any subsequent integration decision. No merge, publish, deploy or readiness change occurred. Linux behavior is verified; no new platform claim is made.
+Lessons: follow explicit settings through the final implementation call; force genuine public waiter events before releasing an owner; audit native rows and exact source instead of relying on workflow conclusions.
