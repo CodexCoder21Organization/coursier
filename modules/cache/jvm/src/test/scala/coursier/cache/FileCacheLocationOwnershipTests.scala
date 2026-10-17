@@ -47,16 +47,52 @@ object FileCacheLocationOwnershipTests extends TestSuite {
       server.start()
       try {
         val artifact = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
-        val firstCache = FileCache[Task](directory.resolve("first").toFile)
-          .withPool(downloadWorkers).withChecksums(Seq(None))
-          .withCachePolicies(Seq(CachePolicy.FetchMissing))
-          .withRetry(5).withRetryBackoffInitialDelay(10.milliseconds)
-          .withRetryBackoffMultiplier(2.0).withTtl(24.hours)
-        val secondCache = FileCache[Task](directory.resolve("second").toFile)
-          .withPool(downloadWorkers).withChecksums(Seq(None))
-          .withCachePolicies(Seq(CachePolicy.FetchMissing))
-          .withRetry(5).withRetryBackoffInitialDelay(10.milliseconds)
-          .withRetryBackoffMultiplier(2.0).withTtl(24.hours)
+        val firstCache = FileCache[Task](
+          location = directory.resolve("first").toFile,
+          cachePolicies = Seq(CachePolicy.FetchMissing),
+          checksums = Seq(None),
+          credentials = Nil,
+          logger = CacheLogger.nop,
+          pool = downloadWorkers,
+          ttl = Some(24.hours),
+          localArtifactsShouldBeCached = false,
+          followHttpToHttpsRedirections = true,
+          followHttpsToHttpRedirections = false,
+          maxRedirections = Some(20),
+          sslRetry = 5,
+          sslSocketFactoryOpt = None,
+          hostnameVerifierOpt = None,
+          retry = 5,
+          bufferSize = 1024 * 1024,
+          classLoaders = Nil,
+          customHandlerFactory = None,
+          clock = java.time.Clock.systemUTC(),
+          retryBackoffInitialDelay = 10.milliseconds,
+          retryBackoffMultiplier = 2.0
+        )
+        val secondCache = FileCache[Task](
+          location = directory.resolve("second").toFile,
+          cachePolicies = Seq(CachePolicy.FetchMissing),
+          checksums = Seq(None),
+          credentials = Nil,
+          logger = CacheLogger.nop,
+          pool = downloadWorkers,
+          ttl = Some(24.hours),
+          localArtifactsShouldBeCached = false,
+          followHttpToHttpsRedirections = true,
+          followHttpsToHttpRedirections = false,
+          maxRedirections = Some(20),
+          sslRetry = 5,
+          sslSocketFactoryOpt = None,
+          hostnameVerifierOpt = None,
+          retry = 5,
+          bufferSize = 1024 * 1024,
+          classLoaders = Nil,
+          customHandlerFactory = None,
+          clock = java.time.Clock.systemUTC(),
+          retryBackoffInitialDelay = 10.milliseconds,
+          retryBackoffMultiplier = 2.0
+        )
 
         val first = firstCache.file(artifact).run.future()(firstCache.ec)
         assert(ownerEntered.await(30, TimeUnit.SECONDS))
@@ -115,16 +151,52 @@ object FileCacheLocationOwnershipTests extends TestSuite {
       server.start()
       try {
         val artifact = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
-        val firstCache = FileCache[Task](directory.resolve("first").toFile)
-          .withPool(downloadWorkers).withChecksums(Seq(None))
-          .withCachePolicies(Seq(CachePolicy.FetchMissing))
-          .withRetry(5).withRetryBackoffInitialDelay(10.milliseconds)
-          .withRetryBackoffMultiplier(2.0).withTtl(24.hours)
-        val secondCache = FileCache[Task](directory.resolve("second").toFile)
-          .withPool(downloadWorkers).withChecksums(Seq(None))
-          .withCachePolicies(Seq(CachePolicy.FetchMissing))
-          .withRetry(5).withRetryBackoffInitialDelay(10.milliseconds)
-          .withRetryBackoffMultiplier(2.0).withTtl(24.hours)
+        val firstCache = FileCache[Task](
+          location = directory.resolve("first").toFile,
+          cachePolicies = Seq(CachePolicy.FetchMissing),
+          checksums = Seq(None),
+          credentials = Nil,
+          logger = CacheLogger.nop,
+          pool = downloadWorkers,
+          ttl = Some(24.hours),
+          localArtifactsShouldBeCached = false,
+          followHttpToHttpsRedirections = true,
+          followHttpsToHttpRedirections = false,
+          maxRedirections = Some(20),
+          sslRetry = 5,
+          sslSocketFactoryOpt = None,
+          hostnameVerifierOpt = None,
+          retry = 5,
+          bufferSize = 1024 * 1024,
+          classLoaders = Nil,
+          customHandlerFactory = None,
+          clock = java.time.Clock.systemUTC(),
+          retryBackoffInitialDelay = 10.milliseconds,
+          retryBackoffMultiplier = 2.0
+        )
+        val secondCache = FileCache[Task](
+          location = directory.resolve("second").toFile,
+          cachePolicies = Seq(CachePolicy.FetchMissing),
+          checksums = Seq(None),
+          credentials = Nil,
+          logger = CacheLogger.nop,
+          pool = downloadWorkers,
+          ttl = Some(24.hours),
+          localArtifactsShouldBeCached = false,
+          followHttpToHttpsRedirections = true,
+          followHttpsToHttpRedirections = false,
+          maxRedirections = Some(20),
+          sslRetry = 5,
+          sslSocketFactoryOpt = None,
+          hostnameVerifierOpt = None,
+          retry = 5,
+          bufferSize = 1024 * 1024,
+          classLoaders = Nil,
+          customHandlerFactory = None,
+          clock = java.time.Clock.systemUTC(),
+          retryBackoffInitialDelay = 10.milliseconds,
+          retryBackoffMultiplier = 2.0
+        )
 
         val first = firstCache.file(artifact).run.future()(firstCache.ec)
         assert(ownerEntered.await(30, TimeUnit.SECONDS))
@@ -184,25 +256,75 @@ object FileCacheLocationOwnershipTests extends TestSuite {
       server.start()
       try {
         val artifact = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
-        val firstCache = FileCache[Task](directory.resolve("first").toFile)
-          .withPool(downloadWorkers).withChecksums(Seq(None))
-          .withCachePolicies(Seq(CachePolicy.FetchMissing))
-          .withRetry(5).withRetryBackoffInitialDelay(10.milliseconds)
-          .withRetryBackoffMultiplier(2.0).withTtl(24.hours)
-        val secondCache = FileCache[Task](directory.resolve("first/../first").toFile)
-          .withPool(downloadWorkers).withChecksums(Seq(None))
-          .withCachePolicies(Seq(CachePolicy.FetchMissing))
-          .withRetry(5).withRetryBackoffInitialDelay(10.milliseconds)
-          .withRetryBackoffMultiplier(2.0).withTtl(24.hours)
-          .withLogger(new CacheLogger {
-            override def downloadingArtifact(url: String, artifact: Artifact): Unit =
-              secondEntered.countDown()
-          })
+        val firstLocation = Files.createDirectory(directory.resolve("first"))
+        val aliasLocation = Files.createSymbolicLink(directory.resolve("alias"), firstLocation)
+        val firstCache = FileCache[Task](
+          location = firstLocation.toFile,
+          cachePolicies = Seq(CachePolicy.FetchMissing),
+          checksums = Seq(None),
+          credentials = Nil,
+          logger = CacheLogger.nop,
+          pool = downloadWorkers,
+          ttl = Some(24.hours),
+          localArtifactsShouldBeCached = false,
+          followHttpToHttpsRedirections = true,
+          followHttpsToHttpRedirections = false,
+          maxRedirections = Some(20),
+          sslRetry = 5,
+          sslSocketFactoryOpt = None,
+          hostnameVerifierOpt = None,
+          retry = 5,
+          bufferSize = 1024 * 1024,
+          classLoaders = Nil,
+          customHandlerFactory = None,
+          clock = java.time.Clock.systemUTC(),
+          retryBackoffInitialDelay = 10.milliseconds,
+          retryBackoffMultiplier = 2.0
+        )
+        val secondCache = FileCache[Task](
+          location = aliasLocation.toFile,
+          cachePolicies = Seq(CachePolicy.FetchMissing),
+          checksums = Seq(None),
+          credentials = Nil,
+          pool = downloadWorkers,
+          ttl = Some(24.hours),
+          localArtifactsShouldBeCached = false,
+          followHttpToHttpsRedirections = true,
+          followHttpsToHttpRedirections = false,
+          maxRedirections = Some(20),
+          sslRetry = 5,
+          sslSocketFactoryOpt = None,
+          hostnameVerifierOpt = None,
+          retry = 5,
+          bufferSize = 1024 * 1024,
+          classLoaders = Nil,
+          customHandlerFactory = None,
+          clock = java.time.Clock.systemUTC(),
+          retryBackoffInitialDelay = 10.milliseconds,
+          retryBackoffMultiplier = 2.0,
+          logger = new CacheLogger {
+            override def downloadLength(
+              url: String,
+              totalLength: Long,
+              alreadyDownloaded: Long,
+              watching: Boolean
+            ): Unit =
+              if (watching) secondEntered.countDown()
+          }
+        )
+        val firstDestination = firstCache.localFile(artifact.url)
+        val secondDestination = secondCache.localFile(artifact.url)
+        assert(firstDestination.getAbsolutePath != secondDestination.getAbsolutePath)
+        assert(firstDestination.getCanonicalFile == secondDestination.getCanonicalFile)
         val first = firstCache.file(artifact).run.future()(firstCache.ec)
         assert(ownerEntered.await(30, TimeUnit.SECONDS))
         val second = secondCache.file(artifact).run.future()(secondCache.ec)
-        // A shared cache must still publish one file from one HTTP response.
+        // watching=true is emitted inside checkDownload, after ownership contention.
+        // Keep the response held until that same-file wait is actually observed.
         assert(secondEntered.await(30, TimeUnit.SECONDS))
+        assert(!first.isCompleted)
+        assert(!second.isCompleted)
+        assert(requests.get() == 1)
         releaseOwner.countDown()
         val firstResult = Await.result(first, 30.seconds).fold(error => throw new Exception(error), identity)
         val secondResult = Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
