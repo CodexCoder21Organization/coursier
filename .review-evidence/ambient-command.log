@@ -1,0 +1,29 @@
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier2/out/mill-build/compile.dest/classes ...
+[build.mill-61] [info] done compiling
+[build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier2/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier2/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] one warning found
+[build.mill-61] [info] done compiling
+[307/307] cache.jvm[2.13.16].test.testOnly
+[307] -------------------------------- Running Tests --------------------------------
+[307] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m319ms[0m  
+[307] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m50ms[0m  
+[307/307] =============== cache.jvm[2.13.16].test.t...heLocationOwnershipTests =============== 60s
+[307] cache.jvm[2.13.16].test.testOnly 30s 0/1 completed.
+[307] [31mX[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m30044ms[0m 
+[307]   [91m[4mjava.util.concurrent.TimeoutException[39m[24m: Future timed out after [30 seconds]
+[307]     [31mscala.concurrent.impl.Promise$DefaultPromise.[91mtryAwait0[39m([91mPromise.scala[39m:[91m248[39m)
+[307]     [31mscala.concurrent.impl.Promise$DefaultPromise.[91mresult[39m([91mPromise.scala[39m:[91m261[39m)
+[307]     [31mscala.concurrent.Await$.[91m$anonfun$result$1[39m([91mpackage.scala[39m:[91m201[39m)
+[307]     [31mscala.concurrent.BlockContext$DefaultBlockContext$.[91mblockOn[39m([91mBlockContext.scala[39m:[91m62[39m)
+[307]     [31mscala.concurrent.Await$.[91mresult[39m([91mpackage.scala[39m:[91m124[39m)
+[307]     [31mcoursier.cache.FileCacheLocationOwnershipTests$.[91m$anonfun$tests$30[39m([91mFileCacheLocationOwnershipTests.scala[39m:[91m330[39m)
+[307] Tests: 3, Passed: 2, Failed: 1
+[307/307, 1 failed] =============== cache.jvm[2.13.16].t...ationOwnershipTests =============== 60s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner

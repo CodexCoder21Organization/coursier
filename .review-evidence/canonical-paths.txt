@@ -1,0 +1,6 @@
+missing parents: canonical equal=true
+relative absolute: canonical equal=true
+ordinary creation: canonical stable=true
+case-sensitive test filesystem=true
+loop: canonical rejected path with IOException
+loop: write rejected path with FileSystemException

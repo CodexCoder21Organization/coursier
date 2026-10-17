@@ -1,0 +1,27 @@
+{
+  "rows": [
+    {
+      "name": "independent locations",
+      "time": "0.319",
+      "failures": []
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "0.05",
+      "failures": []
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "30.044",
+      "failures": [
+        {
+          "type": "java.util.concurrent.TimeoutException",
+          "message": "Future timed out after [30 seconds]",
+          "trace": "\n          java.util.concurrent.TimeoutException: Future timed out after [30 seconds]\n    at scala.concurrent.impl.Promise$DefaultPromise.tryAwait0(Promise.scala:248)\n    at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:261)\n    at scala.concurrent.Await$.$anonfun$result$1(package.scala:201)\n    at scala.concurrent.BlockContext$DefaultBlockContext$.blockOn(BlockContext.scala:62)\n    at scala.concurrent.Await$.result(package.scala:124)\n    at coursier.cache.FileCacheLocationOwnershipTests$.$anonfun$tests$30(FileCacheLocationOwnershipTests.scala:330)\n    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)\n    at utest.framework.TestCallTree.run(Model.scala:43)\n    at utest.framework.TestCallTree.run(Model.scala:41)\n    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)\n    at utest.framework.Executor.utestWrap(Executor.scala:12)\n    at utest.framework.Executor.utestWrap$(Executor.scala:10)\n    at utest.TestSuite.utestWrap(TestSuite.scala:12)\n    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)\n    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)\n    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)\n    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)\n    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)\n    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)\n    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)\n    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)\n    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)\n    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)\n    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)\n    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)\n    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)\n    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)\n    at utest.TestRunner$.runAsync(TestRunner.scala:99)\n    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)\n    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)\n    at utest.runner.Task.execute(Task.scala:20)\n    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)\n    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)\n    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)\n    at scala.collection.immutable.List.foreach(List.scala:334)\n    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)\n    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)\n    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)\n    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)\n    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n    at java.lang.reflect.Method.invoke(Method.java:580)\n    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)\n        "
+        }
+      ]
+    }
+  ],
+  "history": [],
+  "exit": "1"
+}

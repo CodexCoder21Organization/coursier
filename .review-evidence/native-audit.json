@@ -1,0 +1,315 @@
+[
+  {
+    "name": "coursierfetch2-gate-config",
+    "exit": "0",
+    "rows": 3,
+    "failures": 0,
+    "skipped": 0,
+    "history": [],
+    "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3\n mill-build/src/coursierbuild/modules/CacheJvmBase.scala | 3 +++\n 1 file changed, 3 insertions(+)",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.278",
+        "failure": []
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.015",
+        "failure": []
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.043",
+        "failure": []
+      }
+    ],
+    "hashes": [
+      {
+        "path": "README.md",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      }
+    ]
+  },
+  {
+    "name": "coursierfetch2-gate-control",
+    "exit": "1",
+    "rows": 3,
+    "failures": 2,
+    "skipped": 0,
+    "history": [],
+    "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3\n modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala     | 5 -----\n .../jvm/src/main/scala/coursier/cache/internal/Downloader.scala      | 2 +-\n 2 files changed, 1 insertion(+), 6 deletions(-)",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "30.224",
+        "failure": [
+          [
+            "failure",
+            "assert(secondEntered.await(30, TimeUnit.SECONDS)) secondEntered: CountDownLatch = java.util.concurrent.CountDownLatch@5ce8d869[Count = 1]"
+          ]
+        ]
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "30.009",
+        "failure": [
+          [
+            "failure",
+            "assert(secondEntered.await(30, TimeUnit.SECONDS)) secondEntered: CountDownLatch = java.util.concurrent.CountDownLatch@75f95314[Count = 1]"
+          ]
+        ]
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.048",
+        "failure": []
+      }
+    ],
+    "hashes": [
+      {
+        "path": "README.md",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala",
+        "match": true,
+        "source": "b051ebea6dcadacf3f781687c1a97e89f4eb69f9"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+        "match": true,
+        "source": "b051ebea6dcadacf3f781687c1a97e89f4eb69f9"
+      },
+      {
+        "path": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      }
+    ]
+  },
+  {
+    "name": "coursierfetch2-gate-neighbors",
+    "exit": "0",
+    "rows": 6,
+    "failures": 0,
+    "skipped": 0,
+    "history": [],
+    "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3",
+    "cases": [
+      {
+        "name": "check for updates once",
+        "time": "2.509",
+        "failure": []
+      },
+      {
+        "name": "check extra artifact.0",
+        "time": "0.032",
+        "failure": []
+      },
+      {
+        "name": "check extra artifact.1",
+        "time": "0.022",
+        "failure": []
+      },
+      {
+        "name": "check extra artifact.2",
+        "time": "0.02",
+        "failure": []
+      },
+      {
+        "name": "check extra artifact.3",
+        "time": "0.016",
+        "failure": []
+      },
+      {
+        "name": "check extra artifact.4",
+        "time": "0.015",
+        "failure": []
+      }
+    ],
+    "hashes": [
+      {
+        "path": "README.md",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      }
+    ]
+  },
+  {
+    "name": "coursierfetch2-gate-new1",
+    "exit": "0",
+    "rows": 3,
+    "failures": 0,
+    "skipped": 0,
+    "history": [],
+    "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.33",
+        "failure": []
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.021",
+        "failure": []
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.048",
+        "failure": []
+      }
+    ],
+    "hashes": [
+      {
+        "path": "README.md",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      }
+    ]
+  },
+  {
+    "name": "coursierfetch2-gate-new2",
+    "exit": "0",
+    "rows": 3,
+    "failures": 0,
+    "skipped": 0,
+    "history": [],
+    "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.342",
+        "failure": []
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.014",
+        "failure": []
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.042",
+        "failure": []
+      }
+    ],
+    "hashes": [
+      {
+        "path": "README.md",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      }
+    ]
+  },
+  {
+    "name": "coursierfetch2-gate-new3",
+    "exit": "0",
+    "rows": 3,
+    "failures": 0,
+    "skipped": 0,
+    "history": [],
+    "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.311",
+        "failure": []
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.018",
+        "failure": []
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.044",
+        "failure": []
+      }
+    ],
+    "hashes": [
+      {
+        "path": "README.md",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      },
+      {
+        "path": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+        "match": true,
+        "source": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3"
+      }
+    ]
+  }
+]

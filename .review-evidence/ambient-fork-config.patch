@@ -1,0 +1,14 @@
+diff --git a/mill-build/src/coursierbuild/modules/CacheJvmBase.scala b/mill-build/src/coursierbuild/modules/CacheJvmBase.scala
+index 98a22f1cf..114722a07 100644
+--- a/mill-build/src/coursierbuild/modules/CacheJvmBase.scala
++++ b/mill-build/src/coursierbuild/modules/CacheJvmBase.scala
+@@ -44,6 +44,9 @@ trait CacheJvmBase extends Cache with CsMima {
+     )
+ 
+   trait CacheJvmBaseTests extends CrossSbtTests {
++    override def forkArgs: T[Seq[String]] = Task {
++      super.forkArgs() ++ Seq("-Dcoursier.exception-retry-backoff-initial-delay=1m")
++    }
+     def sources = Task {
+       val dest = Task.dest / "CustomLoaderClasspath.scala"
+       val customLoaderCp0 = customLoaderCp()

@@ -1,0 +1,4 @@
+6214711cdbfe9b2ca7c9ceac5596d1f06961b32aa258bada0a577301d82d67b9  README.md
+6074863dc2d9b7daf0ae1753c4c596d4cda0ca1f575bd50af2fa20e8984f253e  modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala
+18eb6162bbc06fde86e81af47f5bbcafbe679af31ada86193f67555c152f04cb  modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+9bdc2103ffbe01bb51d2ff6eca3804cecf19b74f0d2ed599450280d766a2e5f2  modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala
