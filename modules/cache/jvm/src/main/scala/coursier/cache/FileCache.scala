@@ -131,7 +131,10 @@ import scala.util.control.NonFatal
       bufferSize,
       classLoaders,
       customHandlerFactory,
-      clock
+      clock,
+      retryCount = retry,
+      retryBackoffInitialDelay = retryBackoffInitialDelay,
+      retryBackoffMultiplier = retryBackoffMultiplier
     ).download
 
   def validateChecksum(
