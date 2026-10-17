@@ -1,0 +1,5 @@
+<tests>
+  <buildrule name="tools.kompile.buildMaven136DefinitionSiteScopeTests()" success="true" time="83187" output-files="128" output-bytes="117675596" executions="1"/>
+  <test file="/__w/kompile-core/kompile-core/tests/coursierSilentStallFailsWithinFetchBackstopTest.kts" name="kompile.coursierSilentStallFailsWithinFetchBackstopTest" success="true" time="1895"/>
+  <test file="/__w/kompile-core/kompile-core/tests/coursierResolutionAgainstStalledRepositoryFailsFastInsteadOfHanging.kts" name="kompile.coursierResolutionAgainstStalledRepositoryFailsFastInsteadOfHanging" success="true" time="9348"/>
+</tests>

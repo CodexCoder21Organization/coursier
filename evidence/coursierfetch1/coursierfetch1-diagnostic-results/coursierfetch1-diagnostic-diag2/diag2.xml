@@ -1,0 +1,162 @@
+<tests>
+  <buildrule name="buildtest.runner.buildMaven()" success="true" time="87300" output-files="139" output-bytes="125843907" executions="1"/>
+  <test file="/__w/BuildTestRunner/BuildTestRunner/tests/testInvestigateFamilyStopBeforeBatchEntry.kts" name="buildtest.runner.testInvestigateFamilyStopBeforeBatchEntry" success="true" time="48301"/>
+  <attempt-history file="/__w/BuildTestRunner/BuildTestRunner/tests/testInvestigateFamilyStopBeforeBatchEntry.kts" name="buildtest.runner.testInvestigateFamilyStopBeforeBatchEntry">
+    <attempt number="1" success="false" time="120888">
+      <stacktrace>java.util.concurrent.ExecutionException: java.lang.AssertionError: Close must stop B execution before its real batch is entered.
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry(testInvestigateFamilyStopBeforeBatchEntry.kt:260)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: java.lang.AssertionError: Close must stop B execution before its real batch is entered.
+	at kotlin.test.DefaultAsserter.fail(DefaultAsserter.kt:16)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+	at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+	at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+	at kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+	at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry$lambda$21$lambda$20(testInvestigateFamilyStopBeforeBatchEntry.kt:115)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.lang.IllegalStateException: Lifecycle state: prepared=1; body=1; listener=1; stop=1; returned=0; events=[runner_startup_phase:, runner_startup_phase:, runner_startup_phase:, runner_startup_phase:, lease_ack:, runner_capacity:, runner_capacity:, runner_startup_phase:, runner_preparation_started:]; worker frame counts={jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.parkNanos -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos -&gt; java.util.concurrent.LinkedBlockingQueue.poll -&gt; java.util.concurrent.ThreadPoolExecutor.getTask -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=6, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.park -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block -&gt; java.util.concurrent.ForkJoinPool.unmanagedBlock -&gt; java.util.concurrent.ForkJoinPool.managedBlock -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await -&gt; java.util.concurrent.LinkedBlockingQueue.take -&gt; java.util.concurrent.ThreadPoolExecutor.getTask -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=23, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.park -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly -&gt; scala.concurrent.impl.Promise$DefaultPromise.tryAwait0 -&gt; scala.concurrent.impl.Promise$DefaultPromise.result -&gt; scala.concurrent.Await$.$anonfun$result$1 -&gt; scala.concurrent.Await$$$Lambda/0x00007fc1e83f0618.apply -&gt; scala.concurrent.BlockContext$DefaultBlockContext$.blockOn -&gt; scala.concurrent.Await$.result -&gt; coursier.Fetch$FetchTaskOps$.eitherResult$extension -&gt; coursier.internal.api.ApiHelper$.doFetch -&gt; coursier.internal.api.ApiHelper.doFetch -&gt; coursierapi.Fetch.fetchResult -&gt; kompile.WorkspaceCoursierCacheKt.fetchWorkspaceArtifacts -&gt; kompile.CoursierNetworkTimeoutsKt.fetchWithProgressAwareBackstop$lambda$5 -&gt; kompile.CoursierNetworkTimeoutsKt$$Lambda/0x00007fc1e84bd5c0.call -&gt; java.util.concurrent.FutureTask.run -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierCache.within -&gt; kompile.WorkspaceCoursierCache.within$default -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierTask.run -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=1, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.parkNanos -&gt; java.util.concurrent.FutureTask.awaitDone -&gt; java.util.concurrent.FutureTask.get -&gt; kompile.CoursierProgressDeadline.await -&gt; kompile.CoursierNetworkTimeoutsKt.fetchWithProgressAwareBackstop -&gt; kompile.CoursierNetworkTimeoutsKt.fetchBoundedBySocketTimeouts -&gt; kompile.CoursierNetworkTimeoutsKt.fetchBoundedBySocketTimeouts$default -&gt; kompile.WorkspaceKt.fetchMavenCoordinatesBatched -&gt; kompile.WorkspaceKt.access$fetchMavenCoordinatesBatched -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1$1.invoke -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1$1.invoke -&gt; kompile.WorkspaceKt.prepareTests$lambda$158$recordingConcurrency -&gt; kompile.WorkspaceKt.access$prepareTests$lambda$158$recordingConcurrency -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1.invoke -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1.invoke -&gt; kompile.PreparedWorkspaceResolutions$batched$1.invoke -&gt; kompile.PreparedWorkspaceResolutions$batched$1.invoke -&gt; kompile.BoundedPreparedResolutionCache.resolve -&gt; kompile.PreparedWorkspaceResolutions.batched -&gt; kompile.WorkspaceKt.prepareTests$lambda$158$processOneFile -&gt; kompile.WorkspaceKt.prepareTests -&gt; kompile.WorkspaceKt.prepareTests$default -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen$addPreparedRun -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen$addPreparedRun$default -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen -&gt; kompile.LocalBuildWorkspace.access$prepareTestBatchInternalOpen -&gt; kompile.LocalBuildWorkspace$prepareTestBatchInternal$1.invoke -&gt; kompile.LocalBuildWorkspace$prepareTestBatchInternal$1.invoke -&gt; kompile.WorkspaceCoursierCache.within -&gt; kompile.WorkspaceCoursierCache.use -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternal=1, java.lang.Thread.sleep0 -&gt; java.lang.Thread.sleep -&gt; coursier.cache.internal.Retry.loop$1 -&gt; coursier.cache.internal.Retry.retryOpt -&gt; coursier.cache.internal.Downloader$.coursier$cache$internal$Downloader$$downloading -&gt; coursier.cache.internal.Downloader$Blocking$.remote -&gt; coursier.cache.internal.Downloader.$anonfun$remote$6 -&gt; coursier.cache.internal.Downloader$$Lambda/0x00007fc1e84c76a8.apply -&gt; scala.concurrent.Future$.$anonfun$apply$1 -&gt; scala.concurrent.Future$$$Lambda/0x00007fc1e83eebc8.apply -&gt; scala.concurrent.impl.Promise$Transformation.run -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierCache.within -&gt; kompile.WorkspaceCoursierCache.within$default -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierTask.run -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=1, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.parkNanos -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos -&gt; java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take -&gt; java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take -&gt; java.util.concurrent.ThreadPoolExecutor.getTask -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=1}
+		at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry$lambda$21$lambda$20(testInvestigateFamilyStopBeforeBatchEntry.kt:140)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.lang.AssertionError: Expected value to be true.
+		at kotlin.test.DefaultAsserter.fail(DefaultAsserter.kt:16)
+		at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+		at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+		at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+		at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+		at kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+		at kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+		at kotlin.test.AssertionsKt__AssertionsKt.assertTrue$default(Assertions.kt:42)
+		at kotlin.test.AssertionsKt.assertTrue$default(Unknown Source)
+		at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry$lambda$21$lambda$20(testInvestigateFamilyStopBeforeBatchEntry.kt:149)
+		at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+</stacktrace>
+      <console-output>/tmp/qtcompile349277544162987350/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry5389520703334420970/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile1752937516668167007/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry698669024684370239/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile16464404995671212564/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry11085851506295310904/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile2318851713824069871/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry11850532902797052339/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile16714667745700889076/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry11454808866501514583/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile9562643518756748263/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry11850709955414436058/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile6340487898321882483/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry3843610864251399109/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile3694995584473159065/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry4328841535095902693/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: java.util.concurrent.ExecutionException: java.lang.AssertionError: Close must stop B execution before its real batch is entered.
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry(testInvestigateFamilyStopBeforeBatchEntry.kt:260)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	... 2 more
+Caused by: java.lang.AssertionError: Close must stop B execution before its real batch is entered.
+	at kotlin.test.DefaultAsserter.fail(DefaultAsserter.kt:16)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+	at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+	at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+	at kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+	at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry$lambda$21$lambda$20(testInvestigateFamilyStopBeforeBatchEntry.kt:115)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.lang.IllegalStateException: Lifecycle state: prepared=1; body=1; listener=1; stop=1; returned=0; events=[runner_startup_phase:, runner_startup_phase:, runner_startup_phase:, runner_startup_phase:, lease_ack:, runner_capacity:, runner_capacity:, runner_startup_phase:, runner_preparation_started:]; worker frame counts={jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.parkNanos -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos -&gt; java.util.concurrent.LinkedBlockingQueue.poll -&gt; java.util.concurrent.ThreadPoolExecutor.getTask -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=6, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.park -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block -&gt; java.util.concurrent.ForkJoinPool.unmanagedBlock -&gt; java.util.concurrent.ForkJoinPool.managedBlock -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await -&gt; java.util.concurrent.LinkedBlockingQueue.take -&gt; java.util.concurrent.ThreadPoolExecutor.getTask -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=23, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.park -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly -&gt; scala.concurrent.impl.Promise$DefaultPromise.tryAwait0 -&gt; scala.concurrent.impl.Promise$DefaultPromise.result -&gt; scala.concurrent.Await$.$anonfun$result$1 -&gt; scala.concurrent.Await$$$Lambda/0x00007fc1e83f0618.apply -&gt; scala.concurrent.BlockContext$DefaultBlockContext$.blockOn -&gt; scala.concurrent.Await$.result -&gt; coursier.Fetch$FetchTaskOps$.eitherResult$extension -&gt; coursier.internal.api.ApiHelper$.doFetch -&gt; coursier.internal.api.ApiHelper.doFetch -&gt; coursierapi.Fetch.fetchResult -&gt; kompile.WorkspaceCoursierCacheKt.fetchWorkspaceArtifacts -&gt; kompile.CoursierNetworkTimeoutsKt.fetchWithProgressAwareBackstop$lambda$5 -&gt; kompile.CoursierNetworkTimeoutsKt$$Lambda/0x00007fc1e84bd5c0.call -&gt; java.util.concurrent.FutureTask.run -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierCache.within -&gt; kompile.WorkspaceCoursierCache.within$default -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierTask.run -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=1, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.parkNanos -&gt; java.util.concurrent.FutureTask.awaitDone -&gt; java.util.concurrent.FutureTask.get -&gt; kompile.CoursierProgressDeadline.await -&gt; kompile.CoursierNetworkTimeoutsKt.fetchWithProgressAwareBackstop -&gt; kompile.CoursierNetworkTimeoutsKt.fetchBoundedBySocketTimeouts -&gt; kompile.CoursierNetworkTimeoutsKt.fetchBoundedBySocketTimeouts$default -&gt; kompile.WorkspaceKt.fetchMavenCoordinatesBatched -&gt; kompile.WorkspaceKt.access$fetchMavenCoordinatesBatched -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1$1.invoke -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1$1.invoke -&gt; kompile.WorkspaceKt.prepareTests$lambda$158$recordingConcurrency -&gt; kompile.WorkspaceKt.access$prepareTests$lambda$158$recordingConcurrency -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1.invoke -&gt; kompile.WorkspaceKt$prepareTests$4$processOneFile$cpFiles$1.invoke -&gt; kompile.PreparedWorkspaceResolutions$batched$1.invoke -&gt; kompile.PreparedWorkspaceResolutions$batched$1.invoke -&gt; kompile.BoundedPreparedResolutionCache.resolve -&gt; kompile.PreparedWorkspaceResolutions.batched -&gt; kompile.WorkspaceKt.prepareTests$lambda$158$processOneFile -&gt; kompile.WorkspaceKt.prepareTests -&gt; kompile.WorkspaceKt.prepareTests$default -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen$addPreparedRun -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen$addPreparedRun$default -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen -&gt; kompile.LocalBuildWorkspace.access$prepareTestBatchInternalOpen -&gt; kompile.LocalBuildWorkspace$prepareTestBatchInternal$1.invoke -&gt; kompile.LocalBuildWorkspace$prepareTestBatchInternal$1.invoke -&gt; kompile.WorkspaceCoursierCache.within -&gt; kompile.WorkspaceCoursierCache.use -&gt; kompile.LocalBuildWorkspace.prepareTestBatchInternal=1, java.lang.Thread.sleep0 -&gt; java.lang.Thread.sleep -&gt; coursier.cache.internal.Retry.loop$1 -&gt; coursier.cache.internal.Retry.retryOpt -&gt; coursier.cache.internal.Downloader$.coursier$cache$internal$Downloader$$downloading -&gt; coursier.cache.internal.Downloader$Blocking$.remote -&gt; coursier.cache.internal.Downloader.$anonfun$remote$6 -&gt; coursier.cache.internal.Downloader$$Lambda/0x00007fc1e84c76a8.apply -&gt; scala.concurrent.Future$.$anonfun$apply$1 -&gt; scala.concurrent.Future$$$Lambda/0x00007fc1e83eebc8.apply -&gt; scala.concurrent.impl.Promise$Transformation.run -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierTask$run$1.invoke -&gt; kompile.WorkspaceCoursierCache.within -&gt; kompile.WorkspaceCoursierCache.within$default -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierCache$executor$2$2.invoke -&gt; kompile.WorkspaceCoursierTask.run -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=1, jdk.internal.misc.Unsafe.park -&gt; java.util.concurrent.locks.LockSupport.parkNanos -&gt; java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos -&gt; java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take -&gt; java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take -&gt; java.util.concurrent.ThreadPoolExecutor.getTask -&gt; java.util.concurrent.ThreadPoolExecutor.runWorker -&gt; java.util.concurrent.ThreadPoolExecutor$Worker.run -&gt; java.lang.Thread.runWith -&gt; java.lang.Thread.run=1}
+		at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry$lambda$21$lambda$20(testInvestigateFamilyStopBeforeBatchEntry.kt:140)
+		... 4 more
+	Suppressed: java.lang.AssertionError: Expected value to be true.
+		at kotlin.test.DefaultAsserter.fail(DefaultAsserter.kt:16)
+		at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:652)
+		at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+		at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:662)
+		at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:11)
+		at kotlin.test.AssertionsKt__AssertionsKt.assertTrue(Assertions.kt:44)
+		at kotlin.test.AssertionsKt.assertTrue(Unknown Source)
+		at kotlin.test.AssertionsKt__AssertionsKt.assertTrue$default(Assertions.kt:42)
+		at kotlin.test.AssertionsKt.assertTrue$default(Unknown Source)
+		at buildtest.runner.TestInvestigateFamilyStopBeforeBatchEntryKt.testInvestigateFamilyStopBeforeBatchEntry$lambda$21$lambda$20(testInvestigateFamilyStopBeforeBatchEntry.kt:149)
+		... 4 more
+</console-output>
+    </attempt>
+    <attempt number="2" success="true" time="48301">
+      <console-output>/tmp/qtcompile16798341318231659354/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry241124672044968799/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile16888576974539444824/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry10285895510513384950/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile13475225806090439698/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry81118890500215297/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile12168289045684188846/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+/tmp/qtcompile871927400447909517/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry2732597264148124863/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry10381986855893419503/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile9534198104581654121/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry1398382837865231763/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile2729936883842981063/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry14381764954573088063/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+/tmp/qtcompile6891824479898895256/TestRunner.kt:82:49: warning: &apos;getter for id: Long&apos; is deprecated. Deprecated in Java
+                    .append(&quot; #&quot;).append(thread.id)
+                                                ^ &apos;getter for id: Long&apos; is deprecated. Deprecated in Java [DiagnosticEffect from Main.kt:1722]
+warning: no package at top of file: /tmp/btr-family-stop-entry4952159082299440154/workspace/tests/testA.kts [PackageWarningEffect from Main.kt:1722]
+</console-output>
+    </attempt>
+  </attempt-history>
+</tests>

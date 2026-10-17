@@ -1,0 +1,60 @@
+Downloading mill 0.12.15 from https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/0.12.15/mill-dist-0.12.15.exe ...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 72.6M  100 72.6M    0     0   161M      0 --:--:-- --:--:-- --:--:--  161M
+Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /home/runner/work/coursier/coursier/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /home/runner/work/coursier/coursier/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /home/runner/work/coursier/coursier/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[169/306] util.jvm[2.13.16].javacSystemJvm
+[169] Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "cs" (in directory "/home/runner/work/coursier/coursier"): Exec failed, error: 2 (No such file or directory) 
+[169] 	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+[169] 	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+[169] 	at os.proc.proc$lzycompute$1(ProcessOps.scala:345)
+[169] 	at os.proc.os$proc$$proc$1(ProcessOps.scala:344)
+[169] 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+[169] Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+[169] 	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+[169] 	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+[169] 	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+[169] 	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+[169] 	... 4 more
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...ationOwnershipTests =============== 49s
+1 tasks failed
+util.jvm[2.13.16].javacSystemJvm java.io.IOException: Cannot run program "cs" (in directory "/home/runner/work/coursier/coursier"): Exec failed, error: 2 (No such file or directory) 
+    java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+    java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+    os.proc.proc$lzycompute$1(ProcessOps.scala:345)
+    os.proc.os$proc$$proc$1(ProcessOps.scala:344)
+    os.proc.spawn(ProcessOps.scala:355)
+    os.proc.call(ProcessOps.scala:224)
+    coursierbuild.modules.CoursierJavaModule.$anonfun$javacSystemJvm$3(CoursierJavaModule.scala:48)
+java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+    java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+    java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+    java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+    java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+    java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+    os.proc.proc$lzycompute$1(ProcessOps.scala:345)
+    os.proc.os$proc$$proc$1(ProcessOps.scala:344)
+    os.proc.spawn(ProcessOps.scala:355)
+    os.proc.call(ProcessOps.scala:224)
+    coursierbuild.modules.CoursierJavaModule.$anonfun$javacSystemJvm$3(CoursierJavaModule.scala:48)

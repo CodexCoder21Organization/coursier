@@ -1,0 +1,4 @@
+<tests>
+  <buildrule name="buildtest.runner.buildMaven()" success="true" time="59287" output-files="139" output-bytes="125843907" executions="1"/>
+  <test file="/__w/BuildTestRunner/BuildTestRunner/tests/testInvestigateFamilyStopBeforeBatchEntry.kts" name="buildtest.runner.testInvestigateFamilyStopBeforeBatchEntry" success="true" time="25400"/>
+</tests>
