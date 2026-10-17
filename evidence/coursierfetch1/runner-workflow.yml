@@ -1,0 +1,127 @@
+name: coursierfetch1 fetch diagnosis
+on:
+  push:
+    branches: [wip/gha-run/coursierfetch1]
+permissions:
+  contents: read
+jobs:
+  diag1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    container:
+      image: eclipse-temurin:21-jdk-jammy
+      options: --init
+    env:
+      LC_ALL: C.UTF-8
+      JAVA_OPTS: -Xmx2g
+    steps:
+      - name: Install tools
+        run: |
+          apt update
+          apt install -y git curl python3
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          ref: 0d27952c335641435a76599d1f6500dfd4f3387c
+      - name: Exact source
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          mkdir -p validation-results
+          git rev-parse HEAD > validation-results/source-proof.txt
+          git diff --check
+          git diff --stat >> validation-results/source-proof.txt
+          sha256sum src/buildtest/runner/*.kt tests/test*BatchEntry.kts >> validation-results/source-proof.txt
+          df -h /
+      - name: Run targeted cases
+        run: |
+          set +e
+          timeout 20m scripts/test.bash --local --test testInvestigateFamilyStopBeforeBatchEntry --log validation-results/diag1.xml > validation-results/diag1.log 2>&1
+          echo $? > validation-results/exit-code.txt
+          test -s validation-results/diag1.xml
+      - name: Retain native XML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coursierfetch1-diagnostic-diag1
+          path: validation-results/
+          if-no-files-found: error
+  diag2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    container:
+      image: eclipse-temurin:21-jdk-jammy
+      options: --init
+    env:
+      LC_ALL: C.UTF-8
+      JAVA_OPTS: -Xmx2g
+    steps:
+      - name: Install tools
+        run: |
+          apt update
+          apt install -y git curl python3
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          ref: 0d27952c335641435a76599d1f6500dfd4f3387c
+      - name: Exact source
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          mkdir -p validation-results
+          git rev-parse HEAD > validation-results/source-proof.txt
+          git diff --check
+          git diff --stat >> validation-results/source-proof.txt
+          sha256sum src/buildtest/runner/*.kt tests/test*BatchEntry.kts >> validation-results/source-proof.txt
+          df -h /
+      - name: Run targeted cases
+        run: |
+          set +e
+          timeout 20m scripts/test.bash --local --test testInvestigateFamilyStopBeforeBatchEntry --log validation-results/diag2.xml > validation-results/diag2.log 2>&1
+          echo $? > validation-results/exit-code.txt
+          test -s validation-results/diag2.xml
+      - name: Retain native XML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coursierfetch1-diagnostic-diag2
+          path: validation-results/
+          if-no-files-found: error
+  diag3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    container:
+      image: eclipse-temurin:21-jdk-jammy
+      options: --init
+    env:
+      LC_ALL: C.UTF-8
+      JAVA_OPTS: -Xmx2g
+    steps:
+      - name: Install tools
+        run: |
+          apt update
+          apt install -y git curl python3
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          ref: 0d27952c335641435a76599d1f6500dfd4f3387c
+      - name: Exact source
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          mkdir -p validation-results
+          git rev-parse HEAD > validation-results/source-proof.txt
+          git diff --check
+          git diff --stat >> validation-results/source-proof.txt
+          sha256sum src/buildtest/runner/*.kt tests/test*BatchEntry.kts >> validation-results/source-proof.txt
+          df -h /
+      - name: Run targeted cases
+        run: |
+          set +e
+          timeout 20m scripts/test.bash --local --test testInvestigateFamilyStopBeforeBatchEntry --log validation-results/diag3.xml > validation-results/diag3.log 2>&1
+          echo $? > validation-results/exit-code.txt
+          test -s validation-results/diag3.xml
+      - name: Retain native XML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coursierfetch1-diagnostic-diag3
+          path: validation-results/
+          if-no-files-found: error

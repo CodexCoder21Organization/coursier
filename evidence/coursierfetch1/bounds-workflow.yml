@@ -1,0 +1,42 @@
+name: coursierfetch1 existing bounds diagnosis
+on:
+  push:
+    branches: [wip/gha-run/coursierfetch1]
+permissions:
+  contents: read
+jobs:
+  existing-bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    container:
+      image: eclipse-temurin:21-jdk-jammy
+      options: --init
+    env:
+      LC_ALL: C.UTF-8
+      JAVA_OPTS: -Xmx2g
+    steps:
+      - name: Install tools
+        run: |
+          apt update
+          apt install -y git curl python3
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          ref: 097071aa2bc87de20bdd2ab059c04adb09d5efe9
+      - name: Run existing public resolver bounds
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          mkdir -p validation-results
+          git rev-parse HEAD > validation-results/source-proof.txt
+          df -h /
+          set +e
+          timeout 20m scripts/test.bash --local --test coursierSilentStallFailsWithinFetchBackstopTest --test coursierResolutionAgainstStalledRepositoryFailsFastInsteadOfHanging --log validation-results/bounds.xml > validation-results/bounds.log 2>&1
+          echo $? > validation-results/exit-code.txt
+          test -s validation-results/bounds.xml
+      - name: Retain native XML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coursierfetch1-existing-bounds
+          path: validation-results/
+          if-no-files-found: error

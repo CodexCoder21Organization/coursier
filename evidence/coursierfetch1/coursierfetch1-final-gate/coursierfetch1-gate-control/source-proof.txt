@@ -1,0 +1,4 @@
+519bb1d0c38072871d9634e1fbcf26756287bbc2
+ modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala     | 5 -----
+ .../jvm/src/main/scala/coursier/cache/internal/Downloader.scala      | 2 +-
+ 2 files changed, 1 insertion(+), 6 deletions(-)
