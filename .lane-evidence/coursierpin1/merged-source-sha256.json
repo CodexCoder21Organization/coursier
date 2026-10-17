@@ -1,0 +1,5 @@
+{
+  "modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala": "d76e6946931dc5601470358f9b893ea8546529e3019e97d6002b678e7d951e4e",
+  "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala": "69cdf1711dcfdaed8392b6ec5d5d379c4d0d7a665fa9376b47ca2e75c5a86f07",
+  "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala": "b43b1d2798e022d3e6ddee1ba7579173bc2dc623356384f2f924346578d2c82f"
+}
