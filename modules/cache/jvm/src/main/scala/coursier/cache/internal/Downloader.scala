@@ -816,7 +816,7 @@ object Downloader {
   ): Either[ArtifactError, T] =
     retry.retryOpt {
       try {
-        val res0 = CacheLocks.withUrlLock(url) {
+        val res0 = CacheLocks.withDownloadLock(file) {
           try f
           catch {
             case nfe: FileNotFoundException if nfe.getMessage != null =>
