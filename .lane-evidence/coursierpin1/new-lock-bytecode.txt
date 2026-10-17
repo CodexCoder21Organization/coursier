@@ -1,0 +1,446 @@
+Compiled from "CacheLocks.scala"
+public final class coursier.cache.CacheLocks$ {
+  public static final coursier.cache.CacheLocks$ MODULE$;
+
+  private static final java.util.concurrent.ConcurrentHashMap<java.lang.String, java.lang.Object> urlLocks;
+
+  private static final java.lang.Object urlLockDummyObject;
+
+  public static {};
+    Code:
+       0: new           #2                  // class coursier/cache/CacheLocks$
+       3: dup
+       4: invokespecial #38                 // Method "<init>":()V
+       7: putstatic     #40                 // Field MODULE$:Lcoursier/cache/CacheLocks$;
+      10: new           #42                 // class java/util/concurrent/ConcurrentHashMap
+      13: dup
+      14: invokespecial #43                 // Method java/util/concurrent/ConcurrentHashMap."<init>":()V
+      17: putstatic     #45                 // Field urlLocks:Ljava/util/concurrent/ConcurrentHashMap;
+      20: new           #4                  // class java/lang/Object
+      23: dup
+      24: invokespecial #46                 // Method java/lang/Object."<init>":()V
+      27: putstatic     #48                 // Field urlLockDummyObject:Ljava/lang/Object;
+      30: return
+
+  public <T> T withStructureLock(java.io.File, scala.Function0<T>);
+    Code:
+       0: aload_1
+       1: new           #12                 // class coursier/cache/CacheLocks$$anon$1
+       4: dup
+       5: aload_2
+       6: invokespecial #56                 // Method coursier/cache/CacheLocks$$anon$1."<init>":(Lscala/Function0;)V
+       9: invokestatic  #61                 // Method coursier/paths/CachePath.withStructureLock:(Ljava/io/File;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
+      12: areturn
+
+  public <T> T withStructureLock(java.nio.file.Path, scala.Function0<T>);
+    Code:
+       0: aload_1
+       1: new           #14                 // class coursier/cache/CacheLocks$$anon$2
+       4: dup
+       5: aload_2
+       6: invokespecial #67                 // Method coursier/cache/CacheLocks$$anon$2."<init>":(Lscala/Function0;)V
+       9: invokestatic  #70                 // Method coursier/paths/CachePath.withStructureLock:(Ljava/nio/file/Path;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
+      12: areturn
+
+  public <T> T withLockOr(java.io.File, java.io.File, scala.Function0<T>, scala.Function0<scala.Option<T>>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: new           #78                 // class coursier/cache/internal/Retry
+       6: dup
+       7: iconst_4
+       8: new           #23                 // class scala/concurrent/duration/package$DurationInt
+      11: dup
+      12: getstatic     #83                 // Field scala/concurrent/duration/package$.MODULE$:Lscala/concurrent/duration/package$;
+      15: bipush        100
+      17: invokevirtual #86                 // Method scala/concurrent/duration/package$.DurationInt:(I)I
+      20: invokespecial #89                 // Method scala/concurrent/duration/package$DurationInt."<init>":(I)V
+      23: invokevirtual #93                 // Method scala/concurrent/duration/package$DurationInt.milliseconds:()Lscala/concurrent/duration/FiniteDuration;
+      26: ldc2_w        #94                 // double 2.0d
+      29: invokespecial #98                 // Method coursier/cache/internal/Retry."<init>":(ILscala/concurrent/duration/FiniteDuration;D)V
+      32: aload_3
+      33: aload         4
+      35: invokevirtual #101                // Method withLockOr:(Ljava/io/File;Ljava/io/File;Lcoursier/cache/internal/Retry;Lscala/Function0;Lscala/Function0;)Ljava/lang/Object;
+      38: areturn
+
+  public <T> T withLockOr(java.io.File, java.io.File, coursier.cache.internal.Retry, scala.Function0<T>, scala.Function0<scala.Option<T>>);
+    Code:
+       0: aload_2
+       1: invokestatic  #107                // Method coursier/paths/CachePath.lockFile:(Ljava/io/File;)Ljava/io/File;
+       4: invokevirtual #113                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       7: astore        6
+       9: aconst_null
+      10: invokestatic  #119                // Method scala/runtime/ObjectRef.create:(Ljava/lang/Object;)Lscala/runtime/ObjectRef;
+      13: astore        7
+      15: aload_0
+      16: aload_1
+      17: aload         6
+      19: aload         7
+      21: aload_3
+      22: invokedynamic #137,  0            // InvokeDynamic #0:apply$mcV$sp:(Ljava/nio/file/Path;Lscala/runtime/ObjectRef;Lcoursier/cache/internal/Retry;)Lscala/runtime/java8/JFunction0$mcV$sp;
+      27: invokevirtual #139                // Method withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+      30: pop
+      31: aload_0
+      32: aload         7
+      34: aload         5
+      36: aload         4
+      38: aload         6
+      40: invokespecial #143                // Method loop$1:(Lscala/runtime/ObjectRef;Lscala/Function0;Lscala/Function0;Ljava/nio/file/Path;)Ljava/lang/Object;
+      43: goto          76
+      46: astore        8
+      48: aload         7
+      50: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      53: checkcast     #148                // class java/nio/channels/FileChannel
+      56: ifnull        73
+      59: aload         7
+      61: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      64: checkcast     #148                // class java/nio/channels/FileChannel
+      67: invokevirtual #151                // Method java/nio/channels/FileChannel.close:()V
+      70: goto          73
+      73: aload         8
+      75: athrow
+      76: aload         7
+      78: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      81: checkcast     #148                // class java/nio/channels/FileChannel
+      84: ifnull        101
+      87: aload         7
+      89: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      92: checkcast     #148                // class java/nio/channels/FileChannel
+      95: invokevirtual #151                // Method java/nio/channels/FileChannel.close:()V
+      98: goto          101
+     101: areturn
+    Exception table:
+       from    to  target type
+          31    46    46   any
+
+  public <T> scala.util.Either<coursier.cache.ArtifactError, T> withLockFor(java.io.File, java.io.File, scala.Function0<scala.util.Either<coursier.cache.ArtifactError, T>>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload_2
+       5: invokedynamic #177,  0            // InvokeDynamic #1:apply:(Ljava/io/File;)Lscala/Function0;
+      10: invokevirtual #179                // Method withLockOr:(Ljava/io/File;Ljava/io/File;Lscala/Function0;Lscala/Function0;)Ljava/lang/Object;
+      13: checkcast     #181                // class scala/util/Either
+      16: areturn
+
+  private java.util.concurrent.ConcurrentHashMap<java.lang.String, java.lang.Object> urlLocks();
+    Code:
+       0: getstatic     #45                 // Field urlLocks:Ljava/util/concurrent/ConcurrentHashMap;
+       3: areturn
+
+  private java.lang.Object urlLockDummyObject();
+    Code:
+       0: getstatic     #48                 // Field urlLockDummyObject:Ljava/lang/Object;
+       3: areturn
+
+  public <T> scala.Option<T> withDownloadLock(java.io.File, scala.Function0<T>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #190                // Method java/io/File.getCanonicalPath:()Ljava/lang/String;
+       5: aload_2
+       6: invokevirtual #194                // Method withUrlLock:(Ljava/lang/String;Lscala/Function0;)Lscala/Option;
+       9: areturn
+
+  public <T> scala.Option<T> withUrlLock(java.lang.String, scala.Function0<T>);
+    Code:
+       0: aload_0
+       1: invokespecial #198                // Method urlLocks:()Ljava/util/concurrent/ConcurrentHashMap;
+       4: aload_1
+       5: aload_0
+       6: invokespecial #200                // Method urlLockDummyObject:()Ljava/lang/Object;
+       9: invokevirtual #204                // Method java/util/concurrent/ConcurrentHashMap.putIfAbsent:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      12: astore_3
+      13: aload_3
+      14: ifnonnull     57
+      17: new           #206                // class scala/Some
+      20: dup
+      21: aload_2
+      22: invokeinterface #208,  1          // InterfaceMethod scala/Function0.apply:()Ljava/lang/Object;
+      27: invokespecial #211                // Method scala/Some."<init>":(Ljava/lang/Object;)V
+      30: goto          47
+      33: astore        4
+      35: aload_0
+      36: invokespecial #198                // Method urlLocks:()Ljava/util/concurrent/ConcurrentHashMap;
+      39: aload_1
+      40: invokevirtual #215                // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+      43: pop
+      44: aload         4
+      46: athrow
+      47: aload_0
+      48: invokespecial #198                // Method urlLocks:()Ljava/util/concurrent/ConcurrentHashMap;
+      51: aload_1
+      52: invokevirtual #215                // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+      55: pop
+      56: areturn
+      57: getstatic     #220                // Field scala/None$.MODULE$:Lscala/None$;
+      60: areturn
+    Exception table:
+       from    to  target type
+          17    33    33   any
+
+  public static final java.nio.channels.FileChannel $anonfun$withLockOr$2(java.nio.file.Path);
+    Code:
+       0: aload_0
+       1: iconst_2
+       2: anewarray     #229                // class java/nio/file/OpenOption
+       5: dup
+       6: iconst_0
+       7: getstatic     #235                // Field java/nio/file/StandardOpenOption.CREATE:Ljava/nio/file/StandardOpenOption;
+      10: aastore
+      11: dup
+      12: iconst_1
+      13: getstatic     #238                // Field java/nio/file/StandardOpenOption.WRITE:Ljava/nio/file/StandardOpenOption;
+      16: aastore
+      17: invokestatic  #242                // Method java/nio/channels/FileChannel.open:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/nio/channels/FileChannel;
+      20: areturn
+
+  public static final void $anonfun$withLockOr$1(java.nio.file.Path, scala.runtime.ObjectRef, coursier.cache.internal.Retry);
+    Code:
+       0: aload_0
+       1: invokeinterface #247,  1          // InterfaceMethod java/nio/file/Path.getParent:()Ljava/nio/file/Path;
+       6: invokestatic  #253                // Method coursier/paths/Util.createDirectories:(Ljava/nio/file/Path;)V
+       9: aload_1
+      10: aload_2
+      11: aload_0
+      12: invokedynamic #261,  0            // InvokeDynamic #2:apply:(Ljava/nio/file/Path;)Lscala/Function0;
+      17: new           #16                 // class coursier/cache/CacheLocks$$anonfun$$nestedInanonfun$withLockOr$1$1
+      20: dup
+      21: invokespecial #262                // Method coursier/cache/CacheLocks$$anonfun$$nestedInanonfun$withLockOr$1$1."<init>":()V
+      24: invokevirtual #265                // Method coursier/cache/internal/Retry.retry:(Lscala/Function0;Lscala/PartialFunction;)Ljava/lang/Object;
+      27: checkcast     #148                // class java/nio/channels/FileChannel
+      30: putfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      33: return
+
+  private static final java.nio.channels.FileLock liftedTree1$1(scala.runtime.ObjectRef, scala.runtime.BooleanRef);
+    Code:
+       0: aload_0
+       1: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+       4: checkcast     #148                // class java/nio/channels/FileChannel
+       7: invokevirtual #272                // Method java/nio/channels/FileChannel.tryLock:()Ljava/nio/channels/FileLock;
+      10: goto          128
+      13: astore_3
+      14: aload_3
+      15: astore        4
+      17: aload         4
+      19: instanceof    #274                // class java/nio/channels/OverlappingFileLockException
+      22: ifeq          29
+      25: aconst_null
+      26: goto          125
+      29: goto          32
+      32: aload         4
+      34: instanceof    #276                // class java/nio/file/AccessDeniedException
+      37: ifeq          53
+      40: getstatic     #281                // Field scala/util/Properties$.MODULE$:Lscala/util/Properties$;
+      43: invokevirtual #285                // Method scala/util/Properties$.isWin:()Z
+      46: ifeq          53
+      49: aconst_null
+      50: goto          125
+      53: goto          56
+      56: aload         4
+      58: instanceof    #287                // class java/io/IOException
+      61: ifeq          120
+      64: aload         4
+      66: checkcast     #287                // class java/io/IOException
+      69: astore        5
+      71: aload         5
+      73: invokevirtual #290                // Method java/io/IOException.getMessage:()Ljava/lang/String;
+      76: ldc_w         #292                // String Resource deadlock avoided
+      79: astore        6
+      81: dup
+      82: ifnonnull     94
+      85: pop
+      86: aload         6
+      88: ifnull        102
+      91: goto          117
+      94: aload         6
+      96: invokevirtual #296                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      99: ifeq          117
+     102: aload_1
+     103: iconst_1
+     104: putfield      #301                // Field scala/runtime/BooleanRef.elem:Z
+     107: ldc2_w        #302                // long 200l
+     110: invokestatic  #309                // Method java/lang/Thread.sleep:(J)V
+     113: aconst_null
+     114: goto          125
+     117: goto          123
+     120: goto          123
+     123: aload_3
+     124: athrow
+     125: goto          128
+     128: areturn
+    Exception table:
+       from    to  target type
+           0    10    13   Class java/lang/Throwable
+
+  private final java.lang.Object loop$1(scala.runtime.ObjectRef, scala.Function0, scala.Function0, java.nio.file.Path);
+    Code:
+       0: aconst_null
+       1: astore        9
+       3: iconst_0
+       4: invokestatic  #317                // Method scala/runtime/BooleanRef.create:(Z)Lscala/runtime/BooleanRef;
+       7: astore        10
+       9: aload_1
+      10: aload         10
+      12: invokestatic  #319                // Method liftedTree1$1:(Lscala/runtime/ObjectRef;Lscala/runtime/BooleanRef;)Ljava/nio/channels/FileLock;
+      15: astore        9
+      17: aload         10
+      19: getfield      #301                // Field scala/runtime/BooleanRef.elem:Z
+      22: ifeq          31
+      25: getstatic     #220                // Field scala/None$.MODULE$:Lscala/None$;
+      28: goto          215
+      31: aload         9
+      33: ifnonnull     48
+      36: aload_2
+      37: invokeinterface #208,  1          // InterfaceMethod scala/Function0.apply:()Ljava/lang/Object;
+      42: checkcast     #321                // class scala/Option
+      45: goto          215
+      48: new           #206                // class scala/Some
+      51: dup
+      52: aload_3
+      53: invokeinterface #208,  1          // InterfaceMethod scala/Function0.apply:()Ljava/lang/Object;
+      58: invokespecial #211                // Method scala/Some."<init>":(Ljava/lang/Object;)V
+      61: goto          140
+      64: astore        12
+      66: aload         9
+      68: invokevirtual #324                // Method java/nio/channels/FileLock.release:()V
+      71: aconst_null
+      72: astore        9
+      74: aload_1
+      75: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      78: checkcast     #148                // class java/nio/channels/FileChannel
+      81: invokevirtual #151                // Method java/nio/channels/FileChannel.close:()V
+      84: aload_1
+      85: aconst_null
+      86: putfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      89: aload         4
+      91: invokestatic  #330                // Method java/nio/file/Files.deleteIfExists:(Ljava/nio/file/Path;)Z
+      94: pop
+      95: goto          137
+      98: astore        13
+     100: aload         13
+     102: astore        14
+     104: aload         14
+     106: instanceof    #276                // class java/nio/file/AccessDeniedException
+     109: ifeq          128
+     112: getstatic     #281                // Field scala/util/Properties$.MODULE$:Lscala/util/Properties$;
+     115: invokevirtual #285                // Method scala/util/Properties$.isWin:()Z
+     118: ifeq          128
+     121: getstatic     #336                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+     124: pop
+     125: goto          134
+     128: goto          131
+     131: aload         13
+     133: athrow
+     134: goto          137
+     137: aload         12
+     139: athrow
+     140: astore        11
+     142: aload         9
+     144: invokevirtual #324                // Method java/nio/channels/FileLock.release:()V
+     147: aconst_null
+     148: astore        9
+     150: aload_1
+     151: getfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     154: checkcast     #148                // class java/nio/channels/FileChannel
+     157: invokevirtual #151                // Method java/nio/channels/FileChannel.close:()V
+     160: aload_1
+     161: aconst_null
+     162: putfield      #146                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     165: aload         4
+     167: invokestatic  #330                // Method java/nio/file/Files.deleteIfExists:(Ljava/nio/file/Path;)Z
+     170: pop
+     171: goto          213
+     174: astore        13
+     176: aload         13
+     178: astore        14
+     180: aload         14
+     182: instanceof    #276                // class java/nio/file/AccessDeniedException
+     185: ifeq          204
+     188: getstatic     #281                // Field scala/util/Properties$.MODULE$:Lscala/util/Properties$;
+     191: invokevirtual #285                // Method scala/util/Properties$.isWin:()Z
+     194: ifeq          204
+     197: getstatic     #336                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+     200: pop
+     201: goto          210
+     204: goto          207
+     207: aload         13
+     209: athrow
+     210: goto          213
+     213: aload         11
+     215: goto          236
+     218: astore        15
+     220: aload         9
+     222: ifnull        233
+     225: aload         9
+     227: invokevirtual #324                // Method java/nio/channels/FileLock.release:()V
+     230: goto          233
+     233: aload         15
+     235: athrow
+     236: aload         9
+     238: ifnull        249
+     241: aload         9
+     243: invokevirtual #324                // Method java/nio/channels/FileLock.release:()V
+     246: goto          249
+     249: astore        8
+     251: aload         8
+     253: astore        16
+     255: aload         16
+     257: instanceof    #206                // class scala/Some
+     260: ifeq          280
+     263: aload         16
+     265: checkcast     #206                // class scala/Some
+     268: astore        17
+     270: aload         17
+     272: invokevirtual #339                // Method scala/Some.value:()Ljava/lang/Object;
+     275: astore        18
+     277: aload         18
+     279: areturn
+     280: goto          283
+     283: getstatic     #220                // Field scala/None$.MODULE$:Lscala/None$;
+     286: aload         16
+     288: invokevirtual #296                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+     291: ifeq          297
+     294: goto          0
+     297: goto          300
+     300: new           #341                // class scala/MatchError
+     303: dup
+     304: aload         16
+     306: invokespecial #342                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     309: athrow
+    Exception table:
+       from    to  target type
+          48    64    64   any
+          89    95    98   Class java/lang/Throwable
+         165   171   174   Class java/lang/Throwable
+           3   218   218   any
+
+  public static final scala.Some $anonfun$withLockFor$1(java.io.File);
+    Code:
+       0: new           #206                // class scala/Some
+       3: dup
+       4: new           #351                // class scala/util/Left
+       7: dup
+       8: new           #7                  // class coursier/cache/ArtifactError$Locked
+      11: dup
+      12: aload_0
+      13: invokespecial #354                // Method coursier/cache/ArtifactError$Locked."<init>":(Ljava/io/File;)V
+      16: invokespecial #355                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+      19: invokespecial #211                // Method scala/Some."<init>":(Ljava/lang/Object;)V
+      22: areturn
+
+  private coursier.cache.CacheLocks$();
+    Code:
+       0: aload_0
+       1: invokespecial #46                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private static java.lang.Object $deserializeLambda$(java.lang.invoke.SerializedLambda);
+    Code:
+       0: aload_0
+       1: invokedynamic #367,  0            // InvokeDynamic #3:lambdaDeserialize:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;
+       6: areturn
+}

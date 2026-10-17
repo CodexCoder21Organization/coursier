@@ -1,0 +1,27 @@
+============================== cache.jvm[2.13.16].jar ==============================
+[097/178] cache.jvm[2.13.16].publishVersion
+[097] fatal: no tag exactly matches '7434805e35d9941f840c6e8c914f7d53fe852e10'
+[163/178] paths.compile
+[160/178] cache-util.compile
+[163] [info] compiling 5 Java sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierpin1/workspace/coursier/out/paths/compile.dest/classes ...
+[160] [info] compiling 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierpin1/workspace/coursier/out/cache-util/compile.dest/classes ...
+[163] [warn] source value 8 is obsolete and will be removed in a future release
+[160] [warn] source value 8 is obsolete and will be removed in a future release
+[160] [warn] target value 8 is obsolete and will be removed in a future release
+[163] [warn] target value 8 is obsolete and will be removed in a future release
+[163] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[160] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[123/178] mill.scalalib.ZincWorkerModule.worker
+[123] Compiling compiler interface...
+[160] [info] done compiling
+[163] [info] done compiling
+[165/178] util.jvm[2.13.16].compile
+[165] [info] compiling 16 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierpin1/workspace/coursier/out/util/jvm/2.13.16/compile.dest/classes ...
+[165] [info] done compiling
+[169/178] cache.jvm[2.13.16].compile
+[169] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierpin1/workspace/coursier/out/cache/jvm/2.13.16/compile.dest/classes ...
+[169] [warn] source value 8 is obsolete and will be removed in a future release
+[169] [warn] target value 8 is obsolete and will be removed in a future release
+[169] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[169] [info] done compiling
+[178/178] ============================== cache.jvm[2.13.16].jar ============================== 32s

@@ -1,0 +1,7 @@
+{
+  "missingDeclarations": [
+    "  public static final scala.util.Either $anonfun$remoteKeepErrors$2(coursier.cache.internal.Downloader, scala.util.Either, java.io.File);",
+    "  public static final java.lang.Object $anonfun$remoteKeepErrors$1(coursier.cache.internal.Downloader, java.io.File, scala.util.Either);",
+    "  public static final scala.Option $anonfun$downloading$1(java.lang.String, scala.Function0, scala.Function0);"
+  ]
+}
