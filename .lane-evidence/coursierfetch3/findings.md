@@ -5,7 +5,7 @@ Started 2026-10-17 03:04 UTC; deadline 03:34 UTC.
 - DONE: Read prior review/implementation findings, required Testing/Philosophy sections, repository README and source; fresh clone and initial fetch/rebase.
 - DONE: Verify exact-head retry-property failure with native XML; evidence checkpoint follows.
 - REFUTED: A test-only constructor change can close this gap. The requested explicit arguments are already present; production FileCache.download must forward them.
-- PENDING: Push milestone evidence, check PR draft/state, finish process audit.
+- DONE: Pushed milestone evidence; verified PR remains OPEN/DRAFT and all lane waits ended.
 
 ## Required reading
 OBSERVED: Read revcoursier2 and coursierfetch2 findings; Testing Architecture sections Test-Driven Development, Never Calibrate a Reproducer to a Machine, Tests Must Be Hermetically Sealed, Test Verdicts Must Be Hardware-Independent; Philosophy sections Reproduce a Bug Before You Fix It, A Refuted Hypothesis Is a Successful Outcome, Never Hide a Failure. Repository README read; root AGENTS.md absent. Applied github-repos skill to locate coursier.
@@ -47,4 +47,12 @@ OBSERVED: First attempt, same location joins its owner, exact native error `java
 - DONE: Canonical-destination product implementation untouched; state precisely why a separate product change is needed.
 - NOT MET: Green retry-property control, 3/3 gate and fix-only mutation control; no authorized test-only correction exists.
 - NOT APPLICABLE: Push a corrected source to PR/update its description; no correction has been made and no green result is claimed. Existing draft PR remains unchanged. Evidence is pushed separately.
-- IN PROGRESS: Durable evidence push, final PR/process audit.
+- DONE: Durable evidence push, final PR/process audit.
+
+## Final state — 2026-10-17 03:11 UTC
+OBSERVED: Native negative control and source/hash proof are durable at https://github.com/CodexCoder21Organization/coursier/commit/2ac99218f2f36e42838742722c48d50757942bf9 on https://github.com/CodexCoder21Organization/coursier/tree/wip/coursierfetch3-evidence/.lane-evidence/coursierfetch3 . Final audit is checkpointed on the same evidence branch. Evidence-only diff adds no product, fixture, README, dependency or workflow changes to the PR.
+OBSERVED: Final live read confirms https://github.com/CodexCoder21Organization/coursier/pull/5 remains OPEN and DRAFT at unchanged 5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3. No PR source/body mutation occurred because no correction or positive gate exists. The production canonical-destination coordination change is untouched.
+OBSERVED: Local command has terminated, slot released, and ps -eo process audit finds no remaining lane-owned build/wait processes. Temporary invocation tools and compiled run output removed after retaining native evidence. No remote test submission, workflow branch, model delegation, PR CI monitoring, merge, readiness change, publication, deployment, production-host call, handoff operation or challenge-service call occurred.
+INFER: The next authorized scope must include the production FileCache argument-forwarding correction, followed by this same property control and the ordinary registered gate. Repeating fixture constructor settings cannot produce that correction.
+
+NOT READY: requested test-only fix is already present in all six constructors; production FileCache.download must forward the active retry count and backoff arguments. Exact-head property control reproduces native 2/3 first attempts, same-file wait timeout; evidence is preserved separately and draft PR remains unchanged.

@@ -1,0 +1,8 @@
+{
+  "remaining_lane_build_or_wait_processes": [],
+  "build_slot_released": true,
+  "pr_state": "OPEN",
+  "pr_draft": true,
+  "pr_head": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3",
+  "source_test_and_readme_delta": "none"
+}
