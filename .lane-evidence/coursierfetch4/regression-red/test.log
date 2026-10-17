@@ -1,0 +1,28 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+=============== cache.jvm[2.13.16].test.testOnly...che.FileCacheRetrySettingsTests ===============
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch4/out/mill-build/compile.dest/classes ...
+[build.mill-61] [info] done compiling
+[build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch4/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch4/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] one warning found
+[build.mill-61] [info] done compiling
+[300/307] cache.jvm[2.13.16].test.compile
+[300] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch4/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[300] [info] done compiling
+[307/307] cache.jvm[2.13.16].test.testOnly
+[307] Picked up JAVA_TOOL_OPTIONS: -Xmx2g
+[307] -------------------------------- Running Tests --------------------------------
+[307] [31mX[39m coursier.cache.FileCacheRetrySettingsTests.explicit retry settings govern same-file waiting [2m30123ms[0m 
+[307]   [91m[4mutest.AssertionError[39m[24m: assert(waiterEntered.await(30, TimeUnit.SECONDS))
+[307]   [36mwaiterEntered[39m: [32mCountDownLatch[39m = java.util.concurrent.CountDownLatch@e70f13a[Count = 1]
+[307]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[307]     [31mcoursier.cache.FileCacheRetrySettingsTests$.[91m$anonfun$tests$2[39m([91mFileCacheRetrySettingsTests.scala[39m:[91m86[39m)
+[307] Tests: 1, Passed: 0, Failed: 1
+[307/307, 1 failed] =============== cache.jvm[2.13.16].t...eRetrySettingsTests =============== 47s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.FileCacheRetrySettingsTests coursier.cache.FileCacheRetrySettingsTests.explicit retry settings govern same-file waiting
