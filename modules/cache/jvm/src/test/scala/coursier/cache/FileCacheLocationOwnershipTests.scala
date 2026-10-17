@@ -26,15 +26,21 @@ object FileCacheLocationOwnershipTests extends TestSuite {
       server.setExecutor(serverWorkers)
       server.createContext("/artifact", exchange => {
         try {
-          val request = requests.incrementAndGet()
-          if (request == 1) {
-            ownerEntered.countDown()
-            releaseOwner.await()
+          if (exchange.getRequestMethod == "HEAD") {
+            exchange.getResponseHeaders.add("Content-Length", "1")
+            exchange.sendResponseHeaders(200, -1)
           }
-          else secondEntered.countDown()
-          val status = 200
-          exchange.sendResponseHeaders(status, 1)
-          exchange.getResponseBody.write(request)
+          else {
+            val request = requests.incrementAndGet()
+            if (request == 1) {
+              ownerEntered.countDown()
+              releaseOwner.await()
+            }
+            else secondEntered.countDown()
+            val status = 200
+            exchange.sendResponseHeaders(status, 1)
+            exchange.getResponseBody.write(request)
+          }
         }
         finally exchange.close()
       })
@@ -82,15 +88,21 @@ object FileCacheLocationOwnershipTests extends TestSuite {
       server.setExecutor(serverWorkers)
       server.createContext("/artifact", exchange => {
         try {
-          val request = requests.incrementAndGet()
-          if (request == 1) {
-            ownerEntered.countDown()
-            releaseOwner.await()
+          if (exchange.getRequestMethod == "HEAD") {
+            exchange.getResponseHeaders.add("Content-Length", "1")
+            exchange.sendResponseHeaders(200, -1)
           }
-          else secondEntered.countDown()
-          val status = if (request == 1) 500 else 200
-          exchange.sendResponseHeaders(status, 1)
-          exchange.getResponseBody.write(request)
+          else {
+            val request = requests.incrementAndGet()
+            if (request == 1) {
+              ownerEntered.countDown()
+              releaseOwner.await()
+            }
+            else secondEntered.countDown()
+            val status = if (request == 1) 500 else 200
+            exchange.sendResponseHeaders(status, 1)
+            exchange.getResponseBody.write(request)
+          }
         }
         finally exchange.close()
       })
@@ -139,15 +151,21 @@ object FileCacheLocationOwnershipTests extends TestSuite {
       server.setExecutor(serverWorkers)
       server.createContext("/artifact", exchange => {
         try {
-          val request = requests.incrementAndGet()
-          if (request == 1) {
-            ownerEntered.countDown()
-            releaseOwner.await()
+          if (exchange.getRequestMethod == "HEAD") {
+            exchange.getResponseHeaders.add("Content-Length", "1")
+            exchange.sendResponseHeaders(200, -1)
           }
-          else secondEntered.countDown()
-          val status = 200
-          exchange.sendResponseHeaders(status, 1)
-          exchange.getResponseBody.write(request)
+          else {
+            val request = requests.incrementAndGet()
+            if (request == 1) {
+              ownerEntered.countDown()
+              releaseOwner.await()
+            }
+            else secondEntered.countDown()
+            val status = 200
+            exchange.sendResponseHeaders(status, 1)
+            exchange.getResponseBody.write(request)
+          }
         }
         finally exchange.close()
       })
