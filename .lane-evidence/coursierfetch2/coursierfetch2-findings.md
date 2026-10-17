@@ -3,9 +3,9 @@ Started 2026-10-17 approximately 02:33 UTC; deadline 03:18 UTC.
 
 ## Plan
 - DONE: Read prior findings, required Testing Architecture and Philosophy sections, fork README; fresh clone, identity and initial fetch/rebase.
-- IN PROGRESS: Verify malformed-config baseline at 91c1001b; harden six constructors and the real same-file waiter guard.
-- PENDING: Run native three-run gate, config check, previous-product control and neighbors; audit first attempts.
-- PENDING: Checkpoint evidence, review test changes, update draft PR body and finish process audit.
+- DONE: Verify malformed-config baseline at 91c1001b; harden six constructors and the real same-file waiter guard.
+- DONE: Run native three-run gate, config check, previous-product control and neighbors; audit first attempts. Requested same-file red criterion is REFUTED by the old product passing it.
+- DONE: Checkpoint evidence, review test changes, update draft PR body and finish process audit.
 
 ## Required reading
 OBSERVED: Read Testing Architecture sections Test-Driven Development, Never Calibrate a Reproducer to a Machine, Tests Must Be Hermetically Sealed, Test Verdicts Must Be Hardware-Independent; Philosophy sections Reproduce a Bug Before You Fix It, A Refuted Hypothesis Is a Successful Outcome, Never Hide a Failure; coursier README; coursierfetch1 and revcoursier1 findings including both named P2 findings. No root AGENTS.md exists.
@@ -89,3 +89,15 @@ OBSERVED: git diff --stat 91c1001b...HEAD: FileCacheLocationOwnershipTests.scala
 
 ## FLAKES ENCOUNTERED — previous-product control
 OBSERVED: The control in run 38996343860 has the two intended independent-location assertion failures at secondEntered.await with latch count 1. These reproduce the known product defect fixed in round 1, with only product files reversed. Native errors/traces and run/source proofs are retained in coursierfetch2-final/coursierfetch2-gate-control; no unexpected first-attempt failure occurred.
+
+## Final state — 2026-10-17 02:55 UTC
+OBSERVED: https://github.com/CodexCoder21Organization/coursier/pull/5 is OPEN and remains DRAFT at exact tested head 5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3. Source was fast-forwarded only after the exact-source gate, and body was updated using the required PATCH API and verified by complete readback. The original why-first opening, exact campaign URL and required footer remain. Main still equals the initial b051ebea revision; no second rebase was needed. No PR CI watcher was started; the orchestrator owns that wait.
+OBSERVED: The temporary wip/gha-run/coursierfetch2 branch is deleted. All three tracked monitors have exited, and ps -eo pid,ppid,args -ww finds no remaining lane monitor. No local JVM/build slot was used. The checkout is clean; no workflow, log, evidence file, build output or investigation file is in the PR. Only the assigned fixture test file changed in round 2. No merge, enqueue, readiness change, publication, deployment, production-host operation, model delegation, remote test submission, handoff operation or challenge-service call occurred.
+OBSERVED: Both P2 test findings are addressed with native evidence. The strict requested output condition that the same-file guard be red on the old equal-URL product is refuted, so no such red result is claimed. This is the only reason the lane reports NOT READY against the literal requested final gate; the 18/18 positive gate and two independent old-product failures are complete. The orchestrator can accept the same-file case as the opposite guard or redefine the requested discriminator; this lane has not invented a different public contract to manufacture that result.
+
+## Final status report
+Original request: close the two P2 test findings on the download-location PR, prove configuration independence and real same-file overlap, preserve a draft, and stop at the updated PR. Implementation status: DONE for both findings; requested same-file red criterion: REFUTED. No delegated work is active or recently finished. Landing sweep: all assigned native gates are terminal, the exact tested source and PR description are pushed, and only the orchestrator's review/PR CI decision remains. No handoff action is authorized.
+The constructors now receive explicit inputs before any user default is evaluated. The real symlink alias is held in a same-file wait until the public watching callback occurs. Product behavior is unchanged by this round, and the expected old-product independent failures remain observable.
+Lessons: (1) Equal-URL same-file joining is an opposite guard for URL-versus-destination ownership, not a negative discriminator. (2) Fluent setters do not prevent earlier default-argument evaluation; fixtures must control constructor inputs. (3) A workflow conclusion cannot replace native test rows: compilation-only runs have no test verdict.
+
+NOT READY: requested same-file red control is refuted (old URL-based product passes 1/1); both P2 changes are at 5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3 in https://github.com/CodexCoder21Organization/coursier/pull/5 ; hermetic-config 0/3 -> 3/3 ; same-file guard fixed product 3/3 ; independent old-product reds 2/2 ; gate https://github.com/CodexCoder21Organization/coursier/actions/runs/38996343860 first-attempt 18/18.
