@@ -1,0 +1,199 @@
+Downloading mill 0.12.15 from https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/0.12.15/mill-dist-0.12.15.exe ...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  2 72.6M    2 1887k    0     0  2810k      0  0:00:26 --:--:--  0:00:26 2809k 12 72.6M   12 9603k    0     0  5715k      0  0:00:13  0:00:01  0:00:12 5716k 25 72.6M   25 18.4M    0     0  6851k      0  0:00:10  0:00:02  0:00:08 6850k 35 72.6M   35 25.8M    0     0  7209k      0  0:00:10  0:00:03  0:00:07 7208k 48 72.6M   48 35.0M    0     0  7661k      0  0:00:09  0:00:04  0:00:05 7660k 59 72.6M   59 43.4M    0     0  7836k      0  0:00:09  0:00:05  0:00:04 8511k 72 72.6M   72 52.3M    0     0  8023k      0  0:00:09  0:00:06  0:00:03 8800k 83 72.6M   83 60.9M    0     0  8131k      0  0:00:09  0:00:07  0:00:02 8850k 95 72.6M   95 69.6M    0     0  8215k      0  0:00:09  0:00:08  0:00:01 8956k100 72.6M  100 72.6M    0     0  8211k      0  0:00:09  0:00:09 --:--:-- 8800k
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/mill-build/compile.dest/classes ...
+[61/65] =============== cache.jvm[2.13.16].test.te...cheLocationOwnershipTests =============== 60s
+[build.mill-61] compile 30s
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[168/306] util.jvm[2.13.16].javacSystemJvm
+[168] Downloading https://github.com/coursier/jvm-index/raw/master/index.json
+[173/306] custom-protocol-for-test.javacSystemJvm
+[171/306] cache.jvm[2.13.16].javacSystemJvm
+[169/306] paths.javacSystemJvm
+[169] Downloading https://github.com/coursier/jvm-index/raw/master/index.json
+[171] Downloading https://github.com/coursier/jvm-index/raw/master/index.json
+[173] Downloading https://github.com/coursier/jvm-index/raw/master/index.json
+[170/306] cache-util.javacSystemJvm
+[170] Downloading https://github.com/coursier/jvm-index/raw/master/index.json
+[173] Downloaded https://github.com/coursier/jvm-index/raw/master/index.json
+[171] (watching) Downloaded https://github.com/coursier/jvm-index/raw/master/index.json
+[170] (watching) Downloaded https://github.com/coursier/jvm-index/raw/master/index.json
+[168] (watching) Downloaded https://github.com/coursier/jvm-index/raw/master/index.json
+[169] (watching) Downloaded https://github.com/coursier/jvm-index/raw/master/index.json
+[169] Downloading https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[170] Downloading https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[173] Downloading https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[171] Downloading https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[168] Downloading https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (3.83 %, 3931388 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[168] Still downloading:
+[168] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[168] 
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (8.96 %, 9190652 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[168] Still downloading:
+[168] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[168] 
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[255/306] =============== cache.jvm[2.13.16].test....heLocationOwnershipTests =============== 120s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 19s Downloading [60/60...22/46150329 bytes)
+[168] util.jvm[2.13.16].javacSystemJvm 19s
+[169] paths.javacSystemJvm 19s
+[170] cache-util.javacSystemJvm 19s
+[171] cache.jvm[2.13.16].javacSystemJvm 19s
+[173] custom-protocol-for-test.javacSystemJvm 19s
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (11.41 %, 11710759 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[168] Still downloading:
+[168] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[168] 
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (28.10 %, 28835239 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[168] Still downloading:
+[168] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[168] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (50.90 %, 52232192 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[168] Still downloading:
+[168] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[168] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (70.11 %, 71941670 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[168] Still downloading:
+[168] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[168] 
+[173] Still downloading:
+[173] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[173] 
+[171] Still downloading:
+[171] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[171] 
+[169] Still downloading:
+[169] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (99.45 %, 102053409 / 102617391)
+[169] 
+[170] Still downloading:
+[170] https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz (0.00 %, 0 / 102617391)
+[170] 
+[169] Downloaded https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[173] (watching) Downloaded https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[168] (watching) Downloaded https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[171] (watching) Downloaded https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[170] (watching) Downloaded https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_aarch64_linux_hotspot_8u504b01.tar.gz
+[259/306] mill.scalalib.ZincWorkerModule.worker
+[259] Compiling compiler interface...
+[273/306] cache-util.compile
+[270/306] paths.compile
+[273] [info] compiling 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/cache-util/compile.dest/classes ...
+[270] [info] compiling 5 Java sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/paths/compile.dest/classes ...
+[270] [warn] source value 8 is obsolete and will be removed in a future release
+[270] [warn] target value 8 is obsolete and will be removed in a future release
+[273] [warn] source value 8 is obsolete and will be removed in a future release
+[273] [warn] target value 8 is obsolete and will be removed in a future release
+[270] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[273] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[273] [info] done compiling
+[270] [info] done compiling
+[268/306] custom-protocol-for-test.compile
+[274/306] util.jvm[2.13.16].compile
+[274] [info] compiling 16 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/util/jvm/2.13.16/compile.dest/classes ...
+[268] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/custom-protocol-for-test/compile.dest/classes ...
+[278/306] =============== cache.jvm[2.13.16].test....heLocationOwnershipTests =============== 180s
+[268] custom-protocol-for-test.compile 30s
+[274] util.jvm[2.13.16].compile 30s
+[268] [info] done compiling
+[274] [info] done compiling
+[292/306] cache.jvm[2.13.16].compile
+[292] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/cache/jvm/2.13.16/compile.dest/classes ...
+[292] [warn] source value 8 is obsolete and will be removed in a future release
+[292] [warn] target value 8 is obsolete and will be removed in a future release
+[292] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[292] [info] done compiling
+[299/306] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 10 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[299] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m739ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m44ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m72ms[0m  
+[306] Tests: 3, Passed: 3, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test....heLocationOwnershipTests =============== 213s

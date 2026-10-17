@@ -1,0 +1,17 @@
+[
+  {
+    "name": "independent locations",
+    "type": "java.lang.Exception",
+    "message": "scala.cli.config.ConfigDb$ConfigDbFormatError: Error parsing config DB /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/.review-invalid-config.json"
+  },
+  {
+    "name": "independent locations after an owner error",
+    "type": "java.lang.Exception",
+    "message": "scala.cli.config.ConfigDb$ConfigDbFormatError: Error parsing config DB /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/.review-invalid-config.json"
+  },
+  {
+    "name": "same location joins its owner",
+    "type": "java.lang.Exception",
+    "message": "scala.cli.config.ConfigDb$ConfigDbFormatError: Error parsing config DB /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/.review-invalid-config.json"
+  }
+]

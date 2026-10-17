@@ -1,0 +1,197 @@
+[
+  {
+    "job": "coursierfetch1-gate-control",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "30.179",
+        "failure": true,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "30.008",
+        "failure": true,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.029",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "history": 0,
+    "exit": "1",
+    "source": "91c1001b4191da7c0842f41d559dab5f2afb2c5f\n modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala     | 5 -----\n .../jvm/src/main/scala/coursier/cache/internal/Downloader.scala      | 2 +-\n 2 files changed, 1 insertion(+), 6 deletions(-)"
+  },
+  {
+    "job": "coursierfetch1-gate-neighbors",
+    "cases": [
+      {
+        "name": "check for updates once",
+        "time": "1.873",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "check extra artifact.0",
+        "time": "0.045",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "check extra artifact.1",
+        "time": "0.022",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "check extra artifact.2",
+        "time": "0.026",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "check extra artifact.3",
+        "time": "0.018",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "check extra artifact.4",
+        "time": "0.018",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "history": 0,
+    "exit": "0",
+    "source": "91c1001b4191da7c0842f41d559dab5f2afb2c5f"
+  },
+  {
+    "job": "coursierfetch1-gate-new1",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.264",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.018",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.029",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "history": 0,
+    "exit": "0",
+    "source": "91c1001b4191da7c0842f41d559dab5f2afb2c5f"
+  },
+  {
+    "job": "coursierfetch1-gate-new2",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.396",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.021",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.033",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "history": 0,
+    "exit": "0",
+    "source": "91c1001b4191da7c0842f41d559dab5f2afb2c5f"
+  },
+  {
+    "job": "coursierfetch1-gate-new3",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "0.382",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "0.018",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.031",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "history": 0,
+    "exit": "0",
+    "source": "91c1001b4191da7c0842f41d559dab5f2afb2c5f"
+  },
+  {
+    "job": "coursierfetch1-red",
+    "cases": [
+      {
+        "name": "independent locations",
+        "time": "30.248",
+        "failure": true,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "independent locations after an owner error",
+        "time": "30.007",
+        "failure": true,
+        "error": false,
+        "skipped": false
+      },
+      {
+        "name": "same location joins its owner",
+        "time": "0.03",
+        "failure": false,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "history": 0,
+    "exit": "1",
+    "source": "21a761e083738ea47f334a53f045257dbd5b5e27"
+  }
+]

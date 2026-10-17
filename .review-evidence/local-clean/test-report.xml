@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="3" failures="0" errors="0" skipped="0" time="0.855">
+        <testsuite name="coursier.cache.FileCacheLocationOwnershipTests" tests="3" failures="0" errors="0" skipped="0" time="0.855" timestamp="2026-10-17T02:31:48">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations" time="0.739">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations after an owner error" time="0.044">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="same location joins its owner" time="0.072">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

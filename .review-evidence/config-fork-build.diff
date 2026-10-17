@@ -1,0 +1,14 @@
+diff --git a/mill-build/src/coursierbuild/modules/CacheJvmBase.scala b/mill-build/src/coursierbuild/modules/CacheJvmBase.scala
+index 98a22f1c..3c615d4a 100644
+--- a/mill-build/src/coursierbuild/modules/CacheJvmBase.scala
++++ b/mill-build/src/coursierbuild/modules/CacheJvmBase.scala
+@@ -44,6 +44,9 @@ trait CacheJvmBase extends Cache with CsMima {
+     )
+ 
+   trait CacheJvmBaseTests extends CrossSbtTests {
++    override def forkArgs: T[Seq[String]] = Task {
++      super.forkArgs() ++ Seq("-Dscala-cli.config=/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/.review-invalid-config.json")
++    }
+     def sources = Task {
+       val dest = Task.dest / "CustomLoaderClasspath.scala"
+       val customLoaderCp0 = customLoaderCp()

@@ -1,0 +1,33 @@
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[65/65, 1 failed] =============== cache.jvm[2.13.16].te...ocationOwnershipTests =============== 4s
+1 tasks failed
+mill.scalalib.ZincWorkerModule.worker java.lang.Exception: scala.cli.config.ConfigDb$ConfigDbFormatError: Error parsing config DB /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/.review-invalid-config.json
+    coursier.cache.CacheDefaults$.$anonfun$credentialsFromConfig$1(CacheDefaults.scala:170)
+    scala.util.Either.fold(Either.scala:198)
+    coursier.cache.CacheDefaults$.credentialsFromConfig(CacheDefaults.scala:170)
+    coursier.cache.CacheDefaults$.credentials(CacheDefaults.scala:164)
+    coursier.cache.FileCache$.apply(FileCache.scala:37)
+    coursier.cache.FileCache$.apply(FileCache.scala:461)
+    coursier.cache.PlatformCacheCompanion.default$lzycompute(PlatformCacheCompanion.scala:7)
+    coursier.cache.PlatformCacheCompanion.default(PlatformCacheCompanion.scala:7)
+    coursier.Resolve$.apply(Resolve.scala:303)
+    mill.scalalib.CoursierModule.$anonfun$repositoriesTask$1(CoursierModule.scala:148)
+    mill.define.Task$TraverseCtx.evaluate(Task.scala:266)
+scala.cli.config.ConfigDb$ConfigDbFormatError: Error parsing config DB /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier1/.review-invalid-config.json
+    scala.cli.config.ConfigDb$.apply(ConfigDb.scala:229)
+    scala.cli.config.ConfigDb$.open(ConfigDb.scala:245)
+    coursier.cache.CacheDefaults$.credentialsFromConfig(CacheDefaults.scala:170)
+    coursier.cache.CacheDefaults$.credentials(CacheDefaults.scala:164)
+    coursier.cache.FileCache$.apply(FileCache.scala:37)
+    coursier.cache.FileCache$.apply(FileCache.scala:461)
+    coursier.cache.PlatformCacheCompanion.default$lzycompute(PlatformCacheCompanion.scala:7)
+    coursier.cache.PlatformCacheCompanion.default(PlatformCacheCompanion.scala:7)
+    coursier.Resolve$.apply(Resolve.scala:303)
+    mill.scalalib.CoursierModule.$anonfun$repositoriesTask$1(CoursierModule.scala:148)
+    mill.define.Task$TraverseCtx.evaluate(Task.scala:266)
+com.github.plokhotnyuk.jsoniter_scala.core.JsonReaderException: unexpected end of input, offset: 0x00000001, buf:
++----------+-------------------------------------------------+------------------+
+|          |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f | 0123456789abcdef |
++----------+-------------------------------------------------+------------------+
+| 00000000 | 7b                                              | {                |
++----------+-------------------------------------------------+------------------+
