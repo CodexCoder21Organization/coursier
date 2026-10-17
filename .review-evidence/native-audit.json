@@ -1,0 +1,115 @@
+[
+  {
+    "job": "config",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "multiplier",
+    "rows": 1,
+    "pass": 1,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "mutation",
+    "rows": 1,
+    "pass": 0,
+    "fail": 1,
+    "exit": 1,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {
+      "type": "utest.AssertionError",
+      "assertion": "assert(waiterEntered.await(30, TimeUnit.SECONDS))"
+    }
+  },
+  {
+    "job": "neighbors",
+    "rows": 6,
+    "pass": 6,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "ordinary1",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "ordinary2",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "ordinary3",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "property1",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "property2",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  },
+  {
+    "job": "property3",
+    "rows": 4,
+    "pass": 4,
+    "fail": 0,
+    "exit": 0,
+    "history": 0,
+    "skipped": 0,
+    "six_hashes": "match expected revisions",
+    "details": {}
+  }
+]

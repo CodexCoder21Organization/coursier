@@ -1,0 +1,121 @@
+{
+  "base": "5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3",
+  "head": "d5eec8d10bf59305b4263bb96e741e45408c9f85",
+  "file": "modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala",
+  "whole_token_stream_equal": false,
+  "comparisons": {
+    "assertions": {
+      "before": 31,
+      "after": 31,
+      "equal": true
+    },
+    "constructors": {
+      "before": 6,
+      "after": 6,
+      "equal": true
+    },
+    "await_results": {
+      "before": 6,
+      "after": 6,
+      "equal": true
+    }
+  },
+  "token_differences": [
+    {
+      "operation": "delete",
+      "before": [
+        "{"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "{"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "}"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "}"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "{"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "{"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "}"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "}"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "{"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "{"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "}"
+      ],
+      "after": []
+    },
+    {
+      "operation": "delete",
+      "before": [
+        "}"
+      ],
+      "after": []
+    }
+  ],
+  "destination_fix": {
+    "modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala": {
+      "equal_91c1001b": true,
+      "equal_5470aee6": true,
+      "sha256": "69cdf1711dcfdaed8392b6ec5d5d379c4d0d7a665fa9376b47ca2e75c5a86f07"
+    },
+    "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala": {
+      "equal_91c1001b": true,
+      "equal_5470aee6": true,
+      "sha256": "b43b1d2798e022d3e6ddee1ba7579173bc2dc623356384f2f924346578d2c82f"
+    }
+  }
+}

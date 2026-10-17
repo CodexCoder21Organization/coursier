@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="4" failures="0" errors="0" skipped="0" time="0.479">
+        <testsuite name="coursier.cache.FileCacheRetrySettingsTests" tests="1" failures="0" errors="0" skipped="0" time="0.1" timestamp="2026-10-17T03:18:46">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheRetrySettingsTests" name="explicit retry settings govern same-file waiting" time="0.1">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheLocationOwnershipTests" tests="3" failures="0" errors="0" skipped="0" time="0.379" timestamp="2026-10-17T03:18:46">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations" time="0.314">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations after an owner error" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="same location joins its owner" time="0.045">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

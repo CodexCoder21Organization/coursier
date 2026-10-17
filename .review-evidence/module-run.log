@@ -1,0 +1,61 @@
+=============== cache.jvm[2.13.16].test.testOnly...che.FileCacheRetrySettingsTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[270/306] mill.scalalib.ZincWorkerModule.worker
+[270] Compiling compiler interface...
+[272/306] paths.compile
+[271/306] cache-util.compile
+[271] [info] compiling 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/cache-util/compile.dest/classes ...
+[272] [info] compiling 5 Java sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/paths/compile.dest/classes ...
+[272] [warn] source value 8 is obsolete and will be removed in a future release
+[271] [warn] source value 8 is obsolete and will be removed in a future release
+[272] [warn] target value 8 is obsolete and will be removed in a future release
+[271] [warn] target value 8 is obsolete and will be removed in a future release
+[272] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[271] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[271] [info] done compiling
+[272] [info] done compiling
+[278/306] =============== cache.jvm[2.13.16].test.t...eCacheRetrySettingsTests =============== 60s
+[273] util.jvm[2.13.16].compile 11s
+[274] custom-protocol-for-test.compile 11s
+[274/306] custom-protocol-for-test.compile
+[273/306] util.jvm[2.13.16].compile
+[274] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/custom-protocol-for-test/compile.dest/classes ...
+[273] [info] compiling 16 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/util/jvm/2.13.16/compile.dest/classes ...
+[274] [info] done compiling
+[273] [info] done compiling
+[292/306] cache.jvm[2.13.16].compile
+[292] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/cache/jvm/2.13.16/compile.dest/classes ...
+[292] [warn] source value 8 is obsolete and will be removed in a future release
+[292] [warn] target value 8 is obsolete and will be removed in a future release
+[292] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[292] [info] done compiling
+[299/306] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 11 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/revcoursier3/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[299] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m323ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m33ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m71ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheRetrySettingsTests.explicit retry settings govern same-file waiting [2m115ms[0m  
+[306] Tests: 4, Passed: 4, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test....eCacheRetrySettingsTests =============== 102s

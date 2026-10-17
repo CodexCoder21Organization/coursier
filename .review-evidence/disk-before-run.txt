@@ -1,0 +1,2 @@
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         1.8T  378G  1.4T  22% /

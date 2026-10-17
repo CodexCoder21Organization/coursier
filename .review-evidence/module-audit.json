@@ -1,0 +1,28 @@
+{
+  "rows": 4,
+  "passed": 4,
+  "history": [],
+  "exit": 0,
+  "tests": [
+    {
+      "classname": "coursier.cache.FileCacheRetrySettingsTests",
+      "name": "explicit retry settings govern same-file waiting",
+      "time": "0.115"
+    },
+    {
+      "classname": "coursier.cache.FileCacheLocationOwnershipTests",
+      "name": "independent locations",
+      "time": "0.323"
+    },
+    {
+      "classname": "coursier.cache.FileCacheLocationOwnershipTests",
+      "name": "independent locations after an owner error",
+      "time": "0.033"
+    },
+    {
+      "classname": "coursier.cache.FileCacheLocationOwnershipTests",
+      "name": "same location joins its owner",
+      "time": "0.071"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="1" failures="0" errors="0" skipped="0" time="0.309">
+        <testsuite name="coursier.cache.FileCacheRetrySettingsTests" tests="1" failures="0" errors="0" skipped="0" time="0.309" timestamp="2026-10-17T03:18:09">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheRetrySettingsTests" name="explicit retry settings govern same-file waiting" time="0.309">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>
