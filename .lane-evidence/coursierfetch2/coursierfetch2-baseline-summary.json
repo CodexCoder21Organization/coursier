@@ -1,0 +1,32 @@
+[
+  {
+    "file": "coursierfetch2-baseline/coursierfetch2-gate-config-baseline/out/cache/jvm/2.13.16/test/testOnly.dest/test-report.xml",
+    "name": "independent locations",
+    "errors": 1,
+    "type": [
+      "java.lang.Exception"
+    ],
+    "config_error": true,
+    "attempt_history": 0
+  },
+  {
+    "file": "coursierfetch2-baseline/coursierfetch2-gate-config-baseline/out/cache/jvm/2.13.16/test/testOnly.dest/test-report.xml",
+    "name": "independent locations after an owner error",
+    "errors": 1,
+    "type": [
+      "java.lang.Exception"
+    ],
+    "config_error": true,
+    "attempt_history": 0
+  },
+  {
+    "file": "coursierfetch2-baseline/coursierfetch2-gate-config-baseline/out/cache/jvm/2.13.16/test/testOnly.dest/test-report.xml",
+    "name": "same location joins its owner",
+    "errors": 1,
+    "type": [
+      "java.lang.Exception"
+    ],
+    "config_error": true,
+    "attempt_history": 0
+  }
+]

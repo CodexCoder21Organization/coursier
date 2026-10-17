@@ -1,0 +1,69 @@
+name: coursierfetch2 final ownership gates
+on:
+  push:
+    branches: [wip/gha-run/coursierfetch2]
+permissions:
+  contents: read
+jobs:
+  gate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: config-baseline
+            suite: coursier.cache.FileCacheLocationOwnershipTests
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LC_ALL: C.UTF-8
+      JAVA_TOOL_OPTIONS: -Xmx2g
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: 91c1001b4191da7c0842f41d559dab5f2afb2c5f
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Install the pinned Coursier launcher
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/coursier/launchers/15f36c167c30be237105f923151adaf177e7ee61/coursier -o "$RUNNER_TEMP/cs"
+          echo "c62c6feb15bf9cb9374dc61431c8f96f1d9cfd84ea79b40aa239b29f293623bf  $RUNNER_TEMP/cs" | sha256sum --check
+          chmod +x "$RUNNER_TEMP/cs"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Run public cache ownership cases
+        run: |
+          mkdir -p validation-results
+          git rev-parse HEAD > validation-results/source-proof.txt
+          printf '{' > "$RUNNER_TEMP/invalid-scala-config.json"
+          python3 - <<'PYCONFIG'
+          import os
+          from pathlib import Path
+          p = Path('mill-build/src/coursierbuild/modules/CacheJvmBase.scala')
+          text = p.read_text()
+          marker = '  trait CacheJvmBaseTests extends CrossSbtTests {'
+          extra = '\n    override def forkArgs: T[Seq[String]] = Task {\n      super.forkArgs() ++ Seq("-Dscala-cli.config=' + os.environ['RUNNER_TEMP'] + '/invalid-scala-config.json")\n    }'
+          assert text.count(marker) == 1
+          p.write_text(text.replace(marker, marker + extra))
+          PYCONFIG
+          git diff --stat >> validation-results/source-proof.txt
+          sha256sum README.md modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala > validation-results/file-hashes.txt
+          df -h /
+          set +e
+          timeout 20m ./mill -i 'cache.jvm[2.13.16].test.testOnly' ${{ matrix.suite }} > validation-results/test.log 2>&1
+          echo $? > validation-results/exit-code.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+          for path in Path('out').rglob('*.xml'):
+              dest = Path('validation-results') / path
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(path, dest)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coursierfetch2-gate-${{ matrix.name }}
+          path: validation-results/
+          if-no-files-found: error
