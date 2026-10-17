@@ -5,9 +5,9 @@ Started approximately 2026-10-17 02:55 UTC; deadline approximately 03:30 UTC.
 
 ## Plan
 - DONE: Read required Testing Architecture and Philosophy sections, predecessor review and round-2 findings; locate repository with github-repos skill and fresh clone.
-- IN PROGRESS: Read repository instructions/README; inspect destination ownership, canonical path behavior, shared lock namespace, and fixtures.
-- TODO: Run unchanged round-2 Mill command on exact head under a local build slot; audit native gate artifacts and first attempts.
-- TODO: Review refutation, record any findings with location/observations/inference/fix; push only evidence and finish process audit.
+- DONE: Read repository instructions/README; inspect destination ownership, canonical path behavior, shared lock namespace, and fixtures.
+- DONE: Run unchanged round-2 Mill command on exact head under a local build slot; audit native gate artifacts and first attempts.
+- DONE: Review refutation, record finding with location/observations/inference/fix; push only evidence and finish process audit.
 
 ## Required reading
 OBSERVED: Read Testing Architecture sections Test-Driven Development, Never Calibrate a Reproducer to a Machine, Tests Must Be Hermetically Sealed, Test Verdicts Must Be Hardware-Independent; Philosophy sections Reproduce a Bug Before You Fix It, A Refuted Hypothesis Is a Successful Outcome, Never Hide a Failure. Read complete revcoursier1 and coursierfetch2 findings. Repository README/instructions follow next.
@@ -67,3 +67,16 @@ OBSERVED: First controlled attempt has one native failure: coursier.cache.FileCa
 
 ## Cross-platform limit
 OBSERVED: The stronger alias uses Files.createSymbolicLink. The JDK documents that this may require platform-specific process privileges; this repository's older UtilTests link scenario explicitly avoids Windows, while jvmTests includes the cache suite on Windows. Only Linux native evidence is available here.INFER: A portable relative-versus-absolute alias would avoid that extra platform prerequisite, but no Windows failure was observed in this lane. This is recorded as a verification limit, not a second counted finding. Case-insensitive canonical behavior likewise remains unverified; no product error is claimed from an untested platform.
+
+## Final completion audit — 2026-10-17 03:02 UTC
+OBSERVED: All review items are done: required reading and predecessor findings; fresh exact-head checkout and initial rebase; four-file source review; path/error/namespace review; native original command 3/3; gate audit 18/18 positive first attempts plus both intended reversal failures; correct same-file refutation; one additional controlled configuration failure with a complete reproduction brief.
+OBSERVED: Required malformed-credentials baseline was also independently downloaded from https://github.com/CodexCoder21Organization/coursier/actions/runs/38995746243: native 0/3 at previous reviewed head, zero history elements. The candidate isolated-config job is 3/3. This confirms the earlier credentials finding is addressed rather than merely assumed.
+OBSERVED: Evidence milestone is pushed at https://github.com/CodexCoder21Organization/coursier/commit/9585eacd6 on https://github.com/CodexCoder21Organization/coursier/tree/wip/revcoursier2-evidence/.review-evidence . It includes native local/gate/control/baseline XML, full controlled failure trace, source/hash audit, temporary invocation-only build patch, original command script and the small public Java path experiment. Only evidence files differ from the pinned source.
+OBSERVED: Final live read confirms https://github.com/CodexCoder21Organization/coursier/pull/5 is OPEN and DRAFT at 5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3. Product, test, README and restored build module bytes match that exact head. PR has not been edited. No merge, queue, production operation, publication, remote test submission, model delegation, handoff operation, challenge-service call or PR CI watcher occurred.
+OBSERVED: Both local runs have ended, both slots were released by their exit traps, and a ps -eo audit filtered by lane working directory finds zero remaining lane-owned Java/shell/timeout processes. Temporary launcher link and invocation tools are removed. No further test batch was run after the controlled failure.
+INFER: One P2 remains in the new suite's isolation from process retry settings. No P1 or demonstrated destination-coordinator product defect was found. Windows link privileges and case-insensitive runtime behavior remain explicit verification limits, not additional findings.
+
+## Final status
+DONE: independent review complete; no user decision needed to complete this review. The owning implementation lane should address the single returned configuration-forwarding finding. No delegated worker or background wait remains. Lessons: verify explicit settings at the final implementation call, use a real waiter event for concurrency guards, and judge old-product controls by the public behavior they can actually distinguish.
+
+REVIEW 5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3 FINDINGS: P1 0 P2 1
