@@ -15,33 +15,34 @@ import scala.concurrent.duration._
 object FileCacheRetrySettingsTests extends TestSuite {
   val tests = Tests {
     test("explicit retry settings govern same-file waiting") {
-      val directory = Files.createTempDirectory("cache-retry-settings")
-      val server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
-      val serverWorkers = Executors.newFixedThreadPool(2)
+      val directory       = Files.createTempDirectory("cache-retry-settings")
+      val server          = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
+      val serverWorkers   = Executors.newFixedThreadPool(2)
       val downloadWorkers = Executors.newFixedThreadPool(4)
-      val ownerEntered = new CountDownLatch(1)
-      val releaseOwner = new CountDownLatch(1)
-      val waiterEntered = new CountDownLatch(1)
+      val ownerEntered    = new CountDownLatch(1)
+      val releaseOwner    = new CountDownLatch(1)
+      val waiterEntered   = new CountDownLatch(1)
       val waiterCompleted = new CountDownLatch(1)
-      val waitingChecks = new AtomicInteger()
-      val requests = new AtomicInteger()
+      val waitingChecks   = new AtomicInteger()
+      val requests        = new AtomicInteger()
       server.setExecutor(serverWorkers)
-      server.createContext("/artifact", exchange => {
-        try {
-          if (exchange.getRequestMethod == "HEAD") {
-            exchange.getResponseHeaders.add("Content-Length", "3")
-            exchange.sendResponseHeaders(200, -1)
-          }
-          else {
-            requests.incrementAndGet()
-            ownerEntered.countDown()
-            releaseOwner.await()
-            exchange.sendResponseHeaders(200, 3)
-            exchange.getResponseBody.write(Array[Byte](1, 2, 3))
-          }
-        }
-        finally exchange.close()
-      })
+      server.createContext(
+        "/artifact",
+        exchange =>
+          try
+            if (exchange.getRequestMethod == "HEAD") {
+              exchange.getResponseHeaders.add("Content-Length", "3")
+              exchange.sendResponseHeaders(200, -1)
+            }
+            else {
+              requests.incrementAndGet()
+              ownerEntered.countDown()
+              releaseOwner.await()
+              exchange.sendResponseHeaders(200, 3)
+              exchange.getResponseBody.write(Array[Byte](1, 2, 3))
+            }
+          finally exchange.close()
+      )
       server.start()
       try {
         val artifact = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
