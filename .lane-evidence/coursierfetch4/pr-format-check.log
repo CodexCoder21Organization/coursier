@@ -1,0 +1,216 @@
+--- a/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch4/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala
++++ b/tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch4/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala
+@@ -17,31 +17,32 @@
+     test("independent locations") {
+-      val directory = Files.createTempDirectory("cache-location-ownership")
+-      val server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
+-      val serverWorkers = Executors.newFixedThreadPool(2)
++      val directory       = Files.createTempDirectory("cache-location-ownership")
++      val server          = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
++      val serverWorkers   = Executors.newFixedThreadPool(2)
+       val downloadWorkers = Executors.newFixedThreadPool(4)
+-      val ownerEntered = new CountDownLatch(1)
+-      val releaseOwner = new CountDownLatch(1)
+-      val secondEntered = new CountDownLatch(1)
+-      val requests = new AtomicInteger()
++      val ownerEntered    = new CountDownLatch(1)
++      val releaseOwner    = new CountDownLatch(1)
++      val secondEntered   = new CountDownLatch(1)
++      val requests        = new AtomicInteger()
+       server.setExecutor(serverWorkers)
+-      server.createContext("/artifact", exchange => {
+-        try {
+-          if (exchange.getRequestMethod == "HEAD") {
+-            exchange.getResponseHeaders.add("Content-Length", "1")
+-            exchange.sendResponseHeaders(200, -1)
+-          }
+-          else {
+-            val request = requests.incrementAndGet()
+-            if (request == 1) {
+-              ownerEntered.countDown()
+-              releaseOwner.await()
++      server.createContext(
++        "/artifact",
++        exchange =>
++          try
++            if (exchange.getRequestMethod == "HEAD") {
++              exchange.getResponseHeaders.add("Content-Length", "1")
++              exchange.sendResponseHeaders(200, -1)
+             }
+-            else secondEntered.countDown()
+-            val status = 200
+-            exchange.sendResponseHeaders(status, 1)
+-            exchange.getResponseBody.write(request)
+-          }
+-        }
+-        finally exchange.close()
+-      })
++            else {
++              val request = requests.incrementAndGet()
++              if (request == 1) {
++                ownerEntered.countDown()
++                releaseOwner.await()
++              }
++              else secondEntered.countDown()
++              val status = 200
++              exchange.sendResponseHeaders(status, 1)
++              exchange.getResponseBody.write(request)
++            }
++          finally exchange.close()
++      )
+       server.start()
+@@ -101,3 +102,4 @@
+         assert(secondEntered.await(30, TimeUnit.SECONDS))
+-        val secondResult = Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
++        val secondResult =
++          Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
+         assert(Files.readAllBytes(secondResult.toPath).toSeq == Seq[Byte](2))
+@@ -105,3 +107,4 @@
+         releaseOwner.countDown()
+-        val firstResult = Await.result(first, 30.seconds).fold(error => throw new Exception(error), identity)
++        val firstResult =
++          Await.result(first, 30.seconds).fold(error => throw new Exception(error), identity)
+         assert(Files.readAllBytes(firstResult.toPath).toSeq == Seq[Byte](1))
+@@ -121,31 +124,32 @@
+     test("independent locations after an owner error") {
+-      val directory = Files.createTempDirectory("cache-location-ownership")
+-      val server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
+-      val serverWorkers = Executors.newFixedThreadPool(2)
++      val directory       = Files.createTempDirectory("cache-location-ownership")
++      val server          = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
++      val serverWorkers   = Executors.newFixedThreadPool(2)
+       val downloadWorkers = Executors.newFixedThreadPool(4)
+-      val ownerEntered = new CountDownLatch(1)
+-      val releaseOwner = new CountDownLatch(1)
+-      val secondEntered = new CountDownLatch(1)
+-      val requests = new AtomicInteger()
++      val ownerEntered    = new CountDownLatch(1)
++      val releaseOwner    = new CountDownLatch(1)
++      val secondEntered   = new CountDownLatch(1)
++      val requests        = new AtomicInteger()
+       server.setExecutor(serverWorkers)
+-      server.createContext("/artifact", exchange => {
+-        try {
+-          if (exchange.getRequestMethod == "HEAD") {
+-            exchange.getResponseHeaders.add("Content-Length", "1")
+-            exchange.sendResponseHeaders(200, -1)
+-          }
+-          else {
+-            val request = requests.incrementAndGet()
+-            if (request == 1) {
+-              ownerEntered.countDown()
+-              releaseOwner.await()
++      server.createContext(
++        "/artifact",
++        exchange =>
++          try
++            if (exchange.getRequestMethod == "HEAD") {
++              exchange.getResponseHeaders.add("Content-Length", "1")
++              exchange.sendResponseHeaders(200, -1)
+             }
+-            else secondEntered.countDown()
+-            val status = if (request == 1) 500 else 200
+-            exchange.sendResponseHeaders(status, 1)
+-            exchange.getResponseBody.write(request)
+-          }
+-        }
+-        finally exchange.close()
+-      })
++            else {
++              val request = requests.incrementAndGet()
++              if (request == 1) {
++                ownerEntered.countDown()
++                releaseOwner.await()
++              }
++              else secondEntered.countDown()
++              val status = if (request == 1) 500 else 200
++              exchange.sendResponseHeaders(status, 1)
++              exchange.getResponseBody.write(request)
++            }
++          finally exchange.close()
++      )
+       server.start()
+@@ -205,3 +209,4 @@
+         assert(secondEntered.await(30, TimeUnit.SECONDS))
+-        val secondResult = Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
++        val secondResult =
++          Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
+         assert(Files.readAllBytes(secondResult.toPath).toSeq == Seq[Byte](2))
+@@ -226,34 +231,35 @@
+     test("same location joins its owner") {
+-      val directory = Files.createTempDirectory("cache-location-ownership")
+-      val server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
+-      val serverWorkers = Executors.newFixedThreadPool(2)
++      val directory       = Files.createTempDirectory("cache-location-ownership")
++      val server          = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
++      val serverWorkers   = Executors.newFixedThreadPool(2)
+       val downloadWorkers = Executors.newFixedThreadPool(4)
+-      val ownerEntered = new CountDownLatch(1)
+-      val releaseOwner = new CountDownLatch(1)
+-      val secondEntered = new CountDownLatch(1)
+-      val requests = new AtomicInteger()
++      val ownerEntered    = new CountDownLatch(1)
++      val releaseOwner    = new CountDownLatch(1)
++      val secondEntered   = new CountDownLatch(1)
++      val requests        = new AtomicInteger()
+       server.setExecutor(serverWorkers)
+-      server.createContext("/artifact", exchange => {
+-        try {
+-          if (exchange.getRequestMethod == "HEAD") {
+-            exchange.getResponseHeaders.add("Content-Length", "1")
+-            exchange.sendResponseHeaders(200, -1)
+-          }
+-          else {
+-            val request = requests.incrementAndGet()
+-            if (request == 1) {
+-              ownerEntered.countDown()
+-              releaseOwner.await()
++      server.createContext(
++        "/artifact",
++        exchange =>
++          try
++            if (exchange.getRequestMethod == "HEAD") {
++              exchange.getResponseHeaders.add("Content-Length", "1")
++              exchange.sendResponseHeaders(200, -1)
+             }
+-            else secondEntered.countDown()
+-            val status = 200
+-            exchange.sendResponseHeaders(status, 1)
+-            exchange.getResponseBody.write(request)
+-          }
+-        }
+-        finally exchange.close()
+-      })
++            else {
++              val request = requests.incrementAndGet()
++              if (request == 1) {
++                ownerEntered.countDown()
++                releaseOwner.await()
++              }
++              else secondEntered.countDown()
++              val status = 200
++              exchange.sendResponseHeaders(status, 1)
++              exchange.getResponseBody.write(request)
++            }
++          finally exchange.close()
++      )
+       server.start()
+       try {
+-        val artifact = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
++        val artifact      = Artifact(s"http://127.0.0.1:${server.getAddress.getPort}/artifact")
+         val firstLocation = Files.createDirectory(directory.resolve("first"))
+@@ -314,3 +320,3 @@
+         )
+-        val firstDestination = firstCache.localFile(artifact.url)
++        val firstDestination  = firstCache.localFile(artifact.url)
+         val secondDestination = secondCache.localFile(artifact.url)
+@@ -328,4 +334,6 @@
+         releaseOwner.countDown()
+-        val firstResult = Await.result(first, 30.seconds).fold(error => throw new Exception(error), identity)
+-        val secondResult = Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
++        val firstResult =
++          Await.result(first, 30.seconds).fold(error => throw new Exception(error), identity)
++        val secondResult =
++          Await.result(second, 30.seconds).fold(error => throw new Exception(error), identity)
+         assert(firstResult.getCanonicalFile == secondResult.getCanonicalFile)
+error: --test failed

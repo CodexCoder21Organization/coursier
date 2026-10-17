@@ -1,0 +1,103 @@
+name: coursierfetch4 retry forwarding gates
+on:
+  push:
+    branches: [wip/gha-run/coursierfetch4]
+permissions:
+  contents: read
+jobs:
+  gate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: ordinary1
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: ordinary2
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: ordinary3
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: property1
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: property2
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: property3
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: multiplier
+            suite: coursier.cache.FileCacheRetrySettingsTests
+          - name: config
+            suite: coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheRetrySettingsTests
+          - name: neighbors
+            suite: coursier.cache.FileCacheTests
+          - name: mutation
+            suite: coursier.cache.FileCacheRetrySettingsTests
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LC_ALL: C.UTF-8
+      JAVA_TOOL_OPTIONS: -Xmx2g
+      GATE_NAME: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: d5eec8d10bf59305b4263bb96e741e45408c9f85
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Install the pinned Coursier launcher
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/coursier/launchers/15f36c167c30be237105f923151adaf177e7ee61/coursier -o "$RUNNER_TEMP/cs"
+          echo "c62c6feb15bf9cb9374dc61431c8f96f1d9cfd84ea79b40aa239b29f293623bf  $RUNNER_TEMP/cs" | sha256sum --check
+          chmod +x "$RUNNER_TEMP/cs"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Run public retry and ownership cases
+        run: |
+          mkdir -p validation-results
+          git rev-parse HEAD > validation-results/source-proof.txt
+          if [ "$GATE_NAME" = mutation ]; then
+            git restore --source=5470aee6fd7b4dca3838ca92687f3ed2dd5a3da3 -- modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala
+          fi
+          python3 - <<'PYCONFIG'
+          import os
+          from pathlib import Path
+          name = os.environ['GATE_NAME']
+          args = []
+          if name.startswith('property') or name == 'mutation':
+              args = ['-Dcoursier.exception-retry-backoff-initial-delay=1m']
+          elif name == 'multiplier':
+              args = ['-Dcoursier.exception-retry=0', '-Dcoursier.exception-retry-backoff-initial-delay=1ms', '-Dcoursier.exception-retry-backoff-multiplier=10000000']
+          elif name == 'config':
+              invalid = Path(os.environ['RUNNER_TEMP']) / 'invalid-scala-config.json'
+              invalid.write_text('{')
+              args = ['-Dscala-cli.config=' + str(invalid)]
+          if args:
+              p = Path('mill-build/src/coursierbuild/modules/CacheJvmBase.scala')
+              text = p.read_text()
+              marker = '  trait CacheJvmBaseTests extends CrossSbtTests {'
+              extra = '\n    override def forkArgs: T[Seq[String]] = Task {\n      super.forkArgs() ++ Seq(' + ', '.join('"' + arg + '"' for arg in args) + ')\n    }'
+              assert text.count(marker) == 1
+              p.write_text(text.replace(marker, marker + extra))
+          PYCONFIG
+          git diff --stat >> validation-results/source-proof.txt
+          git diff -- mill-build/src/coursierbuild/modules/CacheJvmBase.scala > validation-results/invocation.patch
+          sha256sum README.md modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala modules/cache/jvm/src/test/scala/coursier/cache/FileCacheRetrySettingsTests.scala > validation-results/file-hashes.txt
+          df -h / > validation-results/disk.txt
+          test "$(df --output=avail / | tail -1)" -ge 20971520
+          set +e
+          timeout 20m ./mill -i 'cache.jvm[2.13.16].test.testOnly' ${{ matrix.suite }} > validation-results/test.log 2>&1
+          echo $? > validation-results/exit-code.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+          for path in Path('out').rglob('*.xml'):
+              dest = Path('validation-results') / path
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(path, dest)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coursierfetch4-gate-${{ matrix.name }}
+          path: validation-results/
+          if-no-files-found: error

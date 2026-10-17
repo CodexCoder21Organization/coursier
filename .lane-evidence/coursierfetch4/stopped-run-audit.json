@@ -1,0 +1,62 @@
+[
+  {
+    "job": "coursierfetch4-gate-neighbors",
+    "rows": 6,
+    "bad": [],
+    "exit": "0"
+  },
+  {
+    "job": "coursierfetch4-gate-property2",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  },
+  {
+    "job": "coursierfetch4-gate-ordinary2",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  },
+  {
+    "job": "coursierfetch4-gate-config",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  },
+  {
+    "job": "coursierfetch4-gate-multiplier",
+    "rows": 1,
+    "bad": [],
+    "exit": "0"
+  },
+  {
+    "job": "coursierfetch4-gate-mutation",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  },
+  {
+    "job": "coursierfetch4-gate-ordinary3",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  },
+  {
+    "job": "coursierfetch4-gate-property3",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  },
+  {
+    "job": "coursierfetch4-gate-property1",
+    "rows": 4,
+    "bad": [],
+    "exit": "0"
+  },
+  {
+    "job": "coursierfetch4-gate-ordinary1",
+    "rows": 0,
+    "bad": [],
+    "exit": "no exit row"
+  }
+]

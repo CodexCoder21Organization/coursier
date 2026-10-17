@@ -1,0 +1,4 @@
+690a4a6518b1f8a6cdcc41634c6e702fb7f634dc
+ mill-build/src/coursierbuild/modules/CacheJvmBase.scala         | 3 +++
+ modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala | 5 +----
+ 2 files changed, 4 insertions(+), 4 deletions(-)
