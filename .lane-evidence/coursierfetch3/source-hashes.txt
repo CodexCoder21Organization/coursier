@@ -1,0 +1,4 @@
+aace772ebebf98cf0898bf95ef9ae931c2db1fd3295c5ad7ae6e7495f8a36f1a  modules/cache/jvm/src/main/scala/coursier/cache/FileCache.scala
+69cdf1711dcfdaed8392b6ec5d5d379c4d0d7a665fa9376b47ca2e75c5a86f07  modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala
+b43b1d2798e022d3e6ddee1ba7579173bc2dc623356384f2f924346578d2c82f  modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+9bdc2103ffbe01bb51d2ff6eca3804cecf19b74f0d2ed599450280d766a2e5f2  modules/cache/jvm/src/test/scala/coursier/cache/FileCacheLocationOwnershipTests.scala

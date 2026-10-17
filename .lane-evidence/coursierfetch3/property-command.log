@@ -1,0 +1,68 @@
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[271/307] mill.scalalib.ZincWorkerModule.worker
+[271] Compiling compiler interface...
+[273/307] paths.compile
+[272/307] cache-util.compile
+[273] [info] compiling 5 Java sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/paths/compile.dest/classes ...
+[272] [info] compiling 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/cache-util/compile.dest/classes ...
+[273] [warn] source value 8 is obsolete and will be removed in a future release
+[272] [warn] source value 8 is obsolete and will be removed in a future release
+[273] [warn] target value 8 is obsolete and will be removed in a future release
+[272] [warn] target value 8 is obsolete and will be removed in a future release
+[272] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[273] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[272] [info] done compiling
+[273] [info] done compiling
+[274/307] util.jvm[2.13.16].compile
+[275/307] custom-protocol-for-test.compile
+[274] [info] compiling 16 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/util/jvm/2.13.16/compile.dest/classes ...
+[275] [info] compiling 1 Scala source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/custom-protocol-for-test/compile.dest/classes ...
+[275] [info] done compiling
+[274] [info] done compiling
+[293/307] cache.jvm[2.13.16].compile
+[293] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/cache/jvm/2.13.16/compile.dest/classes ...
+[293] [warn] source value 8 is obsolete and will be removed in a future release
+[293] [warn] target value 8 is obsolete and will be removed in a future release
+[293] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[293] [info] done compiling
+[299/307] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 10 Scala sources to /tmp/claude-501/-code/a549f21f-144a-44f6-8143-0e07f6d01615/scratchpad/lanes/workspace/coursierfetch3/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[299] [info] done compiling
+[307/307] cache.jvm[2.13.16].test.testOnly
+[307] -------------------------------- Running Tests --------------------------------
+[307] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m171ms[0m  
+[307] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m31ms[0m  
+[307/307] =============== cache.jvm[2.13.16].test.t...heLocationOwnershipTests =============== 60s
+[307] cache.jvm[2.13.16].test.testOnly 14s 0/1 completed.
+[307] [31mX[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m30041ms[0m 
+[307]   [91m[4mjava.util.concurrent.TimeoutException[39m[24m: Future timed out after [30 seconds]
+[307]     [31mscala.concurrent.impl.Promise$DefaultPromise.[91mtryAwait0[39m([91mPromise.scala[39m:[91m248[39m)
+[307]     [31mscala.concurrent.impl.Promise$DefaultPromise.[91mresult[39m([91mPromise.scala[39m:[91m261[39m)
+[307]     [31mscala.concurrent.Await$.[91m$anonfun$result$1[39m([91mpackage.scala[39m:[91m201[39m)
+[307]     [31mscala.concurrent.BlockContext$DefaultBlockContext$.[91mblockOn[39m([91mBlockContext.scala[39m:[91m62[39m)
+[307]     [31mscala.concurrent.Await$.[91mresult[39m([91mpackage.scala[39m:[91m124[39m)
+[307]     [31mcoursier.cache.FileCacheLocationOwnershipTests$.[91m$anonfun$tests$30[39m([91mFileCacheLocationOwnershipTests.scala[39m:[91m330[39m)
+[307] Tests: 3, Passed: 2, Failed: 1
+[307/307, 1 failed] =============== cache.jvm[2.13.16].t...ationOwnershipTests =============== 76s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner

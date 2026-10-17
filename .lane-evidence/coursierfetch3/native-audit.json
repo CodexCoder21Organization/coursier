@@ -1,0 +1,28 @@
+{
+  "rows": [
+    {
+      "name": "independent locations",
+      "time": "0.171",
+      "errors": []
+    },
+    {
+      "name": "independent locations after an owner error",
+      "time": "0.031",
+      "errors": []
+    },
+    {
+      "name": "same location joins its owner",
+      "time": "30.041",
+      "errors": [
+        {
+          "type": "java.util.concurrent.TimeoutException",
+          "message": "Future timed out after [30 seconds]"
+        }
+      ]
+    }
+  ],
+  "total": 3,
+  "successes": 2,
+  "earlier_attempt_elements": 0,
+  "skipped": 0
+}
