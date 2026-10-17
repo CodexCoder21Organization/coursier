@@ -11,6 +11,16 @@ Coursier is the Scala application and artifact manager. It can install Scala app
 
 See the [website](https://get-coursier.io) for more details.
 
+## Concurrent cache downloads
+
+Downloads into the same cache file share one owner, including when callers use different
+paths to the same cache location. Independent `FileCache` locations can download the same
+URL concurrently; one location's pending response or failure does not hold up the other.
+
+Explicit `FileCache` retry and backoff settings apply to its downloads, including
+waiting for another caller to finish the same cache file. These instance settings
+take precedence over the JVM retry properties.
+
 ## Code of Conduct
 
 The coursier project welcomes contributions from anybody wishing to participate.

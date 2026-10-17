@@ -130,6 +130,11 @@ object CacheLocks {
   private val urlLocks           = new ConcurrentHashMap[String, Object]
   private val urlLockDummyObject = new Object
 
+  // Only downloads into the same physical cache file share an owner. Equal URLs in
+  // independent cache locations must not wait for files the other owner never writes.
+  private[cache] def withDownloadLock[T](file: File)(f: => T): Option[T] =
+    withUrlLock(file.getCanonicalPath)(f)
+
   def withUrlLock[T](url: String)(f: => T): Option[T] = {
 
     val prev = urlLocks.putIfAbsent(url, urlLockDummyObject)
