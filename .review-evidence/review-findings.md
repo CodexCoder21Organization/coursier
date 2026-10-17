@@ -5,9 +5,9 @@ Started approximately 2026-10-17 02:24 UTC; 40-minute limit.
 
 ## Plan
 - DONE: Read earlier lane findings, required Testing Architecture and Philosophy sections, fork README; no root AGENTS.md exists. Locate fork with github-repos skill; fresh clone, exact head and initial rebase (unchanged head).
-- IN PROGRESS: Review ownership key, same-location serialization, remaining polling behavior, and test coverage.
-- PENDING: Run new suite locally under build slot; inspect native XML.
-- PENDING: Verify retained native baseline/gate evidence and report review findings. Do not modify the PR.
+- DONE: Review ownership coordinator, same-location serialization, remaining polling behavior, and test coverage.
+- DONE: Run new suite locally under build slot; inspect native XML.
+- DONE: Verify retained native baseline/gate evidence and report review findings. PR unchanged.
 
 ## Initial observations
 OBSERVED: Diff has four files, 237 additions and one deletion. README describes same-location ownership; CacheLocks adds a canonical-path adapter; Downloader switches its existing coordinator to that adapter; new FileCacheLocationOwnershipTests has three scenarios. No existing test, retry implementation, operation bound, dependency pin or release version changes.
@@ -76,3 +76,11 @@ OBSERVED: DONE — inspected JVM-global coordination, per-root structure coordin
 OBSERVED: DONE — all four diff files reviewed; no existing test, assertion, time bound, sleep, product retry implementation, dependency or version is changed. New fixture retry settings equal the defaults. Production diff is minimal and understandable for coursier/coursier upstream; no platform-specific workaround or consumer change is added.
 OBSERVED: DONE — both new cases and the opposite guard run locally, native XML 3/3. A separate isolated input experiment establishes finding one without changing product/test source. Two test findings; no observed product regression in the reviewed paths.
 OBSERVED: PENDING — durable review evidence push and final process/slot audit. No merge, queue, publication, deployment, readiness change, PR edit/comment, handoff operation, challenge-service call, model subprocess or remote test submission occurred.
+
+## Final review state
+OBSERVED: Two P2 findings concern the new tests: inherited user configuration changes their result, and the same-location guard does not force actual contention or exercise a distinct destination spelling. No P1/P3 finding and no observed product defect in the reviewed change. Recommended disposition is to address both test findings before treating the promised coverage as complete.
+OBSERVED: Evidence and native XML are durable at https://github.com/CodexCoder21Organization/coursier/tree/wip/revcoursier1-evidence/.review-evidence . First checkpoint: https://github.com/CodexCoder21Organization/coursier/commit/2941f395 . This separate evidence branch is not the PR branch; it contains no product change relative to the reviewed source.
+OBSERVED: Final read confirms https://github.com/CodexCoder21Organization/coursier/pull/5 remains OPEN and draft at 91c1001b4191da7c0842f41d559dab5f2afb2c5f. No PR edit or comment was made. All tracked source, test, README and build bytes match that head after the temporary test-fork setting was restored.
+OBSERVED: Final ps audit finds no lane-owned background Java, shell or timeout process. Both test invocations released their build slots. Temporary launcher link, run script and owned config input are removed; their necessary reproduction material is retained on the separate evidence branch. All plan items are done. No CI wait was started.
+
+REVIEW 91c1001b4191da7c0842f41d559dab5f2afb2c5f: FINDINGS 2 (P1 0, P2 2, P3 0)
