@@ -1,0 +1,18 @@
+=============== cache.jvm[2.13.16].test.testOnly...cache.RcoursPausedResponseTests ===============
+[290/306] cache.jvm[2.13.16].compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] RCOURS paused body: six bytes written to cache; request still waiting while EOF is held
+[306] RCOURS paused completion: Right(6)
+[306] [31mX[39m coursier.cache.RcoursPausedResponseTests.overstated_body_waits_for_eof_then_must_reject_short_file [2m102ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(result.isLeft)
+[306]   [36mresult[39m: [32mEither[39m[[32mArtifactError[39m, [32mjava[39m.[32mio[39m.[32mFile[39m] = [33mRight[39m(value = /tmp/rcours-paused12322699999258450091/http/127.0.0.1%3A40709/artifact)
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.RcoursPausedResponseTests$.[91m$anonfun$tests$2[39m([91mRcoursPausedResponseTests.scala[39m:[91m59[39m)
+[306] Tests: 1, Passed: 0, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...sPausedResponseTests =============== 5s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.RcoursPausedResponseTests coursier.cache.RcoursPausedResponseTests.overstated_body_waits_for_eof_then_must_reject_short_file

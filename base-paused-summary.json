@@ -1,0 +1,8 @@
+{
+  "coursier.cache.RcoursPausedResponseTests": {
+    "passed": 0,
+    "failed": 1,
+    "attempts": 1,
+    "uniqueCases": 1
+  }
+}

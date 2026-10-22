@@ -1,0 +1,9 @@
+[
+  {
+    "class": "coursier.cache.RcoursPausedResponseTests",
+    "name": "overstated_body_waits_for_eof_then_must_reject_short_file",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.102"
+  }
+]
