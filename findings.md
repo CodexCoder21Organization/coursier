@@ -71,3 +71,11 @@
 2026-10-22 20:18 UTC — OBSERVED: Acquired shared slot and launched gate: 30 iterations,15 exact prior selectors,4 workers, CPU0,1,maxTestAttempts1,expected450 cases. OBSERVED: Preflight source hashes match the recorded prior gate and bind the locally rebuilt manager and launcher classes. OBSERVED: No Addendum heading at this checkpoint. INFER: No acceptance conclusion follows until terminal XML/timeline/completion-marker audit; next checkpoint is first completed iteration and fixture byte binding.
 
 2026-10-22 20:21 UTC — OBSERVED: The four-worker 30-iteration gate holds the shared slot; the first iteration is preparing fixtures, with no completed test XML yet. The cgroup oom_kill counter remains2. No Addendum headings are present in the full brief. INFER: No acceptance verdict can yet be stated; next checkpoint is the first complete iteration and fixture artifact binding.
+
+2026-10-22T20:22:37.481555+00:00 OBSERVED: gate-controller remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22T20:22:39.558206+00:00 OBSERVED: fixed-cache remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22 20:23 UTC — OBSERVED: Evidence preflight commit431dafea2f32d18f829b6de8c27f82c6e9694ef2 equals the remote evidence branch SHA after the scan and push. Gate preparation is active with no completed iterations and no new oom_kill. INFER: Next checkpoint remains the first complete iteration; no gate pass count is inferred from preparation output.
+
+2026-10-22 20:26 UTC — OBSERVED: Gate progress {"utc": "2026-10-22T20:26:39.901449+00:00", "complete": 1, "counts": {"pass": 15}, "failures": [], "compileStarted": 26, "compileFinished": 26, "oomKill": "oom_kill 2"}. The fork PR is freshly verified OPEN/unmerged at2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8 against main7434805e35d9941f840c6e8c914f7d53fe852e10. No Addendum headings are present. INFER: Preparation is advancing; next checkpoint is returned test results, without changing any gate setting.
