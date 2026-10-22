@@ -1,0 +1,42 @@
+{
+  "snapshot": {
+    "path": "/tmp/I419i-runtime/cache-snapshot.jar",
+    "size": 447860,
+    "sha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb"
+  },
+  "compiledFrom": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes",
+  "assembly": "Mill jar output with final compile outputs substituted; all changed class bytes match the final source test compilation",
+  "productHead": "2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8",
+  "changedClasses": {
+    "coursier/cache/internal/Downloader$$anonfun$coursier$cache$internal$Downloader$$downloading$1.class": {
+      "before": "a125e9675902c7a9520b29344e8d3b71a0470d8d08bc35a6bb1044d7d08dc32c",
+      "after": "c69488677dd1cd15f347146f29ba9e6ccd0749f8cb0c2f8c0f8972e4c1baa338",
+      "matchesFinalCompileOutput": true
+    },
+    "coursier/cache/internal/Downloader$.class": {
+      "before": "d16ed595c3a0cf3c36f6ac55e5dd015d5014d71e4b271dbd73775176940d9eb4",
+      "after": "0f390cd93553f81c2edeb9230dc004c10f3a1ab99cbdd342f62343254e214b1d",
+      "matchesFinalCompileOutput": true
+    },
+    "coursier/cache/internal/Downloader$Blocking$.class": {
+      "before": "259283bedf2eed0c092dace2fb4781ca8768c64a7cd6b2d36d814eb33bb3ddfc",
+      "after": "cc689cfd988119a2cc3c5af6550f32cb58c1479ca6962af428000ce43026ec0d",
+      "matchesFinalCompileOutput": true
+    },
+    "coursier/cache/internal/Downloader$UnknownProtocol$.class": {
+      "before": "7f2cb7dc74eb26939970a1acfc88592a60b695d83ccae942ea28785496aff2a3",
+      "after": "c63110823187f2e7985657146ec1f5b5aa5cda48861e3ac0a5cd0810f5442a4b",
+      "matchesFinalCompileOutput": true
+    },
+    "coursier/cache/internal/Downloader.class": {
+      "before": "fb0e8c0bdb2262b24d4730734997b43c06b4c842bc3bd3959b39b1e93c49bb5b",
+      "after": "bd281b342b6733f39f18d15989109c3ed691f7ccd7fceb71672b377e46d44121",
+      "matchesFinalCompileOutput": true
+    }
+  },
+  "originalPublishedJar": {
+    "path": "/home/leslie/.cache/coursier/v1/https/kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer3/coursier-cache_2.13-2.1.31-buffer3.jar",
+    "size": 450589,
+    "sha256": "f174277994ab1d62d4e4d6175215106ccc14ad37e8d9cd465752b1763aa1f534"
+  }
+}

@@ -1,0 +1,3 @@
+# GitHub CLI PR description update
+
+During I419i the installed `gh pr edit https://github.com/CodexCoder21Organization/coursier/pull/6 --body-file pr-description.md` failed with `GraphQL: Projects (classic) is being deprecated in favor of the new Projects experience` at `repository.pullRequest.projectCards`. The PR update did not occur through that command. The REST fallback `gh api repos/CodexCoder21Organization/coursier/pulls/6 -X PATCH -F body=@pr-description.md --jq .html_url` updates the exact reviewed body without accessing project cards. A current gh binary should be used. No report-challenge CLI was run because its automatic enqueue/merge conflicts with the lane's explicit rules.

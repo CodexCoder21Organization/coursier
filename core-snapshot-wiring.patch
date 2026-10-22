@@ -1,0 +1,171 @@
+diff --git a/build.kts b/build.kts
+index f911564f8..ddcf8634b 100644
+--- a/build.kts
++++ b/build.kts
+@@ -644,7 +644,7 @@ val dependencies = resolveDependencies2(
+         MavenPrebuilt2("org.jetbrains.kotlin:kotlin-reflect:1.8.22"),
+         MavenPrebuilt2("org.apache.commons:commons-lang3:3.12.0"),
+         MavenPrebuilt2("org.apache.commons:commons-text:1.10.0"),
+-        MavenPrebuilt2("io.get-coursier:coursier-cache_2.13:2.1.31-buffer3"),
++        MavenPrebuilt2("io.get-coursier:coursier-cache_2.13:2.1.31-buffer3", repositories = listOf(java.net.URL("file:///tmp/I419i-runtime/maven/"))),
+         MavenPrebuilt2("io.get-coursier:coursier-core_2.13:2.1.30"), // See https://github.com/codexcoder21/CoursierDevelopment
+         MavenPrebuilt2("io.get-coursier:interface:2.1.31-freshcache2"), // See https://github.com/codexcoder21/CoursierDevelopment
+         MavenPrebuilt2("io.get-coursier:versions_2.13:0.5.1"), // See https://github.com/codexcoder21/CoursierDevelopment
+@@ -740,7 +740,17 @@ val dependencies = resolveDependencies2(
+         MavenPrebuilt2("com.fasterxml.jackson.core:jackson-databind:2.15.2"),
+         MavenPrebuilt2("com.fasterxml.jackson.core:jackson-annotations:2.15.2"),
+         MavenPrebuilt2("buildtest.api:buildtest-api:0.0.37"),
+-)
++).map { artifact ->
++    if (artifact.jar.name == "coursier-cache_2.13-2.1.31-buffer3.jar")
++        File("/tmp/I419i-runtime/snapshot-artifact")
++    else artifact
++}.also { artifacts ->
++    val matches = artifacts.filter { it.jar.name == "coursier-cache_2.13-2.1.31-buffer3.jar" }
++    check(matches.size == 1 && matches.single().jar.readBytes().contentEquals(
++        File("/tmp/I419i-runtime/cache-snapshot.jar").readBytes())) {
++        "The measurement classpath must contain exactly one fixed Coursier cache snapshot."
++    }
++}
+ 
+ /**
+  * Builds a self-contained (fat) JAR of the bootstrap runner with all its dependencies.
+@@ -1140,13 +1150,13 @@ fun buildTestMavenRepositoryRawLockFixtures(nativePlatforms: File = File("native
+     // mediate away older versions that the nested compiler explicitly requests.
+     for (graph in graphs) {
+         coursierapi.Fetch.create()
+-            .withRepositories(coursierapi.MavenRepository.of("https://kotlin.directory"),
++            .withRepositories(coursierapi.MavenRepository.of("file:///tmp/I419i-runtime/maven/"), coursierapi.MavenRepository.of("https://kotlin.directory"),
+                 coursierapi.MavenRepository.of("https://repo1.maven.org/maven2"))
+             .withDependencies(*graph.map { coordinate -> testMavenFixtureDependency(coordinate) }.toTypedArray()).fetch()
+     }
+     val cache = coursierapi.Cache.create().location
+     val hosts = java.io.File(cache, "https").listFiles().orEmpty()
+-    val sources = listOf(
++    val sources = listOf(java.io.File("/tmp/I419i-runtime/maven")) + listOf(
+         "kotlin.directory",
+         "repo1.maven.org",
+         "maven-central.storage-download.googleapis.com",
+@@ -2044,13 +2054,13 @@ fun buildAttributedCompilerMavenRepository(nativePlatforms: File = File("native-
+     // mediate away older versions that the nested compiler explicitly requests.
+     for (graph in graphs) {
+         coursierapi.Fetch.create()
+-            .withRepositories(coursierapi.MavenRepository.of("https://kotlin.directory"),
++            .withRepositories(coursierapi.MavenRepository.of("file:///tmp/I419i-runtime/maven/"), coursierapi.MavenRepository.of("https://kotlin.directory"),
+                 coursierapi.MavenRepository.of("https://repo1.maven.org/maven2"))
+             .withDependencies(*graph.map { coordinate -> testMavenFixtureDependency(coordinate) }.toTypedArray()).fetch()
+     }
+     val cache = coursierapi.Cache.create().location
+     val hosts = java.io.File(cache, "https").listFiles().orEmpty()
+-    val sources = listOf(
++    val sources = listOf(java.io.File("/tmp/I419i-runtime/maven")) + listOf(
+         "kotlin.directory",
+         "repo1.maven.org",
+         "maven-central.storage-download.googleapis.com",
+@@ -2245,13 +2255,13 @@ fun buildAttributedPublicationMavenRepository(nativePlatforms: File = File("nati
+     // mediate away older versions that the nested compiler explicitly requests.
+     for (graph in graphs) {
+         coursierapi.Fetch.create()
+-            .withRepositories(coursierapi.MavenRepository.of("https://kotlin.directory"),
++            .withRepositories(coursierapi.MavenRepository.of("file:///tmp/I419i-runtime/maven/"), coursierapi.MavenRepository.of("https://kotlin.directory"),
+                 coursierapi.MavenRepository.of("https://repo1.maven.org/maven2"))
+             .withDependencies(*graph.map { coordinate -> testMavenFixtureDependency(coordinate) }.toTypedArray()).fetch()
+     }
+     val cache = coursierapi.Cache.create().location
+     val hosts = java.io.File(cache, "https").listFiles().orEmpty()
+-    val sources = listOf(
++    val sources = listOf(java.io.File("/tmp/I419i-runtime/maven")) + listOf(
+         "kotlin.directory",
+         "repo1.maven.org",
+         "maven-central.storage-download.googleapis.com",
+@@ -2453,13 +2463,13 @@ private fun buildRecorderMavenRepository(nativePlatforms: File, additionalGraphs
+     // mediate away older versions that the nested compiler explicitly requests.
+     for (graph in graphs) {
+         coursierapi.Fetch.create()
+-            .withRepositories(coursierapi.MavenRepository.of("https://kotlin.directory"),
++            .withRepositories(coursierapi.MavenRepository.of("file:///tmp/I419i-runtime/maven/"), coursierapi.MavenRepository.of("https://kotlin.directory"),
+                 coursierapi.MavenRepository.of("https://repo1.maven.org/maven2"))
+             .withDependencies(*graph.map { coordinate -> testMavenFixtureDependency(coordinate) }.toTypedArray()).fetch()
+     }
+     val cache = coursierapi.Cache.create().location
+     val hosts = java.io.File(cache, "https").listFiles().orEmpty()
+-    val sources = listOf(
++    val sources = listOf(java.io.File("/tmp/I419i-runtime/maven")) + listOf(
+         "kotlin.directory",
+         "repo1.maven.org",
+         "maven-central.storage-download.googleapis.com",
+diff --git a/src/Workspace.kt b/src/Workspace.kt
+index 6795bd81b..75946d68b 100644
+--- a/src/Workspace.kt
++++ b/src/Workspace.kt
+@@ -1202,7 +1202,7 @@ class LocalBuildWorkspace : RetryingWorkspace, AutoCloseable {
+         }
+ 
+         val repositories = (declaredRepositories +
+-            listOf("https://kotlin.directory/", "https://repo1.maven.org/maven2/")).toList()
++            listOf("file:///tmp/I419i-runtime/maven/", "https://kotlin.directory/", "https://repo1.maven.org/maven2/")).toList()
+         val jars = try {
+             fetchBoundedBySocketTimeouts({
+                 Fetch.create().withCache(coursierCache.newCache()).also { fetch ->
+@@ -2910,7 +2910,7 @@ class LocalBuildWorkspace : RetryingWorkspace, AutoCloseable {
+         // handler, so listing the repo here would let a stale workspace-built artifact satisfy a
+         // coordinate that must resolve remotely or fail.
+         // Use default repositories for Maven artifact fetching
+-        val repositories = listOf("https://kotlin.directory/", "https://repo1.maven.org/maven2/")
++        val repositories = listOf("file:///tmp/I419i-runtime/maven/", "https://kotlin.directory/", "https://repo1.maven.org/maven2/")
+         
+         val artifactFiles = try {
+             fetchBoundedBySocketTimeouts({
+@@ -4018,7 +4018,7 @@ private fun coursierResolveLocalArtifact(
+     // resolves through a per-fetch cache location, never Coursier's process-global URL-keyed cache —
+     // otherwise a stale same-coordinate build could be served, or concurrent workspaces could collide.
+     val effectiveRepos = repositories.ifEmpty {
+-        listOf("https://kotlin.directory/", "https://repo1.maven.org/maven2/")
++        listOf("file:///tmp/I419i-runtime/maven/", "https://kotlin.directory/", "https://repo1.maven.org/maven2/")
+     }
+     return fetchBoundedBySocketTimeouts({
+         val cache = coursierCache.newCache(BldBinaryRepositoryHandler(getLocalArtifact))
+@@ -5935,7 +5935,7 @@ private fun prepareTests(
+                 buildscript = buildscriptCache.parse(managerReadFile(file), requirePackage = false)
+                 buildRules = buildscript.getArtifactDependencies()
+                 repositories = buildscript.getRepositoryDependencies()
+-                    .ifEmpty { listOf("https://kotlin.directory/", "https://repo1.maven.org/maven2/") }
++                    .ifEmpty { listOf("file:///tmp/I419i-runtime/maven/", "https://kotlin.directory/", "https://repo1.maven.org/maven2/") }
+                 effectiveRepositoriesByFile[file] = repositories.toList()
+ 
+                 try {
+diff --git a/src/WorkspaceCoordinateResolver.kt b/src/WorkspaceCoordinateResolver.kt
+index 95e6c534b..9b5d90d52 100644
+--- a/src/WorkspaceCoordinateResolver.kt
++++ b/src/WorkspaceCoordinateResolver.kt
+@@ -64,7 +64,7 @@ class WorkspaceCoordinateResolver private constructor(
+     private fun resolveOpen(workspace: LocalBuildWorkspace, coordinates: List<String>, repositories: List<String>): List<File> {
+         if (coordinates.isEmpty()) return emptyList()
+         val effectiveRepos = repositories.ifEmpty {
+-            listOf("https://kotlin.directory/", "https://repo1.maven.org/maven2/")
++            listOf("file:///tmp/I419i-runtime/maven/", "https://kotlin.directory/", "https://repo1.maven.org/maven2/")
+         }
+ 
+         val coordinateMapping = workspace.loadMavenCoordinateMapping()
+diff --git a/test-support/input-fixture-build/build.kts b/test-support/input-fixture-build/build.kts
+index 4f4b0f653..5230cb9f8 100644
+--- a/test-support/input-fixture-build/build.kts
++++ b/test-support/input-fixture-build/build.kts
+@@ -14,6 +14,7 @@ import tools.kotlin.build.runtime.File
+ // Frozen runtime for the four cancellation compatibility scenarios, independent of current pins.
+ private fun resolveLegacyCompilerRuntime(): List<java.io.File> = coursierapi.Fetch.create()
+     .withRepositories(
++        coursierapi.MavenRepository.of("file:///tmp/I419i-runtime/maven/"),
+         coursierapi.MavenRepository.of("https://kotlin.directory"),
+         coursierapi.MavenRepository.of("https://repo1.maven.org/maven2"),
+     )
+@@ -106,7 +107,8 @@ private val currentDependencies by lazy {
+     // transitives, matching its exclusions rather than mediating a second version graph.
+     coursierapi.Fetch.create()
+         .withRepositories(
+-            coursierapi.MavenRepository.of("https://kotlin.directory"),
++            coursierapi.MavenRepository.of("file:///tmp/I419i-runtime/maven/"),
++        coursierapi.MavenRepository.of("https://kotlin.directory"),
+             coursierapi.MavenRepository.of("https://repo1.maven.org/maven2"),
+         )
+         .withDependencies(*dependencies.map { dependency ->

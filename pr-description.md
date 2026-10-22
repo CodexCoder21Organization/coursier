@@ -1,0 +1,11 @@
+kompile-core's acceptance gate for https://github.com/CodexCoder21Organization/kompile-core/pull/419 showed slow artifact resolution; a 199-byte POM download was allocated a 1 MiB read buffer, reproduced in both the kompile consumer and FileCache.
+
+This change sizes both download buffers to a known uncompressed response length, keeping a one-byte minimum and the configured maximum. Unknown-length and encoded responses keep the existing size; Range responses use the remaining response length.
+
+Validation: thirteen real local HTTP cases cover tiny and 199-byte bodies, one byte, empty bodies, identity encoding with both lowercase and mixed case, unknown length with and without identity, other encodings, gzip decoding, configured caps, the default-size boundary, and persisted-prefix Range resume. All seven size cases fail 10/10 before the fix on the buffer assertion; all thirteen pass 30/30 after it. Each case ran once per run with no retries. The complete cache JVM module passes 104/104 once. Review then found mixed-case identity responses kept the full buffer; that additional case fails 10/10 before the case-insensitive comparison and all thirteen final cases pass 30/30 after it. The existing module suite was run once as requested, before that narrow review correction.
+
+The uncompiled checkpoint's Range test already compiles. Its HEAD-count assertion changes from `> 0` to `== 0`: this FileCache resume path performs GET directly. Exact Range, GET count, prefix/suffix bytes, final-file move, stream closure and progress checks remain. The corrected test fails on buffer size without the fix. Existing size assertions remain and gain exact-size checks where directly observable; the unknown-length case gains an exact default-size check. The gzip title now states the decoded-body behavior observed at its HTTP stream; assertions are unchanged. The new test file is formatted with scalafmt 3.9.6. No previously merged cache test is changed.
+
+Current main still allocates the full configured buffer and does not overlap this change. The downstream thirty-iteration acceptance measurement is in progress; this allocation result alone does not establish the cause of its earlier deadlines. Evidence: https://github.com/CodexCoder21Organization/coursier/tree/wip/I419i-evidence-20261022
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
