@@ -17,6 +17,11 @@ Downloads into the same cache file share one owner, including when callers use d
 paths to the same cache location. Independent `FileCache` locations can download the same
 URL concurrently; one location's pending response or failure does not hold up the other.
 
+`FileCache.withBufferSize` sets the maximum download buffer size. Known uncompressed
+response bodies use a buffer no larger than their response length, with a one-byte
+minimum for empty bodies. Resumed downloads use the remaining response length;
+unknown-length and encoded bodies retain the configured size.
+
 Explicit `FileCache` retry and backoff settings apply to its downloads, including
 waiting for another caller to finish the same cache file. These instance settings
 take precedence over the JVM retry properties.

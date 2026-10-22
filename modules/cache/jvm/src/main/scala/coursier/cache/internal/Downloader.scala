@@ -268,11 +268,18 @@ import scala.util.control.NonFatal
 
           val lastModifiedOpt = Option(conn.getLastModified).filter(_ > 0L)
 
+          val responseLength  = conn.getContentLengthLong
+          val contentEncoding = conn.getContentEncoding
+          val downloadBufferSize =
+            if (responseLength >= 0L && (contentEncoding == null || contentEncoding == "identity"))
+              math.min(bufferSize.toLong, math.max(1L, responseLength)).toInt
+            else bufferSize
+
           val in = {
             val baseStream =
               if (conn.getContentEncoding == "gzip") new GZIPInputStream(conn.getInputStream)
               else conn.getInputStream
-            new BufferedInputStream(baseStream, bufferSize)
+            new BufferedInputStream(baseStream, downloadBufferSize)
           }
 
           val result =
@@ -290,7 +297,7 @@ import scala.util.control.NonFatal
                   logger,
                   url,
                   if (partialDownload) alreadyDownloaded else 0L,
-                  bufferSize
+                  downloadBufferSize
                 )
               finally out.close()
             }
