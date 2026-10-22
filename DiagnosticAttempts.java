@@ -21,7 +21,7 @@ public final class DiagnosticAttempts {
         ExecutionResults result = TestTimelineExecutionKt.executeTestsWithTimeline(workspace, selectors,
           Path.Companion.get(new File(output, "iteration-"+iteration+".jsonl").getAbsolutePath(), false), FileSystem.SYSTEM,
           new SystemClock(), parallelism, 1, 8192, new PreparedTestExecutionListener() {
-            long outerPid;
+            volatile long outerPid;
             public void onChildProcessStarted(PreparedTestExecutionIdentity test,long pid) { outerPid=pid; }
             public void onTestReady(PreparedTestExecutionIdentity test) {
               try {

@@ -1,0 +1,92 @@
+[
+  {
+    "test": "kompile.testPreparedAdmissionSingletonWorkersRetireBeforeReturn",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testReviewAdmissionFailureDrainsConcurrentSibling",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelinePreservesPartialOutputAcrossChildEvents",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testPreparedAdmissionParallelWorkersRetireBeforeReturn",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelineAttributedPublication",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelineUpstreamLockOwners",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testPreparedBatchDoesNotRescanBuildScriptsOnExecute",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelineOlderHookLibrariesRemainUsable",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testPreparedAdmissionInterruptedWorkerRetiresBeforeReturn",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelineAttributedCompiler",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testPreparedBatchUsesPreparedWorkspaceRuleBody",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelineJoinedWorkloadEvents",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testR419aDecodedInputRemainsReusable",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  },
+  {
+    "test": "kompile.testAttemptTimelineUpstreamEvents",
+    "iteration": 23,
+    "status": "SUCCESS",
+    "measurements": []
+  }
+]

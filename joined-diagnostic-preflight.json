@@ -1,0 +1,8 @@
+{
+  "iterations": 1,
+  "workers": 1,
+  "maxTestAttempts": 1,
+  "sourceSha256": "84115abfb76122671475262aba7001fb9a331c87be66707ca219ff108185a3e7",
+  "main": "84396b347669e11532726a9c3396cb1120ea5f60",
+  "note": "Separate diagnostic copy; original 450-case gate is already complete and unchanged. The inner test source, assertions and timeouts remain unchanged; added output and public Future reads expose progress. A diagnostic observer records derived frames from descendant JVMs; this is not an acceptance measurement."
+}

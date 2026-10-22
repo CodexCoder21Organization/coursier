@@ -3,7 +3,7 @@
 - [done] Run unchanged reproducer ten single attempts; checkpoint results remotely.
 - [done] Complete boundary cases, implement response-size buffer cap, run each thirty times.
 - [done] Run existing cache JVM tests exactly once; review tests and implementation independently.
-- [in progress] Build local snapshot and run the same fifteen-owner, thirty-iteration single-attempt kompile gate; inspect any remaining failure mechanisms.
+- [in progress] Build local snapshot and run the same fifteen-owner, thirty-iteration single-attempt kompile gate [gate done446/4,450first attempts,zero retries]; inspect remaining failure mechanisms.
 - [in progress] Fork PR opened and upstream validation/evidence pushed; finish downstream counts, update PR description, verify final remote heads and process cleanup.
 
 # Invariants

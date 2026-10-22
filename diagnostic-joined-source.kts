@@ -234,6 +234,10 @@ fun testI419iJoinedWorkloadDiagnostic() {
                         val row = source.clone().readUtf8(byteCount)
                         super.write(source, byteCount)
                         println("I419i diagnostic event " + row.trim())
+                        val releaseFuture = releaseTask
+                        if (releaseFuture != null && releaseFuture.state() == java.util.concurrent.Future.State.FAILED) {
+                            println("I419i diagnostic handoff-future-failure " + releaseFuture.exceptionNow())
+                        }
                         if (row.contains("\"threadName\":\"attributed-fixture-worker\"") &&
                             row.contains("\"state\":\"WAITING\"") && sawWaiting.compareAndSet(false, true)) observed.countDown()
                         if (row.contains("\"event\":\"gc-pause\"") && sawGc.compareAndSet(false, true)) observed.countDown()
@@ -431,8 +435,10 @@ import build.kotlin.withartifact.WithArtifact
                     println("I419i diagnostic nested-ready ns=" + System.nanoTime())
                     clock.advanceBy(2000)
                     releaseTask = release.submit {
+                        println("I419i diagnostic handoff-accept-start ns=" + System.nanoTime())
                         handoff.soTimeout = 10000
                         handoff.accept().use { socket ->
+                            println("I419i diagnostic handoff-accept-return ns=" + System.nanoTime())
                             try { check(observed.await(10, java.util.concurrent.TimeUnit.SECONDS)) { "The runtime observations were not recorded while the worker was waiting." } }
                             finally { socket.getOutputStream().write(1); socket.getOutputStream().flush() }
                         }
