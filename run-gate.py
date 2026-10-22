@@ -60,6 +60,7 @@ assert all(p.is_file() for p in selectors)
 selector_paths={p.stem:str(p.resolve()) for p in selectors}
 selector_hashes=snapshot_selectors(selector_paths)
 if selector_hashes is None:raise RuntimeError('Could not hash every selected test source before launch.')
+if selector_hashes != json.loads((EVIDENCE/'gate-selector-binding.json').read_text()):raise RuntimeError('A selected test changed after the prior gate; do not silently measure a different cohort')
 artifacts=artifact_bindings()
 pre={'schemaVersion':2,'startedAtUtc':datetime.now(timezone.utc).isoformat(),'head':git('rev-parse','HEAD'),'main':git('rev-parse','origin/main'),'iterations':30,'workers':4,'cpuAffinity':[0,1],'maxTestAttempts':1,'expectedCases':450,'managerSha256':artifacts['managerJar']['sha256'],'launcherSourceSha256':artifacts['controlAttemptsSource']['sha256'],'selectors':selector_hashes,'selectorPaths':selector_paths,'artifacts':artifacts,'mode':'local LocalBuildWorkspace.executeTestsWithTimeline','originalHarnessDifference':'Core dc3a851aa with the evidence snapshot-repository configuration patch. Outer manager and nested fixture repositories use the unpublished fixed cache. The fifteen test sources, repetitions, parallelism, CPU affinity and attempt cap match I419h. Gate build cache is new; the warm-up consumer uses a separate result directory in the same workspace cache.'}
 (run/'preflight.json').write_text(json.dumps(pre,indent=2)+'\n')

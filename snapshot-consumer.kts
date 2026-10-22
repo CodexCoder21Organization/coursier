@@ -50,10 +50,10 @@ import kotlin.test.assertTrue
 @build.kotlin.annotations.BillingQuotaExecutionLimit(quantity = 512, resource_name = "memory_megabytes")
 fun testSmallResolverResponsesBoundTransferBuffers() {
     val expectedDownloadClasses = mapOf(
-        "coursier/cache/internal/Downloader$$anonfun$coursier$cache$internal$Downloader$$downloading$1.class" to "c69488677dd1cd15f347146f29ba9e6ccd0749f8cb0c2f8c0f8972e4c1baa338",
-        "coursier/cache/internal/Downloader$.class" to "0f390cd93553f81c2edeb9230dc004c10f3a1ab99cbdd342f62343254e214b1d",
-        "coursier/cache/internal/Downloader$Blocking$.class" to "cc689cfd988119a2cc3c5af6550f32cb58c1479ca6962af428000ce43026ec0d",
-        "coursier/cache/internal/Downloader$UnknownProtocol$.class" to "c63110823187f2e7985657146ec1f5b5aa5cda48861e3ac0a5cd0810f5442a4b",
+        "coursier/cache/internal/Downloader\$\$anonfun\$coursier\$cache\$internal\$Downloader\$\$downloading\$1.class" to "c69488677dd1cd15f347146f29ba9e6ccd0749f8cb0c2f8c0f8972e4c1baa338",
+        "coursier/cache/internal/Downloader\$.class" to "0f390cd93553f81c2edeb9230dc004c10f3a1ab99cbdd342f62343254e214b1d",
+        "coursier/cache/internal/Downloader\$Blocking\$.class" to "cc689cfd988119a2cc3c5af6550f32cb58c1479ca6962af428000ce43026ec0d",
+        "coursier/cache/internal/Downloader\$UnknownProtocol\$.class" to "c63110823187f2e7985657146ec1f5b5aa5cda48861e3ac0a5cd0810f5442a4b",
         "coursier/cache/internal/Downloader.class" to "bd281b342b6733f39f18d15989109c3ed691f7ccd7fceb71672b377e46d44121",
     )
     for ((name, expected) in expectedDownloadClasses) {

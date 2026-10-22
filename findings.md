@@ -23,3 +23,19 @@
 2026-10-22 19:24 UTC — OBSERVED: Waiting for full-suite.lock, held by F177i clock-full. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
 
 2026-10-22 19:26 UTC — OBSERVED: Corrected product head local and remote both2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8. OBSERVED: Snapshot measurement source commit097292934cb4b095f31bddec9cd3515e6089402b is preserved completely in core-measurement-complete.patch, including the consumer test; its parent is dc3a851aa, and none of the fifteen gate test files changes. OBSERVED: New generated fixtures will be compared to the fixed snapshot after their build; read-only review found all explicit/default resolution paths covered. INFER: Slot wait is the only current dependency; next checkpoint is exact manager and child class byte verification.
+
+2026-10-22 19:27 UTC — OBSERVED: Acquired full-suite.lock for the manager build, consumer verification and four-worker gate. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:29 UTC — OBSERVED: Outer manager rebuilt locally and all five changed download class entries equal the final cache snapshot. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:31 UTC — OBSERVED: Evidence remote and local heads matched257484a3e96de822d480f0d7ee7b6562dcddb7e4 after the latest scan and push. OBSERVED: Local core manager build exits0; all five changed cache-class bytes match the final snapshot, bound in manager-binding.json. OBSERVED: Consumer preflight is active with one allowed attempt; its result will gate the thirty-run acceptance measurement. OBSERVED: No Addendum heading at this checkpoint. INFER: Next checkpoint is consumer result XML and generated fixture byte verification.
+
+2026-10-22 19:31 UTC — OBSERVED: RuntimeError: consumer failed; inspect tracked local logs, no retry is scheduled. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:31 UTC — OBSERVED: Released the shared slot after the measurement controller reached its terminal state. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:33 UTC — OBSERVED: First consumer preflight could not compile because generated class-resource labels contained unescaped dollar signs; no consumer body ran and the acceptance gate did not start. OBSERVED: Escaped only those resource-name string literals, preserved the failed XML and all cleanup records, and retained unchanged thirteen-case upstream results. OBSERVED: The controller released its shared slot and all owned first-phase children terminated. INFER: Rebuild/preflight can proceed against the corrected measurement source; next checkpoint is actual child byte/hash and buffer assertions, not a claimed runtime result from the compile failure.
+
+2026-10-22 19:33 UTC — OBSERVED: Waiting for full-suite.lock, held by FKGEN3. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:38 UTC — OBSERVED: The corrected preflight is queued behind FKGEN3. OBSERVED: First manager build and failed preflight cleanup records both report no remaining owned children; the old controller exited. OBSERVED: Gate source hashes will be checked again immediately before launch so a later main rebase cannot silently substitute a changed cohort. OBSERVED: The prior six failure XML files match their remote-recorded SHA-256 values; reading them does not establish a buffer cause. INFER: Next checkpoint remains corrected consumer pass followed by the unchanged450-case measurement.

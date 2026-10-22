@@ -1,0 +1,60 @@
+<tests>
+  <buildrule name="tools.kompile.buildMaven()" success="true" time="62460" output-files="108" output-bytes="103948436" executions="1"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testSmallResolverResponsesBoundTransferBuffers.kts" name="kompile.testSmallResolverResponsesBoundTransferBuffers" success="false" time="0">
+    <stacktrace>java.lang.IllegalStateException: Failed to compile tests for kompile at /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testSmallResolverResponsesBoundTransferBuffers.kts: Compile failure: Unresolved reference: anonfun
+Expression expected, but a package name found
+Unresolved reference: cache
+Unresolved reference: internal
+Unresolved reference: Downloader
+Unresolved reference: downloading
+Unresolved reference: Blocking
+Unresolved reference: UnknownProtocol
+	at kompile.WorkspaceKt.prepareTests(Workspace.kt:6800)
+	at kompile.WorkspaceKt.prepareTests$default(Workspace.kt:5596)
+	at kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen$addPreparedRun(Workspace.kt:1988)
+	at kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen$addPreparedRun$default(Workspace.kt:1981)
+	at kompile.LocalBuildWorkspace.prepareTestBatchInternalOpen(Workspace.kt:2039)
+	at kompile.LocalBuildWorkspace.access$prepareTestBatchInternalOpen(Workspace.kt:795)
+	at kompile.LocalBuildWorkspace$prepareTestBatchInternal$1.invoke(Workspace.kt:1918)
+	at kompile.LocalBuildWorkspace$prepareTestBatchInternal$1.invoke(Workspace.kt:1916)
+	at kompile.WorkspaceCoursierCache.within(WorkspaceCoursierCache.kt:108)
+	at kompile.WorkspaceCoursierCache.use(WorkspaceCoursierCache.kt:95)
+	at kompile.LocalBuildWorkspace.prepareTestBatchInternal(Workspace.kt:1916)
+	at kompile.LocalBuildWorkspace.prepareTestBatchInternal$default(Workspace.kt:1904)
+	at kompile.LocalBuildWorkspace.prepareTestBatch(Workspace.kt:1632)
+	at kompile.TestTimelineExecutionKt.executeTestsWithTimeline(TestTimelineExecution.kt:29)
+	at ControlAttempts.main(ControlAttempts.java:20)
+Caused by: kompile.TestScriptCompilationFailure: Compile failure: Unresolved reference: anonfun
+Expression expected, but a package name found
+Unresolved reference: cache
+Unresolved reference: internal
+Unresolved reference: Downloader
+Unresolved reference: downloading
+Unresolved reference: Blocking
+Unresolved reference: UnknownProtocol
+	at kompile.QuickTestUtilsKt.compileSelectedKotlinFiles(QuickTestUtils.kt:96)
+	at kompile.WorkspaceKt$prepareTests$4$compileGroup$compileOne$cachedJar$1.invoke(Workspace.kt:6419)
+	at kompile.WorkspaceKt$prepareTests$4$compileGroup$compileOne$cachedJar$1.invoke(Workspace.kt:6418)
+	at kompile.WorkspaceKt$prepareTests$4$compileCounted$jar$1$1.invoke(Workspace.kt:6407)
+	at kompile.WorkspaceKt$prepareTests$4$compileCounted$jar$1$1.invoke(Workspace.kt:6406)
+	at kompile.WorkspaceKt.prepareTests$lambda$174$recordingConcurrency(Workspace.kt:5886)
+	at kompile.WorkspaceKt.access$prepareTests$lambda$174$recordingConcurrency(Workspace.kt:1)
+	at kompile.WorkspaceKt$prepareTests$4$compileCounted$jar$1.invoke(Workspace.kt:6406)
+	at kompile.WorkspaceKt$prepareTests$4$compileCounted$jar$1.invoke(Workspace.kt:6399)
+	at kompile.TestScriptCompilationCache$compileAndPublish$1.invoke(TestScriptCompilationCache.kt:59)
+	at kompile.TestScriptCompilationCache$compileAndPublish$1.invoke(TestScriptCompilationCache.kt:59)
+	at kompile.AttemptCompilerObservationKt.withAttemptedCompilerKey(AttemptCompilerObservation.kt:12)
+	at kompile.TestScriptCompilationCache.compileAndPublish(TestScriptCompilationCache.kt:59)
+	at kompile.TestScriptCompilationCache.access$compileAndPublish(TestScriptCompilationCache.kt:18)
+	at kompile.TestScriptCompilationCache$getOrCompile$1$3.invoke(TestScriptCompilationCache.kt:50)
+	at kompile.TestScriptCompilationCache$getOrCompile$1$3.invoke(TestScriptCompilationCache.kt:48)
+	at kompile.ManagerRawFileLocksKt.withManagerFileLock(ManagerRawFileLocks.kt:197)
+	at kompile.TestScriptCompilationCache.getOrCompile(TestScriptCompilationCache.kt:48)
+	at kompile.WorkspaceKt.prepareTests$lambda$174$compileCounted(Workspace.kt:6399)
+	at kompile.WorkspaceKt.prepareTests$lambda$174$compileGroup$compileOne(Workspace.kt:6418)
+	at kompile.WorkspaceKt.prepareTests$lambda$174$compileGroup(Workspace.kt:6441)
+	at kompile.WorkspaceKt.prepareTests(Workspace.kt:6652)
+	... 14 more
+</stacktrace>
+  </test>
+</tests>

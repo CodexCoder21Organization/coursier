@@ -1,0 +1,8 @@
+[
+  {
+    "name": "kompile.testSmallResolverResponsesBoundTransferBuffers",
+    "success": "false",
+    "message": "java.lang.IllegalStateException: Failed to compile tests for kompile at /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testSmallResolverResponsesBoundTransferBuffers.kts: Compile failure: Unresolved reference: anonfun",
+    "duration": "0"
+  }
+]

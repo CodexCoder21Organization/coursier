@@ -48,7 +48,7 @@ try:
  (RT/'manager-built.jar').replace(RT/'manager.jar')
  note('Outer manager rebuilt locally and all five changed download class entries equal the final cache snapshot.')
  free()
- run('consumer',['taskset','-c','0,1','java','-Dcontrol.sourceRoot='+str(RT/'empty'),'-cp',str(RT/'launcher')+':'+str(RT/'manager.jar'),'ControlAttempts',str(CORE),str(RT/'gate-cache'),str(RT/'consumer-raw'),'1','1',str(CORE/'tests/testSmallResolverResponsesBoundTransferBuffers.kts')])
+ run('consumer2',['taskset','-c','0,1','java','-Dcontrol.sourceRoot='+str(RT/'empty'),'-cp',str(RT/'launcher')+':'+str(RT/'manager.jar'),'ControlAttempts',str(CORE),str(RT/'gate-cache'),str(RT/'consumer-raw-2'),'1','1',str(CORE/'tests/testSmallResolverResponsesBoundTransferBuffers.kts')])
  note('Consumer buffer reproducer passed one single attempt with all five loaded download class hashes checked.')
  free()
  run('gate-controller',[sys.executable,str(E/'run-gate.py'),'fixed-cache'])
