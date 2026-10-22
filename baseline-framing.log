@@ -1,0 +1,243 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.DownloadLengthIntegrityTests ===============
+[299/306] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[299] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact [2m366ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:41139/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:41139[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:41139/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:41139/artifact: expected 9 bytes, received 6 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4mse from http://127.0.0.1:41139/artifact: expect[24me[4md 9 bytes, received 6 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m303[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$2[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m326[39m)
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response [2m28ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:39685/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m()),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:39685[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:39685/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:39685/artifact: expected 9 bytes, received 0 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4mse from http://127.0.0.1:39685/artifact: expect[24me[4md 9 bytes, received 0 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m303[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$5[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m334[39m)
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF [2m27ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:36443/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:36443[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:36443/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [33mSome[39m(
+[306]       value = [33mFileState[39m(
+[306]         finalExists = [32mfalse[39m,
+[306]         temporaryExists = [32mtrue[39m,
+[306]         temporaryBytes = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]       )
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:36443/artifact: expected 9 bytes, received 6 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4mse from http://127.0.0.1:36443/artifact: expect[24me[4md 9 bytes, received 6 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m303[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$8[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m353[39m)
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes [2m6ms[0m  
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length [2m19ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:33339/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:33339[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m2L[39m, [32m5L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:33339/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- Right(value = ArraySeq(97, 98, 99[4m, 100, 101[24m))[49m
+[306]   [42m+ Right(value = ArraySeq(97, 98, 99))[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mbytesAre[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m287[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91msuccessfulDownloadIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m290[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$19[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m381[39m)
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted [2m14ms[0m  
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length [2m19ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43881/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:43881[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43881/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:43881/artifact: expected 9 bytes, received 6 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4mse from http://127.0.0.1:43881/artifact: expect[24me[4md 9 bytes, received 6 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m303[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$48[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m463[39m)
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.malformed content lengths are rejected with their exact values [2m24ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43777/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:43777[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43777/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid Content-Length '-1' from http://127.0.0.1:43777/artifact: expected a non-negative 64-bit decimal length"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Invalid Content-Length '-1' from http://127.0.0.1:43777/artifact: expected a n[24mo[4mn-[24mn[4megative 64-bit decimal l[24me[4mngth"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m303[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$51[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m471[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$51$adapted[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m468[39m)
+[306]     [31mscala.collection.immutable.List.[91mforeach[39m([91mList.scala[39m:[91m334[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$50[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m468[39m)
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.large valid content lengths report the received byte count [2m18ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:41717/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:41717[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:41717/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:41717/artifact: expected 2147483647 bytes, received 6 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4ms[24me[4m from http://127.0.0.1:41717/artifact: expected 2147483647 bytes, received 6 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m303[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$54[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m485[39m)
+[306]     [31mscala.runtime.java8.JFunction1$mcVJ$sp.[91mapply[39m([91mJFunction1$mcVJ$sp.scala[39m:[91m18[39m)
+[306]     [31mscala.collection.immutable.List.[91mforeach[39m([91mList.scala[39m:[91m334[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$53[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m482[39m)
+[306] Tests: 14, Passed: 7, Failed: 7
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...engthIntegrityTests =============== 13s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 7 tests failed: 
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length
+  and 2 more ...

@@ -1,0 +1,173 @@
+{
+  "main": "f7ac8c67dbe757d9129cfa453a37f2867bd1272d",
+  "cases": 40,
+  "passed": 11,
+  "failed": 29,
+  "errors": 0,
+  "skipped": 0,
+  "unique": true,
+  "attemptsPerCase": 1,
+  "retryMixinPresent": false,
+  "casesDetail": [
+    {
+      "name": "short fixed-length response does not publish a partial artifact",
+      "failure": true
+    },
+    {
+      "name": "empty body with positive fixed length is an incomplete response",
+      "failure": true
+    },
+    {
+      "name": "partial body remains temporary until the connection reaches EOF",
+      "failure": true
+    },
+    {
+      "name": "exact fixed-length response publishes all bytes",
+      "failure": false
+    },
+    {
+      "name": "zero length response ignores trailing bytes",
+      "failure": false
+    },
+    {
+      "name": "fragmented fixed-length response does not expose bytes after its length",
+      "failure": true
+    },
+    {
+      "name": "two byte buffer stays within the framed length after a fragmented read",
+      "failure": false
+    },
+    {
+      "name": "close-delimited response reads through connection close",
+      "failure": false
+    },
+    {
+      "name": "chunked framing takes precedence over a conflicting content length",
+      "failure": false
+    },
+    {
+      "name": "gzip known length decodes fully with bounded progress increments",
+      "failure": false
+    },
+    {
+      "name": "mixed case identity encoding is accepted",
+      "failure": false
+    },
+    {
+      "name": "mixed case identity encoding still enforces a short length",
+      "failure": true
+    },
+    {
+      "name": "negative content length is rejected",
+      "failure": true
+    },
+    {
+      "name": "non-decimal content length is rejected",
+      "failure": true
+    },
+    {
+      "name": "overflowing content length is rejected",
+      "failure": true
+    },
+    {
+      "name": "empty content length is rejected",
+      "failure": true
+    },
+    {
+      "name": "content length at Int max reports the received byte count",
+      "failure": true
+    },
+    {
+      "name": "content length above Int max reports the received byte count",
+      "failure": true
+    },
+    {
+      "name": "five gigabyte content length reports the received byte count",
+      "failure": true
+    },
+    {
+      "name": "Long max content length reports the received byte count",
+      "failure": true
+    },
+    {
+      "name": "redirect body length does not replace the final response length",
+      "failure": false
+    },
+    {
+      "name": "short final response after redirect reports the original artifact URL",
+      "failure": true
+    },
+    {
+      "name": "valid range response resumes the existing prefix",
+      "failure": false
+    },
+    {
+      "name": "valid range response can frame the suffix without content length",
+      "failure": false
+    },
+    {
+      "name": "range response with an incorrect start is rejected without restarting",
+      "failure": true
+    },
+    {
+      "name": "range response without content range is rejected",
+      "failure": true
+    },
+    {
+      "name": "malformed content range is rejected with its exact value",
+      "failure": true
+    },
+    {
+      "name": "range end mismatch is rejected",
+      "failure": true
+    },
+    {
+      "name": "range total mismatch is rejected",
+      "failure": true
+    },
+    {
+      "name": "unknown range total is rejected",
+      "failure": true
+    },
+    {
+      "name": "range ending at or beyond the total is rejected",
+      "failure": true
+    },
+    {
+      "name": "overflowing range start is rejected",
+      "failure": true
+    },
+    {
+      "name": "overflowing range end is rejected",
+      "failure": true
+    },
+    {
+      "name": "overflowing range total is rejected",
+      "failure": true
+    },
+    {
+      "name": "content length conflicting with range is rejected",
+      "failure": true
+    },
+    {
+      "name": "unsolicited range response must start at byte zero",
+      "failure": true
+    },
+    {
+      "name": "range response from byte zero can satisfy a full download",
+      "failure": false
+    },
+    {
+      "name": "server ignoring range with a full response replaces the prefix",
+      "failure": true
+    },
+    {
+      "name": "short range response with content length removes its temporary file",
+      "failure": true
+    },
+    {
+      "name": "short range response uses content range length when content length is absent",
+      "failure": true
+    }
+  ]
+}
