@@ -4,7 +4,7 @@
 - [done] Complete boundary cases, implement response-size buffer cap, run each thirty times.
 - [done] Run existing cache JVM tests exactly once; review tests and implementation independently.
 - [in progress] Build local snapshot and run the same fifteen-owner, thirty-iteration single-attempt kompile gate; inspect any remaining failure mechanisms.
-- [pending] Rebase, validate, open fork PR, scan and push evidence, verify remote heads and process cleanup.
+- [in progress] Fork PR opened and upstream validation/evidence pushed; finish downstream counts, update PR description, verify final remote heads and process cleanup.
 
 # Invariants
 | Resource | Creator / owner / closer | Allowed observations / terminal state | Public API check |

@@ -1,0 +1,8 @@
+{
+  "compiledSourceHead": "097292934cb4b095f31bddec9cd3515e6089402b",
+  "measurementSourceHead": "2c328594aeb5dabed4c1810462f86b8ec972f94c",
+  "changedFiles": [
+    "tests/testSmallResolverResponsesBoundTransferBuffers.kts"
+  ],
+  "managerImplementationInputsUnchanged": true
+}

@@ -39,3 +39,19 @@
 2026-10-22 19:33 UTC — OBSERVED: Waiting for full-suite.lock, held by FKGEN3. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
 
 2026-10-22 19:38 UTC — OBSERVED: The corrected preflight is queued behind FKGEN3. OBSERVED: First manager build and failed preflight cleanup records both report no remaining owned children; the old controller exited. OBSERVED: Gate source hashes will be checked again immediately before launch so a later main rebase cannot silently substitute a changed cohort. OBSERVED: The prior six failure XML files match their remote-recorded SHA-256 values; reading them does not establish a buffer cause. INFER: Next checkpoint remains corrected consumer pass followed by the unchanged450-case measurement.
+
+2026-10-22 19:38 UTC — OBSERVED: Waiting for full-suite.lock, held by FKGEN3. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:43 UTC — OBSERVED: Waiting for full-suite.lock, held by FKGEN3. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:48 UTC — OBSERVED: Waiting for full-suite.lock, held by FKGEN3. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:53 UTC — OBSERVED: Waiting for full-suite.lock, held by F175e-175. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:54 UTC — OBSERVED: InterruptedError: Measurement controller received signal 15. INFER: Next checkpoint is child byte verification then the exact thirty-iteration gate.
+
+2026-10-22 19:56 UTC — OBSERVED: Gate waiting for the shared slot, held by F175e-175. INFER: Next checkpoint is all thirty complete iteration markers and the exact XML/attempt audit.
+
+2026-10-22 19:58 UTC — OBSERVED: Corrected consumer preflight passes1/1 first attempt in1252ms, with no retry history. OBSERVED: Its passing body first checks all five loaded class hashes against the final snapshot, then checks exact artifact bytes, bounded buffers and closure. OBSERVED: The success XML intentionally omits console output, so hash values are backed by the exact passing assertions/source rather than copied print lines. OBSERVED: The lane's waiting controller was stopped before this one-worker run; the four-worker gate has a new waiting controller that preserves the original three-hour slot deadline. INFER: Gate can start after acquiring the shared slot; the consumer result does not stand in for450 gate cases.
+
+2026-10-22 19:59 UTC — OBSERVED: Evidence local and remote heads matched42ed5c9f671a5dc1be686cc81cecdd6959e4c037 after the previous push. OBSERVED: Independent XML/JSON review confirms all baseline/final counts, no skipped/disabled/duplicate cases and no retry markers; corrected PR wording distinguishes gate pending from a completed measurement. OBSERVED: The corrected consumer passing XML and source-hash closure are now checkpointed. OBSERVED: No Addendum heading at this checkpoint. INFER: Next checkpoint is gate start and emitted Maven-fixture byte verification.

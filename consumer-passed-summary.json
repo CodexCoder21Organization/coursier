@@ -1,0 +1,19 @@
+{
+  "test": "kompile.testSmallResolverResponsesBoundTransferBuffers",
+  "passed": 1,
+  "failed": 0,
+  "firstAttempts": 1,
+  "retries": 0,
+  "durationMillis": 1252,
+  "expectedLoadedClassHashesAssertedInPassingBody": {
+    "coursier/cache/internal/Downloader$$anonfun$coursier$cache$internal$Downloader$$downloading$1.class": "c69488677dd1cd15f347146f29ba9e6ccd0749f8cb0c2f8c0f8972e4c1baa338",
+    "coursier/cache/internal/Downloader$.class": "0f390cd93553f81c2edeb9230dc004c10f3a1ab99cbdd342f62343254e214b1d",
+    "coursier/cache/internal/Downloader$Blocking$.class": "cc689cfd988119a2cc3c5af6550f32cb58c1479ca6962af428000ce43026ec0d",
+    "coursier/cache/internal/Downloader$UnknownProtocol$.class": "c63110823187f2e7985657146ec1f5b5aa5cda48861e3ac0a5cd0810f5442a4b",
+    "coursier/cache/internal/Downloader.class": "bd281b342b6733f39f18d15989109c3ed691f7ccd7fceb71672b377e46d44121"
+  },
+  "successfulConsoleOmittedByXmlWriter": true,
+  "testSourceSha256": "48fbcbb3894a8a2d902959d20839c6e0056019a2231bf1f9cf50da6f8bf35736",
+  "xmlSha256": "2efa150d0c3e46d768695f05e06495d681ee3dba429f79576d363511e185aab2",
+  "scope": "five exact loaded-class assertions precede exact bytes, buffer bounds, and stream close assertions in the passing test body"
+}
