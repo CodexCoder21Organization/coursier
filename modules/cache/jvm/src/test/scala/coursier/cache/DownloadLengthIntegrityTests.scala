@@ -81,6 +81,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
 
     override def downloadProgress(url: String, downloaded: Long): Unit =
       lock.synchronized {
+        assert(downloaded > 0L)
         progress0 += downloaded
         val reached = waiters.filter(_._1 <= downloaded)
         reached.foreach(_._2.countDown())
@@ -325,6 +326,24 @@ object DownloadLengthIntegrityTests extends TestSuite {
     s"Missing Content-Range from $url: expected bytes starting at $start"
 
   val tests = Tests {
+    test("zero buffer size is rejected before creating a temporary file") {
+      val observation = scenario(List(fixed("6")), cap = 0)
+      downloadErrorIs(
+        observation,
+        s"Invalid download buffer size 0 for ${observation.url}: expected a positive size"
+      )
+      assert(observation.requests.size == 1)
+    }
+
+    test("negative buffer size is rejected before creating a temporary file") {
+      val observation = scenario(List(fixed("6")), cap = -1)
+      downloadErrorIs(
+        observation,
+        s"Invalid download buffer size -1 for ${observation.url}: expected a positive size"
+      )
+      assert(observation.requests.size == 1)
+    }
+
     test("short fixed-length response does not publish a partial artifact") {
       val observation = scenario(List(fixed("9", body.take(6))))
 
