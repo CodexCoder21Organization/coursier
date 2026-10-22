@@ -250,16 +250,15 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
-          val responseLength = CacheUrl.responseLength(conn, url)
-          val offset = if (partialDownload) alreadyDownloaded else 0L
-          val rangeLength = CacheUrl.contentRangeLength(conn, offset, url)
+          val responseLength  = CacheUrl.responseLength(conn, url)
+          val offset          = if (partialDownload) alreadyDownloaded else 0L
+          val rangeLength     = CacheUrl.contentRangeLength(conn, offset, url)
           val contentEncoding = conn.getContentEncoding
           val uncompressed = contentEncoding == null || contentEncoding.equalsIgnoreCase("identity")
           val expectedLength = if (uncompressed) rangeLength.orElse(responseLength) else None
 
-          for (len0 <- rangeLength.orElse(responseLength)) {
+          for (len0 <- rangeLength.orElse(responseLength))
             logger.downloadLength(url, len0 + offset, offset, watching = false)
-          }
 
           val auxiliaryData: Map[String, Array[Byte]] =
             conn match {
@@ -818,19 +817,18 @@ object Downloader {
     def helper(count: Long): Unit =
       if (!expectedLength.contains(count)) {
         val remaining = expectedLength.fold(bufferSize.toLong)(_ - count)
-        val read = in.read(b, 0, math.min(bufferSize.toLong, remaining).toInt)
-        if (read < 0) {
+        val read      = in.read(b, 0, math.min(bufferSize.toLong, remaining).toInt)
+        if (read < 0)
           for (expected <- expectedLength)
             throw new ArtifactError.DownloadError(
               s"Incomplete response from $url: expected $expected bytes, received $count bytes",
               None
             )
-        }
         else {
-        out.write(b, 0, read)
-        out.flush()
-        logger.downloadProgress(url, alreadyDownloaded + count + read)
-        helper(count + read)
+          out.write(b, 0, read)
+          out.flush()
+          logger.downloadProgress(url, alreadyDownloaded + count + read)
+          helper(count + read)
         }
       }
 

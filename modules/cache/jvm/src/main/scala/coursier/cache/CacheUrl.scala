@@ -113,9 +113,13 @@ object CacheUrl {
   def url(s: String): URL =
     new URL(null, s, handlerFor(s, Nil).orNull)
 
-  def url(s: String, customHandlerFactory: Option[URLStreamHandlerFactory], classLoaders: Seq[ClassLoader] = Nil): URL = {
+  def url(
+    s: String,
+    customHandlerFactory: Option[URLStreamHandlerFactory],
+    classLoaders: Seq[ClassLoader] = Nil
+  ): URL = {
     val protocol = s.takeWhile(_ != ':')
-    
+
     // Try custom handler factory first
     val customHandler = customHandlerFactory.flatMap { factory =>
       try Some(factory.createURLStreamHandler(protocol))
@@ -123,10 +127,10 @@ object CacheUrl {
         case _: Exception => None
       }
     }
-    
+
     // Fall back to existing logic if no custom handler or custom handler failed
     val handler = customHandler.orElse(handlerFor(s, classLoaders))
-    
+
     new URL(null, s, handler.orNull)
   }
 
@@ -291,7 +295,9 @@ object CacheUrl {
           contentRangeLength(conn0, alreadyDownloaded, initialUrl)
           if (alreadyDownloaded > 0L) Some(false) else None
         }
-        else if (alreadyDownloaded > 0L && conn0.getResponseCode == invalidPartialContentResponseCode) {
+        else if (
+          alreadyDownloaded > 0L && conn0.getResponseCode == invalidPartialContentResponseCode
+        ) {
           val hasMatchingHeader = Option(conn0.getHeaderField("Content-Range"))
             .exists(_.startsWith(s"bytes $alreadyDownloaded-"))
           Some(!hasMatchingHeader)

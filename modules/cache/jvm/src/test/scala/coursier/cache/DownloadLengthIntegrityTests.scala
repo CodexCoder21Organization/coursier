@@ -5,7 +5,13 @@ import java.net.{InetAddress, ServerSocket, Socket, SocketException}
 import java.nio.charset.StandardCharsets.{ISO_8859_1, UTF_8}
 import java.nio.file.{Files, Path}
 import java.util.UUID
-import java.util.concurrent.{ConcurrentHashMap, CountDownLatch, ExecutorService, Executors, TimeUnit}
+import java.util.concurrent.{
+  ConcurrentHashMap,
+  CountDownLatch,
+  ExecutorService,
+  Executors,
+  TimeUnit
+}
 import java.util.zip.GZIPOutputStream
 
 import coursier.paths.CachePath
@@ -48,10 +54,10 @@ object DownloadLengthIntegrityTests extends TestSuite {
   )
 
   private final class RecordingLogger extends CacheLogger {
-    private val lock = new Object
-    private val progress0 = ListBuffer.empty[Long]
+    private val lock             = new Object
+    private val progress0        = ListBuffer.empty[Long]
     private val downloadResults0 = ListBuffer.empty[(String, Boolean)]
-    private val waiters = ListBuffer.empty[(Long, CountDownLatch)]
+    private val waiters          = ListBuffer.empty[(Long, CountDownLatch)]
 
     def progress: List[Long] =
       lock.synchronized(progress0.toList)
@@ -105,7 +111,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     contentLength: Option[String],
     bytes: Array[Byte]
   ): Reply = {
-    val rangeHeader = contentRange.map(value => Seq("Content-Range" -> value)).getOrElse(Nil)
+    val rangeHeader  = contentRange.map(value => Seq("Content-Range" -> value)).getOrElse(Nil)
     val lengthHeader = contentLength.map(value => Seq("Content-Length" -> value)).getOrElse(Nil)
     response("206 Partial Content", rangeHeader ++ lengthHeader, List(bytes))
   }
@@ -118,7 +124,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
   private def readRequest(socket: Socket): String = {
     val input = socket.getInputStream
     val bytes = new ByteArrayOutputStream()
-    var tail = 0
+    var tail  = 0
     while (tail != 0x0d0a0d0a) {
       val next = input.read()
       require(next >= 0, "Client closed before request headers ended")
@@ -134,15 +140,15 @@ object DownloadLengthIntegrityTests extends TestSuite {
     cap: Int = CacheDefaults.bufferSize,
     inspectWhilePaused: Option[(Long, CountDownLatch)] = None
   ): Observation = {
-    var directory: Path = null
-    var server: ServerSocket = null
-    var serverWorker: ExecutorService = null
+    var directory: Path                  = null
+    var server: ServerSocket             = null
+    var serverWorker: ExecutorService    = null
     var downloadWorkers: ExecutorService = null
-    var serving: Future[Unit] = null
-    val stopping = new java.util.concurrent.atomic.AtomicBoolean(false)
-    val sockets = ConcurrentHashMap.newKeySet[Socket]()
-    val requests = ListBuffer.empty[String]
-    val logger = new RecordingLogger()
+    var serving: Future[Unit]            = null
+    val stopping                         = new java.util.concurrent.atomic.AtomicBoolean(false)
+    val sockets                          = ConcurrentHashMap.newKeySet[Socket]()
+    val requests                         = ListBuffer.empty[String]
+    val logger                           = new RecordingLogger()
 
     var serverExecutionContext: ExecutionContext = null
 
@@ -218,7 +224,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
         .withRetry(0)
         .withBufferSize(cap)
         .withLogger(logger)
-      val finalFile = cache.localFile(url)
+      val finalFile     = cache.localFile(url)
       val temporaryFile = CachePath.temporaryFile(finalFile)
       if (prefix.nonEmpty) {
         Files.createDirectories(temporaryFile.toPath.getParent)
@@ -237,12 +243,13 @@ object DownloadLengthIntegrityTests extends TestSuite {
         state
       }
 
-      val result = Await.result(downloading, 30.seconds).map(file => Files.readAllBytes(file.toPath))
+      val result =
+        Await.result(downloading, 30.seconds).map(file => Files.readAllBytes(file.toPath))
 
       stopServer()
       Await.result(serving, 30.seconds)
 
-      val observedRequests = requests.synchronized(requests.toList)
+      val observedRequests  = requests.synchronized(requests.toList)
       val observedFileState = fileState(finalFile, temporaryFile)
       Observation(
         url,
@@ -266,19 +273,17 @@ object DownloadLengthIntegrityTests extends TestSuite {
           Await.result(serving, 30.seconds)
       }
       finally
-        try {
+        try
           if (serverWorker != null) {
             serverWorker.shutdownNow()
             assert(serverWorker.awaitTermination(10, TimeUnit.SECONDS))
           }
-        }
         finally
-          try {
+          try
             if (downloadWorkers != null) {
               downloadWorkers.shutdownNow()
               assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
             }
-          }
           finally if (directory != null) os.remove.all(os.Path(directory))
     }
   }
@@ -424,8 +429,8 @@ object DownloadLengthIntegrityTests extends TestSuite {
 
     test("gzip known length decodes fully with bounded progress increments") {
       val expected = Array.fill[Byte](32768)(65.toByte)
-      val output = new ByteArrayOutputStream()
-      val gzip = new GZIPOutputStream(output)
+      val output   = new ByteArrayOutputStream()
+      val gzip     = new GZIPOutputStream(output)
       gzip.write(expected)
       gzip.close()
       val compressed = output.toByteArray
@@ -466,7 +471,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("negative content length is rejected") {
-      val value = "-1"
+      val value       = "-1"
       val observation = scenario(List(fixed(value, body.take(6))))
 
       downloadErrorIs(observation, invalidContentLengthMessage(observation.url, value))
@@ -474,7 +479,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("non-decimal content length is rejected") {
-      val value = "abc"
+      val value       = "abc"
       val observation = scenario(List(fixed(value, body.take(6))))
 
       downloadErrorIs(observation, invalidContentLengthMessage(observation.url, value))
@@ -482,7 +487,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("overflowing content length is rejected") {
-      val value = "9223372036854775808"
+      val value       = "9223372036854775808"
       val observation = scenario(List(fixed(value, body.take(6))))
 
       downloadErrorIs(observation, invalidContentLengthMessage(observation.url, value))
@@ -490,7 +495,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("empty content length is rejected") {
-      val value = ""
+      val value       = ""
       val observation = scenario(List(fixed(value, body.take(6))))
 
       downloadErrorIs(observation, invalidContentLengthMessage(observation.url, value))
@@ -498,7 +503,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("content length at Int max reports the received byte count") {
-      val expected = Int.MaxValue.toLong
+      val expected    = Int.MaxValue.toLong
       val observation = scenario(List(fixed(expected.toString, body)))
 
       downloadErrorIs(observation, incompleteMessage(observation.url, expected, 6L))
@@ -506,7 +511,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("content length above Int max reports the received byte count") {
-      val expected = Int.MaxValue.toLong + 1L
+      val expected    = Int.MaxValue.toLong + 1L
       val observation = scenario(List(fixed(expected.toString, body)))
 
       downloadErrorIs(observation, incompleteMessage(observation.url, expected, 6L))
@@ -514,7 +519,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("five gigabyte content length reports the received byte count") {
-      val expected = 5L * 1024L * 1024L * 1024L
+      val expected    = 5L * 1024L * 1024L * 1024L
       val observation = scenario(List(fixed(expected.toString, body)))
 
       downloadErrorIs(observation, incompleteMessage(observation.url, expected, 6L))
@@ -522,7 +527,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("Long max content length reports the received byte count") {
-      val expected = Long.MaxValue
+      val expected    = Long.MaxValue
       val observation = scenario(List(fixed(expected.toString, body)))
 
       downloadErrorIs(observation, incompleteMessage(observation.url, expected, 6L))
@@ -704,7 +709,7 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
 
     test("unsolicited range response must start at byte zero") {
-      val range = "bytes 3-5/6"
+      val range       = "bytes 3-5/6"
       val observation = scenario(List(partial(Some(range), Some("3"), body.drop(3))))
 
       downloadErrorIs(observation, invalidContentRangeMessage(observation.url, range, 0L))
@@ -753,4 +758,3 @@ object DownloadLengthIntegrityTests extends TestSuite {
     }
   }
 }
-
