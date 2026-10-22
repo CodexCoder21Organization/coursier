@@ -1,7 +1,7 @@
 """Check recorded process identities without saving process command lines."""
 from pathlib import Path
 from datetime import datetime, timezone
-import os, json, subprocess
+import os, json, subprocess, sys
 
 E = Path(__file__).resolve().parent
 R = Path('/tmp/I419i-runtime')
@@ -58,7 +58,8 @@ report = {'utc': datetime.now(timezone.utc).isoformat(), 'identityCount': len(id
           'cleanupRecords': cleanup_records, 'liveOwnedIdentities': live,
           'ownedZombies': zombies, 'unrecordedLaneProcesses': unrecorded,
           'rawPsOrCommandLinesSaved': False}
-(E / 'final-process-cleanup.json').write_text(json.dumps(report, indent=2) + '\n')
+destination = Path(sys.argv[1]) if len(sys.argv) > 1 else E / 'final-process-cleanup.json'
+destination.write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps({key: report[key] for key in ['identityCount', 'liveOwnedIdentities',
                                              'ownedZombies', 'unrecordedLaneProcesses']}))
 assert not live and not zombies and not unrecorded

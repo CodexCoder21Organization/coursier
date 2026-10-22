@@ -5,7 +5,7 @@
 - [done] Run existing cache JVM tests exactly once; review tests and implementation independently.
 - [done] Build and bind the unpublished local snapshot; complete the unchanged 450-case gate at446/4,450first attempts,zero retries; inspect remaining mechanisms with independent reviews.
 - [evidence limit] Original JoinedWorkload Future exceptions were not retained and cannot be recovered after those processes exited. A matching receiver-expiry ordering is concretely reproduced; attribution to the natural gate failures remains an inference, not a claimed verified cause.
-- [done] Fork PR open/unmerged; all local gates and evidence complete, remote heads verified, PR description prepared with measured counts and limitations, owned process cleanup empty. PR body is updated and verified; final evidence metadata push is the remaining administrative checkpoint.
+- [done] Fork PR open/unmerged; all local gates and evidence complete, remote heads verified, PR description prepared with measured counts and limitations, owned process cleanup empty. PR body and final evidence metadata are complete; final remote equality and cleanup checks are recorded in the final report.
 
 # Invariants
 | Resource | Creator / owner / closer | Allowed observations / terminal state | Public API check |
