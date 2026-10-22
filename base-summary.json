@@ -1,0 +1,14 @@
+{
+  "coursier.cache.DownloadBufferCapacityTests": {
+    "passed": 5,
+    "failed": 8,
+    "attempts": 13,
+    "uniqueCases": 13
+  },
+  "coursier.cache.RcoursResponseTests": {
+    "passed": 11,
+    "failed": 6,
+    "attempts": 17,
+    "uniqueCases": 17
+  }
+}

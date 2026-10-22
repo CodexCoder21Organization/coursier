@@ -1,0 +1,212 @@
+[
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "overstated_length_must_not_publish_incomplete_body",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.009"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "understated_length_must_not_overread_framed_body",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.016"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "zero_length_with_trailing_body_must_stay_empty",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.003"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "chunked_without_length_reads_all_chunks",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "chunked_overrides_conflicting_length",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.003"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "close_delimited_unknown_length",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.002"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "unknown_content_encoding_keeps_cap",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.002"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "gzip_decodes_expansion_larger_than_wire",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.076"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "redirect_uses_final_response_length",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "wrong_range_start_restarts_without_appending",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.049"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "wrong_range_end_must_not_publish_inconsistent_body",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.004"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "wrong_range_total_must_not_publish_incomplete_artifact",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "known_tiny_uses_exact_length",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.003"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "configured_cap_below_equal_and_above_length",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.036"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "one_byte_cap_remains_positive",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.003"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "large_lengths_remain_capped_without_int_overflow",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.012"
+  },
+  {
+    "class": "coursier.cache.RcoursResponseTests",
+    "name": "default_http_transport_uses_http_1_1",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.002"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "known tiny response does not request an oversized transfer buffer",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.178"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "known 199 byte POM uses its response length",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "known one byte response uses a one byte buffer",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "identity response uses its uncompressed length",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.004"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "mixed case identity response uses its uncompressed length",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "other content encodings retain the default maximum",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.004"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "known responses at the default boundary stay bounded",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.016"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "known empty response keeps read buffers at one byte or less",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "known body larger than configured maximum uses at most that maximum",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.006"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "unknown chunked response retains the default maximum",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.027"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "unknown identity response retains the default maximum",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.004"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "gzip response with known encoded length returns all decoded bytes",
+    "failed": false,
+    "skipped": false,
+    "seconds": "0.005"
+  },
+  {
+    "class": "coursier.cache.DownloadBufferCapacityTests",
+    "name": "partial response resumes from the persisted prefix with a bounded read buffer",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.008"
+  }
+]

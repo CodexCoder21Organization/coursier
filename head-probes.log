@@ -1,0 +1,10 @@
+=============== cache.jvm[2.13.16].test.testOnly...che.DownloadBufferCapacityTests ===============
+[299/306] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[299] [error] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS-coursier-20261020/modules/cache/jvm/src/test/scala/coursier/cache/RcoursResponseTests.scala:101:35: value withRetryCount is not a member of coursier.cache.FileCache[coursier.util.Task]
+[299] [error]         .withChecksums(Seq(None)).withRetryCount(0).withBufferSize(cap)
+[299] [error]                                   ^
+[299] [error] one error found
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...dBufferCapacityTests =============== 5s
+1 tasks failed
+cache.jvm[2.13.16].test.compile Compilation failed

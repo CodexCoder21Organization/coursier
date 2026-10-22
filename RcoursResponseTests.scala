@@ -98,7 +98,7 @@ object RcoursResponseTests extends TestSuite {
     try {
       val url = s"${if (observe) protocol else "http"}://127.0.0.1:${server.getLocalPort}/artifact"
       val baseCache = FileCache[Task](directory.toFile).withPool(workers)
-        .withChecksums(Seq(None)).withRetryCount(0).withBufferSize(cap)
+        .withChecksums(Seq(None)).withRetry(0).withBufferSize(cap)
       val cache = if (observe) baseCache.withCustomHandlerFactory(Some(handler)) else baseCache
       if (prefix.nonEmpty) {
         val target = CachePath.temporaryFile(cache.localFile(url))

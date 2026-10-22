@@ -1,0 +1,485 @@
+diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
+index ae7e991a8..067766ad3 100644
+--- a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
++++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
+@@ -1,7 +1,14 @@
+ package coursier.cache
+ 
+ import java.io.{ByteArrayOutputStream, FilterInputStream, InputStream}
+-import java.net.{HttpURLConnection, InetSocketAddress, URL, URLConnection, URLStreamHandler, URLStreamHandlerFactory}
++import java.net.{
++  HttpURLConnection,
++  InetSocketAddress,
++  URL,
++  URLConnection,
++  URLStreamHandler,
++  URLStreamHandlerFactory
++}
+ import java.nio.file.{Files, Path}
+ import java.util.UUID
+ import java.util.concurrent.{ConcurrentHashMap, ExecutorService, Executors, TimeUnit}
+@@ -42,16 +49,16 @@ object DownloadBufferCapacityTests extends TestSuite {
+       contentEncoding: Option[String],
+       configuredBufferSize: Option[Int]
+     ): ScenarioObservation = {
+-      var directory: Path = null
+-      var server: HttpServer = null
+-      var serverStarted = false
+-      var serverWorkers: ExecutorService = null
++      var directory: Path                  = null
++      var server: HttpServer               = null
++      var serverStarted                    = false
++      var serverWorkers: ExecutorService   = null
+       var downloadWorkers: ExecutorService = null
+-      val openStreams = ConcurrentHashMap.newKeySet[InputStream]()
+-      val reads = ListBuffer.empty[ReadObservation]
+-      val openedStreams = new AtomicInteger()
+-      val closedStreams = new AtomicInteger()
+-      val servedResponses = new AtomicInteger()
++      val openStreams                      = ConcurrentHashMap.newKeySet[InputStream]()
++      val reads                            = ListBuffer.empty[ReadObservation]
++      val openedStreams                    = new AtomicInteger()
++      val closedStreams                    = new AtomicInteger()
++      val servedResponses                  = new AtomicInteger()
+ 
+       def closeStreams(streams: List[InputStream], index: Int = 0): Unit =
+         if (index < streams.length)
+@@ -70,11 +77,13 @@ object DownloadBufferCapacityTests extends TestSuite {
+             try {
+               servedResponses.incrementAndGet()
+               exchange.getResponseHeaders.set("Content-Type", "application/octet-stream")
+-              contentEncoding.foreach(value => exchange.getResponseHeaders.set("Content-Encoding", value))
++              contentEncoding.foreach(value =>
++                exchange.getResponseHeaders.set("Content-Encoding", value)
++              )
+               responseContentLength match {
+-                case Some(0L) => exchange.sendResponseHeaders(200, -1L)
++                case Some(0L)     => exchange.sendResponseHeaders(200, -1L)
+                 case Some(length) => exchange.sendResponseHeaders(200, length)
+-                case None => exchange.sendResponseHeaders(200, 0L)
++                case None         => exchange.sendResponseHeaders(200, 0L)
+               }
+               if (responseBody.nonEmpty) exchange.getResponseBody.write(responseBody)
+             }
+@@ -90,7 +99,8 @@ object DownloadBufferCapacityTests extends TestSuite {
+             else
+               new URLStreamHandler {
+                 override protected def openConnection(url: URL): URLConnection = {
+-                  val delegate = new URL("http", url.getHost, url.getPort, url.getFile).openConnection()
++                  val delegate =
++                    new URL("http", url.getHost, url.getPort, url.getFile).openConnection()
+                   new URLConnection(url) {
+                     private var exposedStream: InputStream = null
+ 
+@@ -100,12 +110,13 @@ object DownloadBufferCapacityTests extends TestSuite {
+                         connected = true
+                       }
+ 
+-                    override def getHeaderField(name: String): String = delegate.getHeaderField(name)
++                    override def getHeaderField(name: String): String =
++                      delegate.getHeaderField(name)
+                     override def getContentLengthLong(): Long = delegate.getContentLengthLong()
+                     override def getContentEncoding(): String = delegate.getContentEncoding()
+-                    override def getLastModified(): Long = delegate.getLastModified()
++                    override def getLastModified(): Long      = delegate.getLastModified()
+ 
+-                    override def getInputStream(): InputStream = {
++                    override def getInputStream(): InputStream =
+                       if (exposedStream != null) exposedStream
+                       else {
+                         connect()
+@@ -123,7 +134,8 @@ object DownloadBufferCapacityTests extends TestSuite {
+                           override def close(): Unit =
+                             try super.close()
+                             finally {
+-                              if (countedClose.compareAndSet(false, true)) closedStreams.incrementAndGet()
++                              if (countedClose.compareAndSet(false, true))
++                                closedStreams.incrementAndGet()
+                               openStreams.remove(this)
+                             }
+                         }
+@@ -132,7 +144,6 @@ object DownloadBufferCapacityTests extends TestSuite {
+                         exposedStream = observed
+                         observed
+                       }
+-                    }
+                   }
+                 }
+               }
+@@ -144,7 +155,7 @@ object DownloadBufferCapacityTests extends TestSuite {
+           .withCustomHandlerFactory(Some(handlerFactory))
+         val cache = configuredBufferSize match {
+           case Some(size) => baseCache.withBufferSize(size)
+-          case None => baseCache
++          case None       => baseCache
+         }
+         val artifactUrl = s"$protocol://127.0.0.1:${server.getAddress.getPort}/artifact"
+         val downloaded = Await.result(
+@@ -158,32 +169,26 @@ object DownloadBufferCapacityTests extends TestSuite {
+           openedStreams.get(),
+           closedStreams.get(),
+           openStreams.size(),
+-          reads.synchronized { reads.toList }
++          reads.synchronized(reads.toList)
+         )
+       }
+-      finally {
++      finally
+         try closeStreams(openStreams.toArray(new Array[InputStream](0)).toList)
+-        finally {
++        finally
+           try if (serverStarted) server.stop(0)
+-          finally {
+-            try {
++          finally
++            try
+               if (serverWorkers != null) {
+                 serverWorkers.shutdownNow()
+                 assert(serverWorkers.awaitTermination(10, TimeUnit.SECONDS))
+               }
+-            }
+-            finally {
+-              try {
++            finally
++              try
+                 if (downloadWorkers != null) {
+                   downloadWorkers.shutdownNow()
+                   assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+                 }
+-              }
+               finally if (directory != null) os.remove.all(os.Path(directory))
+-            }
+-          }
+-        }
+-      }
+     }
+ 
+     def assertScenario(
+@@ -207,7 +212,7 @@ object DownloadBufferCapacityTests extends TestSuite {
+     }
+ 
+     def gzip(body: Array[Byte]): Array[Byte] = {
+-      val output = new ByteArrayOutputStream()
++      val output     = new ByteArrayOutputStream()
+       val gzipOutput = new GZIPOutputStream(output)
+       try gzipOutput.write(body)
+       finally gzipOutput.close()
+@@ -228,17 +233,78 @@ object DownloadBufferCapacityTests extends TestSuite {
+         expectedBody.length.toLong,
+         expectedBody.length
+       )
++      assert(observation.reads.exists(_.arrayLength == expectedBody.length))
++    }
++
++    test("known 199 byte POM uses its response length") {
++      val pom = "<project><modelVersion>4.0.0</modelVersion><groupId>test</groupId>" +
++        "<artifactId>tiny</artifactId><version>1</version></project>"
++      val expectedBody = (pom + (" " * (199 - pom.length))).getBytes("UTF-8")
++      assert(expectedBody.length == 199)
++      val observation = downloadScenario(expectedBody, Some(199L), None, None)
++      assertScenario(observation, expectedBody, 199L, 199)
++      assert(observation.reads.exists(_.arrayLength == 199))
++    }
++
++    test("known one byte response uses a one byte buffer") {
++      val expectedBody = Array[Byte](42)
++      val observation  = downloadScenario(expectedBody, Some(1L), None, None)
++      assertScenario(observation, expectedBody, 1L, 1)
++      assert(observation.reads.exists(_.arrayLength == 1))
++    }
++
++    test("identity response uses its uncompressed length") {
++      val expectedBody = Array[Byte](11, 22, 33)
++      val observation  = downloadScenario(expectedBody, Some(3L), Some("identity"), None)
++      assertScenario(observation, expectedBody, 3L, 3)
++      assert(observation.reads.exists(_.arrayLength == 3))
++    }
++
++    test("mixed case identity response uses its uncompressed length") {
++      val expectedBody = Array[Byte](11, 22, 33)
++      val observation  = downloadScenario(expectedBody, Some(3L), Some("IdEnTiTy"), None)
++      assertScenario(observation, expectedBody, 3L, 3)
++      assert(observation.reads.exists(_.arrayLength == 3))
++    }
++
++    test("other content encodings retain the default maximum") {
++      val expectedBody = Array[Byte](11, 22, 33)
++      val observation  = downloadScenario(expectedBody, Some(3L), Some("custom"), None)
++      assertScenario(observation, expectedBody, 3L, CacheDefaults.bufferSize)
++      assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
++    }
++
++    test("known responses at the default boundary stay bounded") {
++      for (
++        length <-
++          Seq(CacheDefaults.bufferSize - 1, CacheDefaults.bufferSize, CacheDefaults.bufferSize + 1)
++      ) {
++        val expectedBody = Array.tabulate[Byte](length)(index => (index % 251).toByte)
++        val observation  = downloadScenario(expectedBody, Some(length.toLong), None, None)
++        assertScenario(
++          observation,
++          expectedBody,
++          length.toLong,
++          math.min(length, CacheDefaults.bufferSize)
++        )
++        assert(observation.reads.exists(_.arrayLength == math.min(
++          length,
++          CacheDefaults.bufferSize
++        )))
++      }
+     }
+ 
+     test("known empty response keeps read buffers at one byte or less") {
+       val expectedBody = Array.empty[Byte]
+-      val observation = downloadScenario(expectedBody, Some(0L), None, None)
++      val observation  = downloadScenario(expectedBody, Some(0L), None, None)
+       assertScenario(observation, expectedBody, 0L, 1)
++      assert(observation.reads.exists(_.arrayLength == 1))
+     }
+ 
+     test("known body larger than configured maximum uses at most that maximum") {
+       val configuredMaximum = 8192
+-      val expectedBody = Array.tabulate[Byte](configuredMaximum * 2 + 1)(index => (index % 251).toByte)
++      val expectedBody =
++        Array.tabulate[Byte](configuredMaximum * 2 + 1)(index => (index % 251).toByte)
+       val observation = downloadScenario(
+         expectedBody,
+         Some(expectedBody.length.toLong),
+@@ -247,18 +313,28 @@ object DownloadBufferCapacityTests extends TestSuite {
+       )
+       assert(expectedBody.length > configuredMaximum * 2)
+       assertScenario(observation, expectedBody, expectedBody.length.toLong, configuredMaximum)
++      assert(observation.reads.exists(_.arrayLength == configuredMaximum))
+     }
+ 
+     test("unknown chunked response retains the default maximum") {
+-      val expectedBody = Array.tabulate[Byte](CacheDefaults.bufferSize + 17)(index => (index % 251).toByte)
++      val expectedBody =
++        Array.tabulate[Byte](CacheDefaults.bufferSize + 17)(index => (index % 251).toByte)
+       val observation = downloadScenario(expectedBody, None, None, None)
+       assertScenario(observation, expectedBody, -1L, CacheDefaults.bufferSize)
++      assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
++    }
++
++    test("unknown identity response retains the default maximum") {
++      val expectedBody = Array[Byte](11, 22, 33)
++      val observation  = downloadScenario(expectedBody, None, Some("identity"), None)
++      assertScenario(observation, expectedBody, -1L, CacheDefaults.bufferSize)
++      assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
+     }
+ 
+-    test("gzip response retains the configured maximum while returning decoded bytes") {
++    test("gzip response with known encoded length returns all decoded bytes") {
+       val configuredMaximum = 8192
+-      val expectedBody = Array.fill[Byte](32 * 1024)(65.toByte)
+-      val compressedBody = gzip(expectedBody)
++      val expectedBody      = Array.fill[Byte](32 * 1024)(65.toByte)
++      val compressedBody    = gzip(expectedBody)
+       assert(compressedBody.length < expectedBody.length)
+       val observation = downloadScenario(
+         compressedBody,
+@@ -270,23 +346,23 @@ object DownloadBufferCapacityTests extends TestSuite {
+     }
+ 
+     test("partial response resumes from the persisted prefix with a bounded read buffer") {
+-      val prefix = Array[Byte](11, 22, 33)
+-      val suffix = Array[Byte](44, 55, 66)
+-      val expectedBody = prefix ++ suffix
+-      var directory: Path = null
+-      var server: HttpServer = null
+-      var serverStarted = false
+-      var serverWorkers: ExecutorService = null
++      val prefix                           = Array[Byte](11, 22, 33)
++      val suffix                           = Array[Byte](44, 55, 66)
++      val expectedBody                     = prefix ++ suffix
++      var directory: Path                  = null
++      var server: HttpServer               = null
++      var serverStarted                    = false
++      var serverWorkers: ExecutorService   = null
+       var downloadWorkers: ExecutorService = null
+-      val openStreams = ConcurrentHashMap.newKeySet[InputStream]()
+-      val reads = ListBuffer.empty[ReadObservation]
+-      val openedStreams = new AtomicInteger()
+-      val closedStreams = new AtomicInteger()
+-      val headRequests = new AtomicInteger()
+-      val getRequests = new AtomicInteger()
+-      val observedRange = new AtomicReference[String]()
+-      val lengthEvents = ListBuffer.empty[(Long, Long, Boolean)]
+-      val progressEvents = ListBuffer.empty[Long]
++      val openStreams                      = ConcurrentHashMap.newKeySet[InputStream]()
++      val reads                            = ListBuffer.empty[ReadObservation]
++      val openedStreams                    = new AtomicInteger()
++      val closedStreams                    = new AtomicInteger()
++      val headRequests                     = new AtomicInteger()
++      val getRequests                      = new AtomicInteger()
++      val observedRange                    = new AtomicReference[String]()
++      val lengthEvents                     = ListBuffer.empty[(Long, Long, Boolean)]
++      val progressEvents                   = ListBuffer.empty[Long]
+ 
+       def closeStreams(streams: List[InputStream], index: Int = 0): Unit =
+         if (index < streams.length)
+@@ -345,7 +421,11 @@ object DownloadBufferCapacityTests extends TestSuite {
+ 
+                           override def read(bytes: Array[Byte], offset: Int, length: Int): Int = {
+                             reads.synchronized {
+-                              reads += ReadObservation(delegate.getContentLengthLong, length, bytes.length)
++                              reads += ReadObservation(
++                                delegate.getContentLengthLong,
++                                length,
++                                bytes.length
++                              )
+                             }
+                             super.read(bytes, offset, length)
+                           }
+@@ -353,7 +433,8 @@ object DownloadBufferCapacityTests extends TestSuite {
+                           override def close(): Unit =
+                             try super.close()
+                             finally {
+-                              if (countedClose.compareAndSet(false, true)) closedStreams.incrementAndGet()
++                              if (countedClose.compareAndSet(false, true))
++                                closedStreams.incrementAndGet()
+                               openStreams.remove(this)
+                             }
+                         }
+@@ -367,18 +448,21 @@ object DownloadBufferCapacityTests extends TestSuite {
+                       connected = true
+                     }
+ 
+-                    override def disconnect(): Unit = delegate.disconnect()
+-                    override def usingProxy(): Boolean = delegate.usingProxy()
+-                    override def getResponseCode: Int = delegate.getResponseCode
++                    override def disconnect(): Unit         = delegate.disconnect()
++                    override def usingProxy(): Boolean      = delegate.usingProxy()
++                    override def getResponseCode: Int       = delegate.getResponseCode
+                     override def getResponseMessage: String = delegate.getResponseMessage
+-                    override def getHeaderField(name: String): String = delegate.getHeaderField(name)
++                    override def getHeaderField(name: String): String =
++                      delegate.getHeaderField(name)
+                     override def getHeaderField(index: Int): String = delegate.getHeaderField(index)
+-                    override def getHeaderFieldKey(index: Int): String = delegate.getHeaderFieldKey(index)
+-                    override def getHeaderFields: java.util.Map[String, java.util.List[String]] = delegate.getHeaderFields
+-                    override def getContentLength: Int = delegate.getContentLength
++                    override def getHeaderFieldKey(index: Int): String =
++                      delegate.getHeaderFieldKey(index)
++                    override def getHeaderFields: java.util.Map[String, java.util.List[String]] =
++                      delegate.getHeaderFields
++                    override def getContentLength: Int      = delegate.getContentLength
+                     override def getContentLengthLong: Long = delegate.getContentLengthLong
+                     override def getContentEncoding: String = delegate.getContentEncoding
+-                    override def getLastModified: Long = delegate.getLastModified
++                    override def getLastModified: Long      = delegate.getLastModified
+                     override def getErrorStream: InputStream = {
+                       if (exposedErrorStream == null)
+                         exposedErrorStream = observe(delegate.getErrorStream)
+@@ -390,27 +474,35 @@ object DownloadBufferCapacityTests extends TestSuite {
+                       exposedInputStream
+                     }
+                     override def getRequestMethod: String = delegate.getRequestMethod
+-                    override def setRequestMethod(method: String): Unit = delegate.setRequestMethod(method)
+-                    override def getRequestProperty(key: String): String = delegate.getRequestProperty(key)
+-                    override def getRequestProperties: java.util.Map[String, java.util.List[String]] =
++                    override def setRequestMethod(method: String): Unit =
++                      delegate.setRequestMethod(method)
++                    override def getRequestProperty(key: String): String =
++                      delegate.getRequestProperty(key)
++                    override def getRequestProperties
++                      : java.util.Map[String, java.util.List[String]] =
+                       delegate.getRequestProperties
+                     override def setRequestProperty(key: String, value: String): Unit =
+                       delegate.setRequestProperty(key, value)
+                     override def addRequestProperty(key: String, value: String): Unit =
+                       delegate.addRequestProperty(key, value)
+-                    override def getInstanceFollowRedirects: Boolean = delegate.getInstanceFollowRedirects
++                    override def getInstanceFollowRedirects: Boolean =
++                      delegate.getInstanceFollowRedirects
+                     override def setInstanceFollowRedirects(follow: Boolean): Unit =
+                       delegate.setInstanceFollowRedirects(follow)
+                     override def getConnectTimeout: Int = delegate.getConnectTimeout
+-                    override def setConnectTimeout(timeout: Int): Unit = delegate.setConnectTimeout(timeout)
++                    override def setConnectTimeout(timeout: Int): Unit =
++                      delegate.setConnectTimeout(timeout)
+                     override def getReadTimeout: Int = delegate.getReadTimeout
+-                    override def setReadTimeout(timeout: Int): Unit = delegate.setReadTimeout(timeout)
++                    override def setReadTimeout(timeout: Int): Unit =
++                      delegate.setReadTimeout(timeout)
+                     override def getUseCaches: Boolean = delegate.getUseCaches
+-                    override def setUseCaches(useCaches: Boolean): Unit = delegate.setUseCaches(useCaches)
+-                    override def getDoInput: Boolean = delegate.getDoInput
++                    override def setUseCaches(useCaches: Boolean): Unit =
++                      delegate.setUseCaches(useCaches)
++                    override def getDoInput: Boolean                = delegate.getDoInput
+                     override def setDoInput(doInput: Boolean): Unit = delegate.setDoInput(doInput)
+-                    override def getDoOutput: Boolean = delegate.getDoOutput
+-                    override def setDoOutput(doOutput: Boolean): Unit = delegate.setDoOutput(doOutput)
++                    override def getDoOutput: Boolean               = delegate.getDoOutput
++                    override def setDoOutput(doOutput: Boolean): Unit =
++                      delegate.setDoOutput(doOutput)
+                   }
+                 }
+               }
+@@ -428,7 +520,7 @@ object DownloadBufferCapacityTests extends TestSuite {
+           }
+ 
+           override def downloadProgress(url: String, downloaded: Long): Unit =
+-            progressEvents.synchronized { progressEvents += downloaded }
++            progressEvents.synchronized(progressEvents += downloaded)
+         }
+         val cache = FileCache[Task](directory.toFile)
+           .withPool(downloadWorkers)
+@@ -448,45 +540,40 @@ object DownloadBufferCapacityTests extends TestSuite {
+         assert(Files.readAllBytes(downloaded.toPath).toSeq == expectedBody.toSeq)
+         assert(Files.exists(finalFile.toPath))
+         assert(!Files.exists(temporaryFile.toPath))
+-        assert(headRequests.get() > 0)
++        assert(headRequests.get() == 0)
+         assert(getRequests.get() == 1)
+         assert(observedRange.get() == "bytes=3-")
+         assert(openedStreams.get() > 0)
+         assert(closedStreams.get() == openedStreams.get())
+         assert(openStreams.isEmpty)
+-        val observedReads = reads.synchronized { reads.toList }
++        val observedReads = reads.synchronized(reads.toList)
+         assert(observedReads.nonEmpty)
+         assert(observedReads.forall(_.advertisedLength == suffix.length.toLong))
+         observedReads.foreach { read =>
+           assert(read.requestedLength <= suffix.length)
+           assert(read.arrayLength <= suffix.length)
+         }
+-        assert(lengthEvents.synchronized { lengthEvents.contains((6L, 3L, false)) })
+-        assert(progressEvents.synchronized { progressEvents.contains(6L) })
++        assert(observedReads.exists(_.arrayLength == suffix.length))
++        assert(lengthEvents.synchronized(lengthEvents.contains((6L, 3L, false))))
++        assert(progressEvents.synchronized(progressEvents.contains(6L)))
+       }
+-      finally {
++      finally
+         try closeStreams(openStreams.toArray(new Array[InputStream](0)).toList)
+-        finally {
++        finally
+           try if (serverStarted) server.stop(0)
+-          finally {
+-            try {
++          finally
++            try
+               if (serverWorkers != null) {
+                 serverWorkers.shutdownNow()
+                 assert(serverWorkers.awaitTermination(10, TimeUnit.SECONDS))
+               }
+-            }
+-            finally {
+-              try {
++            finally
++              try
+                 if (downloadWorkers != null) {
+                   downloadWorkers.shutdownNow()
+                   assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+                 }
+-              }
+               finally if (directory != null) os.remove.all(os.Path(directory))
+-            }
+-          }
+-        }
+-      }
+     }
+   }
+ }
