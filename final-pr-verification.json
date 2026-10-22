@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-22T21:13:59.887063+00:00",
+  "url": "https://github.com/CodexCoder21Organization/coursier/pull/6",
+  "state": "open",
+  "merged": false,
+  "head": "2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8",
+  "base": "7434805e35d9941f840c6e8c914f7d53fe852e10",
+  "bodySha256": "15525a6cd4867a0c07425c71320330aba64234cdf51b577e3d871f07ac5e5e51",
+  "bodyMatchesRequestedText": true,
+  "checks": [
+    {
+      "name": "kotlin.build (kompile-remote-build)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CodexCoder21Organization/coursier/runs/120081405428"
+    },
+    {
+      "name": "kotlin.build (remote)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CodexCoder21Organization/coursier/runs/120036022111"
+    }
+  ]
+}
