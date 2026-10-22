@@ -1,0 +1,9 @@
+[
+  {
+    "class": "coursier.cache.RcoursFragmentedLengthTests",
+    "name": "understated_fragmented_body_must_not_read_past_length",
+    "failed": true,
+    "skipped": false,
+    "seconds": "0.184"
+  }
+]

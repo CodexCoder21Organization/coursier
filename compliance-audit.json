@@ -1,0 +1,21 @@
+{
+  "introducedProhibitedTerms": {
+    "getDeclared": 0,
+    "setAccessible": 0,
+    "java.lang.reflect": 0,
+    "Mockito": 0,
+    "mockito": 0,
+    "Thread.sleep": 0,
+    "@Ignore": 0,
+    "assumeTrue": 0
+  },
+  "existingWaitValues": "30.seconds and awaitTermination(10, TimeUnit.SECONDS) unchanged from checkpoint",
+  "existingLoopsReduced": false,
+  "existingMergedTestsChanged": false,
+  "headCountEdit": {
+    "before": "> 0",
+    "after": "== 0",
+    "logicalStrengthening": false,
+    "correctsUnmergedHarnessExpectation": true
+  }
+}

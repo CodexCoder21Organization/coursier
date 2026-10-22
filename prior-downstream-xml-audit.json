@@ -1,0 +1,25 @@
+{
+  "passed": 446,
+  "failed": 4,
+  "cases": 450,
+  "iterations": 30,
+  "failedCases": [
+    {
+      "iteration": 2,
+      "name": "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads"
+    },
+    {
+      "iteration": 2,
+      "name": "kompile.testAttemptTimelineJoinedWorkloadEvents"
+    },
+    {
+      "iteration": 4,
+      "name": "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads"
+    },
+    {
+      "iteration": 16,
+      "name": "kompile.testAttemptTimelineJoinedWorkloadEvents"
+    }
+  ],
+  "newGateRunStarted": false
+}

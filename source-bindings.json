@@ -1,0 +1,15 @@
+{
+  "modules/cache/jvm/src/test/scala/coursier/cache/RcoursResponseTests.scala": "565bacb0cbe7206f1f5ad3c73789b4a855571e67ae915fd720fe316f285379a5",
+  "modules/cache/jvm/src/test/scala/coursier/cache/RcoursPausedResponseTests.scala": "9d20ec3abd97772fa18f5880408fc520c93a8bd14921a4b7d83c85dc6ce25c30",
+  "modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala": "751511c20a4e6715996549cc22a8a6524094a45c05304d266bffc8424b019933",
+  "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala": "a9e6b95afe64b29e7596c7b07b891903976ad0c2a2e4342cc61405dcf0bcec4a",
+  "headSourceGitBlob": "f7107a9b1b6482417256f884d99e22c4987ba0a7",
+  "baseSourceGitBlob": "85d40a70dd32ffdda046f9e8f531aff6b3d14f5c",
+  "currentSourceGitBlob": "f7107a9b1b6482417256f884d99e22c4987ba0a7",
+  "baseRunLocalCommit": "9342027a174f2d361118ea46c3a4d9ffe7a9a3b6",
+  "baseVsMainSourceDiff": "empty; verified before paused base run",
+  "evidence/RcoursPausedResponseTests.scala": "9d20ec3abd97772fa18f5880408fc520c93a8bd14921a4b7d83c85dc6ce25c30",
+  "evidence/RcoursFragmentedLengthTests.scala": "6e56c9bbc345b2d9e1019960a34484f2aa28b9b10692e86f3257be1238616c30",
+  "baseFragmentedLocalCommit": "6d378fd58",
+  "finalCheckout": "fix/I419i-response-download-buffers at2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8; clean"
+}

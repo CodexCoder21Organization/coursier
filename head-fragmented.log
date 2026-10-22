@@ -1,0 +1,22 @@
+=============== cache.jvm[2.13.16].test.testOnly...che.RcoursFragmentedLengthTests ===============
+[299/306] cache.jvm[2.13.16].test.compile
+[299] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[299] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] RCOURS fragmented body: two bytes copied before the rest is released
+[306] RCOURS fragmented completion: Right(5)
+[306] [31mX[39m coursier.cache.RcoursFragmentedLengthTests.understated_fragmented_body_must_not_read_past_length [2m184ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(result.map(file => Files.readAllBytes(file.toPath).toSeq) == Right("abc".getBytes(UTF_8).toSeq))
+[306]   [36mresult[39m: [32mEither[39m[[32mArtifactError[39m, [32mjava[39m.[32mio[39m.[32mFile[39m] = [33mRight[39m(value = /tmp/rcours-paused911924944868685022/http/127.0.0.1%3A34897/artifact)
+[306]   [36mfile[39m: [32mjava[39m.[32mio[39m.[32mFile[39m = /tmp/rcours-paused911924944868685022/http/127.0.0.1%3A34897/artifact
+[306]   [36mresult.map(file => Files.readAllBytes(file.toPath).toSeq) != Right("abc".getBytes(UTF_8).toSeq)[39m:
+[306]   [41m- Right(value = ArraySeq(97, 98, 99[4m, 100, 101[24m))[49m
+[306]   [42m+ Right(value = ArraySeq(97, 98, 99))[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.RcoursFragmentedLengthTests$.[91m$anonfun$tests$2[39m([91mRcoursFragmentedLengthTests.scala[39m:[91m61[39m)
+[306] Tests: 1, Passed: 0, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...ragmentedLengthTests =============== 5s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.RcoursFragmentedLengthTests coursier.cache.RcoursFragmentedLengthTests.understated_fragmented_body_must_not_read_past_length

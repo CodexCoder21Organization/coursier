@@ -1,0 +1,46 @@
+{
+  "head": {
+    "xmlCases": 30,
+    "uniqueXmlCases": 30,
+    "runnerExecutionLinesBeforeFailureSummary": 30,
+    "skipped": 0,
+    "runnerRetriesEnabled": false
+  },
+  "base": {
+    "xmlCases": 30,
+    "uniqueXmlCases": 30,
+    "runnerExecutionLinesBeforeFailureSummary": 30,
+    "skipped": 0,
+    "runnerRetriesEnabled": false
+  },
+  "head-paused": {
+    "xmlCases": 1,
+    "uniqueXmlCases": 1,
+    "runnerExecutionLinesBeforeFailureSummary": 1,
+    "skipped": 0,
+    "runnerRetriesEnabled": false
+  },
+  "base-paused": {
+    "xmlCases": 1,
+    "uniqueXmlCases": 1,
+    "runnerExecutionLinesBeforeFailureSummary": 1,
+    "skipped": 0,
+    "runnerRetriesEnabled": false
+  },
+  "head-fragmented": {
+    "xmlCases": 1,
+    "uniqueXmlCases": 1,
+    "bodyStartMarkers": 1,
+    "bodyCompletionMarkers": 1,
+    "skipped": 0,
+    "runnerRetriesEnabled": false
+  },
+  "base-fragmented": {
+    "xmlCases": 1,
+    "uniqueXmlCases": 1,
+    "bodyStartMarkers": 1,
+    "bodyCompletionMarkers": 1,
+    "skipped": 0,
+    "runnerRetriesEnabled": false
+  }
+}
