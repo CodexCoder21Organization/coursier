@@ -22,8 +22,8 @@ for i in range(1,count+1):
     for c in ET.parse(target).iter('testcase'):
         f=c.find('failure')
         tests.append({'name':c.attrib['name'],'failed':f is not None,'message':None if f is None else f.attrib.get('message')})
-    if len(tests)!=11: raise RuntimeError(f'Expected eleven cases, got {len(tests)}')
-    if len(set(t['name'] for t in tests))!=11: raise RuntimeError('Duplicate cases imply more than one attempt')
+    if len(tests)!=12: raise RuntimeError(f'Expected twelve cases, got {len(tests)}')
+    if len(set(t['name'] for t in tests))!=12: raise RuntimeError('Duplicate cases imply more than one attempt')
     results.append({'iteration':i,'exit':r.returncode,'tests':tests,'attemptsPerCase':1})
     (evidence/f'{phase}-results.json').write_text(json.dumps(results,indent=2)+'\n')
     print(f'{phase} {i}/{count}: {sum(not t["failed"] for t in tests)} pass, {sum(t["failed"] for t in tests)} fail',flush=True)

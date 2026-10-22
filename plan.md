@@ -1,8 +1,8 @@
 # I419i plan
-- [in progress] Fresh clone, required reading, rebase and main overlap check; compile Range reproducer.
-- [pending] Run unchanged reproducer ten single attempts; checkpoint results remotely.
-- [pending] Complete boundary cases, implement response-size buffer cap, run each thirty times.
-- [pending] Run existing cache JVM tests exactly once; review tests and implementation independently.
+- [done] Fresh clone, required reading, rebase and main overlap check; compile Range reproducer.
+- [done] Run unchanged reproducer ten single attempts; checkpoint results remotely.
+- [done] Complete boundary cases, implement response-size buffer cap, run each thirty times.
+- [in progress] Run existing cache JVM tests exactly once; review tests and implementation independently.
 - [pending] Build local snapshot and run the same fifteen-owner, thirty-iteration single-attempt kompile gate; inspect any remaining failure mechanisms.
 - [pending] Rebase, validate, open fork PR, scan and push evidence, verify remote heads and process cleanup.
 
