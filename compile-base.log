@@ -1,0 +1,50 @@
+============================== cache.jvm[2.13.16].test.compile ==============================
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[234/261] paths.compile
+[234] [info] compiling 5 Java sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/paths/compile.dest/classes ...
+[234] [warn] source value 8 is obsolete and will be removed in a future release
+[234] [warn] target value 8 is obsolete and will be removed in a future release
+[234] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[235/261] cache-util.compile
+[235] [info] compiling 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/cache-util/compile.dest/classes ...
+[235] [warn] source value 8 is obsolete and will be removed in a future release
+[235] [warn] target value 8 is obsolete and will be removed in a future release
+[235] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[235] [info] done compiling
+[198/261] mill.scalalib.ZincWorkerModule.worker
+[198] Compiling compiler interface...
+[234] [info] done compiling
+[242/261] util.jvm[2.13.16].compile
+[243/261] custom-protocol-for-test.compile
+[242] [info] compiling 16 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/util/jvm/2.13.16/compile.dest/classes ...
+[243] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/custom-protocol-for-test/compile.dest/classes ...
+[243] [info] done compiling
+[242] [info] done compiling
+[257/261] cache.jvm[2.13.16].compile
+[257] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[257] [warn] source value 8 is obsolete and will be removed in a future release
+[257] [warn] target value 8 is obsolete and will be removed in a future release
+[257] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[257] [info] done compiling
+[261/261] cache.jvm[2.13.16].test.compile
+[261] [info] compiling 12 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[261] [info] done compiling
+[261/261] ========================== cache.jvm[2.13.16].test.compile ========================= 49s
