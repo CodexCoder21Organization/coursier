@@ -79,3 +79,29 @@
 2026-10-22 20:23 UTC — OBSERVED: Evidence preflight commit431dafea2f32d18f829b6de8c27f82c6e9694ef2 equals the remote evidence branch SHA after the scan and push. Gate preparation is active with no completed iterations and no new oom_kill. INFER: Next checkpoint remains the first complete iteration; no gate pass count is inferred from preparation output.
 
 2026-10-22 20:26 UTC — OBSERVED: Gate progress {"utc": "2026-10-22T20:26:39.901449+00:00", "complete": 1, "counts": {"pass": 15}, "failures": [], "compileStarted": 26, "compileFinished": 26, "oomKill": "oom_kill 2"}. The fork PR is freshly verified OPEN/unmerged at2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8 against main7434805e35d9941f840c6e8c914f7d53fe852e10. No Addendum headings are present. INFER: Preparation is advancing; next checkpoint is returned test results, without changing any gate setting.
+
+2026-10-22T20:27:37.744971+00:00 OBSERVED: gate-controller remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22T20:27:39.765463+00:00 OBSERVED: fixed-cache remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22 20:32 UTC — OBSERVED: Gate returned two iterations:28 passes/2 failures; iteration2 failures are RepeatedPublicBuildCopies and JoinedWorkload, both outer test-deadline failures at Workspace.kt:5189. The buffer snapshot is therefore not sufficient to produce a failure-free gate. The second iteration console has parent wait stacks, with no FileCache/download readFullyTo frame; this alone does not identify the nested work mechanism. No addenda present. INFER: Next checkpoint is the complete30-iteration count, followed by evidence-based analysis of remaining failures; do not claim this fix resolves the prior six failures.
+
+2026-10-22T20:32:37.041744+00:00 OBSERVED: gate-controller remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22T20:32:39.061509+00:00 OBSERVED: fixed-cache remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22T20:37:38.530428+00:00 OBSERVED: fixed-cache remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22T20:37:38.531353+00:00 OBSERVED: gate-controller remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22 20:38 UTC — OBSERVED: Gate progress {"complete": 7, "counts": {"pass": 102, "fail": 3}, "failed": [["iteration-2.xml", "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads"], ["iteration-2.xml", "kompile.testAttemptTimelineJoinedWorkloadEvents"], ["iteration-4.xml", "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads"]]}. The repeated-copy source invokes a parameterized rule32times; Workspace.kt:3611 bypasses the result index for non-parameterless rules, and iteration2 recorded31 starts/30 ExecutionCompletedEffect messages before expiry. All observed core lock requests in that failure have matching acquired/released events. No addenda present; oom_kill remains2. INFER: The repeated-copy failure concerns repeated uncached rule-process execution, rather than an observed lock wait. JoinedWorkload requires further child-startup evidence; next checkpoint is complete gate results.
+
+2026-10-22 20:40 UTC — OBSERVED: Gate progress {"complete": 10, "counts": {"pass": 147, "fail": 3}, "failed": [["iteration-2.xml", "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads"], ["iteration-2.xml", "kompile.testAttemptTimelineJoinedWorkloadEvents"], ["iteration-4.xml", "kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads"]]}. Evidence first-iteration local/remote heads were botha8f9c9c7909297240aa84a24f7281234eba83b8a after push verification. INFER: Remaining gate repetitions continue unchanged; next checkpoint is completion and the attempt/binding audit.
+
+2026-10-22T20:42:37.081927+00:00 OBSERVED: gate-controller remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22T20:42:39.103283+00:00 OBSERVED: fixed-cache remains active; addenda rechecked []. INFER: Next checkpoint is phase completion and exact XML/attempt audit.
+
+2026-10-22 20:45 UTC — OBSERVED: The independent repeated-copy review confirms result-index bypass for the parameterized rule, compiler cache hits,31 launches/30 completion notices in iteration2 and32 launches in iteration4. A separate JoinedWorkload diagnostic source copy is prepared with event forwarding and phase markers; it has not been compiled or run and does not change any of the15 gate sources. No Addendum headings are present. INFER: The diagnostic will be needed after the gate if its inner child cause remains unobserved; next checkpoint is all30 iteration results.
+
+2026-10-22 20:46 UTC — OBSERVED: Checkpointing completed gate iteration XML/timelines: 16 iterations, {"pass": 236, "fail": 4}. Iteration16 JoinedWorkload is another outer body deadline failure, not an observer CPU assertion. No Addendum headings are present. INFER: The inner-event diagnostic remains needed after all30 iterations; next checkpoint is the full gate audit and actual fixture byte binding.

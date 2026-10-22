@@ -1,0 +1,1532 @@
+<tests>
+  <buildrule name="tools.kompile.buildUpstreamRecorderMavenRepository()" success="true" time="1212" output-files="1" output-bytes="103075639" executions="0"/>
+  <buildrule name="tools.kompile.buildAttributedPublicationMavenRepository()" success="true" time="255" output-files="1" output-bytes="232627698" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineUpstreamLockOwners()" success="true" time="316" output-files="1" output-bytes="487464" executions="0"/>
+  <buildrule name="tools.kompile.buildMaven136DefinitionSiteScopeTests()" success="true" time="1081" output-files="108" output-bytes="103948436" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineAttributedPublication()" success="true" time="1049" output-files="1" output-bytes="487188" executions="0"/>
+  <buildrule name="tools.kompile.buildTestMavenRepository()" success="true" time="432" output-files="1" output-bytes="164113322" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelinePreservesPartialOutputAcrossChildEvents()" success="true" time="34547" output-files="1" output-bytes="18992" executions="1"/>
+  <buildrule name="tools.kompile.buildOlderHookRecorderMavenRepository()" success="true" time="336" output-files="1" output-bytes="196766898" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineOlderHookLibrariesRemainUsable()" success="true" time="1026" output-files="1" output-bytes="490899" executions="0"/>
+  <buildrule name="tools.kompile.buildScenarioTestSupportPrimedDigestCachesR5()" success="true" time="1044" output-files="1" output-bytes="278970" executions="0"/>
+  <buildrule name="fixture.prepared.input.buildInputFixtureTestRepeatedPublicBuildCopiesDoNotRetainPayloads()" success="true" time="5402" output-files="1" output-bytes="468291" executions="0"/>
+  <buildrule name="tools.kompile.buildAttributedCompilerMavenRepository()" success="true" time="475" output-files="1" output-bytes="232627698" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineAttributedCompiler()" success="true" time="1385" output-files="1" output-bytes="489399" executions="0"/>
+  <buildrule name="tools.kompile.buildJoinedRecorderMavenRepository()" success="true" time="636" output-files="1" output-bytes="217132621" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineJoinedWorkloadEvents()" success="true" time="874" output-files="1" output-bytes="495005" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineUpstreamEvents()" success="true" time="878" output-files="1" output-bytes="490820" executions="0"/>
+  <buildrule name="fixture.prepared.input.buildInputFixtureTestR419aDecodedInputRemainsReusable()" success="true" time="59" output-files="1" output-bytes="470582" executions="0"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testPreparedAdmissionSingletonWorkersRetireBeforeReturn.kts" name="kompile.testPreparedAdmissionSingletonWorkersRetireBeforeReturn" success="true" time="7351"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testReviewAdmissionFailureDrainsConcurrentSibling.kts" name="kompile.testReviewAdmissionFailureDrainsConcurrentSibling" success="true" time="13218"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelinePreservesPartialOutputAcrossChildEvents.kts" name="kompile.testAttemptTimelinePreservesPartialOutputAcrossChildEvents" success="true" time="8206"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testPreparedAdmissionParallelWorkersRetireBeforeReturn.kts" name="kompile.testPreparedAdmissionParallelWorkersRetireBeforeReturn" success="true" time="4885"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelineAttributedPublication.kts" name="kompile.testAttemptTimelineAttributedPublication" success="true" time="19822"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelineUpstreamLockOwners.kts" name="kompile.testAttemptTimelineUpstreamLockOwners" success="true" time="20103"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testPreparedBatchDoesNotRescanBuildScriptsOnExecute.kts" name="kompile.testPreparedBatchDoesNotRescanBuildScriptsOnExecute" success="true" time="10025"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelineOlderHookLibrariesRemainUsable.kts" name="kompile.testAttemptTimelineOlderHookLibrariesRemainUsable" success="true" time="18015"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testPreparedAdmissionInterruptedWorkerRetiresBeforeReturn.kts" name="kompile.testPreparedAdmissionInterruptedWorkerRetiresBeforeReturn" success="true" time="6240"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelineAttributedCompiler.kts" name="kompile.testAttemptTimelineAttributedCompiler" success="true" time="25111"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testRepeatedPublicBuildCopiesDoNotRetainPayloads.kts" name="kompile.testRepeatedPublicBuildCopiesDoNotRetainPayloads" success="false" time="32373">
+    <stacktrace>java.lang.RuntimeException: Test &apos;testRepeatedPublicBuildCopiesDoNotRetainPayloads&apos; timed out after 30000ms (no stuck-frame hint could be extracted from the captured console output: consoleTextLength=130647, markersPresent=[Full thread dump, JNI global refs:, [JSTACK THREAD DUMPS BEGIN], kompile in-child self-dump, &quot;main&quot;], markersAbsent=[no thread dumps, jstack did not complete, jstack binary could not be located, jstack produced no output])
+	at kompile.WorkspaceKt.executeTestInSeparateJvmBody(Workspace.kt:5189)
+	at kompile.WorkspaceKt.executeTestInSeparateJvm(Workspace.kt:5030)
+	at kompile.WorkspaceKt.access$executeTestInSeparateJvm(Workspace.kt:1)
+	at kompile.WorkspaceKt$prepareTests$4$executeAction$1.invoke$dispatchWhileHeadFits$lambda$2(Workspace.kt:7167)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</stacktrace>
+    <console-output>An uncaught NotificationEffect bubbled up to the thread root!
+You can learn more about handling NotificationEffects at https://github.com/kotlin-algebraic-effects/
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-12024175422206294202/1037e9dd-aa18-4391-a298-3f661487b08a/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-5402920418899360159/ebcbbacb-9102-4b30-850e-cb05b8a0c63b/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-1724599354546770880/a71c73a0-6390-4343-a4d7-d231d172bf38/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-1647925007058682066/a59f144d-75e8-4efe-88c9-2576837c829d/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-8567207883544202114/ee0c4892-42c9-4f78-bda1-81774e67c092/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-7707535191964381773/47ca9e0b-e926-4df2-b4f1-09852803434c/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-4765068070514532965/4d0f9744-ea61-4199-934c-230d83222cde/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-1576287593977175868/0b0dbe0e-6877-4b1a-b6f6-f32750bdbd13/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-12361327708855865922/9221e58d-b885-475f-99c0-2b7d9ebf98ae/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-1858883291600590466/48d44d86-3456-40a3-8911-b469a3c07dab/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-15077272977454393141/f4fc2e20-697d-4256-a801-332345fd1eb7/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-4499712495229002191/d7292994-b722-407a-9052-98245237f9df/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-11347413283835153251/a883fb15-9652-44b2-94ad-7e247d72ed52/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-6724812648298997517/2c0fb0bc-7597-40ad-9b15-7d3e655fff7e/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-15165248533726335122/1c0835ae-6130-420d-9646-ddf5b8fa2c90/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-4162859559334057222/a6b75c0e-3e9f-4f38-b0fd-24522e91c786/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-6878217083684556547/05d37aae-81b1-4060-9ca2-e02f547b5eff/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-18083312393358655061/1e1f00e0-02ad-4b98-95aa-d0c0c2d236f7/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-2310654586068131852/a0d121d6-e560-4187-adb9-43d10ea4534e/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-10146870821106148098/158001cf-16da-4bf6-b149-ea038dc1fbe4/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-11710855731516900173/2d54d4ba-9ee5-42d5-8c7e-52deca649413/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-16061321345336884227/2cf4795b-1126-40ca-b82c-f63351aa9b5d/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-12837610549485970912/2ee4224f-317b-4ce7-9378-e113b0bbe81c/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-13682492868674693420/33dae3d9-bf00-4407-bcd2-b19d51137842/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-2533940738475451811/debb1c90-478d-4eed-b6ba-b0bf8bc5863d/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-1246402038335178876/37748664-5788-423f-8f53-559668ccfc3d/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-14369073842857151509/262a1e43-db05-4e93-90ca-dd4d6e07b57f/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-11573456047185637191/2c66fd48-6ba6-4061-9637-db1535759193/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-8805830097288573037/5c2a255c-1ac9-4d4e-95ed-2553873a1b9e/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-11709732643489644049/bfb99b09-09fb-4b1b-a6c7-daa32152becc/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+2026-10-22 20:35:17
+Full thread dump OpenJDK 64-Bit Server VM (21.0.12.1+1-LTS mixed mode, emulated-client, sharing):
+
+Threads class SMR info:
+_java_thread_list=0x0000ffff89073390, length=25, elements={
+0x0000ffff880328f0, 0x0000ffff880d9c20, 0x0000ffff880db220, 0x0000ffff880dc9d0,
+0x0000ffff880de030, 0x0000ffff880df5f0, 0x0000ffff880e0c60, 0x0000ffff88126520,
+0x0000ffff8886b620, 0x0000ffff888e6d20, 0x0000ffff889aebb0, 0x0000ffff889b3720,
+0x0000ffff88999f10, 0x0000ffff88b56bd0, 0x0000ffff88b86d40, 0x0000ffff890598c0,
+0x0000ffff140019a0, 0x0000ffff18003a30, 0x0000ffff0c001da0, 0x0000ffff1003d440,
+0x0000ffff04000f70, 0x0000ffff89117460, 0x0000ffff890716c0, 0x0000ffff89071ee0,
+0x0000ffff89072940
+}
+
+&quot;main&quot; #1 [97247] prio=5 os_prio=0 cpu=1189.99ms elapsed=31.34s tid=0x0000ffff880328f0 nid=97247 waiting on condition  [0x0000ffff8ef8b000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000fdcf8110&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.lang.ProcessImpl.waitFor(java.base@21.0.12.1/ProcessImpl.java:440)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute(JvmBuildScriptLauncher.kt:745)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$default(JvmBuildScriptLauncher.kt:431)
+	at kompile.executionenvironment.ExecutionEnvironment.executeInSeparateJvm(kompile-executionenvironment.kt:276)
+	at kompile.executionenvironment.ExecutionEnvironment.executeSync(kompile-executionenvironment.kt:199)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2771)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:924)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:892)
+	at kompile.LocalRuleInvocations.withInvocation(LocalRuleInvocations.kt:49)
+	at kompile.LocalBuildWorkspace.withBuildRuleDeadline(Workspace.kt:892)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile$default(Workspace.kt:2540)
+	at kompile.WorkspaceKt.buildTopLevelRuleThroughResultIndex(Workspace.kt:3614)
+	at kompile.WorkspaceKt.access$buildTopLevelRuleThroughResultIndex(Workspace.kt:1)
+	at kompile.LocalBuildWorkspace.executeInternalOpen(Workspace.kt:2398)
+	at kompile.LocalBuildWorkspace.access$executeInternalOpen(Workspace.kt:795)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2331)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2329)
+	at kompile.WorkspaceCoursierCache.within(WorkspaceCoursierCache.kt:108)
+	at kompile.WorkspaceCoursierCache.use(WorkspaceCoursierCache.kt:95)
+	at kompile.LocalBuildWorkspace.executeInternal(Workspace.kt:2329)
+	at kompile.LocalBuildWorkspace.executeInternal$default(Workspace.kt:2320)
+	at kompile.LocalBuildWorkspace.execute(Workspace.kt:1476)
+	at kompile.Workspace$DefaultImpls.execute$default(Workspace.kt:704)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:226)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:158)
+	- locked &lt;0x00000000f8813dc0&gt; (a java.lang.String)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:146)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.base@21.0.12.1/DirectMethodHandle$Holder)
+	at java.lang.invoke.LambdaForm$MH/0x000000c00101a400.invoke(java.base@21.0.12.1/LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:153)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)
+	at java.lang.invoke.LambdaForm$DMH/0x000000c00100a000.invokeStatic(java.base@21.0.12.1/LambdaForm$DMH)
+	at java.lang.invoke.LambdaForm$MH/0x000000c001011000.invoke(java.base@21.0.12.1/LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:154)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+
+&quot;Reference Handler&quot; #9 [97256] daemon prio=10 os_prio=0 cpu=2.02ms elapsed=31.27s tid=0x0000ffff880d9c20 nid=97256 waiting on condition  [0x0000ffff8d81a000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@21.0.12.1/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@21.0.12.1/Reference.java:246)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@21.0.12.1/Reference.java:208)
+
+&quot;Finalizer&quot; #10 [97257] daemon prio=8 os_prio=0 cpu=1.23ms elapsed=31.27s tid=0x0000ffff880db220 nid=97257 in Object.wait()  [0x0000ffff8d60c000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@21.0.12.1/Native Method)
+	- waiting on &lt;0x00000000f8651288&gt; (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.Object.wait(java.base@21.0.12.1/Object.java:366)
+	at java.lang.Object.wait(java.base@21.0.12.1/Object.java:339)
+	at java.lang.ref.NativeReferenceQueue.await(java.base@21.0.12.1/NativeReferenceQueue.java:48)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:158)
+	at java.lang.ref.NativeReferenceQueue.remove(java.base@21.0.12.1/NativeReferenceQueue.java:89)
+	- locked &lt;0x00000000f8651288&gt; (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@21.0.12.1/Finalizer.java:173)
+
+&quot;Signal Dispatcher&quot; #11 [97258] daemon prio=9 os_prio=0 cpu=0.14ms elapsed=31.27s tid=0x0000ffff880dc9d0 nid=97258 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Service Thread&quot; #12 [97259] daemon prio=9 os_prio=0 cpu=1.95ms elapsed=31.27s tid=0x0000ffff880de030 nid=97259 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Monitor Deflation Thread&quot; #13 [97260] daemon prio=9 os_prio=0 cpu=1.99ms elapsed=31.26s tid=0x0000ffff880df5f0 nid=97260 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;C1 CompilerThread0&quot; #14 [97261] daemon prio=9 os_prio=0 cpu=351.12ms elapsed=31.26s tid=0x0000ffff880e0c60 nid=97261 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+&quot;Common-Cleaner&quot; #16 [97265] daemon prio=8 os_prio=0 cpu=0.25ms elapsed=31.14s tid=0x0000ffff88126520 nid=97265 waiting on condition  [0x0000ffff8c97d000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f86513b0&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.12.1/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.12.1/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.12.1/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;Notification Thread&quot; #18 [97291] daemon prio=9 os_prio=0 cpu=17.31ms elapsed=30.56s tid=0x0000ffff8886b620 nid=97291 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;kompile-timeout-self-dump&quot; #19 [97304] daemon prio=5 os_prio=0 cpu=0.38ms elapsed=30.47s tid=0x0000ffff888e6d20 nid=97304 waiting on condition  [0x0000ffff8c4dd000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8c7e960&gt; (a java.util.concurrent.CountDownLatch$Sync)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:790)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1160)
+	at java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:276)
+	at kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:69)
+	at kompile.TestRunnerKt$$Lambda/0x000000c00100ebe8.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;kompile-attempt-sender&quot; #20 [97321] daemon prio=5 os_prio=0 cpu=37.81ms elapsed=29.84s tid=0x0000ffff889aebb0 nid=97321 waiting on condition  [0x0000ffff8c27d000]
+   java.lang.Thread.State: WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8dc9f08&gt; (a java.util.concurrent.Semaphore$NonfairSync)
+	at java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)
+	at java.util.concurrent.Semaphore.acquire(java.base@21.0.12.1/Semaphore.java:318)
+	at kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)
+	at kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)
+	at kompile.ChildAttemptObserver$$Lambda/0x000000c001016e30.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;kompile-attempt-sampler&quot; #21 [97323] daemon prio=5 os_prio=0 cpu=66.29ms elapsed=29.82s tid=0x0000ffff889b3720 nid=97323 waiting on condition  [0x0000ffff7c7fd000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8dca0c8&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(java.base@21.0.12.1/ScheduledThreadPoolExecutor.java:1182)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(java.base@21.0.12.1/ScheduledThreadPoolExecutor.java:899)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1070)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;pool-1-thread-1&quot; #22 [97324] prio=5 os_prio=0 cpu=0.99ms elapsed=29.82s tid=0x0000ffff88999f10 nid=97324 runnable  [0x0000ffff7c5ef000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.accept(java.base@21.0.12.1/Native Method)
+	at sun.nio.ch.NioSocketImpl.accept(java.base@21.0.12.1/NioSocketImpl.java:748)
+	at java.net.ServerSocket.implAccept(java.base@21.0.12.1/ServerSocket.java:698)
+	at java.net.ServerSocket.platformImplAccept(java.base@21.0.12.1/ServerSocket.java:663)
+	at java.net.ServerSocket.implAccept(java.base@21.0.12.1/ServerSocket.java:639)
+	at java.net.ServerSocket.implAccept(java.base@21.0.12.1/ServerSocket.java:585)
+	at java.net.ServerSocket.accept(java.base@21.0.12.1/ServerSocket.java:543)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads$lambda$4(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:55)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$$Lambda/0x000000c00101c000.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(java.base@21.0.12.1/Executors.java:572)
+	at java.util.concurrent.FutureTask.run(java.base@21.0.12.1/FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;Cleaner-0&quot; #24 [97326] daemon prio=8 os_prio=0 cpu=0.10ms elapsed=29.50s tid=0x0000ffff88b56bd0 nid=97326 waiting on condition  [0x0000ffff7c3e1000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8814038&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.12.1/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.12.1/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.12.1/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;Cleaner-1&quot; #25 [97327] daemon prio=8 os_prio=0 cpu=0.08ms elapsed=29.48s tid=0x0000ffff88b86d40 nid=97327 waiting on condition  [0x0000ffff6dc0d000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8810ea8&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.12.1/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.12.1/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.12.1/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;coursier-pool-1-thread-1&quot; #26 [97331] daemon prio=5 os_prio=0 cpu=228.73ms elapsed=28.84s tid=0x0000ffff890598c0 nid=97331 waiting on condition  [0x0000ffff6d9ff000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-2&quot; #27 [97332] daemon prio=5 os_prio=0 cpu=52.66ms elapsed=28.84s tid=0x0000ffff140019a0 nid=97332 waiting on condition  [0x0000ffff6d7f1000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-3&quot; #28 [97333] daemon prio=5 os_prio=0 cpu=79.44ms elapsed=28.83s tid=0x0000ffff18003a30 nid=97333 waiting on condition  [0x0000ffff6d5e3000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-4&quot; #29 [97334] daemon prio=5 os_prio=0 cpu=191.78ms elapsed=28.82s tid=0x0000ffff0c001da0 nid=97334 waiting on condition  [0x0000ffff6d3d5000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-5&quot; #30 [97339] daemon prio=5 os_prio=0 cpu=76.47ms elapsed=28.64s tid=0x0000ffff1003d440 nid=97339 waiting on condition  [0x0000ffff6d1c7000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-6&quot; #31 [97340] daemon prio=5 os_prio=0 cpu=69.61ms elapsed=28.63s tid=0x0000ffff04000f70 nid=97340 waiting on condition  [0x0000ffff6cfb9000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;process reaper (pid 98769)&quot; #32 [97449] daemon prio=10 os_prio=0 cpu=9.65ms elapsed=25.55s tid=0x0000ffff89117460 nid=97449 runnable  [0x0000ffff8c04e000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ProcessHandleImpl.waitForProcessExit0(java.base@21.0.12.1/Native Method)
+	at java.lang.ProcessHandleImpl$1.run(java.base@21.0.12.1/ProcessHandleImpl.java:163)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;buildscript-control-connection&quot; #153 [98771] prio=5 os_prio=0 cpu=0.87ms elapsed=0.42s tid=0x0000ffff890716c0 nid=98771 runnable  [0x0000ffff6c98f000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.poll(java.base@21.0.12.1/Native Method)
+	at sun.nio.ch.NioSocketImpl.park(java.base@21.0.12.1/NioSocketImpl.java:191)
+	at sun.nio.ch.NioSocketImpl.timedRead(java.base@21.0.12.1/NioSocketImpl.java:280)
+	at sun.nio.ch.NioSocketImpl.implRead(java.base@21.0.12.1/NioSocketImpl.java:304)
+	at sun.nio.ch.NioSocketImpl.read(java.base@21.0.12.1/NioSocketImpl.java:346)
+	at sun.nio.ch.NioSocketImpl$1.read(java.base@21.0.12.1/NioSocketImpl.java:796)
+	at java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1099)
+	at java.io.BufferedInputStream.fill(java.base@21.0.12.1/BufferedInputStream.java:291)
+	at java.io.BufferedInputStream.implRead(java.base@21.0.12.1/BufferedInputStream.java:325)
+	at java.io.BufferedInputStream.read(java.base@21.0.12.1/BufferedInputStream.java:312)
+	at java.io.ObjectInputStream$PeekInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:2893)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:3220)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(java.base@21.0.12.1/ObjectInputStream.java:3230)
+	at java.io.ObjectInputStream.readObject0(java.base@21.0.12.1/ObjectInputStream.java:1713)
+	at java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:540)
+	at java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:498)
+	at kompile.executionenvironment.TcpCommunicationHandler.handleCommunication(JvmBuildScriptLauncher.kt:1455)
+	at kompile.executionenvironment.TcpCommunicationHandler._init_$lambda$5(JvmBuildScriptLauncher.kt:1340)
+	at kompile.executionenvironment.TcpCommunicationHandler$$Lambda/0x000000c0013429e0.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;Thread-61&quot; #154 [98772] prio=5 os_prio=0 cpu=0.05ms elapsed=0.42s tid=0x0000ffff89071ee0 nid=98772 runnable  [0x0000ffff6cdab000]
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(java.base@21.0.12.1/Native Method)
+	at java.io.FileInputStream.read(java.base@21.0.12.1/FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(java.base@21.0.12.1/BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(java.base@21.0.12.1/BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(java.base@21.0.12.1/BufferedInputStream.java:405)
+	- locked &lt;0x00000000fdcfa200&gt; (a java.lang.ProcessImpl$ProcessPipeInputStream)
+	at sun.nio.cs.StreamDecoder.readBytes(java.base@21.0.12.1/StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(java.base@21.0.12.1/StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(java.base@21.0.12.1/StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(java.base@21.0.12.1/StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(java.base@21.0.12.1/InputStreamReader.java:188)
+	at java.io.Reader.read(java.base@21.0.12.1/Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$3(JvmBuildScriptLauncher.kt:536)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001342e18.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;Thread-62&quot; #155 [98773] prio=5 os_prio=0 cpu=0.06ms elapsed=0.42s tid=0x0000ffff89072940 nid=98773 runnable  [0x0000ffff6cb9d000]
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(java.base@21.0.12.1/Native Method)
+	at java.io.FileInputStream.read(java.base@21.0.12.1/FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(java.base@21.0.12.1/BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(java.base@21.0.12.1/BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(java.base@21.0.12.1/BufferedInputStream.java:405)
+	- locked &lt;0x00000000fdcfc2a8&gt; (a java.lang.ProcessImpl$ProcessPipeInputStream)
+	at sun.nio.cs.StreamDecoder.readBytes(java.base@21.0.12.1/StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(java.base@21.0.12.1/StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(java.base@21.0.12.1/StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(java.base@21.0.12.1/StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(java.base@21.0.12.1/InputStreamReader.java:188)
+	at java.io.Reader.read(java.base@21.0.12.1/Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$4(JvmBuildScriptLauncher.kt:548)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001343040.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;VM Thread&quot; os_prio=0 cpu=10.14ms elapsed=31.28s tid=0x0000ffff880cf120 nid=97255 runnable  
+
+&quot;VM Periodic Task Thread&quot; os_prio=0 cpu=9.56ms elapsed=31.29s tid=0x0000ffff880bd740 nid=97254 waiting on condition  
+
+&quot;G1 Main Marker&quot; os_prio=0 cpu=0.67ms elapsed=31.34s tid=0x0000ffff88053680 nid=97249 runnable  
+
+&quot;G1 Service&quot; os_prio=0 cpu=1.74ms elapsed=31.32s tid=0x0000ffff880af100 nid=97252 runnable  
+
+&quot;G1 Refine#0&quot; os_prio=0 cpu=59.17ms elapsed=31.32s tid=0x0000ffff880ae130 nid=97251 runnable  
+
+&quot;G1 Conc#0&quot; os_prio=0 cpu=7.03ms elapsed=31.32s tid=0x0000ffff88054630 nid=97250 runnable  
+
+&quot;GC Thread#0&quot; os_prio=0 cpu=75.34ms elapsed=31.34s tid=0x0000ffff88051210 nid=97248 runnable  
+
+JNI global refs: 32, weak refs: 0
+
+Heap
+ garbage-first heap   total 78848K, used 42035K [0x00000000f8000000, 0x0000000100000000)
+  region size 1024K, 9 young (9216K), 2 survivors (2048K)
+ Metaspace       used 26174K, committed 26496K, reserved 1114112K
+  class space    used 3446K, committed 3584K, reserved 1048576K
+
+Full thread dump (kompile in-child self-dump: kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads exceeded 30000ms):
+
+&quot;main&quot; #1 prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.lang.ProcessImpl.waitFor(ProcessImpl.java:440)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute(JvmBuildScriptLauncher.kt:745)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$default(JvmBuildScriptLauncher.kt:431)
+	at kompile.executionenvironment.ExecutionEnvironment.executeInSeparateJvm(kompile-executionenvironment.kt:276)
+	at kompile.executionenvironment.ExecutionEnvironment.executeSync(kompile-executionenvironment.kt:199)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2771)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:924)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:892)
+	at kompile.LocalRuleInvocations.withInvocation(LocalRuleInvocations.kt:49)
+	at kompile.LocalBuildWorkspace.withBuildRuleDeadline(Workspace.kt:892)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile$default(Workspace.kt:2540)
+	at kompile.WorkspaceKt.buildTopLevelRuleThroughResultIndex(Workspace.kt:3614)
+	at kompile.WorkspaceKt.access$buildTopLevelRuleThroughResultIndex(Workspace.kt:1)
+	at kompile.LocalBuildWorkspace.executeInternalOpen(Workspace.kt:2398)
+	at kompile.LocalBuildWorkspace.access$executeInternalOpen(Workspace.kt:795)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2331)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2329)
+	at kompile.WorkspaceCoursierCache.within(WorkspaceCoursierCache.kt:108)
+	at kompile.WorkspaceCoursierCache.use(WorkspaceCoursierCache.kt:95)
+	at kompile.LocalBuildWorkspace.executeInternal(Workspace.kt:2329)
+	at kompile.LocalBuildWorkspace.executeInternal$default(Workspace.kt:2320)
+	at kompile.LocalBuildWorkspace.execute(Workspace.kt:1476)
+	at kompile.Workspace$DefaultImpls.execute$default(Workspace.kt:704)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:226)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:158)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:146)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(DirectMethodHandle$Holder)
+	at java.lang.invoke.LambdaForm$MH/0x000000c00101a400.invoke(LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:153)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)
+	at java.lang.invoke.LambdaForm$DMH/0x000000c00100a000.invokeStatic(LambdaForm$DMH)
+	at java.lang.invoke.LambdaForm$MH/0x000000c001011000.invoke(LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+
+&quot;Common-Cleaner&quot; #16 daemon prio=8
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;pool-32-thread-1&quot; #156 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:410)
+	at java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Reference Handler&quot; #9 daemon prio=10
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+&quot;Signal Dispatcher&quot; #11 daemon prio=9
+   java.lang.Thread.State: RUNNABLE
+
+&quot;kompile-attempt-sender&quot; #20 daemon prio=5
+   java.lang.Thread.State: WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:221)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:788)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1133)
+	at java.util.concurrent.Semaphore.acquire(Semaphore.java:318)
+	at kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)
+	at kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)
+	at kompile.ChildAttemptObserver$$Lambda/0x000000c001016e30.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Thread-61&quot; #154 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:405)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at java.io.Reader.read(Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$3(JvmBuildScriptLauncher.kt:536)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001342e18.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-2&quot; #27 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-5&quot; #30 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;kompile-timeout-self-dump&quot; #19 daemon prio=5
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.Thread.dumpThreads(Native Method)
+	at java.lang.Thread.getAllStackTraces(Thread.java:2522)
+	at kompile.TestRunnerKt.printSelfThreadDump(TestRunner.kt:164)
+	at kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:75)
+	at kompile.TestRunnerKt$$Lambda/0x000000c00100ebe8.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;pool-1-thread-1&quot; #22 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.accept(Native Method)
+	at sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:748)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:698)
+	at java.net.ServerSocket.platformImplAccept(ServerSocket.java:663)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:639)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:585)
+	at java.net.ServerSocket.accept(ServerSocket.java:543)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads$lambda$4(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:55)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$$Lambda/0x000000c00101c000.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-4&quot; #29 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-3&quot; #28 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-1&quot; #26 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Notification Thread&quot; #18 daemon prio=9
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Cleaner-1&quot; #25 daemon prio=8
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;Finalizer&quot; #10 daemon prio=8
+   java.lang.Thread.State: WAITING
+	at java.lang.Object.wait0(Native Method)
+	at java.lang.Object.wait(Object.java:366)
+	at java.lang.Object.wait(Object.java:339)
+	at java.lang.ref.NativeReferenceQueue.await(NativeReferenceQueue.java:48)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:158)
+	at java.lang.ref.NativeReferenceQueue.remove(NativeReferenceQueue.java:89)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:173)
+
+&quot;process reaper (pid 98769)&quot; #32 daemon prio=10
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ProcessHandleImpl.waitForProcessExit0(Native Method)
+	at java.lang.ProcessHandleImpl$1.run(ProcessHandleImpl.java:163)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;kompile-attempt-sampler&quot; #21 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Thread-62&quot; #155 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:405)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at java.io.Reader.read(Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$4(JvmBuildScriptLauncher.kt:548)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001343040.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-6&quot; #31 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Cleaner-0&quot; #24 daemon prio=8
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;buildscript-control-connection&quot; #153 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.poll(Native Method)
+	at sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+	at sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:280)
+	at sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:304)
+	at sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+	at sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+	at java.net.Socket$SocketInputStream.read(Socket.java:1099)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:291)
+	at java.io.BufferedInputStream.implRead(BufferedInputStream.java:325)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:312)
+	at java.io.ObjectInputStream$PeekInputStream.peek(ObjectInputStream.java:2893)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(ObjectInputStream.java:3220)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(ObjectInputStream.java:3230)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1713)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:540)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:498)
+	at kompile.executionenvironment.TcpCommunicationHandler.handleCommunication(JvmBuildScriptLauncher.kt:1455)
+	at kompile.executionenvironment.TcpCommunicationHandler._init_$lambda$5(JvmBuildScriptLauncher.kt:1340)
+	at kompile.executionenvironment.TcpCommunicationHandler$$Lambda/0x000000c0013429e0.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+JNI global refs: 0 (not measured; kompile in-child self-dump)
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-271955245560673149/709e69e2-4191-4148-943a-d00d5e72465d/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+Execution completed with output: /tmp/prepared-input-fixture-17283917729979100019/runtime/cache/persistent-scratchspace/scratch-11561179906690549059/4f619fda-5183-42a4-99bf-333473da0c02/owned-payload.bin [unhandled ExecutionCompletedEffect from Workspace.kt:1035]
+DECODED_FILE_STORAGE calls=32 retainedCopies=0 retainedBytes=0
+TIMEOUT: Test &apos;kompile.AttributedTestRunner.executeTest&apos; exceeded per-test timeout of 30000ms; child process killed
+[JSTACK THREAD DUMPS BEGIN]
+Full thread dump OpenJDK 64-Bit Server VM (21.0.12.1+1-LTS mixed mode, emulated-client, sharing):
+
+Threads class SMR info:
+_java_thread_list=0x0000ffff89073390, length=25, elements={
+0x0000ffff880328f0, 0x0000ffff880d9c20, 0x0000ffff880db220, 0x0000ffff880dc9d0,
+0x0000ffff880de030, 0x0000ffff880df5f0, 0x0000ffff880e0c60, 0x0000ffff88126520,
+0x0000ffff8886b620, 0x0000ffff888e6d20, 0x0000ffff889aebb0, 0x0000ffff889b3720,
+0x0000ffff88999f10, 0x0000ffff88b56bd0, 0x0000ffff88b86d40, 0x0000ffff890598c0,
+0x0000ffff140019a0, 0x0000ffff18003a30, 0x0000ffff0c001da0, 0x0000ffff1003d440,
+0x0000ffff04000f70, 0x0000ffff89117460, 0x0000ffff890716c0, 0x0000ffff89071ee0,
+0x0000ffff89072940
+}
+
+&quot;main&quot; #1 [97247] prio=5 os_prio=0 cpu=1189.99ms elapsed=31.34s tid=0x0000ffff880328f0 nid=97247 waiting on condition  [0x0000ffff8ef8b000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000fdcf8110&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.lang.ProcessImpl.waitFor(java.base@21.0.12.1/ProcessImpl.java:440)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute(JvmBuildScriptLauncher.kt:745)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$default(JvmBuildScriptLauncher.kt:431)
+	at kompile.executionenvironment.ExecutionEnvironment.executeInSeparateJvm(kompile-executionenvironment.kt:276)
+	at kompile.executionenvironment.ExecutionEnvironment.executeSync(kompile-executionenvironment.kt:199)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2771)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:924)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:892)
+	at kompile.LocalRuleInvocations.withInvocation(LocalRuleInvocations.kt:49)
+	at kompile.LocalBuildWorkspace.withBuildRuleDeadline(Workspace.kt:892)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile$default(Workspace.kt:2540)
+	at kompile.WorkspaceKt.buildTopLevelRuleThroughResultIndex(Workspace.kt:3614)
+	at kompile.WorkspaceKt.access$buildTopLevelRuleThroughResultIndex(Workspace.kt:1)
+	at kompile.LocalBuildWorkspace.executeInternalOpen(Workspace.kt:2398)
+	at kompile.LocalBuildWorkspace.access$executeInternalOpen(Workspace.kt:795)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2331)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2329)
+	at kompile.WorkspaceCoursierCache.within(WorkspaceCoursierCache.kt:108)
+	at kompile.WorkspaceCoursierCache.use(WorkspaceCoursierCache.kt:95)
+	at kompile.LocalBuildWorkspace.executeInternal(Workspace.kt:2329)
+	at kompile.LocalBuildWorkspace.executeInternal$default(Workspace.kt:2320)
+	at kompile.LocalBuildWorkspace.execute(Workspace.kt:1476)
+	at kompile.Workspace$DefaultImpls.execute$default(Workspace.kt:704)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:226)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:158)
+	- locked &lt;0x00000000f8813dc0&gt; (a java.lang.String)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:146)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.base@21.0.12.1/DirectMethodHandle$Holder)
+	at java.lang.invoke.LambdaForm$MH/0x000000c00101a400.invoke(java.base@21.0.12.1/LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:153)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)
+	at java.lang.invoke.LambdaForm$DMH/0x000000c00100a000.invokeStatic(java.base@21.0.12.1/LambdaForm$DMH)
+	at java.lang.invoke.LambdaForm$MH/0x000000c001011000.invoke(java.base@21.0.12.1/LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:154)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+
+&quot;Reference Handler&quot; #9 [97256] daemon prio=10 os_prio=0 cpu=2.02ms elapsed=31.27s tid=0x0000ffff880d9c20 nid=97256 waiting on condition  [0x0000ffff8d81a000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@21.0.12.1/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@21.0.12.1/Reference.java:246)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@21.0.12.1/Reference.java:208)
+
+&quot;Finalizer&quot; #10 [97257] daemon prio=8 os_prio=0 cpu=1.23ms elapsed=31.27s tid=0x0000ffff880db220 nid=97257 in Object.wait()  [0x0000ffff8d60c000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@21.0.12.1/Native Method)
+	- waiting on &lt;0x00000000f8651288&gt; (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.Object.wait(java.base@21.0.12.1/Object.java:366)
+	at java.lang.Object.wait(java.base@21.0.12.1/Object.java:339)
+	at java.lang.ref.NativeReferenceQueue.await(java.base@21.0.12.1/NativeReferenceQueue.java:48)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:158)
+	at java.lang.ref.NativeReferenceQueue.remove(java.base@21.0.12.1/NativeReferenceQueue.java:89)
+	- locked &lt;0x00000000f8651288&gt; (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@21.0.12.1/Finalizer.java:173)
+
+&quot;Signal Dispatcher&quot; #11 [97258] daemon prio=9 os_prio=0 cpu=0.14ms elapsed=31.27s tid=0x0000ffff880dc9d0 nid=97258 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Service Thread&quot; #12 [97259] daemon prio=9 os_prio=0 cpu=1.95ms elapsed=31.27s tid=0x0000ffff880de030 nid=97259 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Monitor Deflation Thread&quot; #13 [97260] daemon prio=9 os_prio=0 cpu=1.99ms elapsed=31.26s tid=0x0000ffff880df5f0 nid=97260 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;C1 CompilerThread0&quot; #14 [97261] daemon prio=9 os_prio=0 cpu=351.12ms elapsed=31.26s tid=0x0000ffff880e0c60 nid=97261 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+&quot;Common-Cleaner&quot; #16 [97265] daemon prio=8 os_prio=0 cpu=0.25ms elapsed=31.14s tid=0x0000ffff88126520 nid=97265 waiting on condition  [0x0000ffff8c97d000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f86513b0&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.12.1/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.12.1/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.12.1/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;Notification Thread&quot; #18 [97291] daemon prio=9 os_prio=0 cpu=17.31ms elapsed=30.56s tid=0x0000ffff8886b620 nid=97291 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;kompile-timeout-self-dump&quot; #19 [97304] daemon prio=5 os_prio=0 cpu=0.38ms elapsed=30.47s tid=0x0000ffff888e6d20 nid=97304 waiting on condition  [0x0000ffff8c4dd000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8c7e960&gt; (a java.util.concurrent.CountDownLatch$Sync)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:790)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1160)
+	at java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:276)
+	at kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:69)
+	at kompile.TestRunnerKt$$Lambda/0x000000c00100ebe8.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;kompile-attempt-sender&quot; #20 [97321] daemon prio=5 os_prio=0 cpu=37.81ms elapsed=29.84s tid=0x0000ffff889aebb0 nid=97321 waiting on condition  [0x0000ffff8c27d000]
+   java.lang.Thread.State: WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8dc9f08&gt; (a java.util.concurrent.Semaphore$NonfairSync)
+	at java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)
+	at java.util.concurrent.Semaphore.acquire(java.base@21.0.12.1/Semaphore.java:318)
+	at kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)
+	at kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)
+	at kompile.ChildAttemptObserver$$Lambda/0x000000c001016e30.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;kompile-attempt-sampler&quot; #21 [97323] daemon prio=5 os_prio=0 cpu=66.29ms elapsed=29.82s tid=0x0000ffff889b3720 nid=97323 waiting on condition  [0x0000ffff7c7fd000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8dca0c8&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(java.base@21.0.12.1/ScheduledThreadPoolExecutor.java:1182)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(java.base@21.0.12.1/ScheduledThreadPoolExecutor.java:899)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1070)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;pool-1-thread-1&quot; #22 [97324] prio=5 os_prio=0 cpu=0.99ms elapsed=29.82s tid=0x0000ffff88999f10 nid=97324 runnable  [0x0000ffff7c5ef000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.accept(java.base@21.0.12.1/Native Method)
+	at sun.nio.ch.NioSocketImpl.accept(java.base@21.0.12.1/NioSocketImpl.java:748)
+	at java.net.ServerSocket.implAccept(java.base@21.0.12.1/ServerSocket.java:698)
+	at java.net.ServerSocket.platformImplAccept(java.base@21.0.12.1/ServerSocket.java:663)
+	at java.net.ServerSocket.implAccept(java.base@21.0.12.1/ServerSocket.java:639)
+	at java.net.ServerSocket.implAccept(java.base@21.0.12.1/ServerSocket.java:585)
+	at java.net.ServerSocket.accept(java.base@21.0.12.1/ServerSocket.java:543)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads$lambda$4(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:55)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$$Lambda/0x000000c00101c000.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(java.base@21.0.12.1/Executors.java:572)
+	at java.util.concurrent.FutureTask.run(java.base@21.0.12.1/FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;Cleaner-0&quot; #24 [97326] daemon prio=8 os_prio=0 cpu=0.10ms elapsed=29.50s tid=0x0000ffff88b56bd0 nid=97326 waiting on condition  [0x0000ffff7c3e1000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8814038&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.12.1/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.12.1/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.12.1/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;Cleaner-1&quot; #25 [97327] daemon prio=8 os_prio=0 cpu=0.08ms elapsed=29.48s tid=0x0000ffff88b86d40 nid=97327 waiting on condition  [0x0000ffff6dc0d000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8810ea8&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.12.1/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.12.1/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.12.1/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.12.1/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;coursier-pool-1-thread-1&quot; #26 [97331] daemon prio=5 os_prio=0 cpu=228.73ms elapsed=28.84s tid=0x0000ffff890598c0 nid=97331 waiting on condition  [0x0000ffff6d9ff000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-2&quot; #27 [97332] daemon prio=5 os_prio=0 cpu=52.66ms elapsed=28.84s tid=0x0000ffff140019a0 nid=97332 waiting on condition  [0x0000ffff6d7f1000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-3&quot; #28 [97333] daemon prio=5 os_prio=0 cpu=79.44ms elapsed=28.83s tid=0x0000ffff18003a30 nid=97333 waiting on condition  [0x0000ffff6d5e3000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-4&quot; #29 [97334] daemon prio=5 os_prio=0 cpu=191.78ms elapsed=28.82s tid=0x0000ffff0c001da0 nid=97334 waiting on condition  [0x0000ffff6d3d5000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-5&quot; #30 [97339] daemon prio=5 os_prio=0 cpu=76.47ms elapsed=28.64s tid=0x0000ffff1003d440 nid=97339 waiting on condition  [0x0000ffff6d1c7000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;coursier-pool-1-thread-6&quot; #31 [97340] daemon prio=5 os_prio=0 cpu=69.61ms elapsed=28.63s tid=0x0000ffff04000f70 nid=97340 waiting on condition  [0x0000ffff6cfb9000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)
+	- parking to wait for  &lt;0x00000000f8ea1478&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(java.base@21.0.12.1/LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(java.base@21.0.12.1/ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;process reaper (pid 98769)&quot; #32 [97449] daemon prio=10 os_prio=0 cpu=9.65ms elapsed=25.55s tid=0x0000ffff89117460 nid=97449 runnable  [0x0000ffff8c04e000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ProcessHandleImpl.waitForProcessExit0(java.base@21.0.12.1/Native Method)
+	at java.lang.ProcessHandleImpl$1.run(java.base@21.0.12.1/ProcessHandleImpl.java:163)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@21.0.12.1/ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@21.0.12.1/ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.12.1/InnocuousThread.java:186)
+
+&quot;buildscript-control-connection&quot; #153 [98771] prio=5 os_prio=0 cpu=0.87ms elapsed=0.42s tid=0x0000ffff890716c0 nid=98771 runnable  [0x0000ffff6c98f000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.poll(java.base@21.0.12.1/Native Method)
+	at sun.nio.ch.NioSocketImpl.park(java.base@21.0.12.1/NioSocketImpl.java:191)
+	at sun.nio.ch.NioSocketImpl.timedRead(java.base@21.0.12.1/NioSocketImpl.java:280)
+	at sun.nio.ch.NioSocketImpl.implRead(java.base@21.0.12.1/NioSocketImpl.java:304)
+	at sun.nio.ch.NioSocketImpl.read(java.base@21.0.12.1/NioSocketImpl.java:346)
+	at sun.nio.ch.NioSocketImpl$1.read(java.base@21.0.12.1/NioSocketImpl.java:796)
+	at java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1099)
+	at java.io.BufferedInputStream.fill(java.base@21.0.12.1/BufferedInputStream.java:291)
+	at java.io.BufferedInputStream.implRead(java.base@21.0.12.1/BufferedInputStream.java:325)
+	at java.io.BufferedInputStream.read(java.base@21.0.12.1/BufferedInputStream.java:312)
+	at java.io.ObjectInputStream$PeekInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:2893)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:3220)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(java.base@21.0.12.1/ObjectInputStream.java:3230)
+	at java.io.ObjectInputStream.readObject0(java.base@21.0.12.1/ObjectInputStream.java:1713)
+	at java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:540)
+	at java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:498)
+	at kompile.executionenvironment.TcpCommunicationHandler.handleCommunication(JvmBuildScriptLauncher.kt:1455)
+	at kompile.executionenvironment.TcpCommunicationHandler._init_$lambda$5(JvmBuildScriptLauncher.kt:1340)
+	at kompile.executionenvironment.TcpCommunicationHandler$$Lambda/0x000000c0013429e0.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;Thread-61&quot; #154 [98772] prio=5 os_prio=0 cpu=0.05ms elapsed=0.42s tid=0x0000ffff89071ee0 nid=98772 runnable  [0x0000ffff6cdab000]
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(java.base@21.0.12.1/Native Method)
+	at java.io.FileInputStream.read(java.base@21.0.12.1/FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(java.base@21.0.12.1/BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(java.base@21.0.12.1/BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(java.base@21.0.12.1/BufferedInputStream.java:405)
+	- locked &lt;0x00000000fdcfa200&gt; (a java.lang.ProcessImpl$ProcessPipeInputStream)
+	at sun.nio.cs.StreamDecoder.readBytes(java.base@21.0.12.1/StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(java.base@21.0.12.1/StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(java.base@21.0.12.1/StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(java.base@21.0.12.1/StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(java.base@21.0.12.1/InputStreamReader.java:188)
+	at java.io.Reader.read(java.base@21.0.12.1/Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$3(JvmBuildScriptLauncher.kt:536)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001342e18.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;Thread-62&quot; #155 [98773] prio=5 os_prio=0 cpu=0.06ms elapsed=0.42s tid=0x0000ffff89072940 nid=98773 runnable  [0x0000ffff6cb9d000]
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(java.base@21.0.12.1/Native Method)
+	at java.io.FileInputStream.read(java.base@21.0.12.1/FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(java.base@21.0.12.1/BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(java.base@21.0.12.1/BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(java.base@21.0.12.1/BufferedInputStream.java:405)
+	- locked &lt;0x00000000fdcfc2a8&gt; (a java.lang.ProcessImpl$ProcessPipeInputStream)
+	at sun.nio.cs.StreamDecoder.readBytes(java.base@21.0.12.1/StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(java.base@21.0.12.1/StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(java.base@21.0.12.1/StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(java.base@21.0.12.1/StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(java.base@21.0.12.1/InputStreamReader.java:188)
+	at java.io.Reader.read(java.base@21.0.12.1/Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$4(JvmBuildScriptLauncher.kt:548)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001343040.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)
+
+&quot;VM Thread&quot; os_prio=0 cpu=10.14ms elapsed=31.28s tid=0x0000ffff880cf120 nid=97255 runnable  
+
+&quot;VM Periodic Task Thread&quot; os_prio=0 cpu=9.56ms elapsed=31.29s tid=0x0000ffff880bd740 nid=97254 waiting on condition  
+
+&quot;G1 Main Marker&quot; os_prio=0 cpu=0.67ms elapsed=31.34s tid=0x0000ffff88053680 nid=97249 runnable  
+
+&quot;G1 Service&quot; os_prio=0 cpu=1.74ms elapsed=31.32s tid=0x0000ffff880af100 nid=97252 runnable  
+
+&quot;G1 Refine#0&quot; os_prio=0 cpu=59.17ms elapsed=31.32s tid=0x0000ffff880ae130 nid=97251 runnable  
+
+&quot;G1 Conc#0&quot; os_prio=0 cpu=7.03ms elapsed=31.32s tid=0x0000ffff88054630 nid=97250 runnable  
+
+&quot;GC Thread#0&quot; os_prio=0 cpu=75.34ms elapsed=31.34s tid=0x0000ffff88051210 nid=97248 runnable  
+
+JNI global refs: 32, weak refs: 0
+
+Heap
+ garbage-first heap   total 78848K, used 42035K [0x00000000f8000000, 0x0000000100000000)
+  region size 1024K, 9 young (9216K), 2 survivors (2048K)
+ Metaspace       used 26174K, committed 26496K, reserved 1114112K
+  class space    used 3446K, committed 3584K, reserved 1048576K
+
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDU5NzAzODU3NjUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3NTk3AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAMdGhyZWFkLXN0YXRlAAxsb2NrSWRlbnRpdHkATmphdmEudXRpbC5jb25jdXJyZW50LmxvY2tzLkFic3RyYWN0UXVldWVkU3luY2hyb25pemVyJENvbmRpdGlvbk9iamVjdEA2NTBjOTkyOQALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQANVElNRURfV0FJVElORwAOdGhyZWFkQ3B1TmFub3MACjExOTAwODk4NzIACHRocmVhZElkAAExAAp0aHJlYWROYW1lAARtYWlu
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDU5NzA1OTE4OTAAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3NTk3AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAPdGhyZWFkLW9ic2VydmVkAAxsb2NrSWRlbnRpdHkAOWphdmEudXRpbC5jb25jdXJyZW50LlN5bmNocm9ub3VzUXVldWUkVHJhbnNmZXJlckAzN2YwMThhMQALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQANVElNRURfV0FJVElORwAOdGhyZWFkQ3B1TmFub3MABzMwNDkwODUACHRocmVhZElkAAMxNTYACnRocmVhZE5hbWUAEHBvb2wtMzItdGhyZWFkLTE=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADgAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDU5NzA3NzQ1OTgAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3NTk3AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAALaGVhcC1zYW1wbGUAEWdjQ29sbGVjdGlvbkNvdW50AAIyMAAWZ2NDb2xsZWN0aW9uVGltZU1pbGxpcwADMjgwABJoZWFwQ29tbWl0dGVkQnl0ZXMACDgwNzQwMzUyAAxoZWFwTWF4Qnl0ZXMACTEzNDIxNzcyOAANaGVhcFVzZWRCeXRlcwAINDI5Njc3MjAAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAAjIxAAp0aHJlYWROYW1lABdrb21waWxlLWF0dGVtcHQtc2FtcGxlcg==
+Full thread dump (kompile in-child self-dump: kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads exceeded 30000ms):
+
+&quot;main&quot; #1 prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.lang.ProcessImpl.waitFor(ProcessImpl.java:440)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute(JvmBuildScriptLauncher.kt:745)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$default(JvmBuildScriptLauncher.kt:431)
+	at kompile.executionenvironment.ExecutionEnvironment.executeInSeparateJvm(kompile-executionenvironment.kt:276)
+	at kompile.executionenvironment.ExecutionEnvironment.executeSync(kompile-executionenvironment.kt:199)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2771)
+	at kompile.LocalBuildWorkspace$buildInternal$1.invoke(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:924)
+	at kompile.LocalBuildWorkspace$withBuildRuleDeadline$1.invoke(Workspace.kt:892)
+	at kompile.LocalRuleInvocations.withInvocation(LocalRuleInvocations.kt:49)
+	at kompile.LocalBuildWorkspace.withBuildRuleDeadline(Workspace.kt:892)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile(Workspace.kt:2553)
+	at kompile.LocalBuildWorkspace.buildInternal$kompile$default(Workspace.kt:2540)
+	at kompile.WorkspaceKt.buildTopLevelRuleThroughResultIndex(Workspace.kt:3614)
+	at kompile.WorkspaceKt.access$buildTopLevelRuleThroughResultIndex(Workspace.kt:1)
+	at kompile.LocalBuildWorkspace.executeInternalOpen(Workspace.kt:2398)
+	at kompile.LocalBuildWorkspace.access$executeInternalOpen(Workspace.kt:795)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2331)
+	at kompile.LocalBuildWorkspace$executeInternal$1.invoke(Workspace.kt:2329)
+	at kompile.WorkspaceCoursierCache.within(WorkspaceCoursierCache.kt:108)
+	at kompile.WorkspaceCoursierCache.use(WorkspaceCoursierCache.kt:95)
+	at kompile.LocalBuildWorkspace.executeInternal(Workspace.kt:2329)
+	at kompile.LocalBuildWorkspace.executeInternal$default(Workspace.kt:2320)
+	at kompile.LocalBuildWorkspace.execute(Workspace.kt:1476)
+	at kompile.Workspace$DefaultImpls.execute$default(Workspace.kt:704)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:226)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$12.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:158)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$testRepeatedPublicBuildCopiesDoNotRetainPayloads$invokeOwnedRuntime$1.invoke(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:146)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:176)
+	at java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(DirectMethodHandle$Holder)
+	at java.lang.invoke.LambdaForm$MH/0x000000c00101a400.invoke(LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:153)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)
+	at java.lang.invoke.LambdaForm$DMH/0x000000c00100a000.invokeStatic(LambdaForm$DMH)
+	at java.lang.invoke.LambdaForm$MH/0x000000c001011000.invoke(LambdaForm$MH)
+	at java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+
+&quot;Common-Cleaner&quot; #16 daemon prio=8
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;pool-32-thread-1&quot; #156 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:410)
+	at java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Reference Handler&quot; #9 daemon prio=10
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+&quot;Signal Dispatcher&quot; #11 daemon prio=9
+   java.lang.Thread.State: RUNNABLE
+
+&quot;kompile-attempt-sender&quot; #20 daemon prio=5
+   java.lang.Thread.State: WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:221)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:788)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1133)
+	at java.util.concurrent.Semaphore.acquire(Semaphore.java:318)
+	at kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)
+	at kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)
+	at kompile.ChildAttemptObserver$$Lambda/0x000000c001016e30.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Thread-61&quot; #154 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:405)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at java.io.Reader.read(Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$3(JvmBuildScriptLauncher.kt:536)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001342e18.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-2&quot; #27 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-5&quot; #30 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;kompile-timeout-self-dump&quot; #19 daemon prio=5
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.Thread.dumpThreads(Native Method)
+	at java.lang.Thread.getAllStackTraces(Thread.java:2522)
+	at kompile.TestRunnerKt.printSelfThreadDump(TestRunner.kt:164)
+	at kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:75)
+	at kompile.TestRunnerKt$$Lambda/0x000000c00100ebe8.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;pool-1-thread-1&quot; #22 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.accept(Native Method)
+	at sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:748)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:698)
+	at java.net.ServerSocket.platformImplAccept(ServerSocket.java:663)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:639)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:585)
+	at java.net.ServerSocket.accept(ServerSocket.java:543)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt.testRepeatedPublicBuildCopiesDoNotRetainPayloads$lambda$4(testRepeatedPublicBuildCopiesDoNotRetainPayloads.kt:55)
+	at kompile.TestRepeatedPublicBuildCopiesDoNotRetainPayloadsKt$$Lambda/0x000000c00101c000.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-4&quot; #29 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-3&quot; #28 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-1&quot; #26 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Notification Thread&quot; #18 daemon prio=9
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Cleaner-1&quot; #25 daemon prio=8
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;Finalizer&quot; #10 daemon prio=8
+   java.lang.Thread.State: WAITING
+	at java.lang.Object.wait0(Native Method)
+	at java.lang.Object.wait(Object.java:366)
+	at java.lang.Object.wait(Object.java:339)
+	at java.lang.ref.NativeReferenceQueue.await(NativeReferenceQueue.java:48)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:158)
+	at java.lang.ref.NativeReferenceQueue.remove(NativeReferenceQueue.java:89)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:173)
+
+&quot;process reaper (pid 98769)&quot; #32 daemon prio=10
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ProcessHandleImpl.waitForProcessExit0(Native Method)
+	at java.lang.ProcessHandleImpl$1.run(ProcessHandleImpl.java:163)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;kompile-attempt-sampler&quot; #21 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Thread-62&quot; #155 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:287)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:345)
+	at java.io.BufferedInputStream.implRead(BufferedInputStream.java:420)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:405)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at java.io.Reader.read(Reader.java:265)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.forwardProcessOutput(JvmBuildScriptLauncher.kt:205)
+	at kompile.executionenvironment.JvmBuildScriptLauncherKt.access$forwardProcessOutput(JvmBuildScriptLauncher.kt:1)
+	at kompile.executionenvironment.JvmBuildScriptLauncher.execute$lambda$4(JvmBuildScriptLauncher.kt:548)
+	at kompile.executionenvironment.JvmBuildScriptLauncher$$Lambda/0x000000c001343040.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;coursier-pool-1-thread-6&quot; #31 daemon prio=5
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1797)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+&quot;Cleaner-0&quot; #24 daemon prio=8
+   java.lang.Thread.State: TIMED_WAITING
+	at jdk.internal.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+&quot;buildscript-control-connection&quot; #153 prio=5
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.Net.poll(Native Method)
+	at sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+	at sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:280)
+	at sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:304)
+	at sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+	at sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+	at java.net.Socket$SocketInputStream.read(Socket.java:1099)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:291)
+	at java.io.BufferedInputStream.implRead(BufferedInputStream.java:325)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:312)
+	at java.io.ObjectInputStream$PeekInputStream.peek(ObjectInputStream.java:2893)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(ObjectInputStream.java:3220)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(ObjectInputStream.java:3230)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1713)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:540)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:498)
+	at kompile.executionenvironment.TcpCommunicationHandler.handleCommunication(JvmBuildScriptLauncher.kt:1455)
+	at kompile.executionenvironment.TcpCommunicationHandler._init_$lambda$5(JvmBuildScriptLauncher.kt:1340)
+	at kompile.executionenvironment.TcpCommunicationHandler$$Lambda/0x000000c0013429e0.run(Unknown Source)
+	at java.lang.Thread.runWith(Thread.java:1596)
+	at java.lang.Thread.run(Thread.java:1583)
+
+JNI global refs: 0 (not measured; kompile in-child self-dump)
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAEQAGYWN0aW9uAA9lbmQgb2YgbWlub3IgR0MACWF0dGVtcHRJZAAmOThjMDJmNzktN2Y4Yi00OGQ5LWJkZjgtMmMyZDlmYmI0M2Y0LTkABWNhdXNlABdHMSBIdW1vbmdvdXMgQWxsb2NhdGlvbgATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYxODA1NDczMDcAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODA3AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAIZ2MtcGF1c2UAC2djRW5kTWlsbGlzAAUzMTY1MAAGZ2NOYW1lABNHMSBZb3VuZyBHZW5lcmF0aW9uAA1nY1N0YXJ0TWlsbGlzAAUzMTYyOAAOaGVhcEFmdGVyQnl0ZXMACDI0MDkzNDgwAA9oZWFwQmVmb3JlQnl0ZXMACDQyOTY3NzIwAAtwYXVzZU1pbGxpcwACMjIAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAAjE4AAp0aHJlYWROYW1lABNOb3RpZmljYXRpb24gVGhyZWFk
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADgAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYxODQyNTI1MTUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODExAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAObG9jay1yZXF1ZXN0ZWQADGxvY2tDYXRlZ29yeQALcHVibGljYXRpb24ACmxvY2tEZXZpY2UABDA6NDAACWxvY2tJbm9kZQAHNzI2MTAwMAAHbG9ja0tleQBxL3RtcC9wcmVwYXJlZC1pbnB1dC1maXh0dXJlLTE3MjgzOTE3NzI5OTc5MTAwMDE5L3J1bnRpbWUvY2FjaGUvY291cnNpZXItd29ya3NwYWNlLWdlbmVyYXRpb25zL3YxL2Nvb3JkaW5hdG9yLmxvY2sAC29wZXJhdGlvbklkACQ1NzE2MDc1NC05MDdhLTRhNWEtOTA5My1lNzg0OTc4Y2IzMjYAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAATEACnRocmVhZE5hbWUABG1haW4=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAEAAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYxODkxNzY0NzMAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODE2AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAANbG9jay1hY3F1aXJlZAARaG9sZGVyT3BlcmF0aW9uSWQAJDU3MTYwNzU0LTkwN2EtNGE1YS05MDkzLWU3ODQ5NzhjYjMyNgAJaG9sZGVyUGlkAAU5NzI0MgAOaG9sZGVyVGhyZWFkSWQAATEADGxvY2tDYXRlZ29yeQALcHVibGljYXRpb24AB2xvY2tLZXkAcS90bXAvcHJlcGFyZWQtaW5wdXQtZml4dHVyZS0xNzI4MzkxNzcyOTk3OTEwMDAxOS9ydW50aW1lL2NhY2hlL2NvdXJzaWVyLXdvcmtzcGFjZS1nZW5lcmF0aW9ucy92MS9jb29yZGluYXRvci5sb2NrAAtvcGVyYXRpb25JZAAkNTcxNjA3NTQtOTA3YS00YTVhLTkwOTMtZTc4NDk3OGNiMzI2AANwaWQABTk3MjQyABJwcm9jZXNzU3RhcnRNaWxsaXMADTE3OTI3MDEyODYxNTAACHRocmVhZElkAAExAAp0aHJlYWROYW1lAARtYWluAAl3YWl0TmFub3MABzk0OTQ5MTY=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYxODk2MjkwNTcAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODE2AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAANbG9jay1yZWxlYXNlZAAMZmFpbHVyZUNsYXNzAAAACWhlbGROYW5vcwAGNTYxMjA5AAxsb2NrQ2F0ZWdvcnkAC3B1YmxpY2F0aW9uAAdsb2NrS2V5AHEvdG1wL3ByZXBhcmVkLWlucHV0LWZpeHR1cmUtMTcyODM5MTc3Mjk5NzkxMDAwMTkvcnVudGltZS9jYWNoZS9jb3Vyc2llci13b3Jrc3BhY2UtZ2VuZXJhdGlvbnMvdjEvY29vcmRpbmF0b3IubG9jawALb3BlcmF0aW9uSWQAJDU3MTYwNzU0LTkwN2EtNGE1YS05MDkzLWU3ODQ5NzhjYjMyNgADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAh0aHJlYWRJZAABMQAKdGhyZWFkTmFtZQAEbWFpbgAJd2FpdE5hbm9zAAc5NDk0OTE2
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYyMjIzMDUyNjUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODQ5AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAMdGhyZWFkLXN0YXRlAAxsb2NrSWRlbnRpdHkAAAALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQAIUlVOTkFCTEUADnRocmVhZENwdU5hbm9zAAoxMjA3NjA4NjY3AAh0aHJlYWRJZAABMQAKdGhyZWFkTmFtZQAEbWFpbg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYyMjIzMzY2ODIAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODQ5AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAMdGhyZWFkLXN0YXRlAAxsb2NrSWRlbnRpdHkAOGphdmEudXRpbC5jb25jdXJyZW50LlN5bmNocm9ub3VzUXVldWUkVHJhbnNmZXJlckBlNTljYmJhAAtsb2NrT3duZXJJZAAAAA1sb2NrT3duZXJOYW1lAAAAC29ic2VydmF0aW9uAAdzYW1wbGVkAANwaWQABTk3MjQyABJwcm9jZXNzU3RhcnRNaWxsaXMADTE3OTI3MDEyODYxNTAABXN0YXRlAA1USU1FRF9XQUlUSU5HAA50aHJlYWRDcHVOYW5vcwAHOTk5MTA4MgAIdGhyZWFkSWQAAjMyAAp0aHJlYWROYW1lAA5wcm9jZXNzIHJlYXBlcg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADgAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYyMjIzNjI2NDAAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODQ5AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAALaGVhcC1zYW1wbGUAEWdjQ29sbGVjdGlvbkNvdW50AAIyMQAWZ2NDb2xsZWN0aW9uVGltZU1pbGxpcwADMzAyABJoZWFwQ29tbWl0dGVkQnl0ZXMACDgwNzQwMzUyAAxoZWFwTWF4Qnl0ZXMACTEzNDIxNzcyOAANaGVhcFVzZWRCeXRlcwAIMjgyODc3ODQAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAAjIxAAp0aHJlYWROYW1lABdrb21waWxlLWF0dGVtcHQtc2FtcGxlcg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAFAAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQAIY2FjaGVLZXkAQDcyYjRlNjEzMmVmZWM2Njk0YmI3NjllZDY4MzZkODg0NjExNzRlZmYzYjVlYzc5NTkzMjRlMTQyMjVmMmRjMDAAE2NoaWxkTW9ub3RvbmljTmFub3MADjU4OTQ2MjI3MDQ5NzIzABRjaGlsZFdhbGxDbG9ja01pbGxpcwANMTc5MjcwMTMxNzg1NAANZHJvcHBlZEV2ZW50cwABMAAMZWxhcHNlZE5hbm9zAAItMQAFZXZlbnQAEXVwc3RyZWFtLWNvbXBpbGVyAARraW5kAA9jb21tYW5kX2NvbXBpbGUABWxheWVyAANqdm0AB2xvY2tLZXkAAAAJb3BlcmF0aW9uAAdjb21waWxlAAtvcGVyYXRpb25JZAAOYnVpbGRzY3JpcHQ6MzMAB291dGNvbWUACXJlcXVlc3RlZAAFcGhhc2UAB3JlcXVlc3QAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAANc291cmNlTGlicmFyeQATa29tcGlsZS1idWlsZHNjcmlwdAAOdGhyZWFkQ3B1TmFub3MAAi0xAAh0aHJlYWRJZAABMQAKdGhyZWFkTmFtZQAEbWFpbg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAFAAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQAIY2FjaGVLZXkAQDcyYjRlNjEzMmVmZWM2Njk0YmI3NjllZDY4MzZkODg0NjExNzRlZmYzYjVlYzc5NTkzMjRlMTQyMjVmMmRjMDAAE2NoaWxkTW9ub3RvbmljTmFub3MADjU4OTQ2MjI3MTcwNjQwABRjaGlsZFdhbGxDbG9ja01pbGxpcwANMTc5MjcwMTMxNzg1NAANZHJvcHBlZEV2ZW50cwABMAAMZWxhcHNlZE5hbm9zAAYyMTExNjcABWV2ZW50ABF1cHN0cmVhbS1jb21waWxlcgAEa2luZAAPY29tbWFuZF9jb21waWxlAAVsYXllcgADanZtAAdsb2NrS2V5AAAACW9wZXJhdGlvbgAHY29tcGlsZQALb3BlcmF0aW9uSWQADmJ1aWxkc2NyaXB0OjMzAAdvdXRjb21lAAljYWNoZV9oaXQABXBoYXNlAAZmaW5pc2gAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAANc291cmNlTGlicmFyeQATa29tcGlsZS1idWlsZHNjcmlwdAAOdGhyZWFkQ3B1TmFub3MAAi0xAAh0aHJlYWRJZAABMQAKdGhyZWFkTmFtZQAEbWFpbg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAEwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQAIY2FjaGVLZXkAAAATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYyMjc4NzE4OTAACGNoaWxkUGlkAAAAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE3ODU0AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAQdXBzdHJlYW0tcHJvY2VzcwAMZmFpbHVyZUNsYXNzAAAABGtpbmQAB1BST0NFU1MACW9wZXJhdGlvbgAPc3RhcnRKdm1Qcm9jZXNzAAtvcGVyYXRpb25JZAAMZXhlY3V0aW9uOjk0AAdvdXRjb21lAAAABXBoYXNlAAdSRVFVRVNUAANwaWQABTk3MjQyABJwcm9jZXNzU3RhcnRNaWxsaXMADTE3OTI3MDEyODYxNTAACHJ1bGVOYW1lABZmaXh0dXJlLmRlY29kZWQucmVzdWx0AA1zb3VyY2VMaWJyYXJ5ABxrb21waWxlLWV4ZWN1dGlvbmVudmlyb25tZW50AAh0aHJlYWRJZAABMQAKdGhyZWFkTmFtZQAEbWFpbg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAEwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQAIY2FjaGVLZXkAAAATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDYyMzE2NTk3NjUACGNoaWxkUGlkAAU5ODgwMwAUY2hpbGRXYWxsQ2xvY2tNaWxsaXMADTE3OTI3MDEzMTc4NTgADWRyb3BwZWRFdmVudHMAATAABWV2ZW50ABB1cHN0cmVhbS1wcm9jZXNzAAxmYWlsdXJlQ2xhc3MAAAAEa2luZAAHUFJPQ0VTUwAJb3BlcmF0aW9uAA9zdGFydEp2bVByb2Nlc3MAC29wZXJhdGlvbklkAAxleGVjdXRpb246OTQAB291dGNvbWUAAAAFcGhhc2UACVNVQ0NFRURFRAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAhydWxlTmFtZQAWZml4dHVyZS5kZWNvZGVkLnJlc3VsdAANc291cmNlTGlicmFyeQAca29tcGlsZS1leGVjdXRpb25lbnZpcm9ubWVudAAIdGhyZWFkSWQAATEACnRocmVhZE5hbWUABG1haW4=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY0NzMzNjczOTAAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MTAwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAMdGhyZWFkLXN0YXRlAAxsb2NrSWRlbnRpdHkATWphdmEudXRpbC5jb25jdXJyZW50LmxvY2tzLkFic3RyYWN0UXVldWVkU3luY2hyb25pemVyJENvbmRpdGlvbk9iamVjdEA0ZjBmZTkyAAtsb2NrT3duZXJJZAAAAA1sb2NrT3duZXJOYW1lAAAAC29ic2VydmF0aW9uAAdzYW1wbGVkAANwaWQABTk3MjQyABJwcm9jZXNzU3RhcnRNaWxsaXMADTE3OTI3MDEyODYxNTAABXN0YXRlAA1USU1FRF9XQUlUSU5HAA50aHJlYWRDcHVOYW5vcwAKMTIxMDExMTM3NwAIdGhyZWFkSWQAATEACnRocmVhZE5hbWUABG1haW4=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY0NzM0NDIwMTUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MTAwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAMdGhyZWFkLXN0YXRlAAxsb2NrSWRlbnRpdHkAAAALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQAIUlVOTkFCTEUADnRocmVhZENwdU5hbm9zAAgxMDAyNjMzMgAIdGhyZWFkSWQAAjMyAAp0aHJlYWROYW1lABpwcm9jZXNzIHJlYXBlciAocGlkIDk4ODAzKQ==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY0NzM0NTg3NjUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MTAwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAPdGhyZWFkLW9ic2VydmVkAAxsb2NrSWRlbnRpdHkAAAALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQAIUlVOTkFCTEUADnRocmVhZENwdU5hbm9zAAY1NzMxNjcACHRocmVhZElkAAMxNTcACnRocmVhZE5hbWUAHmJ1aWxkc2NyaXB0LWNvbnRyb2wtY29ubmVjdGlvbg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY0NzM0Njc3NjUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MTAwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAPdGhyZWFkLW9ic2VydmVkAAxsb2NrSWRlbnRpdHkAAAALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQAIUlVOTkFCTEUADnRocmVhZENwdU5hbm9zAAU1NTk1OAAIdGhyZWFkSWQAAzE1OAAKdGhyZWFkTmFtZQAJVGhyZWFkLTYz
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY0NzM0NzEwOTkAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MTAwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAPdGhyZWFkLW9ic2VydmVkAAxsb2NrSWRlbnRpdHkAAAALbG9ja093bmVySWQAAAANbG9ja093bmVyTmFtZQAAAAtvYnNlcnZhdGlvbgAHc2FtcGxlZAADcGlkAAU5NzI0MgAScHJvY2Vzc1N0YXJ0TWlsbGlzAA0xNzkyNzAxMjg2MTUwAAVzdGF0ZQAIUlVOTkFCTEUADnRocmVhZENwdU5hbm9zAAYyMDU3MDkACHRocmVhZElkAAMxNTkACnRocmVhZE5hbWUACVRocmVhZC02NA==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADgAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY0NzM1MDQyNjUAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MTAwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAALaGVhcC1zYW1wbGUAEWdjQ29sbGVjdGlvbkNvdW50AAIyMQAWZ2NDb2xsZWN0aW9uVGltZU1pbGxpcwADMzAyABJoZWFwQ29tbWl0dGVkQnl0ZXMACDgwNzQwMzUyAAxoZWFwTWF4Qnl0ZXMACTEzNDIxNzcyOAANaGVhcFVzZWRCeXRlcwAIMjkzMzYzNjAAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAAjIxAAp0aHJlYWROYW1lABdrb21waWxlLWF0dGVtcHQtc2FtcGxlcg==
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY3MTg0NjE0NzQAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MzQ1AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAPdGhyZWFkLW9ic2VydmVkAAxsb2NrSWRlbnRpdHkAN2phdmEudXRpbC5jb25jdXJyZW50LlN5bmNocm9ub3VzUXVldWUkVHJhbnNmZXJlckBlMGZhZGUAC2xvY2tPd25lcklkAAAADWxvY2tPd25lck5hbWUAAAALb2JzZXJ2YXRpb24AB3NhbXBsZWQAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAFc3RhdGUADVRJTUVEX1dBSVRJTkcADnRocmVhZENwdU5hbm9zAAczMTUxNzkyAAh0aHJlYWRJZAADMTYwAAp0aHJlYWROYW1lABBwb29sLTMzLXRocmVhZC0x
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADgAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY3MTg1MTA5NzQAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MzQ1AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAALaGVhcC1zYW1wbGUAEWdjQ29sbGVjdGlvbkNvdW50AAIyMQAWZ2NDb2xsZWN0aW9uVGltZU1pbGxpcwADMzAyABJoZWFwQ29tbWl0dGVkQnl0ZXMACDgwNzQwMzUyAAxoZWFwTWF4Qnl0ZXMACTEzNDIxNzcyOAANaGVhcFVzZWRCeXRlcwAIMjkzMzYzNjAAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAAjIxAAp0aHJlYWROYW1lABdrb21waWxlLWF0dGVtcHQtc2FtcGxlcg==
+DECODED_FILE_STORAGE calls=32 retainedCopies=0 retainedBytes=0
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADgAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY3NDkyNDMwNTcAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4Mzc2AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAObG9jay1yZXF1ZXN0ZWQADGxvY2tDYXRlZ29yeQALcHVibGljYXRpb24ACmxvY2tEZXZpY2UABDA6NDAACWxvY2tJbm9kZQAHNzI2MTAwMAAHbG9ja0tleQBxL3RtcC9wcmVwYXJlZC1pbnB1dC1maXh0dXJlLTE3MjgzOTE3NzI5OTc5MTAwMDE5L3J1bnRpbWUvY2FjaGUvY291cnNpZXItd29ya3NwYWNlLWdlbmVyYXRpb25zL3YxL2Nvb3JkaW5hdG9yLmxvY2sAC29wZXJhdGlvbklkACQ5NTdhMGUyYi1mMzgzLTQ5NTEtYTI0OC1kY2U0MDYzOWY4YWMAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAAIdGhyZWFkSWQAATEACnRocmVhZE5hbWUABG1haW4=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAEAAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY3NTM3MDYyMjQAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MzgwAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAANbG9jay1hY3F1aXJlZAARaG9sZGVyT3BlcmF0aW9uSWQAJDk1N2EwZTJiLWYzODMtNDk1MS1hMjQ4LWRjZTQwNjM5ZjhhYwAJaG9sZGVyUGlkAAU5NzI0MgAOaG9sZGVyVGhyZWFkSWQAATEADGxvY2tDYXRlZ29yeQALcHVibGljYXRpb24AB2xvY2tLZXkAcS90bXAvcHJlcGFyZWQtaW5wdXQtZml4dHVyZS0xNzI4MzkxNzcyOTk3OTEwMDAxOS9ydW50aW1lL2NhY2hlL2NvdXJzaWVyLXdvcmtzcGFjZS1nZW5lcmF0aW9ucy92MS9jb29yZGluYXRvci5sb2NrAAtvcGVyYXRpb25JZAAkOTU3YTBlMmItZjM4My00OTUxLWEyNDgtZGNlNDA2MzlmOGFjAANwaWQABTk3MjQyABJwcm9jZXNzU3RhcnRNaWxsaXMADTE3OTI3MDEyODYxNTAACHRocmVhZElkAAExAAp0aHJlYWROYW1lAARtYWluAAl3YWl0TmFub3MABzQ1MDczMzQ=
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAADwAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY3NjU3MTY5MzIAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4MzkyAA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAANbG9jay1yZWxlYXNlZAAMZmFpbHVyZUNsYXNzAAAACWhlbGROYW5vcwAIMTIwMDc1NDEADGxvY2tDYXRlZ29yeQALcHVibGljYXRpb24AB2xvY2tLZXkAcS90bXAvcHJlcGFyZWQtaW5wdXQtZml4dHVyZS0xNzI4MzkxNzcyOTk3OTEwMDAxOS9ydW50aW1lL2NhY2hlL2NvdXJzaWVyLXdvcmtzcGFjZS1nZW5lcmF0aW9ucy92MS9jb29yZGluYXRvci5sb2NrAAtvcGVyYXRpb25JZAAkOTU3YTBlMmItZjM4My00OTUxLWEyNDgtZGNlNDA2MzlmOGFjAANwaWQABTk3MjQyABJwcm9jZXNzU3RhcnRNaWxsaXMADTE3OTI3MDEyODYxNTAACHRocmVhZElkAAExAAp0aHJlYWROYW1lAARtYWluAAl3YWl0TmFub3MABzQ1MDczMzQ=
+
+kompile-terminal-memory-v1 204d944b-8653-4671-8edc-5cad41b6b98c 97242 183087104 0
+kompile-attributed-event-v1 204d944b-8653-4671-8edc-5cad41b6b98c AAAAEgAOYWNjZXB0ZWRFdmVudHMAAzYyNQAJYXR0ZW1wdElkACY5OGMwMmY3OS03ZjhiLTQ4ZDktYmRmOC0yYzJkOWZiYjQzZjQtOQATY2hpbGRNb25vdG9uaWNOYW5vcwAONTg5NDY3ODE3NDE4OTAAFGNoaWxkV2FsbENsb2NrTWlsbGlzAA0xNzkyNzAxMzE4NDA4AA1kcm9wcGVkRXZlbnRzAAEwAAVldmVudAAWY2hpbGQtb2JzZXJ2ZXItc3VtbWFyeQANbWF4UXVldWVEZXB0aAACMTAAA3BpZAAFOTcyNDIAEnByb2Nlc3NTdGFydE1pbGxpcwANMTc5MjcwMTI4NjE1MAANcXVldWVDYXBhY2l0eQAEMTAyNAAUc2FtcGxlSW50ZXJ2YWxNaWxsaXMAAzI1MAAQc2FtcGxpbmdDcHVOYW5vcwAIMzQyNjE4MzQADnNlbmRlckNwdU5hbm9zAAgzODc2MjYxOAAKc3RhY2tEZXB0aAABMAAPc3RhcnR1cENwdU5hbm9zAAgyMDAwMDAwMAATc3RhcnR1cEVsYXBzZWROYW5vcwAJMTQyNTkyNjY2AAh0aHJlYWRJZAABMQAKdGhyZWFkTmFtZQAEbWFpbg==
+[JSTACK THREAD DUMPS END]
+</console-output>
+  </test>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testPreparedBatchUsesPreparedWorkspaceRuleBody.kts" name="kompile.testPreparedBatchUsesPreparedWorkspaceRuleBody" success="true" time="7398"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelineJoinedWorkloadEvents.kts" name="kompile.testAttemptTimelineJoinedWorkloadEvents" success="true" time="25721"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testR419aDecodedInputRemainsReusable.kts" name="kompile.testR419aDecodedInputRemainsReusable" success="true" time="4874"/>
+  <test file="/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/I419i-kompile-core-20261020/tests/testAttemptTimelineUpstreamEvents.kts" name="kompile.testAttemptTimelineUpstreamEvents" success="true" time="19231"/>
+</tests>

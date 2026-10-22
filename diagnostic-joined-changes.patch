@@ -1,0 +1,36 @@
+--- original-joined-test
++++ separate-diagnostic-copy
+@@ -43,7 +43,8 @@
+ import okio.fakefilesystem.FakeFileSystem
+ import org.json.JSONObject
+ import kotlin.test.*
+-fun testAttemptTimelineJoinedWorkloadEvents() {
++fun testI419iJoinedWorkloadDiagnostic() {
++    println("I419i diagnostic outer-body-start ns=" + System.nanoTime())
+     // The compiler resolves its own pinned bootstrap graph in addition to this test's
+     // probe artifacts. Serve those declared build inputs locally, even with an empty
+     // user cache. Each test owns its server and runs in an isolated child JVM.
+@@ -232,6 +233,7 @@
+                     override fun write(source: okio.Buffer, byteCount: Long) {
+                         val row = source.clone().readUtf8(byteCount)
+                         super.write(source, byteCount)
++                        println("I419i diagnostic event " + row.trim())
+                         if (row.contains("\"threadName\":\"attributed-fixture-worker\"") &&
+                             row.contains("\"state\":\"WAITING\"") && sawWaiting.compareAndSet(false, true)) observed.countDown()
+                         if (row.contains("\"event\":\"gc-pause\"") && sawGc.compareAndSet(false, true)) observed.countDown()
+@@ -420,11 +422,13 @@
+                 }
+                 handler { work: TestPreparationWorkEffect -> preparationWork.add(work); Unit }
+                 handler { _: NotificationEffect -> /* Only lifecycle records are under test. */ }
+-                workspace.prepareTestBatch(listOf(script.absolutePath), 1)
++                println("I419i diagnostic prepare-start ns=" + System.nanoTime())
++                workspace.prepareTestBatch(listOf(script.absolutePath), 1).also { println("I419i diagnostic prepare-end ns=" + System.nanoTime()) }
+             }
+             val listener = object : PreparedTestExecutionListener {
+-                override fun onChildProcessStarted(test: PreparedTestExecutionIdentity, pid: Long) { clock.advanceBy(10) }
++                override fun onChildProcessStarted(test: PreparedTestExecutionIdentity, pid: Long) { println("I419i diagnostic nested-launched pid=" + pid + " ns=" + System.nanoTime()); clock.advanceBy(10) }
+                 override fun onTestReady(test: PreparedTestExecutionIdentity) {
++                    println("I419i diagnostic nested-ready ns=" + System.nanoTime())
+                     clock.advanceBy(2000)
+                     releaseTask = release.submit {
+                         handoff.soTimeout = 10000
