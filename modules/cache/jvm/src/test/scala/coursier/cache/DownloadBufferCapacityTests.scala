@@ -260,6 +260,13 @@ object DownloadBufferCapacityTests extends TestSuite {
       assert(observation.reads.exists(_.arrayLength == 3))
     }
 
+    test("mixed case identity response uses its uncompressed length") {
+      val expectedBody = Array[Byte](11, 22, 33)
+      val observation  = downloadScenario(expectedBody, Some(3L), Some("IdEnTiTy"), None)
+      assertScenario(observation, expectedBody, 3L, 3)
+      assert(observation.reads.exists(_.arrayLength == 3))
+    }
+
     test("other content encodings retain the default maximum") {
       val expectedBody = Array[Byte](11, 22, 33)
       val observation  = downloadScenario(expectedBody, Some(3L), Some("custom"), None)

@@ -271,7 +271,11 @@ import scala.util.control.NonFatal
           val responseLength  = conn.getContentLengthLong
           val contentEncoding = conn.getContentEncoding
           val downloadBufferSize =
-            if (responseLength >= 0L && (contentEncoding == null || contentEncoding == "identity"))
+            if (
+              responseLength >= 0L && (contentEncoding == null || contentEncoding.equalsIgnoreCase(
+                "identity"
+              ))
+            )
               math.min(bufferSize.toLong, math.max(1L, responseLength)).toInt
             else bufferSize
 
