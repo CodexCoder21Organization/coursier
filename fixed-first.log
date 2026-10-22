@@ -1,0 +1,91 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.DownloadLengthIntegrityTests ===============
+[290/306] cache.jvm[2.13.16].compile
+[290] [info] compiling 2 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS2-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact [2m234ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read [2m31ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent [2m6ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.DownloadLengthIntegrityTests [2m675ms[0m
+[306]   [32m+[39m short fixed-length response does not publish a partial artifact [2m234ms[0m  
+[306]   [32m+[39m empty body with positive fixed length is an incomplete response [2m12ms[0m  
+[306]   [32m+[39m partial body remains temporary until the connection reaches EOF [2m13ms[0m  
+[306]   [32m+[39m exact fixed-length response publishes all bytes [2m14ms[0m  
+[306]   [32m+[39m zero length response ignores trailing bytes [2m18ms[0m  
+[306]   [32m+[39m fragmented fixed-length response does not expose bytes after its length [2m22ms[0m  
+[306]   [32m+[39m two byte buffer stays within the framed length after a fragmented read [2m31ms[0m  
+[306]   [32m+[39m close-delimited response reads through connection close [2m14ms[0m  
+[306]   [32m+[39m chunked framing takes precedence over a conflicting content length [2m15ms[0m  
+[306]   [32m+[39m gzip known length decodes fully with bounded progress increments [2m18ms[0m  
+[306]   [32m+[39m mixed case identity encoding is accepted [2m8ms[0m  
+[306]   [32m+[39m mixed case identity encoding still enforces a short length [2m10ms[0m  
+[306]   [32m+[39m negative content length is rejected [2m12ms[0m  
+[306]   [32m+[39m non-decimal content length is rejected [2m8ms[0m  
+[306]   [32m+[39m overflowing content length is rejected [2m8ms[0m  
+[306]   [32m+[39m empty content length is rejected [2m5ms[0m  
+[306]   [32m+[39m content length at Int max reports the received byte count [2m12ms[0m  
+[306]   [32m+[39m content length above Int max reports the received byte count [2m6ms[0m  
+[306]   [32m+[39m five gigabyte content length reports the received byte count [2m6ms[0m  
+[306]   [32m+[39m Long max content length reports the received byte count [2m5ms[0m  
+[306]   [32m+[39m redirect body length does not replace the final response length [2m9ms[0m  
+[306]   [32m+[39m short final response after redirect reports the original artifact URL [2m8ms[0m  
+[306]   [32m+[39m valid range response resumes the existing prefix [2m10ms[0m  
+[306]   [32m+[39m valid range response can frame the suffix without content length [2m13ms[0m  
+[306]   [32m+[39m range response with an incorrect start is rejected without restarting [2m11ms[0m  
+[306]   [32m+[39m range response without content range is rejected [2m7ms[0m  
+[306]   [32m+[39m malformed content range is rejected with its exact value [2m9ms[0m  
+[306]   [32m+[39m range end mismatch is rejected [2m13ms[0m  
+[306]   [32m+[39m range total mismatch is rejected [2m22ms[0m  
+[306]   [32m+[39m unknown range total is rejected [2m17ms[0m  
+[306]   [32m+[39m range ending at or beyond the total is rejected [2m14ms[0m  
+[306]   [32m+[39m overflowing range start is rejected [2m8ms[0m  
+[306]   [32m+[39m overflowing range end is rejected [2m12ms[0m  
+[306]   [32m+[39m overflowing range total is rejected [2m6ms[0m  
+[306]   [32m+[39m content length conflicting with range is rejected [2m9ms[0m  
+[306]   [32m+[39m unsolicited range response must start at byte zero [2m9ms[0m  
+[306]   [32m+[39m range response from byte zero can satisfy a full download [2m6ms[0m  
+[306]   [32m+[39m server ignoring range with a full response replaces the prefix [2m8ms[0m  
+[306]   [32m+[39m short range response with content length removes its temporary file [2m7ms[0m  
+[306]   [32m+[39m short range response uses content range length when content length is absent [2m6ms[0m  
+[306] 
+[306] Tests: 40, Passed: 40, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...loadLengthIntegrityTests =============== 12s
