@@ -1,0 +1,251 @@
+{
+  "rootPid": 13262,
+  "rootStartTicks": 6041548,
+  "observations": [
+    {
+      "offsetSeconds": 5.005611626998871,
+      "pid": 13466,
+      "parentPid": 13262,
+      "startTicks": 6042113,
+      "returncode": 1,
+      "threads": []
+    },
+    {
+      "offsetSeconds": 10.002292837998539,
+      "pid": 13525,
+      "parentPid": 13262,
+      "startTicks": 6042195,
+      "returncode": 0,
+      "threads": [
+        {
+          "name": "main",
+          "frames": [
+            "sun.nio.ch.Net.poll(java.base@21.0.12.1/Native Method)",
+            "sun.nio.ch.NioSocketImpl.park(java.base@21.0.12.1/NioSocketImpl.java:191)",
+            "sun.nio.ch.NioSocketImpl.timedRead(java.base@21.0.12.1/NioSocketImpl.java:280)",
+            "sun.nio.ch.NioSocketImpl.implRead(java.base@21.0.12.1/NioSocketImpl.java:304)",
+            "sun.nio.ch.NioSocketImpl.read(java.base@21.0.12.1/NioSocketImpl.java:346)",
+            "sun.nio.ch.NioSocketImpl$1.read(java.base@21.0.12.1/NioSocketImpl.java:796)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1099)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1093)",
+            "java.io.ObjectInputStream$PeekInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:2893)",
+            "java.io.ObjectInputStream$BlockDataInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:3220)",
+            "java.io.ObjectInputStream$BlockDataInputStream.peekByte(java.base@21.0.12.1/ObjectInputStream.java:3230)",
+            "java.io.ObjectInputStream.readObject0(java.base@21.0.12.1/ObjectInputStream.java:1713)",
+            "java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:540)",
+            "java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:498)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.sendMessageAndGetResponse(BootstrapRunner.java:120)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.reportTestReady(BootstrapRunner.java:149)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:448)"
+          ],
+          "state": "RUNNABLE"
+        },
+        {
+          "name": "kompile-timeout-self-dump",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)",
+            "java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:230)",
+            "kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:61)",
+            "kompile.TestRunnerKt$$Lambda/0x000000d00100ebe8.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "WAITING (parking)"
+        }
+      ]
+    },
+    {
+      "offsetSeconds": 15.019172214000719,
+      "pid": 13525,
+      "parentPid": 13262,
+      "startTicks": 6042195,
+      "returncode": 0,
+      "threads": [
+        {
+          "name": "main",
+          "frames": [
+            "sun.nio.ch.Net.poll(java.base@21.0.12.1/Native Method)",
+            "sun.nio.ch.NioSocketImpl.park(java.base@21.0.12.1/NioSocketImpl.java:191)",
+            "sun.nio.ch.NioSocketImpl.timedRead(java.base@21.0.12.1/NioSocketImpl.java:280)",
+            "sun.nio.ch.NioSocketImpl.implRead(java.base@21.0.12.1/NioSocketImpl.java:304)",
+            "sun.nio.ch.NioSocketImpl.read(java.base@21.0.12.1/NioSocketImpl.java:346)",
+            "sun.nio.ch.NioSocketImpl$1.read(java.base@21.0.12.1/NioSocketImpl.java:796)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1099)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1093)",
+            "java.io.ObjectInputStream$PeekInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:2893)",
+            "java.io.ObjectInputStream$BlockDataInputStream.peek(java.base@21.0.12.1/ObjectInputStream.java:3220)",
+            "java.io.ObjectInputStream$BlockDataInputStream.peekByte(java.base@21.0.12.1/ObjectInputStream.java:3230)",
+            "java.io.ObjectInputStream.readObject0(java.base@21.0.12.1/ObjectInputStream.java:1713)",
+            "java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:540)",
+            "java.io.ObjectInputStream.readObject(java.base@21.0.12.1/ObjectInputStream.java:498)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.sendMessageAndGetResponse(BootstrapRunner.java:120)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.reportTestReady(BootstrapRunner.java:149)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:448)"
+          ],
+          "state": "RUNNABLE"
+        },
+        {
+          "name": "kompile-timeout-self-dump",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)",
+            "java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:230)",
+            "kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:61)",
+            "kompile.TestRunnerKt$$Lambda/0x000000d00100ebe8.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "WAITING (parking)"
+        }
+      ]
+    },
+    {
+      "offsetSeconds": 20.002229883000837,
+      "pid": 13525,
+      "parentPid": 13262,
+      "startTicks": 6042195,
+      "returncode": 0,
+      "threads": [
+        {
+          "name": "main",
+          "frames": [
+            "sun.nio.ch.SocketDispatcher.read0(java.base@21.0.12.1/Native Method)",
+            "sun.nio.ch.SocketDispatcher.read(java.base@21.0.12.1/SocketDispatcher.java:48)",
+            "sun.nio.ch.NioSocketImpl.tryRead(java.base@21.0.12.1/NioSocketImpl.java:256)",
+            "sun.nio.ch.NioSocketImpl.implRead(java.base@21.0.12.1/NioSocketImpl.java:307)",
+            "sun.nio.ch.NioSocketImpl.read(java.base@21.0.12.1/NioSocketImpl.java:346)",
+            "sun.nio.ch.NioSocketImpl$1.read(java.base@21.0.12.1/NioSocketImpl.java:796)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1099)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1093)",
+            "timeline.fixture.TestProbeKt.testProbe(testProbe.kt:91)",
+            "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.base@21.0.12.1/DirectMethodHandle$Holder)",
+            "java.lang.invoke.LambdaForm$MH/0x000000d00101a400.invoke(java.base@21.0.12.1/LambdaForm$MH)",
+            "java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:153)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)",
+            "java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)",
+            "kompile.TestRunner.executeTest(TestRunner.kt:248)",
+            "kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)",
+            "kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)",
+            "java.lang.invoke.LambdaForm$DMH/0x000000d00100a000.invokeStatic(java.base@21.0.12.1/LambdaForm$DMH)",
+            "java.lang.invoke.LambdaForm$MH/0x000000d001011000.invoke(java.base@21.0.12.1/LambdaForm$MH)",
+            "java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:154)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)",
+            "java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)"
+          ],
+          "state": "RUNNABLE"
+        },
+        {
+          "name": "kompile-timeout-self-dump",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:790)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1160)",
+            "java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:276)",
+            "kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:69)",
+            "kompile.TestRunnerKt$$Lambda/0x000000d00100ebe8.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "TIMED_WAITING (parking)"
+        },
+        {
+          "name": "kompile-attempt-sender",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)",
+            "java.util.concurrent.Semaphore.acquire(java.base@21.0.12.1/Semaphore.java:318)",
+            "kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)",
+            "kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)",
+            "kompile.ChildAttemptObserver$$Lambda/0x000000d001016e30.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "WAITING (parking)"
+        }
+      ]
+    },
+    {
+      "offsetSeconds": 25.01066563600034,
+      "pid": 13525,
+      "parentPid": 13262,
+      "startTicks": 6042195,
+      "returncode": 0,
+      "threads": [
+        {
+          "name": "main",
+          "frames": [
+            "sun.nio.ch.SocketDispatcher.read0(java.base@21.0.12.1/Native Method)",
+            "sun.nio.ch.SocketDispatcher.read(java.base@21.0.12.1/SocketDispatcher.java:48)",
+            "sun.nio.ch.NioSocketImpl.tryRead(java.base@21.0.12.1/NioSocketImpl.java:256)",
+            "sun.nio.ch.NioSocketImpl.implRead(java.base@21.0.12.1/NioSocketImpl.java:307)",
+            "sun.nio.ch.NioSocketImpl.read(java.base@21.0.12.1/NioSocketImpl.java:346)",
+            "sun.nio.ch.NioSocketImpl$1.read(java.base@21.0.12.1/NioSocketImpl.java:796)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1099)",
+            "java.net.Socket$SocketInputStream.read(java.base@21.0.12.1/Socket.java:1093)",
+            "timeline.fixture.TestProbeKt.testProbe(testProbe.kt:91)",
+            "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.base@21.0.12.1/DirectMethodHandle$Holder)",
+            "java.lang.invoke.LambdaForm$MH/0x000000d00101a400.invoke(java.base@21.0.12.1/LambdaForm$MH)",
+            "java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:153)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)",
+            "java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)",
+            "kompile.TestRunner.executeTest(TestRunner.kt:248)",
+            "kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)",
+            "kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)",
+            "java.lang.invoke.LambdaForm$DMH/0x000000d00100a000.invokeStatic(java.base@21.0.12.1/LambdaForm$DMH)",
+            "java.lang.invoke.LambdaForm$MH/0x000000d001011000.invoke(java.base@21.0.12.1/LambdaForm$MH)",
+            "java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:154)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)",
+            "java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)"
+          ],
+          "state": "RUNNABLE"
+        },
+        {
+          "name": "kompile-timeout-self-dump",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:790)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1160)",
+            "java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:276)",
+            "kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:69)",
+            "kompile.TestRunnerKt$$Lambda/0x000000d00100ebe8.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "TIMED_WAITING (parking)"
+        },
+        {
+          "name": "kompile-attempt-sender",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)",
+            "java.util.concurrent.Semaphore.acquire(java.base@21.0.12.1/Semaphore.java:318)",
+            "kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)",
+            "kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)",
+            "kompile.ChildAttemptObserver$$Lambda/0x000000d001016e30.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "WAITING (parking)"
+        }
+      ]
+    }
+  ],
+  "terminal": true
+}

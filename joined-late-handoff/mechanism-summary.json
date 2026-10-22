@@ -1,0 +1,141 @@
+{
+  "acceptFutureFailureType": "java.net.SocketTimeoutException",
+  "futureFailureObservationCount": 189,
+  "forcedOrderingMarkers": 1,
+  "acceptReturnedMarkers": 0,
+  "events": [
+    {
+      "functionName": "testProbe",
+      "offsetMillis": 10,
+      "event": "ready"
+    },
+    {
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60432759485983,
+      "offsetMillis": 2010,
+      "event": "compiler-request"
+    },
+    {
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60432759898816,
+      "offsetMillis": 2010,
+      "event": "compiler-start"
+    },
+    {
+      "phase": "analysis",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60433313819150,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-start"
+    },
+    {
+      "phase": "analysis",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434008821942,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-end"
+    },
+    {
+      "phase": "codegen",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434304188025,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-start"
+    },
+    {
+      "phase": "codegen",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434529416150,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-end"
+    },
+    {
+      "functionName": "testProbe",
+      "compilerOutcome": "OK",
+      "childMonotonicNanos": 60434542167859,
+      "offsetMillis": 2010,
+      "event": "compiler-finish"
+    },
+    {
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434544473984,
+      "offsetMillis": 2010,
+      "event": "compiler-request"
+    },
+    {
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434546284942,
+      "offsetMillis": 2010,
+      "event": "compiler-start"
+    },
+    {
+      "phase": "analysis",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434569985859,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-start"
+    },
+    {
+      "phase": "analysis",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60434723384942,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-end"
+    },
+    {
+      "functionName": "testProbe",
+      "compilerOutcome": "COMPILATION_ERROR",
+      "childMonotonicNanos": 60434725615109,
+      "offsetMillis": 2010,
+      "event": "compiler-finish"
+    },
+    {
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60435570348609,
+      "offsetMillis": 2010,
+      "event": "compiler-request"
+    },
+    {
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60435570608568,
+      "offsetMillis": 2010,
+      "event": "compiler-start"
+    },
+    {
+      "phase": "analysis",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60435595979109,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-start"
+    },
+    {
+      "phase": "analysis",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60435847451151,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-end"
+    },
+    {
+      "phase": "codegen",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60435893201109,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-start"
+    },
+    {
+      "phase": "codegen",
+      "functionName": "testProbe",
+      "childMonotonicNanos": 60435981275151,
+      "offsetMillis": 2010,
+      "event": "compiler-phase-end"
+    },
+    {
+      "functionName": "testProbe",
+      "compilerOutcome": "OK",
+      "childMonotonicNanos": 60435983416443,
+      "offsetMillis": 2010,
+      "event": "compiler-finish"
+    }
+  ],
+  "gateOriginalSelectorHashesUnchanged": true
+}

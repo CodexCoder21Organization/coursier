@@ -1,0 +1,20 @@
+{
+  "expectedSha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+  "cacheArtifacts": [
+    {
+      "path": "/tmp/I419i-runtime/gate-cache/artifactBinaryCache/83/80/d2/82/ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb/value/coursier-cache_2.13-2.1.31-buffer3.jar",
+      "sha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+      "matchesSnapshot": true
+    },
+    {
+      "path": "/tmp/I419i-runtime/gate-cache/persistent-scratchspace/classpath-b70f54a970d99fd904d7eb2c985249d9ff2b0ad26cb9f4c23d2d70c6b94bab41/files/16/coursier-cache_2.13-2.1.31-buffer3.jar",
+      "sha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+      "matchesSnapshot": true
+    },
+    {
+      "path": "/tmp/I419i-runtime/gate-cache/persistent-scratchspace/classpath-ff848610da44080e8d24b4b9f6bd099e614c9014ae6968bbd34bfe2d4a1f1244/files/16/coursier-cache_2.13-2.1.31-buffer3.jar",
+      "sha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+      "matchesSnapshot": true
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "iteration": 1,
+    "exit": 0,
+    "tests": [
+      {
+        "name": "known tiny response does not request an oversized transfer buffer",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "known 199 byte POM uses its response length",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "known one byte response uses a one byte buffer",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "identity response uses its uncompressed length",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "mixed case identity response uses its uncompressed length",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "other content encodings retain the default maximum",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "known responses at the default boundary stay bounded",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "known empty response keeps read buffers at one byte or less",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "known body larger than configured maximum uses at most that maximum",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "unknown chunked response retains the default maximum",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "unknown identity response retains the default maximum",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "gzip response with known encoded length returns all decoded bytes",
+        "failed": false,
+        "message": null
+      },
+      {
+        "name": "partial response resumes from the persisted prefix with a bounded read buffer",
+        "failed": false,
+        "message": null
+      }
+    ],
+    "attemptsPerCase": 1
+  }
+]

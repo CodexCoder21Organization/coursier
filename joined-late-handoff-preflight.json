@@ -1,0 +1,10 @@
+{
+  "iterations": 1,
+  "workers": 1,
+  "maxTestAttempts": 1,
+  "phase": "joined-late-handoff",
+  "sourceSha256": "02e518784bfc3d6c73eaa6037f2c7ede045b79969d70363b960fe2b17d6daa51",
+  "main": "84396b347669e11532726a9c3396cb1120ea5f60",
+  "note": "Separate diagnostic copy; original 450-case gate is already complete and unchanged. The inner test source, assertions and timeouts remain unchanged; added output and public Future reads expose progress. A diagnostic observer records derived frames from descendant JVMs; this is not an acceptance measurement.",
+  "forcedOrdering": "The public readiness callback waits for the existing10-second accept Future to fail before returning and releasing the nested body; no original timeout or assertion changes."
+}

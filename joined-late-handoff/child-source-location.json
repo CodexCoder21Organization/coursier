@@ -1,0 +1,11 @@
+{
+  "observedFrame": "timeline.fixture.TestProbeKt.testProbe(testProbe.kt:91)",
+  "generatedLine91": "                        check(control.getInputStream().read() == 1)",
+  "sourceFileSha256": "c960c1fd46ef1fce1c4c9c7854b59e382ec87d2bc71b122c8bd25fb2477de1c5",
+  "readCallLines": [
+    [
+      91,
+      "check(control.getInputStream().read() == 1)"
+    ]
+  ]
+}

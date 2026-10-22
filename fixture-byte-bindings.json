@@ -1,0 +1,21 @@
+{
+  "expectedSnapshotSha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+  "entry": "kompile-test-maven/io/get-coursier/coursier-cache_2.13/2.1.31-buffer3/coursier-cache_2.13-2.1.31-buffer3.jar",
+  "fixtureJars": [
+    {
+      "path": "/tmp/I419i-runtime/gate-cache/artifactBinaryCache/af/16/ac/9e/c633a99aa8958890e9195bd683c2b58dae9af09bd2f1e3f80d02a433/value/test-maven-repository9728049804651952848.jar",
+      "nestedCacheSha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+      "matchesSnapshot": true
+    },
+    {
+      "path": "/tmp/I419i-runtime/gate-cache/artifactBinaryCache/b6/af/d9/ab/9e78482aff6c74daffa80f3b5c5f47b01ef34b84858b5e5ddc21197c/value/test-maven-repository16410788436732929760.jar",
+      "nestedCacheSha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+      "matchesSnapshot": true
+    },
+    {
+      "path": "/tmp/I419i-runtime/gate-cache/artifactBinaryCache/2f/97/76/5a/74ee5a7536d4e8524adf9d05eab835879bdf4cd7d8999066d40c59b2/value/test-maven-repository3769471389580841.jar",
+      "nestedCacheSha256": "8380d282ea52fff47bbe19c182571da61e29f68d39dda09cfd7c59ebde7716cb",
+      "matchesSnapshot": true
+    }
+  ]
+}

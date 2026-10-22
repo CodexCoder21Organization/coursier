@@ -1,0 +1,7 @@
+<tests>
+  <buildrule name="tools.kompile.buildJoinedRecorderMavenRepository()" success="true" time="12223" output-files="1" output-bytes="217132621" executions="0"/>
+  <buildrule name="tools.kompile.buildTestMavenRepository()" success="true" time="768" output-files="1" output-bytes="164113322" executions="0"/>
+  <buildrule name="tools.kompile.buildInputFixtureTestAttemptTimelineJoinedWorkloadEvents()" success="true" time="322" output-files="1" output-bytes="495005" executions="0"/>
+  <buildrule name="tools.kompile.buildMaven136DefinitionSiteScopeTests()" success="true" time="789" output-files="108" output-bytes="103948436" executions="0"/>
+  <test file="/tmp/I419i-runtime/diagnostic-sources/tests/testI419iJoinedWorkloadDiagnostic.kts" name="kompile.testI419iJoinedWorkloadDiagnostic" success="true" time="9624"/>
+</tests>

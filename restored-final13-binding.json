@@ -1,0 +1,11 @@
+{
+  "productHead": "2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8",
+  "worktreeClean": true,
+  "allFiveClassesMatchMeasuredSnapshot": {
+    "coursier/cache/internal/Downloader$$anonfun$coursier$cache$internal$Downloader$$downloading$1.class": true,
+    "coursier/cache/internal/Downloader$.class": true,
+    "coursier/cache/internal/Downloader$Blocking$.class": true,
+    "coursier/cache/internal/Downloader$UnknownProtocol$.class": true,
+    "coursier/cache/internal/Downloader.class": true
+  }
+}

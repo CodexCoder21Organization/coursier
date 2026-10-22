@@ -1,0 +1,103 @@
+{
+  "rootPid": 7333,
+  "rootStartTicks": 6028296,
+  "observations": [
+    {
+      "offsetSeconds": 5.004546752999886,
+      "pid": 7793,
+      "parentPid": 7333,
+      "startTicks": 6028843,
+      "returncode": 0,
+      "threads": [
+        {
+          "name": "main",
+          "frames": [
+            "java.lang.invoke.CallSite.makeSite(java.base@21.0.12.1/CallSite.java:322)",
+            "java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(java.base@21.0.12.1/MethodHandleNatives.java:249)",
+            "java.lang.invoke.MethodHandleNatives.linkCallSite(java.base@21.0.12.1/MethodHandleNatives.java:239)",
+            "java.lang.reflect.Proxy.getLoader(java.base@21.0.12.1/Proxy.java:1088)",
+            "java.lang.reflect.Proxy$ProxyBuilder.defineProxyClass(java.base@21.0.12.1/Proxy.java:538)",
+            "java.lang.reflect.Proxy$ProxyBuilder.build(java.base@21.0.12.1/Proxy.java:657)",
+            "java.lang.reflect.Proxy.lambda$getProxyConstructor$0(java.base@21.0.12.1/Proxy.java:429)",
+            "java.lang.reflect.Proxy$$Lambda/0x00000088010d2130.apply(java.base@21.0.12.1/Unknown Source)",
+            "jdk.internal.loader.AbstractClassLoaderValue$Memoizer.get(java.base@21.0.12.1/AbstractClassLoaderValue.java:329)",
+            "jdk.internal.loader.AbstractClassLoaderValue.computeIfAbsent(java.base@21.0.12.1/AbstractClassLoaderValue.java:205)",
+            "java.lang.reflect.Proxy.getProxyConstructor(java.base@21.0.12.1/Proxy.java:427)",
+            "java.lang.reflect.Proxy.newProxyInstance(java.base@21.0.12.1/Proxy.java:1034)",
+            "org.jetbrains.kotlin.com.intellij.util.EventDispatcher.createMulticaster(EventDispatcher.java:76)",
+            "org.jetbrains.kotlin.com.intellij.util.EventDispatcher.getMulticaster(EventDispatcher.java:109)",
+            "org.jetbrains.kotlin.com.intellij.openapi.vfs.impl.VirtualFileManagerImpl.<init>(VirtualFileManagerImpl.java:68)",
+            "org.jetbrains.kotlin.com.intellij.openapi.vfs.impl.VirtualFileManagerImpl.<init>(VirtualFileManagerImpl.java:59)",
+            "org.jetbrains.kotlin.com.intellij.core.CoreApplicationEnvironment.<init>(CoreApplicationEnvironment.java:102)",
+            "org.jetbrains.kotlin.com.intellij.core.JavaCoreApplicationEnvironment.<init>(JavaCoreApplicationEnvironment.java:48)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreApplicationEnvironment.<init>(KotlinCoreApplicationEnvironment.kt:29)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreApplicationEnvironment.<init>(KotlinCoreApplicationEnvironment.kt)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreApplicationEnvironment$Companion.create(KotlinCoreApplicationEnvironment.kt:86)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$Companion.createApplicationEnvironment(KotlinCoreEnvironment.kt:606)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$Companion.getOrCreateApplicationEnvironment(KotlinCoreEnvironment.kt:520)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$Companion.getOrCreateApplicationEnvironmentForProduction(KotlinCoreEnvironment.kt:507)",
+            "org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment$Companion.createForProduction(KotlinCoreEnvironment.kt:444)",
+            "org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.createCoreEnvironment(K2JVMCompiler.kt:199)",
+            "org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:150)",
+            "org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:50)",
+            "org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:104)",
+            "org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:48)",
+            "org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)",
+            "kompile.QuickTestUtilsKt.compileSelectedKotlinFiles(QuickTestUtils.kt:76)",
+            "kompile.QuickTestUtilsKt.compileKotlin(QuickTestUtils.kt:45)",
+            "timeline.fixture.TestProbeKt.testProbe(testProbe.kt:48)",
+            "java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.base@21.0.12.1/DirectMethodHandle$Holder)",
+            "java.lang.invoke.LambdaForm$MH/0x000000880101a400.invoke(java.base@21.0.12.1/LambdaForm$MH)",
+            "java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:153)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)",
+            "java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)",
+            "kompile.TestRunner.executeTest(TestRunner.kt:248)",
+            "kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)",
+            "kompile.AttributedTestRunner.executeTest(AttributedTestRunner.kt:20)",
+            "java.lang.invoke.LambdaForm$DMH/0x000000880100a000.invokeStatic(java.base@21.0.12.1/LambdaForm$DMH)",
+            "java.lang.invoke.LambdaForm$MH/0x0000008801011000.invoke(java.base@21.0.12.1/LambdaForm$MH)",
+            "java.lang.invoke.Invokers$Holder.invokeExact_MT(java.base@21.0.12.1/Invokers$Holder)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(java.base@21.0.12.1/DirectMethodHandleAccessor.java:154)",
+            "jdk.internal.reflect.DirectMethodHandleAccessor.invoke(java.base@21.0.12.1/DirectMethodHandleAccessor.java:103)",
+            "java.lang.reflect.Method.invoke(java.base@21.0.12.1/Method.java:580)",
+            "community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)"
+          ],
+          "state": "RUNNABLE"
+        },
+        {
+          "name": "kompile-timeout-self-dump",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.12.1/LockSupport.java:269)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:790)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1160)",
+            "java.util.concurrent.CountDownLatch.await(java.base@21.0.12.1/CountDownLatch.java:276)",
+            "kompile.TestRunnerKt.prepareTestRunnerInvocation$lambda$0(TestRunner.kt:69)",
+            "kompile.TestRunnerKt$$Lambda/0x000000880100ebe8.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "TIMED_WAITING (parking)"
+        },
+        {
+          "name": "kompile-attempt-sender",
+          "frames": [
+            "jdk.internal.misc.Unsafe.park(java.base@21.0.12.1/Native Method)",
+            "java.util.concurrent.locks.LockSupport.park(java.base@21.0.12.1/LockSupport.java:221)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:788)",
+            "java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(java.base@21.0.12.1/AbstractQueuedSynchronizer.java:1133)",
+            "java.util.concurrent.Semaphore.acquire(java.base@21.0.12.1/Semaphore.java:318)",
+            "kompile.ChildAttemptObserver.senderLoop(Observer.kt:544)",
+            "kompile.ChildAttemptObserver.sender$lambda$2(Observer.kt:50)",
+            "kompile.ChildAttemptObserver$$Lambda/0x0000008801016e30.run(Unknown Source)",
+            "java.lang.Thread.runWith(java.base@21.0.12.1/Thread.java:1596)",
+            "java.lang.Thread.run(java.base@21.0.12.1/Thread.java:1583)"
+          ],
+          "state": "WAITING (parking)"
+        }
+      ]
+    }
+  ],
+  "terminal": true
+}

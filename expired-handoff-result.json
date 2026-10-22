@@ -1,0 +1,86 @@
+{
+  "experiment": "expired accept followed by late connection",
+  "iterations": [
+    {
+      "iteration": 1,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 2,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 3,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 4,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 5,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 6,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 7,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 8,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 9,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    },
+    {
+      "iteration": 10,
+      "acceptFutureFailedBeforeConnect": true,
+      "listenerStillOpen": true,
+      "lateConnectSucceeded": true,
+      "replyUnavailable": true,
+      "attempts": 1
+    }
+  ],
+  "confirmed": 10
+}

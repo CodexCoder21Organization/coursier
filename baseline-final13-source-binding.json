@@ -1,0 +1,8 @@
+{
+  "productHead": "2bf531d14bbd6fff9a1fa3d4f069f0aa504525d8",
+  "mainHead": "7434805e35d9941f840c6e8c914f7d53fe852e10",
+  "testSha256": "751511c20a4e6715996549cc22a8a6524094a45c05304d266bffc8424b019933",
+  "unchangedMainDownloaderSha256": "b43b1d2798e022d3e6ddee1ba7579173bc2dc623356384f2f924346578d2c82f",
+  "fixedDownloaderSha256": "a9e6b95afe64b29e7596c7b07b891903976ad0c2a2e4342cc61405dcf0bcec4a",
+  "mode": "temporary product-fix removal, final test source unchanged, ten first-attempt runs"
+}

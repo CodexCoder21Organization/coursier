@@ -1,0 +1,86 @@
+{
+  "utc": "2026-10-22T21:11:20.685008+00:00",
+  "identityCount": 1188,
+  "cleanupRecords": [
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/baseline-final13-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/consumer-passed-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/consumer-first-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/manager-first-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/restored-final13-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/joined-diagnostic-pass/cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/joined-late-handoff/cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/gate-results/gate-controller-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/I419i-evidence/gate-results/fixed-cache-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/joined-late-handoff-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/consumer-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/baseline-final13-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/joined-diagnostic-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/compile-launchers-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/restored-final13-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/gate-controller-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/build-manager-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/consumer2-cleanup.json",
+      "reportedRemaining": []
+    },
+    {
+      "file": "/tmp/I419i-runtime/fixed-cache-cleanup.json",
+      "reportedRemaining": []
+    }
+  ],
+  "liveOwnedIdentities": [],
+  "ownedZombies": [],
+  "unrecordedLaneProcesses": [],
+  "rawPsOrCommandLinesSaved": false
+}

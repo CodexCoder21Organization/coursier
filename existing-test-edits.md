@@ -9,6 +9,8 @@ Only DownloadBufferCapacityTests.scala changes in this lane. All thirteen cases 
 - New cases cover 199-byte POM, one byte, lowercase and mixed-case identity, other content encoding, unknown-length identity, and one byte below/at/above the default.
 - scalafmt 3.9.6 formats the unmerged test file without changing its checks or waits.
 
-The final test source is run ten times against unchanged Downloader after these edits, then thirty times against the fix, with one attempt per case per run. No iteration, timeout, retry or assertion is loosened.
+The final thirteen-case test source is now run ten times against unchanged main Downloader: all eight size cases fail10/10 on buffer assertions and all five controls pass10/10. All thirteen final cases previously passed30/30 with one attempt per case per run; after the final backout check, source restoration passes13/13 once and all five compiled download classes again match the measured snapshot. No iteration, timeout, retry or assertion is loosened.
 
 Independent code review additionally found mixed-case identity was missed. A new mixed-case case fails10/10 against the first fix; the corrected case-insensitive comparison passes all thirteen cases30/30. No prior assertion changes for this correction.
+
+Separate evidence-only JoinedWorkload diagnostic copies add event/phase output and public Future outcome reads; they do not edit the fifteen original gate sources or their assertions/timeouts. One new diagnostic explicitly holds the public readiness callback until the existing accept Future expires to force the late-connection ordering. This is separate from both the original450-case gate and the buffer tests.

@@ -3,8 +3,9 @@
 - [done] Run unchanged reproducer ten single attempts; checkpoint results remotely.
 - [done] Complete boundary cases, implement response-size buffer cap, run each thirty times.
 - [done] Run existing cache JVM tests exactly once; review tests and implementation independently.
-- [in progress] Build local snapshot and run the same fifteen-owner, thirty-iteration single-attempt kompile gate [gate done446/4,450first attempts,zero retries]; inspect remaining failure mechanisms.
-- [in progress] Fork PR opened and upstream validation/evidence pushed; finish downstream counts, update PR description, verify final remote heads and process cleanup.
+- [done] Build and bind the unpublished local snapshot; complete the unchanged 450-case gate at446/4,450first attempts,zero retries; inspect remaining mechanisms with independent reviews.
+- [evidence limit] Original JoinedWorkload Future exceptions were not retained and cannot be recovered after those processes exited. A matching receiver-expiry ordering is concretely reproduced; attribution to the natural gate failures remains an inference, not a claimed verified cause.
+- [done] Fork PR open/unmerged; all local gates and evidence complete, remote heads verified, PR description prepared with measured counts and limitations, owned process cleanup empty. Final evidence push and body update are the remaining administrative checkpoint.
 
 # Invariants
 | Resource | Creator / owner / closer | Allowed observations / terminal state | Public API check |
