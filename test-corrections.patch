@@ -1,0 +1,65 @@
+diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
+index ae7e991a8..38a3032da 100644
+--- a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
++++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
+@@ -230,6 +230,43 @@ object DownloadBufferCapacityTests extends TestSuite {
+       )
+     }
+ 
++    test("known 199 byte POM uses its response length") {
++      val pom = "<project><modelVersion>4.0.0</modelVersion><groupId>test</groupId>" +
++        "<artifactId>tiny</artifactId><version>1</version></project>"
++      val expectedBody = (pom + (" " * (199 - pom.length))).getBytes("UTF-8")
++      assert(expectedBody.length == 199)
++      val observation = downloadScenario(expectedBody, Some(199L), None, None)
++      assertScenario(observation, expectedBody, 199L, 199)
++    }
++
++    test("known one byte response uses a one byte buffer") {
++      val expectedBody = Array[Byte](42)
++      val observation = downloadScenario(expectedBody, Some(1L), None, None)
++      assertScenario(observation, expectedBody, 1L, 1)
++    }
++
++    test("identity response uses its uncompressed length") {
++      val expectedBody = Array[Byte](11, 22, 33)
++      val observation = downloadScenario(expectedBody, Some(3L), Some("identity"), None)
++      assertScenario(observation, expectedBody, 3L, 3)
++    }
++
++    test("other content encodings retain the default maximum") {
++      val expectedBody = Array[Byte](11, 22, 33)
++      val observation = downloadScenario(expectedBody, Some(3L), Some("custom"), None)
++      assertScenario(observation, expectedBody, 3L, CacheDefaults.bufferSize)
++      assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
++    }
++
++    test("known responses at the default boundary stay bounded") {
++      for (length <- Seq(CacheDefaults.bufferSize - 1, CacheDefaults.bufferSize, CacheDefaults.bufferSize + 1)) {
++        val expectedBody = Array.tabulate[Byte](length)(index => (index % 251).toByte)
++        val observation = downloadScenario(expectedBody, Some(length.toLong), None, None)
++        assertScenario(observation, expectedBody, length.toLong, math.min(length, CacheDefaults.bufferSize))
++        assert(observation.reads.exists(_.arrayLength == math.min(length, CacheDefaults.bufferSize)))
++      }
++    }
++
+     test("known empty response keeps read buffers at one byte or less") {
+       val expectedBody = Array.empty[Byte]
+       val observation = downloadScenario(expectedBody, Some(0L), None, None)
+@@ -253,6 +290,7 @@ object DownloadBufferCapacityTests extends TestSuite {
+       val expectedBody = Array.tabulate[Byte](CacheDefaults.bufferSize + 17)(index => (index % 251).toByte)
+       val observation = downloadScenario(expectedBody, None, None, None)
+       assertScenario(observation, expectedBody, -1L, CacheDefaults.bufferSize)
++      assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
+     }
+ 
+     test("gzip response retains the configured maximum while returning decoded bytes") {
+@@ -448,7 +486,7 @@ object DownloadBufferCapacityTests extends TestSuite {
+         assert(Files.readAllBytes(downloaded.toPath).toSeq == expectedBody.toSeq)
+         assert(Files.exists(finalFile.toPath))
+         assert(!Files.exists(temporaryFile.toPath))
+-        assert(headRequests.get() > 0)
++        assert(headRequests.get() == 0)
+         assert(getRequests.get() == 1)
+         assert(observedRange.get() == "bytes=3-")
+         assert(openedStreams.get() > 0)

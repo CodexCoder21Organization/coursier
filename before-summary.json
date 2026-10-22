@@ -1,0 +1,50 @@
+{
+  "runs": 10,
+  "attemptsPerCasePerRun": 1,
+  "cases": {
+    "known tiny response does not request an oversized transfer buffer": {
+      "pass": 0,
+      "fail": 10
+    },
+    "known 199 byte POM uses its response length": {
+      "pass": 0,
+      "fail": 10
+    },
+    "known one byte response uses a one byte buffer": {
+      "pass": 0,
+      "fail": 10
+    },
+    "identity response uses its uncompressed length": {
+      "pass": 0,
+      "fail": 10
+    },
+    "other content encodings retain the default maximum": {
+      "pass": 10,
+      "fail": 0
+    },
+    "known responses at the default boundary stay bounded": {
+      "pass": 0,
+      "fail": 10
+    },
+    "known empty response keeps read buffers at one byte or less": {
+      "pass": 0,
+      "fail": 10
+    },
+    "known body larger than configured maximum uses at most that maximum": {
+      "pass": 10,
+      "fail": 0
+    },
+    "unknown chunked response retains the default maximum": {
+      "pass": 10,
+      "fail": 0
+    },
+    "gzip response retains the configured maximum while returning decoded bytes": {
+      "pass": 10,
+      "fail": 0
+    },
+    "partial response resumes from the persisted prefix with a bounded read buffer": {
+      "pass": 0,
+      "fail": 10
+    }
+  }
+}
