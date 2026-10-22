@@ -55,3 +55,19 @@
 2026-10-22 19:58 UTC — OBSERVED: Corrected consumer preflight passes1/1 first attempt in1252ms, with no retry history. OBSERVED: Its passing body first checks all five loaded class hashes against the final snapshot, then checks exact artifact bytes, bounded buffers and closure. OBSERVED: The success XML intentionally omits console output, so hash values are backed by the exact passing assertions/source rather than copied print lines. OBSERVED: The lane's waiting controller was stopped before this one-worker run; the four-worker gate has a new waiting controller that preserves the original three-hour slot deadline. INFER: Gate can start after acquiring the shared slot; the consumer result does not stand in for450 gate cases.
 
 2026-10-22 19:59 UTC — OBSERVED: Evidence local and remote heads matched42ed5c9f671a5dc1be686cc81cecdd6959e4c037 after the previous push. OBSERVED: Independent XML/JSON review confirms all baseline/final counts, no skipped/disabled/duplicate cases and no retry markers; corrected PR wording distinguishes gate pending from a completed measurement. OBSERVED: The corrected consumer passing XML and source-hash closure are now checkpointed. OBSERVED: No Addendum heading at this checkpoint. INFER: Next checkpoint is gate start and emitted Maven-fixture byte verification.
+
+2026-10-22 20:01 UTC — OBSERVED: Gate waiting for the shared slot, held by F175e-175. INFER: Next checkpoint is all thirty complete iteration markers and the exact XML/attempt audit.
+
+2026-10-22 20:03 UTC — OBSERVED: Evidence local and remote heads matchedf18cf72529c3dc93ace7617ed1cda3f979cf2a9c. OBSERVED: Shared slot owners changed from FKGEN3 to F175e-175, then F177i clock-full while the gate controller waited on its prescribed60-second cadence; the gate has not started. OBSERVED: The original three-hour wait deadline remains unchanged. OBSERVED: No Addendum heading at this checkpoint. INFER: Filesystem mkdir plus periodic checking does not provide first-in-first-out ordering; this is a scheduling limitation, not evidence about download performance. INFER: Next checkpoint remains gate start and complete450-case measurement.
+
+2026-10-22 20:06 UTC — OBSERVED: Gate waiting for the shared slot, held by F177i clock-full. INFER: Next checkpoint is all thirty complete iteration markers and the exact XML/attempt audit.
+
+2026-10-22 20:11 UTC — OBSERVED: Gate waiting for the shared slot, held by F177i clock-full. INFER: Next checkpoint is all thirty complete iteration markers and the exact XML/attempt audit.
+
+2026-10-22 20:16 UTC — OBSERVED: Gate waiting for the shared slot, held by F177i clock-full. INFER: Next checkpoint is all thirty complete iteration markers and the exact XML/attempt audit.
+
+2026-10-22 20:17 UTC — OBSERVED: Acquired the shared slot for the four-worker thirty-iteration gate after a passing one-worker consumer check. INFER: Next checkpoint is all thirty complete iteration markers and the exact XML/attempt audit.
+
+2026-10-22 20:18 UTC — OBSERVED: Acquired shared slot and launched gate: 30 iterations,15 exact prior selectors,4 workers, CPU0,1,maxTestAttempts1,expected450 cases. OBSERVED: Preflight source hashes match the recorded prior gate and bind the locally rebuilt manager and launcher classes. OBSERVED: No Addendum heading at this checkpoint. INFER: No acceptance conclusion follows until terminal XML/timeline/completion-marker audit; next checkpoint is first completed iteration and fixture byte binding.
+
+2026-10-22 20:21 UTC — OBSERVED: The four-worker 30-iteration gate holds the shared slot; the first iteration is preparing fixtures, with no completed test XML yet. The cgroup oom_kill counter remains2. No Addendum headings are present in the full brief. INFER: No acceptance verdict can yet be stated; next checkpoint is the first complete iteration and fixture artifact binding.

@@ -1,6 +1,6 @@
 # Current measurement state
 
-Product is complete on the fork PR linked in findings.md; do not merge or publish. The active downstream controller is run-gate-only.py, waiting for the shared lock after the corrected one-worker consumer passed. The earlier run-measurement.py is a historical full-pipeline controller, not the active entrypoint. The original slot deadline is gate-slot-deadline.json; do not reset or extend it.
+Product is complete on the fork PR linked in findings.md; do not merge or publish. The active downstream controller is run-gate-only.py, running the gate under the shared lock after the corrected one-worker consumer passed. The earlier run-measurement.py is a historical full-pipeline controller, not the active entrypoint. The original slot deadline is gate-slot-deadline.json; do not reset or extend it.
 
 The corrected consumer has 1 pass / 0 failures / 1 first attempt / 0 retries and asserts five exact loaded cache class hashes before checking bytes, buffers and stream closure. Successful XML omits console output; the class-hash assertions and source hash are recorded in consumer-passed-summary.json. The first preflight failed compilation due to unescaped class resource name dollar signs; it did not execute a body or start the acceptance gate. That failure and its cleanup record are retained separately.
 
