@@ -1,0 +1,23 @@
+{
+  "cases": 3,
+  "failures": 3,
+  "errors": 0,
+  "skips": 0,
+  "namesUnique": true,
+  "retryMixinPresent": false,
+  "invocations": 1,
+  "tests": [
+    {
+      "name": "short fixed-length response does not publish a partial artifact",
+      "failure": true
+    },
+    {
+      "name": "empty body with positive fixed length is an incomplete response",
+      "failure": true
+    },
+    {
+      "name": "partial body remains temporary until the connection reaches EOF",
+      "failure": true
+    }
+  ]
+}
