@@ -22,6 +22,18 @@ response bodies use a buffer no larger than their response length, with a one-by
 minimum for empty bodies. Resumed downloads use the remaining response length;
 unknown-length and encoded bodies retain the configured size.
 
+Uncompressed downloads with a declared length stop at that length and fail if the
+connection ends early. The error includes the artifact URL and expected and received
+byte counts; the incomplete temporary file is removed and never published in the cache.
+Malformed lengths are rejected. Chunked transfer framing takes precedence over a
+Content-Length header, and close-delimited responses are read until EOF.
+
+A resumed download appends only a valid 206 response whose Content-Range starts at
+the saved prefix, ends at the declared total, and agrees with Content-Length when
+present. Invalid or missing ranges fail without restarting the request. A full 200
+response replaces the prefix. Explicit redirects continue to use the final response's
+length and framing.
+
 Explicit `FileCache` retry and backoff settings apply to its downloads, including
 waiting for another caller to finish the same cache file. These instance settings
 take precedence over the JVM retry properties.

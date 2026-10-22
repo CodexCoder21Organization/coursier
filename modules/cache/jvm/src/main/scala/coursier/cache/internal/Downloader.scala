@@ -250,9 +250,15 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
-          for (len0 <- Option(conn.getContentLengthLong) if len0 >= 0L) {
-            val len = len0 + (if (partialDownload) alreadyDownloaded else 0L)
-            logger.downloadLength(url, len, alreadyDownloaded, watching = false)
+          val responseLength = CacheUrl.responseLength(conn, url)
+          val offset = if (partialDownload) alreadyDownloaded else 0L
+          val rangeLength = CacheUrl.contentRangeLength(conn, offset, url)
+          val contentEncoding = conn.getContentEncoding
+          val uncompressed = contentEncoding == null || contentEncoding.equalsIgnoreCase("identity")
+          val expectedLength = if (uncompressed) rangeLength.orElse(responseLength) else None
+
+          for (len0 <- rangeLength.orElse(responseLength)) {
+            logger.downloadLength(url, len0 + offset, offset, watching = false)
           }
 
           val auxiliaryData: Map[String, Array[Byte]] =
@@ -268,22 +274,18 @@ import scala.util.control.NonFatal
 
           val lastModifiedOpt = Option(conn.getLastModified).filter(_ > 0L)
 
-          val responseLength  = conn.getContentLengthLong
-          val contentEncoding = conn.getContentEncoding
           val downloadBufferSize =
-            if (
-              responseLength >= 0L && (contentEncoding == null || contentEncoding.equalsIgnoreCase(
-                "identity"
-              ))
+            expectedLength.fold(bufferSize)(length =>
+              math.min(bufferSize.toLong, math.max(1L, length)).toInt
             )
-              math.min(bufferSize.toLong, math.max(1L, responseLength)).toInt
-            else bufferSize
 
           val in = {
             val baseStream =
               if (conn.getContentEncoding == "gzip") new GZIPInputStream(conn.getInputStream)
               else conn.getInputStream
-            new BufferedInputStream(baseStream, downloadBufferSize)
+            // A buffered stream can prefetch past the remaining length on the last read.
+            if (expectedLength.nonEmpty) baseStream
+            else new BufferedInputStream(baseStream, downloadBufferSize)
           }
 
           val result =
@@ -300,8 +302,9 @@ import scala.util.control.NonFatal
                   out,
                   logger,
                   url,
-                  if (partialDownload) alreadyDownloaded else 0L,
-                  downloadBufferSize
+                  offset,
+                  downloadBufferSize,
+                  expectedLength
                 )
               finally out.close()
             }
@@ -332,6 +335,13 @@ import scala.util.control.NonFatal
 
           Right(result)
         }
+      }
+      catch {
+        case error: ArtifactError.DownloadError =>
+          CacheLocks.withStructureLock(location) {
+            Files.deleteIfExists(tmp.toPath)
+          }
+          Left(error)
       }
       finally if (conn != null)
           CacheUrl.closeConn(conn)
@@ -798,23 +808,33 @@ object Downloader {
     logger: CacheLogger,
     url: String,
     alreadyDownloaded: Long,
-    bufferSize: Int
+    bufferSize: Int,
+    expectedLength: Option[Long]
   ): Unit = {
 
     val b = new Array[Byte](bufferSize)
 
     @tailrec
-    def helper(count: Long): Unit = {
-      val read = in.read(b)
-      if (read >= 0) {
+    def helper(count: Long): Unit =
+      if (!expectedLength.contains(count)) {
+        val remaining = expectedLength.fold(bufferSize.toLong)(_ - count)
+        val read = in.read(b, 0, math.min(bufferSize.toLong, remaining).toInt)
+        if (read < 0) {
+          for (expected <- expectedLength)
+            throw new ArtifactError.DownloadError(
+              s"Incomplete response from $url: expected $expected bytes, received $count bytes",
+              None
+            )
+        }
+        else {
         out.write(b, 0, read)
         out.flush()
-        logger.downloadProgress(url, count + read)
+        logger.downloadProgress(url, alreadyDownloaded + count + read)
         helper(count + read)
+        }
       }
-    }
 
-    helper(alreadyDownloaded)
+    helper(0L)
   }
 
   private def downloading[T](
