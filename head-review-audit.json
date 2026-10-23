@@ -1,0 +1,84 @@
+{
+  "phase": "head-review",
+  "cases": 10,
+  "pass": 4,
+  "fail": 6,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 10,
+  "qualifiedEvents": 10,
+  "retries": 0,
+  "maxObservedJavaProcesses": 1,
+  "rows": [
+    {
+      "suite": "coursier.cache.Rcours3DecoderEndTests",
+      "name": "a corrupt outer gzip trailer cannot hide behind inner deflate EOF",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.96"
+    },
+    {
+      "suite": "coursier.cache.Rcours3DecoderEndTests",
+      "name": "a corrupt outer deflate checksum cannot hide behind inner gzip EOF",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.021"
+    },
+    {
+      "suite": "coursier.cache.Rcours3DecoderEndTests",
+      "name": "an incomplete outer gzip trailer cannot hide behind inner deflate EOF",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.024"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "empty content encoding means an unencoded body",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.057"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "empty list elements do not change identity encoding",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.07"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "repeated content encoding fields decode all listed layers",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.274"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "an incomplete second gzip member header cannot publish the first member",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.019"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "an incomplete inner gzip trailer is rejected through an outer deflate layer",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.011"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "streaming gzip reports decoded progress before the next compressed fragment",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "30.082"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "a repeated coding field cannot hide an unsupported earlier coding",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.017"
+    }
+  ]
+}

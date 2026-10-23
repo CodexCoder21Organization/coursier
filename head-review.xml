@@ -1,0 +1,691 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="10" failures="6" errors="0" skipped="0" time="31.535">
+        <testsuite name="coursier.cache.Rcours3DecoderEndTests" tests="3" failures="2" errors="0" skipped="0" time="1.005" timestamp="2026-10-23T05:12:59">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.Rcours3DecoderEndTests" name="a corrupt outer gzip trailer cannot hide behind inner deflate EOF" time="0.96">
+          <failure message="assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:39481/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39481
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:39481/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:39481/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39481
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:39481/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rcours3DecoderEndTests$.$anonfun$tests$2(Rcours3DecoderEndTests.scala:410)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rcours3DecoderEndTests" name="a corrupt outer deflate checksum cannot hide behind inner gzip EOF" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.Rcours3DecoderEndTests" name="an incomplete outer gzip trailer cannot hide behind inner deflate EOF" time="0.024">
+          <failure message="assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:37313/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37313
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:37313/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:37313/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37313
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:37313/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rcours3DecoderEndTests$.$anonfun$tests$10(Rcours3DecoderEndTests.scala:429)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.Rcours3ReviewTests" tests="7" failures="4" errors="0" skipped="0" time="30.53" timestamp="2026-10-23T05:12:59">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.Rcours3ReviewTests" name="empty content encoding means an unencoded body" time="0.057">
+          
+        </testcase><testcase classname="coursier.cache.Rcours3ReviewTests" name="empty list elements do not change identity encoding" time="0.07">
+          
+        </testcase><testcase classname="coursier.cache.Rcours3ReviewTests" name="repeated content encoding fields decode all listed layers" time="0.274">
+          <failure message="assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41745/artifact&quot;,
+  result = Right(
+    value = Array(
+      31,
+      -117,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      75,
+      76,
+      74,
+      78,
+      73,
+      77,
+      3,
+      0,
+      -17,
+      57,
+      -114,
+      75,
+      6,
+      0,
+      0,
+      0
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:41745
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(26L),
+  downloadResults = List((&quot;http://127.0.0.1:41745/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        31,
+        -117,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        75,
+        76,
+        74,
+        78,
+        73,
+        77,
+        3,
+        0,
+        -17,
+        57,
+        -114,
+        75,
+        6,
+        0,
+        0,
+        0
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(
+-   value = ArraySeq(
+-     31,
+-     -117,
+-     8,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     -1,
+-     75,
+-     76,
+-     74,
+-     78,
+-     73,
+-     77,
+-     3,
+-     0,
+-     -17,
+-     57,
+-     -114,
+-     75,
+-     6,
+-     0,
+-     0,
+-     0
+-   )
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41745/artifact&quot;,
+  result = Right(
+    value = Array(
+      31,
+      -117,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      75,
+      76,
+      74,
+      78,
+      73,
+      77,
+      3,
+      0,
+      -17,
+      57,
+      -114,
+      75,
+      6,
+      0,
+      0,
+      0
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:41745
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(26L),
+  downloadResults = List((&quot;http://127.0.0.1:41745/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        31,
+        -117,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        75,
+        76,
+        74,
+        78,
+        73,
+        77,
+        3,
+        0,
+        -17,
+        57,
+        -114,
+        75,
+        6,
+        0,
+        0,
+        0
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(
+-   value = ArraySeq(
+-     31,
+-     -117,
+-     8,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     -1,
+-     75,
+-     76,
+-     74,
+-     78,
+-     73,
+-     77,
+-     3,
+-     0,
+-     -17,
+-     57,
+-     -114,
+-     75,
+-     6,
+-     0,
+-     0,
+-     0
+-   )
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rcours3ReviewTests$.bytesAre(Rcours3ReviewTests.scala:340)
+    at coursier.cache.Rcours3ReviewTests$.successfulDownloadIs(Rcours3ReviewTests.scala:343)
+    at coursier.cache.Rcours3ReviewTests$.$anonfun$tests$4(Rcours3ReviewTests.scala:419)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rcours3ReviewTests" name="an incomplete second gzip member header cannot publish the first member" time="0.019">
+          <failure message="assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:35889/artifact&quot;,
+  result = Right(value = Array(97, 98, 99)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:35889
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:35889/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99))),
+  outputErrorMessage = None
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:35889/artifact&quot;,
+  result = Right(value = Array(97, 98, 99)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:35889
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:35889/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99))),
+  outputErrorMessage = None
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rcours3ReviewTests$.$anonfun$tests$5(Rcours3ReviewTests.scala:425)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rcours3ReviewTests" name="an incomplete inner gzip trailer is rejected through an outer deflate layer" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.Rcours3ReviewTests" name="streaming gzip reports decoded progress before the next compressed fragment" time="30.082">
+          <failure message="Timed out waiting for download progress to reach 3" type="java.lang.IllegalStateException">
+          java.lang.IllegalStateException: Timed out waiting for download progress to reach 3
+    at coursier.cache.Rcours3ReviewTests$.$anonfun$scenario$11(Rcours3ReviewTests.scala:276)
+    at scala.Option.map(Option.scala:242)
+    at coursier.cache.Rcours3ReviewTests$.scenario(Rcours3ReviewTests.scala:273)
+    at coursier.cache.Rcours3ReviewTests$.$anonfun$tests$13(Rcours3ReviewTests.scala:451)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rcours3ReviewTests" name="a repeated coding field cannot hide an unsupported earlier coding" time="0.017">
+          <failure message="assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:39587/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39587
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:39587/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:39587/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39587
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:39587/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rcours3ReviewTests$.$anonfun$tests$16(Rcours3ReviewTests.scala:461)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite>
+      </testsuites>

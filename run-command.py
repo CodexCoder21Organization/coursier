@@ -23,8 +23,10 @@ def capture(child):
     while changed:
         changed = False
         for pid, (parent, start, state, name) in rows.items():
-            if (pid in parents or parent in parents) and (pid not in owned or owned[pid] != start):
-                owned[pid] = start; parents.add(pid); changed = True
+            if pid not in parents and parent in parents:
+                parents.add(pid); changed = True
+            if pid in parents:
+                owned[pid] = start
     live_java = sum(
         1 for pid, born in owned.items()
         if pid in rows and rows[pid][1] == born and rows[pid][2] != 'Z'
