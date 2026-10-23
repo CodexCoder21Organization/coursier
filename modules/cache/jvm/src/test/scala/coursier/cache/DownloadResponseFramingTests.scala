@@ -823,15 +823,21 @@ object DownloadResponseFramingTests extends TestSuite {
     }
 
     test("HTTP error responses retain their complete original download error") {
-      val o = scenario(List(response("500 Internal Server Error", Seq("Content-Length" -> "0"), Nil)),
-        prefix = body.take(3))
-      downloadErrorIs(o, s"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: ${o.url}) while downloading ${o.url}")
+      val o = scenario(
+        List(response("500 Internal Server Error", Seq("Content-Length" -> "0"), Nil)),
+        prefix = body.take(3)
+      )
+      downloadErrorIs(
+        o,
+        s"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: ${o.url}) while downloading ${o.url}"
+      )
     }
 
     test("close delimited response reports progress before its next body fragment") {
       val release = new CountDownLatch(1)
-      val reply = Reply("200 OK", Nil, List(body.take(3), body.drop(3)), Some(ProgressGate(3, release)))
-      val o = scenario(List(reply), inspectWhilePaused = Some((3, release)))
+      val reply =
+        Reply("200 OK", Nil, List(body.take(3), body.drop(3)), Some(ProgressGate(3, release)))
+      val o       = scenario(List(reply), inspectWhilePaused = Some((3, release)))
       val pending = o.pendingState.get
       assert(!pending.finalExists)
       assert(pending.temporaryExists)
