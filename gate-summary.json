@@ -757,5 +757,1496 @@
         "seconds": "0.011"
       }
     ]
+  },
+  "cache": {
+    "phase": "cache",
+    "cases": 211,
+    "pass": 211,
+    "fail": 0,
+    "errors": 0,
+    "skips": 0,
+    "firstAttempts": 211,
+    "qualifiedEvents": 211,
+    "retries": 0,
+    "maxObservedJavaProcesses": 2,
+    "rows": [
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "valid mixed case range unit completes the artifact",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.052"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "unsolicited 304 cannot publish an empty artifact",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.031"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "cut off chunked response removes temporary bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "cut off gzip response removes temporary bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.023"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "short other encoded response cannot publish partial bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.064"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "correct mixed case gzip decodes the body",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.016"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "chunked range obeys its content range without content length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.033"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "short chunked range cannot publish a partial artifact",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.032"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty close delimited response is a valid empty artifact",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.017"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "correct deflate body decodes without comparing decoded and wire lengths",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.013"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "concurrent callers never publish the same short artifact",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.059"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "concurrent callers share one correct artifact download",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.051"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "HEAD metadata length does not require response bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.012"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "chunked range must consume the closing chunk before publishing",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.009"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "chunked range rejects data beyond its stated range",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.008"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "range data stays temporary until the closing chunk arrives",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.011"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "no body status with a saved prefix is rejected and cleaned",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty content encoding means an unencoded body",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.008"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty list elements do not change identity encoding",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.028"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty list elements do not allow unknown encodings",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.014"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "only empty encoding list elements mean an unencoded body",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.146"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty list elements preserve compressed decoding",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.146"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty encoding list elements preserve length validation",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.314"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty encoding list elements preserve saved prefix handling",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.029"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty list elements preserve encoded resume rejection",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.008"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "unknown encodings cannot publish response bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.066"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "mixed case deflate is decoded",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.017"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "chunked gzip validates the closing chunk after its trailer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.042"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "valid chunked gzip is decoded through the closing chunk",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.034"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "complete framing cannot hide an incomplete gzip trailer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.022"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "invalid gzip header removes a saved temporary prefix",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.01"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "encoded resume cannot append decoded bytes to an earlier representation",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.022"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "gzip decoder completion still checks the declared response length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.029"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "deflate decoder completion still checks the declared response length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.025"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "chunked deflate validates the closing chunk after decoding",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.016"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "valid chunked deflate is decoded through the closing chunk",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "mixed case stacked content codings decode in reverse order",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.112"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "corrupt gzip trailer cannot publish decoded data",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.071"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "corrupt deflate checksum cannot publish decoded data",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.124"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "gzip members in separate chunks all decode before publication",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.051"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "empty encoded body with one byte buffer still validates its trailer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.044"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "body bearing successful statuses retain their complete artifact bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.181"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "encoded download output error is not reported as a coding error",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.021"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "HTTP error responses retain their complete original download error",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.019"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "close delimited response reports progress before its next body fragment",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.DownloadResponseFramingTests",
+        "name": "unfollowed redirects retain their complete response body",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.121"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCostTests",
+        "name": "small bodies do not initialize the buffer element by element",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "12.835"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttp.301",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "7.081"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttp.302",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.152"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttp.304",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.14"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttp.307",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.172"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttp.308",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.107"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpsToHttps",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "1.472"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttps.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.162"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToHttps.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.207"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToAuthHttps.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.234"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToAuthHttps.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.086"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToAuthHttp.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.137"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToAuthHttp.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.156"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToAuthHttp.disabled.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.064"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpToAuthHttp.disabled.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.123"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.oldRfc2617.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.215"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.113"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.112"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.oldRfc2617.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.073"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.075"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.053"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.052"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.04"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.beyondRfc7617.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.075"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.06"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.115"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToAuthHttp.beyondRfc7617.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.062"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpsToAuthHttps.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.318"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpsToAuthHttps.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.181"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.httpsToAuthHttps.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.217"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpsToAuthHttps.enabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.339"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpsToAuthHttps.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.183"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpsToAuthHttps.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.084"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToNoAuthHttps.enabled.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.189"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToNoAuthHttps.enabled.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.089"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToNoAuthHttps.enabledAllRealms",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.16"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authHttpToNoAuthHttps.disabled",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.079"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.credentialFile.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.141"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.credentialFile.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.129"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.randomCase.cred file https",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.202"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.randomCase.cred file http",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.103"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.randomCase.conf file https",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.299"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.randomCase.conf file http",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.247"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.maxRedirects.should be followed.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.131"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.maxRedirects.should be followed.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.13"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.maxRedirects.should be followed.2",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.129"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.maxRedirects.should not stackoverflow.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "16.185"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.passCredentialsOnRedirect.enabled.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.186"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.passCredentialsOnRedirect.enabled.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.2"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.passCredentialsOnRedirect.disabled.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.161"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.passCredentialsOnRedirect.disabled.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.073"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.decodeGzip",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.27"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "redirections.authThenNotFound",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.231"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "custom protocols.unknown",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.009"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "custom protocols.with classloader",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.04"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "checksums.simple.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.052"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "checksums.simple.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.02"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "checksums.simple.2",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "checksums.fromHeader.SHA-256",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.139"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "checksums.fromHeader.SHA-1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.057"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "checksums.fromHeader.MD5",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.051"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "lastModifiedEx",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.034"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "stored digests work - SHA1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.006"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "stored digests work - MD5",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.002"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "stored digests should not be stored outside of cache",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.001"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "wrong stored digest should delete file in cache",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.004"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "un-escape characters in file URL",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.003"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRedirectionTests",
+        "name": "does not accept redundant path elements like .. or .",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.cache.FileCacheRetrySettingsTests",
+        "name": "explicit retry settings govern same-file waiting",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.124"
+      },
+      {
+        "suite": "coursier.cache.FileCacheTests",
+        "name": "check for updates once",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.105"
+      },
+      {
+        "suite": "coursier.cache.FileCacheTests",
+        "name": "check extra artifact.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.181"
+      },
+      {
+        "suite": "coursier.cache.FileCacheTests",
+        "name": "check extra artifact.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.064"
+      },
+      {
+        "suite": "coursier.cache.FileCacheTests",
+        "name": "check extra artifact.2",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.13"
+      },
+      {
+        "suite": "coursier.cache.FileCacheTests",
+        "name": "check extra artifact.3",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.102"
+      },
+      {
+        "suite": "coursier.cache.FileCacheTests",
+        "name": "check extra artifact.4",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.044"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "zero buffer size is rejected before creating a temporary file",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.113"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "negative buffer size is rejected before creating a temporary file",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.011"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "short fixed-length response does not publish a partial artifact",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.031"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "empty body with positive fixed length is an incomplete response",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.021"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "short fixed-length response counts bytes across multiple reads",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.008"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "partial body remains temporary until the connection reaches EOF",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.058"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "exact fixed-length response publishes all bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.027"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "zero length response ignores trailing bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.029"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "fragmented fixed-length response does not expose bytes after its length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "two byte buffer stays within the framed length after a fragmented read",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.052"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "close-delimited response reads through connection close",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.051"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "chunked framing takes precedence over a conflicting content length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.024"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "gzip known length decodes fully with bounded progress increments",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.041"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "mixed case identity encoding is accepted",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.021"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "mixed case identity encoding still enforces a short length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.046"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "negative content length is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.016"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "non-decimal content length is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.006"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "overflowing content length is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.015"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "empty content length is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.006"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "content length at Int max reports the received byte count",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.019"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "content length above Int max reports the received byte count",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.039"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "five gigabyte content length reports the received byte count",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.011"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "Long max content length reports the received byte count",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.008"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "redirect body length does not replace the final response length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.064"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "short final response after redirect reports the original artifact URL",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.033"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "valid range response resumes the existing prefix",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.02"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "valid range response can frame the suffix without content length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.007"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "range response with an incorrect start is rejected without restarting",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.016"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "range response without content range is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.032"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "malformed content range is rejected with its exact value",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.027"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "range end mismatch is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.032"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "range total mismatch is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.026"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "unknown range total is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.012"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "range ending at or beyond the total is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.009"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "overflowing range start is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.033"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "overflowing range end is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.012"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "overflowing range total is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.033"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "content length conflicting with range is rejected",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.01"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "unsolicited range response must start at byte zero",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.019"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "range response from byte zero can satisfy a full download",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.032"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "server ignoring range with a full response replaces the prefix",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.033"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "short range response with content length removes its temporary file",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.02"
+      },
+      {
+        "suite": "coursier.cache.DownloadLengthIntegrityTests",
+        "name": "short range response uses content range length when content length is absent",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.022"
+      },
+      {
+        "suite": "coursier.cache.FileCacheLocationOwnershipTests",
+        "name": "independent locations",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.031"
+      },
+      {
+        "suite": "coursier.cache.FileCacheLocationOwnershipTests",
+        "name": "independent locations after an owner error",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.021"
+      },
+      {
+        "suite": "coursier.cache.FileCacheLocationOwnershipTests",
+        "name": "same location joins its owner",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.054"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "simple.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.002"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "simple.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.0",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.007"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.1",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.default",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.noDefault",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.2",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.3",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.parse.CachePolicyParserTests",
+        "name": "several.4",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known tiny response does not request an oversized transfer buffer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.475"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known 199 byte POM uses its response length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.017"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known one byte response uses a one byte buffer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.023"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "identity response uses its uncompressed length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.02"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "mixed case identity response uses its uncompressed length",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.037"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "deflate content encoding retains the default maximum",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.088"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known responses at the default boundary stay bounded",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.392"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known empty response keeps read buffers at one byte or less",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.045"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known empty response requests zero bytes from the response stream",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.051"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "known body larger than configured maximum uses at most that maximum",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.039"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "unknown chunked response retains the default maximum",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.177"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "unknown identity response retains the default maximum",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.076"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "gzip response with known encoded length returns all decoded bytes",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.048"
+      },
+      {
+        "suite": "coursier.cache.DownloadBufferCapacityTests",
+        "name": "partial response resumes from the persisted prefix with a bounded read buffer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.126"
+      },
+      {
+        "suite": "coursier.cache.DigestBasedCacheTests",
+        "name": "simple",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.739"
+      },
+      {
+        "suite": "coursier.paths.UtilTests",
+        "name": "createDirectories fine with sym links",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.006"
+      },
+      {
+        "suite": "coursier.paths.UtilTests",
+        "name": "property expansion.simple",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.019"
+      },
+      {
+        "suite": "coursier.paths.UtilTests",
+        "name": "property expansion.substitution",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.003"
+      },
+      {
+        "suite": "coursier.paths.UtilTests",
+        "name": "property expansion.optional value",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.0"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "repeated encoding fields decode every layer in field order",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.212"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "a later identity field cannot hide an unsupported encoding",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.062"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "a truncated later gzip member cannot publish earlier members",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.801"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "gzip reports decoded progress before the next compressed fragment",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.044"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "inner deflate EOF cannot hide a corrupt outer gzip trailer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.03"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "inner deflate EOF cannot hide an incomplete outer gzip trailer",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.038"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "repeated mixed encoding fields preserve order and empty list members",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.013"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "unknown repeated encoding fields reject even beside blank fields",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.05"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "repeated encoding fields cannot append to a decoded saved prefix",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.031"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "complete gzip members including empty members decode with one byte buffers",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.046"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "each member checks both its checksum and uncompressed size",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.05"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "gzip optional headers and their checksum are verified on later members",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.972"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "all nested layers complete with default and one byte buffers",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.221"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "deflate EOF rejects additional outer output rather than discarding it",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.022"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "deflate cannot complete while a preset dictionary is still required",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.01"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "gzip rejects trailing bytes that are not another complete member",
+        "result": "PASS",
+        "attempts": 1,
+        "seconds": "0.008"
+      }
+    ]
   }
 }

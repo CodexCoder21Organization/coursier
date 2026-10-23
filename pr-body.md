@@ -13,7 +13,7 @@ The same completion check rejects extra deflate bytes and the JDK inflater's dic
 
 Additional cases cover mixed repeated fields and blanks, encoded resume rejection, every incomplete later-member prefix, empty members, optional headers and their checksum, corrupt member CRC/size, extra outer output, trailing gzip data, three-layer decoding and one-byte buffers. Tests use real loopback HTTP servers, isolated caches and a latch-controlled progress ordering. README describes the public completion and progress behavior.
 
-Local validation completed: all 16 new tests pass 30/30 each (480 first attempts), and the original framing register passes 103/103 once (43 length + 46 response-framing + 14 buffer cases). XML and qualified utest events agree on one attempt per case, zero retries/errors/skips and at most two observed JVMs. Cache-module gate: PENDING SHARED SLOT.
+Local validation completed: all 16 new tests pass 30/30 each (480 first attempts), and the original framing register passes 103/103 once (43 length + 46 response-framing + 14 buffer cases). XML and qualified utest events agree on one attempt per case, zero retries/errors/skips and at most two observed JVMs. The cache module passes 211/211 once with one attempt per case, zero retries/errors/skips and at most two observed JVMs. This module gate uses Mill testLocal so its existing benchmark child stays within the two-JVM budget. All gates ran at head b2bbbcbbe26c6157cc1a6fbb7b1323c083c08e7c.
 
 Dedicated test-comprehensiveness and code-review passes are recorded in [FINHCOURS findings and test evidence](https://github.com/CodexCoder21Organization/coursier/blob/wip/FINHCOURS-evidence-20261023/FINHCOURS-findings.md).
 

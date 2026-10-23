@@ -13,10 +13,16 @@ assert len(cases)==expected and len(set(keys))==expected,(len(cases),keys)
 log=re.sub(r"\x1b\[[0-9;]*m",'',(p/(phase+'.log')).read_text())
 events=re.findall(r"^\[\d+\] [X+] (coursier\..*)",log,re.M)
 assert len(events)==expected,(len(events),expected)
+full_names=[suite+'.'+name for suite,name in keys]
+counts={name:0 for name in full_names}
+for event in events:
+ candidates=[name for name in full_names if event.startswith(name+' ')]
+ assert candidates,event
+ counts[max(candidates,key=len)]+=1
 rows=[]
 for case,(suite,name) in zip(cases,keys):
  full=suite+'.'+name
- occurrences=sum(e.startswith(full+' ') for e in events)
+ occurrences=counts[full]
  assert occurrences==1,(full,occurrences)
  assert case.find('error') is None and case.find('skipped') is None,full
  rows.append({'suite':suite,'name':name,'result':'FAIL' if case.find('failure') is not None else 'PASS','attempts':occurrences,'seconds':case.get('time')})
