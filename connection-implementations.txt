@@ -1,0 +1,5 @@
+modules/cache/jvm/src/main/scala/coursier/cache/AuthenticatedURLConnection.scala
+modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala
+modules/custom-protocol-for-test/src/main/scala/coursier/cache/protocol/CustomprotocolHandler.scala
+modules/tests/jvm/src/test/scala/coursier/cache/protocol/TestprotocolHandler.scala
+modules/tests/jvm/src/test/scala/coursier/tests/CustomHandlerFactoryTests.scala

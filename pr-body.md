@@ -1,6 +1,6 @@
 The user requested “fix four download-integrity defects that coursier main already has, in a new PR”. kompile uses this fork to fill its shared artifact cache, so a download accepted while incomplete or wrongly decoded is reused by every later build that reads it. This change is part of the kompile shared-cache campaign and follows the four defects found during reviews of https://github.com/CodexCoder21Organization/coursier/pull/7; those defects were deliberately left out of that PR.
 
-The original evidence is recorded in [RCOURS3 findings](https://github.com/CodexCoder21Organization/coursier/blob/wip/RCOURS3-evidence-20261023/RCOURS3-findings.md) and [RCOURS4 findings](https://github.com/CodexCoder21Organization/coursier/blob/wip/RCOURS4-evidence-20261023/RCOURS4-findings.md). Current main includes the earlier framing changes at https://github.com/CodexCoder21Organization/coursier/commit/3788263afb4b8977cfd5ebc2a557de566e0c801c; the six new reproductions of these four groups all fail on that main commit in one attempt each.
+The original evidence is recorded in [RCOURS3 findings](https://github.com/CodexCoder21Organization/coursier/blob/wip/RCOURS3-evidence-20261023/RCOURS3-findings.md) and [RCOURS4 findings](https://github.com/CodexCoder21Organization/coursier/blob/wip/RCOURS4-evidence-20261023/RCOURS4-findings.md). The independent [real-server reproductions](https://github.com/CodexCoder21Organization/coursier/blob/wip/RCOURS3-evidence-20261023/Rcours3ReviewTests.scala) and [decoder-ending tests](https://github.com/CodexCoder21Organization/coursier/blob/wip/RCOURS3-evidence-20261023/Rcours3DecoderEndTests.scala) are retained on those evidence branches. Current main includes the earlier framing changes at https://github.com/CodexCoder21Organization/coursier/commit/3788263afb4b8977cfd5ebc2a557de566e0c801c; the six new reproductions of these four groups all fail on that main commit in one attempt each.
 
 | Defect | Change | Regression in `DownloadEncodingIntegrityTests` |
 |---|---|---|
@@ -13,7 +13,7 @@ The same completion check rejects extra deflate bytes and the JDK inflater's dic
 
 Additional cases cover mixed repeated fields and blanks, encoded resume rejection, every incomplete later-member prefix, empty members, optional headers and their checksum, corrupt member CRC/size, extra outer output, trailing gzip data, three-layer decoding and one-byte buffers. Tests use real loopback HTTP servers, isolated caches and a latch-controlled progress ordering. README describes the public completion and progress behavior.
 
-Validation: PENDING FINAL GATES.
+Local validation completed: all 16 new tests pass 30/30 each (480 first attempts), and the original framing register passes 103/103 once (43 length + 46 response-framing + 14 buffer cases). XML and qualified utest events agree on one attempt per case, zero retries/errors/skips and at most two observed JVMs. Cache-module gate: PENDING SHARED SLOT.
 
 Dedicated test-comprehensiveness and code-review passes are recorded in [FINHCOURS findings and test evidence](https://github.com/CodexCoder21Organization/coursier/blob/wip/FINHCOURS-evidence-20261023/FINHCOURS-findings.md).
 
