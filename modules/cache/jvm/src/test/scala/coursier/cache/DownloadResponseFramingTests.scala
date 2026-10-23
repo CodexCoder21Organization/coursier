@@ -52,7 +52,7 @@ object DownloadResponseFramingTests extends TestSuite {
     temporaryBytes: Array[Byte],
     pendingState: Option[FileState],
     allResults: List[Either[ArtifactError, Array[Byte]]],
-    temporaryPath: String
+    outputErrorMessage: Option[String]
   )
 
   private final class RecordingLogger() extends CacheLogger {
@@ -252,8 +252,17 @@ object DownloadResponseFramingTests extends TestSuite {
         .withLogger(logger)
       val finalFile     = cache.localFile(url)
       val temporaryFile = CachePath.temporaryFile(finalFile)
-      if (temporaryDirectory)
-        Files.createDirectories(temporaryFile.toPath)
+      val expectedOutputError =
+        if (temporaryDirectory) {
+          Files.createDirectories(temporaryFile.toPath)
+          val error = intercept[java.io.IOException] {
+            Files.newOutputStream(temporaryFile.toPath).close()
+          }
+          Some(
+            s"Caught ${error.getClass.getName}${Option(error.getMessage).fold("")(" (" + _ + ")")} while downloading $url"
+          )
+        }
+        else None
       if (prefix.nonEmpty) {
         Files.createDirectories(temporaryFile.toPath.getParent)
         Files.write(temporaryFile.toPath, prefix)
@@ -293,7 +302,7 @@ object DownloadResponseFramingTests extends TestSuite {
         observedFileState.temporaryBytes,
         pendingState,
         results,
-        temporaryFile.toString
+        expectedOutputError
       )
     }
     finally {
@@ -809,7 +818,7 @@ object DownloadResponseFramingTests extends TestSuite {
       )
       downloadErrorIs(
         o,
-        s"Caught java.nio.file.FileSystemException (${o.temporaryPath}: Is a directory) while downloading ${o.url}"
+        o.outputErrorMessage.get
       )
     }
   }
