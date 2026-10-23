@@ -1,0 +1,120 @@
+{
+  "checkedAtUtc": "2026-10-23T10:35:07.127867+00:00",
+  "selectedVersion": "2.1.31-buffer6",
+  "modules": [
+    {
+      "module": "cache-util",
+      "listingVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    },
+    {
+      "module": "coursier-paths",
+      "listingVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    },
+    {
+      "module": "coursier-util_2.13",
+      "listingVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    },
+    {
+      "module": "coursier-core_2.13",
+      "listingVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    },
+    {
+      "module": "coursier-cache_2.13",
+      "listingVersions": [
+        "2.1.31-buffer1",
+        "2.1.31-buffer2",
+        "2.1.31-buffer3",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer1",
+        "2.1.31-buffer2",
+        "2.1.31-buffer3",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer1",
+        "2.1.31-buffer2",
+        "2.1.31-buffer3",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    },
+    {
+      "module": "coursier-proxy-setup",
+      "listingVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    },
+    {
+      "module": "coursier_2.13",
+      "listingVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "metadataVersions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ],
+      "versions": [
+        "2.1.31-buffer4",
+        "2.1.31-buffer5"
+      ]
+    }
+  ]
+}
