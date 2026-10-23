@@ -1,0 +1,10 @@
+{
+  "checkedAtUtc": "2026-10-23T08:21:12.433882+00:00",
+  "recordedIdentityCount": 12,
+  "remainingTrackedPids": [],
+  "remainingGroupMembers": [],
+  "remainingSourceCwdPids": [],
+  "psOutputCheckedWithoutSavingArguments": true,
+  "cleanupNeeded": false,
+  "cgroupMemoryEvents": "low 0\nhigh 0\nmax 995199\noom 8\noom_kill 2\noom_group_kill 0\n"
+}
