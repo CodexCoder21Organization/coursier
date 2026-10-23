@@ -1,0 +1,52 @@
+{
+  "checkedAtUtc": "2026-10-23T10:44:35.797099+00:00",
+  "trackedProcesses": 8,
+  "trackedIdentities": [
+    {
+      "pid": 21275,
+      "startTicks": "10936925",
+      "startedAtUtc": "2026-10-23T10:35:41.308129+00:00"
+    },
+    {
+      "pid": 27239,
+      "startedAtUtc": "2026-10-23T10:41:21.601924+00:00",
+      "startTicks": "10970953"
+    },
+    {
+      "pid": 27666,
+      "startedAtUtc": "2026-10-23T10:41:47.588692+00:00",
+      "startTicks": "10973551"
+    },
+    {
+      "pid": 28073,
+      "startedAtUtc": "2026-10-23T10:41:57.950995+00:00",
+      "startTicks": "10974587"
+    },
+    {
+      "pid": 28364,
+      "startedAtUtc": "2026-10-23T10:42:09.591308+00:00",
+      "startTicks": "10975752"
+    },
+    {
+      "pid": 28609,
+      "startedAtUtc": "2026-10-23T10:42:20.756141+00:00",
+      "startTicks": "10976868"
+    },
+    {
+      "pid": 28831,
+      "startedAtUtc": "2026-10-23T10:42:31.130663+00:00",
+      "startTicks": "10977904"
+    },
+    {
+      "pid": 29029,
+      "startedAtUtc": "2026-10-23T10:42:39.289375+00:00",
+      "startTicks": "10978721"
+    }
+  ],
+  "terminatedPids": [],
+  "remainingProcesses": [],
+  "remainingTrackedIdentities": [],
+  "psCheckPerformed": true,
+  "psTrackedPidsPresent": [],
+  "oomEvents": "low 0\nhigh 0\nmax 1021949\noom 8\noom_kill 2\noom_group_kill 0\n"
+}

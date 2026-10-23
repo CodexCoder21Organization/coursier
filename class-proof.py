@@ -13,7 +13,7 @@ assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=a.repo,text=True).
 assert not subprocess.check_output(['git','status','--porcelain'],cwd=a.repo,text=True).strip()
 jar=a.work_dir/'artifacts'/module/f'{module}-{version}.jar'
 compiled=a.repo/'out/cache/jvm/2.13.16/compile.dest/classes'
-rows=[]; changed=[]; sources=[]
+rows=[]; changed=[]; sources=[]; removed=[]
 with zipfile.ZipFile(jar) as local, zipfile.ZipFile(a.work_dir/'buffer5-cache.jar') as old:
     for name in sorted(n for n in local.namelist() if n.endswith('.class')):
         digest=sha(local.read(name)); raw=sha((compiled/name).read_bytes())
@@ -22,6 +22,7 @@ with zipfile.ZipFile(jar) as local, zipfile.ZipFile(a.work_dir/'buffer5-cache.ja
         row=dict(classFile=name,compiledSha256=raw,stagedSha256=digest,buffer5Sha256=previous)
         rows.append(row)
         if previous!=digest: changed.append(row.copy())
+    removed=[dict(classFile=n,buffer5Sha256=sha(old.read(n))) for n in sorted(set(old.namelist())-set(local.namelist())) if n.endswith('.class')]
     required_changed=['coursier/cache/internal/Downloader.class','coursier/cache/internal/Downloader$.class','coursier/cache/internal/Downloader$ResponseInputStream.class','coursier/cache/internal/Downloader$Blocking$.class']
     required_new=['coursier/cache/internal/GzipInputStream.class','coursier/cache/internal/Downloader$DeflateInputStream.class']
     for name in required_changed:
@@ -46,7 +47,7 @@ if a.published:
         for row in rows:
             row['downloadedSha256']=sha(remote.read(row['classFile']))
             assert row['downloadedSha256']==row['compiledSha256'],row['classFile']
-result=dict(source=source,version=version,publishedVerified=a.published,classCount=len(rows),classes=rows,changedClasses=changed,requiredChangedClasses=required_changed,newClasses=required_new,encodingClassMarkers=marker_map,sources=sources,buffer5JarSha256=sha((a.work_dir/'buffer5-cache.jar').read_bytes()))
+result=dict(source=source,version=version,publishedVerified=a.published,classCount=len(rows),classes=rows,changedClasses=changed,removedClasses=removed,requiredChangedClasses=required_changed,newClasses=required_new,encodingClassMarkers=marker_map,sources=sources,buffer5JarSha256=sha((a.work_dir/'buffer5-cache.jar').read_bytes()))
 output='class-proof.json' if a.published else 'class-proof-before-publish.json'
 Path(__file__).resolve().with_name(output).write_text(json.dumps(result,indent=2)+'\n')
 print(f'Class proof passed: {len(rows)} compiled cache classes; {len(changed)} differ from buffer5 (including new classes); published={a.published}.')

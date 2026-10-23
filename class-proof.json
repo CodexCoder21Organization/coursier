@@ -1334,6 +1334,12 @@
       "buffer5Sha256": null
     }
   ],
+  "removedClasses": [
+    {
+      "classFile": "coursier/cache/internal/Downloader$Blocking$$anon$1.class",
+      "buffer5Sha256": "88e2cacdd401655ca12e6800192dcf61e21a61dfefce10bbb51c14926dc5bfeb"
+    }
+  ],
   "requiredChangedClasses": [
     "coursier/cache/internal/Downloader.class",
     "coursier/cache/internal/Downloader$.class",
