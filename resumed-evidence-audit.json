@@ -1,0 +1,45 @@
+{
+  "productHead": "ac74fa03ab018e66a67f293dbae7a4fe3a7bd367",
+  "main": "f7ac8c67dbe757d9129cfa453a37f2867bd1272d",
+  "testRunsRepeatedOnResume": false,
+  "baselineRequiredFailures": [
+    "valid mixed case range unit completes the artifact",
+    "chunked range must consume the closing chunk before publishing",
+    "chunked range rejects data beyond its stated range",
+    "unsolicited 304 cannot publish an empty artifact",
+    "cut off chunked response removes temporary bytes",
+    "cut off gzip response removes temporary bytes",
+    "short other encoded response cannot publish partial bytes",
+    "correct mixed case gzip decodes the body"
+  ],
+  "before": {
+    "cases": 24,
+    "failed": 18,
+    "firstAttempts": 24,
+    "retries": 0
+  },
+  "finalRepeated": {
+    "rounds": 30,
+    "casesPerRound": 95,
+    "firstAttempts": 2850,
+    "retries": 0,
+    "failures": 0
+  },
+  "cacheModule": {
+    "passed": 187,
+    "cases": 187,
+    "firstAttempts": 187,
+    "retries": 0
+  },
+  "evidenceTestSourcesMatchProduct": true,
+  "productPatchReverseCheck": true,
+  "sourceFilesWithoutRetryOverrides": 13,
+  "sourceHashes": {
+    "modules/cache/jvm/src/main/scala/coursier/cache/CacheUrl.scala": "7381fca8545a9194ccd6fe3031aa9ec05e864062d50c89197a5a91ae7a9521ca",
+    "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala": "6a9a63df378d80442bd2500579031e882e51e386c03bbd4832613663fb70fe25",
+    "modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala": "1f0b4196ea8955ca2f68955feed45ffd05321cae80ef5d430c5cf16963c93361",
+    "modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCostTests.scala": "999564080491936a06530dcfcccb45e107c8e4f2763dbc2f14a05e35d0c28c46",
+    "modules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala": "09d2acbd3a5e64919270144959f9aa9c9d8d1214e8c4141e6f477274803dd43f",
+    "modules/cache/jvm/src/test/scala/coursier/cache/DownloadLengthIntegrityTests.scala": "85e3781108f6c885db64f7145786f50a268f156fce00a855e2f6fa4eefa50959"
+  }
+}

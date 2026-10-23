@@ -1,0 +1,48 @@
+{
+  "cloneRoots": [
+    68046
+  ],
+  "recordedOwned": {
+    "68046": {
+      "start": "8406954",
+      "state": "S"
+    },
+    "68058": {
+      "start": "8407005",
+      "state": "S"
+    },
+    "68167": {
+      "start": "8407777",
+      "state": "S"
+    },
+    "68168": {
+      "start": "8407778",
+      "state": "S"
+    },
+    "68193": {
+      "start": "8407782",
+      "state": "S"
+    },
+    "68217": {
+      "start": "8407881",
+      "state": "S"
+    },
+    "68218": {
+      "start": "8407881",
+      "state": "S"
+    },
+    "68219": {
+      "start": "8407882",
+      "state": "S"
+    },
+    "68220": {
+      "start": "8407882",
+      "state": "S"
+    },
+    "68223": {
+      "start": "8407966",
+      "state": "S"
+    }
+  },
+  "reason": "Optional recursive test-metadata submodule fetch still active; root product checkout and all remote evidence already available."
+}
