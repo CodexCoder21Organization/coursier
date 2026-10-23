@@ -1,0 +1,69 @@
+diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala
+index 83f0f74da..6324b15fa 100644
+--- a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala
++++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala
+@@ -401,7 +401,64 @@ object DownloadEncodingIntegrityTests extends TestSuite {
+     (Integer.toHexString(bytes.length) + "\r\n").getBytes(ISO_8859_1) ++ bytes ++
+       (if (closing) "\r\n0\r\n\r\n" else "\r\n").getBytes(ISO_8859_1)
+ 
++  private def largeBodyStreams(coding: String, multiMember: Boolean = false): Unit = {
++    val decoded = new Array[Byte](4 * 1024 * 1024)
++    new java.util.Random(71426L).nextBytes(decoded)
++    val pauseAt = decoded.length / 2
++    val encoded = new ByteArrayOutputStream()
++    val memberStart = if (multiMember) {
++      val firstMember = new GZIPOutputStream(encoded)
++      firstMember.write(decoded, 0, decoded.length / 4)
++      firstMember.close()
++      decoded.length / 4
++    }
++    else 0
++    val compressor = if (coding == "gzip") new GZIPOutputStream(encoded, true)
++    else new java.util.zip.DeflaterOutputStream(encoded, true)
++    compressor.write(decoded, memberStart, pauseAt - memberStart)
++    compressor.flush()
++    val first = encoded.toByteArray
++    compressor.write(decoded, pauseAt, decoded.length - pauseAt)
++    compressor.close()
++    val last = encoded.toByteArray.drop(first.length)
++    val release = new CountDownLatch(1)
++    val reply = Reply(
++      "200 OK",
++      Seq("Content-Length" -> (first.length + last.length).toString, "Content-Encoding" -> coding),
++      List(first, last),
++      Some(ProgressGate(pauseAt.toLong, release))
++    )
++    // The server cannot send the remainder until decoded progress and the temporary
++    // file reach this exact prefix. Whole-body (or whole-member) buffering cannot pass.
++    val o = scenario(List(reply), cap = 16384, inspectWhilePaused = Some((pauseAt.toLong, release)))
++    val pending = o.pendingState.get
++    assert(!pending.finalExists)
++    assert(pending.temporaryExists)
++    assert(java.util.Arrays.equals(pending.temporaryBytes, decoded.take(pauseAt)))
++    assert(o.result.exists(bytes => java.util.Arrays.equals(bytes, decoded)))
++    assert(o.finalExists)
++    assert(!o.temporaryExists)
++    assert(o.temporaryBytes.isEmpty)
++    assert(o.downloadResults == List((o.url, true)))
++    assert(o.requests.length == 1)
++    assert(o.progress.nonEmpty)
++    assert(o.progress.last == decoded.length.toLong)
++    assert(o.progress.sliding(2).forall(pair => pair.length < 2 || pair.head < pair.last))
++  }
++
+   val tests = Tests {
++    test("large gzip body streams into the cache before the remainder arrives") {
++      largeBodyStreams("gzip")
++    }
++
++    test("large deflate body streams into the cache before the remainder arrives") {
++      largeBodyStreams("deflate")
++    }
++
++    test("large multi-member gzip streams inside a later member before the remainder arrives") {
++      largeBodyStreams("gzip", multiMember = true)
++    }
++
+     test("repeated encoding fields decode every layer in field order") {
+       val encoded = gzipBytes(gzipBytes(body))
+       val o = scenario(List(fixed(

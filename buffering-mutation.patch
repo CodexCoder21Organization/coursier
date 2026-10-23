@@ -1,0 +1,23 @@
+diff --git a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+index 5c1211848..62facb7fd 100644
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+@@ -335,6 +335,18 @@ import scala.util.control.NonFatal
+               if (uncompressed && expectedLength.isEmpty)
+                 in = new BufferedInputStream(in, downloadBufferSize)
+ 
++              if (!uncompressed) {
++                val buffered = new ByteArrayOutputStream()
++                val block = new Array[Byte](downloadBufferSize)
++                var n = in.read(block)
++                while (n >= 0) {
++                  buffered.write(block, 0, n)
++                  n = in.read(block)
++                }
++                in.close()
++                in = new ByteArrayInputStream(buffered.toByteArray)
++              }
++
+               val out = CacheLocks.withStructureLock(location) {
+                 Util.createDirectories(tmp.toPath.getParent)
+                 if (partialDownload)
