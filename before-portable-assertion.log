@@ -1,0 +1,175 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.DownloadResponseFramingTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact [2m654ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes [2m45ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length [2m28ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact [2m49ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download [2m45ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes [2m83ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned [2m37ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unknown and empty encodings cannot publish response bytes [2m38ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer [2m28ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix [2m32ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes [2m36ms[0m  
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error [2m78ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:38077/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=4096-[39m
+[306]   [32mHost: 127.0.0.1:38077[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:38077/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mInvalid [24mC[4montent-Encoding '[24mg[4mzip' from [24mh[4mt[24mt[4mp://127[24m.[4m0[24m.[4m0[24m.[4m1:38077/art[24mi[4mfac[24mt[4m: [24mex[4mpe[24mc[4mt[24me[4md a com[24mp[4mle[24mt[4me decoded body, rece[24mi[4mved 10 resp[24mon[4mse[24m [4mbytes [24m(/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)"[49m
+[306]   [42m+   value = "C[4mau[24mght[4m java[24m.[4mnio[24m.[4mfile[24m.[4mF[24mi[4mleSys[24mte[4mmE[24mxception (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)[4m while downloading http://127.0.0.1:38077/artifact[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$65[39m([91mDownloadResponseFramingTests.scala[39m:[91m821[39m)
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.DownloadResponseFramingTests [2m1514ms[0m
+[306]   [32m+[39m valid mixed case range unit completes the artifact [2m654ms[0m  
+[306]   [32m+[39m unsolicited 304 cannot publish an empty artifact [2m20ms[0m  
+[306]   [32m+[39m cut off chunked response removes temporary bytes [2m23ms[0m  
+[306]   [32m+[39m cut off gzip response removes temporary bytes [2m45ms[0m  
+[306]   [32m+[39m short other encoded response cannot publish partial bytes [2m17ms[0m  
+[306]   [32m+[39m correct mixed case gzip decodes the body [2m21ms[0m  
+[306]   [32m+[39m chunked range obeys its content range without content length [2m28ms[0m  
+[306]   [32m+[39m short chunked range cannot publish a partial artifact [2m11ms[0m  
+[306]   [32m+[39m empty close delimited response is a valid empty artifact [2m20ms[0m  
+[306]   [32m+[39m correct deflate body decodes without comparing decoded and wire lengths [2m15ms[0m  
+[306]   [32m+[39m concurrent callers never publish the same short artifact [2m49ms[0m  
+[306]   [32m+[39m concurrent callers share one correct artifact download [2m45ms[0m  
+[306]   [32m+[39m HEAD metadata length does not require response bytes [2m83ms[0m  
+[306]   [32m+[39m chunked range must consume the closing chunk before publishing [2m22ms[0m  
+[306]   [32m+[39m chunked range rejects data beyond its stated range [2m11ms[0m  
+[306]   [32m+[39m range data stays temporary until the closing chunk arrives [2m13ms[0m  
+[306]   [32m+[39m no body status with a saved prefix is rejected and cleaned [2m37ms[0m  
+[306]   [32m+[39m unknown and empty encodings cannot publish response bytes [2m38ms[0m  
+[306]   [32m+[39m mixed case deflate is decoded [2m7ms[0m  
+[306]   [32m+[39m chunked gzip validates the closing chunk after its trailer [2m7ms[0m  
+[306]   [32m+[39m valid chunked gzip is decoded through the closing chunk [2m9ms[0m  
+[306]   [32m+[39m complete framing cannot hide an incomplete gzip trailer [2m28ms[0m  
+[306]   [32m+[39m invalid gzip header removes a saved temporary prefix [2m32ms[0m  
+[306]   [32m+[39m encoded resume cannot append decoded bytes to an earlier representation [2m26ms[0m  
+[306]   [32m+[39m gzip decoder completion still checks the declared response length [2m15ms[0m  
+[306]   [32m+[39m deflate decoder completion still checks the declared response length [2m10ms[0m  
+[306]   [32m+[39m chunked deflate validates the closing chunk after decoding [2m23ms[0m  
+[306]   [32m+[39m valid chunked deflate is decoded through the closing chunk [2m17ms[0m  
+[306]   [32m+[39m mixed case stacked content codings decode in reverse order [2m11ms[0m  
+[306]   [32m+[39m corrupt gzip trailer cannot publish decoded data [2m12ms[0m  
+[306]   [32m+[39m corrupt deflate checksum cannot publish decoded data [2m17ms[0m  
+[306]   [32m+[39m gzip members in separate chunks all decode before publication [2m20ms[0m  
+[306]   [32m+[39m empty encoded body with one byte buffer still validates its trailer [2m14ms[0m  
+[306]   [32m+[39m body bearing successful statuses retain their complete artifact bytes [2m36ms[0m  
+[306]   [31mX[39m encoded download output error is not reported as a coding error [2m78ms[0m 
+[306]     [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]     [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]       url = [32m"http://127.0.0.1:38077/artifact"[39m,
+[306]       result = [33mLeft[39m(
+[306]         value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+[306]       ),
+[306]       requests = [33mList[39m(
+[306]         [32m"""GET /artifact HTTP/1.1[39m
+[306]     [32mUser-Agent: Coursier/2.0[39m
+[306]     [32mAccept: */*[39m
+[306]     [32mRange: bytes=4096-[39m
+[306]     [32mHost: 127.0.0.1:38077[39m
+[306]     [32mConnection: keep-alive[39m
+[306]     [32m[39m
+[306]     [32m"""[39m
+[306]       ),
+[306]       progress = [33mList[39m(),
+[306]       downloadResults = [33mList[39m(([32m"http://127.0.0.1:38077/artifact"[39m, [32mfalse[39m)),
+[306]       finalExists = [32mfalse[39m,
+[306]       temporaryExists = [32mfalse[39m,
+[306]     ...
+[306]     [36mexpected[39m: [32mString[39m = [32m"Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact"[39m
+[306]     [36merrorMessage(observation) != Some(expected)[39m:
+[306]       [33mSome[39m(
+[306]     [41m-   value = "[4mInvalid [24mC[4montent-Encoding '[24mg[4mzip' from [24mh[4mt[24mt[4mp://127[24m.[4m0[24m.[4m0[24m.[4m1:38077/art[24mi[4mfac[24mt[4m: [24mex[4mpe[24mc[4mt[24me[4md a com[24mp[4mle[24mt[4me decoded body, rece[24mi[4mved 10 resp[24mon[4mse[24m [4mbytes [24m(/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)"[49m
+[306]     [42m+   value = "C[4mau[24mght[4m java[24m.[4mnio[24m.[4mfile[24m.[4mF[24mi[4mleSys[24mte[4mmE[24mxception (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)[4m while downloading http://127.0.0.1:38077/artifact[24m"[49m
+[306]       )
+[306]       [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$65[39m([91mDownloadResponseFramingTests.scala[39m:[91m821[39m)
+[306] ----------------------------------- Failures -----------------------------------
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error [2m78ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:38077/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=4096-[39m
+[306]   [32mHost: 127.0.0.1:38077[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:38077/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mInvalid [24mC[4montent-Encoding '[24mg[4mzip' from [24mh[4mt[24mt[4mp://127[24m.[4m0[24m.[4m0[24m.[4m1:38077/art[24mi[4mfac[24mt[4m: [24mex[4mpe[24mc[4mt[24me[4md a com[24mp[4mle[24mt[4me decoded body, rece[24mi[4mved 10 resp[24mon[4mse[24m [4mbytes [24m(/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)"[49m
+[306]   [42m+   value = "C[4mau[24mght[4m java[24m.[4mnio[24m.[4mfile[24m.[4mF[24mi[4mleSys[24mte[4mmE[24mxception (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)[4m while downloading http://127.0.0.1:38077/artifact[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$65[39m([91mDownloadResponseFramingTests.scala[39m:[91m821[39m)
+[306] Tests: 35, Passed: 34, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...esponseFramingTests =============== 21s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error

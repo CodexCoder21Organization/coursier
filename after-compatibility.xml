@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="40" failures="0" errors="0" skipped="0" time="2.454">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="37" failures="0" errors="0" skipped="0" time="2.243" timestamp="2026-10-23T02:23:27">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid mixed case range unit completes the artifact" time="0.79">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unsolicited 304 cannot publish an empty artifact" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off chunked response removes temporary bytes" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off gzip response removes temporary bytes" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short other encoded response cannot publish partial bytes" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct mixed case gzip decodes the body" time="0.033">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range obeys its content range without content length" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short chunked range cannot publish a partial artifact" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty close delimited response is a valid empty artifact" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct deflate body decodes without comparing decoded and wire lengths" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers never publish the same short artifact" time="0.056">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers share one correct artifact download" time="0.051">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HEAD metadata length does not require response bytes" time="0.168">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range must consume the closing chunk before publishing" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range rejects data beyond its stated range" time="0.338">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="range data stays temporary until the closing chunk arrives" time="0.063">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="no body status with a saved prefix is rejected and cleaned" time="0.053">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unknown and empty encodings cannot publish response bytes" time="0.059">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case deflate is decoded" time="0.038">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked gzip validates the closing chunk after its trailer" time="0.044">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked gzip is decoded through the closing chunk" time="0.049">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="complete framing cannot hide an incomplete gzip trailer" time="0.027">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="invalid gzip header removes a saved temporary prefix" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded resume cannot append decoded bytes to an earlier representation" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip decoder completion still checks the declared response length" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="deflate decoder completion still checks the declared response length" time="0.024">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked deflate validates the closing chunk after decoding" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked deflate is decoded through the closing chunk" time="0.027">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case stacked content codings decode in reverse order" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt gzip trailer cannot publish decoded data" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt deflate checksum cannot publish decoded data" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip members in separate chunks all decode before publication" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoded body with one byte buffer still validates its trailer" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="body bearing successful statuses retain their complete artifact bytes" time="0.063">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded download output error is not reported as a coding error" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HTTP error responses retain their complete original download error" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="close delimited response reports progress before its next body fragment" time="0.016">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheLocationOwnershipTests" tests="3" failures="0" errors="0" skipped="0" time="0.211" timestamp="2026-10-23T02:23:27">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations" time="0.037">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations after an owner error" time="0.045">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="same location joins its owner" time="0.129">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

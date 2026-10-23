@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="92" failures="0" errors="0" skipped="0" time="1.439">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="35" failures="0" errors="0" skipped="0" time="0.464" timestamp="2026-10-23T02:10:14">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid mixed case range unit completes the artifact" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unsolicited 304 cannot publish an empty artifact" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off chunked response removes temporary bytes" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off gzip response removes temporary bytes" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short other encoded response cannot publish partial bytes" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct mixed case gzip decodes the body" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range obeys its content range without content length" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short chunked range cannot publish a partial artifact" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty close delimited response is a valid empty artifact" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct deflate body decodes without comparing decoded and wire lengths" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers never publish the same short artifact" time="0.049">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers share one correct artifact download" time="0.038">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HEAD metadata length does not require response bytes" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range must consume the closing chunk before publishing" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range rejects data beyond its stated range" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="range data stays temporary until the closing chunk arrives" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="no body status with a saved prefix is rejected and cleaned" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unknown and empty encodings cannot publish response bytes" time="0.037">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case deflate is decoded" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked gzip validates the closing chunk after its trailer" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked gzip is decoded through the closing chunk" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="complete framing cannot hide an incomplete gzip trailer" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="invalid gzip header removes a saved temporary prefix" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded resume cannot append decoded bytes to an earlier representation" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip decoder completion still checks the declared response length" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="deflate decoder completion still checks the declared response length" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked deflate validates the closing chunk after decoding" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked deflate is decoded through the closing chunk" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case stacked content codings decode in reverse order" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt gzip trailer cannot publish decoded data" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt deflate checksum cannot publish decoded data" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip members in separate chunks all decode before publication" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoded body with one byte buffer still validates its trailer" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="body bearing successful statuses retain their complete artifact bytes" time="0.041">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded download output error is not reported as a coding error" time="0.014">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadBufferCapacityTests" tests="14" failures="0" errors="0" skipped="0" time="0.545" timestamp="2026-10-23T02:10:14">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known tiny response does not request an oversized transfer buffer" time="0.277">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known 199 byte POM uses its response length" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known one byte response uses a one byte buffer" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="identity response uses its uncompressed length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="mixed case identity response uses its uncompressed length" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="deflate content encoding retains the default maximum" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known responses at the default boundary stay bounded" time="0.08">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known empty response keeps read buffers at one byte or less" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known empty response requests zero bytes from the response stream" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known body larger than configured maximum uses at most that maximum" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="unknown chunked response retains the default maximum" time="0.064">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="unknown identity response retains the default maximum" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="gzip response with known encoded length returns all decoded bytes" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="partial response resumes from the persisted prefix with a bounded read buffer" time="0.018">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadLengthIntegrityTests" tests="43" failures="0" errors="0" skipped="0" time="0.43" timestamp="2026-10-23T02:10:14">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="zero buffer size is rejected before creating a temporary file" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="negative buffer size is rejected before creating a temporary file" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short fixed-length response does not publish a partial artifact" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="empty body with positive fixed length is an incomplete response" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short fixed-length response counts bytes across multiple reads" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="partial body remains temporary until the connection reaches EOF" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="exact fixed-length response publishes all bytes" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="zero length response ignores trailing bytes" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="fragmented fixed-length response does not expose bytes after its length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="two byte buffer stays within the framed length after a fragmented read" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="close-delimited response reads through connection close" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="chunked framing takes precedence over a conflicting content length" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="gzip known length decodes fully with bounded progress increments" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="mixed case identity encoding is accepted" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="mixed case identity encoding still enforces a short length" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="negative content length is rejected" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="non-decimal content length is rejected" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing content length is rejected" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="empty content length is rejected" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length at Int max reports the received byte count" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length above Int max reports the received byte count" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="five gigabyte content length reports the received byte count" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="Long max content length reports the received byte count" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="redirect body length does not replace the final response length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short final response after redirect reports the original artifact URL" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="valid range response resumes the existing prefix" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="valid range response can frame the suffix without content length" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response with an incorrect start is rejected without restarting" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response without content range is rejected" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="malformed content range is rejected with its exact value" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range end mismatch is rejected" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range total mismatch is rejected" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="unknown range total is rejected" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range ending at or beyond the total is rejected" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range start is rejected" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range end is rejected" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range total is rejected" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length conflicting with range is rejected" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="unsolicited range response must start at byte zero" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response from byte zero can satisfy a full download" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="server ignoring range with a full response replaces the prefix" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short range response with content length removes its temporary file" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short range response uses content range length when content length is absent" time="0.008">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

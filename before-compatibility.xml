@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="40" failures="3" errors="0" skipped="0" time="31.478">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="37" failures="2" errors="0" skipped="0" time="31.386" timestamp="2026-10-23T02:21:40">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid mixed case range unit completes the artifact" time="0.426">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unsolicited 304 cannot publish an empty artifact" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off chunked response removes temporary bytes" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off gzip response removes temporary bytes" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short other encoded response cannot publish partial bytes" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct mixed case gzip decodes the body" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range obeys its content range without content length" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short chunked range cannot publish a partial artifact" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty close delimited response is a valid empty artifact" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct deflate body decodes without comparing decoded and wire lengths" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers never publish the same short artifact" time="0.085">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers share one correct artifact download" time="0.043">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HEAD metadata length does not require response bytes" time="0.072">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range must consume the closing chunk before publishing" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range rejects data beyond its stated range" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="range data stays temporary until the closing chunk arrives" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="no body status with a saved prefix is rejected and cleaned" time="0.037">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unknown and empty encodings cannot publish response bytes" time="0.118">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case deflate is decoded" time="0.031">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked gzip validates the closing chunk after its trailer" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked gzip is decoded through the closing chunk" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="complete framing cannot hide an incomplete gzip trailer" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="invalid gzip header removes a saved temporary prefix" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded resume cannot append decoded bytes to an earlier representation" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip decoder completion still checks the declared response length" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="deflate decoder completion still checks the declared response length" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked deflate validates the closing chunk after decoding" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked deflate is decoded through the closing chunk" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case stacked content codings decode in reverse order" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt gzip trailer cannot publish decoded data" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt deflate checksum cannot publish decoded data" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip members in separate chunks all decode before publication" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoded body with one byte buffer still validates its trailer" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="body bearing successful statuses retain their complete artifact bytes" time="0.037">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded download output error is not reported as a coding error" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HTTP error responses retain their complete original download error" time="0.095">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43707/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:43707
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:43707/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Left(
+      value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: String = &quot;Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body&quot;
++   value = &quot;Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact&quot;
+  )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43707/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:43707
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:43707/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Left(
+      value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: String = &quot;Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body&quot;
++   value = &quot;Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact&quot;
+  )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadResponseFramingTests$.downloadErrorIs(DownloadResponseFramingTests.scala:356)
+    at coursier.cache.DownloadResponseFramingTests$.$anonfun$tests$66(DownloadResponseFramingTests.scala:828)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="close delimited response reports progress before its next body fragment" time="30.024">
+          <failure message="Timed out waiting for download progress to reach 3" type="java.lang.IllegalStateException">
+          java.lang.IllegalStateException: Timed out waiting for download progress to reach 3
+    at coursier.cache.DownloadResponseFramingTests$.$anonfun$scenario$11(DownloadResponseFramingTests.scala:276)
+    at scala.Option.map(Option.scala:242)
+    at coursier.cache.DownloadResponseFramingTests$.scenario(DownloadResponseFramingTests.scala:273)
+    at coursier.cache.DownloadResponseFramingTests$.$anonfun$tests$67(DownloadResponseFramingTests.scala:834)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheLocationOwnershipTests" tests="3" failures="1" errors="0" skipped="0" time="0.092" timestamp="2026-10-23T02:21:40">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations after an owner error" time="0.021">
+          <failure message="assert(firstResult.left.toOption.get.describe ==
+firstResult: Either[ArtifactError, java.io.File] = Left(
+  value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body
+)
+: Artifact = Artifact(
+  url = &quot;http://127.0.0.1:46225/artifact&quot;,
+  checksumUrls = Map(),
+  extra = Map(),
+  changing = false,
+  optional = false,
+  authentication = None
+)
+: Artifact = Artifact(
+  url = &quot;http://127.0.0.1:46225/artifact&quot;,
+  checksumUrls = Map(),
+  extra = Map(),
+  changing = false,
+  optional = false,
+  authentication = None
+)
+firstResult.left.toOption.get.describe != :
+- &quot;download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body&quot;
++ &quot;download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:46225/artifact) while downloading http://127.0.0.1:46225/artifact&quot;
+" type="utest.AssertionError">
+          utest.AssertionError: assert(firstResult.left.toOption.get.describe ==
+firstResult: Either[ArtifactError, java.io.File] = Left(
+  value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body
+)
+: Artifact = Artifact(
+  url = &quot;http://127.0.0.1:46225/artifact&quot;,
+  checksumUrls = Map(),
+  extra = Map(),
+  changing = false,
+  optional = false,
+  authentication = None
+)
+: Artifact = Artifact(
+  url = &quot;http://127.0.0.1:46225/artifact&quot;,
+  checksumUrls = Map(),
+  extra = Map(),
+  changing = false,
+  optional = false,
+  authentication = None
+)
+firstResult.left.toOption.get.describe != :
+- &quot;download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body&quot;
++ &quot;download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:46225/artifact) while downloading http://127.0.0.1:46225/artifact&quot;
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.FileCacheLocationOwnershipTests$.$anonfun$tests$17(FileCacheLocationOwnershipTests.scala:217)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="same location joins its owner" time="0.045">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

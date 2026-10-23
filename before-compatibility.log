@@ -1,0 +1,287 @@
+=============== cache.jvm[2.13.16].test.testOnly...FileCacheLocationOwnershipTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact [2m426ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact [2m85ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download [2m43ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes [2m72ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned [2m37ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unknown and empty encodings cannot publish response bytes [2m118ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded [2m31ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer [2m25ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes [2m37ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error [2m10ms[0m  
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error [2m95ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43707/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:43707[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43707/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mU[24mne[4mxp[24me[4mc[24mted HTTP s[4mtatu[24ms 500 fr[4mom[24m http://127.0.0.1:43707/artifa[4mct: expe[24mct[4med a[24m [4msucc[24me[4mssful[24m [4mresp[24mon[4mse w[24mi[4mth a[24mn artifact[4m body[24m"[49m
+[306]   [42m+   value = "[4mCaught java.io.IOExceptio[24mn[4m (Serv[24me[4mr r[24met[4murn[24med HTTP [4mre[24ms[4mpon[24ms[4me code:[24m 500 f[4mo[24mr[4m URL:[24m http://127.0.0.1:43707/artifact[4m)[24m [4mwhil[24me [4md[24mo[4mw[24mn[4mload[24min[4mg[24m [4mhttp://127.0.0.1:43707/[24martifact"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$66[39m([91mDownloadResponseFramingTests.scala[39m:[91m828[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment [2m30024ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 3
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$scenario$11[39m([91mDownloadResponseFramingTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mscenario[39m([91mDownloadResponseFramingTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$67[39m([91mDownloadResponseFramingTests.scala[39m:[91m834[39m)
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m26ms[0m  
+[306] [31mX[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m21ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(firstResult.left.toOption.get.describe ==
+[306]   [36mfirstResult[39m: [32mEither[39m[[32mArtifactError[39m, [32mjava[39m.[32mio[39m.[32mFile[39m] = [33mLeft[39m(
+[306]     value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body
+[306]   )
+[306]   : [32mArtifact[39m = [33mArtifact[39m(
+[306]     url = [32m"http://127.0.0.1:46225/artifact"[39m,
+[306]     checksumUrls = [33mMap[39m(),
+[306]     extra = [33mMap[39m(),
+[306]     changing = [32mfalse[39m,
+[306]     optional = [32mfalse[39m,
+[306]     authentication = [32mNone[39m
+[306]   )
+[306]   : [32mArtifact[39m = [33mArtifact[39m(
+[306]     url = [32m"http://127.0.0.1:46225/artifact"[39m,
+[306]     checksumUrls = [33mMap[39m(),
+[306]     extra = [33mMap[39m(),
+[306]     changing = [32mfalse[39m,
+[306]     optional = [32mfalse[39m,
+[306]     authentication = [32mNone[39m
+[306]   )
+[306]   [36mfirstResult.left.toOption.get.describe != [39m:
+[306]   [41m- "download error: [4mU[24mne[4mxp[24me[4mc[24mted HTTP s[4mtatu[24ms 500 fr[4mom[24m http://127.0.0.1:46225/artifa[4mct: expe[24mct[4med a[24m [4msucc[24me[4mssful[24m [4mresp[24mon[4mse w[24mi[4mth a[24mn artifact[4m body[24m"[49m
+[306]   [42m+ "download error: [4mCaught java.io.IOExceptio[24mn[4m (Serv[24me[4mr r[24met[4murn[24med HTTP [4mre[24ms[4mpon[24ms[4me code:[24m 500 f[4mo[24mr[4m URL:[24m http://127.0.0.1:46225/artifact[4m)[24m [4mwhil[24me [4md[24mo[4mw[24mn[4mload[24min[4mg[24m [4mhttp://127.0.0.1:46225/[24martifact"[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheLocationOwnershipTests$.[91m$anonfun$tests$17[39m([91mFileCacheLocationOwnershipTests.scala[39m:[91m217[39m)
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m45ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.FileCacheLocationOwnershipTests [2m92ms[0m
+[306]   [32m+[39m independent locations [2m26ms[0m  
+[306]   [31mX[39m independent locations after an owner error [2m21ms[0m 
+[306]     [91m[4mutest.AssertionError[39m[24m: assert(firstResult.left.toOption.get.describe ==
+[306]     [36mfirstResult[39m: [32mEither[39m[[32mArtifactError[39m, [32mjava[39m.[32mio[39m.[32mFile[39m] = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body
+[306]     )
+[306]     : [32mArtifact[39m = [33mArtifact[39m(
+[306]       url = [32m"http://127.0.0.1:46225/artifact"[39m,
+[306]       checksumUrls = [33mMap[39m(),
+[306]       extra = [33mMap[39m(),
+[306]       changing = [32mfalse[39m,
+[306]       optional = [32mfalse[39m,
+[306]       authentication = [32mNone[39m
+[306]     )
+[306]     : [32mArtifact[39m = [33mArtifact[39m(
+[306]       url = [32m"http://127.0.0.1:46225/artifact"[39m,
+[306]       checksumUrls = [33mMap[39m(),
+[306]       extra = [33mMap[39m(),
+[306]       changing = [32mfalse[39m,
+[306]       optional = [32mfalse[39m,
+[306]       authentication = [32mNone[39m
+[306]     )
+[306]     [36mfirstResult.left.toOption.get.describe != [39m:
+[306]     [41m- "download error: [4mU[24mne[4mxp[24me[4mc[24mted HTTP s[4mtatu[24ms 500 fr[4mom[24m http://127.0.0.1:46225/artifa[4mct: expe[24mct[4med a[24m [4msucc[24me[4mssful[24m [4mresp[24mon[4mse w[24mi[4mth a[24mn artifact[4m body[24m"[49m
+[306]     [42m+ "download error: [4mCaught java.io.IOExceptio[24mn[4m (Serv[24me[4mr r[24met[4murn[24med HTTP [4mre[24ms[4mpon[24ms[4me code:[24m 500 f[4mo[24mr[4m URL:[24m http://127.0.0.1:46225/artifact[4m)[24m [4mwhil[24me [4md[24mo[4mw[24mn[4mload[24min[4mg[24m [4mhttp://127.0.0.1:46225/[24martifact"[49m
+[306]       [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]       [31mcoursier.cache.FileCacheLocationOwnershipTests$.[91m$anonfun$tests$17[39m([91mFileCacheLocationOwnershipTests.scala[39m:[91m217[39m)
+[306]   [32m+[39m same location joins its owner [2m45ms[0m  
+[306] - coursier.cache.DownloadResponseFramingTests [2m31386ms[0m
+[306]   [32m+[39m valid mixed case range unit completes the artifact [2m426ms[0m  
+[306]   [32m+[39m unsolicited 304 cannot publish an empty artifact [2m11ms[0m  
+[306]   [32m+[39m cut off chunked response removes temporary bytes [2m15ms[0m  
+[306]   [32m+[39m cut off gzip response removes temporary bytes [2m18ms[0m  
+[306]   [32m+[39m short other encoded response cannot publish partial bytes [2m12ms[0m  
+[306]   [32m+[39m correct mixed case gzip decodes the body [2m26ms[0m  
+[306]   [32m+[39m chunked range obeys its content range without content length [2m26ms[0m  
+[306]   [32m+[39m short chunked range cannot publish a partial artifact [2m15ms[0m  
+[306]   [32m+[39m empty close delimited response is a valid empty artifact [2m23ms[0m  
+[306]   [32m+[39m correct deflate body decodes without comparing decoded and wire lengths [2m12ms[0m  
+[306]   [32m+[39m concurrent callers never publish the same short artifact [2m85ms[0m  
+[306]   [32m+[39m concurrent callers share one correct artifact download [2m43ms[0m  
+[306]   [32m+[39m HEAD metadata length does not require response bytes [2m72ms[0m  
+[306]   [32m+[39m chunked range must consume the closing chunk before publishing [2m10ms[0m  
+[306]   [32m+[39m chunked range rejects data beyond its stated range [2m11ms[0m  
+[306]   [32m+[39m range data stays temporary until the closing chunk arrives [2m13ms[0m  
+[306]   [32m+[39m no body status with a saved prefix is rejected and cleaned [2m37ms[0m  
+[306]   [32m+[39m unknown and empty encodings cannot publish response bytes [2m118ms[0m  
+[306]   [32m+[39m mixed case deflate is decoded [2m31ms[0m  
+[306]   [32m+[39m chunked gzip validates the closing chunk after its trailer [2m25ms[0m  
+[306]   [32m+[39m valid chunked gzip is decoded through the closing chunk [2m14ms[0m  
+[306]   [32m+[39m complete framing cannot hide an incomplete gzip trailer [2m11ms[0m  
+[306]   [32m+[39m invalid gzip header removes a saved temporary prefix [2m23ms[0m  
+[306]   [32m+[39m encoded resume cannot append decoded bytes to an earlier representation [2m9ms[0m  
+[306]   [32m+[39m gzip decoder completion still checks the declared response length [2m14ms[0m  
+[306]   [32m+[39m deflate decoder completion still checks the declared response length [2m12ms[0m  
+[306]   [32m+[39m chunked deflate validates the closing chunk after decoding [2m13ms[0m  
+[306]   [32m+[39m valid chunked deflate is decoded through the closing chunk [2m22ms[0m  
+[306]   [32m+[39m mixed case stacked content codings decode in reverse order [2m20ms[0m  
+[306]   [32m+[39m corrupt gzip trailer cannot publish decoded data [2m10ms[0m  
+[306]   [32m+[39m corrupt deflate checksum cannot publish decoded data [2m18ms[0m  
+[306]   [32m+[39m gzip members in separate chunks all decode before publication [2m17ms[0m  
+[306]   [32m+[39m empty encoded body with one byte buffer still validates its trailer [2m8ms[0m  
+[306]   [32m+[39m body bearing successful statuses retain their complete artifact bytes [2m37ms[0m  
+[306]   [32m+[39m encoded download output error is not reported as a coding error [2m10ms[0m  
+[306]   [31mX[39m HTTP error responses retain their complete original download error [2m95ms[0m 
+[306]     [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]     [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]       url = [32m"http://127.0.0.1:43707/artifact"[39m,
+[306]       result = [33mLeft[39m(
+[306]         value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+[306]       ),
+[306]       requests = [33mList[39m(
+[306]         [32m"""GET /artifact HTTP/1.1[39m
+[306]     [32mUser-Agent: Coursier/2.0[39m
+[306]     [32mAccept: */*[39m
+[306]     [32mRange: bytes=3-[39m
+[306]     [32mHost: 127.0.0.1:43707[39m
+[306]     [32mConnection: keep-alive[39m
+[306]     [32m[39m
+[306]     [32m"""[39m
+[306]       ),
+[306]       progress = [33mList[39m(),
+[306]       downloadResults = [33mList[39m(([32m"http://127.0.0.1:43707/artifact"[39m, [32mfalse[39m)),
+[306]       finalExists = [32mfalse[39m,
+[306]       temporaryExists = [32mfalse[39m,
+[306]       temporaryBytes = [33mArray[39m(),
+[306]       pendingState = [32mNone[39m,
+[306]     ...
+[306]     [36mexpected[39m: [32mString[39m = [32m"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact"[39m
+[306]     [36merrorMessage(observation) != Some(expected)[39m:
+[306]       [33mSome[39m(
+[306]     [41m-   value = "[4mU[24mne[4mxp[24me[4mc[24mted HTTP s[4mtatu[24ms 500 fr[4mom[24m http://127.0.0.1:43707/artifa[4mct: expe[24mct[4med a[24m [4msucc[24me[4mssful[24m [4mresp[24mon[4mse w[24mi[4mth a[24mn artifact[4m body[24m"[49m
+[306]     [42m+   value = "[4mCaught java.io.IOExceptio[24mn[4m (Serv[24me[4mr r[24met[4murn[24med HTTP [4mre[24ms[4mpon[24ms[4me code:[24m 500 f[4mo[24mr[4m URL:[24m http://127.0.0.1:43707/artifact[4m)[24m [4mwhil[24me [4md[24mo[4mw[24mn[4mload[24min[4mg[24m [4mhttp://127.0.0.1:43707/[24martifact"[49m
+[306]       )
+[306]       [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$66[39m([91mDownloadResponseFramingTests.scala[39m:[91m828[39m)
+[306]   [31mX[39m close delimited response reports progress before its next body fragment [2m30024ms[0m 
+[306]     [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 3
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$scenario$11[39m([91mDownloadResponseFramingTests.scala[39m:[91m276[39m)
+[306]       [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91mscenario[39m([91mDownloadResponseFramingTests.scala[39m:[91m273[39m)
+[306]       [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$67[39m([91mDownloadResponseFramingTests.scala[39m:[91m834[39m)
+[306] ----------------------------------- Failures -----------------------------------
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error [2m95ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43707/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:43707/artifact: expected a successful response with an artifact body
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:43707[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43707/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43707/artifact) while downloading http://127.0.0.1:43707/artifact"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mU[24mne[4mxp[24me[4mc[24mted HTTP s[4mtatu[24ms 500 fr[4mom[24m http://127.0.0.1:43707/artifa[4mct: expe[24mct[4med a[24m [4msucc[24me[4mssful[24m [4mresp[24mon[4mse w[24mi[4mth a[24mn artifact[4m body[24m"[49m
+[306]   [42m+   value = "[4mCaught java.io.IOExceptio[24mn[4m (Serv[24me[4mr r[24met[4murn[24med HTTP [4mre[24ms[4mpon[24ms[4me code:[24m 500 f[4mo[24mr[4m URL:[24m http://127.0.0.1:43707/artifact[4m)[24m [4mwhil[24me [4md[24mo[4mw[24mn[4mload[24min[4mg[24m [4mhttp://127.0.0.1:43707/[24martifact"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$66[39m([91mDownloadResponseFramingTests.scala[39m:[91m828[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment [2m30024ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 3
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$scenario$11[39m([91mDownloadResponseFramingTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mscenario[39m([91mDownloadResponseFramingTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$67[39m([91mDownloadResponseFramingTests.scala[39m:[91m834[39m)
+[306] [31mX[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m21ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(firstResult.left.toOption.get.describe ==
+[306]   [36mfirstResult[39m: [32mEither[39m[[32mArtifactError[39m, [32mjava[39m.[32mio[39m.[32mFile[39m] = [33mLeft[39m(
+[306]     value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 500 from http://127.0.0.1:46225/artifact: expected a successful response with an artifact body
+[306]   )
+[306]   : [32mArtifact[39m = [33mArtifact[39m(
+[306]     url = [32m"http://127.0.0.1:46225/artifact"[39m,
+[306]     checksumUrls = [33mMap[39m(),
+[306]     extra = [33mMap[39m(),
+[306]     changing = [32mfalse[39m,
+[306]     optional = [32mfalse[39m,
+[306]     authentication = [32mNone[39m
+[306]   )
+[306]   : [32mArtifact[39m = [33mArtifact[39m(
+[306]     url = [32m"http://127.0.0.1:46225/artifact"[39m,
+[306]     checksumUrls = [33mMap[39m(),
+[306]     extra = [33mMap[39m(),
+[306]     changing = [32mfalse[39m,
+[306]     optional = [32mfalse[39m,
+[306]     authentication = [32mNone[39m
+[306]   )
+[306]   [36mfirstResult.left.toOption.get.describe != [39m:
+[306]   [41m- "download error: [4mU[24mne[4mxp[24me[4mc[24mted HTTP s[4mtatu[24ms 500 fr[4mom[24m http://127.0.0.1:46225/artifa[4mct: expe[24mct[4med a[24m [4msucc[24me[4mssful[24m [4mresp[24mon[4mse w[24mi[4mth a[24mn artifact[4m body[24m"[49m
+[306]   [42m+ "download error: [4mCaught java.io.IOExceptio[24mn[4m (Serv[24me[4mr r[24met[4murn[24med HTTP [4mre[24ms[4mpon[24ms[4me code:[24m 500 f[4mo[24mr[4m URL:[24m http://127.0.0.1:46225/artifact[4m)[24m [4mwhil[24me [4md[24mo[4mw[24mn[4mload[24min[4mg[24m [4mhttp://127.0.0.1:46225/[24martifact"[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheLocationOwnershipTests$.[91m$anonfun$tests$17[39m([91mFileCacheLocationOwnershipTests.scala[39m:[91m217[39m)
+[306] Tests: 40, Passed: 37, Failed: 3
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...ationOwnershipTests =============== 48s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 3 tests failed: 
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment
+  coursier.cache.FileCacheLocationOwnershipTests coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error

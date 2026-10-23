@@ -1,0 +1,196 @@
+=============== cache.jvm[2.13.16].test.testOnly...che.DownloadBufferCapacityTests ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known tiny response does not request an oversized transfer buffer [2m461ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known 199 byte POM uses its response length [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known one byte response uses a one byte buffer [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.identity response uses its uncompressed length [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.mixed case identity response uses its uncompressed length [2m35ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.deflate content encoding retains the default maximum [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known responses at the default boundary stay bounded [2m137ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known empty response keeps read buffers at one byte or less [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known empty response requests zero bytes from the response stream [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known body larger than configured maximum uses at most that maximum [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.unknown chunked response retains the default maximum [2m60ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.unknown identity response retains the default maximum [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.gzip response with known encoded length returns all decoded bytes [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.partial response resumes from the persisted prefix with a bounded read buffer [2m15ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response counts bytes across multiple reads [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length [2m25ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent [2m15ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact [2m24ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact [2m42ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download [2m38ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes [2m3ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unknown and empty encodings cannot publish response bytes [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes [2m38ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error [2m8ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.DownloadResponseFramingTests [2m431ms[0m
+[306]   [32m+[39m valid mixed case range unit completes the artifact [2m24ms[0m  
+[306]   [32m+[39m unsolicited 304 cannot publish an empty artifact [2m11ms[0m  
+[306]   [32m+[39m cut off chunked response removes temporary bytes [2m8ms[0m  
+[306]   [32m+[39m cut off gzip response removes temporary bytes [2m11ms[0m  
+[306]   [32m+[39m short other encoded response cannot publish partial bytes [2m7ms[0m  
+[306]   [32m+[39m correct mixed case gzip decodes the body [2m10ms[0m  
+[306]   [32m+[39m chunked range obeys its content range without content length [2m13ms[0m  
+[306]   [32m+[39m short chunked range cannot publish a partial artifact [2m7ms[0m  
+[306]   [32m+[39m empty close delimited response is a valid empty artifact [2m7ms[0m  
+[306]   [32m+[39m correct deflate body decodes without comparing decoded and wire lengths [2m7ms[0m  
+[306]   [32m+[39m concurrent callers never publish the same short artifact [2m42ms[0m  
+[306]   [32m+[39m concurrent callers share one correct artifact download [2m38ms[0m  
+[306]   [32m+[39m HEAD metadata length does not require response bytes [2m3ms[0m  
+[306]   [32m+[39m chunked range must consume the closing chunk before publishing [2m5ms[0m  
+[306]   [32m+[39m chunked range rejects data beyond its stated range [2m7ms[0m  
+[306]   [32m+[39m range data stays temporary until the closing chunk arrives [2m12ms[0m  
+[306]   [32m+[39m no body status with a saved prefix is rejected and cleaned [2m22ms[0m  
+[306]   [32m+[39m unknown and empty encodings cannot publish response bytes [2m26ms[0m  
+[306]   [32m+[39m mixed case deflate is decoded [2m5ms[0m  
+[306]   [32m+[39m chunked gzip validates the closing chunk after its trailer [2m7ms[0m  
+[306]   [32m+[39m valid chunked gzip is decoded through the closing chunk [2m8ms[0m  
+[306]   [32m+[39m complete framing cannot hide an incomplete gzip trailer [2m14ms[0m  
+[306]   [32m+[39m invalid gzip header removes a saved temporary prefix [2m5ms[0m  
+[306]   [32m+[39m encoded resume cannot append decoded bytes to an earlier representation [2m7ms[0m  
+[306]   [32m+[39m gzip decoder completion still checks the declared response length [2m10ms[0m  
+[306]   [32m+[39m deflate decoder completion still checks the declared response length [2m8ms[0m  
+[306]   [32m+[39m chunked deflate validates the closing chunk after decoding [2m8ms[0m  
+[306]   [32m+[39m valid chunked deflate is decoded through the closing chunk [2m8ms[0m  
+[306]   [32m+[39m mixed case stacked content codings decode in reverse order [2m6ms[0m  
+[306]   [32m+[39m corrupt gzip trailer cannot publish decoded data [2m7ms[0m  
+[306]   [32m+[39m corrupt deflate checksum cannot publish decoded data [2m10ms[0m  
+[306]   [32m+[39m gzip members in separate chunks all decode before publication [2m14ms[0m  
+[306]   [32m+[39m empty encoded body with one byte buffer still validates its trailer [2m8ms[0m  
+[306]   [32m+[39m body bearing successful statuses retain their complete artifact bytes [2m38ms[0m  
+[306]   [32m+[39m encoded download output error is not reported as a coding error [2m8ms[0m  
+[306] - coursier.cache.DownloadLengthIntegrityTests [2m467ms[0m
+[306]   [32m+[39m zero buffer size is rejected before creating a temporary file [2m26ms[0m  
+[306]   [32m+[39m negative buffer size is rejected before creating a temporary file [2m10ms[0m  
+[306]   [32m+[39m short fixed-length response does not publish a partial artifact [2m16ms[0m  
+[306]   [32m+[39m empty body with positive fixed length is an incomplete response [2m8ms[0m  
+[306]   [32m+[39m short fixed-length response counts bytes across multiple reads [2m9ms[0m  
+[306]   [32m+[39m partial body remains temporary until the connection reaches EOF [2m12ms[0m  
+[306]   [32m+[39m exact fixed-length response publishes all bytes [2m8ms[0m  
+[306]   [32m+[39m zero length response ignores trailing bytes [2m16ms[0m  
+[306]   [32m+[39m fragmented fixed-length response does not expose bytes after its length [2m25ms[0m  
+[306]   [32m+[39m two byte buffer stays within the framed length after a fragmented read [2m19ms[0m  
+[306]   [32m+[39m close-delimited response reads through connection close [2m13ms[0m  
+[306]   [32m+[39m chunked framing takes precedence over a conflicting content length [2m12ms[0m  
+[306]   [32m+[39m gzip known length decodes fully with bounded progress increments [2m22ms[0m  
+[306]   [32m+[39m mixed case identity encoding is accepted [2m11ms[0m  
+[306]   [32m+[39m mixed case identity encoding still enforces a short length [2m6ms[0m  
+[306]   [32m+[39m negative content length is rejected [2m9ms[0m  
+[306]   [32m+[39m non-decimal content length is rejected [2m7ms[0m  
+[306]   [32m+[39m overflowing content length is rejected [2m8ms[0m  
+[306]   [32m+[39m empty content length is rejected [2m8ms[0m  
+[306]   [32m+[39m content length at Int max reports the received byte count [2m7ms[0m  
+[306]   [32m+[39m content length above Int max reports the received byte count [2m10ms[0m  
+[306]   [32m+[39m five gigabyte content length reports the received byte count [2m5ms[0m  
+[306]   [32m+[39m Long max content length reports the received byte count [2m12ms[0m  
+[306]   [32m+[39m redirect body length does not replace the final response length [2m15ms[0m  
+[306]   [32m+[39m short final response after redirect reports the original artifact URL [2m10ms[0m  
+[306]   [32m+[39m valid range response resumes the existing prefix [2m6ms[0m  
+[306]   [32m+[39m valid range response can frame the suffix without content length [2m6ms[0m  
+[306]   [32m+[39m range response with an incorrect start is rejected without restarting [2m7ms[0m  
+[306]   [32m+[39m range response without content range is rejected [2m9ms[0m  
+[306]   [32m+[39m malformed content range is rejected with its exact value [2m10ms[0m  
+[306]   [32m+[39m range end mismatch is rejected [2m7ms[0m  
+[306]   [32m+[39m range total mismatch is rejected [2m7ms[0m  
+[306]   [32m+[39m unknown range total is rejected [2m12ms[0m  
+[306]   [32m+[39m range ending at or beyond the total is rejected [2m8ms[0m  
+[306]   [32m+[39m overflowing range start is rejected [2m5ms[0m  
+[306]   [32m+[39m overflowing range end is rejected [2m8ms[0m  
+[306]   [32m+[39m overflowing range total is rejected [2m6ms[0m  
+[306]   [32m+[39m content length conflicting with range is rejected [2m12ms[0m  
+[306]   [32m+[39m unsolicited range response must start at byte zero [2m6ms[0m  
+[306]   [32m+[39m range response from byte zero can satisfy a full download [2m13ms[0m  
+[306]   [32m+[39m server ignoring range with a full response replaces the prefix [2m11ms[0m  
+[306]   [32m+[39m short range response with content length removes its temporary file [2m15ms[0m  
+[306]   [32m+[39m short range response uses content range length when content length is absent [2m15ms[0m  
+[306] - coursier.cache.DownloadBufferCapacityTests [2m869ms[0m
+[306]   [32m+[39m known tiny response does not request an oversized transfer buffer [2m461ms[0m  
+[306]   [32m+[39m known 199 byte POM uses its response length [2m15ms[0m  
+[306]   [32m+[39m known one byte response uses a one byte buffer [2m21ms[0m  
+[306]   [32m+[39m identity response uses its uncompressed length [2m22ms[0m  
+[306]   [32m+[39m mixed case identity response uses its uncompressed length [2m35ms[0m  
+[306]   [32m+[39m deflate content encoding retains the default maximum [2m21ms[0m  
+[306]   [32m+[39m known responses at the default boundary stay bounded [2m137ms[0m  
+[306]   [32m+[39m known empty response keeps read buffers at one byte or less [2m16ms[0m  
+[306]   [32m+[39m known empty response requests zero bytes from the response stream [2m16ms[0m  
+[306]   [32m+[39m known body larger than configured maximum uses at most that maximum [2m20ms[0m  
+[306]   [32m+[39m unknown chunked response retains the default maximum [2m60ms[0m  
+[306]   [32m+[39m unknown identity response retains the default maximum [2m18ms[0m  
+[306]   [32m+[39m gzip response with known encoded length returns all decoded bytes [2m12ms[0m  
+[306]   [32m+[39m partial response resumes from the persisted prefix with a bounded read buffer [2m15ms[0m  
+[306] 
+[306] Tests: 92, Passed: 92, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...wnloadBufferCapacityTests =============== 6s

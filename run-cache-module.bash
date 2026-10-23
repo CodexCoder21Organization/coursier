@@ -3,9 +3,9 @@ set -eu
 repo_dir=$1
 evidence_dir=$(cd "$(dirname "$0")" && pwd)
 slot=/tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/out/full-suite.lock
-deadline=$((SECONDS+10800))
+deadline=$(( $(cat "$evidence_dir/cache-slot-start.epoch") + 10800 ))
 while ! mkdir "$slot" 2>/dev/null; do
-  if (( SECONDS >= deadline )); then
+  if (( $(date +%s) >= deadline )); then
     date -u '+%Y-%m-%d %H:%M:%S UTC PROBLEM: cache-module slot wait reached three hours' >> "$evidence_dir/cache-slot.log"
     exit 1
   fi

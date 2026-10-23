@@ -59,3 +59,40 @@ OBSERVED: The new scenarios use `FileCache.file(Artifact(url))` with a real loop
 ## Review result
 
 Two implementation concerns are supported above: F1 is a response-status compatibility regression, and F2 is a misleading error classification for encoded downloads. The A1–A7 and six requested coverage groups have source-level tests. No product changes, test runs, builds, pushes, merges, or external requests were made in this review.
+
+## Follow-up review — head `dd9cd1e0a0b25419d41abcdd6996b29733d2f949`
+
+### Reading and limits
+
+The first-pass reading list above remains applicable. For this follow-up I inspected the diff from `59b7363cafa357bea8a6253c2922fcce014066e6` to this head, the changed portions of `Downloader.scala` and `DownloadResponseFramingTests.scala`, and the test OS matrix in `.github/workflows/ci.yml`. The checkout was clean at the reviewed head. I did not run tests or builds; the before-fix 33/35 result is reported by the parent and was not independently verified here.
+
+### Prior findings
+
+- **F1 — PASS, addressed in source. OBSERVED:** `Downloader.scala:254–258` now allows 2xx responses other than 204 and 205. The added loopback case at `DownloadResponseFramingTests.scala:797–802` checks complete artifact bytes for 201, 202, 203, and 207. Existing no-body rejection coverage remains for 204/205 and unsolicited 304 (`DownloadResponseFramingTests.scala:397–400, 594–603`). This matches the stated body-bearing-success behavior.
+- **F2 — PASS, addressed in source. OBSERVED:** `Downloader.scala:323–337` wraps decoder construction, then wraps only decoder reads in `DecodingInputStream` (`Downloader.scala:930–955`). Raw response reads convert their own I/O failures to response-framing errors (`Downloader.scala:887–897`). File open/write, `response.finish`, and output close at `Downloader.scala:342–364` sit outside the decoding-error wrapper, so those failures retain their generic file/response path. The added output-directory case at `DownloadResponseFramingTests.scala:804–814` checks that a gzip download's file-open error is not labeled as an encoding error.
+
+### New changed-line concern
+
+- **F3 — INFER, test portability risk:** `DownloadResponseFramingTests.scala:812` hard-codes the Linux error class and message `java.nio.file.FileSystemException (...: Is a directory)`. The test matrix includes `windows-latest` at `.github/workflows/ci.yml:72` as well as macOS at lines 68–71. Opening an existing directory for output can map to a different exception class/message on Windows (for example, an access-denied filesystem error), so this exact assertion may fail on that supported test platform even though the product behavior is correct. **Suggested check:** run this focused case on the Windows matrix. If it differs, keep the real filesystem setup and full assertion, but account for the platform-specific exception class/message in the expected error; do not weaken it to a substring-only check. I did not execute it on Windows, so this remains an inference.
+
+### Other changed-line check
+
+**PASS — OBSERVED:** The accepted-status predicate preserves rejection of all non-2xx responses and explicitly excludes 204/205; the new status test covers several other 2xx codes. Decoder-construction failure closes the previous stream through the surrounding `finally` (`Downloader.scala:319–364`), and the explicit inflater still ends on close (`327–332`). The raw read wrapper's framing conversion occurs before decoder reads, so an underlying response I/O error is not relabeled as a coding error. I found no other concrete regression in these changed lines.
+
+## Final follow-up — portable output-error assertion
+
+**Reviewed source:** `verify/FCOURS4-portable-error-before` (`20cf972a1e1510b79e9eb20099d3c3689b2ef551`), reading `modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala` with `git show`. This is a test-only review fixture; its restored broad production catch is intentional setup for the parent's fail-first check and is not treated as final product code. No tests or builds were run.
+
+**F3 — PASS, portability concern resolved. OBSERVED:** The fixture creates the same temporary path as a directory, obtains the host's complete native exception by calling public `utest` `assertThrows[java.io.IOException]` around `Files.newOutputStream(temporaryFile.toPath).close()` (`DownloadResponseFramingTests.scala:255–264`), and records the exception class, full message, and URL. The actual FileCache download must then return exactly that full error string (`813–822`), while `downloadErrorIs` also checks that final and temporary cache entries are absent (`355–360`). This avoids assuming Linux's exception class or wording while keeping a complete assertion; it neither skips platforms nor accepts a message fragment. With the parent-reported fail-first result, the assertion also distinguishes generic output-I/O propagation from the old encoding-error label. The earlier Windows portability concern is therefore resolved at source level.
+
+**Final verdict:** The two implementation findings were addressed in source at head `dd9cd1e0a0b25419d41abcdd6996b29733d2f949`; the output-error regression test now derives portable full-text expectations from the same native filesystem operation. No additional concrete concern was found in the reviewed correction.
+
+## Final source follow-up — head `54ca4daea0fab025e1554991034c464ecd56cfae`
+
+**Reading and limits:** I inspected the commit-to-commit source and test delta from the previously cleared `dd9cd1e0a0b25419d41abcdd6996b29733d2f949`, and read the resulting source with `git show`. The working tree was intentionally set up for a separate test-only fail-first check; I assessed the committed head, not that working-tree variation. The 37/40 pre-fix outcome and exact failing tests are reported by the parent, not independently run here. No builds or tests were run.
+
+**Prior status/error behavior — PASS. OBSERVED:** `Downloader.scala:254–258` now applies the new status rejection only when `code < 400`. The earlier special 401/403/404 outcomes remain before this guard (`247–252`), while 500 reaches the existing `conn.getInputStream` path, which preserves the JDK `IOException` text. The new real-server case asserts the complete original 500 message (`DownloadResponseFramingTests.scala:825–829`). This restores the previous error contract without undoing the accepted body-bearing 2xx responses or 204/205 checks.
+
+**Close-delimited progress — PASS. OBSERVED:** `ResponseInputStream` now records whether content is encoded (`Downloader.scala:310–318, 863–870`). Its `available()` continues to return the end signal when framing is complete, preserves the positive lookahead signal for encoded data, and delegates to the underlying response stream for unencoded data (`919–925`). This avoids claiming that another byte is immediately readable for a plain close-delimited response while retaining encoded-stream lookahead. The new split-body test gates the peer after the first three bytes and checks that those bytes reached the temporary file and public progress before releasing the next fragment (`DownloadResponseFramingTests.scala:831–839`). The previously reported existing location-ownership failure is consistent with loss of the 500 error path; that test was not edited in this diff.
+
+**Final verdict:** Both newly reported regressions are addressed by the reviewed source delta. The 500 path preserves its original error, and `available()` now distinguishes raw from encoded response streams for progress and decoder lookahead. No additional concrete concern was found in these changes. These are source-level conclusions; the parent's post-fix test runs remain the execution evidence.

@@ -52,7 +52,7 @@ object DownloadResponseFramingTests extends TestSuite {
     temporaryBytes: Array[Byte],
     pendingState: Option[FileState],
     allResults: List[Either[ArtifactError, Array[Byte]]],
-    temporaryPath: String
+    outputErrorMessage: Option[String]
   )
 
   private final class RecordingLogger() extends CacheLogger {
@@ -252,8 +252,17 @@ object DownloadResponseFramingTests extends TestSuite {
         .withLogger(logger)
       val finalFile     = cache.localFile(url)
       val temporaryFile = CachePath.temporaryFile(finalFile)
-      if (temporaryDirectory)
-        Files.createDirectories(temporaryFile.toPath)
+      val expectedOutputError =
+        if (temporaryDirectory) {
+          Files.createDirectories(temporaryFile.toPath)
+          val error = assertThrows[java.io.IOException] {
+            Files.newOutputStream(temporaryFile.toPath).close()
+          }
+          Some(
+            s"Caught ${error.getClass.getName}${Option(error.getMessage).fold("")(" (" + _ + ")")} while downloading $url"
+          )
+        }
+        else None
       if (prefix.nonEmpty) {
         Files.createDirectories(temporaryFile.toPath.getParent)
         Files.write(temporaryFile.toPath, prefix)
@@ -293,7 +302,7 @@ object DownloadResponseFramingTests extends TestSuite {
         observedFileState.temporaryBytes,
         pendingState,
         results,
-        temporaryFile.toString
+        expectedOutputError
       )
     }
     finally {
@@ -809,8 +818,31 @@ object DownloadResponseFramingTests extends TestSuite {
       )
       downloadErrorIs(
         o,
-        s"Caught java.nio.file.FileSystemException (${o.temporaryPath}: Is a directory) while downloading ${o.url}"
+        o.outputErrorMessage.get
       )
+    }
+
+    test("HTTP error responses retain their complete original download error") {
+      val o = scenario(
+        List(response("500 Internal Server Error", Seq("Content-Length" -> "0"), Nil)),
+        prefix = body.take(3)
+      )
+      downloadErrorIs(
+        o,
+        s"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: ${o.url}) while downloading ${o.url}"
+      )
+    }
+
+    test("close delimited response reports progress before its next body fragment") {
+      val release = new CountDownLatch(1)
+      val reply =
+        Reply("200 OK", Nil, List(body.take(3), body.drop(3)), Some(ProgressGate(3, release)))
+      val o       = scenario(List(reply), inspectWhilePaused = Some((3, release)))
+      val pending = o.pendingState.get
+      assert(!pending.finalExists)
+      assert(pending.temporaryExists)
+      assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
+      successfulDownloadIs(o, body)
     }
   }
 }

@@ -39,7 +39,7 @@ index 40c097342..a9e9b9c68 100644
    private[coursier] def contentRangeLength(
      conn: URLConnection,
 diff --git a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
-index 52704c45c..cf57d856c 100644
+index 52704c45c..747a86e45 100644
 --- a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
 +++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
 @@ -7,7 +7,7 @@ import java.nio.file.{AccessDeniedException, Files, StandardCopyOption, Standard
@@ -63,7 +63,7 @@ index 52704c45c..cf57d856c 100644
          else if (respCodeOpt.contains(401))
            Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
          else {
-+          for (code <- respCodeOpt if code / 100 != 2 || code == 204 || code == 205)
++          for (code <- respCodeOpt if code < 400 && (code / 100 != 2 || code == 204 || code == 205))
 +            throw new ArtifactError.DownloadError(
 +              s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body",
 +              None
@@ -99,7 +99,7 @@ index 52704c45c..cf57d856c 100644
            val expectedLength = if (uncompressed) rangeLength.orElse(responseLength) else None
  
            for (len0 <- rangeLength.orElse(responseLength))
-@@ -284,17 +307,38 @@ import scala.util.control.NonFatal
+@@ -284,17 +307,39 @@ import scala.util.control.NonFatal
                math.min(bufferSize.toLong, math.max(1L, length)).toInt
              )
  
@@ -117,6 +117,7 @@ index 52704c45c..cf57d856c 100644
 +            url,
 +            rangeLength.orElse(responseLength),
 +            bounded = responseLength.nonEmpty,
++            encoded = !uncompressed,
 +            chunked = Option(conn.getHeaderField("Transfer-Encoding"))
 +              .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
 +          )
@@ -147,7 +148,7 @@ index 52704c45c..cf57d856c 100644
                val out = CacheLocks.withStructureLock(location) {
                  Util.createDirectories(tmp.toPath.getParent)
                  if (partialDownload)
-@@ -302,7 +346,8 @@ import scala.util.control.NonFatal
+@@ -302,7 +347,8 @@ import scala.util.control.NonFatal
                  else
                    Files.newOutputStream(tmp.toPath)
                }
@@ -157,7 +158,7 @@ index 52704c45c..cf57d856c 100644
                    in,
                    out,
                    logger,
-@@ -311,6 +356,9 @@ import scala.util.control.NonFatal
+@@ -311,6 +357,9 @@ import scala.util.control.NonFatal
                    downloadBufferSize,
                    expectedLength
                  )
@@ -167,7 +168,7 @@ index 52704c45c..cf57d856c 100644
                finally out.close()
              }
              finally in.close()
-@@ -338,18 +386,21 @@ import scala.util.control.NonFatal
+@@ -338,18 +387,21 @@ import scala.util.control.NonFatal
  
            Blocking.doTouchCheckFile(file, url, updateLinks = true)
  
@@ -196,7 +197,7 @@ index 52704c45c..cf57d856c 100644
      }
  
      def checkDownload(
-@@ -807,6 +858,102 @@ object Downloader {
+@@ -807,6 +859,105 @@ object Downloader {
  
    private val checksumHeader = Seq("MD5", "SHA1", "SHA256")
  
@@ -206,6 +207,7 @@ index 52704c45c..cf57d856c 100644
 +    url: String,
 +    expectedLength: Option[Long],
 +    bounded: Boolean,
++    encoded: Boolean,
 +    chunked: Boolean
 +  ) extends InputStream {
 +    private var count0 = 0L
@@ -259,7 +261,9 @@ index 52704c45c..cf57d856c 100644
 +    // gzip uses available() to decide whether another member may follow its trailer.
 +    // Even when the next chunk has not arrived, it must read through the message ending.
 +    override def available(): Int =
-+      if (ended || (bounded && expectedLength.contains(count0))) 0 else 1
++      if (ended || (bounded && expectedLength.contains(count0))) 0
++      else if (encoded) 1
++      else underlying.available()
 +
 +    def finish(bufferSize: Int): Unit = {
 +      val buffer = new Array[Byte](bufferSize)
@@ -325,10 +329,10 @@ index 10b7db571..db72d34a0 100644
  
 diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
 new file mode 100644
-index 000000000..e6e1b3e2e
+index 000000000..b9d40a941
 --- /dev/null
 +++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
-@@ -0,0 +1,816 @@
+@@ -0,0 +1,848 @@
 +package coursier.cache
 +
 +import java.io.ByteArrayOutputStream
@@ -383,7 +387,7 @@ index 000000000..e6e1b3e2e
 +    temporaryBytes: Array[Byte],
 +    pendingState: Option[FileState],
 +    allResults: List[Either[ArtifactError, Array[Byte]]],
-+    temporaryPath: String
++    outputErrorMessage: Option[String]
 +  )
 +
 +  private final class RecordingLogger() extends CacheLogger {
@@ -583,8 +587,17 @@ index 000000000..e6e1b3e2e
 +        .withLogger(logger)
 +      val finalFile     = cache.localFile(url)
 +      val temporaryFile = CachePath.temporaryFile(finalFile)
-+      if (temporaryDirectory)
-+        Files.createDirectories(temporaryFile.toPath)
++      val expectedOutputError =
++        if (temporaryDirectory) {
++          Files.createDirectories(temporaryFile.toPath)
++          val error = assertThrows[java.io.IOException] {
++            Files.newOutputStream(temporaryFile.toPath).close()
++          }
++          Some(
++            s"Caught ${error.getClass.getName}${Option(error.getMessage).fold("")(" (" + _ + ")")} while downloading $url"
++          )
++        }
++        else None
 +      if (prefix.nonEmpty) {
 +        Files.createDirectories(temporaryFile.toPath.getParent)
 +        Files.write(temporaryFile.toPath, prefix)
@@ -624,7 +637,7 @@ index 000000000..e6e1b3e2e
 +        observedFileState.temporaryBytes,
 +        pendingState,
 +        results,
-+        temporaryFile.toString
++        expectedOutputError
 +      )
 +    }
 +    finally {
@@ -1140,8 +1153,31 @@ index 000000000..e6e1b3e2e
 +      )
 +      downloadErrorIs(
 +        o,
-+        s"Caught java.nio.file.FileSystemException (${o.temporaryPath}: Is a directory) while downloading ${o.url}"
++        o.outputErrorMessage.get
 +      )
++    }
++
++    test("HTTP error responses retain their complete original download error") {
++      val o = scenario(
++        List(response("500 Internal Server Error", Seq("Content-Length" -> "0"), Nil)),
++        prefix = body.take(3)
++      )
++      downloadErrorIs(
++        o,
++        s"Caught java.io.IOException (Server returned HTTP response code: 500 for URL: ${o.url}) while downloading ${o.url}"
++      )
++    }
++
++    test("close delimited response reports progress before its next body fragment") {
++      val release = new CountDownLatch(1)
++      val reply =
++        Reply("200 OK", Nil, List(body.take(3), body.drop(3)), Some(ProgressGate(3, release)))
++      val o       = scenario(List(reply), inspectWhilePaused = Some((3, release)))
++      val pending = o.pendingState.get
++      assert(!pending.finalExists)
++      assert(pending.temporaryExists)
++      assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
++      successfulDownloadIs(o, body)
 +    }
 +  }
 +}

@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="35" failures="1" errors="0" skipped="0" time="1.514">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="35" failures="1" errors="0" skipped="0" time="1.514" timestamp="2026-10-23T02:14:20">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid mixed case range unit completes the artifact" time="0.654">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unsolicited 304 cannot publish an empty artifact" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off chunked response removes temporary bytes" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off gzip response removes temporary bytes" time="0.045">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short other encoded response cannot publish partial bytes" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct mixed case gzip decodes the body" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range obeys its content range without content length" time="0.028">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short chunked range cannot publish a partial artifact" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty close delimited response is a valid empty artifact" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct deflate body decodes without comparing decoded and wire lengths" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers never publish the same short artifact" time="0.049">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers share one correct artifact download" time="0.045">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HEAD metadata length does not require response bytes" time="0.083">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range must consume the closing chunk before publishing" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range rejects data beyond its stated range" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="range data stays temporary until the closing chunk arrives" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="no body status with a saved prefix is rejected and cleaned" time="0.037">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unknown and empty encodings cannot publish response bytes" time="0.038">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case deflate is decoded" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked gzip validates the closing chunk after its trailer" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked gzip is decoded through the closing chunk" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="complete framing cannot hide an incomplete gzip trailer" time="0.028">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="invalid gzip header removes a saved temporary prefix" time="0.032">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded resume cannot append decoded bytes to an earlier representation" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip decoder completion still checks the declared response length" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="deflate decoder completion still checks the declared response length" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked deflate validates the closing chunk after decoding" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked deflate is decoded through the closing chunk" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case stacked content codings decode in reverse order" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt gzip trailer cannot publish decoded data" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt deflate checksum cannot publish decoded data" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip members in separate chunks all decode before publication" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoded body with one byte buffer still validates its trailer" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="body bearing successful statuses retain their complete artifact bytes" time="0.036">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded download output error is not reported as a coding error" time="0.078">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38077/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=4096-
+Host: 127.0.0.1:38077
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:38077/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Left(
+      value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+    )
+  ),
+  outputErrorMessage = Some(
+    value = &quot;Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact&quot;
+  )
+)
+expected: String = &quot;Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)&quot;
++   value = &quot;Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact&quot;
+  )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38077/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=4096-
+Host: 127.0.0.1:38077
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:38077/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Left(
+      value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)
+    )
+  ),
+  outputErrorMessage = Some(
+    value = &quot;Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact&quot;
+  )
+)
+expected: String = &quot;Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:38077/artifact: expected a complete decoded body, received 10 response bytes (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory)&quot;
++   value = &quot;Caught java.nio.file.FileSystemException (/tmp/download-length-integrity8183500261461050840/http/127.0.0.1%3A38077/.artifact.part: Is a directory) while downloading http://127.0.0.1:38077/artifact&quot;
+  )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadResponseFramingTests$.downloadErrorIs(DownloadResponseFramingTests.scala:356)
+    at coursier.cache.DownloadResponseFramingTests$.$anonfun$tests$65(DownloadResponseFramingTests.scala:821)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite>
+      </testsuites>

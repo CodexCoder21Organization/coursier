@@ -37,5 +37,5 @@ for iteration in range(1, 31):
     print(json.dumps(summary),flush=True)
     if result.returncode in (137, -9):
         (out/(label+'-memory.events')).write_text(Path('/sys/fs/cgroup/memory.events').read_text())
-    if result.returncode or failures or len(cases) != 92 or len(set(names)) != 92:
+    if result.returncode or failures or len(cases) != 94 or len(set(names)) != 94:
         sys.exit(1)

@@ -1,0 +1,13 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.DownloadResponseFramingTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [error] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala:258:23: not found: value intercept
+[290] [error]           val error = intercept[java.io.IOException] {
+[290] [error]                       ^
+[290] [error] one error found
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...esponseFramingTests =============== 21s
+1 tasks failed
+cache.jvm[2.13.16].test.compile Compilation failed
