@@ -1,0 +1,50 @@
+[
+  {
+    "phase": "head-probes-started",
+    "cases": 24,
+    "pass": 23,
+    "fail": 1,
+    "errors": 0,
+    "skips": 0,
+    "firstAttempts": 24,
+    "qualifiedEvents": 24,
+    "retries": 0,
+    "maxObservedJavaProcesses": 2
+  },
+  {
+    "phase": "head-stream",
+    "cases": 4,
+    "pass": 4,
+    "fail": 0,
+    "errors": 0,
+    "skips": 0,
+    "firstAttempts": 4,
+    "qualifiedEvents": 4,
+    "retries": 0,
+    "maxObservedJavaProcesses": 2
+  },
+  {
+    "phase": "head-framing",
+    "cases": 103,
+    "pass": 103,
+    "fail": 0,
+    "errors": 0,
+    "skips": 0,
+    "firstAttempts": 103,
+    "qualifiedEvents": 103,
+    "retries": 0,
+    "maxObservedJavaProcesses": 2
+  },
+  {
+    "phase": "main-probes",
+    "cases": 28,
+    "pass": 12,
+    "fail": 16,
+    "errors": 0,
+    "skips": 0,
+    "firstAttempts": 28,
+    "qualifiedEvents": 28,
+    "retries": 0,
+    "maxObservedJavaProcesses": 2
+  }
+]

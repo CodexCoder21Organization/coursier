@@ -1,0 +1,7 @@
+{
+  "changedTestPaths": [
+    "A\tmodules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala"
+  ],
+  "reflectionOrMockTokens": [],
+  "diffCheck": 0
+}

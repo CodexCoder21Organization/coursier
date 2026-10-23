@@ -1,0 +1,10 @@
+{
+  "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala": {
+    "pinnedGitBlob": "5c12118481e60a7c1de4616b0148f501fbc15fb2",
+    "worktreeGitBlob": "5c12118481e60a7c1de4616b0148f501fbc15fb2"
+  },
+  "modules/cache/jvm/src/main/scala/coursier/cache/internal/GzipInputStream.scala": {
+    "pinnedGitBlob": "3d8c06bb9163ea8962402d9d7718f1c645c4905c",
+    "worktreeGitBlob": "3d8c06bb9163ea8962402d9d7718f1c645c4905c"
+  }
+}

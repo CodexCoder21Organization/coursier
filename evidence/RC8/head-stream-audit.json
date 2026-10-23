@@ -1,0 +1,42 @@
+{
+  "phase": "head-stream",
+  "cases": 4,
+  "pass": 4,
+  "fail": 0,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 4,
+  "qualifiedEvents": 4,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.Rc8StreamingTests",
+      "name": "gzip streams large responses into the cache",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "4.237"
+    },
+    {
+      "suite": "coursier.cache.Rc8StreamingTests",
+      "name": "deflate inside gzip streams large responses into the cache",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "4.834"
+    },
+    {
+      "suite": "coursier.cache.Rc8StreamingTests",
+      "name": "gzip inside deflate streams large responses into the cache",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "4.951"
+    },
+    {
+      "suite": "coursier.cache.Rc8StreamingTests",
+      "name": "identity streams large responses into the cache",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.601"
+    }
+  ]
+}

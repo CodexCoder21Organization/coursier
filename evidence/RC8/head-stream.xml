@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="4" failures="0" errors="0" skipped="0" time="14.623">
+        <testsuite name="coursier.cache.Rc8StreamingTests" tests="4" failures="0" errors="0" skipped="0" time="14.623" timestamp="2026-10-23T09:34:34">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.Rc8StreamingTests" name="gzip streams large responses into the cache" time="4.237">
+          
+        </testcase><testcase classname="coursier.cache.Rc8StreamingTests" name="deflate inside gzip streams large responses into the cache" time="4.834">
+          
+        </testcase><testcase classname="coursier.cache.Rc8StreamingTests" name="gzip inside deflate streams large responses into the cache" time="4.951">
+          
+        </testcase><testcase classname="coursier.cache.Rc8StreamingTests" name="identity streams large responses into the cache" time="0.601">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

@@ -1,0 +1,3245 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="28" failures="16" errors="0" skipped="0" time="41.416">
+        <testsuite name="coursier.cache.Rc8StreamingTests" tests="4" failures="0" errors="0" skipped="0" time="10.769" timestamp="2026-10-23T09:37:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.Rc8StreamingTests" name="gzip streams large responses into the cache" time="2.801">
+          
+        </testcase><testcase classname="coursier.cache.Rc8StreamingTests" name="deflate inside gzip streams large responses into the cache" time="3.77">
+          
+        </testcase><testcase classname="coursier.cache.Rc8StreamingTests" name="gzip inside deflate streams large responses into the cache" time="3.604">
+          
+        </testcase><testcase classname="coursier.cache.Rc8StreamingTests" name="identity streams large responses into the cache" time="0.594">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadEncodingIntegrityTests" tests="16" failures="13" errors="0" skipped="0" time="30.497" timestamp="2026-10-23T09:37:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="repeated encoding fields decode every layer in field order" time="0.253">
+          <failure message="assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38171/artifact&quot;,
+  result = Right(
+    value = Array(
+      31,
+      -117,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      75,
+      76,
+      74,
+      78,
+      73,
+      77,
+      3,
+      0,
+      -17,
+      57,
+      -114,
+      75,
+      6,
+      0,
+      0,
+      0
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:38171
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(26L),
+  downloadResults = List((&quot;http://127.0.0.1:38171/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        31,
+        -117,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        75,
+        76,
+        74,
+        78,
+        73,
+        77,
+        3,
+        0,
+        -17,
+        57,
+        -114,
+        75,
+        6,
+        0,
+        0,
+        0
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(
+-   value = ArraySeq(
+-     31,
+-     -117,
+-     8,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     -1,
+-     75,
+-     76,
+-     74,
+-     78,
+-     73,
+-     77,
+-     3,
+-     0,
+-     -17,
+-     57,
+-     -114,
+-     75,
+-     6,
+-     0,
+-     0,
+-     0
+-   )
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38171/artifact&quot;,
+  result = Right(
+    value = Array(
+      31,
+      -117,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      75,
+      76,
+      74,
+      78,
+      73,
+      77,
+      3,
+      0,
+      -17,
+      57,
+      -114,
+      75,
+      6,
+      0,
+      0,
+      0
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:38171
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(26L),
+  downloadResults = List((&quot;http://127.0.0.1:38171/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        31,
+        -117,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        75,
+        76,
+        74,
+        78,
+        73,
+        77,
+        3,
+        0,
+        -17,
+        57,
+        -114,
+        75,
+        6,
+        0,
+        0,
+        0
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(
+-   value = ArraySeq(
+-     31,
+-     -117,
+-     8,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     0,
+-     -1,
+-     75,
+-     76,
+-     74,
+-     78,
+-     73,
+-     77,
+-     3,
+-     0,
+-     -17,
+-     57,
+-     -114,
+-     75,
+-     6,
+-     0,
+-     0,
+-     0
+-   )
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.bytesAre(DownloadEncodingIntegrityTests.scala:340)
+    at coursier.cache.DownloadEncodingIntegrityTests$.successfulDownloadIs(DownloadEncodingIntegrityTests.scala:343)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$2(DownloadEncodingIntegrityTests.scala:412)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="a later identity field cannot hide an unsupported encoding" time="0.018">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44597/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44597
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44597/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Unsupported Content-Encoding 'custom, identity' from http://127.0.0.1:44597/artifact: expected identity, gzip, or deflate&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Unsupported Content-Encoding 'custom, identity' from http://127.0.0.1:44597/artifact: expected identity, gzip, or deflate&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44597/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44597
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44597/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Unsupported Content-Encoding 'custom, identity' from http://127.0.0.1:44597/artifact: expected identity, gzip, or deflate&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Unsupported Content-Encoding 'custom, identity' from http://127.0.0.1:44597/artifact: expected identity, gzip, or deflate&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$3(DownloadEncodingIntegrityTests.scala:422)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="a truncated later gzip member cannot publish earlier members" time="0.016">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:42663/artifact&quot;,
+  result = Right(value = Array(97, 98, 99)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:42663
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:42663/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:42663/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:42663/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:42663/artifact&quot;,
+  result = Right(value = Array(97, 98, 99)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:42663
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:42663/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:42663/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:42663/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$5(DownloadEncodingIntegrityTests.scala:438)
+    at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:192)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$4(DownloadEncodingIntegrityTests.scala:429)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="gzip reports decoded progress before the next compressed fragment" time="30.012">
+          <failure message="Timed out waiting for download progress to reach 3" type="java.lang.IllegalStateException">
+          java.lang.IllegalStateException: Timed out waiting for download progress to reach 3
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$scenario$11(DownloadEncodingIntegrityTests.scala:276)
+    at scala.Option.map(Option.scala:242)
+    at coursier.cache.DownloadEncodingIntegrityTests$.scenario(DownloadEncodingIntegrityTests.scala:273)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$6(DownloadEncodingIntegrityTests.scala:459)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="inner deflate EOF cannot hide a corrupt outer gzip trailer" time="0.02">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:35605/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:35605
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:35605/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:35605/artifact: expected a complete decoded body, received 34 response bytes (Corrupt GZIP trailer)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:35605/artifact: expected a complete decoded body, received 34 response bytes (Corrupt GZIP trailer)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:35605/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:35605
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:35605/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:35605/artifact: expected a complete decoded body, received 34 response bytes (Corrupt GZIP trailer)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:35605/artifact: expected a complete decoded body, received 34 response bytes (Corrupt GZIP trailer)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$10(DownloadEncodingIntegrityTests.scala:477)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="inner deflate EOF cannot hide an incomplete outer gzip trailer" time="0.018">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40897/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40897
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40897/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:40897/artifact: expected a complete decoded body, received 30 response bytes (java.io.EOFException)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:40897/artifact: expected a complete decoded body, received 30 response bytes (java.io.EOFException)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40897/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40897
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40897/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:40897/artifact: expected a complete decoded body, received 30 response bytes (java.io.EOFException)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:40897/artifact: expected a complete decoded body, received 30 response bytes (java.io.EOFException)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$11(DownloadEncodingIntegrityTests.scala:490)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="repeated mixed encoding fields preserve order and empty list members" time="0.018">
+          <failure message="assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:34741/artifact&quot;,
+  result = Right(
+    value = Array(
+      120,
+      -100,
+      -109,
+      -17,
+      -26,
+      96,
+      0,
+      -125,
+      -1,
+      -34,
+      62,
+      94,
+      126,
+      -98,
+      -66,
+      -52,
+      12,
+      -17,
+      45,
+      -5,
+      -68,
+      -39,
+      -128,
+      2,
+      0,
+      72,
+      107,
+      5,
+      -127
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:34741
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(29L),
+  downloadResults = List((&quot;http://127.0.0.1:34741/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        120,
+        -100,
+        -109,
+        -17,
+        -26,
+        96,
+        0,
+        -125,
+        -1,
+        -34,
+        62,
+        94,
+        126,
+        -98,
+        -66,
+        -52,
+        12,
+        -17,
+        45,
+        -5,
+        -68,
+        -39,
+        -128,
+        2,
+        0,
+        72,
+        107,
+        5,
+        -127
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(
+-   value = ArraySeq(
+-     120,
+-     -100,
+-     -109,
+-     -17,
+-     -26,
+-     96,
+-     0,
+-     -125,
+-     -1,
+-     -34,
+-     62,
+-     94,
+-     126,
+-     -98,
+-     -66,
+-     -52,
+-     12,
+-     -17,
+-     45,
+-     -5,
+-     -68,
+-     -39,
+-     -128,
+-     2,
+-     0,
+-     72,
+-     107,
+-     5,
+-     -127
+-   )
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:34741/artifact&quot;,
+  result = Right(
+    value = Array(
+      120,
+      -100,
+      -109,
+      -17,
+      -26,
+      96,
+      0,
+      -125,
+      -1,
+      -34,
+      62,
+      94,
+      126,
+      -98,
+      -66,
+      -52,
+      12,
+      -17,
+      45,
+      -5,
+      -68,
+      -39,
+      -128,
+      2,
+      0,
+      72,
+      107,
+      5,
+      -127
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:34741
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(29L),
+  downloadResults = List((&quot;http://127.0.0.1:34741/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        120,
+        -100,
+        -109,
+        -17,
+        -26,
+        96,
+        0,
+        -125,
+        -1,
+        -34,
+        62,
+        94,
+        126,
+        -98,
+        -66,
+        -52,
+        12,
+        -17,
+        45,
+        -5,
+        -68,
+        -39,
+        -128,
+        2,
+        0,
+        72,
+        107,
+        5,
+        -127
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(
+-   value = ArraySeq(
+-     120,
+-     -100,
+-     -109,
+-     -17,
+-     -26,
+-     96,
+-     0,
+-     -125,
+-     -1,
+-     -34,
+-     62,
+-     94,
+-     126,
+-     -98,
+-     -66,
+-     -52,
+-     12,
+-     -17,
+-     45,
+-     -5,
+-     -68,
+-     -39,
+-     -128,
+-     2,
+-     0,
+-     72,
+-     107,
+-     5,
+-     -127
+-   )
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.bytesAre(DownloadEncodingIntegrityTests.scala:340)
+    at coursier.cache.DownloadEncodingIntegrityTests$.successfulDownloadIs(DownloadEncodingIntegrityTests.scala:343)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$12(DownloadEncodingIntegrityTests.scala:502)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="unknown repeated encoding fields reject even beside blank fields" time="0.007">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:46161/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:46161
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:46161/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Unsupported Content-Encoding 'custom, , ,' from http://127.0.0.1:46161/artifact: expected identity, gzip, or deflate&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Unsupported Content-Encoding 'custom, , ,' from http://127.0.0.1:46161/artifact: expected identity, gzip, or deflate&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:46161/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:46161
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:46161/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Unsupported Content-Encoding 'custom, , ,' from http://127.0.0.1:46161/artifact: expected identity, gzip, or deflate&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Unsupported Content-Encoding 'custom, , ,' from http://127.0.0.1:46161/artifact: expected identity, gzip, or deflate&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$14(DownloadEncodingIntegrityTests.scala:509)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$14$adapted(DownloadEncodingIntegrityTests.scala:506)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$13(DownloadEncodingIntegrityTests.scala:506)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="repeated encoding fields cannot append to a decoded saved prefix" time="0.01">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:46595/artifact&quot;,
+  result = Right(
+    value = Array(
+      97,
+      98,
+      99,
+      31,
+      -117,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      75,
+      73,
+      77,
+      3,
+      0,
+      97,
+      -31,
+      -60,
+      12,
+      3,
+      0,
+      0,
+      0
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:46595
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(26L),
+  downloadResults = List((&quot;http://127.0.0.1:46595/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        97,
+        98,
+        99,
+        31,
+        -117,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        75,
+        73,
+        77,
+        3,
+        0,
+        97,
+        -31,
+        -60,
+        12,
+        3,
+        0,
+        0,
+        0
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: String = &quot;Cannot resume encoded response from http://127.0.0.1:46595/artifact: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Cannot resume encoded response from http://127.0.0.1:46595/artifact: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:46595/artifact&quot;,
+  result = Right(
+    value = Array(
+      97,
+      98,
+      99,
+      31,
+      -117,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      75,
+      73,
+      77,
+      3,
+      0,
+      97,
+      -31,
+      -60,
+      12,
+      3,
+      0,
+      0,
+      0
+    )
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:46595
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(26L),
+  downloadResults = List((&quot;http://127.0.0.1:46595/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Right(
+      value = Array(
+        97,
+        98,
+        99,
+        31,
+        -117,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        75,
+        73,
+        77,
+        3,
+        0,
+        97,
+        -31,
+        -60,
+        12,
+        3,
+        0,
+        0,
+        0
+      )
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: String = &quot;Cannot resume encoded response from http://127.0.0.1:46595/artifact: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Cannot resume encoded response from http://127.0.0.1:46595/artifact: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$16(DownloadEncodingIntegrityTests.scala:530)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="complete gzip members including empty members decode with one byte buffers" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="each member checks both its checksum and uncompressed size" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="gzip optional headers and their checksum are verified on later members" time="0.016">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:37339/artifact&quot;,
+  result = Right(value = Array(97, 98, 99)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37339
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:37339/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:37339/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:37339/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:37339/artifact&quot;,
+  result = Right(value = Array(97, 98, 99)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37339
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:37339/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:37339/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:37339/artifact: expected a complete decoded body, received 24 response bytes (java.io.EOFException)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$22(DownloadEncodingIntegrityTests.scala:599)
+    at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:192)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$21(DownloadEncodingIntegrityTests.scala:590)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="all nested layers complete with default and one byte buffers" time="0.048">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="deflate EOF rejects additional outer output rather than discarding it" time="0.011">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43891/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:43891
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:43891/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:43891/artifact: expected a complete decoded body, received 40 response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:43891/artifact: expected a complete decoded body, received 40 response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43891/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:43891
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:43891/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:43891/artifact: expected a complete decoded body, received 40 response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate, gzip' from http://127.0.0.1:43891/artifact: expected a complete decoded body, received 40 response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$28(DownloadEncodingIntegrityTests.scala:649)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$28$adapted(DownloadEncodingIntegrityTests.scala:641)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$27(DownloadEncodingIntegrityTests.scala:641)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="deflate cannot complete while a preset dictionary is still required" time="0.016">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36635/artifact&quot;,
+  result = Right(value = Array()),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36635
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:36635/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array())),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate' from http://127.0.0.1:36635/artifact: expected a complete decoded body, received 14 response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate' from http://127.0.0.1:36635/artifact: expected a complete decoded body, received 14 response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36635/artifact&quot;,
+  result = Right(value = Array()),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36635
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:36635/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array())),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'deflate' from http://127.0.0.1:36635/artifact: expected a complete decoded body, received 14 response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'deflate' from http://127.0.0.1:36635/artifact: expected a complete decoded body, received 14 response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$29(DownloadEncodingIntegrityTests.scala:673)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="gzip rejects trailing bytes that are not another complete member" time="0.009">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40285/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40285
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40285/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:40285/artifact: expected a complete decoded body, received 32 response bytes (Not in GZIP format)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:40285/artifact: expected a complete decoded body, received 32 response bytes (Not in GZIP format)&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40285/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40285
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40285/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+expected: String = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:40285/artifact: expected a complete decoded body, received 32 response bytes (Not in GZIP format)&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Encoding 'gzip' from http://127.0.0.1:40285/artifact: expected a complete decoded body, received 32 response bytes (Not in GZIP format)&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadEncodingIntegrityTests$.downloadErrorIs(DownloadEncodingIntegrityTests.scala:356)
+    at coursier.cache.DownloadEncodingIntegrityTests$.$anonfun$tests$30(DownloadEncodingIntegrityTests.scala:686)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.Rc8ReviewTests" tests="8" failures="3" errors="0" skipped="0" time="0.15" timestamp="2026-10-23T09:37:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.Rc8ReviewTests" name="valid identity and empty list entries retain decoded bytes" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="empty leading middle trailing gzip members and mixed layers are valid" time="0.047">
+          
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="206 identity lists append once and 200 encoding replaces saved prefix" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="206 encoding from byte zero decodes without a saved prefix" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="malformed first gzip headers bodies and trailers reject and remove files" time="0.023">
+          <failure message="assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:45007/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:45007
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  events = List(&quot;length:26:0:false&quot;, &quot;progress:6&quot;, &quot;done:true&quot;),
+  downloadResults = List((&quot;http://127.0.0.1:45007/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:45007/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:45007
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  events = List(&quot;length:26:0:false&quot;, &quot;progress:6&quot;, &quot;done:true&quot;),
+  downloadResults = List((&quot;http://127.0.0.1:45007/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$16(Rc8ReviewTests.scala:478)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$16$adapted(Rc8ReviewTests.scala:476)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$14(Rc8ReviewTests.scala:476)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="new deflate rejection and malformed outer layers remove saved files" time="0.01">
+          <failure message="assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:34351/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:34351
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  events = List(&quot;length:20:0:false&quot;, &quot;progress:6&quot;, &quot;done:true&quot;),
+  downloadResults = List((&quot;http://127.0.0.1:34351/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.result.isLeft)
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:34351/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:34351
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  events = List(&quot;length:20:0:false&quot;, &quot;progress:6&quot;, &quot;done:true&quot;),
+  downloadResults = List((&quot;http://127.0.0.1:34351/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(Right(value = Array(97, 98, 99, 100, 101, 102))),
+  outputErrorMessage = None
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$26(Rc8ReviewTests.scala:491)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$26$adapted(Rc8ReviewTests.scala:488)
+    at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:619)
+    at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:617)
+    at scala.collection.AbstractIterable.foreach(Iterable.scala:935)
+    at scala.collection.IterableOps$WithFilter.foreach(Iterable.scala:905)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$24(Rc8ReviewTests.scala:488)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="encoded progress total must describe decoded cumulative positions" time="0.015">
+          <failure message="assert(o.progress.forall(_ &lt;= bytes.length))
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:44179/artifact&quot;,
+  result = Right(
+    value = Array(
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+...
+bytes: Array[Byte] = Array(
+  31,
+  -117,
+  8,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  -1,
+  -19,
+  -63,
+  -127,
+  0,
+  0,
+  0,
+  0,
+  -128,
+  32,
+  -42,
+  -3,
+  37,
+  22,
+  -87,
+  10,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  106,
+  -1,
+  -111,
+  32,
+  -61,
+  0,
+  0,
+  1,
+  0
+)" type="utest.AssertionError">
+          utest.AssertionError: assert(o.progress.forall(_ &lt;= bytes.length))
+o: Observation = Observation(
+  url = &quot;http://127.0.0.1:44179/artifact&quot;,
+  result = Right(
+    value = Array(
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+      97,
+...
+bytes: Array[Byte] = Array(
+  31,
+  -117,
+  8,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  -1,
+  -19,
+  -63,
+  -127,
+  0,
+  0,
+  0,
+  0,
+  -128,
+  32,
+  -42,
+  -3,
+  37,
+  22,
+  -87,
+  10,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  106,
+  -1,
+  -111,
+  32,
+  -61,
+  0,
+  0,
+  1,
+  0
+)
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.Rc8ReviewTests$.$anonfun$tests$31(Rc8ReviewTests.scala:503)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.Rc8ReviewTests" name="nested and chunked callbacks are cumulative and completion follows final position" time="0.018">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

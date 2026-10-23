@@ -1,0 +1,147 @@
+=============== cache.jvm[2.13.16].test.testOnly....DownloadEncodingIntegrityTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[079/306] mill.scalalib.ZincWorkerModule.worker
+[079] Compiling compiler interface...
+[112/306] util.jvm[2.13.16].compile
+[112] [info] compiling 16 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/util/jvm/2.13.16/compile.dest/classes ...
+[112] [info] done compiling
+[137/306] paths.compile
+[137] [info] compiling 5 Java sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/paths/compile.dest/classes ...
+[137] [warn] source value 8 is obsolete and will be removed in a future release
+[137] [warn] target value 8 is obsolete and will be removed in a future release
+[137] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[137] [info] done compiling
+[162/306] cache-util.compile
+[162] [info] compiling 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/cache-util/compile.dest/classes ...
+[162] [warn] source value 8 is obsolete and will be removed in a future release
+[162] [warn] target value 8 is obsolete and will be removed in a future release
+[162] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[162] [info] done compiling
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 43 Scala sources and 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [warn] source value 8 is obsolete and will be removed in a future release
+[202] [warn] target value 8 is obsolete and will be removed in a future release
+[202] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[202] [info] done compiling
+[260/306] custom-protocol-for-test.compile
+[260] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/custom-protocol-for-test/compile.dest/classes ...
+[260] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 16 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290/306] =============== cache.jvm[2.13.16].test.t...adEncodingIntegrityTests =============== 60s
+[290] cache.jvm[2.13.16].test.compile 7s
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order [2m536ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding [2m33ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members [2m566ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment [2m33ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer [2m36ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer [2m28ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated mixed encoding fields preserve order and empty list members [2m44ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.unknown repeated encoding fields reject even beside blank fields [2m89ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix [2m38ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.complete gzip members including empty members decode with one byte buffers [2m35ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.each member checks both its checksum and uncompressed size [2m34ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip optional headers and their checksum are verified on later members [2m510ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.all nested layers complete with default and one byte buffers [2m173ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate EOF rejects additional outer output rather than discarding it [2m32ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip rejects trailing bytes that are not another complete member [2m13ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.valid identity and empty list entries retain decoded bytes [2m84ms[0m  
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.empty leading middle trailing gzip members and mixed layers are valid [2m395ms[0m  
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.206 identity lists append once and 200 encoding replaces saved prefix [2m55ms[0m  
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.206 encoding from byte zero decodes without a saved prefix [2m10ms[0m  
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.malformed first gzip headers bodies and trailers reject and remove files [2m788ms[0m  
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.new deflate rejection and malformed outer layers remove saved files [2m147ms[0m  
+[306] RC8-PROGRESS announced=97 final=65536 callbacks=64
+[306] [31mX[39m coursier.cache.Rc8ReviewTests.encoded progress total must describe decoded cumulative positions [2m466ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.progress.forall(_ <= bytes.length))
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:34393/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]         [32m97[39m,
+[306]   ...
+[306]   [36mbytes[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m(
+[306]     [32m31[39m,
+[306]     [32m-117[39m,
+[306]     [32m8[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m-1[39m,
+[306]     [32m-19[39m,
+[306]     [32m-63[39m,
+[306]     [32m-127[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m-128[39m,
+[306]     [32m32[39m,
+[306]     [32m-42[39m,
+[306]     [32m-3[39m,
+[306]     [32m37[39m,
+[306]     [32m22[39m,
+[306]     [32m-87[39m,
+[306]     [32m10[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]     [32m0[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rc8ReviewTests$.[91m$anonfun$tests$31[39m([91mRc8ReviewTests.scala[39m:[91m503[39m)
+[306] [32m+[39m coursier.cache.Rc8ReviewTests.nested and chunked callbacks are cumulative and completion follows final position [2m189ms[0m  
+[306] Tests: 24, Passed: 23, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...odingIntegrityTests =============== 68s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.Rc8ReviewTests coursier.cache.Rc8ReviewTests.encoded progress total must describe decoded cumulative positions

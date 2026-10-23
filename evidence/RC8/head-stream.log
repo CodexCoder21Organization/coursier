@@ -1,0 +1,20 @@
+================ cache.jvm[2.13.16].test.testOnly coursier.cache.Rc8StreamingTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RC8-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] RC8-STREAM coding=gzip mib=8 seconds=0.763582875 peakUsedHeap=28053952 finalProgress=8388608
+[306] RC8-STREAM coding=gzip mib=64 seconds=3.276952377 peakUsedHeap=38539712 finalProgress=67108864
+[306] [32m+[39m coursier.cache.Rc8StreamingTests.gzip streams large responses into the cache [2m4237ms[0m  
+[306] RC8-STREAM coding=deflate, gzip mib=8 seconds=0.829894875 peakUsedHeap=35177144 finalProgress=8388608
+[306] RC8-STREAM coding=deflate, gzip mib=64 seconds=3.980261919 peakUsedHeap=35513216 finalProgress=67108864
+[306] [32m+[39m coursier.cache.Rc8StreamingTests.deflate inside gzip streams large responses into the cache [2m4834ms[0m  
+[306] RC8-STREAM coding=gzip, deflate mib=8 seconds=0.565205667 peakUsedHeap=35257704 finalProgress=8388608
+[306] RC8-STREAM coding=gzip, deflate mib=64 seconds=4.36775871 peakUsedHeap=35219192 finalProgress=67108864
+[306] [32m+[39m coursier.cache.Rc8StreamingTests.gzip inside deflate streams large responses into the cache [2m4951ms[0m  
+[306] RC8-STREAM coding=identity mib=8 seconds=0.102868125 peakUsedHeap=26095984 finalProgress=8388608
+[306] RC8-STREAM coding=identity mib=64 seconds=0.485575583 peakUsedHeap=81182464 finalProgress=67108864
+[306] [32m+[39m coursier.cache.Rc8StreamingTests.identity streams large responses into the cache [2m601ms[0m  
+[306] Tests: 4, Passed: 4, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t....cache.Rc8StreamingTests =============== 28s
