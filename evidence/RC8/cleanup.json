@@ -4,5 +4,7 @@
   "liveBeforeCleanup": 0,
   "remainingOwnedLiveProcesses": 0,
   "prescribedPsAudit": true,
-  "rawProcessCommandLinesSaved": false
+  "rawProcessCommandLinesSaved": false,
+  "finalAuditAt": "2026-10-23T09:45:40.233276+00:00",
+  "finalWorkspaceProcessesRemaining": 0
 }
