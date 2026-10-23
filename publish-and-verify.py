@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import os
+import time
 import subprocess
 import urllib.request
 import urllib.error
@@ -47,6 +48,7 @@ def absence(module):
 ledger = EVIDENCE/'release-verification.json'
 assert not ledger.exists(), 'A publication ledger already exists; inspect it and never repeat uploads.'
 local = json.loads((EVIDENCE/'local-artifacts.json').read_text())
+assert all(r['coordinate'].endswith(':'+VERSION) for r in local)
 assert len(local) == 21 and {r['coordinate'].split(':')[1] for r in local} == set(MODULES)
 for record in local:
     path=BASE/'artifacts'/record['coordinate'].split(':')[1]/record['file']
@@ -67,7 +69,13 @@ for module in MODULES:
     records.append(record)
     ledger.write_text(json.dumps(records,indent=2)+'\n')
     with (BASE/f'publish-{module}.log').open('w') as log:
-        subprocess.run(['free','-m'],stdout=log,check=True)
+        deadline=time.monotonic()+600
+        while True:
+            memory=subprocess.check_output(['free','-m'],text=True)
+            log.write(memory); log.flush()
+            available=int(next(line.split()[6] for line in memory.splitlines() if line.startswith('Mem:')))
+            if available>=4000 or time.monotonic()>=deadline: break
+            time.sleep(60)
         process=subprocess.Popen(['coursier','launch',
             'community.kotlin.maven.artifact.publishing:community-kotlin-maven-artifact-publishing:0.0.6',
             '-r','https://kotlin.directory','--','--artifact-dir',str(directory),
