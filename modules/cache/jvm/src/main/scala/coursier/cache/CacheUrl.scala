@@ -247,7 +247,7 @@ object CacheUrl {
       }
   }
 
-  private val ContentRange = "bytes ([0-9]+)-([0-9]+)/([0-9]+)".r
+  private val ContentRange = "(?i)bytes ([0-9]+)-([0-9]+)/([0-9]+)".r
 
   private[coursier] def contentRangeLength(
     conn: URLConnection,

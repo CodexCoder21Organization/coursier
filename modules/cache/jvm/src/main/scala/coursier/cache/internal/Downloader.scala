@@ -7,7 +7,7 @@ import java.nio.file.{AccessDeniedException, Files, StandardCopyOption, Standard
 import java.time.Clock
 import java.util.Locale
 import java.util.concurrent.ExecutorService
-import java.util.zip.GZIPInputStream
+import java.util.zip.{GZIPInputStream, Inflater, InflaterInputStream}
 import javax.net.ssl.{HostnameVerifier, SSLSocketFactory}
 
 import coursier.cache._
@@ -208,6 +208,7 @@ import scala.util.control.NonFatal
       val alreadyDownloaded = tmp.length()
 
       var conn: URLConnection = null
+      var completed = false
 
       val authenticationOpt =
         artifact.authentication match {
@@ -250,6 +251,12 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
+          for (code <- respCodeOpt if code != 200 && code != 206)
+            throw new ArtifactError.DownloadError(
+              s"Unexpected HTTP status $code from $url: expected 200 or 206 with an artifact body",
+              None
+            )
+
           if (bufferSize <= 0)
             throw new ArtifactError.DownloadError(
               s"Invalid download buffer size $bufferSize for $url: expected a positive size",
@@ -259,8 +266,20 @@ import scala.util.control.NonFatal
           val responseLength  = CacheUrl.responseLength(conn, url)
           val offset          = if (partialDownload) alreadyDownloaded else 0L
           val rangeLength     = CacheUrl.contentRangeLength(conn, offset, url)
-          val contentEncoding = conn.getContentEncoding
-          val uncompressed = contentEncoding == null || contentEncoding.equalsIgnoreCase("identity")
+          val contentEncoding = Option(conn.getContentEncoding)
+          val encodings = contentEncoding.toList.flatMap(_.split(",", -1))
+            .map(_.trim.toLowerCase(Locale.ROOT))
+          if (encodings.exists(coding => coding != "identity" && coding != "gzip" && coding != "deflate"))
+            throw new ArtifactError.DownloadError(
+              s"Unsupported Content-Encoding '${contentEncoding.get}' from $url: expected identity, gzip, or deflate",
+              None
+            )
+          val uncompressed = encodings.forall(_ == "identity")
+          if (partialDownload && !uncompressed)
+            throw new ArtifactError.DownloadError(
+              s"Cannot resume encoded response from $url: expected identity encoding for saved prefix of $alreadyDownloaded bytes, received '${contentEncoding.get}'",
+              None
+            )
           val expectedLength = if (uncompressed) rangeLength.orElse(responseLength) else None
 
           for (len0 <- rangeLength.orElse(responseLength))
@@ -284,17 +303,29 @@ import scala.util.control.NonFatal
               math.min(bufferSize.toLong, math.max(1L, length)).toInt
             )
 
-          val in = {
-            val baseStream =
-              if (conn.getContentEncoding == "gzip") new GZIPInputStream(conn.getInputStream)
-              else conn.getInputStream
-            // A buffered stream can prefetch past the remaining length on the last read.
-            if (expectedLength.nonEmpty) baseStream
-            else new BufferedInputStream(baseStream, downloadBufferSize)
-          }
-
+          val response = new Downloader.ResponseInputStream(
+            conn.getInputStream,
+            url,
+            rangeLength.orElse(responseLength),
+            bounded = responseLength.nonEmpty,
+            chunked = Option(conn.getHeaderField("Transfer-Encoding"))
+              .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
+          )
+          var in: InputStream = response
           val result =
             try {
+              // Decode in reverse application order, while counting the framed response bytes.
+              for (encoding <- encodings.reverse)
+                in = encoding match {
+                  case "gzip" => new GZIPInputStream(in, downloadBufferSize)
+                  case "deflate" =>
+                    new InflaterInputStream(in, new Inflater(), downloadBufferSize)
+                  case _ => in // identity was validated above
+                }
+              // A buffered stream can prefetch past the remaining length on the last read.
+              if (expectedLength.isEmpty)
+                in = new BufferedInputStream(in, downloadBufferSize)
+
               val out = CacheLocks.withStructureLock(location) {
                 Util.createDirectories(tmp.toPath.getParent)
                 if (partialDownload)
@@ -302,7 +333,8 @@ import scala.util.control.NonFatal
                 else
                   Files.newOutputStream(tmp.toPath)
               }
-              try Downloader.readFullyTo(
+              try {
+                Downloader.readFullyTo(
                   in,
                   out,
                   logger,
@@ -311,7 +343,17 @@ import scala.util.control.NonFatal
                   downloadBufferSize,
                   expectedLength
                 )
+                // Decoder EOF and a range count do not establish the end of chunked framing.
+                response.finish(downloadBufferSize)
+              }
               finally out.close()
+            }
+            catch {
+              case error: IOException if !uncompressed =>
+                throw new ArtifactError.DownloadError(
+                  s"Invalid Content-Encoding '${contentEncoding.get}' from $url: expected a complete decoded body, received ${response.count} response bytes (${Option(error.getMessage).getOrElse(error.getClass.getName)})",
+                  Some(error)
+                )
             }
             finally in.close()
 
@@ -338,18 +380,22 @@ import scala.util.control.NonFatal
 
           Blocking.doTouchCheckFile(file, url, updateLinks = true)
 
+          completed = true
           Right(result)
         }
       }
       catch {
-        case error: ArtifactError.DownloadError =>
+        case error: ArtifactError.DownloadError => Left(error)
+      }
+      finally
+        try {
+          if (conn != null)
+            CacheUrl.closeConn(conn)
+        }
+        finally if (!completed)
           CacheLocks.withStructureLock(location) {
             Files.deleteIfExists(tmp.toPath)
           }
-          Left(error)
-      }
-      finally if (conn != null)
-          CacheUrl.closeConn(conn)
     }
 
     def checkDownload(
@@ -806,6 +852,73 @@ object Downloader {
     java.lang.Boolean.getBoolean("coursier.cache.throw-exceptions")
 
   private val checksumHeader = Seq("MD5", "SHA1", "SHA256")
+
+  /** Counts response bytes before decoding, and validates both their count and framing. */
+  private final class ResponseInputStream(
+    underlying: InputStream,
+    url: String,
+    expectedLength: Option[Long],
+    bounded: Boolean,
+    chunked: Boolean
+  ) extends InputStream {
+    private var count0 = 0L
+    private var ended = false
+    private val single = new Array[Byte](1)
+
+    def count: Long = count0
+
+    override def read(): Int = {
+      val n = read(single, 0, 1)
+      if (n < 0) -1 else single(0) & 0xff
+    }
+
+    override def read(bytes: Array[Byte], offset: Int, length: Int): Int =
+      if (length == 0) underlying.read(bytes, offset, 0)
+      else if (ended || (bounded && expectedLength.contains(count0))) -1
+      else {
+        val size = if (bounded)
+          expectedLength.fold(length)(expected => math.min(length.toLong, expected - count0).toInt)
+        else length
+        val n =
+          try underlying.read(bytes, offset, size)
+          catch {
+            case error: IOException if chunked =>
+              throw new ArtifactError.DownloadError(
+                s"Invalid response framing from $url: expected a complete chunked message, received $count0 bytes (${Option(error.getMessage).getOrElse(error.getClass.getName)})",
+                Some(error)
+              )
+          }
+        if (n < 0) {
+          ended = true
+          for (expected <- expectedLength if count0 != expected)
+            throw new ArtifactError.DownloadError(
+              s"Incomplete response from $url: expected $expected bytes, received $count0 bytes",
+              None
+            )
+        }
+        else {
+          count0 += n
+          for (expected <- expectedLength if count0 > expected)
+            throw new ArtifactError.DownloadError(
+              s"Overlong response from $url: expected $expected bytes, received $count0 bytes",
+              None
+            )
+        }
+        n
+      }
+
+    // gzip uses available() to decide whether another member may follow its trailer.
+    // Even when the next chunk has not arrived, it must read through the message ending.
+    override def available(): Int =
+      if (ended || (bounded && expectedLength.contains(count0))) 0 else 1
+
+    def finish(bufferSize: Int): Unit = {
+      val buffer = new Array[Byte](bufferSize)
+      while (read(buffer, 0, buffer.length) >= 0) ()
+    }
+
+    override def close(): Unit = underlying.close()
+  }
 
   private def readFullyTo(
     in: InputStream,
