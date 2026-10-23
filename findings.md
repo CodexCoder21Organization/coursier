@@ -1,10 +1,10 @@
 # T8 findings
 
 ## Plan
-- [in progress] Read guidance, rebase current branch, compare main and RC8 evidence.
-- [pending] Add three permanent large-body loopback tests with progress handshakes.
-- [pending] Prove all tests fail with whole-body buffering, restore, checkpoint evidence.
-- [pending] Run each new test 30 times, framing set once, cache module once, at most two JVMs.
+- [completed] Read guidance, rebase current branch, compare main and RC8 evidence.
+- [completed] Add three permanent large-body loopback tests with progress handshakes.
+- [completed] Prove all tests fail with whole-body buffering, restore, checkpoint evidence.
+- [in progress] Run each new test 30 times, framing set once, cache module once, at most two JVMs.
 - [pending] Review tests and diff, push product branch, update PR description, verify remote SHAs and cleanup.
 
 ## Scope and rules
@@ -32,3 +32,5 @@ Existing test/assertion edits: none. Only new helpers and three new test bodies 
 2026-10-23 09:57 UTC — OBSERVED: Second evidence push verified local=remote=a74ccc5ac8ca1d9c097e475ce06506cf3f20d018. OBSERVED: Two launcher selections stopped before executing tests; utest requires one fully qualified comma/braces query rather than a wildcard or separate unqualified names. OBSERVED: Corrected selection after reading utest 0.9.1 BaseRunner.scala and TestQueryParser.scala; launch-only logs are separate and count as zero test attempts. OBSERVED: The actual mutation has emitted two failing named test results and is waiting on the third existing 30-second handshake bound. OBSERVED: Dedicated test-comprehensiveness and separate code-review passes are in review.md; no product defect or assertion gap was identified in the added test surface. OBSERVED: No Addendum headings at the current checkpoint. INFER: Next checkpoint is 3/3 mutation failures, restoring the exact production blobs, formatting only added code, then first successful round and durable product push.
 
 2026-10-23 09:57 UTC — OBSERVED: All three new cases fail under the whole-body decoded-buffer mutation: 0/3 pass, 3/3 fail, three unique first-attempt XML cases/events, zero retries/errors/skips and maximum two JVMs. OBSERVED: Each failure is at the original scenario progress wait in DownloadEncodingIntegrityTests.scala:288; no server remainder can be sent before that missing callback. OBSERVED: The mutation has been restored and remains only as an evidence patch. INFER: Next checkpoint is a passing same-test run on the restored product, followed by the 30-round and framing/cache gates.
+
+2026-10-23 09:58 UTC — OBSERVED: Evidence checkpoint verified local=remote=91b829a40e8ade96596d4659f87aedf021a41b9b. OBSERVED: Restored production files match the original PR exactly; scalafmt changes only alignment of a newly added val. OBSERVED: The restored three tests pass 3/3 first attempts (zero retries/errors/skips, maximum two JVMs); XML names and events agree. OBSERVED: OPEN-state check preceded product push with --force-with-lease; product local and remote both equal 6903ce429a3c6015d8ee285a540ceab1ddf268b9. OBSERVED: Rounds 2–30 are running sequentially, with a fetch/rebase and memory check before each. INFER: Next checkpoint is 90/90 first-attempt passes, followed by the original 103-case framing register and cache module.

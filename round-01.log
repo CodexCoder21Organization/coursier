@@ -1,0 +1,14 @@
+=============== cache.jvm[2.13.16].test.testOnly...r before the remainder arrives} ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/T8-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/T8-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadEncodingIntegrityTests.{large gzip body streams into the cache before the remainder arrives,large deflate body streams into the cache before the remainder arrives,large multi-member gzip streams inside a later member before the remainder arrives} 
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.large gzip body streams into the cache before the remainder arrives [2m754ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.large deflate body streams into the cache before the remainder arrives [2m192ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.large multi-member gzip streams inside a later member before the remainder arrives [2m121ms[0m  
+[306] Tests: 3, Passed: 3, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...e the remainder arrives} =============== 26s

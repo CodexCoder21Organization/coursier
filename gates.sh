@@ -3,7 +3,7 @@ set -euo pipefail
 repo=$1
 here=$(cd "$(dirname "$0")" && pwd)
 cd "$repo"
-for i in $(seq -w 1 30); do
+for i in $(seq -w "${2:-1}" 30); do
   git fetch origin
   git rebase origin/main
   bash "$here/run-large.sh" "round-$i" "$repo"
