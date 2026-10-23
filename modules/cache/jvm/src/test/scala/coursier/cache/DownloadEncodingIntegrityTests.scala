@@ -489,7 +489,8 @@ object DownloadEncodingIntegrityTests extends TestSuite {
     test("repeated encoding fields cannot append to a decoded saved prefix") {
       val encoded = gzipBytes(body.drop(3))
       val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Range" -> "bytes 3-5/6", "Content-Encoding" -> "gzip",
+        Seq("Content-Range" -> s"bytes 3-${encoded.length + 2}/${encoded.length + 3}",
+          "Content-Encoding" -> "gzip",
           "Content-Encoding" -> "identity"), status = "206 Partial Content")),
         prefix = body.take(3))
       downloadErrorIs(o,
@@ -572,6 +573,23 @@ object DownloadEncodingIntegrityTests extends TestSuite {
         downloadErrorIs(o,
           s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)")
       }
+    }
+
+    test("deflate cannot complete while a preset dictionary is still required") {
+      val output = new ByteArrayOutputStream()
+      val compressor = new java.util.zip.Deflater()
+      val encoded = try {
+        compressor.setDictionary(body)
+        val deflate = new java.util.zip.DeflaterOutputStream(output, compressor)
+        try deflate.write(body)
+        finally deflate.close()
+        output.toByteArray
+      }
+      finally compressor.end()
+      val o = scenario(List(fixed(encoded.length.toString, encoded,
+        Seq("Content-Encoding" -> "deflate"))))
+      downloadErrorIs(o,
+        s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)")
     }
   }
 }
