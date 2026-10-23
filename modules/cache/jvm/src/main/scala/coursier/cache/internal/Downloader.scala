@@ -323,9 +323,9 @@ import scala.util.control.NonFatal
               for (encoding <- encodings.reverse)
                 in = Downloader.withDecodingError(contentEncoding.get, url, response) {
                   encoding match {
-                    case "gzip" => new GzipInputStream(in, downloadBufferSize)
+                    case "gzip"    => new GzipInputStream(in, downloadBufferSize)
                     case "deflate" => new Downloader.DeflateInputStream(in, downloadBufferSize)
-                    case _ => in // identity was validated above
+                    case _         => in // identity was validated above
                   }
                 }
               if (!uncompressed)

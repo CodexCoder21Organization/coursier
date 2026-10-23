@@ -404,45 +404,59 @@ object DownloadEncodingIntegrityTests extends TestSuite {
   val tests = Tests {
     test("repeated encoding fields decode every layer in field order") {
       val encoded = gzipBytes(gzipBytes(body))
-      val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Encoding" -> "gzip", "Content-Encoding" -> "gzip"))))
+      val o = scenario(List(fixed(
+        encoded.length.toString,
+        encoded,
+        Seq("Content-Encoding" -> "gzip", "Content-Encoding" -> "gzip")
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("a later identity field cannot hide an unsupported encoding") {
       val encoding = "custom, identity"
-      val o = scenario(List(fixed("6", body,
-        Seq("Content-Encoding" -> "custom", "Content-Encoding" -> "identity"))))
+      val o = scenario(List(fixed(
+        "6",
+        body,
+        Seq("Content-Encoding" -> "custom", "Content-Encoding" -> "identity")
+      )))
       downloadErrorIs(o, unsupportedMessage(o.url, encoding))
     }
 
     test("a truncated later gzip member cannot publish earlier members") {
-      val first = gzipBytes(body.take(3))
+      val first  = gzipBytes(body.take(3))
       val second = gzipBytes(body.drop(3))
       // Every nonempty prefix starts a member that must finish, including its trailer.
       for (cut <- 1 until second.length) {
         val encoded = first ++ second.take(cut)
-        val o = scenario(List(fixed(encoded.length.toString, encoded,
-          Seq("Content-Encoding" -> "gzip"))))
-        downloadErrorIs(o,
-          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (java.io.EOFException)")
+        val o = scenario(List(fixed(
+          encoded.length.toString,
+          encoded,
+          Seq("Content-Encoding" -> "gzip")
+        )))
+        downloadErrorIs(
+          o,
+          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (java.io.EOFException)"
+        )
       }
     }
 
     test("gzip reports decoded progress before the next compressed fragment") {
       val encoded = new ByteArrayOutputStream()
-      val gzip = new GZIPOutputStream(encoded, true)
+      val gzip    = new GZIPOutputStream(encoded, true)
       gzip.write(body.take(3))
       gzip.flush()
       val first = encoded.toByteArray
       gzip.write(body.drop(3))
       gzip.close()
-      val last = encoded.toByteArray.drop(first.length)
+      val last    = encoded.toByteArray.drop(first.length)
       val release = new CountDownLatch(1)
-      val reply = Reply("200 OK",
+      val reply = Reply(
+        "200 OK",
         Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gzip"),
-        List(chunk(first, closing = false), chunk(last)), Some(ProgressGate(3, release)))
-      val o = scenario(List(reply), inspectWhilePaused = Some((3, release)))
+        List(chunk(first, closing = false), chunk(last)),
+        Some(ProgressGate(3, release))
+      )
+      val o       = scenario(List(reply), inspectWhilePaused = Some((3, release)))
       val pending = o.pendingState.get
       assert(!pending.finalExists)
       assert(pending.temporaryExists)
@@ -453,18 +467,28 @@ object DownloadEncodingIntegrityTests extends TestSuite {
     test("inner deflate EOF cannot hide a corrupt outer gzip trailer") {
       val encoded = gzipBytes(deflateBytes(body))
       encoded(encoded.length - 1) = (encoded.last ^ 0xff).toByte
-      val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Encoding" -> "deflate, gzip"))))
-      downloadErrorIs(o,
-        s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Corrupt GZIP trailer)")
+      val o = scenario(List(fixed(
+        encoded.length.toString,
+        encoded,
+        Seq("Content-Encoding" -> "deflate, gzip")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Corrupt GZIP trailer)"
+      )
     }
 
     test("inner deflate EOF cannot hide an incomplete outer gzip trailer") {
       val encoded = gzipBytes(deflateBytes(body)).dropRight(4)
-      val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Encoding" -> "deflate, gzip"))))
-      downloadErrorIs(o,
-        s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (java.io.EOFException)")
+      val o = scenario(List(fixed(
+        encoded.length.toString,
+        encoded,
+        Seq("Content-Encoding" -> "deflate, gzip")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (java.io.EOFException)"
+      )
     }
 
     test("repeated mixed encoding fields preserve order and empty list members") {
@@ -474,35 +498,51 @@ object DownloadEncodingIntegrityTests extends TestSuite {
         "CONTENT-ENCODING" -> " , "
       )
       val encoded = deflateBytes(gzipBytes(body))
-      val o = scenario(List(fixed(encoded.length.toString, encoded, headers)))
+      val o       = scenario(List(fixed(encoded.length.toString, encoded, headers)))
       successfulDownloadIs(o, body)
     }
 
     test("unknown repeated encoding fields reject even beside blank fields") {
       for (values <- Seq(Seq("custom", ", ,"), Seq("", "gzip, custom", "identity"))) {
         val encoding = values.mkString(", ")
-        val o = scenario(List(fixed("6", body, values.map("Content-Encoding" -> _))))
+        val o        = scenario(List(fixed("6", body, values.map("Content-Encoding" -> _))))
         downloadErrorIs(o, unsupportedMessage(o.url, encoding))
       }
     }
 
     test("repeated encoding fields cannot append to a decoded saved prefix") {
       val encoded = gzipBytes(body.drop(3))
-      val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Range" -> s"bytes 3-${encoded.length + 2}/${encoded.length + 3}",
-          "Content-Encoding" -> "gzip",
-          "Content-Encoding" -> "identity"), status = "206 Partial Content")),
-        prefix = body.take(3))
-      downloadErrorIs(o,
-        s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'")
+      val o = scenario(
+        List(fixed(
+          encoded.length.toString,
+          encoded,
+          Seq(
+            "Content-Range"    -> s"bytes 3-${encoded.length + 2}/${encoded.length + 3}",
+            "Content-Encoding" -> "gzip",
+            "Content-Encoding" -> "identity"
+          ),
+          status = "206 Partial Content"
+        )),
+        prefix = body.take(3)
+      )
+      downloadErrorIs(
+        o,
+        s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'"
+      )
     }
 
     test("complete gzip members including empty members decode with one byte buffers") {
       val encoded = gzipBytes(body.take(3)) ++ gzipBytes(Array.emptyByteArray) ++
         gzipBytes(body.drop(3))
       for (cap <- Seq(1, CacheDefaults.bufferSize)) {
-        val o = scenario(List(fixed(encoded.length.toString, encoded,
-          Seq("Content-Encoding" -> "gzip"))), cap = cap)
+        val o = scenario(
+          List(fixed(
+            encoded.length.toString,
+            encoded,
+            Seq("Content-Encoding" -> "gzip")
+          )),
+          cap = cap
+        )
         successfulDownloadIs(o, body)
       }
     }
@@ -512,10 +552,15 @@ object DownloadEncodingIntegrityTests extends TestSuite {
         val later = gzipBytes(body.drop(3))
         later(later.length - trailerOffset) = (later(later.length - trailerOffset) ^ 0xff).toByte
         val encoded = gzipBytes(body.take(3)) ++ later
-        val o = scenario(List(fixed(encoded.length.toString, encoded,
-          Seq("Content-Encoding" -> "gzip"))))
-        downloadErrorIs(o,
-          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Corrupt GZIP trailer)")
+        val o = scenario(List(fixed(
+          encoded.length.toString,
+          encoded,
+          Seq("Content-Encoding" -> "gzip")
+        )))
+        downloadErrorIs(
+          o,
+          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Corrupt GZIP trailer)"
+        )
       }
     }
 
@@ -527,37 +572,63 @@ object DownloadEncodingIntegrityTests extends TestSuite {
         Array[Byte](110, 97, 109, 101, 0, 99, 111, 109, 109, 101, 110, 116, 0)
       val checksum = new java.util.zip.CRC32()
       checksum.update(optional)
-      val withChecksum = optional ++ Array(checksum.getValue.toByte, (checksum.getValue >> 8).toByte)
-      val first = gzipBytes(body.take(3))
+      val withChecksum =
+        optional ++ Array(checksum.getValue.toByte, (checksum.getValue >> 8).toByte)
+      val first   = gzipBytes(body.take(3))
       val encoded = first ++ withChecksum ++ member.drop(10)
-      successfulDownloadIs(scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Encoding" -> "gzip"))), cap = 1), body)
+      successfulDownloadIs(
+        scenario(
+          List(fixed(
+            encoded.length.toString,
+            encoded,
+            Seq("Content-Encoding" -> "gzip")
+          )),
+          cap = 1
+        ),
+        body
+      )
       for (cut <- 1 until withChecksum.length) {
         val incomplete = first ++ withChecksum.take(cut)
-        val o = scenario(List(fixed(incomplete.length.toString, incomplete,
-          Seq("Content-Encoding" -> "gzip"))))
-        downloadErrorIs(o,
-          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${incomplete.length} response bytes (java.io.EOFException)")
+        val o = scenario(List(fixed(
+          incomplete.length.toString,
+          incomplete,
+          Seq("Content-Encoding" -> "gzip")
+        )))
+        downloadErrorIs(
+          o,
+          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${incomplete.length} response bytes (java.io.EOFException)"
+        )
       }
       val corrupt = withChecksum.clone()
       corrupt(corrupt.length - 1) = (corrupt.last ^ 0xff).toByte
       val invalid = first ++ corrupt ++ member.drop(10)
-      val o = scenario(List(fixed(invalid.length.toString, invalid,
-        Seq("Content-Encoding" -> "gzip"))))
-      downloadErrorIs(o,
-        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${invalid.length} response bytes (Corrupt GZIP header)")
+      val o = scenario(List(fixed(
+        invalid.length.toString,
+        invalid,
+        Seq("Content-Encoding" -> "gzip")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${invalid.length} response bytes (Corrupt GZIP header)"
+      )
     }
 
     test("all nested layers complete with default and one byte buffers") {
       val encodings = Seq(
-        "deflate, gzip" -> gzipBytes(deflateBytes(body)),
-        "gzip, deflate" -> deflateBytes(gzipBytes(body)),
+        "deflate, gzip"       -> gzipBytes(deflateBytes(body)),
+        "gzip, deflate"       -> deflateBytes(gzipBytes(body)),
         "gzip, gzip, deflate" -> deflateBytes(gzipBytes(gzipBytes(body))),
         "deflate, gzip, gzip" -> gzipBytes(gzipBytes(deflateBytes(body)))
       )
       for ((encoding, encoded) <- encodings; cap <- Seq(1, CacheDefaults.bufferSize)) {
-        val o = scenario(List(fixed(encoded.length.toString, encoded,
-          Seq("Content-Encoding" -> encoding))), cap = cap)
+        val o = scenario(
+          List(fixed(
+            encoded.length.toString,
+            encoded,
+            Seq("Content-Encoding" -> encoding)
+          )),
+          cap = cap
+        )
         successfulDownloadIs(o, body)
       }
     }
@@ -568,36 +639,52 @@ object DownloadEncodingIntegrityTests extends TestSuite {
         gzipBytes(deflateBytes(body)) ++ gzipBytes(body)
       )
       for (encoded <- responses) {
-        val o = scenario(List(fixed(encoded.length.toString, encoded,
-          Seq("Content-Encoding" -> "deflate, gzip"))))
-        downloadErrorIs(o,
-          s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)")
+        val o = scenario(List(fixed(
+          encoded.length.toString,
+          encoded,
+          Seq("Content-Encoding" -> "deflate, gzip")
+        )))
+        downloadErrorIs(
+          o,
+          s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)"
+        )
       }
     }
 
     test("deflate cannot complete while a preset dictionary is still required") {
-      val output = new ByteArrayOutputStream()
+      val output     = new ByteArrayOutputStream()
       val compressor = new java.util.zip.Deflater()
-      val encoded = try {
-        compressor.setDictionary(body)
-        val deflate = new java.util.zip.DeflaterOutputStream(output, compressor)
-        try deflate.write(body)
-        finally deflate.close()
-        output.toByteArray
-      }
-      finally compressor.end()
-      val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Encoding" -> "deflate"))))
-      downloadErrorIs(o,
-        s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)")
+      val encoded =
+        try {
+          compressor.setDictionary(body)
+          val deflate = new java.util.zip.DeflaterOutputStream(output, compressor)
+          try deflate.write(body)
+          finally deflate.close()
+          output.toByteArray
+        }
+        finally compressor.end()
+      val o = scenario(List(fixed(
+        encoded.length.toString,
+        encoded,
+        Seq("Content-Encoding" -> "deflate")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)"
+      )
     }
 
     test("gzip rejects trailing bytes that are not another complete member") {
       val encoded = gzipBytes(body) ++ body
-      val o = scenario(List(fixed(encoded.length.toString, encoded,
-        Seq("Content-Encoding" -> "gzip"))))
-      downloadErrorIs(o,
-        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Not in GZIP format)")
+      val o = scenario(List(fixed(
+        encoded.length.toString,
+        encoded,
+        Seq("Content-Encoding" -> "gzip")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Not in GZIP format)"
+      )
     }
   }
 }
