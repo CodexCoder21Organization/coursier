@@ -22,7 +22,7 @@ with zipfile.ZipFile(jar) as local, zipfile.ZipFile(a.work_dir/'buffer5-cache.ja
         row=dict(classFile=name,compiledSha256=raw,stagedSha256=digest,buffer5Sha256=previous)
         rows.append(row)
         if previous!=digest: changed.append(row.copy())
-    required_changed=['coursier/cache/internal/Downloader.class','coursier/cache/internal/Downloader$.class','coursier/cache/internal/Downloader$ResponseInputStream.class']
+    required_changed=['coursier/cache/internal/Downloader.class','coursier/cache/internal/Downloader$.class','coursier/cache/internal/Downloader$ResponseInputStream.class','coursier/cache/internal/Downloader$Blocking$.class']
     required_new=['coursier/cache/internal/GzipInputStream.class','coursier/cache/internal/Downloader$DeflateInputStream.class']
     for name in required_changed:
         assert name in old.namelist() and sha(old.read(name))!=sha(local.read(name)),name
@@ -30,7 +30,7 @@ with zipfile.ZipFile(jar) as local, zipfile.ZipFile(a.work_dir/'buffer5-cache.ja
     marker_map={
         'coursier/cache/internal/GzipInputStream.class':['Corrupt GZIP header','Corrupt GZIP trailer','Unsupported GZIP flags:','java/util/zip/CRC32','getBytesWritten','java/io/PushbackInputStream'],
         'coursier/cache/internal/Downloader$DeflateInputStream.class':['Deflate dictionary required: expected a decoded body without a preset dictionary','Unexpected trailing deflate data: expected end of encoded layer, received additional bytes','getRemaining'],
-        'coursier/cache/internal/Downloader.class':['coursier/cache/internal/GzipInputStream','coursier/cache/internal/Downloader$DeflateInputStream'],
+        'coursier/cache/internal/Downloader$Blocking$.class':['coursier/cache/internal/GzipInputStream','coursier/cache/internal/Downloader$DeflateInputStream'],
         'coursier/cache/internal/Downloader$.class':['Content-Encoding']}
     for name,markers in marker_map.items():
         for marker in markers: assert marker.encode() in local.read(name),(name,marker)

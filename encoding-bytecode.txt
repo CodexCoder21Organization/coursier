@@ -1,0 +1,2820 @@
+Compiled from "GzipInputStream.scala"
+public final class coursier.cache.internal.GzipInputStream extends java.io.InputStream {
+  private final java.io.PushbackInputStream input;
+
+  private final byte[] buffer;
+
+  private final byte[] single;
+
+  private final java.util.zip.CRC32 crc;
+
+  private int size;
+
+  private boolean ended;
+
+  private boolean closed;
+
+  private final java.util.zip.Inflater inflater;
+
+  private java.io.PushbackInputStream input();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field input:Ljava/io/PushbackInputStream;
+       4: areturn
+
+  private byte[] buffer();
+    Code:
+       0: aload_0
+       1: getfield      #35                 // Field buffer:[B
+       4: areturn
+
+  private byte[] single();
+    Code:
+       0: aload_0
+       1: getfield      #37                 // Field single:[B
+       4: areturn
+
+  private java.util.zip.CRC32 crc();
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field crc:Ljava/util/zip/CRC32;
+       4: areturn
+
+  private int size();
+    Code:
+       0: aload_0
+       1: getfield      #43                 // Field size:I
+       4: ireturn
+
+  private void size_$eq(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #43                 // Field size:I
+       5: return
+
+  private boolean ended();
+    Code:
+       0: aload_0
+       1: getfield      #49                 // Field ended:Z
+       4: ireturn
+
+  private void ended_$eq(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #49                 // Field ended:Z
+       5: return
+
+  private boolean closed();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field closed:Z
+       4: ireturn
+
+  private void closed_$eq(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #53                 // Field closed:Z
+       5: return
+
+  private java.util.zip.Inflater inflater();
+    Code:
+       0: aload_0
+       1: getfield      #57                 // Field inflater:Ljava/util/zip/Inflater;
+       4: areturn
+
+  private int requiredByte();
+    Code:
+       0: aload_0
+       1: invokespecial #60                 // Method input:()Ljava/io/PushbackInputStream;
+       4: invokevirtual #65                 // Method java/io/PushbackInputStream.read:()I
+       7: istore_1
+       8: iload_1
+       9: iconst_0
+      10: if_icmpge     21
+      13: new           #67                 // class java/io/EOFException
+      16: dup
+      17: invokespecial #71                 // Method java/io/EOFException."<init>":()V
+      20: athrow
+      21: iload_1
+      22: ireturn
+
+  private int unsignedShort();
+    Code:
+       0: aload_0
+       1: invokespecial #75                 // Method requiredByte:()I
+       4: istore_1
+       5: iload_1
+       6: aload_0
+       7: invokespecial #75                 // Method requiredByte:()I
+      10: bipush        8
+      12: ishl
+      13: ior
+      14: ireturn
+
+  private long unsignedInt();
+    Code:
+       0: aload_0
+       1: invokespecial #80                 // Method unsignedShort:()I
+       4: i2l
+       5: lstore_1
+       6: lload_1
+       7: aload_0
+       8: invokespecial #80                 // Method unsignedShort:()I
+      11: i2l
+      12: bipush        16
+      14: lshl
+      15: lor
+      16: lreturn
+
+  private void readHeader(int);
+    Code:
+       0: aload_0
+       1: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+       4: invokevirtual #90                 // Method java/util/zip/CRC32.reset:()V
+       7: aload_0
+       8: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+      11: iload_1
+      12: invokevirtual #93                 // Method java/util/zip/CRC32.update:(I)V
+      15: iload_1
+      16: aload_0
+      17: invokespecial #96                 // Method headerByte$1:()I
+      20: bipush        8
+      22: ishl
+      23: ior
+      24: ldc           #97                 // int 35615
+      26: if_icmpeq     39
+      29: new           #99                 // class java/util/zip/ZipException
+      32: dup
+      33: ldc           #101                // String Not in GZIP format
+      35: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+      38: athrow
+      39: aload_0
+      40: invokespecial #96                 // Method headerByte$1:()I
+      43: bipush        8
+      45: if_icmpeq     58
+      48: new           #99                 // class java/util/zip/ZipException
+      51: dup
+      52: ldc           #106                // String Unsupported compression method
+      54: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+      57: athrow
+      58: aload_0
+      59: invokespecial #96                 // Method headerByte$1:()I
+      62: istore_2
+      63: iload_2
+      64: sipush        224
+      67: iand
+      68: iconst_0
+      69: if_icmpeq     101
+      72: new           #99                 // class java/util/zip/ZipException
+      75: dup
+      76: new           #108                // class java/lang/StringBuilder
+      79: dup
+      80: ldc           #109                // int 24
+      82: invokespecial #111                // Method java/lang/StringBuilder."<init>":(I)V
+      85: ldc           #113                // String Unsupported GZIP flags:
+      87: invokevirtual #117                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      90: iload_2
+      91: invokevirtual #120                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      94: invokevirtual #124                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      97: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+     100: athrow
+     101: getstatic     #130                // Field scala/runtime/RichInt$.MODULE$:Lscala/runtime/RichInt$;
+     104: getstatic     #135                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+     107: iconst_0
+     108: invokevirtual #139                // Method scala/Predef$.intWrapper:(I)I
+     111: bipush        6
+     113: invokevirtual #143                // Method scala/runtime/RichInt$.until$extension:(II)Lscala/collection/immutable/Range;
+     116: aload_0
+     117: invokedynamic #161,  0            // InvokeDynamic #0:apply$mcII$sp:(Lcoursier/cache/internal/GzipInputStream;)Lscala/runtime/java8/JFunction1$mcII$sp;
+     122: invokevirtual #167                // Method scala/collection/immutable/Range.foreach:(Lscala/Function1;)V
+     125: iload_2
+     126: iconst_4
+     127: iand
+     128: iconst_0
+     129: if_icmpeq     175
+     132: aload_0
+     133: invokespecial #96                 // Method headerByte$1:()I
+     136: istore_3
+     137: iload_3
+     138: aload_0
+     139: invokespecial #96                 // Method headerByte$1:()I
+     142: bipush        8
+     144: ishl
+     145: ior
+     146: istore        4
+     148: getstatic     #130                // Field scala/runtime/RichInt$.MODULE$:Lscala/runtime/RichInt$;
+     151: getstatic     #135                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+     154: iconst_0
+     155: invokevirtual #139                // Method scala/Predef$.intWrapper:(I)I
+     158: iload         4
+     160: invokevirtual #143                // Method scala/runtime/RichInt$.until$extension:(II)Lscala/collection/immutable/Range;
+     163: aload_0
+     164: invokedynamic #172,  0            // InvokeDynamic #1:apply$mcII$sp:(Lcoursier/cache/internal/GzipInputStream;)Lscala/runtime/java8/JFunction1$mcII$sp;
+     169: invokevirtual #167                // Method scala/collection/immutable/Range.foreach:(Lscala/Function1;)V
+     172: goto          175
+     175: iload_2
+     176: bipush        8
+     178: iand
+     179: iconst_0
+     180: if_icmpeq     197
+     183: aload_0
+     184: invokespecial #96                 // Method headerByte$1:()I
+     187: iconst_0
+     188: if_icmpeq     194
+     191: goto          183
+     194: goto          197
+     197: iload_2
+     198: bipush        16
+     200: iand
+     201: iconst_0
+     202: if_icmpeq     219
+     205: aload_0
+     206: invokespecial #96                 // Method headerByte$1:()I
+     209: iconst_0
+     210: if_icmpeq     216
+     213: goto          205
+     216: goto          219
+     219: iload_2
+     220: iconst_2
+     221: iand
+     222: iconst_0
+     223: if_icmpeq     262
+     226: aload_0
+     227: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+     230: invokevirtual #175                // Method java/util/zip/CRC32.getValue:()J
+     233: ldc2_w        #176                // long 65535l
+     236: land
+     237: l2i
+     238: istore        5
+     240: aload_0
+     241: invokespecial #80                 // Method unsignedShort:()I
+     244: iload         5
+     246: if_icmpeq     259
+     249: new           #99                 // class java/util/zip/ZipException
+     252: dup
+     253: ldc           #179                // String Corrupt GZIP header
+     255: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+     258: athrow
+     259: goto          262
+     262: aload_0
+     263: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+     266: invokevirtual #90                 // Method java/util/zip/CRC32.reset:()V
+     269: return
+
+  public int read();
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokespecial #184                // Method single:()[B
+       5: iconst_0
+       6: iconst_1
+       7: invokevirtual #187                // Method read:([BII)I
+      10: istore_1
+      11: iload_1
+      12: iconst_0
+      13: if_icmpge     18
+      16: iconst_m1
+      17: ireturn
+      18: aload_0
+      19: invokespecial #184                // Method single:()[B
+      22: iconst_0
+      23: baload
+      24: sipush        255
+      27: iand
+      28: ireturn
+
+  public int read(byte[], int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #193                // Method closed:()Z
+       4: ifeq          17
+       7: new           #195                // class java/io/IOException
+      10: dup
+      11: ldc           #197                // String Stream closed
+      13: invokespecial #198                // Method java/io/IOException."<init>":(Ljava/lang/String;)V
+      16: athrow
+      17: iload_2
+      18: iconst_0
+      19: if_icmplt     35
+      22: iload_3
+      23: iconst_0
+      24: if_icmplt     35
+      27: iload_2
+      28: aload_1
+      29: arraylength
+      30: iload_3
+      31: isub
+      32: if_icmple     43
+      35: new           #200                // class java/lang/IndexOutOfBoundsException
+      38: dup
+      39: invokespecial #201                // Method java/lang/IndexOutOfBoundsException."<init>":()V
+      42: athrow
+      43: iload_3
+      44: iconst_0
+      45: if_icmpne     50
+      48: iconst_0
+      49: ireturn
+      50: aload_0
+      51: invokespecial #203                // Method ended:()Z
+      54: ifne          366
+      57: aload_0
+      58: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+      61: aload_1
+      62: iload_2
+      63: iload_3
+      64: invokevirtual #210                // Method java/util/zip/Inflater.inflate:([BII)I
+      67: goto          114
+      70: astore        5
+      72: new           #99                 // class java/util/zip/ZipException
+      75: dup
+      76: getstatic     #215                // Field scala/Option$.MODULE$:Lscala/Option$;
+      79: aload         5
+      81: invokevirtual #218                // Method java/util/zip/DataFormatException.getMessage:()Ljava/lang/String;
+      84: invokevirtual #222                // Method scala/Option$.apply:(Ljava/lang/Object;)Lscala/Option;
+      87: invokedynamic #233,  0            // InvokeDynamic #2:apply:()Lscala/Function0;
+      92: invokevirtual #239                // Method scala/Option.getOrElse:(Lscala/Function0;)Ljava/lang/Object;
+      95: checkcast     #241                // class java/lang/String
+      98: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+     101: astore        6
+     103: aload         6
+     105: aload         5
+     107: invokevirtual #245                // Method java/util/zip/ZipException.initCause:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+     110: pop
+     111: aload         6
+     113: athrow
+     114: istore        4
+     116: iload         4
+     118: iconst_0
+     119: if_icmple     136
+     122: aload_0
+     123: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+     126: aload_1
+     127: iload_2
+     128: iload         4
+     130: invokevirtual #248                // Method java/util/zip/CRC32.update:([BII)V
+     133: iload         4
+     135: ireturn
+     136: aload_0
+     137: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     140: invokevirtual #251                // Method java/util/zip/Inflater.finished:()Z
+     143: ifeq          276
+     146: aload_0
+     147: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     150: invokevirtual #254                // Method java/util/zip/Inflater.getRemaining:()I
+     153: istore        7
+     155: iload         7
+     157: iconst_0
+     158: if_icmple     184
+     161: aload_0
+     162: invokespecial #60                 // Method input:()Ljava/io/PushbackInputStream;
+     165: aload_0
+     166: invokespecial #256                // Method buffer:()[B
+     169: aload_0
+     170: invokespecial #258                // Method size:()I
+     173: iload         7
+     175: isub
+     176: iload         7
+     178: invokevirtual #261                // Method java/io/PushbackInputStream.unread:([BII)V
+     181: goto          184
+     184: aload_0
+     185: invokespecial #263                // Method unsignedInt:()J
+     188: lstore        8
+     190: aload_0
+     191: invokespecial #263                // Method unsignedInt:()J
+     194: lstore        10
+     196: lload         8
+     198: aload_0
+     199: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+     202: invokevirtual #175                // Method java/util/zip/CRC32.getValue:()J
+     205: lcmp
+     206: ifne          226
+     209: lload         10
+     211: aload_0
+     212: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     215: invokevirtual #266                // Method java/util/zip/Inflater.getBytesWritten:()J
+     218: ldc2_w        #267                // long 4294967295l
+     221: land
+     222: lcmp
+     223: ifeq          237
+     226: new           #99                 // class java/util/zip/ZipException
+     229: dup
+     230: ldc_w         #270                // String Corrupt GZIP trailer
+     233: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+     236: athrow
+     237: aload_0
+     238: invokespecial #60                 // Method input:()Ljava/io/PushbackInputStream;
+     241: invokevirtual #65                 // Method java/io/PushbackInputStream.read:()I
+     244: istore        12
+     246: iload         12
+     248: iconst_0
+     249: if_icmpge     260
+     252: aload_0
+     253: iconst_1
+     254: invokespecial #272                // Method ended_$eq:(Z)V
+     257: goto          363
+     260: aload_0
+     261: iload         12
+     263: invokespecial #274                // Method readHeader:(I)V
+     266: aload_0
+     267: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     270: invokevirtual #275                // Method java/util/zip/Inflater.reset:()V
+     273: goto          363
+     276: aload_0
+     277: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     280: invokevirtual #278                // Method java/util/zip/Inflater.needsDictionary:()Z
+     283: ifeq          297
+     286: new           #99                 // class java/util/zip/ZipException
+     289: dup
+     290: ldc_w         #280                // String Unexpected gzip dictionary request
+     293: invokespecial #104                // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+     296: athrow
+     297: aload_0
+     298: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     301: invokevirtual #283                // Method java/util/zip/Inflater.needsInput:()Z
+     304: ifeq          363
+     307: aload_0
+     308: aload_0
+     309: invokespecial #60                 // Method input:()Ljava/io/PushbackInputStream;
+     312: aload_0
+     313: invokespecial #256                // Method buffer:()[B
+     316: iconst_0
+     317: aload_0
+     318: invokespecial #256                // Method buffer:()[B
+     321: arraylength
+     322: invokevirtual #284                // Method java/io/PushbackInputStream.read:([BII)I
+     325: invokespecial #286                // Method size_$eq:(I)V
+     328: aload_0
+     329: invokespecial #258                // Method size:()I
+     332: iconst_0
+     333: if_icmpge     344
+     336: new           #67                 // class java/io/EOFException
+     339: dup
+     340: invokespecial #71                 // Method java/io/EOFException."<init>":()V
+     343: athrow
+     344: aload_0
+     345: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+     348: aload_0
+     349: invokespecial #256                // Method buffer:()[B
+     352: iconst_0
+     353: aload_0
+     354: invokespecial #258                // Method size:()I
+     357: invokevirtual #289                // Method java/util/zip/Inflater.setInput:([BII)V
+     360: goto          363
+     363: goto          50
+     366: iconst_m1
+     367: ireturn
+    Exception table:
+       from    to  target type
+          57    67    70   Class java/util/zip/DataFormatException
+
+  public void close();
+    Code:
+       0: aload_0
+       1: invokespecial #193                // Method closed:()Z
+       4: ifne          40
+       7: aload_0
+       8: iconst_1
+       9: invokespecial #300                // Method closed_$eq:(Z)V
+      12: aload_0
+      13: invokespecial #205                // Method inflater:()Ljava/util/zip/Inflater;
+      16: invokevirtual #303                // Method java/util/zip/Inflater.end:()V
+      19: goto          32
+      22: astore_1
+      23: aload_0
+      24: invokespecial #60                 // Method input:()Ljava/io/PushbackInputStream;
+      27: invokevirtual #305                // Method java/io/PushbackInputStream.close:()V
+      30: aload_1
+      31: athrow
+      32: aload_0
+      33: invokespecial #60                 // Method input:()Ljava/io/PushbackInputStream;
+      36: invokevirtual #305                // Method java/io/PushbackInputStream.close:()V
+      39: return
+      40: return
+    Exception table:
+       from    to  target type
+          12    22    22   any
+
+  private final int headerByte$1();
+    Code:
+       0: aload_0
+       1: invokespecial #75                 // Method requiredByte:()I
+       4: istore_1
+       5: aload_0
+       6: invokespecial #85                 // Method crc:()Ljava/util/zip/CRC32;
+       9: iload_1
+      10: invokevirtual #93                 // Method java/util/zip/CRC32.update:(I)V
+      13: iload_1
+      14: ireturn
+
+  public static final int $anonfun$readHeader$1(coursier.cache.internal.GzipInputStream, int);
+    Code:
+       0: iload_1
+       1: istore_3
+       2: aload_0
+       3: invokespecial #96                 // Method headerByte$1:()I
+       6: ireturn
+
+  public static final int $anonfun$readHeader$2(coursier.cache.internal.GzipInputStream, int);
+    Code:
+       0: iload_1
+       1: istore_3
+       2: aload_0
+       3: invokespecial #96                 // Method headerByte$1:()I
+       6: ireturn
+
+  public static final java.lang.String $anonfun$read$1();
+    Code:
+       0: ldc_w         #311                // String Invalid gzip data
+       3: areturn
+
+  public coursier.cache.internal.GzipInputStream(java.io.InputStream, int);
+    Code:
+       0: aload_0
+       1: invokespecial #315                // Method java/io/InputStream."<init>":()V
+       4: aload_0
+       5: new           #62                 // class java/io/PushbackInputStream
+       8: dup
+       9: aload_1
+      10: iload_2
+      11: invokespecial #317                // Method java/io/PushbackInputStream."<init>":(Ljava/io/InputStream;I)V
+      14: putfield      #30                 // Field input:Ljava/io/PushbackInputStream;
+      17: aload_0
+      18: iload_2
+      19: newarray       byte
+      21: putfield      #35                 // Field buffer:[B
+      24: aload_0
+      25: iconst_1
+      26: newarray       byte
+      28: putfield      #37                 // Field single:[B
+      31: aload_0
+      32: new           #87                 // class java/util/zip/CRC32
+      35: dup
+      36: invokespecial #318                // Method java/util/zip/CRC32."<init>":()V
+      39: putfield      #40                 // Field crc:Ljava/util/zip/CRC32;
+      42: aload_0
+      43: iconst_0
+      44: putfield      #43                 // Field size:I
+      47: aload_0
+      48: iconst_0
+      49: putfield      #49                 // Field ended:Z
+      52: aload_0
+      53: iconst_0
+      54: putfield      #53                 // Field closed:Z
+      57: aload_0
+      58: aload_0
+      59: invokespecial #75                 // Method requiredByte:()I
+      62: invokespecial #274                // Method readHeader:(I)V
+      65: aload_0
+      66: new           #207                // class java/util/zip/Inflater
+      69: dup
+      70: iconst_1
+      71: invokespecial #320                // Method java/util/zip/Inflater."<init>":(Z)V
+      74: putfield      #57                 // Field inflater:Ljava/util/zip/Inflater;
+      77: return
+
+  private static java.lang.Object $deserializeLambda$(java.lang.invoke.SerializedLambda);
+    Code:
+       0: aload_0
+       1: invokedynamic #333,  0            // InvokeDynamic #3:lambdaDeserialize:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;
+       6: areturn
+}
+Compiled from "Downloader.scala"
+public final class coursier.cache.internal.Downloader$DeflateInputStream extends java.util.zip.InflaterInputStream {
+  private final java.io.InputStream underlying;
+
+  private boolean verified;
+
+  private boolean verified();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field verified:Z
+       4: ireturn
+
+  private void verified_$eq(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #15                 // Field verified:Z
+       5: return
+
+  public int read(byte[], int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: invokespecial #27                 // Method java/util/zip/InflaterInputStream.read:([BII)I
+       7: istore        4
+       9: iload         4
+      11: iconst_0
+      12: if_icmpge     86
+      15: aload_0
+      16: invokespecial #29                 // Method verified:()Z
+      19: ifne          86
+      22: aload_0
+      23: getfield      #33                 // Field inf:Ljava/util/zip/Inflater;
+      26: invokevirtual #38                 // Method java/util/zip/Inflater.needsDictionary:()Z
+      29: ifeq          42
+      32: new           #40                 // class java/util/zip/ZipException
+      35: dup
+      36: ldc           #42                 // String Deflate dictionary required: expected a decoded body without a preset dictionary
+      38: invokespecial #46                 // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+      41: athrow
+      42: aload_0
+      43: getfield      #33                 // Field inf:Ljava/util/zip/Inflater;
+      46: invokevirtual #50                 // Method java/util/zip/Inflater.getRemaining:()I
+      49: istore        5
+      51: iload         5
+      53: iconst_0
+      54: if_icmpgt     68
+      57: aload_0
+      58: getfield      #52                 // Field underlying:Ljava/io/InputStream;
+      61: invokevirtual #56                 // Method java/io/InputStream.read:()I
+      64: iconst_0
+      65: if_icmplt     78
+      68: new           #40                 // class java/util/zip/ZipException
+      71: dup
+      72: ldc           #58                 // String Unexpected trailing deflate data: expected end of encoded layer, received additional bytes
+      74: invokespecial #46                 // Method java/util/zip/ZipException."<init>":(Ljava/lang/String;)V
+      77: athrow
+      78: aload_0
+      79: iconst_1
+      80: invokespecial #60                 // Method verified_$eq:(Z)V
+      83: goto          86
+      86: iload         4
+      88: ireturn
+
+  public void close();
+    Code:
+       0: aload_0
+       1: invokespecial #68                 // Method java/util/zip/InflaterInputStream.close:()V
+       4: goto          17
+       7: astore_1
+       8: aload_0
+       9: getfield      #33                 // Field inf:Ljava/util/zip/Inflater;
+      12: invokevirtual #71                 // Method java/util/zip/Inflater.end:()V
+      15: aload_1
+      16: athrow
+      17: aload_0
+      18: getfield      #33                 // Field inf:Ljava/util/zip/Inflater;
+      21: invokevirtual #71                 // Method java/util/zip/Inflater.end:()V
+      24: return
+    Exception table:
+       from    to  target type
+           0     7     7   any
+
+  public coursier.cache.internal.Downloader$DeflateInputStream(java.io.InputStream, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #52                 // Field underlying:Ljava/io/InputStream;
+       5: aload_0
+       6: aload_1
+       7: new           #35                 // class java/util/zip/Inflater
+      10: dup
+      11: invokespecial #77                 // Method java/util/zip/Inflater."<init>":()V
+      14: iload_2
+      15: invokespecial #80                 // Method java/util/zip/InflaterInputStream."<init>":(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V
+      18: aload_0
+      19: iconst_0
+      20: putfield      #15                 // Field verified:Z
+      23: return
+}
+Compiled from "Downloader.scala"
+public class coursier.cache.internal.Downloader$Blocking$ {
+  private final coursier.cache.internal.Downloader $outer;
+
+  public scala.util.Either<coursier.cache.ArtifactError, scala.Option<java.lang.Object>> fileLastModified(java.io.File);
+    Code:
+       0: new           #63                 // class scala/util/Right
+       3: dup
+       4: new           #65                 // class scala/Some
+       7: dup
+       8: aload_1
+       9: invokevirtual #71                 // Method java/io/File.lastModified:()J
+      12: invokestatic  #77                 // Method scala/runtime/BoxesRunTime.boxToLong:(J)Ljava/lang/Long;
+      15: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+      18: invokedynamic #99,  0             // InvokeDynamic #0:apply$mcZJ$sp:()Lscala/runtime/java8/JFunction1$mcZJ$sp;
+      23: invokevirtual #103                // Method scala/Some.filter:(Lscala/Function1;)Lscala/Option;
+      26: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+      29: areturn
+
+  public scala.util.Either<coursier.cache.ArtifactError, scala.Option<java.lang.Object>> urlLastModified(java.lang.String, scala.Option<java.lang.Object>, coursier.cache.CacheLogger, scala.collection.immutable.Seq<coursier.credentials.DirectCredentials>);
+    Code:
+       0: aconst_null
+       1: astore        7
+       3: getstatic     #122                // Field coursier/cache/ConnectionBuilder$.MODULE$:Lcoursier/cache/ConnectionBuilder$;
+       6: aload_1
+       7: invokevirtual #126                // Method coursier/cache/ConnectionBuilder$.apply:(Ljava/lang/String;)Lcoursier/cache/ConnectionBuilder;
+      10: aload_0
+      11: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      14: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+      17: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+      20: invokevirtual #144                // Method coursier/cache/ConnectionBuilder.withAuthentication:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+      23: aload_0
+      24: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      27: invokevirtual #148                // Method coursier/cache/internal/Downloader.followHttpToHttpsRedirections:()Z
+      30: invokevirtual #152                // Method coursier/cache/ConnectionBuilder.withFollowHttpToHttpsRedirections:(Z)Lcoursier/cache/ConnectionBuilder;
+      33: aload_0
+      34: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      37: invokevirtual #155                // Method coursier/cache/internal/Downloader.followHttpsToHttpRedirections:()Z
+      40: invokevirtual #158                // Method coursier/cache/ConnectionBuilder.withFollowHttpsToHttpRedirections:(Z)Lcoursier/cache/ConnectionBuilder;
+      43: aload         4
+      45: invokevirtual #162                // Method coursier/cache/ConnectionBuilder.withAutoCredentials:(Lscala/collection/immutable/Seq;)Lcoursier/cache/ConnectionBuilder;
+      48: aload_0
+      49: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      52: invokevirtual #165                // Method coursier/cache/internal/Downloader.sslSocketFactoryOpt:()Lscala/Option;
+      55: invokevirtual #168                // Method coursier/cache/ConnectionBuilder.withSslSocketFactoryOpt:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+      58: aload_0
+      59: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      62: invokevirtual #171                // Method coursier/cache/internal/Downloader.hostnameVerifierOpt:()Lscala/Option;
+      65: invokevirtual #174                // Method coursier/cache/ConnectionBuilder.withHostnameVerifierOpt:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+      68: ldc           #176                // String HEAD
+      70: invokevirtual #179                // Method coursier/cache/ConnectionBuilder.withMethod:(Ljava/lang/String;)Lcoursier/cache/ConnectionBuilder;
+      73: aload_0
+      74: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      77: invokevirtual #182                // Method coursier/cache/internal/Downloader.maxRedirections:()Lscala/Option;
+      80: invokevirtual #185                // Method coursier/cache/ConnectionBuilder.withMaxRedirectionsOpt:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+      83: aload_0
+      84: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      87: invokevirtual #189                // Method coursier/cache/internal/Downloader.classLoaders:()Lscala/collection/immutable/Seq;
+      90: invokevirtual #192                // Method coursier/cache/ConnectionBuilder.withClassLoaders:(Lscala/collection/immutable/Seq;)Lcoursier/cache/ConnectionBuilder;
+      93: aload_0
+      94: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      97: invokevirtual #195                // Method coursier/cache/internal/Downloader.customHandlerFactory:()Lscala/Option;
+     100: invokevirtual #198                // Method coursier/cache/ConnectionBuilder.withCustomHandlerFactory:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+     103: invokevirtual #202                // Method coursier/cache/ConnectionBuilder.connection:()Ljava/net/URLConnection;
+     106: astore        7
+     108: aload         7
+     110: astore        8
+     112: aload         8
+     114: instanceof    #204                // class java/net/HttpURLConnection
+     117: ifeq          243
+     120: aload         8
+     122: checkcast     #204                // class java/net/HttpURLConnection
+     125: astore        9
+     127: aload_3
+     128: aload_1
+     129: aload_2
+     130: invokeinterface #210,  3          // InterfaceMethod coursier/cache/CacheLogger.checkingUpdates:(Ljava/lang/String;Lscala/Option;)V
+     135: iconst_0
+     136: istore        10
+     138: aload         9
+     140: invokevirtual #213                // Method java/net/HttpURLConnection.getLastModified:()J
+     143: lstore        11
+     145: lload         11
+     147: lconst_0
+     148: lcmp
+     149: ifle          167
+     152: new           #65                 // class scala/Some
+     155: dup
+     156: lload         11
+     158: invokestatic  #77                 // Method scala/runtime/BoxesRunTime.boxToLong:(J)Ljava/lang/Long;
+     161: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     164: goto          170
+     167: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     170: astore        13
+     172: iconst_1
+     173: istore        10
+     175: aload_3
+     176: aload_1
+     177: aload_2
+     178: aload         13
+     180: invokeinterface #222,  4          // InterfaceMethod coursier/cache/CacheLogger.checkingUpdatesResult:(Ljava/lang/String;Lscala/Option;Lscala/Option;)V
+     185: new           #63                 // class scala/util/Right
+     188: dup
+     189: aload         13
+     191: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+     194: goto          221
+     197: astore        14
+     199: iload         10
+     201: ifne          218
+     204: aload_3
+     205: aload_1
+     206: aload_2
+     207: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     210: invokeinterface #222,  4          // InterfaceMethod coursier/cache/CacheLogger.checkingUpdatesResult:(Ljava/lang/String;Lscala/Option;Lscala/Option;)V
+     215: goto          218
+     218: aload         14
+     220: athrow
+     221: iload         10
+     223: ifne          240
+     226: aload_3
+     227: aload_1
+     228: aload_2
+     229: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     232: invokeinterface #222,  4          // InterfaceMethod coursier/cache/CacheLogger.checkingUpdatesResult:(Ljava/lang/String;Lscala/Option;Lscala/Option;)V
+     237: goto          240
+     240: goto          302
+     243: goto          246
+     246: new           #224                // class scala/util/Left
+     249: dup
+     250: new           #7                  // class coursier/cache/ArtifactError$DownloadError
+     253: dup
+     254: new           #226                // class java/lang/StringBuilder
+     257: dup
+     258: ldc           #227                // int 42
+     260: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+     263: ldc           #232                // String Cannot do HEAD request with connection
+     265: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     268: aload         8
+     270: invokevirtual #239                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     273: ldc           #241                // String  (
+     275: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     278: aload_1
+     279: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     282: ldc           #243                // String )
+     284: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     287: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     290: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     293: invokespecial #249                // Method coursier/cache/ArtifactError$DownloadError."<init>":(Ljava/lang/String;Lscala/Option;)V
+     296: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+     299: goto          302
+     302: goto          467
+     305: astore        15
+     307: aload         15
+     309: astore        16
+     311: aload         16
+     313: ifnull        437
+     316: aload         16
+     318: astore        17
+     320: getstatic     #255                // Field scala/util/control/NonFatal$.MODULE$:Lscala/util/control/NonFatal$;
+     323: aload         17
+     325: invokevirtual #258                // Method scala/util/control/NonFatal$.apply:(Ljava/lang/Throwable;)Z
+     328: ifeq          434
+     331: new           #7                  // class coursier/cache/ArtifactError$DownloadError
+     334: dup
+     335: new           #226                // class java/lang/StringBuilder
+     338: dup
+     339: ldc_w         #259                // int 44
+     342: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+     345: ldc_w         #261                // String Caught
+     348: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     351: aload         17
+     353: invokevirtual #239                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     356: getstatic     #266                // Field scala/Option$.MODULE$:Lscala/Option$;
+     359: aload         17
+     361: invokevirtual #269                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+     364: invokevirtual #272                // Method scala/Option$.apply:(Ljava/lang/Object;)Lscala/Option;
+     367: invokedynamic #283,  0            // InvokeDynamic #1:apply:()Lscala/Function0;
+     372: invokedynamic #294,  0            // InvokeDynamic #2:apply:()Lscala/Function1;
+     377: invokevirtual #298                // Method scala/Option.fold:(Lscala/Function0;Lscala/Function1;)Ljava/lang/Object;
+     380: invokevirtual #239                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     383: ldc_w         #300                // String  while getting last modified time of
+     386: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     389: aload_1
+     390: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     393: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     396: new           #65                 // class scala/Some
+     399: dup
+     400: aload         17
+     402: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     405: invokespecial #249                // Method coursier/cache/ArtifactError$DownloadError."<init>":(Ljava/lang/String;Lscala/Option;)V
+     408: astore        18
+     410: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+     413: invokevirtual #308                // Method coursier/cache/internal/Downloader$.throwExceptions:()Z
+     416: ifeq          422
+     419: aload         18
+     421: athrow
+     422: new           #224                // class scala/util/Left
+     425: dup
+     426: aload         18
+     428: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+     431: goto          443
+     434: goto          440
+     437: goto          440
+     440: aload         15
+     442: athrow
+     443: goto          467
+     446: astore        19
+     448: aload         7
+     450: ifnull        464
+     453: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+     456: aload         7
+     458: invokevirtual #317                // Method coursier/cache/CacheUrl$.closeConn:(Ljava/net/URLConnection;)V
+     461: goto          464
+     464: aload         19
+     466: athrow
+     467: aload         7
+     469: ifnull        483
+     472: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+     475: aload         7
+     477: invokevirtual #317                // Method coursier/cache/CacheUrl$.closeConn:(Ljava/net/URLConnection;)V
+     480: goto          483
+     483: areturn
+    Exception table:
+       from    to  target type
+         138   197   197   any
+           3   302   305   Class java/lang/Throwable
+           3   446   446   any
+
+  public scala.Option<java.lang.Object> lastCheck(java.io.File);
+    Code:
+       0: new           #65                 // class scala/Some
+       3: dup
+       4: aload_0
+       5: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       8: aload_1
+       9: invokevirtual #345                // Method coursier/cache/internal/Downloader.coursier$cache$internal$Downloader$$ttlFile:(Ljava/io/File;)Ljava/io/File;
+      12: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+      15: invokedynamic #352,  0            // InvokeDynamic #3:apply:()Lscala/Function1;
+      20: invokevirtual #356                // Method scala/Some.withFilter:(Lscala/Function1;)Lscala/Option$WithFilter;
+      23: invokedynamic #363,  0            // InvokeDynamic #4:apply:()Lscala/Function1;
+      28: invokevirtual #366                // Method scala/Option$WithFilter.map:(Lscala/Function1;)Lscala/Option;
+      31: invokedynamic #373,  0            // InvokeDynamic #5:apply:()Lscala/Function1;
+      36: invokevirtual #374                // Method scala/Option.withFilter:(Lscala/Function1;)Lscala/Option$WithFilter;
+      39: invokedynamic #379,  0            // InvokeDynamic #6:apply:()Lscala/Function1;
+      44: invokevirtual #366                // Method scala/Option$WithFilter.map:(Lscala/Function1;)Lscala/Option;
+      47: areturn
+
+  public void doTouchCheckFile(java.io.File, java.lang.String, boolean);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #386                // Method coursier/cache/internal/Downloader.clock:()Ljava/time/Clock;
+       7: invokevirtual #391                // Method java/time/Clock.millis:()J
+      10: lstore        5
+      12: aload_0
+      13: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      16: aload_1
+      17: invokevirtual #345                // Method coursier/cache/internal/Downloader.coursier$cache$internal$Downloader$$ttlFile:(Ljava/io/File;)Ljava/io/File;
+      20: astore        7
+      22: aload         7
+      24: invokevirtual #394                // Method java/io/File.exists:()Z
+      27: ifne          51
+      30: aload         7
+      32: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      35: getstatic     #403                // Field scala/Array$.MODULE$:Lscala/Array$;
+      38: invokevirtual #407                // Method scala/Array$.emptyByteArray:()[B
+      41: iconst_0
+      42: anewarray     #409                // class java/nio/file/OpenOption
+      45: invokestatic  #415                // Method java/nio/file/Files.write:(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+      48: goto          54
+      51: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+      54: pop
+      55: aload         7
+      57: lload         5
+      59: invokevirtual #424                // Method java/io/File.setLastModified:(J)Z
+      62: pop
+      63: iload_3
+      64: ifeq          251
+      67: aload_1
+      68: invokevirtual #427                // Method java/io/File.getName:()Ljava/lang/String;
+      71: ldc_w         #429                // String .directory
+      74: astore        8
+      76: dup
+      77: ifnonnull     89
+      80: pop
+      81: aload         8
+      83: ifnull        97
+      86: goto          251
+      89: aload         8
+      91: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      94: ifeq          251
+      97: getstatic     #438                // Field coursier/cache/FileCache$.MODULE$:Lcoursier/cache/FileCache$;
+     100: aload_1
+     101: ldc_w         #440                // String links
+     104: invokevirtual #444                // Method coursier/cache/FileCache$.auxiliaryFile:(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
+     107: astore        9
+     109: getstatic     #449                // Field coursier/util/WebPage$.MODULE$:Lcoursier/util/WebPage$;
+     112: aload_2
+     113: new           #332                // class java/lang/String
+     116: dup
+     117: aload_0
+     118: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     121: invokevirtual #453                // Method coursier/cache/internal/Downloader.coursier$cache$internal$Downloader$$retry:()Lcoursier/cache/internal/Retry;
+     124: aload_1
+     125: invokedynamic #462,  0            // InvokeDynamic #7:apply:(Ljava/io/File;)Lscala/Function0;
+     130: new           #27                 // class coursier/cache/internal/Downloader$Blocking$$anonfun$1
+     133: dup
+     134: aconst_null
+     135: invokespecial #465                // Method coursier/cache/internal/Downloader$Blocking$$anonfun$1."<init>":(Lcoursier/cache/internal/Downloader$Blocking$;)V
+     138: invokevirtual #471                // Method coursier/cache/internal/Retry.retry:(Lscala/Function0;Lscala/PartialFunction;)Ljava/lang/Object;
+     141: checkcast     #473                // class "[B"
+     144: getstatic     #479                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+     147: invokespecial #482                // Method java/lang/String."<init>":([BLjava/nio/charset/Charset;)V
+     150: invokevirtual #486                // Method coursier/util/WebPage$.listElements:(Ljava/lang/String;Ljava/lang/String;)Lscala/collection/Iterator;
+     153: ldc_w         #488                // String \n
+     156: invokeinterface #493,  2          // InterfaceMethod scala/collection/Iterator.mkString:(Ljava/lang/String;)Ljava/lang/String;
+     161: astore        11
+     163: aload         9
+     165: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+     168: aload         11
+     170: getstatic     #479                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+     173: invokevirtual #497                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+     176: iconst_0
+     177: anewarray     #409                // class java/nio/file/OpenOption
+     180: invokestatic  #415                // Method java/nio/file/Files.write:(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+     183: pop
+     184: iconst_1
+     185: goto          233
+     188: astore        12
+     190: aload         12
+     192: astore        13
+     194: aload         13
+     196: ifnull        224
+     199: getstatic     #255                // Field scala/util/control/NonFatal$.MODULE$:Lscala/util/control/NonFatal$;
+     202: aload         13
+     204: invokevirtual #501                // Method scala/util/control/NonFatal$.unapply:(Ljava/lang/Throwable;)Lscala/Option;
+     207: astore        14
+     209: aload         14
+     211: invokevirtual #504                // Method scala/Option.isEmpty:()Z
+     214: ifne          221
+     217: iconst_0
+     218: goto          230
+     221: goto          227
+     224: goto          227
+     227: aload         12
+     229: athrow
+     230: goto          233
+     233: istore        10
+     235: iload         10
+     237: ifne          250
+     240: aload         9
+     242: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+     245: invokestatic  #508                // Method java/nio/file/Files.deleteIfExists:(Ljava/nio/file/Path;)Z
+     248: pop
+     249: return
+     250: return
+     251: return
+    Exception table:
+       from    to  target type
+         109   185   188   Class java/lang/Throwable
+
+  public scala.util.Either<coursier.cache.ArtifactError, scala.runtime.BoxedUnit> doDownload(java.io.File, java.lang.String, boolean, scala.collection.immutable.Seq<coursier.credentials.DirectCredentials>, java.io.File);
+    Code:
+       0: aload         5
+       2: invokevirtual #521                // Method java/io/File.length:()J
+       5: lstore        10
+       7: aconst_null
+       8: astore        12
+      10: iconst_0
+      11: istore        13
+      13: aload_0
+      14: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      17: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+      20: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+      23: astore        15
+      25: aload         15
+      27: instanceof    #65                 // class scala/Some
+      30: ifeq          168
+      33: aload         15
+      35: checkcast     #65                 // class scala/Some
+      38: astore        16
+      40: aload         16
+      42: invokevirtual #524                // Method scala/Some.value:()Ljava/lang/Object;
+      45: checkcast     #526                // class coursier/core/Authentication
+      48: astore        17
+      50: aload         17
+      52: invokevirtual #529                // Method coursier/core/Authentication.userOnly:()Z
+      55: ifeq          165
+      58: aload         17
+      60: invokevirtual #532                // Method coursier/core/Authentication.userOpt:()Lscala/Option;
+      63: astore        18
+      65: aload         18
+      67: instanceof    #65                 // class scala/Some
+      70: ifeq          125
+      73: aload         18
+      75: checkcast     #65                 // class scala/Some
+      78: astore        19
+      80: aload         19
+      82: invokevirtual #524                // Method scala/Some.value:()Ljava/lang/Object;
+      85: checkcast     #332                // class java/lang/String
+      88: astore        20
+      90: aload         4
+      92: aload_2
+      93: aload         20
+      95: invokedynamic #542,  0            // InvokeDynamic #8:apply:(Ljava/lang/String;Ljava/lang/String;)Lscala/Function1;
+     100: invokeinterface #545,  2          // InterfaceMethod scala/collection/immutable/Seq.find:(Lscala/Function1;)Lscala/Option;
+     105: invokedynamic #552,  0            // InvokeDynamic #9:apply:()Lscala/Function1;
+     110: invokevirtual #553                // Method scala/Option.map:(Lscala/Function1;)Lscala/Option;
+     113: aload_0
+     114: invokedynamic #562,  0            // InvokeDynamic #10:apply:(Lcoursier/cache/internal/Downloader$Blocking$;)Lscala/Function0;
+     119: invokevirtual #566                // Method scala/Option.orElse:(Lscala/Function0;)Lscala/Option;
+     122: goto          184
+     125: goto          128
+     128: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     131: aload         18
+     133: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+     136: ifeq          152
+     139: aload_0
+     140: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     143: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+     146: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+     149: goto          184
+     152: goto          155
+     155: new           #568                // class scala/MatchError
+     158: dup
+     159: aload         18
+     161: invokespecial #569                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     164: athrow
+     165: goto          171
+     168: goto          171
+     171: aload_0
+     172: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     175: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+     178: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+     181: goto          184
+     184: astore        14
+     186: getstatic     #122                // Field coursier/cache/ConnectionBuilder$.MODULE$:Lcoursier/cache/ConnectionBuilder$;
+     189: aload_2
+     190: invokevirtual #126                // Method coursier/cache/ConnectionBuilder$.apply:(Ljava/lang/String;)Lcoursier/cache/ConnectionBuilder;
+     193: aload         14
+     195: invokevirtual #144                // Method coursier/cache/ConnectionBuilder.withAuthentication:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+     198: lload         10
+     200: invokevirtual #573                // Method coursier/cache/ConnectionBuilder.withAlreadyDownloaded:(J)Lcoursier/cache/ConnectionBuilder;
+     203: aload_0
+     204: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     207: invokevirtual #148                // Method coursier/cache/internal/Downloader.followHttpToHttpsRedirections:()Z
+     210: invokevirtual #152                // Method coursier/cache/ConnectionBuilder.withFollowHttpToHttpsRedirections:(Z)Lcoursier/cache/ConnectionBuilder;
+     213: aload_0
+     214: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     217: invokevirtual #155                // Method coursier/cache/internal/Downloader.followHttpsToHttpRedirections:()Z
+     220: invokevirtual #158                // Method coursier/cache/ConnectionBuilder.withFollowHttpsToHttpRedirections:(Z)Lcoursier/cache/ConnectionBuilder;
+     223: aload         4
+     225: invokedynamic #578,  0            // InvokeDynamic #11:apply:()Lscala/Function1;
+     230: invokeinterface #581,  2          // InterfaceMethod scala/collection/immutable/Seq.filter:(Lscala/Function1;)Ljava/lang/Object;
+     235: checkcast     #334                // class scala/collection/immutable/Seq
+     238: invokevirtual #162                // Method coursier/cache/ConnectionBuilder.withAutoCredentials:(Lscala/collection/immutable/Seq;)Lcoursier/cache/ConnectionBuilder;
+     241: aload_0
+     242: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     245: invokevirtual #165                // Method coursier/cache/internal/Downloader.sslSocketFactoryOpt:()Lscala/Option;
+     248: invokevirtual #168                // Method coursier/cache/ConnectionBuilder.withSslSocketFactoryOpt:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+     251: aload_0
+     252: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     255: invokevirtual #171                // Method coursier/cache/internal/Downloader.hostnameVerifierOpt:()Lscala/Option;
+     258: invokevirtual #174                // Method coursier/cache/ConnectionBuilder.withHostnameVerifierOpt:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+     261: ldc_w         #583                // String GET
+     264: invokevirtual #179                // Method coursier/cache/ConnectionBuilder.withMethod:(Ljava/lang/String;)Lcoursier/cache/ConnectionBuilder;
+     267: aload_0
+     268: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     271: invokevirtual #182                // Method coursier/cache/internal/Downloader.maxRedirections:()Lscala/Option;
+     274: invokevirtual #185                // Method coursier/cache/ConnectionBuilder.withMaxRedirectionsOpt:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+     277: aload_0
+     278: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     281: invokevirtual #189                // Method coursier/cache/internal/Downloader.classLoaders:()Lscala/collection/immutable/Seq;
+     284: invokevirtual #192                // Method coursier/cache/ConnectionBuilder.withClassLoaders:(Lscala/collection/immutable/Seq;)Lcoursier/cache/ConnectionBuilder;
+     287: aload_0
+     288: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     291: invokevirtual #195                // Method coursier/cache/internal/Downloader.customHandlerFactory:()Lscala/Option;
+     294: invokevirtual #198                // Method coursier/cache/ConnectionBuilder.withCustomHandlerFactory:(Lscala/Option;)Lcoursier/cache/ConnectionBuilder;
+     297: invokevirtual #587                // Method coursier/cache/ConnectionBuilder.connectionMaybePartial:()Lscala/Tuple2;
+     300: astore        23
+     302: aload         23
+     304: ifnull        341
+     307: aload         23
+     309: invokevirtual #592                // Method scala/Tuple2._1:()Ljava/lang/Object;
+     312: checkcast     #336                // class java/net/URLConnection
+     315: astore        24
+     317: aload         23
+     319: invokevirtual #595                // Method scala/Tuple2._2$mcZ$sp:()Z
+     322: istore        25
+     324: new           #589                // class scala/Tuple2
+     327: dup
+     328: aload         24
+     330: iload         25
+     332: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+     335: invokespecial #602                // Method scala/Tuple2."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     338: goto          354
+     341: goto          344
+     344: new           #568                // class scala/MatchError
+     347: dup
+     348: aload         23
+     350: invokespecial #569                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     353: athrow
+     354: astore        22
+     356: aload         22
+     358: invokevirtual #592                // Method scala/Tuple2._1:()Ljava/lang/Object;
+     361: checkcast     #336                // class java/net/URLConnection
+     364: astore        26
+     366: aload         22
+     368: invokevirtual #595                // Method scala/Tuple2._2$mcZ$sp:()Z
+     371: istore        27
+     373: aload         26
+     375: astore        12
+     377: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+     380: aload         12
+     382: invokevirtual #606                // Method coursier/cache/CacheUrl$.responseCode:(Ljava/net/URLConnection;)Lscala/Option;
+     385: astore        28
+     387: aload         28
+     389: sipush        404
+     392: invokestatic  #610                // Method scala/runtime/BoxesRunTime.boxToInteger:(I)Ljava/lang/Integer;
+     395: invokevirtual #613                // Method scala/Option.contains:(Ljava/lang/Object;)Z
+     398: ifeq          430
+     401: new           #224                // class scala/util/Left
+     404: dup
+     405: new           #15                 // class coursier/cache/ArtifactError$NotFound
+     408: dup
+     409: aload_2
+     410: new           #65                 // class scala/Some
+     413: dup
+     414: iconst_1
+     415: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+     418: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     421: invokespecial #614                // Method coursier/cache/ArtifactError$NotFound."<init>":(Ljava/lang/String;Lscala/Option;)V
+     424: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+     427: goto          1348
+     430: aload         28
+     432: sipush        403
+     435: invokestatic  #610                // Method scala/runtime/BoxesRunTime.boxToInteger:(I)Ljava/lang/Integer;
+     438: invokevirtual #613                // Method scala/Option.contains:(Ljava/lang/Object;)Z
+     441: ifeq          462
+     444: new           #224                // class scala/util/Left
+     447: dup
+     448: new           #12                 // class coursier/cache/ArtifactError$Forbidden
+     451: dup
+     452: aload_2
+     453: invokespecial #617                // Method coursier/cache/ArtifactError$Forbidden."<init>":(Ljava/lang/String;)V
+     456: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+     459: goto          1348
+     462: aload         28
+     464: sipush        401
+     467: invokestatic  #610                // Method scala/runtime/BoxesRunTime.boxToInteger:(I)Ljava/lang/Integer;
+     470: invokevirtual #613                // Method scala/Option.contains:(Ljava/lang/Object;)Z
+     473: ifeq          502
+     476: new           #224                // class scala/util/Left
+     479: dup
+     480: new           #18                 // class coursier/cache/ArtifactError$Unauthorized
+     483: dup
+     484: aload_2
+     485: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+     488: aload         12
+     490: invokevirtual #620                // Method coursier/cache/CacheUrl$.realm:(Ljava/net/URLConnection;)Lscala/Option;
+     493: invokespecial #621                // Method coursier/cache/ArtifactError$Unauthorized."<init>":(Ljava/lang/String;Lscala/Option;)V
+     496: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+     499: goto          1348
+     502: aload         28
+     504: invokedynamic #631,  0            // InvokeDynamic #12:apply$mcZI$sp:()Lscala/runtime/java8/JFunction1$mcZI$sp;
+     509: invokevirtual #374                // Method scala/Option.withFilter:(Lscala/Function1;)Lscala/Option$WithFilter;
+     512: aload_2
+     513: invokedynamic #641,  0            // InvokeDynamic #13:apply:(Ljava/lang/String;)Lscala/Function1;
+     518: invokevirtual #645                // Method scala/Option$WithFilter.foreach:(Lscala/Function1;)V
+     521: aload_0
+     522: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     525: invokevirtual #649                // Method coursier/cache/internal/Downloader.bufferSize:()I
+     528: iconst_0
+     529: if_icmpgt     588
+     532: new           #7                  // class coursier/cache/ArtifactError$DownloadError
+     535: dup
+     536: new           #226                // class java/lang/StringBuilder
+     539: dup
+     540: ldc_w         #650                // int 60
+     543: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+     546: ldc_w         #652                // String Invalid download buffer size
+     549: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     552: aload_0
+     553: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     556: invokevirtual #649                // Method coursier/cache/internal/Downloader.bufferSize:()I
+     559: invokevirtual #655                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     562: ldc_w         #657                // String  for
+     565: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     568: aload_2
+     569: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     572: ldc_w         #659                // String : expected a positive size
+     575: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     578: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     581: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     584: invokespecial #249                // Method coursier/cache/ArtifactError$DownloadError."<init>":(Ljava/lang/String;Lscala/Option;)V
+     587: athrow
+     588: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+     591: aload         12
+     593: aload_2
+     594: invokevirtual #663                // Method coursier/cache/CacheUrl$.responseLength:(Ljava/net/URLConnection;Ljava/lang/String;)Lscala/Option;
+     597: astore        29
+     599: iload         27
+     601: ifeq          609
+     604: lload         10
+     606: goto          610
+     609: lconst_0
+     610: lstore        30
+     612: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+     615: aload         12
+     617: lload         30
+     619: aload_2
+     620: invokevirtual #667                // Method coursier/cache/CacheUrl$.contentRangeLength:(Ljava/net/URLConnection;JLjava/lang/String;)Lscala/Option;
+     623: astore        32
+     625: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+     628: aload         12
+     630: invokevirtual #670                // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$contentEncoding:(Ljava/net/URLConnection;)Lscala/Option;
+     633: astore        33
+     635: aload         33
+     637: invokevirtual #674                // Method scala/Option.toList:()Lscala/collection/immutable/List;
+     640: invokedynamic #681,  0            // InvokeDynamic #14:apply:()Lscala/Function1;
+     645: invokevirtual #687                // Method scala/collection/immutable/List.flatMap:(Lscala/Function1;)Lscala/collection/immutable/List;
+     648: invokedynamic #692,  0            // InvokeDynamic #15:apply:()Lscala/Function1;
+     653: invokevirtual #694                // Method scala/collection/immutable/List.map:(Lscala/Function1;)Lscala/collection/immutable/List;
+     656: invokedynamic #701,  0            // InvokeDynamic #16:apply:()Lscala/Function1;
+     661: invokevirtual #703                // Method scala/collection/immutable/List.filter:(Lscala/Function1;)Lscala/collection/immutable/List;
+     664: astore        34
+     666: aload         34
+     668: invokedynamic #708,  0            // InvokeDynamic #17:apply:()Lscala/Function1;
+     673: invokevirtual #711                // Method scala/collection/immutable/List.exists:(Lscala/Function1;)Z
+     676: ifeq          733
+     679: new           #7                  // class coursier/cache/ArtifactError$DownloadError
+     682: dup
+     683: new           #226                // class java/lang/StringBuilder
+     686: dup
+     687: ldc_w         #712                // int 74
+     690: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+     693: ldc_w         #714                // String Unsupported Content-Encoding \'
+     696: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     699: aload         33
+     701: invokevirtual #717                // Method scala/Option.get:()Ljava/lang/Object;
+     704: invokevirtual #239                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     707: ldc_w         #719                // String \' from
+     710: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     713: aload_2
+     714: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     717: ldc_w         #721                // String : expected identity, gzip, or deflate
+     720: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     723: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     726: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     729: invokespecial #249                // Method coursier/cache/ArtifactError$DownloadError."<init>":(Ljava/lang/String;Lscala/Option;)V
+     732: athrow
+     733: aload         34
+     735: invokedynamic #726,  0            // InvokeDynamic #18:apply:()Lscala/Function1;
+     740: invokevirtual #729                // Method scala/collection/immutable/List.forall:(Lscala/Function1;)Z
+     743: istore        35
+     745: iload         27
+     747: ifeq          820
+     750: iload         35
+     752: ifne          820
+     755: new           #7                  // class coursier/cache/ArtifactError$DownloadError
+     758: dup
+     759: new           #226                // class java/lang/StringBuilder
+     762: dup
+     763: ldc_w         #730                // int 104
+     766: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+     769: ldc_w         #732                // String Cannot resume encoded response from
+     772: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     775: aload_2
+     776: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     779: ldc_w         #734                // String : expected identity encoding for saved prefix of
+     782: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     785: lload         10
+     787: invokevirtual #737                // Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+     790: ldc_w         #739                // String  bytes, received \'
+     793: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     796: aload         33
+     798: invokevirtual #717                // Method scala/Option.get:()Ljava/lang/Object;
+     801: invokevirtual #239                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     804: ldc_w         #741                // String \'
+     807: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     810: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     813: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     816: invokespecial #249                // Method coursier/cache/ArtifactError$DownloadError."<init>":(Ljava/lang/String;Lscala/Option;)V
+     819: athrow
+     820: iload         35
+     822: ifeq          840
+     825: aload         32
+     827: aload         29
+     829: invokedynamic #749,  0            // InvokeDynamic #19:apply:(Lscala/Option;)Lscala/Function0;
+     834: invokevirtual #566                // Method scala/Option.orElse:(Lscala/Function0;)Lscala/Option;
+     837: goto          843
+     840: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     843: astore        36
+     845: aload         32
+     847: aload         29
+     849: invokedynamic #754,  0            // InvokeDynamic #20:apply:(Lscala/Option;)Lscala/Function0;
+     854: invokevirtual #566                // Method scala/Option.orElse:(Lscala/Function0;)Lscala/Option;
+     857: aload_0
+     858: aload_2
+     859: lload         30
+     861: invokedynamic #765,  0            // InvokeDynamic #21:apply$mcVJ$sp:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;J)Lscala/runtime/java8/JFunction1$mcVJ$sp;
+     866: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+     869: aload         12
+     871: astore        38
+     873: aload         38
+     875: instanceof    #204                // class java/net/HttpURLConnection
+     878: ifeq          914
+     881: aload         38
+     883: checkcast     #204                // class java/net/HttpURLConnection
+     886: astore        39
+     888: iload_3
+     889: ifeq          911
+     892: aload         39
+     894: invokestatic  #770                // Method entries$1:(Ljava/net/HttpURLConnection;)Lscala/collection/Iterator;
+     897: getstatic     #775                // Field scala/$less$colon$less$.MODULE$:Lscala/$less$colon$less$;
+     900: invokevirtual #779                // Method scala/$less$colon$less$.refl:()Lscala/$eq$colon$eq;
+     903: invokeinterface #783,  2          // InterfaceMethod scala/collection/Iterator.toMap:(Lscala/$less$colon$less;)Lscala/collection/immutable/Map;
+     908: goto          935
+     911: goto          917
+     914: goto          917
+     917: getstatic     #788                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+     920: invokevirtual #792                // Method scala/Predef$.Map:()Lscala/collection/immutable/Map$;
+     923: getstatic     #797                // Field scala/collection/immutable/Nil$.MODULE$:Lscala/collection/immutable/Nil$;
+     926: invokevirtual #802                // Method scala/collection/immutable/Map$.apply:(Lscala/collection/immutable/Seq;)Ljava/lang/Object;
+     929: checkcast     #804                // class scala/collection/immutable/Map
+     932: goto          935
+     935: astore        37
+     937: getstatic     #266                // Field scala/Option$.MODULE$:Lscala/Option$;
+     940: aload         12
+     942: invokevirtual #805                // Method java/net/URLConnection.getLastModified:()J
+     945: invokestatic  #77                 // Method scala/runtime/BoxesRunTime.boxToLong:(J)Ljava/lang/Long;
+     948: invokevirtual #272                // Method scala/Option$.apply:(Ljava/lang/Object;)Lscala/Option;
+     951: invokedynamic #810,  0            // InvokeDynamic #22:apply$mcZJ$sp:()Lscala/runtime/java8/JFunction1$mcZJ$sp;
+     956: invokevirtual #811                // Method scala/Option.filter:(Lscala/Function1;)Lscala/Option;
+     959: astore        40
+     961: aload         36
+     963: aload_0
+     964: invokedynamic #821,  0            // InvokeDynamic #23:apply$mcI$sp:(Lcoursier/cache/internal/Downloader$Blocking$;)Lscala/runtime/java8/JFunction0$mcI$sp;
+     969: aload_0
+     970: invokedynamic #832,  0            // InvokeDynamic #24:apply$mcIJ$sp:(Lcoursier/cache/internal/Downloader$Blocking$;)Lscala/runtime/java8/JFunction1$mcIJ$sp;
+     975: invokevirtual #298                // Method scala/Option.fold:(Lscala/Function0;Lscala/Function1;)Ljava/lang/Object;
+     978: invokestatic  #836                // Method scala/runtime/BoxesRunTime.unboxToInt:(Ljava/lang/Object;)I
+     981: istore        41
+     983: new           #35                 // class coursier/cache/internal/Downloader$ResponseInputStream
+     986: dup
+     987: aload         12
+     989: invokevirtual #840                // Method java/net/URLConnection.getInputStream:()Ljava/io/InputStream;
+     992: aload_2
+     993: aload         32
+     995: aload         29
+     997: invokedynamic #845,  0            // InvokeDynamic #25:apply:(Lscala/Option;)Lscala/Function0;
+    1002: invokevirtual #566                // Method scala/Option.orElse:(Lscala/Function0;)Lscala/Option;
+    1005: aload         29
+    1007: invokevirtual #848                // Method scala/Option.nonEmpty:()Z
+    1010: getstatic     #266                // Field scala/Option$.MODULE$:Lscala/Option$;
+    1013: aload         12
+    1015: ldc_w         #850                // String Transfer-Encoding
+    1018: invokevirtual #853                // Method java/net/URLConnection.getHeaderField:(Ljava/lang/String;)Ljava/lang/String;
+    1021: invokevirtual #272                // Method scala/Option$.apply:(Ljava/lang/Object;)Lscala/Option;
+    1024: invokedynamic #858,  0            // InvokeDynamic #26:apply:()Lscala/Function1;
+    1029: invokevirtual #859                // Method scala/Option.exists:(Lscala/Function1;)Z
+    1032: invokespecial #862                // Method coursier/cache/internal/Downloader$ResponseInputStream."<init>":(Ljava/io/InputStream;Ljava/lang/String;Lscala/Option;ZZ)V
+    1035: astore        42
+    1037: aload         42
+    1039: invokestatic  #868                // Method scala/runtime/ObjectRef.create:(Ljava/lang/Object;)Lscala/runtime/ObjectRef;
+    1042: astore        43
+    1044: aload         34
+    1046: invokevirtual #871                // Method scala/collection/immutable/List.reverse:()Lscala/collection/immutable/List;
+    1049: aload         43
+    1051: aload         33
+    1053: aload_2
+    1054: aload         42
+    1056: iload         41
+    1058: invokedynamic #879,  0            // InvokeDynamic #27:apply:(Lscala/runtime/ObjectRef;Lscala/Option;Ljava/lang/String;Lcoursier/cache/internal/Downloader$ResponseInputStream;I)Lscala/Function1;
+    1063: invokevirtual #880                // Method scala/collection/immutable/List.foreach:(Lscala/Function1;)V
+    1066: iload         35
+    1068: ifne          1105
+    1071: aload         43
+    1073: new           #29                 // class coursier/cache/internal/Downloader$DecodingInputStream
+    1076: dup
+    1077: aload         43
+    1079: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1082: checkcast     #886                // class java/io/InputStream
+    1085: aload         33
+    1087: invokevirtual #717                // Method scala/Option.get:()Ljava/lang/Object;
+    1090: checkcast     #332                // class java/lang/String
+    1093: aload_2
+    1094: aload         42
+    1096: invokespecial #889                // Method coursier/cache/internal/Downloader$DecodingInputStream."<init>":(Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;Lcoursier/cache/internal/Downloader$ResponseInputStream;)V
+    1099: putfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1102: goto          1105
+    1105: iload         35
+    1107: ifeq          1143
+    1110: aload         36
+    1112: invokevirtual #504                // Method scala/Option.isEmpty:()Z
+    1115: ifeq          1143
+    1118: aload         43
+    1120: new           #891                // class java/io/BufferedInputStream
+    1123: dup
+    1124: aload         43
+    1126: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1129: checkcast     #886                // class java/io/InputStream
+    1132: iload         41
+    1134: invokespecial #894                // Method java/io/BufferedInputStream."<init>":(Ljava/io/InputStream;I)V
+    1137: putfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1140: goto          1143
+    1143: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+    1146: aload_0
+    1147: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1150: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+    1153: aload         5
+    1155: iload         27
+    1157: invokedynamic #913,  0            // InvokeDynamic #28:apply:(Ljava/io/File;Z)Lscala/Function0;
+    1162: invokevirtual #917                // Method coursier/cache/CacheLocks$.withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+    1165: checkcast     #919                // class java/io/OutputStream
+    1168: astore        45
+    1170: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+    1173: aload         43
+    1175: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1178: checkcast     #886                // class java/io/InputStream
+    1181: aload         45
+    1183: aload_0
+    1184: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1187: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+    1190: aload_2
+    1191: lload         30
+    1193: iload         41
+    1195: aload         36
+    1197: invokevirtual #926                // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$readFullyTo:(Ljava/io/InputStream;Ljava/io/OutputStream;Lcoursier/cache/CacheLogger;Ljava/lang/String;JILscala/Option;)V
+    1200: aload         42
+    1202: iload         41
+    1204: invokevirtual #929                // Method coursier/cache/internal/Downloader$ResponseInputStream.finish:(I)V
+    1207: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+    1210: goto          1223
+    1213: astore        46
+    1215: aload         45
+    1217: invokevirtual #933                // Method java/io/OutputStream.close:()V
+    1220: aload         46
+    1222: athrow
+    1223: aload         45
+    1225: invokevirtual #933                // Method java/io/OutputStream.close:()V
+    1228: goto          1247
+    1231: astore        47
+    1233: aload         43
+    1235: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1238: checkcast     #886                // class java/io/InputStream
+    1241: invokevirtual #934                // Method java/io/InputStream.close:()V
+    1244: aload         47
+    1246: athrow
+    1247: aload         43
+    1249: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+    1252: checkcast     #886                // class java/io/InputStream
+    1255: invokevirtual #934                // Method java/io/InputStream.close:()V
+    1258: astore        44
+    1260: getstatic     #438                // Field coursier/cache/FileCache$.MODULE$:Lcoursier/cache/FileCache$;
+    1263: aload_1
+    1264: invokevirtual #938                // Method coursier/cache/FileCache$.clearAuxiliaryFiles:(Ljava/io/File;)V
+    1267: aload         37
+    1269: invokedynamic #943,  0            // InvokeDynamic #29:apply:()Lscala/Function1;
+    1274: invokeinterface #946,  2          // InterfaceMethod scala/collection/immutable/Map.withFilter:(Lscala/Function1;)Lscala/collection/MapOps$WithFilter;
+    1279: aload_1
+    1280: aload         40
+    1282: invokedynamic #956,  0            // InvokeDynamic #30:apply:(Ljava/io/File;Lscala/Option;)Lscala/Function1;
+    1287: invokevirtual #957                // Method scala/collection/MapOps$WithFilter.foreach:(Lscala/Function1;)V
+    1290: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+    1293: aload_0
+    1294: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1297: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+    1300: aload_1
+    1301: aload         5
+    1303: invokedynamic #966,  0            // InvokeDynamic #31:apply:(Ljava/io/File;Ljava/io/File;)Lscala/Function0;
+    1308: invokevirtual #917                // Method coursier/cache/CacheLocks$.withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+    1311: pop
+    1312: aload         40
+    1314: aload_1
+    1315: invokedynamic #974,  0            // InvokeDynamic #32:apply$mcZJ$sp:(Ljava/io/File;)Lscala/runtime/java8/JFunction1$mcZJ$sp;
+    1320: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+    1323: aload_0
+    1324: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1327: invokevirtual #978                // Method coursier/cache/internal/Downloader.coursier$cache$internal$Downloader$$Blocking:()Lcoursier/cache/internal/Downloader$Blocking$;
+    1330: aload_1
+    1331: aload_2
+    1332: iconst_1
+    1333: invokevirtual #980                // Method doTouchCheckFile:(Ljava/io/File;Ljava/lang/String;Z)V
+    1336: iconst_1
+    1337: istore        13
+    1339: new           #63                 // class scala/util/Right
+    1342: dup
+    1343: aload         44
+    1345: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+    1348: goto          1452
+    1351: astore        48
+    1353: new           #224                // class scala/util/Left
+    1356: dup
+    1357: aload         48
+    1359: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+    1362: goto          1452
+    1365: astore        49
+    1367: aload         12
+    1369: ifnull        1383
+    1372: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+    1375: aload         12
+    1377: invokevirtual #317                // Method coursier/cache/CacheUrl$.closeConn:(Ljava/net/URLConnection;)V
+    1380: goto          1383
+    1383: goto          1420
+    1386: astore        50
+    1388: iload         13
+    1390: ifne          1417
+    1393: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+    1396: aload_0
+    1397: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1400: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+    1403: aload         5
+    1405: invokedynamic #990,  0            // InvokeDynamic #33:apply$mcZ$sp:(Ljava/io/File;)Lscala/runtime/java8/JFunction0$mcZ$sp;
+    1410: invokevirtual #917                // Method coursier/cache/CacheLocks$.withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+    1413: pop
+    1414: goto          1417
+    1417: aload         50
+    1419: athrow
+    1420: iload         13
+    1422: ifne          1449
+    1425: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+    1428: aload_0
+    1429: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1432: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+    1435: aload         5
+    1437: invokedynamic #990,  0            // InvokeDynamic #33:apply$mcZ$sp:(Ljava/io/File;)Lscala/runtime/java8/JFunction0$mcZ$sp;
+    1442: invokevirtual #917                // Method coursier/cache/CacheLocks$.withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+    1445: pop
+    1446: goto          1449
+    1449: aload         49
+    1451: athrow
+    1452: astore        21
+    1454: aload         12
+    1456: ifnull        1470
+    1459: getstatic     #313                // Field coursier/cache/CacheUrl$.MODULE$:Lcoursier/cache/CacheUrl$;
+    1462: aload         12
+    1464: invokevirtual #317                // Method coursier/cache/CacheUrl$.closeConn:(Ljava/net/URLConnection;)V
+    1467: goto          1470
+    1470: goto          1507
+    1473: astore        51
+    1475: iload         13
+    1477: ifne          1504
+    1480: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+    1483: aload_0
+    1484: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1487: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+    1490: aload         5
+    1492: invokedynamic #990,  0            // InvokeDynamic #33:apply$mcZ$sp:(Ljava/io/File;)Lscala/runtime/java8/JFunction0$mcZ$sp;
+    1497: invokevirtual #917                // Method coursier/cache/CacheLocks$.withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+    1500: pop
+    1501: goto          1504
+    1504: aload         51
+    1506: athrow
+    1507: iload         13
+    1509: ifne          1536
+    1512: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+    1515: aload_0
+    1516: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+    1519: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+    1522: aload         5
+    1524: invokedynamic #990,  0            // InvokeDynamic #33:apply$mcZ$sp:(Ljava/io/File;)Lscala/runtime/java8/JFunction0$mcZ$sp;
+    1529: invokevirtual #917                // Method coursier/cache/CacheLocks$.withStructureLock:(Ljava/io/File;Lscala/Function0;)Ljava/lang/Object;
+    1532: pop
+    1533: goto          1536
+    1536: aload         21
+    1538: areturn
+    Exception table:
+       from    to  target type
+        1170  1213  1213   any
+        1044  1231  1231   any
+         186  1348  1351   Class coursier/cache/ArtifactError$DownloadError
+         186  1365  1365   any
+        1367  1386  1386   any
+        1454  1473  1473   any
+
+  public scala.Option<scala.util.Either<coursier.cache.ArtifactError, scala.runtime.BoxedUnit>> checkDownload(java.io.File, java.lang.String, scala.collection.immutable.Seq<coursier.credentials.DirectCredentials>, java.io.File);
+    Code:
+       0: getstatic     #266                // Field scala/Option$.MODULE$:Lscala/Option$;
+       3: invokevirtual #1025               // Method scala/Option$.empty:()Lscala/Option;
+       6: invokestatic  #868                // Method scala/runtime/ObjectRef.create:(Ljava/lang/Object;)Lscala/runtime/ObjectRef;
+       9: astore        6
+      11: aload_1
+      12: invokevirtual #394                // Method java/io/File.exists:()Z
+      15: ifeq          174
+      18: aload_0
+      19: aload         6
+      21: aload_2
+      22: aload_3
+      23: invokespecial #1029               // Method done$1:(Lscala/runtime/ObjectRef;Ljava/lang/String;Lscala/collection/immutable/Seq;)V
+      26: aload         6
+      28: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      31: checkcast     #45                 // class scala/Option
+      34: getstatic     #775                // Field scala/$less$colon$less$.MODULE$:Lscala/$less$colon$less$;
+      37: invokevirtual #779                // Method scala/$less$colon$less$.refl:()Lscala/$eq$colon$eq;
+      40: invokevirtual #1033               // Method scala/Option.flatten:(Lscala/$less$colon$less;)Lscala/Option;
+      43: astore        8
+      45: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+      48: aload         8
+      50: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      53: ifeq          69
+      56: new           #63                 // class scala/util/Right
+      59: dup
+      60: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+      63: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+      66: goto          162
+      69: goto          72
+      72: aload         8
+      74: instanceof    #65                 // class scala/Some
+      77: ifeq          149
+      80: aload         8
+      82: checkcast     #65                 // class scala/Some
+      85: astore        9
+      87: aload         9
+      89: invokevirtual #524                // Method scala/Some.value:()Ljava/lang/Object;
+      92: invokestatic  #1037               // Method scala/runtime/BoxesRunTime.unboxToLong:(Ljava/lang/Object;)J
+      95: lstore        10
+      97: aload_1
+      98: invokevirtual #521                // Method java/io/File.length:()J
+     101: lstore        12
+     103: lload         10
+     105: lload         12
+     107: lcmp
+     108: ifne          124
+     111: new           #63                 // class scala/util/Right
+     114: dup
+     115: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+     118: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+     121: goto          162
+     124: new           #224                // class scala/util/Left
+     127: dup
+     128: new           #21                 // class coursier/cache/ArtifactError$WrongLength
+     131: dup
+     132: lload         12
+     134: lload         10
+     136: aload_1
+     137: invokevirtual #1040               // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+     140: invokespecial #1043               // Method coursier/cache/ArtifactError$WrongLength."<init>":(JJLjava/lang/String;)V
+     143: invokespecial #250                // Method scala/util/Left."<init>":(Ljava/lang/Object;)V
+     146: goto          162
+     149: goto          152
+     152: new           #568                // class scala/MatchError
+     155: dup
+     156: aload         8
+     158: invokespecial #569                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     161: athrow
+     162: astore        7
+     164: new           #65                 // class scala/Some
+     167: dup
+     168: aload         7
+     170: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     173: areturn
+     174: ldc2_w        #1044               // long 20l
+     177: invokestatic  #1050               // Method java/lang/Thread.sleep:(J)V
+     180: aload         4
+     182: invokevirtual #521                // Method java/io/File.length:()J
+     185: lstore        14
+     187: lload         14
+     189: lconst_0
+     190: lcmp
+     191: ifne          227
+     194: aload_1
+     195: invokevirtual #394                // Method java/io/File.exists:()Z
+     198: ifeq          227
+     201: aload_0
+     202: aload         6
+     204: aload_2
+     205: aload_3
+     206: invokespecial #1029               // Method done$1:(Lscala/runtime/ObjectRef;Ljava/lang/String;Lscala/collection/immutable/Seq;)V
+     209: new           #65                 // class scala/Some
+     212: dup
+     213: new           #63                 // class scala/util/Right
+     216: dup
+     217: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+     220: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+     223: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     226: areturn
+     227: aload_0
+     228: lload         14
+     230: aload         6
+     232: aload_2
+     233: aload_3
+     234: invokespecial #1054               // Method progress$1:(JLscala/runtime/ObjectRef;Ljava/lang/String;Lscala/collection/immutable/Seq;)V
+     237: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+     240: areturn
+
+  public scala.util.Either<coursier.cache.ArtifactError, scala.runtime.BoxedUnit> remote(java.io.File, java.lang.String, boolean, scala.collection.immutable.Seq<coursier.credentials.DirectCredentials>, scala.Function0<java.lang.Object>);
+    Code:
+       0: aload_1
+       1: invokestatic  #1068               // Method coursier/paths/CachePath.temporaryFile:(Ljava/io/File;)Ljava/io/File;
+       4: astore        6
+       6: aload_0
+       7: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      10: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+      13: aload_2
+      14: aload_0
+      15: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      18: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+      21: invokeinterface #1072,  3         // InterfaceMethod coursier/cache/CacheLogger.downloadingArtifact:(Ljava/lang/String;Lcoursier/util/Artifact;)V
+      26: iconst_0
+      27: istore        7
+      29: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+      32: aload_2
+      33: aload_1
+      34: aload_0
+      35: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      38: invokevirtual #453                // Method coursier/cache/internal/Downloader.coursier$cache$internal$Downloader$$retry:()Lcoursier/cache/internal/Retry;
+      41: aload_0
+      42: aload_1
+      43: aload         5
+      45: aload_2
+      46: iload_3
+      47: aload         4
+      49: aload         6
+      51: invokedynamic #1082,  0           // InvokeDynamic #34:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/io/File;Lscala/Function0;Ljava/lang/String;ZLscala/collection/immutable/Seq;Ljava/io/File;)Lscala/Function0;
+      56: aload_0
+      57: aload_1
+      58: aload_2
+      59: aload         4
+      61: aload         6
+      63: invokedynamic #1090,  0           // InvokeDynamic #35:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/io/File;Ljava/lang/String;Lscala/collection/immutable/Seq;Ljava/io/File;)Lscala/Function0;
+      68: invokevirtual #1094               // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$downloading:(Ljava/lang/String;Ljava/io/File;Lcoursier/cache/internal/Retry;Lscala/Function0;Lscala/Function0;)Lscala/util/Either;
+      71: astore        8
+      73: aload         8
+      75: invokevirtual #1097               // Method scala/util/Either.isRight:()Z
+      78: istore        7
+      80: aload         8
+      82: goto          105
+      85: astore        9
+      87: aload_0
+      88: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      91: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+      94: aload_2
+      95: iload         7
+      97: invokeinterface #1101,  3         // InterfaceMethod coursier/cache/CacheLogger.downloadedArtifact:(Ljava/lang/String;Z)V
+     102: aload         9
+     104: athrow
+     105: aload_0
+     106: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     109: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+     112: aload_2
+     113: iload         7
+     115: invokeinterface #1101,  3         // InterfaceMethod coursier/cache/CacheLogger.downloadedArtifact:(Ljava/lang/String;Z)V
+     120: areturn
+    Exception table:
+       from    to  target type
+          29    85    85   any
+
+  public static final boolean $anonfun$fileLastModified$1(long);
+    Code:
+       0: lload_0
+       1: lconst_0
+       2: lcmp
+       3: ifle          10
+       6: iconst_1
+       7: goto          11
+      10: iconst_0
+      11: ireturn
+
+  public static final java.lang.String $anonfun$urlLastModified$1();
+    Code:
+       0: ldc_w         #1107               // String
+       3: areturn
+
+  public static final java.lang.String $anonfun$urlLastModified$2(java.lang.String);
+    Code:
+       0: new           #226                // class java/lang/StringBuilder
+       3: dup
+       4: ldc_w         #1109               // int 3
+       7: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+      10: ldc           #241                // String  (
+      12: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: aload_0
+      16: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      19: ldc           #243                // String )
+      21: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      24: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      27: areturn
+
+  public static final boolean $anonfun$lastCheck$1(java.io.File);
+    Code:
+       0: aload_0
+       1: invokevirtual #394                // Method java/io/File.exists:()Z
+       4: ireturn
+
+  public static final scala.Tuple2 $anonfun$lastCheck$2(java.io.File);
+    Code:
+       0: aload_0
+       1: invokevirtual #71                 // Method java/io/File.lastModified:()J
+       4: lstore_1
+       5: new           #589                // class scala/Tuple2
+       8: dup
+       9: aload_0
+      10: lload_1
+      11: invokestatic  #77                 // Method scala/runtime/BoxesRunTime.boxToLong:(J)Ljava/lang/Long;
+      14: invokespecial #602                // Method scala/Tuple2."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+      17: areturn
+
+  public static final boolean $anonfun$lastCheck$3(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: astore_2
+       2: aload_2
+       3: ifnull        23
+       6: aload_2
+       7: invokevirtual #1116               // Method scala/Tuple2._2$mcJ$sp:()J
+      10: lstore_3
+      11: lload_3
+      12: lconst_0
+      13: lcmp
+      14: ifle          21
+      17: iconst_1
+      18: goto          22
+      21: iconst_0
+      22: ireturn
+      23: goto          26
+      26: new           #568                // class scala/MatchError
+      29: dup
+      30: aload_2
+      31: invokespecial #569                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      34: athrow
+
+  public static final long $anonfun$lastCheck$4(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: astore_3
+       2: aload_3
+       3: ifnull        15
+       6: aload_3
+       7: invokevirtual #1116               // Method scala/Tuple2._2$mcJ$sp:()J
+      10: lstore        4
+      12: lload         4
+      14: lreturn
+      15: goto          18
+      18: new           #568                // class scala/MatchError
+      21: dup
+      22: aload_3
+      23: invokespecial #569                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      26: athrow
+
+  public static final byte[] $anonfun$doTouchCheckFile$1(java.io.File);
+    Code:
+       0: aload_0
+       1: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       4: invokestatic  #1125               // Method java/nio/file/Files.readAllBytes:(Ljava/nio/file/Path;)[B
+       7: areturn
+
+  public static final boolean $anonfun$doDownload$1(java.lang.String, java.lang.String, coursier.credentials.DirectCredentials);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokevirtual #1136               // Method coursier/credentials/DirectCredentials.matches:(Ljava/lang/String;Ljava/lang/String;)Z
+       6: ireturn
+
+  public static final coursier.core.Authentication $anonfun$doDownload$2(coursier.credentials.DirectCredentials);
+    Code:
+       0: aload_0
+       1: invokevirtual #1141               // Method coursier/credentials/DirectCredentials.authentication:()Lcoursier/core/Authentication;
+       4: areturn
+
+  public static final scala.Option $anonfun$doDownload$3(coursier.cache.internal.Downloader$Blocking$);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+       7: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+      10: areturn
+
+  public static final boolean $anonfun$doDownload$4(coursier.credentials.DirectCredentials);
+    Code:
+       0: aload_0
+       1: invokevirtual #1148               // Method coursier/credentials/DirectCredentials.matchHost:()Z
+       4: ireturn
+
+  public static final boolean $anonfun$doDownload$5(int);
+    Code:
+       0: iload_0
+       1: bipush        100
+       3: idiv
+       4: iconst_1
+       5: if_icmpeq     29
+       8: iload_0
+       9: sipush        204
+      12: if_icmpeq     29
+      15: iload_0
+      16: sipush        205
+      19: if_icmpeq     29
+      22: iload_0
+      23: sipush        304
+      26: if_icmpne     33
+      29: iconst_1
+      30: goto          34
+      33: iconst_0
+      34: ireturn
+
+  public static final scala.runtime.Nothing$ $anonfun$doDownload$6(java.lang.String, int);
+    Code:
+       0: new           #7                  // class coursier/cache/ArtifactError$DownloadError
+       3: dup
+       4: new           #226                // class java/lang/StringBuilder
+       7: dup
+       8: ldc_w         #1152               // int 72
+      11: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+      14: ldc_w         #1154               // String Unexpected HTTP status
+      17: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: iload_1
+      21: invokevirtual #655                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      24: ldc_w         #1156               // String  from
+      27: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      30: aload_0
+      31: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: ldc_w         #1158               // String : expected a response with an artifact body
+      37: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      40: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      43: getstatic     #218                // Field scala/None$.MODULE$:Lscala/None$;
+      46: invokespecial #249                // Method coursier/cache/ArtifactError$DownloadError."<init>":(Ljava/lang/String;Lscala/Option;)V
+      49: athrow
+
+  public static final scala.collection.mutable.ArraySeq$ofRef $anonfun$doDownload$7(java.lang.String);
+    Code:
+       0: getstatic     #788                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+       3: aload_0
+       4: ldc_w         #1161               // String ,
+       7: iconst_m1
+       8: invokevirtual #1165               // Method java/lang/String.split:(Ljava/lang/String;I)[Ljava/lang/String;
+      11: checkcast     #1167               // class "[Ljava/lang/Object;"
+      14: invokevirtual #1171               // Method scala/Predef$.wrapRefArray:([Ljava/lang/Object;)Lscala/collection/mutable/ArraySeq$ofRef;
+      17: areturn
+
+  public static final java.lang.String $anonfun$doDownload$8(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokevirtual #1175               // Method java/lang/String.trim:()Ljava/lang/String;
+       4: getstatic     #1181               // Field java/util/Locale.ROOT:Ljava/util/Locale;
+       7: invokevirtual #1185               // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+      10: areturn
+
+  public static final boolean $anonfun$doDownload$9(java.lang.String);
+    Code:
+       0: getstatic     #1193               // Field scala/collection/StringOps$.MODULE$:Lscala/collection/StringOps$;
+       3: getstatic     #788                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+       6: aload_0
+       7: invokevirtual #1196               // Method scala/Predef$.augmentString:(Ljava/lang/String;)Ljava/lang/String;
+      10: invokevirtual #1199               // Method scala/collection/StringOps$.nonEmpty$extension:(Ljava/lang/String;)Z
+      13: ireturn
+
+  public static final boolean $anonfun$doDownload$10(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #1203               // String identity
+       4: astore_1
+       5: dup
+       6: ifnonnull     17
+       9: pop
+      10: aload_1
+      11: ifnull        76
+      14: goto          24
+      17: aload_1
+      18: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      21: ifne          76
+      24: aload_0
+      25: ldc_w         #1205               // String gzip
+      28: astore_2
+      29: dup
+      30: ifnonnull     41
+      33: pop
+      34: aload_2
+      35: ifnull        76
+      38: goto          48
+      41: aload_2
+      42: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      45: ifne          76
+      48: aload_0
+      49: ldc_w         #1207               // String deflate
+      52: astore_3
+      53: dup
+      54: ifnonnull     65
+      57: pop
+      58: aload_3
+      59: ifnull        76
+      62: goto          72
+      65: aload_3
+      66: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      69: ifne          76
+      72: iconst_1
+      73: goto          77
+      76: iconst_0
+      77: ireturn
+
+  public static final boolean $anonfun$doDownload$11(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc_w         #1203               // String identity
+       4: astore_1
+       5: dup
+       6: ifnonnull     17
+       9: pop
+      10: aload_1
+      11: ifnull        24
+      14: goto          28
+      17: aload_1
+      18: invokevirtual #433                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn
+
+  public static final scala.Option $anonfun$doDownload$12(scala.Option);
+    Code:
+       0: aload_0
+       1: areturn
+
+  public static final scala.Option $anonfun$doDownload$13(scala.Option);
+    Code:
+       0: aload_0
+       1: areturn
+
+  public static final void $anonfun$doDownload$14(coursier.cache.internal.Downloader$Blocking$, java.lang.String, long, long);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+       7: aload_1
+       8: lload         4
+      10: lload_2
+      11: ladd
+      12: lload_2
+      13: iconst_0
+      14: invokeinterface #1216,  7         // InterfaceMethod coursier/cache/CacheLogger.downloadLength:(Ljava/lang/String;JJZ)V
+      19: return
+
+  public static final scala.Tuple2 $anonfun$doDownload$16(java.lang.String, java.lang.String);
+    Code:
+       0: new           #589                // class scala/Tuple2
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: getstatic     #479                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+       9: invokevirtual #497                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+      12: invokespecial #602                // Method scala/Tuple2."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+      15: areturn
+
+  public static final scala.collection.Iterator $anonfun$doDownload$15(java.net.HttpURLConnection, java.lang.String);
+    Code:
+       0: getstatic     #266                // Field scala/Option$.MODULE$:Lscala/Option$;
+       3: aload_0
+       4: new           #226                // class java/lang/StringBuilder
+       7: dup
+       8: ldc_w         #1225               // int 11
+      11: invokespecial #230                // Method java/lang/StringBuilder."<init>":(I)V
+      14: ldc_w         #1227               // String X-Checksum-
+      17: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: aload_1
+      21: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      24: invokevirtual #247                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      27: invokevirtual #1228               // Method java/net/HttpURLConnection.getHeaderField:(Ljava/lang/String;)Ljava/lang/String;
+      30: invokevirtual #272                // Method scala/Option$.apply:(Ljava/lang/Object;)Lscala/Option;
+      33: invokevirtual #1232               // Method scala/Option.iterator:()Lscala/collection/Iterator;
+      36: aload_1
+      37: invokedynamic #1238,  0           // InvokeDynamic #36:apply:(Ljava/lang/String;)Lscala/Function1;
+      42: invokeinterface #1241,  2         // InterfaceMethod scala/collection/Iterator.map:(Lscala/Function1;)Lscala/collection/Iterator;
+      47: areturn
+
+  private static final scala.collection.Iterator entries$1(java.net.HttpURLConnection);
+    Code:
+       0: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+       3: invokevirtual #1245               // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$checksumHeader:()Lscala/collection/immutable/Seq;
+       6: invokeinterface #1246,  1         // InterfaceMethod scala/collection/immutable/Seq.iterator:()Lscala/collection/Iterator;
+      11: aload_0
+      12: invokedynamic #1254,  0           // InvokeDynamic #37:apply:(Ljava/net/HttpURLConnection;)Lscala/Function1;
+      17: invokeinterface #1256,  2         // InterfaceMethod scala/collection/Iterator.flatMap:(Lscala/Function1;)Lscala/collection/Iterator;
+      22: areturn
+
+  public static final boolean $anonfun$doDownload$17(long);
+    Code:
+       0: lload_0
+       1: lconst_0
+       2: lcmp
+       3: ifle          10
+       6: iconst_1
+       7: goto          11
+      10: iconst_0
+      11: ireturn
+
+  public static final int $anonfun$doDownload$18(coursier.cache.internal.Downloader$Blocking$);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #649                // Method coursier/cache/internal/Downloader.bufferSize:()I
+       7: ireturn
+
+  public static final int $anonfun$doDownload$19(coursier.cache.internal.Downloader$Blocking$, long);
+    Code:
+       0: getstatic     #1262               // Field scala/math/package$.MODULE$:Lscala/math/package$;
+       3: aload_0
+       4: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       7: invokevirtual #649                // Method coursier/cache/internal/Downloader.bufferSize:()I
+      10: i2l
+      11: getstatic     #1262               // Field scala/math/package$.MODULE$:Lscala/math/package$;
+      14: lconst_1
+      15: lload_1
+      16: invokevirtual #1266               // Method scala/math/package$.max:(JJ)J
+      19: invokevirtual #1269               // Method scala/math/package$.min:(JJ)J
+      22: l2i
+      23: ireturn
+
+  public static final scala.Option $anonfun$doDownload$20(scala.Option);
+    Code:
+       0: aload_0
+       1: areturn
+
+  public static final boolean $anonfun$doDownload$22(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokevirtual #1175               // Method java/lang/String.trim:()Ljava/lang/String;
+       4: ldc_w         #1273               // String chunked
+       7: invokevirtual #1276               // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      10: ireturn
+
+  public static final boolean $anonfun$doDownload$21(java.lang.String);
+    Code:
+       0: getstatic     #1283               // Field scala/collection/ArrayOps$.MODULE$:Lscala/collection/ArrayOps$;
+       3: getstatic     #788                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+       6: aload_0
+       7: ldc_w         #1161               // String ,
+      10: invokevirtual #1286               // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      13: checkcast     #1167               // class "[Ljava/lang/Object;"
+      16: invokevirtual #1290               // Method scala/Predef$.refArrayOps:([Ljava/lang/Object;)Ljava/lang/Object;
+      19: invokedynamic #1295,  0           // InvokeDynamic #38:apply:()Lscala/Function1;
+      24: invokevirtual #1299               // Method scala/collection/ArrayOps$.exists$extension:(Ljava/lang/Object;Lscala/Function1;)Z
+      27: ireturn
+
+  public static final java.io.InputStream $anonfun$doDownload$24(java.lang.String, scala.runtime.ObjectRef, int);
+    Code:
+       0: aload_0
+       1: astore        4
+       3: aload         4
+       5: ifnonnull     12
+       8: iconst_0
+       9: goto          17
+      12: aload         4
+      14: invokevirtual #1307               // Method java/lang/String.hashCode:()I
+      17: lookupswitch  { // 2
+               3189082: 44
+            1545112619: 74
+               default: 104
+          }
+      44: ldc_w         #1205               // String gzip
+      47: aload         4
+      49: invokevirtual #1308               // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      52: ifeq          71
+      55: new           #1310               // class coursier/cache/internal/GzipInputStream
+      58: dup
+      59: aload_1
+      60: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      63: checkcast     #886                // class java/io/InputStream
+      66: iload_2
+      67: invokespecial #1311               // Method coursier/cache/internal/GzipInputStream."<init>":(Ljava/io/InputStream;I)V
+      70: areturn
+      71: goto          107
+      74: ldc_w         #1207               // String deflate
+      77: aload         4
+      79: invokevirtual #1308               // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      82: ifeq          101
+      85: new           #32                 // class coursier/cache/internal/Downloader$DeflateInputStream
+      88: dup
+      89: aload_1
+      90: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      93: checkcast     #886                // class java/io/InputStream
+      96: iload_2
+      97: invokespecial #1312               // Method coursier/cache/internal/Downloader$DeflateInputStream."<init>":(Ljava/io/InputStream;I)V
+     100: areturn
+     101: goto          107
+     104: goto          107
+     107: aload_1
+     108: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     111: checkcast     #886                // class java/io/InputStream
+     114: areturn
+
+  public static final void $anonfun$doDownload$23(scala.runtime.ObjectRef, scala.Option, java.lang.String, coursier.cache.internal.Downloader$ResponseInputStream, int, java.lang.String);
+    Code:
+       0: aload_0
+       1: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+       4: aload_1
+       5: invokevirtual #717                // Method scala/Option.get:()Ljava/lang/Object;
+       8: checkcast     #332                // class java/lang/String
+      11: aload_2
+      12: aload_3
+      13: aload         5
+      15: aload_0
+      16: iload         4
+      18: invokedynamic #1324,  0           // InvokeDynamic #39:apply:(Ljava/lang/String;Lscala/runtime/ObjectRef;I)Lscala/Function0;
+      23: invokevirtual #1328               // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$withDecodingError:(Ljava/lang/String;Ljava/lang/String;Lcoursier/cache/internal/Downloader$ResponseInputStream;Lscala/Function0;)Ljava/lang/Object;
+      26: checkcast     #886                // class java/io/InputStream
+      29: putfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      32: return
+
+  public static final java.io.OutputStream $anonfun$doDownload$25(java.io.File, boolean);
+    Code:
+       0: aload_0
+       1: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       4: invokeinterface #1335,  1         // InterfaceMethod java/nio/file/Path.getParent:()Ljava/nio/file/Path;
+       9: invokestatic  #1341               // Method coursier/paths/Util.createDirectories:(Ljava/nio/file/Path;)V
+      12: iload_1
+      13: ifeq          34
+      16: aload_0
+      17: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      20: iconst_1
+      21: anewarray     #409                // class java/nio/file/OpenOption
+      24: dup
+      25: iconst_0
+      26: getstatic     #1347               // Field java/nio/file/StandardOpenOption.APPEND:Ljava/nio/file/StandardOpenOption;
+      29: aastore
+      30: invokestatic  #1351               // Method java/nio/file/Files.newOutputStream:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;
+      33: areturn
+      34: aload_0
+      35: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      38: iconst_0
+      39: anewarray     #409                // class java/nio/file/OpenOption
+      42: invokestatic  #1351               // Method java/nio/file/Files.newOutputStream:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;
+      45: areturn
+
+  public static final boolean $anonfun$doDownload$26(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: astore_2
+       2: aload_2
+       3: ifnull        8
+       6: iconst_1
+       7: ireturn
+       8: goto          11
+      11: iconst_0
+      12: ireturn
+
+  public static final boolean $anonfun$doDownload$28(java.io.File, long);
+    Code:
+       0: aload_0
+       1: lload_1
+       2: invokevirtual #424                // Method java/io/File.setLastModified:(J)Z
+       5: ireturn
+
+  public static final java.nio.file.Path $anonfun$doDownload$27(java.io.File, scala.Option, scala.Tuple2);
+    Code:
+       0: aload_2
+       1: astore        4
+       3: aload         4
+       5: ifnull        122
+       8: aload         4
+      10: invokevirtual #592                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      13: checkcast     #332                // class java/lang/String
+      16: astore        5
+      18: aload         4
+      20: invokevirtual #1361               // Method scala/Tuple2._2:()Ljava/lang/Object;
+      23: checkcast     #473                // class "[B"
+      26: astore        6
+      28: getstatic     #438                // Field coursier/cache/FileCache$.MODULE$:Lcoursier/cache/FileCache$;
+      31: aload_0
+      32: aload         5
+      34: invokevirtual #444                // Method coursier/cache/FileCache$.auxiliaryFile:(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
+      37: astore        7
+      39: aload         7
+      41: invokestatic  #1068               // Method coursier/paths/CachePath.temporaryFile:(Ljava/io/File;)Ljava/io/File;
+      44: astore        8
+      46: aload         8
+      48: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      51: invokeinterface #1335,  1         // InterfaceMethod java/nio/file/Path.getParent:()Ljava/nio/file/Path;
+      56: invokestatic  #1341               // Method coursier/paths/Util.createDirectories:(Ljava/nio/file/Path;)V
+      59: aload         8
+      61: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      64: aload         6
+      66: iconst_0
+      67: anewarray     #409                // class java/nio/file/OpenOption
+      70: invokestatic  #415                // Method java/nio/file/Files.write:(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+      73: pop
+      74: aload_1
+      75: aload         8
+      77: invokedynamic #1365,  0           // InvokeDynamic #40:apply$mcZJ$sp:(Ljava/io/File;)Lscala/runtime/java8/JFunction1$mcZJ$sp;
+      82: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+      85: aload         7
+      87: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      90: invokeinterface #1335,  1         // InterfaceMethod java/nio/file/Path.getParent:()Ljava/nio/file/Path;
+      95: invokestatic  #1341               // Method coursier/paths/Util.createDirectories:(Ljava/nio/file/Path;)V
+      98: aload         8
+     100: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+     103: aload         7
+     105: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+     108: iconst_1
+     109: anewarray     #1367               // class java/nio/file/CopyOption
+     112: dup
+     113: iconst_0
+     114: getstatic     #1373               // Field java/nio/file/StandardCopyOption.ATOMIC_MOVE:Ljava/nio/file/StandardCopyOption;
+     117: aastore
+     118: invokestatic  #1377               // Method java/nio/file/Files.move:(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+     121: areturn
+     122: goto          125
+     125: new           #568                // class scala/MatchError
+     128: dup
+     129: aload         4
+     131: invokespecial #569                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     134: athrow
+
+  public static final java.nio.file.Path $anonfun$doDownload$29(java.io.File, java.io.File);
+    Code:
+       0: aload_0
+       1: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       4: invokeinterface #1335,  1         // InterfaceMethod java/nio/file/Path.getParent:()Ljava/nio/file/Path;
+       9: invokestatic  #1341               // Method coursier/paths/Util.createDirectories:(Ljava/nio/file/Path;)V
+      12: aload_1
+      13: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      16: aload_0
+      17: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+      20: iconst_1
+      21: anewarray     #1367               // class java/nio/file/CopyOption
+      24: dup
+      25: iconst_0
+      26: getstatic     #1373               // Field java/nio/file/StandardCopyOption.ATOMIC_MOVE:Ljava/nio/file/StandardCopyOption;
+      29: aastore
+      30: invokestatic  #1377               // Method java/nio/file/Files.move:(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+      33: areturn
+
+  public static final boolean $anonfun$doDownload$30(java.io.File, long);
+    Code:
+       0: aload_0
+       1: lload_1
+       2: invokevirtual #424                // Method java/io/File.setLastModified:(J)Z
+       5: ireturn
+
+  public static final boolean $anonfun$doDownload$31(java.io.File);
+    Code:
+       0: aload_0
+       1: invokevirtual #398                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       4: invokestatic  #508                // Method java/nio/file/Files.deleteIfExists:(Ljava/nio/file/Path;)Z
+       7: ireturn
+
+  public static final void $anonfun$checkDownload$2(coursier.cache.internal.Downloader$Blocking$, java.lang.String, long, long);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+       7: aload_1
+       8: lload         4
+      10: lload_2
+      11: iconst_1
+      12: invokeinterface #1216,  7         // InterfaceMethod coursier/cache/CacheLogger.downloadLength:(Ljava/lang/String;JJZ)V
+      17: return
+
+  public static final void $anonfun$checkDownload$1(coursier.cache.internal.Downloader$Blocking$, java.lang.String, long, scala.Option);
+    Code:
+       0: aload         4
+       2: aload_0
+       3: aload_1
+       4: lload_2
+       5: invokedynamic #1391,  0           // InvokeDynamic #41:apply$mcVJ$sp:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;J)Lscala/runtime/java8/JFunction1$mcVJ$sp;
+      10: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+      13: return
+
+  private final void progress$1(long, scala.runtime.ObjectRef, java.lang.String, scala.collection.immutable.Seq);
+    Code:
+       0: aload_3
+       1: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+       4: checkcast     #45                 // class scala/Option
+       7: invokevirtual #504                // Method scala/Option.isEmpty:()Z
+      10: ifeq          125
+      13: aload_3
+      14: new           #65                 // class scala/Some
+      17: dup
+      18: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+      21: aload         4
+      23: aload_0
+      24: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      27: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+      30: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+      33: aload_0
+      34: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      37: invokevirtual #148                // Method coursier/cache/internal/Downloader.followHttpToHttpsRedirections:()Z
+      40: aload_0
+      41: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      44: invokevirtual #155                // Method coursier/cache/internal/Downloader.followHttpsToHttpRedirections:()Z
+      47: aload         5
+      49: aload_0
+      50: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      53: invokevirtual #165                // Method coursier/cache/internal/Downloader.sslSocketFactoryOpt:()Lscala/Option;
+      56: aload_0
+      57: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      60: invokevirtual #171                // Method coursier/cache/internal/Downloader.hostnameVerifierOpt:()Lscala/Option;
+      63: aload_0
+      64: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      67: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+      70: aload_0
+      71: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      74: invokevirtual #182                // Method coursier/cache/internal/Downloader.maxRedirections:()Lscala/Option;
+      77: aload_0
+      78: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      81: invokevirtual #195                // Method coursier/cache/internal/Downloader.customHandlerFactory:()Lscala/Option;
+      84: invokevirtual #1397               // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$contentLength:(Ljava/lang/String;Lscala/Option;ZZLscala/collection/immutable/Seq;Lscala/Option;Lscala/Option;Lcoursier/cache/CacheLogger;Lscala/Option;Lscala/Option;)Lscala/util/Either;
+      87: invokevirtual #1400               // Method scala/util/Either.toOption:()Lscala/Option;
+      90: getstatic     #775                // Field scala/$less$colon$less$.MODULE$:Lscala/$less$colon$less$;
+      93: invokevirtual #779                // Method scala/$less$colon$less$.refl:()Lscala/$eq$colon$eq;
+      96: invokevirtual #1033               // Method scala/Option.flatten:(Lscala/$less$colon$less;)Lscala/Option;
+      99: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     102: putfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     105: aload_3
+     106: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     109: checkcast     #45                 // class scala/Option
+     112: aload_0
+     113: aload         4
+     115: lload_1
+     116: invokedynamic #1410,  0           // InvokeDynamic #42:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;J)Lscala/Function1;
+     121: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+     124: return
+     125: aload_0
+     126: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+     129: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+     132: aload         4
+     134: lload_1
+     135: invokeinterface #1414,  4         // InterfaceMethod coursier/cache/CacheLogger.downloadProgress:(Ljava/lang/String;J)V
+     140: return
+
+  public static final void $anonfun$checkDownload$4(coursier.cache.internal.Downloader$Blocking$, java.lang.String, long);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+       7: aload_1
+       8: lload_2
+       9: lload_2
+      10: iconst_1
+      11: invokeinterface #1216,  7         // InterfaceMethod coursier/cache/CacheLogger.downloadLength:(Ljava/lang/String;JJZ)V
+      16: return
+
+  public static final void $anonfun$checkDownload$3(coursier.cache.internal.Downloader$Blocking$, java.lang.String, scala.Option);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #1424,  0           // InvokeDynamic #43:apply$mcVJ$sp:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;)Lscala/runtime/java8/JFunction1$mcVJ$sp;
+       8: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+      11: return
+
+  public static final void $anonfun$checkDownload$6(coursier.cache.internal.Downloader$Blocking$, java.lang.String, long);
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       4: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+       7: aload_1
+       8: lload_2
+       9: invokeinterface #1414,  4         // InterfaceMethod coursier/cache/CacheLogger.downloadProgress:(Ljava/lang/String;J)V
+      14: return
+
+  public static final void $anonfun$checkDownload$5(coursier.cache.internal.Downloader$Blocking$, java.lang.String, scala.Option);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #1430,  0           // InvokeDynamic #44:apply$mcVJ$sp:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;)Lscala/runtime/java8/JFunction1$mcVJ$sp;
+       8: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+      11: return
+
+  private final void done$1(scala.runtime.ObjectRef, java.lang.String, scala.collection.immutable.Seq);
+    Code:
+       0: aload_1
+       1: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+       4: checkcast     #45                 // class scala/Option
+       7: invokevirtual #504                // Method scala/Option.isEmpty:()Z
+      10: ifeq          121
+      13: aload_1
+      14: new           #65                 // class scala/Some
+      17: dup
+      18: getstatic     #305                // Field coursier/cache/internal/Downloader$.MODULE$:Lcoursier/cache/internal/Downloader$;
+      21: aload_2
+      22: aload_0
+      23: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      26: invokevirtual #132                // Method coursier/cache/internal/Downloader.artifact:()Lcoursier/util/Artifact;
+      29: invokevirtual #138                // Method coursier/util/Artifact.authentication:()Lscala/Option;
+      32: aload_0
+      33: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      36: invokevirtual #148                // Method coursier/cache/internal/Downloader.followHttpToHttpsRedirections:()Z
+      39: aload_0
+      40: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      43: invokevirtual #155                // Method coursier/cache/internal/Downloader.followHttpsToHttpRedirections:()Z
+      46: aload_3
+      47: aload_0
+      48: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      51: invokevirtual #165                // Method coursier/cache/internal/Downloader.sslSocketFactoryOpt:()Lscala/Option;
+      54: aload_0
+      55: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      58: invokevirtual #171                // Method coursier/cache/internal/Downloader.hostnameVerifierOpt:()Lscala/Option;
+      61: aload_0
+      62: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      65: invokevirtual #922                // Method coursier/cache/internal/Downloader.logger:()Lcoursier/cache/CacheLogger;
+      68: aload_0
+      69: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      72: invokevirtual #182                // Method coursier/cache/internal/Downloader.maxRedirections:()Lscala/Option;
+      75: aload_0
+      76: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      79: invokevirtual #195                // Method coursier/cache/internal/Downloader.customHandlerFactory:()Lscala/Option;
+      82: invokevirtual #1397               // Method coursier/cache/internal/Downloader$.coursier$cache$internal$Downloader$$contentLength:(Ljava/lang/String;Lscala/Option;ZZLscala/collection/immutable/Seq;Lscala/Option;Lscala/Option;Lcoursier/cache/CacheLogger;Lscala/Option;Lscala/Option;)Lscala/util/Either;
+      85: invokevirtual #1400               // Method scala/util/Either.toOption:()Lscala/Option;
+      88: getstatic     #775                // Field scala/$less$colon$less$.MODULE$:Lscala/$less$colon$less$;
+      91: invokevirtual #779                // Method scala/$less$colon$less$.refl:()Lscala/$eq$colon$eq;
+      94: invokevirtual #1033               // Method scala/Option.flatten:(Lscala/$less$colon$less;)Lscala/Option;
+      97: invokespecial #81                 // Method scala/Some."<init>":(Ljava/lang/Object;)V
+     100: putfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     103: aload_1
+     104: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     107: checkcast     #45                 // class scala/Option
+     110: aload_0
+     111: aload_2
+     112: invokedynamic #1438,  0           // InvokeDynamic #45:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;)Lscala/Function1;
+     117: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+     120: return
+     121: aload_1
+     122: getfield      #884                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     125: checkcast     #45                 // class scala/Option
+     128: aload_0
+     129: aload_2
+     130: invokedynamic #1443,  0           // InvokeDynamic #46:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;)Lscala/Function1;
+     135: invokevirtual #766                // Method scala/Option.foreach:(Lscala/Function1;)V
+     138: return
+
+  public static final scala.util.Either $anonfun$remote$2(coursier.cache.internal.Downloader$Blocking$, scala.Function0, java.io.File, java.lang.String, boolean, scala.collection.immutable.Seq, java.io.File);
+    Code:
+       0: aload_1
+       1: invokeinterface #1453,  1         // InterfaceMethod scala/Function0.apply$mcZ$sp:()Z
+       6: ifeq          22
+       9: aload_0
+      10: aload_2
+      11: aload_3
+      12: iload         4
+      14: aload         5
+      16: aload         6
+      18: invokevirtual #1455               // Method doDownload:(Ljava/io/File;Ljava/lang/String;ZLscala/collection/immutable/Seq;Ljava/io/File;)Lscala/util/Either;
+      21: areturn
+      22: new           #63                 // class scala/util/Right
+      25: dup
+      26: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+      29: invokespecial #104                // Method scala/util/Right."<init>":(Ljava/lang/Object;)V
+      32: areturn
+
+  public static final scala.Option $anonfun$remote$3(coursier.cache.internal.Downloader$Blocking$, java.io.File, java.lang.String, scala.collection.immutable.Seq, java.io.File);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokevirtual #1458               // Method checkDownload:(Ljava/io/File;Ljava/lang/String;Lscala/collection/immutable/Seq;Ljava/io/File;)Lscala/Option;
+       9: areturn
+
+  public static final scala.util.Either $anonfun$remote$1(coursier.cache.internal.Downloader$Blocking$, java.io.File, scala.Function0, java.lang.String, boolean, scala.collection.immutable.Seq, java.io.File);
+    Code:
+       0: getstatic     #899                // Field coursier/cache/CacheLocks$.MODULE$:Lcoursier/cache/CacheLocks$;
+       3: aload_0
+       4: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+       7: invokevirtual #903                // Method coursier/cache/internal/Downloader.location:()Ljava/io/File;
+      10: aload_1
+      11: aload_0
+      12: getfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      15: invokevirtual #453                // Method coursier/cache/internal/Downloader.coursier$cache$internal$Downloader$$retry:()Lcoursier/cache/internal/Retry;
+      18: aload_0
+      19: aload_2
+      20: aload_1
+      21: aload_3
+      22: iload         4
+      24: aload         5
+      26: aload         6
+      28: invokedynamic #1464,  0           // InvokeDynamic #47:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Lscala/Function0;Ljava/io/File;Ljava/lang/String;ZLscala/collection/immutable/Seq;Ljava/io/File;)Lscala/Function0;
+      33: aload_0
+      34: aload_1
+      35: aload_3
+      36: aload         5
+      38: aload         6
+      40: invokedynamic #1468,  0           // InvokeDynamic #48:apply:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/io/File;Ljava/lang/String;Lscala/collection/immutable/Seq;Ljava/io/File;)Lscala/Function0;
+      45: invokevirtual #1472               // Method coursier/cache/CacheLocks$.withLockOr:(Ljava/io/File;Ljava/io/File;Lcoursier/cache/internal/Retry;Lscala/Function0;Lscala/Function0;)Ljava/lang/Object;
+      48: checkcast     #338                // class scala/util/Either
+      51: areturn
+
+  public static final scala.Option $anonfun$remote$4(coursier.cache.internal.Downloader$Blocking$, java.io.File, java.lang.String, scala.collection.immutable.Seq, java.io.File);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokevirtual #1458               // Method checkDownload:(Ljava/io/File;Ljava/lang/String;Lscala/collection/immutable/Seq;Ljava/io/File;)Lscala/Option;
+       9: areturn
+
+  public coursier.cache.internal.Downloader$Blocking$(coursier.cache.internal.Downloader);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: athrow
+       6: aload_0
+       7: aload_1
+       8: putfield      #128                // Field $outer:Lcoursier/cache/internal/Downloader;
+      11: aload_0
+      12: invokespecial #1475               // Method java/lang/Object."<init>":()V
+      15: return
+
+  public static final java.lang.Object $anonfun$lastCheck$1$adapted(java.io.File);
+    Code:
+       0: aload_0
+       1: invokestatic  #1477               // Method $anonfun$lastCheck$1:(Ljava/io/File;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$lastCheck$3$adapted(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: invokestatic  #1479               // Method $anonfun$lastCheck$3:(Lscala/Tuple2;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$lastCheck$4$adapted(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: invokestatic  #1481               // Method $anonfun$lastCheck$4:(Lscala/Tuple2;)J
+       4: invokestatic  #77                 // Method scala/runtime/BoxesRunTime.boxToLong:(J)Ljava/lang/Long;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$1$adapted(java.lang.String, java.lang.String, coursier.credentials.DirectCredentials);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #1483               // Method $anonfun$doDownload$1:(Ljava/lang/String;Ljava/lang/String;Lcoursier/credentials/DirectCredentials;)Z
+       6: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       9: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$4$adapted(coursier.credentials.DirectCredentials);
+    Code:
+       0: aload_0
+       1: invokestatic  #1485               // Method $anonfun$doDownload$4:(Lcoursier/credentials/DirectCredentials;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final scala.runtime.Nothing$ $anonfun$doDownload$6$adapted(java.lang.String, java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #836                // Method scala/runtime/BoxesRunTime.unboxToInt:(Ljava/lang/Object;)I
+       5: invokestatic  #1487               // Method $anonfun$doDownload$6:(Ljava/lang/String;I)Lscala/runtime/Nothing$;
+       8: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$9$adapted(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokestatic  #1489               // Method $anonfun$doDownload$9:(Ljava/lang/String;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$10$adapted(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokestatic  #1491               // Method $anonfun$doDownload$10:(Ljava/lang/String;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$11$adapted(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokestatic  #1493               // Method $anonfun$doDownload$11:(Ljava/lang/String;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$21$adapted(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokestatic  #1495               // Method $anonfun$doDownload$21:(Ljava/lang/String;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$23$adapted(scala.runtime.ObjectRef, scala.Option, java.lang.String, coursier.cache.internal.Downloader$ResponseInputStream, int, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iload         4
+       6: aload         5
+       8: invokestatic  #1497               // Method $anonfun$doDownload$23:(Lscala/runtime/ObjectRef;Lscala/Option;Ljava/lang/String;Lcoursier/cache/internal/Downloader$ResponseInputStream;ILjava/lang/String;)V
+      11: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+      14: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$26$adapted(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: invokestatic  #1499               // Method $anonfun$doDownload$26:(Lscala/Tuple2;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$doDownload$22$adapted(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokestatic  #1501               // Method $anonfun$doDownload$22:(Ljava/lang/String;)Z
+       4: invokestatic  #599                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  public static final java.lang.Object $anonfun$checkDownload$1$adapted(coursier.cache.internal.Downloader$Blocking$, java.lang.String, long, scala.Option);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: lload_2
+       3: aload         4
+       5: invokestatic  #1503               // Method $anonfun$checkDownload$1:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;JLscala/Option;)V
+       8: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+      11: areturn
+
+  public static final java.lang.Object $anonfun$checkDownload$3$adapted(coursier.cache.internal.Downloader$Blocking$, java.lang.String, scala.Option);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #1505               // Method $anonfun$checkDownload$3:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;Lscala/Option;)V
+       6: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+       9: areturn
+
+  public static final java.lang.Object $anonfun$checkDownload$5$adapted(coursier.cache.internal.Downloader$Blocking$, java.lang.String, scala.Option);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #1507               // Method $anonfun$checkDownload$5:(Lcoursier/cache/internal/Downloader$Blocking$;Ljava/lang/String;Lscala/Option;)V
+       6: getstatic     #421                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+       9: areturn
+
+  private static java.lang.Object $deserializeLambda$(java.lang.invoke.SerializedLambda);
+    Code:
+       0: aload_0
+       1: invokedynamic #1519,  0           // InvokeDynamic #49:lambdaDeserialize:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;
+       6: areturn
+}

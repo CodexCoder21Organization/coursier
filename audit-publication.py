@@ -35,7 +35,7 @@ for r in ledger:
 proof=json.loads((a.evidence/'class-proof.json').read_text())
 assert proof['publishedVerified'] is True and proof['classCount']==len(proof['classes']) and proof['classCount']>179
 assert all(c['compiledSha256']==c['stagedSha256']==c['downloadedSha256'] for c in proof['classes'])
-assert len(proof['requiredChangedClasses'])==3 and len(proof['newClasses'])==2
+assert len(proof['requiredChangedClasses'])==4 and len(proof['newClasses'])==2
 assert all(c['compiledSha256']!=c['buffer5Sha256'] for c in proof['changedClasses'])
 assert proof['source']=='119e39d993a0e5f96a489c9e9eddcd0e0acf9a4a'
 result={'passed':True,'version':version,'modules':7,'publisherInvocations':7,'publisherRetries':0,

@@ -1,0 +1,1201 @@
+{
+  "source": "119e39d993a0e5f96a489c9e9eddcd0e0acf9a4a",
+  "version": "2.1.31-buffer6",
+  "publishedVerified": false,
+  "classCount": 181,
+  "classes": [
+    {
+      "classFile": "coursier/cache/ArtifactError$.class",
+      "compiledSha256": "5dde02c9a22f5bf1469854e60aaf1f7853a131c00126313eaf5b9be7bc15006b",
+      "stagedSha256": "5dde02c9a22f5bf1469854e60aaf1f7853a131c00126313eaf5b9be7bc15006b",
+      "buffer5Sha256": "5dde02c9a22f5bf1469854e60aaf1f7853a131c00126313eaf5b9be7bc15006b"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$ChecksumErrors$$anonfun$$lessinit$greater$3.class",
+      "compiledSha256": "be35e34c685f6a4e6b21696c26f1c94911a51a3c3d76b457b7bd9f26a891c218",
+      "stagedSha256": "be35e34c685f6a4e6b21696c26f1c94911a51a3c3d76b457b7bd9f26a891c218",
+      "buffer5Sha256": "be35e34c685f6a4e6b21696c26f1c94911a51a3c3d76b457b7bd9f26a891c218"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$ChecksumErrors.class",
+      "compiledSha256": "f76a6a2362290aa3890425e598f99c0ca3b85df702458dc7bc48b399cfa3bade",
+      "stagedSha256": "f76a6a2362290aa3890425e598f99c0ca3b85df702458dc7bc48b399cfa3bade",
+      "buffer5Sha256": "f76a6a2362290aa3890425e598f99c0ca3b85df702458dc7bc48b399cfa3bade"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$ChecksumFormatError.class",
+      "compiledSha256": "ec8166c2afe52bf181c5cdb690efbdfe151a4ae2d1eec41e5bdc58fb218dbb6f",
+      "stagedSha256": "ec8166c2afe52bf181c5cdb690efbdfe151a4ae2d1eec41e5bdc58fb218dbb6f",
+      "buffer5Sha256": "ec8166c2afe52bf181c5cdb690efbdfe151a4ae2d1eec41e5bdc58fb218dbb6f"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$ChecksumNotFound.class",
+      "compiledSha256": "86034d2c7a359414899a0aa68269e6db2a3e88aa9a68d59abb21360e8a2729e1",
+      "stagedSha256": "86034d2c7a359414899a0aa68269e6db2a3e88aa9a68d59abb21360e8a2729e1",
+      "buffer5Sha256": "86034d2c7a359414899a0aa68269e6db2a3e88aa9a68d59abb21360e8a2729e1"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$ConcurrentDownload.class",
+      "compiledSha256": "cd33ebab283c02cb833c614aa5f62dde2e44f35c0f6f6acc3abda73c6119f331",
+      "stagedSha256": "cd33ebab283c02cb833c614aa5f62dde2e44f35c0f6f6acc3abda73c6119f331",
+      "buffer5Sha256": "cd33ebab283c02cb833c614aa5f62dde2e44f35c0f6f6acc3abda73c6119f331"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$DownloadError.class",
+      "compiledSha256": "9308dadc0b265592b46a971e12a3d5671137ff9cfa52c88798c116cb3a9a0766",
+      "stagedSha256": "9308dadc0b265592b46a971e12a3d5671137ff9cfa52c88798c116cb3a9a0766",
+      "buffer5Sha256": "9308dadc0b265592b46a971e12a3d5671137ff9cfa52c88798c116cb3a9a0766"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$FileTooOldOrNotFound.class",
+      "compiledSha256": "7b999807aa11ee7006d5ca510a5341df771acd62efb1eb64fe3bc882e9ac99e1",
+      "stagedSha256": "7b999807aa11ee7006d5ca510a5341df771acd62efb1eb64fe3bc882e9ac99e1",
+      "buffer5Sha256": "7b999807aa11ee7006d5ca510a5341df771acd62efb1eb64fe3bc882e9ac99e1"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$Forbidden.class",
+      "compiledSha256": "5ef1de45bb008bac4dfb05c1f458167c8363dad5c9f40b01d6224fed08a9230a",
+      "stagedSha256": "5ef1de45bb008bac4dfb05c1f458167c8363dad5c9f40b01d6224fed08a9230a",
+      "buffer5Sha256": "5ef1de45bb008bac4dfb05c1f458167c8363dad5c9f40b01d6224fed08a9230a"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$ForbiddenChangingArtifact.class",
+      "compiledSha256": "a727cd791302ac6e2999f87dae7ba339cc5f43f6da9af517fb54a3c6352e3398",
+      "stagedSha256": "a727cd791302ac6e2999f87dae7ba339cc5f43f6da9af517fb54a3c6352e3398",
+      "buffer5Sha256": "a727cd791302ac6e2999f87dae7ba339cc5f43f6da9af517fb54a3c6352e3398"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$Locked.class",
+      "compiledSha256": "aaee6ae6c1346da9ce3b633c676dd756e0d34e5615e576226afc2d46ca078756",
+      "stagedSha256": "aaee6ae6c1346da9ce3b633c676dd756e0d34e5615e576226afc2d46ca078756",
+      "buffer5Sha256": "aaee6ae6c1346da9ce3b633c676dd756e0d34e5615e576226afc2d46ca078756"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$MissingOtherArtifactCheck.class",
+      "compiledSha256": "da0d2342b11b304daecb9a9fa3b3ea5cd9bf43fd0d5c926bce1d0186b9703ed5",
+      "stagedSha256": "da0d2342b11b304daecb9a9fa3b3ea5cd9bf43fd0d5c926bce1d0186b9703ed5",
+      "buffer5Sha256": "da0d2342b11b304daecb9a9fa3b3ea5cd9bf43fd0d5c926bce1d0186b9703ed5"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$NotFound$.class",
+      "compiledSha256": "c88b7383d3901632df544ac9e664d44d52dabfccdd00f93bf54c9ad91e6b04dd",
+      "stagedSha256": "c88b7383d3901632df544ac9e664d44d52dabfccdd00f93bf54c9ad91e6b04dd",
+      "buffer5Sha256": "c88b7383d3901632df544ac9e664d44d52dabfccdd00f93bf54c9ad91e6b04dd"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$NotFound.class",
+      "compiledSha256": "b7d4bf0e4119b2c816d2833829e1b6024760767647cdaa9a18179a9c269b2309",
+      "stagedSha256": "b7d4bf0e4119b2c816d2833829e1b6024760767647cdaa9a18179a9c269b2309",
+      "buffer5Sha256": "b7d4bf0e4119b2c816d2833829e1b6024760767647cdaa9a18179a9c269b2309"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$Recoverable.class",
+      "compiledSha256": "aa1fe9509b1a765e1e2a1d7c6351560b3be81be8cc3ec0d60aafbf63020f8090",
+      "stagedSha256": "aa1fe9509b1a765e1e2a1d7c6351560b3be81be8cc3ec0d60aafbf63020f8090",
+      "buffer5Sha256": "aa1fe9509b1a765e1e2a1d7c6351560b3be81be8cc3ec0d60aafbf63020f8090"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$Unauthorized$$anonfun$$lessinit$greater$1.class",
+      "compiledSha256": "a44a787537f49d5bee68e807165361cb2466874a544b1e9577a1f64fbd70652f",
+      "stagedSha256": "a44a787537f49d5bee68e807165361cb2466874a544b1e9577a1f64fbd70652f",
+      "buffer5Sha256": "a44a787537f49d5bee68e807165361cb2466874a544b1e9577a1f64fbd70652f"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$Unauthorized$$anonfun$$lessinit$greater$2.class",
+      "compiledSha256": "62e5d6cfdbf9c929d4983cdefb144ebbebd35fae5cff2e89f4010ea5e4ac6598",
+      "stagedSha256": "62e5d6cfdbf9c929d4983cdefb144ebbebd35fae5cff2e89f4010ea5e4ac6598",
+      "buffer5Sha256": "62e5d6cfdbf9c929d4983cdefb144ebbebd35fae5cff2e89f4010ea5e4ac6598"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$Unauthorized.class",
+      "compiledSha256": "709b99d6ab77a297e9b118f731689ad41d6ff5e92ab122a4583fd562759bb8d0",
+      "stagedSha256": "709b99d6ab77a297e9b118f731689ad41d6ff5e92ab122a4583fd562759bb8d0",
+      "buffer5Sha256": "709b99d6ab77a297e9b118f731689ad41d6ff5e92ab122a4583fd562759bb8d0"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$WrongChecksum.class",
+      "compiledSha256": "53096ac25e6144496263ab2f933f273a3a8cc56cedd5cb3401ec77a10fe0a4e6",
+      "stagedSha256": "53096ac25e6144496263ab2f933f273a3a8cc56cedd5cb3401ec77a10fe0a4e6",
+      "buffer5Sha256": "53096ac25e6144496263ab2f933f273a3a8cc56cedd5cb3401ec77a10fe0a4e6"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError$WrongLength.class",
+      "compiledSha256": "44e5039f91681f51636fbb71d3c63dcaeced4489c0c8d2149c95674384ad2098",
+      "stagedSha256": "44e5039f91681f51636fbb71d3c63dcaeced4489c0c8d2149c95674384ad2098",
+      "buffer5Sha256": "44e5039f91681f51636fbb71d3c63dcaeced4489c0c8d2149c95674384ad2098"
+    },
+    {
+      "classFile": "coursier/cache/ArtifactError.class",
+      "compiledSha256": "6d26fe2f48477b0378893b3e2c217171cc3b162ba028daea2685a6d01d775a9d",
+      "stagedSha256": "6d26fe2f48477b0378893b3e2c217171cc3b162ba028daea2685a6d01d775a9d",
+      "buffer5Sha256": "6d26fe2f48477b0378893b3e2c217171cc3b162ba028daea2685a6d01d775a9d"
+    },
+    {
+      "classFile": "coursier/cache/AuthenticatedURLConnection.class",
+      "compiledSha256": "04520a477f5c560f0cfec3d06ef02d72cdc02564c28424cceb38e34269a8eeae",
+      "stagedSha256": "04520a477f5c560f0cfec3d06ef02d72cdc02564c28424cceb38e34269a8eeae",
+      "buffer5Sha256": "04520a477f5c560f0cfec3d06ef02d72cdc02564c28424cceb38e34269a8eeae"
+    },
+    {
+      "classFile": "coursier/cache/Cache$.class",
+      "compiledSha256": "5c9d380641f41eeed87fe46056aa2ff40f2c922ac865a2f2282173019f372e21",
+      "stagedSha256": "5c9d380641f41eeed87fe46056aa2ff40f2c922ac865a2f2282173019f372e21",
+      "buffer5Sha256": "5c9d380641f41eeed87fe46056aa2ff40f2c922ac865a2f2282173019f372e21"
+    },
+    {
+      "classFile": "coursier/cache/Cache.class",
+      "compiledSha256": "5f2c058982739c3a19c30a751283e2a5b4ab3dac0afea30efa51dc8c477c09eb",
+      "stagedSha256": "5f2c058982739c3a19c30a751283e2a5b4ab3dac0afea30efa51dc8c477c09eb",
+      "buffer5Sha256": "5f2c058982739c3a19c30a751283e2a5b4ab3dac0afea30efa51dc8c477c09eb"
+    },
+    {
+      "classFile": "coursier/cache/CacheChecksum$$anonfun$findChecksum$1.class",
+      "compiledSha256": "eca9f1093a1c6c209764fee5124cdb59834a739ba9f81a92be1e368b5489ce2b",
+      "stagedSha256": "eca9f1093a1c6c209764fee5124cdb59834a739ba9f81a92be1e368b5489ce2b",
+      "buffer5Sha256": "eca9f1093a1c6c209764fee5124cdb59834a739ba9f81a92be1e368b5489ce2b"
+    },
+    {
+      "classFile": "coursier/cache/CacheChecksum$.class",
+      "compiledSha256": "ae224e23daf1ed0aa02729947ccf69f41d26720a0071891488b938ff131f6e55",
+      "stagedSha256": "ae224e23daf1ed0aa02729947ccf69f41d26720a0071891488b938ff131f6e55",
+      "buffer5Sha256": "ae224e23daf1ed0aa02729947ccf69f41d26720a0071891488b938ff131f6e55"
+    },
+    {
+      "classFile": "coursier/cache/CacheChecksum.class",
+      "compiledSha256": "01e41df03ae46978c50eaf8497998c742ccb6b65d557f717d21909afbde8019a",
+      "stagedSha256": "01e41df03ae46978c50eaf8497998c742ccb6b65d557f717d21909afbde8019a",
+      "buffer5Sha256": "01e41df03ae46978c50eaf8497998c742ccb6b65d557f717d21909afbde8019a"
+    },
+    {
+      "classFile": "coursier/cache/CacheDefaults$$anonfun$retryBackoffInitialDelay$lzycompute$1.class",
+      "compiledSha256": "7b522890a6df49a175ea1f283b250c1a315d07fd1f08890a6a1128586453447e",
+      "stagedSha256": "7b522890a6df49a175ea1f283b250c1a315d07fd1f08890a6a1128586453447e",
+      "buffer5Sha256": "7b522890a6df49a175ea1f283b250c1a315d07fd1f08890a6a1128586453447e"
+    },
+    {
+      "classFile": "coursier/cache/CacheDefaults$.class",
+      "compiledSha256": "d9490abe6d83d3573998c54fa84f3dd30236037e53d2da015d3a7b2d45fc0aba",
+      "stagedSha256": "d9490abe6d83d3573998c54fa84f3dd30236037e53d2da015d3a7b2d45fc0aba",
+      "buffer5Sha256": "d9490abe6d83d3573998c54fa84f3dd30236037e53d2da015d3a7b2d45fc0aba"
+    },
+    {
+      "classFile": "coursier/cache/CacheDefaults.class",
+      "compiledSha256": "285f011124a3c877b33cbc59dfa08274d85bb57619fd3c022560ce1b781d3125",
+      "stagedSha256": "285f011124a3c877b33cbc59dfa08274d85bb57619fd3c022560ce1b781d3125",
+      "buffer5Sha256": "285f011124a3c877b33cbc59dfa08274d85bb57619fd3c022560ce1b781d3125"
+    },
+    {
+      "classFile": "coursier/cache/CacheEnv$.class",
+      "compiledSha256": "c86103c0203c7fbd50a2e90bbaaa407ee0b300b011623fe6ac6e1a188905e160",
+      "stagedSha256": "c86103c0203c7fbd50a2e90bbaaa407ee0b300b011623fe6ac6e1a188905e160",
+      "buffer5Sha256": "c86103c0203c7fbd50a2e90bbaaa407ee0b300b011623fe6ac6e1a188905e160"
+    },
+    {
+      "classFile": "coursier/cache/CacheEnv.class",
+      "compiledSha256": "7a0a0bdb6c0d9097176fe2a9bb9afeef5691625fc968b229fd8c779c65958fd1",
+      "stagedSha256": "7a0a0bdb6c0d9097176fe2a9bb9afeef5691625fc968b229fd8c779c65958fd1",
+      "buffer5Sha256": "7a0a0bdb6c0d9097176fe2a9bb9afeef5691625fc968b229fd8c779c65958fd1"
+    },
+    {
+      "classFile": "coursier/cache/CacheLocks$$anon$1.class",
+      "compiledSha256": "180ae2657e4c8a0fc39e12dbb10a573c4e9666c8b80b5d936d9b42c8f73da81a",
+      "stagedSha256": "180ae2657e4c8a0fc39e12dbb10a573c4e9666c8b80b5d936d9b42c8f73da81a",
+      "buffer5Sha256": "180ae2657e4c8a0fc39e12dbb10a573c4e9666c8b80b5d936d9b42c8f73da81a"
+    },
+    {
+      "classFile": "coursier/cache/CacheLocks$$anon$2.class",
+      "compiledSha256": "b6e4456fac02a0e4cdf5287fc2108bf864d71e101c38c919b12946a4dc124730",
+      "stagedSha256": "b6e4456fac02a0e4cdf5287fc2108bf864d71e101c38c919b12946a4dc124730",
+      "buffer5Sha256": "b6e4456fac02a0e4cdf5287fc2108bf864d71e101c38c919b12946a4dc124730"
+    },
+    {
+      "classFile": "coursier/cache/CacheLocks$$anonfun$$nestedInanonfun$withLockOr$1$1.class",
+      "compiledSha256": "62c31d8332fdb7f2d4acf463cc26b4d4b1575dd553fa2268f6542366b915ce13",
+      "stagedSha256": "62c31d8332fdb7f2d4acf463cc26b4d4b1575dd553fa2268f6542366b915ce13",
+      "buffer5Sha256": "62c31d8332fdb7f2d4acf463cc26b4d4b1575dd553fa2268f6542366b915ce13"
+    },
+    {
+      "classFile": "coursier/cache/CacheLocks$.class",
+      "compiledSha256": "a6bc7aac6e1d7918cd78c1515f01e1b9d8e6ff52bc612d8982f38f9f2d39a0ea",
+      "stagedSha256": "a6bc7aac6e1d7918cd78c1515f01e1b9d8e6ff52bc612d8982f38f9f2d39a0ea",
+      "buffer5Sha256": "a6bc7aac6e1d7918cd78c1515f01e1b9d8e6ff52bc612d8982f38f9f2d39a0ea"
+    },
+    {
+      "classFile": "coursier/cache/CacheLocks.class",
+      "compiledSha256": "830ed6d168a9d7b4969ee7844e1677e95bc0d1c730ca19b9f73f3baf91312406",
+      "stagedSha256": "830ed6d168a9d7b4969ee7844e1677e95bc0d1c730ca19b9f73f3baf91312406",
+      "buffer5Sha256": "830ed6d168a9d7b4969ee7844e1677e95bc0d1c730ca19b9f73f3baf91312406"
+    },
+    {
+      "classFile": "coursier/cache/CacheLogger$$anon$1.class",
+      "compiledSha256": "71b12330608286c6cb7e4dc704af7cb948d84e3e0edb99397d909866dd1e2085",
+      "stagedSha256": "71b12330608286c6cb7e4dc704af7cb948d84e3e0edb99397d909866dd1e2085",
+      "buffer5Sha256": "71b12330608286c6cb7e4dc704af7cb948d84e3e0edb99397d909866dd1e2085"
+    },
+    {
+      "classFile": "coursier/cache/CacheLogger$.class",
+      "compiledSha256": "f4923aa41c47eedaba2b7659c2a61cb43c5746f3bb36b2bc91b82f65a0e5ebb2",
+      "stagedSha256": "f4923aa41c47eedaba2b7659c2a61cb43c5746f3bb36b2bc91b82f65a0e5ebb2",
+      "buffer5Sha256": "f4923aa41c47eedaba2b7659c2a61cb43c5746f3bb36b2bc91b82f65a0e5ebb2"
+    },
+    {
+      "classFile": "coursier/cache/CacheLogger$Using.class",
+      "compiledSha256": "239527b1587c956d3ef35be5a980ff186dc9e8163909e5cde2674440545668f1",
+      "stagedSha256": "239527b1587c956d3ef35be5a980ff186dc9e8163909e5cde2674440545668f1",
+      "buffer5Sha256": "239527b1587c956d3ef35be5a980ff186dc9e8163909e5cde2674440545668f1"
+    },
+    {
+      "classFile": "coursier/cache/CacheLogger.class",
+      "compiledSha256": "2518ad1d91925010ff1b3b17500b18740e9cd1529340276995e33ab43363f390",
+      "stagedSha256": "2518ad1d91925010ff1b3b17500b18740e9cd1529340276995e33ab43363f390",
+      "buffer5Sha256": "2518ad1d91925010ff1b3b17500b18740e9cd1529340276995e33ab43363f390"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$.class",
+      "compiledSha256": "c04ab95089bbb0fd160b00b9bebeb62132990b8fbf62e7ff94877b16747ed7fa",
+      "stagedSha256": "c04ab95089bbb0fd160b00b9bebeb62132990b8fbf62e7ff94877b16747ed7fa",
+      "buffer5Sha256": "c04ab95089bbb0fd160b00b9bebeb62132990b8fbf62e7ff94877b16747ed7fa"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$FetchMissing$.class",
+      "compiledSha256": "95ee23649dca770c221a733596590d64fc80e3286f32b352ecbe83d71ffe001f",
+      "stagedSha256": "95ee23649dca770c221a733596590d64fc80e3286f32b352ecbe83d71ffe001f",
+      "buffer5Sha256": "95ee23649dca770c221a733596590d64fc80e3286f32b352ecbe83d71ffe001f"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$ForceDownload$.class",
+      "compiledSha256": "820e1904aeb869ed842c57b972a6567c7aa5979576caa1b9cad4e52f3d213a3c",
+      "stagedSha256": "820e1904aeb869ed842c57b972a6567c7aa5979576caa1b9cad4e52f3d213a3c",
+      "buffer5Sha256": "820e1904aeb869ed842c57b972a6567c7aa5979576caa1b9cad4e52f3d213a3c"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$LocalOnly$.class",
+      "compiledSha256": "9f1b5eb20d5095a130ea854e5f88d6a612134c1b8b14dbf9579083d048545019",
+      "stagedSha256": "9f1b5eb20d5095a130ea854e5f88d6a612134c1b8b14dbf9579083d048545019",
+      "buffer5Sha256": "9f1b5eb20d5095a130ea854e5f88d6a612134c1b8b14dbf9579083d048545019"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$LocalOnlyIfValid$.class",
+      "compiledSha256": "286814000d10b67c42c9f79ab87001509f0607e9d434acd630c62e34b246b1e9",
+      "stagedSha256": "286814000d10b67c42c9f79ab87001509f0607e9d434acd630c62e34b246b1e9",
+      "buffer5Sha256": "286814000d10b67c42c9f79ab87001509f0607e9d434acd630c62e34b246b1e9"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$LocalUpdate$.class",
+      "compiledSha256": "e05cf113b7e07ad180694461435cb0b9454cdfc226c7189eb463071b013547aa",
+      "stagedSha256": "e05cf113b7e07ad180694461435cb0b9454cdfc226c7189eb463071b013547aa",
+      "buffer5Sha256": "e05cf113b7e07ad180694461435cb0b9454cdfc226c7189eb463071b013547aa"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$LocalUpdateChanging$.class",
+      "compiledSha256": "78db0b569bee2d16a6fe497ace37eed0a70c44e1df1cfadffa935c649c3dd864",
+      "stagedSha256": "78db0b569bee2d16a6fe497ace37eed0a70c44e1df1cfadffa935c649c3dd864",
+      "buffer5Sha256": "78db0b569bee2d16a6fe497ace37eed0a70c44e1df1cfadffa935c649c3dd864"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$Mixed.class",
+      "compiledSha256": "14671d500329ea98e8416fea9f4c71644034253b6d531914286db0ea01907389",
+      "stagedSha256": "14671d500329ea98e8416fea9f4c71644034253b6d531914286db0ea01907389",
+      "buffer5Sha256": "14671d500329ea98e8416fea9f4c71644034253b6d531914286db0ea01907389"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$NoChanging$.class",
+      "compiledSha256": "a52a838dd7afde99e1d733b7bba4d25647b6c3700467bc74eaee42b9acbc8917",
+      "stagedSha256": "a52a838dd7afde99e1d733b7bba4d25647b6c3700467bc74eaee42b9acbc8917",
+      "buffer5Sha256": "a52a838dd7afde99e1d733b7bba4d25647b6c3700467bc74eaee42b9acbc8917"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$NoChanging$FetchMissing$.class",
+      "compiledSha256": "45c2d5eacd75b560649ffc2a363337cc7bfacb41e58a466e4c33b5bb4412ed1b",
+      "stagedSha256": "45c2d5eacd75b560649ffc2a363337cc7bfacb41e58a466e4c33b5bb4412ed1b",
+      "buffer5Sha256": "45c2d5eacd75b560649ffc2a363337cc7bfacb41e58a466e4c33b5bb4412ed1b"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$NoChanging$ForceDownload$.class",
+      "compiledSha256": "8f6b2c34738286b46727a4c68f1518f21731688c1e2bf7d22cc69aa8a80094b3",
+      "stagedSha256": "8f6b2c34738286b46727a4c68f1518f21731688c1e2bf7d22cc69aa8a80094b3",
+      "buffer5Sha256": "8f6b2c34738286b46727a4c68f1518f21731688c1e2bf7d22cc69aa8a80094b3"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$NoChanging$LocalOnly$.class",
+      "compiledSha256": "b2a25e3e62e5bf48d964e0f5460abf77c80f3d1bc50889005df1f6de480d4637",
+      "stagedSha256": "b2a25e3e62e5bf48d964e0f5460abf77c80f3d1bc50889005df1f6de480d4637",
+      "buffer5Sha256": "b2a25e3e62e5bf48d964e0f5460abf77c80f3d1bc50889005df1f6de480d4637"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$NoChanging$LocalUpdate$.class",
+      "compiledSha256": "0ca1e90f33248c2490f1def68a108c9374057c6939b82c793762e311770a379e",
+      "stagedSha256": "0ca1e90f33248c2490f1def68a108c9374057c6939b82c793762e311770a379e",
+      "buffer5Sha256": "0ca1e90f33248c2490f1def68a108c9374057c6939b82c793762e311770a379e"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$NoChanging.class",
+      "compiledSha256": "7982f439989e4f436629f2b92be902f5de6f25d94be2243d9205bf984ff2577e",
+      "stagedSha256": "7982f439989e4f436629f2b92be902f5de6f25d94be2243d9205bf984ff2577e",
+      "buffer5Sha256": "7982f439989e4f436629f2b92be902f5de6f25d94be2243d9205bf984ff2577e"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$Update$.class",
+      "compiledSha256": "2c16450d8432bf9ea247552cdd4d511268582c25ab5eb8c561f23595b7e51ee8",
+      "stagedSha256": "2c16450d8432bf9ea247552cdd4d511268582c25ab5eb8c561f23595b7e51ee8",
+      "buffer5Sha256": "2c16450d8432bf9ea247552cdd4d511268582c25ab5eb8c561f23595b7e51ee8"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy$UpdateChanging$.class",
+      "compiledSha256": "acbd8b959945d4cf532a0ee7a01e853c9b131d7b02a30afdce2d15a6884fd424",
+      "stagedSha256": "acbd8b959945d4cf532a0ee7a01e853c9b131d7b02a30afdce2d15a6884fd424",
+      "buffer5Sha256": "acbd8b959945d4cf532a0ee7a01e853c9b131d7b02a30afdce2d15a6884fd424"
+    },
+    {
+      "classFile": "coursier/cache/CachePolicy.class",
+      "compiledSha256": "e317ca73f2e1ef2a094f0105f40beca8df56c4db537c5f143c7ce0952764cc40",
+      "stagedSha256": "e317ca73f2e1ef2a094f0105f40beca8df56c4db537c5f143c7ce0952764cc40",
+      "buffer5Sha256": "e317ca73f2e1ef2a094f0105f40beca8df56c4db537c5f143c7ce0952764cc40"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$$anon$1.class",
+      "compiledSha256": "344cbc4a2136a95e2c333098b432165d42f47892fb89b3b734f5e0e889275c9b",
+      "stagedSha256": "344cbc4a2136a95e2c333098b432165d42f47892fb89b3b734f5e0e889275c9b",
+      "buffer5Sha256": "344cbc4a2136a95e2c333098b432165d42f47892fb89b3b734f5e0e889275c9b"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$$anonfun$realm$1.class",
+      "compiledSha256": "a72bc3cdfb4da5784b52c4c7bbfd78fe39e6157a048f1ea5af0e9b9641ba7730",
+      "stagedSha256": "a72bc3cdfb4da5784b52c4c7bbfd78fe39e6157a048f1ea5af0e9b9641ba7730",
+      "buffer5Sha256": "a72bc3cdfb4da5784b52c4c7bbfd78fe39e6157a048f1ea5af0e9b9641ba7730"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$.class",
+      "compiledSha256": "dedd59dfc519c4fd281bc64e9c568f09b77f16db1b987014b91ffa8bb240db2a",
+      "stagedSha256": "dedd59dfc519c4fd281bc64e9c568f09b77f16db1b987014b91ffa8bb240db2a",
+      "buffer5Sha256": "dedd59dfc519c4fd281bc64e9c568f09b77f16db1b987014b91ffa8bb240db2a"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$Args$.class",
+      "compiledSha256": "4cbc45656f379bc9114060bd019360ae9275c646778241c74da9512d19950807",
+      "stagedSha256": "4cbc45656f379bc9114060bd019360ae9275c646778241c74da9512d19950807",
+      "buffer5Sha256": "4cbc45656f379bc9114060bd019360ae9275c646778241c74da9512d19950807"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$Args.class",
+      "compiledSha256": "d7de0cda85d5f414e9e83f535bbf9df0908a439efe442e8aacfb7209048fb189",
+      "stagedSha256": "d7de0cda85d5f414e9e83f535bbf9df0908a439efe442e8aacfb7209048fb189",
+      "buffer5Sha256": "d7de0cda85d5f414e9e83f535bbf9df0908a439efe442e8aacfb7209048fb189"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$BasicRealm$$anonfun$unapply$2.class",
+      "compiledSha256": "4af9a06f1c6753e78d159522e4105946e7e7de8d2d6af72f63fffe9b661ac09d",
+      "stagedSha256": "4af9a06f1c6753e78d159522e4105946e7e7de8d2d6af72f63fffe9b661ac09d",
+      "buffer5Sha256": "4af9a06f1c6753e78d159522e4105946e7e7de8d2d6af72f63fffe9b661ac09d"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl$BasicRealm$.class",
+      "compiledSha256": "8c14f57fdebad3ccd4301e6b78febee10b6854edfd941023cd5e7f0d1a3f58c3",
+      "stagedSha256": "8c14f57fdebad3ccd4301e6b78febee10b6854edfd941023cd5e7f0d1a3f58c3",
+      "buffer5Sha256": "8c14f57fdebad3ccd4301e6b78febee10b6854edfd941023cd5e7f0d1a3f58c3"
+    },
+    {
+      "classFile": "coursier/cache/CacheUrl.class",
+      "compiledSha256": "4120797bc9d1ec5b8e17317da54b907790639185e00d7b3193c0c666f28cab9c",
+      "stagedSha256": "4120797bc9d1ec5b8e17317da54b907790639185e00d7b3193c0c666f28cab9c",
+      "buffer5Sha256": "4120797bc9d1ec5b8e17317da54b907790639185e00d7b3193c0c666f28cab9c"
+    },
+    {
+      "classFile": "coursier/cache/ConnectionBuilder$.class",
+      "compiledSha256": "42268a5d7e2818025fab71d5de0487fa4bda9accaf9b7216c374fbc961a18c51",
+      "stagedSha256": "42268a5d7e2818025fab71d5de0487fa4bda9accaf9b7216c374fbc961a18c51",
+      "buffer5Sha256": "42268a5d7e2818025fab71d5de0487fa4bda9accaf9b7216c374fbc961a18c51"
+    },
+    {
+      "classFile": "coursier/cache/ConnectionBuilder.class",
+      "compiledSha256": "a02b144bfd88ab493e721ca2e887e111f03b5990895b58baaa3aa0c7a36b406b",
+      "stagedSha256": "a02b144bfd88ab493e721ca2e887e111f03b5990895b58baaa3aa0c7a36b406b",
+      "buffer5Sha256": "a02b144bfd88ab493e721ca2e887e111f03b5990895b58baaa3aa0c7a36b406b"
+    },
+    {
+      "classFile": "coursier/cache/DigestArtifact$.class",
+      "compiledSha256": "03c6a0313ff7f0f8b0453b6ee3fd73899d67a194d99abe6ed87aef970c670f01",
+      "stagedSha256": "03c6a0313ff7f0f8b0453b6ee3fd73899d67a194d99abe6ed87aef970c670f01",
+      "buffer5Sha256": "03c6a0313ff7f0f8b0453b6ee3fd73899d67a194d99abe6ed87aef970c670f01"
+    },
+    {
+      "classFile": "coursier/cache/DigestArtifact.class",
+      "compiledSha256": "22505640e047386744af6c745d2e3215f076465bdadde2d76ce50f24e475eb18",
+      "stagedSha256": "22505640e047386744af6c745d2e3215f076465bdadde2d76ce50f24e475eb18",
+      "buffer5Sha256": "22505640e047386744af6c745d2e3215f076465bdadde2d76ce50f24e475eb18"
+    },
+    {
+      "classFile": "coursier/cache/DigestBasedCache$.class",
+      "compiledSha256": "a0161f3a342ba0801edf15a4990bf67d6730c6b61fe058a27db68f0650266d18",
+      "stagedSha256": "a0161f3a342ba0801edf15a4990bf67d6730c6b61fe058a27db68f0650266d18",
+      "buffer5Sha256": "a0161f3a342ba0801edf15a4990bf67d6730c6b61fe058a27db68f0650266d18"
+    },
+    {
+      "classFile": "coursier/cache/DigestBasedCache.class",
+      "compiledSha256": "89d01d028c5e86efb8ac67446db1fbc19fee5280b13fd199df2dd1d5b73db4dd",
+      "stagedSha256": "89d01d028c5e86efb8ac67446db1fbc19fee5280b13fd199df2dd1d5b73db4dd",
+      "buffer5Sha256": "89d01d028c5e86efb8ac67446db1fbc19fee5280b13fd199df2dd1d5b73db4dd"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anon$1.class",
+      "compiledSha256": "f60c7c5a708585f284e106ffb1094381363f45de7c6144e5d6eea7f0930be54c",
+      "stagedSha256": "f60c7c5a708585f284e106ffb1094381363f45de7c6144e5d6eea7f0930be54c",
+      "buffer5Sha256": "f60c7c5a708585f284e106ffb1094381363f45de7c6144e5d6eea7f0930be54c"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anonfun$1.class",
+      "compiledSha256": "bc9edc90742f44faf1d98ca5cfe80bc2bcdcdebd3da1aa480ccea804694ac7ab",
+      "stagedSha256": "bc9edc90742f44faf1d98ca5cfe80bc2bcdcdebd3da1aa480ccea804694ac7ab",
+      "buffer5Sha256": "bc9edc90742f44faf1d98ca5cfe80bc2bcdcdebd3da1aa480ccea804694ac7ab"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anonfun$2.class",
+      "compiledSha256": "eabba07b0e895f96c40b61b449b7efcaabacbfd4435956440515d17d3a887b9f",
+      "stagedSha256": "eabba07b0e895f96c40b61b449b7efcaabacbfd4435956440515d17d3a887b9f",
+      "buffer5Sha256": "eabba07b0e895f96c40b61b449b7efcaabacbfd4435956440515d17d3a887b9f"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anonfun$3.class",
+      "compiledSha256": "cef8b910a24993bb8c88bdcf3d0c6c6bad4d5510c6642b2c67acd6058a2d2944",
+      "stagedSha256": "cef8b910a24993bb8c88bdcf3d0c6c6bad4d5510c6642b2c67acd6058a2d2944",
+      "buffer5Sha256": "cef8b910a24993bb8c88bdcf3d0c6c6bad4d5510c6642b2c67acd6058a2d2944"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anonfun$checksumErrors$1$1.class",
+      "compiledSha256": "f4329ca647e686be609a32e60f151c8c8fec6d137ddc27e1d798822a649b1b1a",
+      "stagedSha256": "f4329ca647e686be609a32e60f151c8c8fec6d137ddc27e1d798822a649b1b1a",
+      "buffer5Sha256": "f4329ca647e686be609a32e60f151c8c8fec6d137ddc27e1d798822a649b1b1a"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anonfun$computeDigest$2.class",
+      "compiledSha256": "1c35333d35ccf5bf6d985776cbf46e74e2c1e48f9b6f719a22a8153fccc12b78",
+      "stagedSha256": "1c35333d35ccf5bf6d985776cbf46e74e2c1e48f9b6f719a22a8153fccc12b78",
+      "buffer5Sha256": "1c35333d35ccf5bf6d985776cbf46e74e2c1e48f9b6f719a22a8153fccc12b78"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$$anonfun$readAllBytes$2.class",
+      "compiledSha256": "8fb5a170a329ec7a0c7c0d0d6bcdfec62395d73698058909587ab8267d66344c",
+      "stagedSha256": "8fb5a170a329ec7a0c7c0d0d6bcdfec62395d73698058909587ab8267d66344c",
+      "buffer5Sha256": "8fb5a170a329ec7a0c7c0d0d6bcdfec62395d73698058909587ab8267d66344c"
+    },
+    {
+      "classFile": "coursier/cache/FileCache$.class",
+      "compiledSha256": "36760fd8fad1ea8f6fe8d5bf3ae8649547d02c3cd635fc39e3bd6ce8df43b13c",
+      "stagedSha256": "36760fd8fad1ea8f6fe8d5bf3ae8649547d02c3cd635fc39e3bd6ce8df43b13c",
+      "buffer5Sha256": "36760fd8fad1ea8f6fe8d5bf3ae8649547d02c3cd635fc39e3bd6ce8df43b13c"
+    },
+    {
+      "classFile": "coursier/cache/FileCache.class",
+      "compiledSha256": "84979d197af03454a423113b4d6292e3db0fca3b3fa018399c83ec33cd02733c",
+      "stagedSha256": "84979d197af03454a423113b4d6292e3db0fca3b3fa018399c83ec33cd02733c",
+      "buffer5Sha256": "84979d197af03454a423113b4d6292e3db0fca3b3fa018399c83ec33cd02733c"
+    },
+    {
+      "classFile": "coursier/cache/MockCache$$anonfun$$lessinit$greater$1.class",
+      "compiledSha256": "940904819eb9dd9f274b5a3579667b0ab8b87dd32491b5cec07dfa9c28d24530",
+      "stagedSha256": "940904819eb9dd9f274b5a3579667b0ab8b87dd32491b5cec07dfa9c28d24530",
+      "buffer5Sha256": "940904819eb9dd9f274b5a3579667b0ab8b87dd32491b5cec07dfa9c28d24530"
+    },
+    {
+      "classFile": "coursier/cache/MockCache$$anonfun$$lessinit$greater$2.class",
+      "compiledSha256": "e27164bf0ab86e884736a70f565c1b3569d4e281c1682908242b043eeecf7ae0",
+      "stagedSha256": "e27164bf0ab86e884736a70f565c1b3569d4e281c1682908242b043eeecf7ae0",
+      "buffer5Sha256": "e27164bf0ab86e884736a70f565c1b3569d4e281c1682908242b043eeecf7ae0"
+    },
+    {
+      "classFile": "coursier/cache/MockCache$$anonfun$$lessinit$greater$3.class",
+      "compiledSha256": "8ef290ec8a5b2806d1b7eae4f933f9124fc607a34ac7f274c6f4d973870743ea",
+      "stagedSha256": "8ef290ec8a5b2806d1b7eae4f933f9124fc607a34ac7f274c6f4d973870743ea",
+      "buffer5Sha256": "8ef290ec8a5b2806d1b7eae4f933f9124fc607a34ac7f274c6f4d973870743ea"
+    },
+    {
+      "classFile": "coursier/cache/MockCache$$anonfun$$lessinit$greater$4.class",
+      "compiledSha256": "17748291dd3e8d007447bb0ba1e882a482eff500e1d753b0e9425fef35614549",
+      "stagedSha256": "17748291dd3e8d007447bb0ba1e882a482eff500e1d753b0e9425fef35614549",
+      "buffer5Sha256": "17748291dd3e8d007447bb0ba1e882a482eff500e1d753b0e9425fef35614549"
+    },
+    {
+      "classFile": "coursier/cache/MockCache$$anonfun$1.class",
+      "compiledSha256": "e82a691d492d15e0cfa31a1fb70455c00956fed627f95710cf0e73e79343d3d9",
+      "stagedSha256": "e82a691d492d15e0cfa31a1fb70455c00956fed627f95710cf0e73e79343d3d9",
+      "buffer5Sha256": "e82a691d492d15e0cfa31a1fb70455c00956fed627f95710cf0e73e79343d3d9"
+    },
+    {
+      "classFile": "coursier/cache/MockCache$.class",
+      "compiledSha256": "a5265f21f4650917e4a8f7ddedfc64d07d3fe2a653196df66707587b7a976f02",
+      "stagedSha256": "a5265f21f4650917e4a8f7ddedfc64d07d3fe2a653196df66707587b7a976f02",
+      "buffer5Sha256": "a5265f21f4650917e4a8f7ddedfc64d07d3fe2a653196df66707587b7a976f02"
+    },
+    {
+      "classFile": "coursier/cache/MockCache.class",
+      "compiledSha256": "10132ae3204f5a9b7fe99d63f557d52020568fafd5cca8d00355ef5f3fc4da5c",
+      "stagedSha256": "10132ae3204f5a9b7fe99d63f557d52020568fafd5cca8d00355ef5f3fc4da5c",
+      "buffer5Sha256": "10132ae3204f5a9b7fe99d63f557d52020568fafd5cca8d00355ef5f3fc4da5c"
+    },
+    {
+      "classFile": "coursier/cache/PlatformCache.class",
+      "compiledSha256": "c5921973aa51079ea639b9dae91656d4a82b5e38ac3296a0ddf7cf25bafe66cc",
+      "stagedSha256": "c5921973aa51079ea639b9dae91656d4a82b5e38ac3296a0ddf7cf25bafe66cc",
+      "buffer5Sha256": "c5921973aa51079ea639b9dae91656d4a82b5e38ac3296a0ddf7cf25bafe66cc"
+    },
+    {
+      "classFile": "coursier/cache/PlatformCacheCompanion.class",
+      "compiledSha256": "4f311190c2ad54e30ddc0df781db376c00acc4ef550638d84a47461b68dd4a6b",
+      "stagedSha256": "4f311190c2ad54e30ddc0df781db376c00acc4ef550638d84a47461b68dd4a6b",
+      "buffer5Sha256": "4f311190c2ad54e30ddc0df781db376c00acc4ef550638d84a47461b68dd4a6b"
+    },
+    {
+      "classFile": "coursier/cache/internal/ConsoleDim$$anon$1.class",
+      "compiledSha256": "3366af9a600bfcf775d89cfdd20e98e158fc646a2362511195490eb6a6598843",
+      "stagedSha256": "3366af9a600bfcf775d89cfdd20e98e158fc646a2362511195490eb6a6598843",
+      "buffer5Sha256": "3366af9a600bfcf775d89cfdd20e98e158fc646a2362511195490eb6a6598843"
+    },
+    {
+      "classFile": "coursier/cache/internal/ConsoleDim$.class",
+      "compiledSha256": "78027496f20b9f05ecd9d03ac5ff5d23bf90b41e72a0014f3c2e3d57c4495a41",
+      "stagedSha256": "78027496f20b9f05ecd9d03ac5ff5d23bf90b41e72a0014f3c2e3d57c4495a41",
+      "buffer5Sha256": "78027496f20b9f05ecd9d03ac5ff5d23bf90b41e72a0014f3c2e3d57c4495a41"
+    },
+    {
+      "classFile": "coursier/cache/internal/ConsoleDim.class",
+      "compiledSha256": "a41d6e9a8baa6673bade41cb0e17e7d926b35c14aab76ffe7075e06b7cb6b9e1",
+      "stagedSha256": "a41d6e9a8baa6673bade41cb0e17e7d926b35c14aab76ffe7075e06b7cb6b9e1",
+      "buffer5Sha256": "a41d6e9a8baa6673bade41cb0e17e7d926b35c14aab76ffe7075e06b7cb6b9e1"
+    },
+    {
+      "classFile": "coursier/cache/internal/DownloadResult$.class",
+      "compiledSha256": "566c2965a36fcb849abf1b65a3f4f95803aef9d52dfca9363697561233b78af3",
+      "stagedSha256": "566c2965a36fcb849abf1b65a3f4f95803aef9d52dfca9363697561233b78af3",
+      "buffer5Sha256": "566c2965a36fcb849abf1b65a3f4f95803aef9d52dfca9363697561233b78af3"
+    },
+    {
+      "classFile": "coursier/cache/internal/DownloadResult.class",
+      "compiledSha256": "cd3e7631595f2c3a652eca0a4a729b96eb4273beaf9a20cc4236066daf62da03",
+      "stagedSha256": "cd3e7631595f2c3a652eca0a4a729b96eb4273beaf9a20cc4236066daf62da03",
+      "buffer5Sha256": "cd3e7631595f2c3a652eca0a4a729b96eb4273beaf9a20cc4236066daf62da03"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$$anonfun$2.class",
+      "compiledSha256": "3f1c90777583556b790eb478f1b2e07bbf9fab73ee9d843701941e92d0303ca7",
+      "stagedSha256": "3f1c90777583556b790eb478f1b2e07bbf9fab73ee9d843701941e92d0303ca7",
+      "buffer5Sha256": null
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$$anonfun$coursier$cache$internal$Downloader$$downloading$1.class",
+      "compiledSha256": "56a0fdb21c60e54d22698e39463e8ef28a12b9d902e2fdc7e47c0c2aea9f8f19",
+      "stagedSha256": "56a0fdb21c60e54d22698e39463e8ef28a12b9d902e2fdc7e47c0c2aea9f8f19",
+      "buffer5Sha256": "bf8de8d90c7fd2a58651127de0125c6a14785b0e475095ede154d10b6686dad0"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$.class",
+      "compiledSha256": "5a4bd92aafc769de944a2c7dc7b49e1cd9a155ee802ab43fd67842746c991200",
+      "stagedSha256": "5a4bd92aafc769de944a2c7dc7b49e1cd9a155ee802ab43fd67842746c991200",
+      "buffer5Sha256": "a6066b3031426ae9dd5f8d5eabf96663fe5f9d643479f3796a4c8cda48afb3f0"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$Blocking$$anonfun$1.class",
+      "compiledSha256": "fe7f431b1e1c09e262ff3809c0b95a22f5ecd179cb8d4c00431a63d72d7c3461",
+      "stagedSha256": "fe7f431b1e1c09e262ff3809c0b95a22f5ecd179cb8d4c00431a63d72d7c3461",
+      "buffer5Sha256": "fe7f431b1e1c09e262ff3809c0b95a22f5ecd179cb8d4c00431a63d72d7c3461"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$Blocking$.class",
+      "compiledSha256": "41bb44e723a3cab6d3978adaf4bb3b15fa0aa878b604b50e9e51915cf8b147af",
+      "stagedSha256": "41bb44e723a3cab6d3978adaf4bb3b15fa0aa878b604b50e9e51915cf8b147af",
+      "buffer5Sha256": "949fb3e828386d95fd0d46e595b8388b1fc90ab83dcc9c040fe38c8fd30bcd21"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$DecodingInputStream.class",
+      "compiledSha256": "e843426f125358508906dfeeea912a3bbdc113eac09066efa393800aed4df808",
+      "stagedSha256": "e843426f125358508906dfeeea912a3bbdc113eac09066efa393800aed4df808",
+      "buffer5Sha256": "3d01b532900bd903e15f70bc1f8d5f645bfd80bc27714c06c2e9f4024dc0fab7"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$DeflateInputStream.class",
+      "compiledSha256": "64df9a68d751a77ebb09da0aae339ed4850c0e5545539aae8c1b5670b8d974b9",
+      "stagedSha256": "64df9a68d751a77ebb09da0aae339ed4850c0e5545539aae8c1b5670b8d974b9",
+      "buffer5Sha256": null
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$ResponseInputStream.class",
+      "compiledSha256": "6ca0fe22914f057c70a600538cca1f09da08e6a36e043a77a9e1c807a41f0034",
+      "stagedSha256": "6ca0fe22914f057c70a600538cca1f09da08e6a36e043a77a9e1c807a41f0034",
+      "buffer5Sha256": "6d25bc332e78da2a0463b810fc4da4eacbacc529e5f27784c8f907b641a0908e"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$UnknownProtocol$.class",
+      "compiledSha256": "13628319326cef0f8fbe516bf63e8a1e915aaaee42d41cee245f3d6918d5eb12",
+      "stagedSha256": "13628319326cef0f8fbe516bf63e8a1e915aaaee42d41cee245f3d6918d5eb12",
+      "buffer5Sha256": "50862e436b4028d663929a62f738caa3f9db7740c76b3ba2d69f877845b76fc7"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader.class",
+      "compiledSha256": "0052b58b4be0956da1dd6bff47fef651e31531faec49b47121cb4ef13530e161",
+      "stagedSha256": "0052b58b4be0956da1dd6bff47fef651e31531faec49b47121cb4ef13530e161",
+      "buffer5Sha256": "8b118cab794b2f5bde0871dde45c80a1f13e019efd6951622781f0093d36709c"
+    },
+    {
+      "classFile": "coursier/cache/internal/FileUtil$.class",
+      "compiledSha256": "d434abd08b448dcc38c7a61773238c5c0acacc614ebbae2af943d593a84eda3c",
+      "stagedSha256": "d434abd08b448dcc38c7a61773238c5c0acacc614ebbae2af943d593a84eda3c",
+      "buffer5Sha256": "d434abd08b448dcc38c7a61773238c5c0acacc614ebbae2af943d593a84eda3c"
+    },
+    {
+      "classFile": "coursier/cache/internal/FileUtil$UpdateDigest.class",
+      "compiledSha256": "97df8aee7137e2af5ed69ce82ce9f89a3b4b12dde1f87991ef63c1ea658e0056",
+      "stagedSha256": "97df8aee7137e2af5ed69ce82ce9f89a3b4b12dde1f87991ef63c1ea658e0056",
+      "buffer5Sha256": "97df8aee7137e2af5ed69ce82ce9f89a3b4b12dde1f87991ef63c1ea658e0056"
+    },
+    {
+      "classFile": "coursier/cache/internal/FileUtil$WithContent.class",
+      "compiledSha256": "9b592a163859d801349e09af3ff2e064e19a1715f2ac94deb54e114e955f3335",
+      "stagedSha256": "9b592a163859d801349e09af3ff2e064e19a1715f2ac94deb54e114e955f3335",
+      "buffer5Sha256": "9b592a163859d801349e09af3ff2e064e19a1715f2ac94deb54e114e955f3335"
+    },
+    {
+      "classFile": "coursier/cache/internal/FileUtil.class",
+      "compiledSha256": "bbe9e81dfb39c0e074a459d4f074f7a23bc4784f37202477f0455569a3dd0e8f",
+      "stagedSha256": "bbe9e81dfb39c0e074a459d4f074f7a23bc4784f37202477f0455569a3dd0e8f",
+      "buffer5Sha256": "bbe9e81dfb39c0e074a459d4f074f7a23bc4784f37202477f0455569a3dd0e8f"
+    },
+    {
+      "classFile": "coursier/cache/internal/GzipInputStream.class",
+      "compiledSha256": "bb6c8f9ff442c22884255fd369c20d3c512555c087610666781bfe06b05e63bd",
+      "stagedSha256": "bb6c8f9ff442c22884255fd369c20d3c512555c087610666781bfe06b05e63bd",
+      "buffer5Sha256": null
+    },
+    {
+      "classFile": "coursier/cache/internal/MockCacheEscape$.class",
+      "compiledSha256": "aeb4aeaccb3e7e8be68ea5c3755dabb2672c9e685700b6d7d186a3fd860cf148",
+      "stagedSha256": "aeb4aeaccb3e7e8be68ea5c3755dabb2672c9e685700b6d7d186a3fd860cf148",
+      "buffer5Sha256": "aeb4aeaccb3e7e8be68ea5c3755dabb2672c9e685700b6d7d186a3fd860cf148"
+    },
+    {
+      "classFile": "coursier/cache/internal/MockCacheEscape.class",
+      "compiledSha256": "226d3b3d2f21fc4445899b0612b788743af268ba85faf7b88cb74d4fb6e4f58b",
+      "stagedSha256": "226d3b3d2f21fc4445899b0612b788743af268ba85faf7b88cb74d4fb6e4f58b",
+      "buffer5Sha256": "226d3b3d2f21fc4445899b0612b788743af268ba85faf7b88cb74d4fb6e4f58b"
+    },
+    {
+      "classFile": "coursier/cache/internal/Retry$.class",
+      "compiledSha256": "3fe1e1a337a692bdd6a1602194cb13afb99ca00587f31910de7b08dbfd9735b7",
+      "stagedSha256": "3fe1e1a337a692bdd6a1602194cb13afb99ca00587f31910de7b08dbfd9735b7",
+      "buffer5Sha256": "3fe1e1a337a692bdd6a1602194cb13afb99ca00587f31910de7b08dbfd9735b7"
+    },
+    {
+      "classFile": "coursier/cache/internal/Retry.class",
+      "compiledSha256": "9240ef735b2dca8b063e7b3ced718a507380e229c27bb5f0b8bf051562c05e97",
+      "stagedSha256": "9240ef735b2dca8b063e7b3ced718a507380e229c27bb5f0b8bf051562c05e97",
+      "buffer5Sha256": "9240ef735b2dca8b063e7b3ced718a507380e229c27bb5f0b8bf051562c05e97"
+    },
+    {
+      "classFile": "coursier/cache/internal/SigWinchNativeWindows.class",
+      "compiledSha256": "807a21aeb157c14ef85f1527f53b10d60aee09aa4a9ff0d899ea5262f9c4c34c",
+      "stagedSha256": "807a21aeb157c14ef85f1527f53b10d60aee09aa4a9ff0d899ea5262f9c4c34c",
+      "buffer5Sha256": "807a21aeb157c14ef85f1527f53b10d60aee09aa4a9ff0d899ea5262f9c4c34c"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal$$anon$1.class",
+      "compiledSha256": "bd19cc24c0c19f5c975f6e6c3a7e6f68cc1e2576a8c46e41357af21f5fad5699",
+      "stagedSha256": "bd19cc24c0c19f5c975f6e6c3a7e6f68cc1e2576a8c46e41357af21f5fad5699",
+      "buffer5Sha256": "bd19cc24c0c19f5c975f6e6c3a7e6f68cc1e2576a8c46e41357af21f5fad5699"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal$$anon$2.class",
+      "compiledSha256": "04747c4e49b583181d056aab58cb731877400dc621f6a65feed0fd6f29fe92c4",
+      "stagedSha256": "04747c4e49b583181d056aab58cb731877400dc621f6a65feed0fd6f29fe92c4",
+      "buffer5Sha256": "04747c4e49b583181d056aab58cb731877400dc621f6a65feed0fd6f29fe92c4"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal$$anon$3.class",
+      "compiledSha256": "f03d51a3660103f501ddfa2fbe35486698421a76ddc60d9237146a140e8fe2c9",
+      "stagedSha256": "f03d51a3660103f501ddfa2fbe35486698421a76ddc60d9237146a140e8fe2c9",
+      "buffer5Sha256": "f03d51a3660103f501ddfa2fbe35486698421a76ddc60d9237146a140e8fe2c9"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal$.class",
+      "compiledSha256": "632d24cd4ad9f5a6a88ac5ec227651d8d9a5e2708459d81784393441f1e3a2e8",
+      "stagedSha256": "632d24cd4ad9f5a6a88ac5ec227651d8d9a5e2708459d81784393441f1e3a2e8",
+      "buffer5Sha256": "632d24cd4ad9f5a6a88ac5ec227651d8d9a5e2708459d81784393441f1e3a2e8"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal$Ansi$.class",
+      "compiledSha256": "71e723bb83ceeacf658343c2fe42f667adaff7d54991dcba6a0973c2db51e043",
+      "stagedSha256": "71e723bb83ceeacf658343c2fe42f667adaff7d54991dcba6a0973c2db51e043",
+      "buffer5Sha256": "71e723bb83ceeacf658343c2fe42f667adaff7d54991dcba6a0973c2db51e043"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal$Ansi.class",
+      "compiledSha256": "32b4cf5c18742edbe624398ab91f643f9d2b07cf5065937d064ab37f60d352bc",
+      "stagedSha256": "32b4cf5c18742edbe624398ab91f643f9d2b07cf5065937d064ab37f60d352bc",
+      "buffer5Sha256": "32b4cf5c18742edbe624398ab91f643f9d2b07cf5065937d064ab37f60d352bc"
+    },
+    {
+      "classFile": "coursier/cache/internal/Terminal.class",
+      "compiledSha256": "3b32396e59ba5d5aac0290cc67a3e01dfee80bcf057d87b525617a13fc940831",
+      "stagedSha256": "3b32396e59ba5d5aac0290cc67a3e01dfee80bcf057d87b525617a13fc940831",
+      "buffer5Sha256": "3b32396e59ba5d5aac0290cc67a3e01dfee80bcf057d87b525617a13fc940831"
+    },
+    {
+      "classFile": "coursier/cache/internal/ThreadUtil$$anon$1.class",
+      "compiledSha256": "9764ad09533b557688504a49c4e26ff8f8d210a454ae378e95fd112f0a3eb7dd",
+      "stagedSha256": "9764ad09533b557688504a49c4e26ff8f8d210a454ae378e95fd112f0a3eb7dd",
+      "buffer5Sha256": "9764ad09533b557688504a49c4e26ff8f8d210a454ae378e95fd112f0a3eb7dd"
+    },
+    {
+      "classFile": "coursier/cache/internal/ThreadUtil$.class",
+      "compiledSha256": "58dbcc346c19fc94923123700a2d12dabbc40dc2eba030890961ddf020d129fc",
+      "stagedSha256": "58dbcc346c19fc94923123700a2d12dabbc40dc2eba030890961ddf020d129fc",
+      "buffer5Sha256": "58dbcc346c19fc94923123700a2d12dabbc40dc2eba030890961ddf020d129fc"
+    },
+    {
+      "classFile": "coursier/cache/internal/ThreadUtil.class",
+      "compiledSha256": "11f389dcb8321992ce7a5f5a2ea65a3f826f1362aed67c4c72813d81c3e3d2d6",
+      "stagedSha256": "11f389dcb8321992ce7a5f5a2ea65a3f826f1362aed67c4c72813d81c3e3d2d6",
+      "buffer5Sha256": "11f389dcb8321992ce7a5f5a2ea65a3f826f1362aed67c4c72813d81c3e3d2d6"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig$$anon$1$$anon$2.class",
+      "compiledSha256": "33666adf0a14fd1bf482f3ae265d1984f0e3b58ce80ecd94d21c5d970b7eb921",
+      "stagedSha256": "33666adf0a14fd1bf482f3ae265d1984f0e3b58ce80ecd94d21c5d970b7eb921",
+      "buffer5Sha256": "33666adf0a14fd1bf482f3ae265d1984f0e3b58ce80ecd94d21c5d970b7eb921"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig$$anon$1.class",
+      "compiledSha256": "5b9bfbbda6c330166cf6d78a9508d173bf9ac308ff4385a5d999fa03208b4e68",
+      "stagedSha256": "5b9bfbbda6c330166cf6d78a9508d173bf9ac308ff4385a5d999fa03208b4e68",
+      "buffer5Sha256": "5b9bfbbda6c330166cf6d78a9508d173bf9ac308ff4385a5d999fa03208b4e68"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig$.class",
+      "compiledSha256": "4005eea87b84b9cf00aa0ecf620e19d331c05575bf28ab68e0149fa845985cd3",
+      "stagedSha256": "4005eea87b84b9cf00aa0ecf620e19d331c05575bf28ab68e0149fa845985cd3",
+      "buffer5Sha256": "4005eea87b84b9cf00aa0ecf620e19d331c05575bf28ab68e0149fa845985cd3"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig$AsJson$.class",
+      "compiledSha256": "ee34ca37029b15bc6bceabdba5a6e1bb4572fb557769fb4a5c7f011ea691e3b0",
+      "stagedSha256": "ee34ca37029b15bc6bceabdba5a6e1bb4572fb557769fb4a5c7f011ea691e3b0",
+      "buffer5Sha256": "ee34ca37029b15bc6bceabdba5a6e1bb4572fb557769fb4a5c7f011ea691e3b0"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig$AsJson.class",
+      "compiledSha256": "4b9c3052230bb75d9542aafec72a257cfc45d4860d16fa4eabeabcef082c4480",
+      "stagedSha256": "4b9c3052230bb75d9542aafec72a257cfc45d4860d16fa4eabeabcef082c4480",
+      "buffer5Sha256": "4b9c3052230bb75d9542aafec72a257cfc45d4860d16fa4eabeabcef082c4480"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig$JsonReaderError.class",
+      "compiledSha256": "0aee0a24ba1a1def6845d4aa78e52c04bfe4e52e415d98c03aa0ac0e643ed304",
+      "stagedSha256": "0aee0a24ba1a1def6845d4aa78e52c04bfe4e52e415d98c03aa0ac0e643ed304",
+      "buffer5Sha256": "0aee0a24ba1a1def6845d4aa78e52c04bfe4e52e415d98c03aa0ac0e643ed304"
+    },
+    {
+      "classFile": "coursier/cache/internal/TmpConfig.class",
+      "compiledSha256": "8571429a96d85636f49b8001fe0a3ae9532f86a2626b19cb750f0c0081c8b592",
+      "stagedSha256": "8571429a96d85636f49b8001fe0a3ae9532f86a2626b19cb750f0c0081c8b592",
+      "buffer5Sha256": "8571429a96d85636f49b8001fe0a3ae9532f86a2626b19cb750f0c0081c8b592"
+    },
+    {
+      "classFile": "coursier/cache/loggers/FallbackRefreshDisplay$.class",
+      "compiledSha256": "8b9fb3f6d77da53d911621ed938745b595ae47ae65096a69b0164725443cfc21",
+      "stagedSha256": "8b9fb3f6d77da53d911621ed938745b595ae47ae65096a69b0164725443cfc21",
+      "buffer5Sha256": "8b9fb3f6d77da53d911621ed938745b595ae47ae65096a69b0164725443cfc21"
+    },
+    {
+      "classFile": "coursier/cache/loggers/FallbackRefreshDisplay.class",
+      "compiledSha256": "cd37b1021ae2dee442f85e1693ad09aceab526cff7d5f40a7624d67ae0e64a23",
+      "stagedSha256": "cd37b1021ae2dee442f85e1693ad09aceab526cff7d5f40a7624d67ae0e64a23",
+      "buffer5Sha256": "cd37b1021ae2dee442f85e1693ad09aceab526cff7d5f40a7624d67ae0e64a23"
+    },
+    {
+      "classFile": "coursier/cache/loggers/FileTypeRefreshDisplay$$anonfun$1.class",
+      "compiledSha256": "4bbdc14bd8fbab51cba6d14b039866513e46aac04d57b65b6aa8bb56102969b5",
+      "stagedSha256": "4bbdc14bd8fbab51cba6d14b039866513e46aac04d57b65b6aa8bb56102969b5",
+      "buffer5Sha256": "4bbdc14bd8fbab51cba6d14b039866513e46aac04d57b65b6aa8bb56102969b5"
+    },
+    {
+      "classFile": "coursier/cache/loggers/FileTypeRefreshDisplay$.class",
+      "compiledSha256": "9bcdb51617db2a5b38a8ff3c72f00df807b8d7816bcb8c4afeb6a4ee94e2b6d4",
+      "stagedSha256": "9bcdb51617db2a5b38a8ff3c72f00df807b8d7816bcb8c4afeb6a4ee94e2b6d4",
+      "buffer5Sha256": "9bcdb51617db2a5b38a8ff3c72f00df807b8d7816bcb8c4afeb6a4ee94e2b6d4"
+    },
+    {
+      "classFile": "coursier/cache/loggers/FileTypeRefreshDisplay.class",
+      "compiledSha256": "5470179aebd533e0f6509a74a12e5585335d196e347ad6314549a3425d4cc1e3",
+      "stagedSha256": "5470179aebd533e0f6509a74a12e5585335d196e347ad6314549a3425d4cc1e3",
+      "buffer5Sha256": "5470179aebd533e0f6509a74a12e5585335d196e347ad6314549a3425d4cc1e3"
+    },
+    {
+      "classFile": "coursier/cache/loggers/ProgressBarRefreshDisplay$.class",
+      "compiledSha256": "32fbe8248bd163c3f5159c0c4744d3d9f2e7ec63cb054d2c4cf072427269f8bc",
+      "stagedSha256": "32fbe8248bd163c3f5159c0c4744d3d9f2e7ec63cb054d2c4cf072427269f8bc",
+      "buffer5Sha256": "32fbe8248bd163c3f5159c0c4744d3d9f2e7ec63cb054d2c4cf072427269f8bc"
+    },
+    {
+      "classFile": "coursier/cache/loggers/ProgressBarRefreshDisplay.class",
+      "compiledSha256": "e1a484de3cbca4c32873389e226bade4f86958fd830df409836116eabdaa9b4b",
+      "stagedSha256": "e1a484de3cbca4c32873389e226bade4f86958fd830df409836116eabdaa9b4b",
+      "buffer5Sha256": "e1a484de3cbca4c32873389e226bade4f86958fd830df409836116eabdaa9b4b"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshDisplay$.class",
+      "compiledSha256": "afdd0bd1aa253bb96a02cd5da6df174e4b3a254154dda7e9cde9d70a9932dafc",
+      "stagedSha256": "afdd0bd1aa253bb96a02cd5da6df174e4b3a254154dda7e9cde9d70a9932dafc",
+      "buffer5Sha256": "afdd0bd1aa253bb96a02cd5da6df174e4b3a254154dda7e9cde9d70a9932dafc"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshDisplay.class",
+      "compiledSha256": "0a8d1906948a8a1ac701bb852b890f198d900980a2dec50c9af1d1f17b91040e",
+      "stagedSha256": "0a8d1906948a8a1ac701bb852b890f198d900980a2dec50c9af1d1f17b91040e",
+      "buffer5Sha256": "0a8d1906948a8a1ac701bb852b890f198d900980a2dec50c9af1d1f17b91040e"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshInfo$.class",
+      "compiledSha256": "65c972b906e3079ba2b614586c670252c5536b394e69083e745b8bdca432e1c2",
+      "stagedSha256": "65c972b906e3079ba2b614586c670252c5536b394e69083e745b8bdca432e1c2",
+      "buffer5Sha256": "65c972b906e3079ba2b614586c670252c5536b394e69083e745b8bdca432e1c2"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshInfo$CheckUpdateInfo$.class",
+      "compiledSha256": "8454563a5f9c6cf42bfb1330e4c6af2eb572582a6ba19d481ac6c0d1e7a04afa",
+      "stagedSha256": "8454563a5f9c6cf42bfb1330e4c6af2eb572582a6ba19d481ac6c0d1e7a04afa",
+      "buffer5Sha256": "8454563a5f9c6cf42bfb1330e4c6af2eb572582a6ba19d481ac6c0d1e7a04afa"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshInfo$CheckUpdateInfo.class",
+      "compiledSha256": "d03b27e230eba19036b67918d7b20fb33c7706ff91eeb5c76ea221a04c402159",
+      "stagedSha256": "d03b27e230eba19036b67918d7b20fb33c7706ff91eeb5c76ea221a04c402159",
+      "buffer5Sha256": "d03b27e230eba19036b67918d7b20fb33c7706ff91eeb5c76ea221a04c402159"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshInfo$DownloadInfo$.class",
+      "compiledSha256": "79d0f5ec68655a2b9396fd52007408f700bfcaddbd72a728a3d909054a85105f",
+      "stagedSha256": "79d0f5ec68655a2b9396fd52007408f700bfcaddbd72a728a3d909054a85105f",
+      "buffer5Sha256": "79d0f5ec68655a2b9396fd52007408f700bfcaddbd72a728a3d909054a85105f"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshInfo$DownloadInfo.class",
+      "compiledSha256": "a863a05b92b33527f1f501fa8156703800b618a8408934fc290c3adfda5b08cd",
+      "stagedSha256": "a863a05b92b33527f1f501fa8156703800b618a8408934fc290c3adfda5b08cd",
+      "buffer5Sha256": "a863a05b92b33527f1f501fa8156703800b618a8408934fc290c3adfda5b08cd"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshInfo.class",
+      "compiledSha256": "710ce96994144e066b89cc0b3b43211ddb614c8313656ae1c8533713cd2845da",
+      "stagedSha256": "710ce96994144e066b89cc0b3b43211ddb614c8313656ae1c8533713cd2845da",
+      "buffer5Sha256": "710ce96994144e066b89cc0b3b43211ddb614c8313656ae1c8533713cd2845da"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshLogger$.class",
+      "compiledSha256": "7922efb67d9ef6ec561ddeafc71a49350fe7d85bd301552e09ac3cd18d464fc0",
+      "stagedSha256": "7922efb67d9ef6ec561ddeafc71a49350fe7d85bd301552e09ac3cd18d464fc0",
+      "buffer5Sha256": "7922efb67d9ef6ec561ddeafc71a49350fe7d85bd301552e09ac3cd18d464fc0"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshLogger$State.class",
+      "compiledSha256": "014f3c74722b1a98cb6b287e3bbfe608da053fa49f2e96d8ba9b6311d29fd5ea",
+      "stagedSha256": "014f3c74722b1a98cb6b287e3bbfe608da053fa49f2e96d8ba9b6311d29fd5ea",
+      "buffer5Sha256": "014f3c74722b1a98cb6b287e3bbfe608da053fa49f2e96d8ba9b6311d29fd5ea"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshLogger$UpdateDisplayRunnable.class",
+      "compiledSha256": "cafda89869799199c850a66049a5e206863856d8f8bd396923b74496473d4d44",
+      "stagedSha256": "cafda89869799199c850a66049a5e206863856d8f8bd396923b74496473d4d44",
+      "buffer5Sha256": "cafda89869799199c850a66049a5e206863856d8f8bd396923b74496473d4d44"
+    },
+    {
+      "classFile": "coursier/cache/loggers/RefreshLogger.class",
+      "compiledSha256": "77ac8acef6165a59a644983d48d22a569a0698c6b84dfef8dddcc74594d7aaf0",
+      "stagedSha256": "77ac8acef6165a59a644983d48d22a569a0698c6b84dfef8dddcc74594d7aaf0",
+      "buffer5Sha256": "77ac8acef6165a59a644983d48d22a569a0698c6b84dfef8dddcc74594d7aaf0"
+    },
+    {
+      "classFile": "coursier/cache/loggers/SingleLineRefreshDisplay$.class",
+      "compiledSha256": "0392cbaf3a7e72341b039c75a3e0fb84ae4acba35a7df7f8263600d0cc1bcdf4",
+      "stagedSha256": "0392cbaf3a7e72341b039c75a3e0fb84ae4acba35a7df7f8263600d0cc1bcdf4",
+      "buffer5Sha256": "0392cbaf3a7e72341b039c75a3e0fb84ae4acba35a7df7f8263600d0cc1bcdf4"
+    },
+    {
+      "classFile": "coursier/cache/loggers/SingleLineRefreshDisplay.class",
+      "compiledSha256": "b9edd7cd389498638b9acffa4e1147896cae3d40a3d8768c645626b9a98b8e36",
+      "stagedSha256": "b9edd7cd389498638b9acffa4e1147896cae3d40a3d8768c645626b9a98b8e36",
+      "buffer5Sha256": "b9edd7cd389498638b9acffa4e1147896cae3d40a3d8768c645626b9a98b8e36"
+    },
+    {
+      "classFile": "coursier/cache/util/Cpu$.class",
+      "compiledSha256": "b2b0bee7ca85c1ff6c84bd085cca4033ef4c6e8b702ac600b5f2c4a1aa2f292f",
+      "stagedSha256": "b2b0bee7ca85c1ff6c84bd085cca4033ef4c6e8b702ac600b5f2c4a1aa2f292f",
+      "buffer5Sha256": "b2b0bee7ca85c1ff6c84bd085cca4033ef4c6e8b702ac600b5f2c4a1aa2f292f"
+    },
+    {
+      "classFile": "coursier/cache/util/Cpu$Arm64$.class",
+      "compiledSha256": "e687e4b3c50fcb10d4734552685f78a7f73bc00e75220e6907ccb6f8b6627946",
+      "stagedSha256": "e687e4b3c50fcb10d4734552685f78a7f73bc00e75220e6907ccb6f8b6627946",
+      "buffer5Sha256": "e687e4b3c50fcb10d4734552685f78a7f73bc00e75220e6907ccb6f8b6627946"
+    },
+    {
+      "classFile": "coursier/cache/util/Cpu$X86_64$.class",
+      "compiledSha256": "18bc9960207e877dea55c5449570f5ff723373c87a382ae00713505294e861f3",
+      "stagedSha256": "18bc9960207e877dea55c5449570f5ff723373c87a382ae00713505294e861f3",
+      "buffer5Sha256": "18bc9960207e877dea55c5449570f5ff723373c87a382ae00713505294e861f3"
+    },
+    {
+      "classFile": "coursier/cache/util/Cpu.class",
+      "compiledSha256": "a8c123b9dbd6ad782b835bcae9a5247940299f6aa43969f0e310a732692d956c",
+      "stagedSha256": "a8c123b9dbd6ad782b835bcae9a5247940299f6aa43969f0e310a732692d956c",
+      "buffer5Sha256": "a8c123b9dbd6ad782b835bcae9a5247940299f6aa43969f0e310a732692d956c"
+    },
+    {
+      "classFile": "coursier/cache/util/Os$.class",
+      "compiledSha256": "8ca4a1abcf21254ef8aedce99c3492de97202e689f286c2074c74970c6376c18",
+      "stagedSha256": "8ca4a1abcf21254ef8aedce99c3492de97202e689f286c2074c74970c6376c18",
+      "buffer5Sha256": "8ca4a1abcf21254ef8aedce99c3492de97202e689f286c2074c74970c6376c18"
+    },
+    {
+      "classFile": "coursier/cache/util/Os$Linux$.class",
+      "compiledSha256": "0ac008b4b5a5700951eba7742eece197700e7cad7e7d4ab6d56c535375b5ba60",
+      "stagedSha256": "0ac008b4b5a5700951eba7742eece197700e7cad7e7d4ab6d56c535375b5ba60",
+      "buffer5Sha256": "0ac008b4b5a5700951eba7742eece197700e7cad7e7d4ab6d56c535375b5ba60"
+    },
+    {
+      "classFile": "coursier/cache/util/Os$Linux.class",
+      "compiledSha256": "eb6d416ada6fbc1468c2278d8fcc1f59a1dec4f4a123357ee6bb16423cb6ed49",
+      "stagedSha256": "eb6d416ada6fbc1468c2278d8fcc1f59a1dec4f4a123357ee6bb16423cb6ed49",
+      "buffer5Sha256": "eb6d416ada6fbc1468c2278d8fcc1f59a1dec4f4a123357ee6bb16423cb6ed49"
+    },
+    {
+      "classFile": "coursier/cache/util/Os$Mac$.class",
+      "compiledSha256": "5f0a2fedb9665c3050a7216538956c9e3c2e5bc2242be6de60d8821bd1b0f8ef",
+      "stagedSha256": "5f0a2fedb9665c3050a7216538956c9e3c2e5bc2242be6de60d8821bd1b0f8ef",
+      "buffer5Sha256": "5f0a2fedb9665c3050a7216538956c9e3c2e5bc2242be6de60d8821bd1b0f8ef"
+    },
+    {
+      "classFile": "coursier/cache/util/Os$Unix.class",
+      "compiledSha256": "3290b414dbcb5bd536a150f7b8a0f2e6ed6402f493214c5c1c69707762c03789",
+      "stagedSha256": "3290b414dbcb5bd536a150f7b8a0f2e6ed6402f493214c5c1c69707762c03789",
+      "buffer5Sha256": "3290b414dbcb5bd536a150f7b8a0f2e6ed6402f493214c5c1c69707762c03789"
+    },
+    {
+      "classFile": "coursier/cache/util/Os$Windows$.class",
+      "compiledSha256": "d990a141e87bd1d9de86ac30c9e4e85f42948aa31ecf695011e182085651fba2",
+      "stagedSha256": "d990a141e87bd1d9de86ac30c9e4e85f42948aa31ecf695011e182085651fba2",
+      "buffer5Sha256": "d990a141e87bd1d9de86ac30c9e4e85f42948aa31ecf695011e182085651fba2"
+    },
+    {
+      "classFile": "coursier/cache/util/Os.class",
+      "compiledSha256": "ecd00ce88c47345f00c99e25ff2b7b819ffb6be62175e27200ee44d1b29c5b28",
+      "stagedSha256": "ecd00ce88c47345f00c99e25ff2b7b819ffb6be62175e27200ee44d1b29c5b28",
+      "buffer5Sha256": "ecd00ce88c47345f00c99e25ff2b7b819ffb6be62175e27200ee44d1b29c5b28"
+    },
+    {
+      "classFile": "coursier/parse/CachePolicyParser$.class",
+      "compiledSha256": "54606e789169266778d9341318a0f9e0275811233be273c18b0ce09c1cc781f1",
+      "stagedSha256": "54606e789169266778d9341318a0f9e0275811233be273c18b0ce09c1cc781f1",
+      "buffer5Sha256": "54606e789169266778d9341318a0f9e0275811233be273c18b0ce09c1cc781f1"
+    },
+    {
+      "classFile": "coursier/parse/CachePolicyParser.class",
+      "compiledSha256": "00590475f052bec15119476dab83f2af117b37ebac0cf2c0e9e95bff9acc6390",
+      "stagedSha256": "00590475f052bec15119476dab83f2af117b37ebac0cf2c0e9e95bff9acc6390",
+      "buffer5Sha256": "00590475f052bec15119476dab83f2af117b37ebac0cf2c0e9e95bff9acc6390"
+    },
+    {
+      "classFile": "coursier/util/PlatformSync.class",
+      "compiledSha256": "5ff020cd4109223071a29003dbaf1210a69d1967c60d86135da4a8c5beb7a982",
+      "stagedSha256": "5ff020cd4109223071a29003dbaf1210a69d1967c60d86135da4a8c5beb7a982",
+      "buffer5Sha256": "5ff020cd4109223071a29003dbaf1210a69d1967c60d86135da4a8c5beb7a982"
+    },
+    {
+      "classFile": "coursier/util/PlatformSyncCompanion.class",
+      "compiledSha256": "8cc9698fd2f67cd3765aa3cc42a336668e44044a87ce5a3217a7116169fa4b0d",
+      "stagedSha256": "8cc9698fd2f67cd3765aa3cc42a336668e44044a87ce5a3217a7116169fa4b0d",
+      "buffer5Sha256": "8cc9698fd2f67cd3765aa3cc42a336668e44044a87ce5a3217a7116169fa4b0d"
+    },
+    {
+      "classFile": "coursier/util/PlatformTaskCompanion$$anon$1.class",
+      "compiledSha256": "8b2a675efdaae9642b8d4587d7aa3c85f88db12a90fe6b0cc73f34434ee9e13f",
+      "stagedSha256": "8b2a675efdaae9642b8d4587d7aa3c85f88db12a90fe6b0cc73f34434ee9e13f",
+      "buffer5Sha256": "8b2a675efdaae9642b8d4587d7aa3c85f88db12a90fe6b0cc73f34434ee9e13f"
+    },
+    {
+      "classFile": "coursier/util/PlatformTaskCompanion$$anon$2.class",
+      "compiledSha256": "2e72a6f7775d88d82c80bfe0ace6362fb5d47ed1b63d8b1353170ab40c57c467",
+      "stagedSha256": "2e72a6f7775d88d82c80bfe0ace6362fb5d47ed1b63d8b1353170ab40c57c467",
+      "buffer5Sha256": "2e72a6f7775d88d82c80bfe0ace6362fb5d47ed1b63d8b1353170ab40c57c467"
+    },
+    {
+      "classFile": "coursier/util/PlatformTaskCompanion$PlatformTaskOps.class",
+      "compiledSha256": "ba34dd118a41643541e8eefca6a7995c5bfe74de0ca1353bef9c428f2c7cab70",
+      "stagedSha256": "ba34dd118a41643541e8eefca6a7995c5bfe74de0ca1353bef9c428f2c7cab70",
+      "buffer5Sha256": "ba34dd118a41643541e8eefca6a7995c5bfe74de0ca1353bef9c428f2c7cab70"
+    },
+    {
+      "classFile": "coursier/util/PlatformTaskCompanion.class",
+      "compiledSha256": "5617a42c0761ac25148cf87c7a369130b7b84f3808de7ef9b7e415bcf250d84c",
+      "stagedSha256": "5617a42c0761ac25148cf87c7a369130b7b84f3808de7ef9b7e415bcf250d84c",
+      "buffer5Sha256": "5617a42c0761ac25148cf87c7a369130b7b84f3808de7ef9b7e415bcf250d84c"
+    },
+    {
+      "classFile": "coursier/util/Sync$$anonfun$attempt$2.class",
+      "compiledSha256": "12a124ca56d4f2789f92b4e081cb32e9958c5cf22d50b1bca104efd90fcd95b2",
+      "stagedSha256": "12a124ca56d4f2789f92b4e081cb32e9958c5cf22d50b1bca104efd90fcd95b2",
+      "buffer5Sha256": "12a124ca56d4f2789f92b4e081cb32e9958c5cf22d50b1bca104efd90fcd95b2"
+    },
+    {
+      "classFile": "coursier/util/Sync$.class",
+      "compiledSha256": "8afd9f8e0eff610d7009fab86432f10c84a50c42f633ef5f30e052a28acdd5df",
+      "stagedSha256": "8afd9f8e0eff610d7009fab86432f10c84a50c42f633ef5f30e052a28acdd5df",
+      "buffer5Sha256": "8afd9f8e0eff610d7009fab86432f10c84a50c42f633ef5f30e052a28acdd5df"
+    },
+    {
+      "classFile": "coursier/util/Sync.class",
+      "compiledSha256": "166e6e89586a62b475868e3ecc25546e4a9f46d494a927b805ae54e7d9f7ceef",
+      "stagedSha256": "166e6e89586a62b475868e3ecc25546e4a9f46d494a927b805ae54e7d9f7ceef",
+      "buffer5Sha256": "166e6e89586a62b475868e3ecc25546e4a9f46d494a927b805ae54e7d9f7ceef"
+    },
+    {
+      "classFile": "coursier/util/Task$$anon$1.class",
+      "compiledSha256": "d596ca1c8a15bc572f7e0a50dc93ae46a38e34a32b8e73cb938b7ce9e30c7b1d",
+      "stagedSha256": "d596ca1c8a15bc572f7e0a50dc93ae46a38e34a32b8e73cb938b7ce9e30c7b1d",
+      "buffer5Sha256": "d596ca1c8a15bc572f7e0a50dc93ae46a38e34a32b8e73cb938b7ce9e30c7b1d"
+    },
+    {
+      "classFile": "coursier/util/Task$$anonfun$attempt$extension$1.class",
+      "compiledSha256": "e325ff432d7a4c0610cd2764cfd07c9462e03f45540a974a530f91eb99f024a6",
+      "stagedSha256": "e325ff432d7a4c0610cd2764cfd07c9462e03f45540a974a530f91eb99f024a6",
+      "buffer5Sha256": "e325ff432d7a4c0610cd2764cfd07c9462e03f45540a974a530f91eb99f024a6"
+    },
+    {
+      "classFile": "coursier/util/Task$.class",
+      "compiledSha256": "604e41cfab75b24d713dd6378c0a73aa52549ea8ed6b2822c97c06b5d428473d",
+      "stagedSha256": "604e41cfab75b24d713dd6378c0a73aa52549ea8ed6b2822c97c06b5d428473d",
+      "buffer5Sha256": "604e41cfab75b24d713dd6378c0a73aa52549ea8ed6b2822c97c06b5d428473d"
+    },
+    {
+      "classFile": "coursier/util/Task$WrappedException.class",
+      "compiledSha256": "7668f17190b55bbf8e05977272e532a9496cf72d23cbfe6bfa4f77da4b008800",
+      "stagedSha256": "7668f17190b55bbf8e05977272e532a9496cf72d23cbfe6bfa4f77da4b008800",
+      "buffer5Sha256": "7668f17190b55bbf8e05977272e532a9496cf72d23cbfe6bfa4f77da4b008800"
+    },
+    {
+      "classFile": "coursier/util/Task.class",
+      "compiledSha256": "03ea092e5e12383c4265c3e81f51f70bbab260138a76e25c218795c9f6c38cf6",
+      "stagedSha256": "03ea092e5e12383c4265c3e81f51f70bbab260138a76e25c218795c9f6c38cf6",
+      "buffer5Sha256": "03ea092e5e12383c4265c3e81f51f70bbab260138a76e25c218795c9f6c38cf6"
+    },
+    {
+      "classFile": "coursier/util/TaskSync.class",
+      "compiledSha256": "25933742fc6a6a7a0fce16b8e131b13a9b226fdba93f24345e4f4b084182074a",
+      "stagedSha256": "25933742fc6a6a7a0fce16b8e131b13a9b226fdba93f24345e4f4b084182074a",
+      "buffer5Sha256": "25933742fc6a6a7a0fce16b8e131b13a9b226fdba93f24345e4f4b084182074a"
+    }
+  ],
+  "changedClasses": [
+    {
+      "classFile": "coursier/cache/internal/Downloader$$anonfun$2.class",
+      "compiledSha256": "3f1c90777583556b790eb478f1b2e07bbf9fab73ee9d843701941e92d0303ca7",
+      "stagedSha256": "3f1c90777583556b790eb478f1b2e07bbf9fab73ee9d843701941e92d0303ca7",
+      "buffer5Sha256": null
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$$anonfun$coursier$cache$internal$Downloader$$downloading$1.class",
+      "compiledSha256": "56a0fdb21c60e54d22698e39463e8ef28a12b9d902e2fdc7e47c0c2aea9f8f19",
+      "stagedSha256": "56a0fdb21c60e54d22698e39463e8ef28a12b9d902e2fdc7e47c0c2aea9f8f19",
+      "buffer5Sha256": "bf8de8d90c7fd2a58651127de0125c6a14785b0e475095ede154d10b6686dad0"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$.class",
+      "compiledSha256": "5a4bd92aafc769de944a2c7dc7b49e1cd9a155ee802ab43fd67842746c991200",
+      "stagedSha256": "5a4bd92aafc769de944a2c7dc7b49e1cd9a155ee802ab43fd67842746c991200",
+      "buffer5Sha256": "a6066b3031426ae9dd5f8d5eabf96663fe5f9d643479f3796a4c8cda48afb3f0"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$Blocking$.class",
+      "compiledSha256": "41bb44e723a3cab6d3978adaf4bb3b15fa0aa878b604b50e9e51915cf8b147af",
+      "stagedSha256": "41bb44e723a3cab6d3978adaf4bb3b15fa0aa878b604b50e9e51915cf8b147af",
+      "buffer5Sha256": "949fb3e828386d95fd0d46e595b8388b1fc90ab83dcc9c040fe38c8fd30bcd21"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$DecodingInputStream.class",
+      "compiledSha256": "e843426f125358508906dfeeea912a3bbdc113eac09066efa393800aed4df808",
+      "stagedSha256": "e843426f125358508906dfeeea912a3bbdc113eac09066efa393800aed4df808",
+      "buffer5Sha256": "3d01b532900bd903e15f70bc1f8d5f645bfd80bc27714c06c2e9f4024dc0fab7"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$DeflateInputStream.class",
+      "compiledSha256": "64df9a68d751a77ebb09da0aae339ed4850c0e5545539aae8c1b5670b8d974b9",
+      "stagedSha256": "64df9a68d751a77ebb09da0aae339ed4850c0e5545539aae8c1b5670b8d974b9",
+      "buffer5Sha256": null
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$ResponseInputStream.class",
+      "compiledSha256": "6ca0fe22914f057c70a600538cca1f09da08e6a36e043a77a9e1c807a41f0034",
+      "stagedSha256": "6ca0fe22914f057c70a600538cca1f09da08e6a36e043a77a9e1c807a41f0034",
+      "buffer5Sha256": "6d25bc332e78da2a0463b810fc4da4eacbacc529e5f27784c8f907b641a0908e"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader$UnknownProtocol$.class",
+      "compiledSha256": "13628319326cef0f8fbe516bf63e8a1e915aaaee42d41cee245f3d6918d5eb12",
+      "stagedSha256": "13628319326cef0f8fbe516bf63e8a1e915aaaee42d41cee245f3d6918d5eb12",
+      "buffer5Sha256": "50862e436b4028d663929a62f738caa3f9db7740c76b3ba2d69f877845b76fc7"
+    },
+    {
+      "classFile": "coursier/cache/internal/Downloader.class",
+      "compiledSha256": "0052b58b4be0956da1dd6bff47fef651e31531faec49b47121cb4ef13530e161",
+      "stagedSha256": "0052b58b4be0956da1dd6bff47fef651e31531faec49b47121cb4ef13530e161",
+      "buffer5Sha256": "8b118cab794b2f5bde0871dde45c80a1f13e019efd6951622781f0093d36709c"
+    },
+    {
+      "classFile": "coursier/cache/internal/GzipInputStream.class",
+      "compiledSha256": "bb6c8f9ff442c22884255fd369c20d3c512555c087610666781bfe06b05e63bd",
+      "stagedSha256": "bb6c8f9ff442c22884255fd369c20d3c512555c087610666781bfe06b05e63bd",
+      "buffer5Sha256": null
+    }
+  ],
+  "requiredChangedClasses": [
+    "coursier/cache/internal/Downloader.class",
+    "coursier/cache/internal/Downloader$.class",
+    "coursier/cache/internal/Downloader$ResponseInputStream.class",
+    "coursier/cache/internal/Downloader$Blocking$.class"
+  ],
+  "newClasses": [
+    "coursier/cache/internal/GzipInputStream.class",
+    "coursier/cache/internal/Downloader$DeflateInputStream.class"
+  ],
+  "encodingClassMarkers": {
+    "coursier/cache/internal/GzipInputStream.class": [
+      "Corrupt GZIP header",
+      "Corrupt GZIP trailer",
+      "Unsupported GZIP flags:",
+      "java/util/zip/CRC32",
+      "getBytesWritten",
+      "java/io/PushbackInputStream"
+    ],
+    "coursier/cache/internal/Downloader$DeflateInputStream.class": [
+      "Deflate dictionary required: expected a decoded body without a preset dictionary",
+      "Unexpected trailing deflate data: expected end of encoded layer, received additional bytes",
+      "getRemaining"
+    ],
+    "coursier/cache/internal/Downloader$Blocking$.class": [
+      "coursier/cache/internal/GzipInputStream",
+      "coursier/cache/internal/Downloader$DeflateInputStream"
+    ],
+    "coursier/cache/internal/Downloader$.class": [
+      "Content-Encoding"
+    ]
+  },
+  "sources": [
+    {
+      "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+      "gitSha256": "32d7d34c85b5b1d988930a5d2743fa50dea1669410ef2f43acfec0d37a0bacad",
+      "sourceJarSha256": "32d7d34c85b5b1d988930a5d2743fa50dea1669410ef2f43acfec0d37a0bacad"
+    },
+    {
+      "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/GzipInputStream.scala",
+      "gitSha256": "94d6d88e086b7e9b4638398d1b1ae2578d7e1df21bd8f9196ad31eb3e091eeaa",
+      "sourceJarSha256": "94d6d88e086b7e9b4638398d1b1ae2578d7e1df21bd8f9196ad31eb3e091eeaa"
+    }
+  ],
+  "buffer5JarSha256": "cdad657fecc7bea36dd1303a4ba8167cef28b8873758802a65a3c2772b20ed5c"
+}
