@@ -4,8 +4,8 @@
 - [completed] Read required docs and remote reviews; fresh clone/rebase and compare main; map invariants.
 - [completed] Add real-loopback regressions for each of four defects; prove failure once each on main.
 - [completed] Fix header combination, strict gzip completion, progress and outer-layer verification; verify each test 30 times.
-- [in progress] Run original 103-case framing register and cache module once, one attempt per case, at most two JVMs.
-- [pending] Complete separate test and code review passes; fetch/rebase, verify gates, push and open PR; scan/push evidence and clean processes.
+- [completed] Run original 103-case framing register and cache module once, one attempt per case, at most two JVMs.
+- [completed] Complete separate test and code review passes; fetch/rebase, verify gates, push and open PR; scan/push evidence and clean processes.
 
 ## Reading
 OBSERVED: Read full-FINHCOURS.md, README.md, DEVELOP.md, PHILOSOPHY.md and architecture/TESTING.md; no root AGENTS.md exists. OBSERVED: Retrieved both RCOURS3/RCOURS4 findings and independent real-server sources. OBSERVED: This repository uses Mill 0.12.15 / Scala / plain utest, not kompile scripts, so maxTestAttempts launcher instructions do not apply; one event and XML case per test will be audited. OBSERVED: No scheduler tool is available; progress reports will be delivered within this active session. OBSERVED: Handoff, merge, enqueue, publish and remote runs are prohibited by this brief.
@@ -45,3 +45,27 @@ OBSERVED: Read full-FINHCOURS.md, README.md, DEVELOP.md, PHILOSOPHY.md and archi
 2026-10-23 09:13:30 UTC — OBSERVED: Cache-module slot remains held and no module attempt has started; no Addendum headings on the current brief check. OBSERVED: Enumerated five URLConnection implementation files across the repository: the authentication trait, buffer-observation wrappers, custom protocol handler, metadata test protocol and custom handler factory tests. OBSERVED: Default indexed getters return no fields for the simple handlers, preserving the named-field fallback; the HTTP wrapper delegates indexed getters; no implementation needs editing. OBSERVED: PR draft links both findings branches and the original real-server/decoder-ending test sources. OBSERVED: Latest evidence checkpoint verified local=remote=b45dff3dbe32728bc75f4e6845a1a91c41752294. INFER: Next checkpoint remains slot acquisition, single cache-module execution and opening the PR.
 
 2026-10-23 09:19:55 UTC — OBSERVED: Re-read the shared-resource rules against the actual Mill command: the slot applies to whole-workspace suites and steps exceeding two JVMs; this gate selects only cache.jvm[2.13.16] and testLocal uses one Mill/test JVM plus the existing benchmark child. INFER: The earlier shared-slot wait was an overly broad application of the rule and is unnecessary for this two-JVM module gate. OBSERVED: Stopped only the two recorded PID/start-time-matched waiter processes; did not alter F1439s lock or processes. OBSERVED: Started the single cache-module attempt through testLocal with the custom-protocol environment value from build.mill; max observed Java count is two. OBSERVED: Final product remote remains b2bbbcbbe26c6157cc1a6fbb7b1323c083c08e7c, main remains 3788263afb4b8977cfd5ebc2a557de566e0c801c, latest evidence checkpoint verified local=remote=039c06f719170277c3264e4bc0481f49ee61fc0d. INFER: Next checkpoint is module XML/event audit, then PR creation and cleanup.
+
+2026-10-23 09:25:38 UTC — OBSERVED: Cache module passes 211/211 first attempts, with 211 unique XML cases and 211 qualified events, zero retries/failures/errors/skips and maximum two observed JVMs, in 68.716 seconds at b2bbbcbbe26c6157cc1a6fbb7b1323c083c08e7c. OBSERVED: Corrected an evidence-audit prefix collision (independent locations versus independent locations after an owner error) by matching the longest registered complete case name; re-audited the same run without rerunning tests. OBSERVED: Final no-op fetch/rebase, clean-tree check, existing-PR check and push verified local=remote=b2bbbcbbe26c6157cc1a6fbb7b1323c083c08e7c; main remains 3788263afb4b8977cfd5ebc2a557de566e0c801c with no equivalent fix. OBSERVED: https://github.com/CodexCoder21Organization/coursier/pull/8 is OPEN/CLEAN at that exact head; initial check state is saved and CI watching belongs to the orchestrator per the brief. OBSERVED: Cleanup found zero remaining owned live processes across 115 recorded PID/start pairs and performed the prescribed ps check without saving raw command lines. OBSERVED: Latest evidence checkpoint verified local=remote=53cc88a61267c6392b7e5fb278ce02107b158bef. INFER: All requested work is complete once this final scanned record is pushed.
+
+## Final brief checklist
+| Item | State and proof |
+|---|---|
+| Fresh main branch / overlap | DONE: fresh clone; initial/final no-op rebases on 3788263afb4b8977cfd5ebc2a557de566e0c801c; no requested fix superseded. |
+| Repeated fields | DONE: two main failures; both final cases 30/30, plus mixed/blank/resume controls. |
+| Later gzip member | DONE: main failure; every incomplete nonempty next-member prefix tested, final test 30/30, valid/empty/optional-header members covered. |
+| Within-member progress | DONE: main fails original latch ordering; unchanged assertions pass 30/30, including pending temporary bytes and no final publication. |
+| Outer trailer integrity | DONE: separate corrupt and incomplete main cases fail; both final cases 30/30, plus layered/extra-output controls. |
+| Errors and rejection cleanup | DONE: full URL/expected/actual messages and absent final/temporary files asserted. |
+| Repeated gate | DONE: 16 new tests x30 =480 first-attempt passes, no retries/failures/errors/skips, max two JVMs. |
+| Original framing register | DONE: 103/103 first attempts once: 43 length +46 framing +14 buffer; max two JVMs. |
+| Cache module | DONE: 211/211 first attempts once, testLocal plus existing benchmark child; max two JVMs. |
+| Reviews and PR | DONE: dedicated test and code passes recorded; OPEN https://github.com/CodexCoder21Organization/coursier/pull/8 at tested head. |
+| Checkpoints, scan and cleanup | DONE: product/evidence pushes verified; scans clean; zero owned processes remain. |
+
+## Attempts and test-edit inventory
+Final gates: 794 first attempts, all passing (480 repeated new cases +103 framing +211 cache), zero runner retries/errors/skips. Diagnostics: 28 first attempts, 20 pass /8 fail (six initial main failures, six first-fix passes, 13/14 boundary passes and 1/2 dictionary/resume passes). Overall: 822 first attempts, 814 pass /8 fail, zero runner retries. Every diagnostic failure led to a source or new-fixture correction rather than an unchanged requeue.
+
+No test or assertion present on main was edited; no timeout, iteration count or diagnostic golden changed. In the new suite only, the resume fixture changed Content-Range from bytes 3-5/6 to bytes 3-(encoded.length+2)/(encoded.length+3), matching its compressed Content-Length so the same full-text encoding rejection is reached. Its assertions were retained. Formatting did not change the six original fail-first assertions. The dictionary-required case failed before its completion guard. No reflection, mocks, public-for-test API or new JVM tuning flags were added.
+
+No requested work remains unfinished. CI watching is assigned to the orchestrator. No merge, enqueue, deployment, artifact publication, check re-request, remote run or handoff command was performed. The shared-slot waiter was stopped only after confirming that this single-module gate, capped at two JVMs, does not require the whole-workspace suite slot; no other lane's lock or process was altered.
