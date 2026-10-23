@@ -1,0 +1,32 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.DownloadResponseFramingTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 2 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact [2m1249ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact [2m30ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes [2m58ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes [2m54ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body [2m61ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length [2m36ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact [2m50ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact [2m28ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths [2m25ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact [2m59ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download [2m72ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes [2m155ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing [2m29ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range [2m29ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives [2m38ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned [2m181ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unknown and empty encodings cannot publish response bytes [2m68ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer [2m65ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix [2m33ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation [2m14ms[0m  
+[306] Tests: 24, Passed: 24, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...loadResponseFramingTests =============== 27s

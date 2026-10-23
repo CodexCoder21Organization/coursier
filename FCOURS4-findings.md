@@ -4,9 +4,9 @@ PR: https://github.com/CodexCoder21Organization/coursier/pull/7
 
 ## Plan
 - [x] Locate repository, fresh clone, rebase PR branch and inspect main overlap.
-- [ ] Read required documentation and review evidence; write response/ownership invariants.
-- [ ] Import and extend real-server tests; run once on 7ab7bfff and save failing evidence.
-- [ ] Fix A1–A7 and close all six coverage groups; verify targeted tests.
+- [x] Read required documentation and review evidence; write response/ownership invariants.
+- [x] Import and extend real-server tests; run once on 7ab7bfff and save failing evidence.
+- [x] Fix A1–A7 and close all six coverage groups; verify targeted tests.
 - [ ] Independent test and code review passes; run every new/changed test 30 times, cache module once.
 - [ ] Rebase, push OPEN PR branch, update description; scan/push evidence, verify SHAs and process cleanup.
 
@@ -30,3 +30,9 @@ PR: https://github.com/CodexCoder21Organization/coursier/pull/7
 Evidence checkpoint verified: local and remote wip/FCOURS4-evidence-20261023 both 563904ad9bad0c3356f7a72f98690a17a11dcd06.
 
 2026-10-23 01:45:50 UTC — OBSERVED: Baseline 24 single attempts completed: 6 pass, 18 fail, zero retries; XML and attempt audit saved. OBSERVED: A1, A2, A3, A4, both A5 cases, A6 and A7 all fail against unchanged 7ab7bfff production sources. OBSERVED: New suite extends plain utest TestSuite (no retry wrapper); pinned Executor.utestWrap executes runBody once. INFER: Baseline meets fail-first requirement, next checkpoint is implementation with identical assertions passing.
+
+2026-10-23 01:49:04 UTC — OBSERVED: After implementation, identical 24 framing cases pass in 24 first attempts, zero retries. OBSERVED: Evidence checkpoint dfd0ea9fa1ca6ef8292a72d8daa7f0b456615eca verified local=remote. OBSERVED: Existing DownloadBufferCapacityTests scenario “other content encodings retain the default maximum” used Content-Encoding custom and expected undecoded bytes; this directly contradicts the requested unknown-coding rejection. OBSERVED: Changed it to “deflate content encoding retains the default maximum”, sending a real compressed deflate body and expecting the original decoded bytes, retaining every buffer bound, exact maximum-buffer observation and cleanup assertion. INFER: This is a contract correction, not weaker coverage; the new unknown-coding scenario asserts full rejection text and no retained bytes. INFER: Next checkpoint is original-suite compatibility and fail-first proof for this edited scenario. OBSERVED: README updated to describe framing, decoding, rejection cleanup and encoded-resume behavior.
+
+2026-10-23 01:53:16 UTC — OBSERVED: Original length+buffer suites pass 57/57 in first attempts with the corrected supported-deflate buffer case. OBSERVED: Independent coverage pass added nine scenarios for decoded EOF before declared wire length, chunked deflate endings, stacked/mixed-case codings, checksum failures, separately delivered gzip members and an empty encoded body with a one-byte buffer; expanded framing suite passes 33/33 once. OBSERVED: Independent code pass found explicit Inflater ownership requires inf.end() on close; fixed before the original-suite run. OBSERVED: No timeouts, iterations, buffer bounds or existing assertions weakened; no golden literals changed. OBSERVED: Current test-only baseline branch restores both production files exactly to 7ab7bfff and runs all expanded sources plus the edited buffer suite once. INFER: Next checkpoint is expanded before-results and then the 30-round gate on the final implementation.
+
+2026-10-23 01:55:28 UTC — OBSERVED: Expanded before-run finished 47 single attempts: 20 pass, 27 fail (33 new framing cases plus 14 buffer cases); the edited deflate buffer scenario fails on the original implementation. OBSERVED: Both restored production files have an empty diff against 7ab7bfff on verify/FCOURS4-before-expanded. OBSERVED: Nine added coverage cases and all original framing assertions are saved in the expanded baseline XML; positive compatibility cases are reported as passes, not counted as bug reproductions. OBSERVED: Formatting touched only added/changed code and the edited deflate scenario; no other existing test changed. OBSERVED: Thirty independent targeted rounds (90 cases each) are now running sequentially with one test JVM; each round fetches/rebases and checks memory. INFER: Next checkpoint is the 30-round audit and single-attempt cache-module run under the memory slot, which is currently owned by I419j.
