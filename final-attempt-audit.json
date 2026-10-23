@@ -170,5 +170,12 @@
     95,
     95
   ],
-  "basis": "Plain utest 0.9.1 TestSuite/Executor; no retry mixins or utestWrap overrides in cache module. One XML case and one qualified event per scenario; MasterRunner.done adds separate summary renderings."
+  "basis": "Plain utest 0.9.1 TestSuite/Executor; no retry mixins or utestWrap overrides in cache module. One XML case and one qualified event per scenario; MasterRunner.done adds separate summary renderings.",
+  "cacheModule": {
+    "cases": 187,
+    "uniqueCases": 187,
+    "firstAttempts": 187,
+    "retries": 0,
+    "failedOrSkipped": []
+  }
 }

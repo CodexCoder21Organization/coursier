@@ -1,0 +1,12 @@
+{
+  "head": "ac74fa03ab018e66a67f293dbae7a4fe3a7bd367",
+  "cases": 187,
+  "uniqueCases": 187,
+  "firstAttempts": 187,
+  "retries": 0,
+  "failedOrSkipped": [],
+  "qualifiedEvents": 187,
+  "summaryRenderings": 187,
+  "runnerSourceAudit": "cache-runner-source-audit.json",
+  "basis": "Pinned plain utest executes once. Qualified events cover coursier.cache plus other cache-module packages; MasterRunner repeats result summaries."
+}

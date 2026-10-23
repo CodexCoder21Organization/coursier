@@ -8,8 +8,8 @@ PR: https://github.com/CodexCoder21Organization/coursier/pull/7
 - [x] Import and extend real-server tests; run once on 7ab7bfff and save failing evidence.
 - [x] Fix A1–A7 and close all six coverage groups; verify targeted tests.
 - [x] Independent test/code review passes and every new/changed test 30 times on final head.
-- [ ] Run cache module once with single attempts under the shared memory slot.
-- [ ] Rebase, push OPEN PR branch, update description; scan/push evidence, verify SHAs and process cleanup.
+- [x] Run complete cache module with single attempts under the shared memory slot.
+- [x] Rebase, push OPEN PR branch, update description; scan/push evidence, verify SHAs and process cleanup.
 
 ## Reading and initial state
 2026-10-23 01:40 UTC — OBSERVED: Fresh clone at ../FCOURS4-coursier-20261020; rebase reports up to date at 7ab7bfffb49123f9f73c45791e41b6c1ae056e7a onto main f7ac8c67dbe757d9129cfa453a37f2867bd1272d. OBSERVED: Main contains buffer sizing only, no equivalent download integrity fix. OBSERVED: Read full user brief, README.md, DEVELOP.md (no root AGENTS.md), RCOURS2-findings.md and chunked-range reproducer. OBSERVED: No Addendum headings at initial read. INFER: Next checkpoint is completed required reading, invariants, and imported single-attempt test evidence. OBSERVED: No scheduling tool is available for the status-report skill; progress reports will be delivered during active work; the user's no-handoff and orchestrator-watches-CI rules take precedence over skill defaults.
@@ -90,3 +90,28 @@ Evidence checkpoint verified: local and remote wip/FCOURS4-evidence-20261023 bot
 2026-10-23 03:15:44 UTC — OBSERVED: Cancelled only recorded waiting-shell PID36876 and its sleep before any second module test started, while F188d held the shared slot; cancellation metadata is retained. OBSERVED: The final95case repeated gate is running sequentially instead, with24clean rounds/2,280first attempts at the last read, zero retries. OBSERVED: Current product diff contains only README, two production files, one existing buffer scenario and the new framing suite; git diff --check is clean and product worktree is clean. OBSERVED: No Addendum headings. INFER: Next checkpoint is final30round audit, then reacquiring the memory slot for the corrected cache module.
 
 2026-10-23 03:16:40 UTC — OBSERVED: Final gate completed30rounds x95cases=2,850first attempts at exactheadac74fa03ab018e66a67f293dbae7a4fe3a7bd367. OBSERVED: All38new framing,43length and14buffer cases pass30/30; XML has95unique cases per invocation, qualified utest events have95per invocation, summary renderings are separate, and there are zero retries/errors/failures/skips. OBSERVED: Independent coverage/code review cleared this exact head. OBSERVED: Corrected complete cache-module command is queued again with original04:59:12UTC acquisition deadline; no other test/build runs in this lane. INFER: Next checkpoint is187case module result, then final rebase/PRpush/description and cleanup.
+
+Evidence checkpoint verified: local and remote wip/FCOURS4-evidence-20261023 both b0afd80d8348e7f255eb737105dda47453ba1c80.
+
+2026-10-23 03:21:10 UTC — OBSERVED: Final95x30attempt audit is durable at verified evidenceb0afd80d8348e7f255eb737105dda47453ba1c80. OBSERVED: Corrected module invocation has not started; shared slot owner isF188d, and the shell waiter still reports every60seconds under its original04:59:12UTC deadline. OBSERVED: PR remains OPEN at originalremote7ab7bfff and product worktree is clean at testedac74fa03a. OBSERVED: No Addendum headings. INFER: Next checkpoint remains slot acquisition and module result, followed by authorized PRpush/update.
+
+2026-10-23 03:26:35 UTC — OBSERVED: Memory-slot wait continues, with F188d owner coordination log updated03:21:21UTC at the last check; no module test attempt has started and no product source changed. OBSERVED: The bounded waiter logs once per minute and the acquisition deadline remains04:59:12UTC. OBSERVED: No Addendum headings. INFER: No intervention in another lane is appropriate; next checkpoint remains module acquisition/result and finalpush.
+
+2026-10-23 03:29:01 UTC — OBSERVED: Corrected module acquired the slot03:26:20UTC and passed187/187 unique cases in187first attempts at ac74fa03ab018e66a67f293dbae7a4fe3a7bd367, zero retries/errors/failures/skips; the trap released the slot when it exited. OBSERVED: XML and log renderings are audited; all187qualified events and187summary entries exist, and cache source has no retry mixin/utestWrap override. OBSERVED: Initial audit used the narrow coursier.cache prefix and counted174events because13module scenarios live in other coursier packages; corrected audit to the complete coursier prefix, without rerunning any tests. OBSERVED: Earlier183/186module result remains separately saved as fail-first regression evidence; it was not retried unchanged. INFER: All requested gates now pass; next checkpoint is fresh rebase/OPEN verification and authorized PRbranchpush/description.
+
+2026-10-23 03:30:00 UTC — OBSERVED: Fresh fetch/rebase left finalheadac74fa03ab018e66a67f293dbae7a4fe3a7bd367 unchanged on mainf7ac8c67dbe757d9129cfa453a37f2867bd1272d. OBSERVED: Verified PR OPEN immediately before pushing; productbranch fix/FCOURS2-download-length-integrity now has localHEAD=ls-remote=ac74fa03ab018e66a67f293dbae7a4fe3a7bd367. OBSERVED: Updated PR description using exact PR-description-draft.md, including motivation, all final and failing gate counts, six coverage groups, one existing-test edit and new-assertion before/after proof. OBSERVED: Process cleanup and required ps audit found zero live recorded children after all command sessions exited; process-cleanup.json stores only counts/PIDs, no raw command lines. INFER: Requested product work is complete; next checkpoint is final scanned evidencepush/remoteverification and final report.
+
+## Final brief item audit
+| Item | State and proof |
+|---|---|
+| Rebase / main equivalence | DONE: fresh final rebase unchanged; main f7ac8c67 contains buffer sizing and does not supersede length/range/framing changes. |
+| A1–A7 fail first | DONE: all findings fail original 7ab7bfff once; both A5 paths fail. before-framing XML is6pass/18fail; expanded original-production XML is20pass/27fail in47attempts. |
+| A1–A7 implementation | DONE: final38framing scenarios exercise mixed-case range/codings, range counts/chunk endings, no-body statuses, deflate and generic stream cleanup. |
+| B coverage gaps | DONE6/6: coverage-matrix.md maps every review group and distinguishes positive baseline checks from bug reproducers. |
+| Repeated gate | DONE:95unique cases x30rounds=2,850first attempts at finalhead, zero retries/errors/failures/skips. |
+| Cache module | DONE: final187/187first attempts under memory slot, zero retries/errors/failures/skips. Initial183/186result exposed a guard regression and was fixed/reproduced before the final invocation. |
+| Existing tests / assertion changes | DONE: one original buffer case uses real deflate instead of unsupported custom/raw expectation, all buffer/closure/body bounds retained; fails original production. New native full-error assertion still fails with broad encoding catch restored; no golden literals changed. |
+| Independent passes | DONE: coverage and code review by gpt-6-luna max; final narrow delta cleared at ac74fa03a. |
+| Final product push / PR | DONE: OPEN checked; local and remote product SHA match ac74fa03ab018e66a67f293dbae7a4fe3a7bd367; description updated; PR remains open. |
+| Evidence / cleanup | DONE: requested scan before every evidencepush, no hits; all command sessions complete, zero recorded live processes after required ps audit. Final evidence SHA is verified at push and reported in final response. |
+| Unfinished / exclusions | No requested item unfinished. No merge, enqueue, artifact publish, deploy, check request, remote run or handoff command. CI belongs to campaign orchestrator. |

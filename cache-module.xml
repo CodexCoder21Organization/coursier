@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="187" failures="0" errors="0" skipped="0" time="15.245">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="38" failures="0" errors="0" skipped="0" time="0.264" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid mixed case range unit completes the artifact" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unsolicited 304 cannot publish an empty artifact" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off chunked response removes temporary bytes" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off gzip response removes temporary bytes" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short other encoded response cannot publish partial bytes" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct mixed case gzip decodes the body" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range obeys its content range without content length" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short chunked range cannot publish a partial artifact" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty close delimited response is a valid empty artifact" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct deflate body decodes without comparing decoded and wire lengths" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers never publish the same short artifact" time="0.039">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers share one correct artifact download" time="0.035">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HEAD metadata length does not require response bytes" time="0.002">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range must consume the closing chunk before publishing" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range rejects data beyond its stated range" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="range data stays temporary until the closing chunk arrives" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="no body status with a saved prefix is rejected and cleaned" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unknown and empty encodings cannot publish response bytes" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case deflate is decoded" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked gzip validates the closing chunk after its trailer" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked gzip is decoded through the closing chunk" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="complete framing cannot hide an incomplete gzip trailer" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="invalid gzip header removes a saved temporary prefix" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded resume cannot append decoded bytes to an earlier representation" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip decoder completion still checks the declared response length" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="deflate decoder completion still checks the declared response length" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked deflate validates the closing chunk after decoding" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked deflate is decoded through the closing chunk" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case stacked content codings decode in reverse order" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt gzip trailer cannot publish decoded data" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt deflate checksum cannot publish decoded data" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip members in separate chunks all decode before publication" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoded body with one byte buffer still validates its trailer" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="body bearing successful statuses retain their complete artifact bytes" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded download output error is not reported as a coding error" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HTTP error responses retain their complete original download error" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="close delimited response reports progress before its next body fragment" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unfollowed redirects retain their complete response body" time="0.018">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadBufferCostTests" tests="1" failures="0" errors="0" skipped="0" time="7.439" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadBufferCostTests" name="small bodies do not initialize the buffer element by element" time="7.439">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheRedirectionTests" tests="67" failures="0" errors="0" skipped="0" time="6.511" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.301" time="0.822">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.302" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.304" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.307" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.308" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToHttps" time="0.26">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttps.enabled" time="0.103">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttps.disabled" time="0.036">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttps.enabled" time="0.125">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttps.disabled" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.enabled" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.enabledAllRealms" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.disabled.0" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.disabled.1" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.enabled" time="0.041">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds" time="0.029">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.disabled" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled" time="0.03">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.enabled" time="0.028">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.disabled" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToAuthHttps.enabled" time="0.066">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToAuthHttps.enabledAllRealms" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToAuthHttps.disabled" time="0.06">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpsToAuthHttps.enabled" time="0.028">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpsToAuthHttps.enabledAllRealms" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpsToAuthHttps.disabled" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.enabled.0" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.enabled.1" time="0.036">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.enabledAllRealms" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.disabled" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.credentialFile.0" time="0.071">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.credentialFile.1" time="0.024">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.cred file https" time="0.069">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.cred file http" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.conf file https" time="0.122">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.conf file http" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should be followed.0" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should be followed.1" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should be followed.2" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should not stackoverflow.0" time="3.161">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.enabled.0" time="0.205">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.enabled.1" time="0.086">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.disabled.0" time="0.111">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.disabled.1" time="0.034">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.decodeGzip" time="0.078">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authThenNotFound" time="0.036">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="custom protocols.unknown" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="custom protocols.with classloader" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.simple.0" time="0.098">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.simple.1" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.simple.2" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.fromHeader.SHA-256" time="0.062">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.fromHeader.SHA-1" time="0.03">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.fromHeader.MD5" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="lastModifiedEx" time="0.035">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="stored digests work - SHA1" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="stored digests work - MD5" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="stored digests should not be stored outside of cache" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="wrong stored digest should delete file in cache" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="un-escape characters in file URL" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="does not accept redundant path elements like .. or ." time="0.003">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheRetrySettingsTests" tests="1" failures="0" errors="0" skipped="0" time="0.126" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheRetrySettingsTests" name="explicit retry settings govern same-file waiting" time="0.126">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheTests" tests="6" failures="0" errors="0" skipped="0" time="0.217" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheTests" name="check for updates once" time="0.06">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.0" time="0.046">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.1" time="0.031">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.2" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.3" time="0.036">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheTests" name="check extra artifact.4" time="0.019">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadLengthIntegrityTests" tests="43" failures="0" errors="0" skipped="0" time="0.223" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="zero buffer size is rejected before creating a temporary file" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="negative buffer size is rejected before creating a temporary file" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short fixed-length response does not publish a partial artifact" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="empty body with positive fixed length is an incomplete response" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short fixed-length response counts bytes across multiple reads" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="partial body remains temporary until the connection reaches EOF" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="exact fixed-length response publishes all bytes" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="zero length response ignores trailing bytes" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="fragmented fixed-length response does not expose bytes after its length" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="two byte buffer stays within the framed length after a fragmented read" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="close-delimited response reads through connection close" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="chunked framing takes precedence over a conflicting content length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="gzip known length decodes fully with bounded progress increments" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="mixed case identity encoding is accepted" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="mixed case identity encoding still enforces a short length" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="negative content length is rejected" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="non-decimal content length is rejected" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing content length is rejected" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="empty content length is rejected" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length at Int max reports the received byte count" time="0.002">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length above Int max reports the received byte count" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="five gigabyte content length reports the received byte count" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="Long max content length reports the received byte count" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="redirect body length does not replace the final response length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short final response after redirect reports the original artifact URL" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="valid range response resumes the existing prefix" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="valid range response can frame the suffix without content length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response with an incorrect start is rejected without restarting" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response without content range is rejected" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="malformed content range is rejected with its exact value" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range end mismatch is rejected" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range total mismatch is rejected" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="unknown range total is rejected" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range ending at or beyond the total is rejected" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range start is rejected" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range end is rejected" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range total is rejected" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length conflicting with range is rejected" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="unsolicited range response must start at byte zero" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response from byte zero can satisfy a full download" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="server ignoring range with a full response replaces the prefix" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short range response with content length removes its temporary file" time="0.003">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short range response uses content range length when content length is absent" time="0.008">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheLocationOwnershipTests" tests="3" failures="0" errors="0" skipped="0" time="0.049" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="independent locations after an owner error" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheLocationOwnershipTests" name="same location joins its owner" time="0.037">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.parse.CachePolicyParserTests" tests="9" failures="0" errors="0" skipped="0" time="0.005" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.parse.CachePolicyParserTests" name="simple.0" time="0.001">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="simple.1" time="0.0">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.0" time="0.004">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.1" time="0.0">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.default" time="0.0">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.noDefault" time="0.0">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.2" time="0.0">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.3" time="0.0">
+          
+        </testcase><testcase classname="coursier.parse.CachePolicyParserTests" name="several.4" time="0.0">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadBufferCapacityTests" tests="14" failures="0" errors="0" skipped="0" time="0.279" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known tiny response does not request an oversized transfer buffer" time="0.09">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known 199 byte POM uses its response length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known one byte response uses a one byte buffer" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="identity response uses its uncompressed length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="mixed case identity response uses its uncompressed length" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="deflate content encoding retains the default maximum" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known responses at the default boundary stay bounded" time="0.048">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known empty response keeps read buffers at one byte or less" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known empty response requests zero bytes from the response stream" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known body larger than configured maximum uses at most that maximum" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="unknown chunked response retains the default maximum" time="0.066">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="unknown identity response retains the default maximum" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="gzip response with known encoded length returns all decoded bytes" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="partial response resumes from the persisted prefix with a bounded read buffer" time="0.01">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DigestBasedCacheTests" tests="1" failures="0" errors="0" skipped="0" time="0.125" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DigestBasedCacheTests" name="simple" time="0.125">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.paths.UtilTests" tests="4" failures="0" errors="0" skipped="0" time="0.007" timestamp="2026-10-23T03:26:38">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.paths.UtilTests" name="createDirectories fine with sym links" time="0.003">
+          
+        </testcase><testcase classname="coursier.paths.UtilTests" name="property expansion.simple" time="0.003">
+          
+        </testcase><testcase classname="coursier.paths.UtilTests" name="property expansion.substitution" time="0.001">
+          
+        </testcase><testcase classname="coursier.paths.UtilTests" name="property expansion.optional value" time="0.0">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>
