@@ -49,7 +49,7 @@ start = time.monotonic()
 with (OUT/(PHASE+'.log')).open('w') as log:
     child = subprocess.Popen(COMMAND, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT)
     # The requested complete cache-module gate has no independent wall-clock cap.
-    while child.poll() is None and time.monotonic()-start < 2400:
+    while child.poll() is None and (PHASE == "cache" or time.monotonic()-start < 2400):
         capture(child)
         time.sleep(2)
     rows = capture(child)
