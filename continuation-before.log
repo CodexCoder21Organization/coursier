@@ -1,0 +1,340 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.DownloadLengthIntegrityTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[262/306] cache-util.compile
+[262] [info] compiling 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/cache-util/compile.dest/classes ...
+[262] [warn] source value 8 is obsolete and will be removed in a future release
+[262] [warn] target value 8 is obsolete and will be removed in a future release
+[262] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[263/306] paths.compile
+[263] [info] compiling 5 Java sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/paths/compile.dest/classes ...
+[263] [warn] source value 8 is obsolete and will be removed in a future release
+[263] [warn] target value 8 is obsolete and will be removed in a future release
+[263] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[262] [info] done compiling
+[220/306] mill.scalalib.ZincWorkerModule.worker
+[220] Compiling compiler interface...
+[263] [info] done compiling
+[272/306] util.jvm[2.13.16].compile
+[273/306] custom-protocol-for-test.compile
+[272] [info] compiling 16 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/util/jvm/2.13.16/compile.dest/classes ...
+[273] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/custom-protocol-for-test/compile.dest/classes ...
+[273] [info] done compiling
+[272] [info] done compiling
+[292/306] cache.jvm[2.13.16].compile
+[292] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[292/306] =============== cache.jvm[2.13.16].test.t...loadLengthIntegrityTests =============== 60s
+[292] cache.jvm[2.13.16].compile 1s
+[292] [warn] source value 8 is obsolete and will be removed in a future release
+[292] [warn] target value 8 is obsolete and will be removed in a future release
+[292] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[292] [info] done compiling
+[297/306] cache.jvm[2.13.16].test.compile
+[297] [info] compiling 13 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS3-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[297] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file [2m434ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:39857/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Caught utest.AssertionError (assert(downloaded > 0L)
+[306]   downloaded: Long = 0L) while downloading http://127.0.0.1:39857/artifact
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:39857[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:39857/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mtrue[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid download buffer size 0 for http://127.0.0.1:39857/artifact: expected a positive size"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = [4m""[24m"[4mCaught utest.Assertio[24mn[4mError ([24ma[4mssert(down[24ml[4moade[24md[4m >[24m [4m0L)[49m[24m
+[306]   [41m- downloade[4md: Long[24m [4m= 0L) wh[24mi[4ml[24me [4md[24mo[4mwnloading[24m http://127.0.0.1:39857/artifact[4m""[24m"[49m
+[306]   [42m+   value = "[4mI[24mn[4mv[24mal[4mi[24md download[4m buff[24me[4mr[24m [4ms[24mi[4mz[24me [4m0 f[24mo[4mr[24m http://127.0.0.1:39857/artifact[4m: expected a positive size[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m309[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$2[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m333[39m)
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file [2m34ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:33289/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.NegativeArraySizeException (-1) while downloading http://127.0.0.1:33289/artifact
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:33289[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:33289/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mtrue[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid download buffer size -1 for http://127.0.0.1:33289/artifact: expected a positive size"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mCaught ja[24mva[4m.[24ml[4ma[24mn[4mg.Neg[24ma[4mtiv[24me[4mAr[24mr[4mayS[24miz[4meExc[24me[4mption[24m [4m([24m-1[4m) while[24m [4mdownl[24mo[4mading[24m http://127.0.0.1:33289/artifact"[49m
+[306]   [42m+   value = "[4mIn[24mval[4mid dow[24mn[4mlo[24ma[4md buff[24mer[4m s[24mize -1 [4mf[24mo[4mr[24m http://127.0.0.1:33289/artifa[4mct: expe[24mc[4mted a posi[24mt[4mive size[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m309[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$4[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m342[39m)
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response [2m25ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments [2m29ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected [2m4ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent [2m15ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.DownloadLengthIntegrityTests [2m935ms[0m
+[306]   [31mX[39m zero buffer size is rejected before creating a temporary file [2m434ms[0m 
+[306]     [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]     [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]       url = [32m"http://127.0.0.1:39857/artifact"[39m,
+[306]       result = [33mLeft[39m(
+[306]         value = coursier.cache.ArtifactError$DownloadError: download error: Caught utest.AssertionError (assert(downloaded > 0L)
+[306]     downloaded: Long = 0L) while downloading http://127.0.0.1:39857/artifact
+[306]       ),
+[306]       requests = [33mList[39m(
+[306]         [32m"""GET /artifact HTTP/1.1[39m
+[306]     [32mUser-Agent: Coursier/2.0[39m
+[306]     [32mAccept: */*[39m
+[306]     [32mHost: 127.0.0.1:39857[39m
+[306]     [32mConnection: keep-alive[39m
+[306]     [32m[39m
+[306]     [32m"""[39m
+[306]       ),
+[306]       progress = [33mList[39m(),
+[306]       downloadResults = [33mList[39m(([32m"http://127.0.0.1:39857/artifact"[39m, [32mfalse[39m)),
+[306]       finalExists = [32mfalse[39m,
+[306]       temporaryExists = [32mtrue[39m,
+[306]       temporaryBytes = [33mArray[39m(),
+[306]       pendingState = [32mNone[39m
+[306]     )
+[306]     [36mexpected[39m: [32mString[39m = [32m"Invalid download buffer size 0 for http://127.0.0.1:39857/artifact: expected a positive size"[39m
+[306]     [36merrorMessage(observation) != Some(expected)[39m:
+[306]       [33mSome[39m(
+[306]     [41m-   value = [4m""[24m"[4mCaught utest.Assertio[24mn[4mError ([24ma[4mssert(down[24ml[4moade[24md[4m >[24m [4m0L)[49m[24m
+[306]     [41m- downloade[4md: Long[24m [4m= 0L) wh[24mi[4ml[24me [4md[24mo[4mwnloading[24m http://127.0.0.1:39857/artifact[4m""[24m"[49m
+[306]     [42m+   value = "[4mI[24mn[4mv[24mal[4mi[24md download[4m buff[24me[4mr[24m [4ms[24mi[4mz[24me [4m0 f[24mo[4mr[24m http://127.0.0.1:39857/artifact[4m: expected a positive size[24m"[49m
+[306]       )
+[306]       [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]       [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m309[39m)
+[306]       [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$2[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m333[39m)
+[306]   [31mX[39m negative buffer size is rejected before creating a temporary file [2m34ms[0m 
+[306]     [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]     [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]       url = [32m"http://127.0.0.1:33289/artifact"[39m,
+[306]       result = [33mLeft[39m(
+[306]         value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.NegativeArraySizeException (-1) while downloading http://127.0.0.1:33289/artifact
+[306]       ),
+[306]       requests = [33mList[39m(
+[306]         [32m"""GET /artifact HTTP/1.1[39m
+[306]     [32mUser-Agent: Coursier/2.0[39m
+[306]     [32mAccept: */*[39m
+[306]     [32mHost: 127.0.0.1:33289[39m
+[306]     [32mConnection: keep-alive[39m
+[306]     [32m[39m
+[306]     [32m"""[39m
+[306]       ),
+[306]       progress = [33mList[39m(),
+[306]       downloadResults = [33mList[39m(([32m"http://127.0.0.1:33289/artifact"[39m, [32mfalse[39m)),
+[306]       finalExists = [32mfalse[39m,
+[306]       temporaryExists = [32mtrue[39m,
+[306]       temporaryBytes = [33mArray[39m(),
+[306]       pendingState = [32mNone[39m
+[306]     )
+[306]     [36mexpected[39m: [32mString[39m = [32m"Invalid download buffer size -1 for http://127.0.0.1:33289/artifact: expected a positive size"[39m
+[306]     [36merrorMessage(observation) != Some(expected)[39m:
+[306]       [33mSome[39m(
+[306]     [41m-   value = "[4mCaught ja[24mva[4m.[24ml[4ma[24mn[4mg.Neg[24ma[4mtiv[24me[4mAr[24mr[4mayS[24miz[4meExc[24me[4mption[24m [4m([24m-1[4m) while[24m [4mdownl[24mo[4mading[24m http://127.0.0.1:33289/artifact"[49m
+[306]     [42m+   value = "[4mIn[24mval[4mid dow[24mn[4mlo[24ma[4md buff[24mer[4m s[24mize -1 [4mf[24mo[4mr[24m http://127.0.0.1:33289/artifa[4mct: expe[24mc[4mted a posi[24mt[4mive size[24m"[49m
+[306]       )
+[306]       [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]       [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m309[39m)
+[306]       [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$4[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m342[39m)
+[306]   [32m+[39m short fixed-length response does not publish a partial artifact [2m20ms[0m  
+[306]   [32m+[39m empty body with positive fixed length is an incomplete response [2m25ms[0m  
+[306]   [32m+[39m partial body remains temporary until the connection reaches EOF [2m21ms[0m  
+[306]   [32m+[39m exact fixed-length response publishes all bytes [2m13ms[0m  
+[306]   [32m+[39m zero length response ignores trailing bytes [2m9ms[0m  
+[306]   [32m+[39m fragmented fixed-length response does not expose bytes after its length [2m18ms[0m  
+[306]   [32m+[39m two byte buffer stays within the framed length after a fragmented read [2m8ms[0m  
+[306]   [32m+[39m close-delimited response reads through connection close [2m9ms[0m  
+[306]   [32m+[39m chunked framing takes precedence over a conflicting content length [2m14ms[0m  
+[306]   [32m+[39m gzip known length decodes fully with bounded progress increments [2m29ms[0m  
+[306]   [32m+[39m mixed case identity encoding is accepted [2m7ms[0m  
+[306]   [32m+[39m mixed case identity encoding still enforces a short length [2m19ms[0m  
+[306]   [32m+[39m negative content length is rejected [2m9ms[0m  
+[306]   [32m+[39m non-decimal content length is rejected [2m16ms[0m  
+[306]   [32m+[39m overflowing content length is rejected [2m9ms[0m  
+[306]   [32m+[39m empty content length is rejected [2m14ms[0m  
+[306]   [32m+[39m content length at Int max reports the received byte count [2m10ms[0m  
+[306]   [32m+[39m content length above Int max reports the received byte count [2m10ms[0m  
+[306]   [32m+[39m five gigabyte content length reports the received byte count [2m10ms[0m  
+[306]   [32m+[39m Long max content length reports the received byte count [2m9ms[0m  
+[306]   [32m+[39m redirect body length does not replace the final response length [2m11ms[0m  
+[306]   [32m+[39m short final response after redirect reports the original artifact URL [2m8ms[0m  
+[306]   [32m+[39m valid range response resumes the existing prefix [2m20ms[0m  
+[306]   [32m+[39m valid range response can frame the suffix without content length [2m8ms[0m  
+[306]   [32m+[39m range response with an incorrect start is rejected without restarting [2m7ms[0m  
+[306]   [32m+[39m range response without content range is rejected [2m8ms[0m  
+[306]   [32m+[39m malformed content range is rejected with its exact value [2m6ms[0m  
+[306]   [32m+[39m range end mismatch is rejected [2m5ms[0m  
+[306]   [32m+[39m range total mismatch is rejected [2m4ms[0m  
+[306]   [32m+[39m unknown range total is rejected [2m9ms[0m  
+[306]   [32m+[39m range ending at or beyond the total is rejected [2m11ms[0m  
+[306]   [32m+[39m overflowing range start is rejected [2m11ms[0m  
+[306]   [32m+[39m overflowing range end is rejected [2m8ms[0m  
+[306]   [32m+[39m overflowing range total is rejected [2m12ms[0m  
+[306]   [32m+[39m content length conflicting with range is rejected [2m11ms[0m  
+[306]   [32m+[39m unsolicited range response must start at byte zero [2m8ms[0m  
+[306]   [32m+[39m range response from byte zero can satisfy a full download [2m8ms[0m  
+[306]   [32m+[39m server ignoring range with a full response replaces the prefix [2m7ms[0m  
+[306]   [32m+[39m short range response with content length removes its temporary file [2m11ms[0m  
+[306]   [32m+[39m short range response uses content range length when content length is absent [2m15ms[0m  
+[306] ----------------------------------- Failures -----------------------------------
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file [2m434ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:39857/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Caught utest.AssertionError (assert(downloaded > 0L)
+[306]   downloaded: Long = 0L) while downloading http://127.0.0.1:39857/artifact
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:39857[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:39857/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mtrue[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid download buffer size 0 for http://127.0.0.1:39857/artifact: expected a positive size"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = [4m""[24m"[4mCaught utest.Assertio[24mn[4mError ([24ma[4mssert(down[24ml[4moade[24md[4m >[24m [4m0L)[49m[24m
+[306]   [41m- downloade[4md: Long[24m [4m= 0L) wh[24mi[4ml[24me [4md[24mo[4mwnloading[24m http://127.0.0.1:39857/artifact[4m""[24m"[49m
+[306]   [42m+   value = "[4mI[24mn[4mv[24mal[4mi[24md download[4m buff[24me[4mr[24m [4ms[24mi[4mz[24me [4m0 f[24mo[4mr[24m http://127.0.0.1:39857/artifact[4m: expected a positive size[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m309[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$2[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m333[39m)
+[306] [31mX[39m coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file [2m34ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:33289/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.NegativeArraySizeException (-1) while downloading http://127.0.0.1:33289/artifact
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:33289[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:33289/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mtrue[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid download buffer size -1 for http://127.0.0.1:33289/artifact: expected a positive size"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mCaught ja[24mva[4m.[24ml[4ma[24mn[4mg.Neg[24ma[4mtiv[24me[4mAr[24mr[4mayS[24miz[4meExc[24me[4mption[24m [4m([24m-1[4m) while[24m [4mdownl[24mo[4mading[24m http://127.0.0.1:33289/artifact"[49m
+[306]   [42m+   value = "[4mIn[24mval[4mid dow[24mn[4mlo[24ma[4md buff[24mer[4m s[24mize -1 [4mf[24mo[4mr[24m http://127.0.0.1:33289/artifa[4mct: expe[24mc[4mted a posi[24mt[4mive size[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m309[39m)
+[306]     [31mcoursier.cache.DownloadLengthIntegrityTests$.[91m$anonfun$tests$4[39m([91mDownloadLengthIntegrityTests.scala[39m:[91m342[39m)
+[306] Tests: 42, Passed: 40, Failed: 2
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...engthIntegrityTests =============== 79s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 2 tests failed: 
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file
+  coursier.cache.DownloadLengthIntegrityTests coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file
