@@ -269,6 +269,7 @@ import scala.util.control.NonFatal
           val contentEncoding = Option(conn.getContentEncoding)
           val encodings = contentEncoding.toList.flatMap(_.split(",", -1))
             .map(_.trim.toLowerCase(Locale.ROOT))
+            .filter(_.nonEmpty)
           if (
             encodings.exists(coding =>
               coding != "identity" && coding != "gzip" && coding != "deflate"

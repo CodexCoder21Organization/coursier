@@ -672,7 +672,7 @@ object DownloadResponseFramingTests extends TestSuite {
     }
 
     test("empty list elements preserve encoded resume rejection") {
-      val encoding = ", GZip, ,"
+      val encoding   = ", GZip, ,"
       val compressed = gzipBytes(body.drop(3))
       val reply = partial(
         Some(s"bytes 3-${compressed.length + 2}/${compressed.length + 3}"),
