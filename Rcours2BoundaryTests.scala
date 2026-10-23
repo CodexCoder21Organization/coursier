@@ -55,8 +55,9 @@ object Rcours2BoundaryTests extends TestSuite {
   )
 
   private final class RecordingLogger(clientCount: Int) extends CacheLogger {
-    val downloadingCalls = new CountDownLatch(clientCount)
-    override def downloadingArtifact(url: String, artifact: Artifact): Unit = downloadingCalls.countDown()
+    val watchingOwner = new CountDownLatch(1)
+    override def downloadLength(url: String, totalLength: Long, alreadyDownloaded: Long, watching: Boolean): Unit =
+      if (watching) watchingOwner.countDown()
 
     private val lock             = new Object
     private val progress0        = ListBuffer.empty[Long]
@@ -151,6 +152,8 @@ object Rcours2BoundaryTests extends TestSuite {
     var server: ServerSocket             = null
     var serverWorker: ExecutorService    = null
     var downloadWorkers: ExecutorService = null
+    var connectionWorkers: ExecutorService = null
+    val handlers = ListBuffer.empty[Future[Unit]]
     var serving: Future[Unit]            = null
     val stopping                         = new java.util.concurrent.atomic.AtomicBoolean(false)
     val sockets                          = ConcurrentHashMap.newKeySet[Socket]()
@@ -176,11 +179,13 @@ object Rcours2BoundaryTests extends TestSuite {
       server = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"))
       serverWorker = Executors.newSingleThreadExecutor()
       downloadWorkers = Executors.newFixedThreadPool(2)
+      connectionWorkers = Executors.newFixedThreadPool(2)
+      val connectionExecutionContext = ExecutionContext.fromExecutor(connectionWorkers)
       serverExecutionContext = ExecutionContext.fromExecutor(serverWorker)
 
       val fallbackReply = fixed(body.length.toString, body)
       serving = Future {
-        var requestIndex = 0
+        val requestIndex = new java.util.concurrent.atomic.AtomicInteger()
         while (!stopping.get()) {
           val accepted =
             try Some(server.accept())
@@ -189,19 +194,20 @@ object Rcours2BoundaryTests extends TestSuite {
               case _: SocketException if stopping.get() && server.isClosed => None
             }
           accepted.foreach { socket =>
+            val handler = Future {
             sockets.add(socket)
             try {
               val requestText = readRequest(socket)
               requests.synchronized(requests += requestText)
-              val reply =
-                if (requestIndex < replies.length) replies(requestIndex)
-                else fallbackReply
-              requestIndex += 1
+              val isHead = requestText.startsWith("HEAD ")
+              val index = if (isHead) 0 else requestIndex.getAndIncrement()
+              val originalReply = if (index < replies.length) replies(index) else fallbackReply
+              val reply = if (isHead) originalReply.copy(chunks = Nil, pauseAfterFirstChunk = None) else originalReply
               val output = socket.getOutputStream
               output.write(rawHeaders(reply))
               output.flush()
-              if (joinBeforeBody)
-                assert(logger.downloadingCalls.await(30, TimeUnit.SECONDS))
+              if (joinBeforeBody && !isHead)
+                assert(logger.watchingOwner.await(30, TimeUnit.SECONDS))
               reply.chunks.zipWithIndex.foreach { case (chunk, index) =>
                 output.write(chunk)
                 output.flush()
@@ -222,6 +228,8 @@ object Rcours2BoundaryTests extends TestSuite {
               socket.close()
               sockets.remove(socket)
             }
+            }(connectionExecutionContext)
+            handlers.synchronized(handlers += handler)
           }
         }
       }(serverExecutionContext)
@@ -258,6 +266,7 @@ object Rcours2BoundaryTests extends TestSuite {
 
       stopServer()
       Await.result(serving, 30.seconds)
+      handlers.synchronized(handlers.toList).foreach(f => Await.result(f, 30.seconds))
 
       val observedRequests  = requests.synchronized(requests.toList)
       val observedFileState = fileState(finalFile, temporaryFile)
@@ -285,6 +294,13 @@ object Rcours2BoundaryTests extends TestSuite {
           Await.result(serving, 30.seconds)
       }
       finally
+        try {
+          if (connectionWorkers != null) {
+            connectionWorkers.shutdownNow()
+            assert(connectionWorkers.awaitTermination(10, TimeUnit.SECONDS))
+          }
+        }
+        finally
         try
           if (serverWorker != null) {
             serverWorker.shutdownNow()

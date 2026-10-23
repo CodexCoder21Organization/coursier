@@ -1,0 +1,176 @@
+=============== cache.jvm[2.13.16].test.testOnly...che.DownloadBufferCapacityTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[61/65] =============== cache.jvm[2.13.16].test.te...wnloadBufferCapacityTests =============== 60s
+[build.mill-61] compile 43s
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[079/306] mill.scalalib.ZincWorkerModule.worker
+[079] Compiling compiler interface...
+[112/306] util.jvm[2.13.16].compile
+[112] [info] compiling 16 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/util/jvm/2.13.16/compile.dest/classes ...
+[112/306] =============== cache.jvm[2.13.16].test....nloadBufferCapacityTests =============== 120s
+[112] util.jvm[2.13.16].compile 34s
+[112] [info] done compiling
+[137/306] paths.compile
+[137] [info] compiling 5 Java sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/paths/compile.dest/classes ...
+[137] [warn] source value 8 is obsolete and will be removed in a future release
+[137] [warn] target value 8 is obsolete and will be removed in a future release
+[137] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[137] [info] done compiling
+[162/306] cache-util.compile
+[162] [info] compiling 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/cache-util/compile.dest/classes ...
+[162] [warn] source value 8 is obsolete and will be removed in a future release
+[162] [warn] target value 8 is obsolete and will be removed in a future release
+[162] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[162] [info] done compiling
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [warn] source value 8 is obsolete and will be removed in a future release
+[202] [warn] target value 8 is obsolete and will be removed in a future release
+[202] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[202] [info] done compiling
+[260/306] custom-protocol-for-test.compile
+[260] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/custom-protocol-for-test/compile.dest/classes ...
+[260] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 14 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known tiny response does not request an oversized transfer buffer [2m518ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known 199 byte POM uses its response length [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known one byte response uses a one byte buffer [2m40ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.identity response uses its uncompressed length [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.mixed case identity response uses its uncompressed length [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.other content encodings retain the default maximum [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known responses at the default boundary stay bounded [2m204ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known empty response keeps read buffers at one byte or less [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known empty response requests zero bytes from the response stream [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known body larger than configured maximum uses at most that maximum [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.unknown chunked response retains the default maximum [2m115ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.unknown identity response retains the default maximum [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.gzip response with known encoded length returns all decoded bytes [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.partial response resumes from the persisted prefix with a bounded read buffer [2m30ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file [2m51ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response counts bytes across multiple reads [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes [2m28ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected [2m34ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count [2m39ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected [2m33ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent [2m21ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.DownloadLengthIntegrityTests [2m734ms[0m
+[306]   [32m+[39m zero buffer size is rejected before creating a temporary file [2m51ms[0m  
+[306]   [32m+[39m negative buffer size is rejected before creating a temporary file [2m20ms[0m  
+[306]   [32m+[39m short fixed-length response does not publish a partial artifact [2m26ms[0m  
+[306]   [32m+[39m empty body with positive fixed length is an incomplete response [2m26ms[0m  
+[306]   [32m+[39m short fixed-length response counts bytes across multiple reads [2m22ms[0m  
+[306]   [32m+[39m partial body remains temporary until the connection reaches EOF [2m13ms[0m  
+[306]   [32m+[39m exact fixed-length response publishes all bytes [2m28ms[0m  
+[306]   [32m+[39m zero length response ignores trailing bytes [2m20ms[0m  
+[306]   [32m+[39m fragmented fixed-length response does not expose bytes after its length [2m17ms[0m  
+[306]   [32m+[39m two byte buffer stays within the framed length after a fragmented read [2m21ms[0m  
+[306]   [32m+[39m close-delimited response reads through connection close [2m14ms[0m  
+[306]   [32m+[39m chunked framing takes precedence over a conflicting content length [2m12ms[0m  
+[306]   [32m+[39m gzip known length decodes fully with bounded progress increments [2m16ms[0m  
+[306]   [32m+[39m mixed case identity encoding is accepted [2m13ms[0m  
+[306]   [32m+[39m mixed case identity encoding still enforces a short length [2m12ms[0m  
+[306]   [32m+[39m negative content length is rejected [2m7ms[0m  
+[306]   [32m+[39m non-decimal content length is rejected [2m12ms[0m  
+[306]   [32m+[39m overflowing content length is rejected [2m7ms[0m  
+[306]   [32m+[39m empty content length is rejected [2m34ms[0m  
+[306]   [32m+[39m content length at Int max reports the received byte count [2m17ms[0m  
+[306]   [32m+[39m content length above Int max reports the received byte count [2m39ms[0m  
+[306]   [32m+[39m five gigabyte content length reports the received byte count [2m15ms[0m  
+[306]   [32m+[39m Long max content length reports the received byte count [2m8ms[0m  
+[306]   [32m+[39m redirect body length does not replace the final response length [2m14ms[0m  
+[306]   [32m+[39m short final response after redirect reports the original artifact URL [2m13ms[0m  
+[306]   [32m+[39m valid range response resumes the existing prefix [2m16ms[0m  
+[306]   [32m+[39m valid range response can frame the suffix without content length [2m14ms[0m  
+[306]   [32m+[39m range response with an incorrect start is rejected without restarting [2m11ms[0m  
+[306]   [32m+[39m range response without content range is rejected [2m33ms[0m  
+[306]   [32m+[39m malformed content range is rejected with its exact value [2m12ms[0m  
+[306]   [32m+[39m range end mismatch is rejected [2m10ms[0m  
+[306]   [32m+[39m range total mismatch is rejected [2m9ms[0m  
+[306]   [32m+[39m unknown range total is rejected [2m8ms[0m  
+[306]   [32m+[39m range ending at or beyond the total is rejected [2m9ms[0m  
+[306]   [32m+[39m overflowing range start is rejected [2m8ms[0m  
+[306]   [32m+[39m overflowing range end is rejected [2m19ms[0m  
+[306]   [32m+[39m overflowing range total is rejected [2m13ms[0m  
+[306]   [32m+[39m content length conflicting with range is rejected [2m13ms[0m  
+[306]   [32m+[39m unsolicited range response must start at byte zero [2m14ms[0m  
+[306]   [32m+[39m range response from byte zero can satisfy a full download [2m17ms[0m  
+[306]   [32m+[39m server ignoring range with a full response replaces the prefix [2m19ms[0m  
+[306]   [32m+[39m short range response with content length removes its temporary file [2m11ms[0m  
+[306]   [32m+[39m short range response uses content range length when content length is absent [2m21ms[0m  
+[306] - coursier.cache.DownloadBufferCapacityTests [2m1058ms[0m
+[306]   [32m+[39m known tiny response does not request an oversized transfer buffer [2m518ms[0m  
+[306]   [32m+[39m known 199 byte POM uses its response length [2m13ms[0m  
+[306]   [32m+[39m known one byte response uses a one byte buffer [2m40ms[0m  
+[306]   [32m+[39m identity response uses its uncompressed length [2m16ms[0m  
+[306]   [32m+[39m mixed case identity response uses its uncompressed length [2m16ms[0m  
+[306]   [32m+[39m other content encodings retain the default maximum [2m18ms[0m  
+[306]   [32m+[39m known responses at the default boundary stay bounded [2m204ms[0m  
+[306]   [32m+[39m known empty response keeps read buffers at one byte or less [2m18ms[0m  
+[306]   [32m+[39m known empty response requests zero bytes from the response stream [2m14ms[0m  
+[306]   [32m+[39m known body larger than configured maximum uses at most that maximum [2m18ms[0m  
+[306]   [32m+[39m unknown chunked response retains the default maximum [2m115ms[0m  
+[306]   [32m+[39m unknown identity response retains the default maximum [2m18ms[0m  
+[306]   [32m+[39m gzip response with known encoded length returns all decoded bytes [2m20ms[0m  
+[306]   [32m+[39m partial response resumes from the persisted prefix with a bounded read buffer [2m30ms[0m  
+[306] 
+[306] Tests: 57, Passed: 57, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test....nloadBufferCapacityTests =============== 177s
