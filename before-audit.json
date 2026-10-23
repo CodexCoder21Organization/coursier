@@ -1,0 +1,26 @@
+{
+  "cases": 24,
+  "failed": [
+    "valid mixed case range unit completes the artifact",
+    "unsolicited 304 cannot publish an empty artifact",
+    "cut off chunked response removes temporary bytes",
+    "cut off gzip response removes temporary bytes",
+    "short other encoded response cannot publish partial bytes",
+    "correct mixed case gzip decodes the body",
+    "correct deflate body decodes without comparing decoded and wire lengths",
+    "chunked range must consume the closing chunk before publishing",
+    "chunked range rejects data beyond its stated range",
+    "range data stays temporary until the closing chunk arrives",
+    "no body status with a saved prefix is rejected and cleaned",
+    "unknown and empty encodings cannot publish response bytes",
+    "mixed case deflate is decoded",
+    "chunked gzip validates the closing chunk after its trailer",
+    "valid chunked gzip is decoded through the closing chunk",
+    "complete framing cannot hide an incomplete gzip trailer",
+    "invalid gzip header removes a saved temporary prefix",
+    "encoded resume cannot append decoded bytes to an earlier representation"
+  ],
+  "attempts": 24,
+  "retries": 0,
+  "productionHead": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a"
+}
