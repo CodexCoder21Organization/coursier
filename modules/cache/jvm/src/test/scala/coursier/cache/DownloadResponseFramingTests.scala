@@ -671,6 +671,20 @@ object DownloadResponseFramingTests extends TestSuite {
       }
     }
 
+    test("empty list elements preserve encoded resume rejection") {
+      val encoding = ", GZip, ,"
+      val compressed = gzipBytes(body.drop(3))
+      val reply = partial(Some("bytes 3-5/6"), Some(compressed.length.toString), compressed)
+      val o = scenario(
+        List(reply.copy(headers = reply.headers :+ ("Content-Encoding" -> encoding))),
+        prefix = body.take(3)
+      )
+      downloadErrorIs(
+        o,
+        s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received '$encoding'"
+      )
+    }
+
     test("unknown encodings cannot publish response bytes") {
       for (encoding <- Seq("custom", "br", "gzip, custom")) {
         val o = scenario(
