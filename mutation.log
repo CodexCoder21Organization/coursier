@@ -1,0 +1,33 @@
+=============== cache.jvm[2.13.16].test.testOnly...r before the remainder arrives} ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadEncodingIntegrityTests.{large gzip body streams into the cache before the remainder arrives,large deflate body streams into the cache before the remainder arrives,large multi-member gzip streams inside a later member before the remainder arrives} 
+[306] [31mX[39m coursier.cache.DownloadEncodingIntegrityTests.large gzip body streams into the cache before the remainder arrives [2m30375ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 2097152
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$scenario$11[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mscenario[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mlargeBodyStreams[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m433[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$tests$2[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m451[39m)
+[306/306] =============== cache.jvm[2.13.16].test.t...e the remainder arrives} =============== 60s
+[306] cache.jvm[2.13.16].test.testOnly 55s 0/1 completed.
+[306] [31mX[39m coursier.cache.DownloadEncodingIntegrityTests.large deflate body streams into the cache before the remainder arrives [2m30126ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 2097152
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$scenario$11[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mscenario[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mlargeBodyStreams[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m433[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$tests$3[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m455[39m)
+[306] [31mX[39m coursier.cache.DownloadEncodingIntegrityTests.large multi-member gzip streams inside a later member before the remainder arrives [2m30292ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 2097152
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$scenario$11[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mscenario[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mlargeBodyStreams[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m433[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$tests$4[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m459[39m)
+[306] Tests: 3, Passed: 0, Failed: 3
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t... remainder arrives} =============== 96s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 3 tests failed: 
+  coursier.cache.DownloadEncodingIntegrityTests coursier.cache.DownloadEncodingIntegrityTests.large gzip body streams into the cache before the remainder arrives
+  coursier.cache.DownloadEncodingIntegrityTests coursier.cache.DownloadEncodingIntegrityTests.large deflate body streams into the cache before the remainder arrives
+  coursier.cache.DownloadEncodingIntegrityTests coursier.cache.DownloadEncodingIntegrityTests.large multi-member gzip streams inside a later member before the remainder arrives

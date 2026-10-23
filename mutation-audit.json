@@ -1,0 +1,35 @@
+{
+  "phase": "mutation",
+  "cases": 3,
+  "pass": 0,
+  "fail": 3,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 3,
+  "qualifiedEvents": 3,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "large gzip body streams into the cache before the remainder arrives",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "30.375"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "large deflate body streams into the cache before the remainder arrives",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "30.126"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "large multi-member gzip streams inside a later member before the remainder arrives",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "30.292"
+    }
+  ]
+}

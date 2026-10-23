@@ -1,0 +1,15 @@
+=============== cache.jvm[2.13.16].test.testOnly...er before the remainder arrives ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] utest.NoSuchTestException: [large gzip body streams into the cache before the remainder arrives]
+[306] 	at utest.runner.BaseRunner.tasks(BaseRunner.scala:68)
+[306] 	at mill.testrunner.TestRunnerUtils$.getTestTasks(TestRunnerUtils.scala:123)
+[306] 	at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:265)
+[306] 	at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+[306] 	at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala)
+[306] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[306] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[306] 	at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+[306] utest.NoSuchTestException: [large gzip body streams into the cache before the remainder arrives]
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...he remainder arrives =============== 1s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly Test reporting Failed: /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/T8-coursier-20261020/out/cache/jvm/2.13.16/test/testOnly.dest/out.json does not exist
