@@ -1,0 +1,200 @@
+=============== cache.jvm[2.13.16].test.testOnly...serve encoded resume rejection} ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadResponseFramingTests.{only empty encoding list elements mean an unencoded body,empty list elements preserve compressed decoding,empty encoding list elements preserve length validation,empty encoding list elements preserve saved prefix handling,empty list elements preserve encoded resume rejection} 
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.only empty encoding list elements mean an unencoded body [2m1070ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:39171/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding '' from http://127.0.0.1:39171/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:39171[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:39171/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactE[24mrr[4mor$Downlo[24ma[4mdError: download [24me[4mrror:[24m [4mUnsupported[24m [4mContent-Encoding ''[24m [4mfrom http://[24m1[4m27.[24m0[4m.[24m0[4m.1:39171/artifact: expected identity[24m, [4mgzip[24m, [4mor deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97,[24m [4m98,[24m [4m99,[24m 100, [4m101[24m, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mbytesAre[39m([91mDownloadResponseFramingTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91msuccessfulDownloadIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$47[39m([91mDownloadResponseFramingTests.scala[39m:[91m637[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$47$adapted[39m([91mDownloadResponseFramingTests.scala[39m:[91m635[39m)
+[306]     [31mscala.collection.immutable.List.[91mforeach[39m([91mList.scala[39m:[91m334[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$46[39m([91mDownloadResponseFramingTests.scala[39m:[91m635[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty list elements preserve compressed decoding [2m105ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:46101/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding ', GZip, ,' from http://127.0.0.1:46101/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:46101[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:46101/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactE[24mrr[4mor$Downlo[24ma[4mdError: download [24me[4mrror: Unsupported Content-Encoding '[24m, [4mGZip[24m, ,[4m' from[24m [4mhttp://[24m1[4m27.[24m0[4m.[24m0[4m.[24m1[4m:461[24m01[4m/artifact: expected identity[24m, [4mgzip, or deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97[24m, [4m98[24m, [4m99[24m, 100[4m, [24m101, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mbytesAre[39m([91mDownloadResponseFramingTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91msuccessfulDownloadIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$50[39m([91mDownloadResponseFramingTests.scala[39m:[91m652[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$50$adapted[39m([91mDownloadResponseFramingTests.scala[39m:[91m642[39m)
+[306]     [31mscala.collection.IterableOnceOps.[91mforeach[39m([91mIterableOnce.scala[39m:[91m619[39m)
+[306]     [31mscala.collection.IterableOnceOps.[91mforeach$[39m([91mIterableOnce.scala[39m:[91m617[39m)
+[306]     [31mscala.collection.AbstractIterable.[91mforeach[39m([91mIterable.scala[39m:[91m935[39m)
+[306]     [31mscala.collection.IterableOps$WithFilter.[91mforeach[39m([91mIterable.scala[39m:[91m905[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$48[39m([91mDownloadResponseFramingTests.scala[39m:[91m642[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve length validation [2m41ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43165/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding '' from http://127.0.0.1:43165/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:43165[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43165/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:43165/artifact: expected 9 bytes, received 6 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mU[24mn[4msupp[24mo[4mr[24mte[4md[24m [4mC[24mon[4mt[24me[4mnt-Encoding ''[24m from http://127.0.0.1:43165/artifact: expected [4mid[24me[4mntity[24m, [4mgz[24mi[4mp,[24m [4mor[24m [4mdefla[24mte"[49m
+[306]   [42m+   value = "[4mI[24mn[4mc[24mo[4mmple[24mte [4mresp[24mon[4ms[24me from http://127.0.0.1:43165/artifact: expected [4m9 byt[24me[4ms[24m, [4mrece[24mi[4mved[24m [4m6[24m [4mby[24mte[4ms[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$52[39m([91mDownloadResponseFramingTests.scala[39m:[91m659[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$52$adapted[39m([91mDownloadResponseFramingTests.scala[39m:[91m657[39m)
+[306]     [31mscala.collection.immutable.List.[91mforeach[39m([91mList.scala[39m:[91m334[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$51[39m([91mDownloadResponseFramingTests.scala[39m:[91m657[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve saved prefix handling [2m82ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:40413/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding '' from http://127.0.0.1:40413/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:40413[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:40413/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactError$DownloadEr[24mr[4mo[24mr[4m: downlo[24ma[4md [24me[4mrror:[24m [4mUnsupported[24m [4mContent-Encoding ''[24m [4mfrom http://[24m1[4m27.[24m0[4m.[24m0[4m.[24m1[4m:4[24m0[4m4[24m1[4m3/artifact: expected identity[24m, [4mgzip, or deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97,[24m [4m98,[24m [4m99,[24m 100[4m, [24m101, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mbytesAre[39m([91mDownloadResponseFramingTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91msuccessfulDownloadIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$54[39m([91mDownloadResponseFramingTests.scala[39m:[91m670[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$54$adapted[39m([91mDownloadResponseFramingTests.scala[39m:[91m664[39m)
+[306]     [31mscala.collection.immutable.List.[91mforeach[39m([91mList.scala[39m:[91m334[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$53[39m([91mDownloadResponseFramingTests.scala[39m:[91m664[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection [2m61ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:40457/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:40457/artifact: expected bytes starting at 3 and ending at the complete response length
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:40457[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:40457/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Cannot resume encoded response from http://127.0.0.1:40457/artifact: expected identity encoding for saved prefix of 3 bytes, received ', GZip, ,'"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mInvalid [24mC[4mo[24mn[4mte[24mnt[4m-Ra[24mn[4mg[24me [4m'byt[24mes[4m 3-5/6'[24m from http://127.0.0.1:40457/artifact: expected [4mbyt[24me[4ms star[24mti[4mng a[24mt[4m 3 and[24m ending [4mat[24m [4mth[24me [4mcom[24mp[4ml[24mete re[4mspons[24me[4m l[24me[4mngth[24m"[49m
+[306]   [42m+   value = "C[4ma[24mnn[4mo[24mt[4m resume e[24mn[4mcod[24me[4md[24m [4mr[24mes[4mponse[24m from http://127.0.0.1:40457/artifact: expected [4mid[24me[4mn[24mtit[4my[24m en[4mco[24mding [4mfor[24m [4msav[24me[4md[24m p[4mr[24me[4mfix of 3 by[24mte[4ms,[24m re[4mc[24me[4miv[24me[4md ', GZip, ,'[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$55[39m([91mDownloadResponseFramingTests.scala[39m:[91m684[39m)
+[306] Tests: 5, Passed: 0, Failed: 5
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...d resume rejection} =============== 38s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 5 tests failed: 
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.only empty encoding list elements mean an unencoded body
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty list elements preserve compressed decoding
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve length validation
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve saved prefix handling
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection

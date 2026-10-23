@@ -1,0 +1,136 @@
+=============== cache.jvm[2.13.16].test.testOnly...do not allow unknown encodings} ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/mill-build/compile.dest/classes ...
+[61/65] =============== cache.jvm[2.13.16].test.te... allow unknown encodings} =============== 60s
+[build.mill-61] compile 33s
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[095/306] =============== cache.jvm[2.13.16].test....allow unknown encodings} =============== 120s
+[095] util.jvm[2.13.16].javacSystemJvm
+[079/306] mill.scalalib.ZincWorkerModule.worker
+[079] Compiling compiler interface...
+[112/306] util.jvm[2.13.16].compile
+[112] [info] compiling 16 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/util/jvm/2.13.16/compile.dest/classes ...
+[112] [info] done compiling
+[137/306] paths.compile
+[137] [info] compiling 5 Java sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/paths/compile.dest/classes ...
+[137] [warn] source value 8 is obsolete and will be removed in a future release
+[137] [warn] target value 8 is obsolete and will be removed in a future release
+[137] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[137] [info] done compiling
+[162/306] cache-util.compile
+[162] [info] compiling 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/cache-util/compile.dest/classes ...
+[162] [warn] source value 8 is obsolete and will be removed in a future release
+[162] [warn] target value 8 is obsolete and will be removed in a future release
+[162] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[162] [info] done compiling
+[202/306] =============== cache.jvm[2.13.16].test....allow unknown encodings} =============== 180s
+[202] cache.jvm[2.13.16].compile
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 42 Scala sources and 1 Java source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [warn] source value 8 is obsolete and will be removed in a future release
+[202] [warn] target value 8 is obsolete and will be removed in a future release
+[202] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[202] [info] done compiling
+[260/306] custom-protocol-for-test.compile
+[260] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/custom-protocol-for-test/compile.dest/classes ...
+[260] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 14 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] =============== cache.jvm[2.13.16].test....allow unknown encodings} =============== 240s
+[306] cache.jvm[2.13.16].test.testOnly 1s 0/1 completed.
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadResponseFramingTests.{empty content encoding means an unencoded body,empty list elements do not change identity encoding,empty list elements do not allow unknown encodings} 
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty content encoding means an unencoded body [2m809ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:40999/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding '' from http://127.0.0.1:40999/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:40999[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:40999/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactE[24mrr[4mor$Downlo[24ma[4mdError: download [24me[4mrror:[24m [4mUnsupported[24m [4mContent-Encoding ''[24m [4mfrom http://[24m1[4m27.[24m0[4m.0.1:4[24m0[4m999/artifact: expected identity[24m, [4mgzip[24m, [4mor deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97,[24m [4m98,[24m [4m99,[24m 100, [4m101[24m, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mbytesAre[39m([91mDownloadResponseFramingTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91msuccessfulDownloadIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$43[39m([91mDownloadResponseFramingTests.scala[39m:[91m621[39m)
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty list elements do not change identity encoding [2m57ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:39065/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding ', identity, ,' from http://127.0.0.1:39065/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:39065[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:39065/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactError$DownloadEr[24mr[4mo[24mr[4m: downlo[24ma[4md [24me[4mrror: Unsupported Content-Encoding '[24m, [4midentity[24m, ,[4m'[24m [4mfrom http://[24m1[4m27.[24m0[4m.[24m0[4m.1:39065/artifact: expected identity[24m, [4mgzip[24m, [4mor deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97[24m, [4m98[24m, [4m99[24m, 100, [4m101[24m, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mbytesAre[39m([91mDownloadResponseFramingTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91msuccessfulDownloadIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$44[39m([91mDownloadResponseFramingTests.scala[39m:[91m626[39m)
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty list elements do not allow unknown encodings [2m23ms[0m  
+[306] Tests: 3, Passed: 1, Failed: 2
+[306/306, 1 failed] =============== cache.jvm[2.13.16].... unknown encodings} =============== 242s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 2 tests failed: 
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty content encoding means an unencoded body
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty list elements do not change identity encoding
