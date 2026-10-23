@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="8" failures="0" errors="0" skipped="0" time="2.618">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="8" failures="0" errors="0" skipped="0" time="2.618" timestamp="2026-10-23T04:42:49">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty content encoding means an unencoded body" time="1.823">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty list elements do not change identity encoding" time="0.088">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty list elements do not allow unknown encodings" time="0.082">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="only empty encoding list elements mean an unencoded body" time="0.105">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty list elements preserve compressed decoding" time="0.231">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoding list elements preserve length validation" time="0.074">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoding list elements preserve saved prefix handling" time="0.143">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty list elements preserve encoded resume rejection" time="0.072">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

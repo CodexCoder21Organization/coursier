@@ -1,0 +1,6 @@
+{
+  "maxObservedJavaProcesses": 1,
+  "perCommandWorkers": 1,
+  "runner": "MillMain without idle Java client",
+  "observedPhases": 30
+}

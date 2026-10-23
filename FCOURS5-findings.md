@@ -5,8 +5,8 @@ PR: https://github.com/CodexCoder21Organization/coursier/pull/7
 ## Plan
 - [completed] Read required sources, clone fresh, rebase PR onto current main and check overlap.
 - [completed] Add A1 loopback tests, record single-attempt failure on ac74fa03, checkpoint evidence.
-- [in progress] Filter trimmed empty list members, run each new case 30 times and targeted register once, review tests and implementation.
-- [pending] Rebase, push PR branch, update description, scan/push evidence, verify remote SHAs and process cleanup.
+- [completed] Filter trimmed empty list members, run each new case 30 times and targeted register once, review tests and implementation.
+- [in progress] Rebase, push PR branch, update description, scan/push evidence, verify remote SHAs and process cleanup.
 
 ## Scope
 Only A1 and related B gaps. A2–A5 belong to the separate follow-up. No merge, queue, publish, remote run, handoff command, timeout increase or assertion weakening.
@@ -52,3 +52,17 @@ Launcher sources read: https://github.com/com-lihaoyi/mill/blob/0.12.15/runner/c
 2026-10-23 04:37:47 UTC — OBSERVED: 10/30 repeat audits are complete, all eight cases green in each, with one XML/event attempt per case and no retries. OBSERVED: Passing-test evidence checkpoint cd01b290743c2531f6ae98ea2ebc5ab5ec4cec79 verified local=remote. OBSERVED: The direct Mill launcher is progressing sequentially without the idle client JVM; required gate sizes and limits are unchanged. OBSERVED: No Addendum headings. INFER: Next checkpoint is 30/30 per new test followed by the103-case register.
 
 2026-10-23 04:42:14 UTC — OBSERVED: 17/30 repeat audits are complete, all eight cases pass in each run and every XML case matches one qualified event. OBSERVED: No retries, skips or failures appear in the gate. OBSERVED: No Addendum headings. INFER: Next checkpoint is all repetitions and the single-attempt103-case register.
+
+2026-10-23 04:49:36 UTC — OBSERVED: 30/30 repeat audits are complete with 240 passing first-attempt cases and zero retries. OBSERVED: Evidence checkpoint 3c3350db170d62d1dc27df92256835fd3d0dc84f verified local=remote. OBSERVED: No Addendum headings. INFER: Next checkpoint is the final repetitions and103-case register, then the final source audit and PR push.
+
+2026-10-23 04:50:42 UTC — OBSERVED: All eight new tests pass30/30 (240/240 first attempts); targeted register passes103/103 first attempts, zero runner retries, failures, errors or skips. OBSERVED: Final rebase leaves the tested head unchanged and main remains f7ac8c67dbe757d9129cfa453a37f2867bd1272d. OBSERVED: Source audit confirms only the one-line parser filter and documented empty-field contract edit plus new cases; all other existing test source/assertions are byte-identical. OBSERVED: PR confirmed OPEN at expected ac74fa03 head before explicit force-with-lease push. OBSERVED: Product branch fix/FCOURS2-download-length-integrity verified local=6fa47c3435700763a1d2fc82dd7399d0012184a6 remote=6fa47c3435700763a1d2fc82dd7399d0012184a6. INFER: Next checkpoint is PR description update, process cleanup, final scanned evidence push and remote verification.
+
+2026-10-23 04:53:35 UTC — OBSERVED: PR description updated through REST after gh pr edit read the deprecated projectCards field; the complete saved body and pushed head match the REST response. OBSERVED: Tool issue and report-challenge rule conflict are recorded in tool-challenge.md; no enqueue/merge command was run. OBSERVED: Process cleanup checked70 recorded PIDs and the requested ps output without storing command lines; zero live owned PIDs remained and no additional termination was needed. OBSERVED: No Addendum headings. INFER: Next checkpoint is final evidence scan/push and remote verification.
+
+## Brief completion audit
+- DONE step1: The two copied A1 public loopback cases fail once each on ac74fa03 product code; bogus rejects once with the full message. Five other final A1 boundary cases also fail on the old parser. Canonical baseline8 cases:7 fail/1 pass,8 first attempts; one additional draft metadata failure is preserved separately.
+- DONE step2: The only production change filters empty members after trimming/normalization, before coding validation and decoder selection.
+- DONE step3: Eight new cases each pass30/30,240 first attempts; original95-case register plus8 additions passes103/103,103 first attempts. No retries, skips, errors or gate failures. Direct Mill worker invocation holds execution to one Mill JVM plus one forked test JVM; the memory-slot wait ended before any gate attempt.
+- DONE step4: Rebased on current main without changing the tested head; pushed fix/FCOURS2-download-length-integrity with explicit force-with-lease; local and remote both6fa47c3435700763a1d2fc82dd7399d0012184a6; PR description records this round and every existing-test edit.
+- A2–A5: explicitly excluded by the brief, and unchanged.
+- Remaining A1 work: none; CI monitoring belongs to the campaign orchestrator per the brief. Nothing merged, enqueued, deployed, published, re-requested or recorded through handoff-cli.
