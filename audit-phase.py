@@ -2,14 +2,16 @@ from pathlib import Path
 import json,re,sys,xml.etree.ElementTree as ET
 root=Path(sys.argv[1]);phase=sys.argv[2];expected=int(sys.argv[3])
 p=Path(__file__).resolve().parent
-reports=list((root/'out/cache/jvm/2.13.16/test/testOnly.dest').rglob('*.xml'))
+task='test' if phase=='cache' else 'testOnly'
+reports=list((root/('out/cache/jvm/2.13.16/test/'+task+'.dest')).rglob('*.xml'))
 assert len(reports)==1,reports
 output=p/(phase+'.xml');output.write_bytes(reports[0].read_bytes())
 cases=ET.parse(output).findall('.//testcase')
 keys=[(c.get('classname'),c.get('name')) for c in cases]
+if expected == 0: expected=len(cases)
 assert len(cases)==expected and len(set(keys))==expected,(len(cases),keys)
 log=re.sub(r"\x1b\[[0-9;]*m",'',(p/(phase+'.log')).read_text())
-events=re.findall(r"^\[\d+\] [X+] (coursier\.cache\..*)",log,re.M)
+events=re.findall(r"^\[\d+\] [X+] (coursier\..*)",log,re.M)
 assert len(events)==expected,(len(events),expected)
 rows=[]
 for case,(suite,name) in zip(cases,keys):

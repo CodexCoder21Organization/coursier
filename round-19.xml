@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="16" failures="0" errors="0" skipped="0" time="2.569">
+        <testsuite name="coursier.cache.DownloadEncodingIntegrityTests" tests="16" failures="0" errors="0" skipped="0" time="2.569" timestamp="2026-10-23T08:47:43">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="repeated encoding fields decode every layer in field order" time="0.695">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="a later identity field cannot hide an unsupported encoding" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="a truncated later gzip member cannot publish earlier members" time="0.794">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="gzip reports decoded progress before the next compressed fragment" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="inner deflate EOF cannot hide a corrupt outer gzip trailer" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="inner deflate EOF cannot hide an incomplete outer gzip trailer" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="repeated mixed encoding fields preserve order and empty list members" time="0.033">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="unknown repeated encoding fields reject even beside blank fields" time="0.039">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="repeated encoding fields cannot append to a decoded saved prefix" time="0.024">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="complete gzip members including empty members decode with one byte buffers" time="0.045">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="each member checks both its checksum and uncompressed size" time="0.034">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="gzip optional headers and their checksum are verified on later members" time="0.636">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="all nested layers complete with default and one byte buffers" time="0.133">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="deflate EOF rejects additional outer output rather than discarding it" time="0.053">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="deflate cannot complete while a preset dictionary is still required" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="gzip rejects trailing bytes that are not another complete member" time="0.014">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

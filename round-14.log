@@ -1,0 +1,21 @@
+=============== cache.jvm[2.13.16].test.testOnly....DownloadEncodingIntegrityTests ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order [2m423ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members [2m642ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment [2m40ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated mixed encoding fields preserve order and empty list members [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.unknown repeated encoding fields reject even beside blank fields [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix [2m44ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.complete gzip members including empty members decode with one byte buffers [2m75ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.each member checks both its checksum and uncompressed size [2m33ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip optional headers and their checksum are verified on later members [2m567ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.all nested layers complete with default and one byte buffers [2m142ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate EOF rejects additional outer output rather than discarding it [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip rejects trailing bytes that are not another complete member [2m27ms[0m  
+[306] Tests: 16, Passed: 16, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...adEncodingIntegrityTests =============== 10s
