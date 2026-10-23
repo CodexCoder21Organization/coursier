@@ -1,0 +1,706 @@
+=============== cache.jvm[2.13.16].test.testOnly...r.cache.Rcours4BlankMemberTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 2 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS4-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS4-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] =============== cache.jvm[2.13.16].test.t....Rcours4BlankMemberTests =============== 60s
+[306] cache.jvm[2.13.16].test.testOnly 1s 0/3 completed.
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [31mX[39m coursier.cache.Rcours3DecoderEndTests.a corrupt outer gzip trailer cannot hide behind inner deflate EOF [2m1322ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:36555/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m-85[39m,
+[306]         [32m-104[39m,
+[306]         [32m-29[39m,
+[306]         [32m-19[39m,
+[306]         [32m-29[39m,
+[306]         [32m-27[39m,
+[306]         [32m-25[39m,
+[306]         [32m-23[39m,
+[306]         [32m-53[39m,
+[306]         [32m-52[39m,
+[306]         [32m-64[39m,
+[306]         [32m33[39m,
+[306]         [32m-57[39m,
+[306]         [32m20[39m,
+[306]         [32m6[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3DecoderEndTests$.[91m$anonfun$tests$2[39m([91mRcours3DecoderEndTests.scala[39m:[91m410[39m)
+[306] [31mX[39m coursier.cache.Rcours3DecoderEndTests.a corrupt outer deflate checksum cannot hide behind inner gzip EOF [2m119ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:37579/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m120[39m,
+[306]         [32m-100[39m,
+[306]         [32m-109[39m,
+[306]         [32m-17[39m,
+[306]         [32m-26[39m,
+[306]         [32m96[39m,
+[306]         [32m0[39m,
+[306]         [32m-125[39m,
+[306]         [32m-1[39m,
+[306]         [32m-34[39m,
+[306]         [32m62[39m,
+[306]         [32m94[39m,
+[306]         [32m126[39m,
+[306]         [32m-98[39m,
+[306]         [32m-66[39m,
+[306]         [32m-52[39m,
+[306]         [32m12[39m,
+[306]         [32m-17[39m,
+[306]         [32m45[39m,
+[306]         [32m-5[39m,
+[306]         [32m-68[39m,
+[306]         [32m-39[39m,
+[306]         [32m-128[39m,
+[306]         [32m2[39m,
+[306]         [32m0[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3DecoderEndTests$.[91m$anonfun$tests$6[39m([91mRcours3DecoderEndTests.scala[39m:[91m420[39m)
+[306] [31mX[39m coursier.cache.Rcours3DecoderEndTests.an incomplete outer gzip trailer cannot hide behind inner deflate EOF [2m71ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43977/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m-85[39m,
+[306]         [32m-104[39m,
+[306]         [32m-29[39m,
+[306]         [32m-19[39m,
+[306]         [32m-29[39m,
+[306]         [32m-27[39m,
+[306]         [32m-25[39m,
+[306]         [32m-23[39m,
+[306]         [32m-53[39m,
+[306]         [32m-52[39m,
+[306]         [32m-64[39m,
+[306]         [32m33[39m,
+[306]         [32m-57[39m,
+[306]         [32m20[39m,
+[306]         [32m6[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3DecoderEndTests$.[91m$anonfun$tests$10[39m([91mRcours3DecoderEndTests.scala[39m:[91m429[39m)
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.Rcours3ReviewTests.empty content encoding means an unencoded body [2m594ms[0m  
+[306] [32m+[39m coursier.cache.Rcours3ReviewTests.empty list elements do not change identity encoding [2m1334ms[0m  
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.repeated content encoding fields decode all listed layers [2m1158ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:34347/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m75[39m,
+[306]         [32m76[39m,
+[306]         [32m74[39m,
+[306]         [32m78[39m,
+[306]         [32m73[39m,
+[306]         [32m77[39m,
+[306]         [32m3[39m,
+[306]         [32m0[39m,
+[306]         [32m-17[39m,
+[306]         [32m57[39m,
+[306]         [32m-114[39m,
+[306]         [32m75[39m,
+[306]         [32m6[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- Right([49m
+[306]   [41m- [4m  [24mvalue = ArraySeq([49m
+[306]   [41m- [4m    31,[49m[24m
+[306]   [41m- [4m    -11[24m7,[49m
+[306]   [41m- [4m  [24m [4m [24m8,[49m
+[306]   [41m- [4m   [24m [4m0[24m,[49m
+[306]   [41m- [4m  [24m [4m [24m0[4m,[49m[24m
+[306]   [41m- [4m    [24m0,[49m
+[306]   [41m- [4m   [24m [4m0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    -[24m1[4m,[49m[24m
+[306]   [41m- [4m    75,[49m[24m
+[306]   [41m- [4m    76,[49m[24m
+[306]   [41m- [4m    74,[49m[24m
+[306]   [41m- [4m    78,[49m[24m
+[306]   [41m- [4m    73,[49m[24m
+[306]   [41m- [4m    77,[49m[24m
+[306]   [41m- [4m    3,[49m[24m
+[306]   [41m- [4m    [24m0[4m,[49m[24m
+[306]   [41m- [4m    -[24m1[4m7,[49m[24m
+[306]   [41m- [4m    57[24m,[49m
+[306]   [41m- [4m  [24m [4m -1[24m1[4m4,[49m[24m
+[306]   [41m- [4m    75,[49m[24m
+[306]   [41m- [4m    6,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    [24m0[49m
+[306]   [41m- [4m  [24m)[49m
+[306]   [41m- )[49m
+[306]   [42m+ Right(value = ArraySeq([4m9[24m7, [4m9[24m8, [4m99[24m, [4m1[24m00, 101, 10[4m2[24m))[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91mbytesAre[39m([91mRcours3ReviewTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91msuccessfulDownloadIs[39m([91mRcours3ReviewTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$4[39m([91mRcours3ReviewTests.scala[39m:[91m419[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.an incomplete second gzip member header cannot publish the first member [2m30ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:33593/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:33593[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m3L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:33593/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$5[39m([91mRcours3ReviewTests.scala[39m:[91m425[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.an incomplete inner gzip trailer is rejected through an outer deflate layer [2m51ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:42647/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m120[39m,
+[306]         [32m-100[39m,
+[306]         [32m-109[39m,
+[306]         [32m-17[39m,
+[306]         [32m-26[39m,
+[306]         [32m96[39m,
+[306]         [32m0[39m,
+[306]         [32m-125[39m,
+[306]         [32m-1[39m,
+[306]         [32m-34[39m,
+[306]         [32m62[39m,
+[306]         [32m94[39m,
+[306]         [32m126[39m,
+[306]         [32m-98[39m,
+[306]         [32m-66[39m,
+[306]         [32m-52[39m,
+[306]         [32m12[39m,
+[306]         [32m-17[39m,
+[306]         [32m45[39m,
+[306]         [32m-5[39m,
+[306]         [32m-68[39m,
+[306]         [32m1[39m,
+[306]         [32m50[39m,
+[306]         [32m103[39m,
+[306]         [32m5[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$9[39m([91mRcours3ReviewTests.scala[39m:[91m434[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.streaming gzip reports decoded progress before the next compressed fragment [2m30083ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 3
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$scenario$11[39m([91mRcours3ReviewTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91mscenario[39m([91mRcours3ReviewTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$13[39m([91mRcours3ReviewTests.scala[39m:[91m451[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.a repeated coding field cannot hide an unsupported earlier coding [2m23ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:37503/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:37503[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:37503/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$16[39m([91mRcours3ReviewTests.scala[39m:[91m461[39m)
+[306] -------------------------------- Running Tests --------------------------------
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.unknown coding after blanks is rejected [2m40ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:42775/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:42775[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:42775/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Unsupported Content-Encoding ', ,BoGuS' from http://127.0.0.1:42775/artifact: expected identity, gzip, or deflate"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Unsupported C[24mon[4mt[24me[4mnt-Encoding ', ,BoGuS' from http://127.0.0.1:42775/artifact: expected identity, gzip, or deflate"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$2[39m([91mRcours4BlankMemberTests.scala[39m:[91m408[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.unknown coding before blanks is rejected [2m130ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:46203/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:46203[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:46203/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Unsupported Content-Encoding 'bogus, ,' from http://127.0.0.1:46203/artifact: expected identity, gzip, or deflate"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Unsupported C[24mon[4mt[24me[4mnt-Encoding 'bogus, ,' from http://127.0.0.1:46203/artifact: expected identity, gzip, or deflate"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$3[39m([91mRcours4BlankMemberTests.scala[39m:[91m413[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.unknown coding between supported and blank members is rejected [2m35ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:40611/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:40611[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:40611/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Unsupported Content-Encoding ', identity, ,br, ,gzip, ,' from http://127.0.0.1:40611/artifact: expected identity, gzip, or deflate"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Unsupported Content-Encoding ', identity, ,br, ,gzip, ,' fr[24mo[4mm http://127.0.0.1:40611/artifact: expected ide[24mn[4mtity, gzip, or d[24me[4mflate"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$4[39m([91mRcours4BlankMemberTests.scala[39m:[91m418[39m)
+[306] [32m+[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding allows a complete fixed resume [2m31ms[0m  
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding preserves short fixed resume rejection [2m17ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:46327/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:46327[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m5L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:46327/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:46327/artifact: expected 3 bytes, received 2 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4mse from http://127.0.0.1:46327/artifact: expect[24me[4md 3 bytes, received 2 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$8[39m([91mRcours4BlankMemberTests.scala[39m:[91m429[39m)
+[306] [32m+[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding preserves complete chunked resume [2m15ms[0m  
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding preserves short chunked resume rejection [2m28ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:45111/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:45111[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m5L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:45111/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Incomplete response from http://127.0.0.1:45111/artifact: expected 3 bytes, received 2 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Incomplete resp[24mon[4mse from http://127.0.0.1:45111/artifact: expect[24me[4md 3 bytes, received 2 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$10[39m([91mRcours4BlankMemberTests.scala[39m:[91m439[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding preserves overlong chunked resume rejection [2m19ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43565/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m, [32m88[39m, [32m89[39m, [32m90[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:43565[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m9L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43565/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m, [32m88[39m, [32m89[39m, [32m90[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Overlong response from http://127.0.0.1:43565/artifact: expected 3 bytes, received 6 bytes"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Overlong resp[24mon[4mse from http://127.0.0.1:43565/artifact: expected 3 bytes, r[24me[4mceived 6 bytes"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$11[39m([91mRcours4BlankMemberTests.scala[39m:[91m444[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding preserves missing chunk terminator rejection [2m21ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:34501/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.io.IOException (Premature EOF) while downloading http://127.0.0.1:34501/artifact
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:34501[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:34501/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mtrue[39m,
+[306]     temporaryBytes = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m),
+[306]     pendingState = [32mNone[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid response framing from http://127.0.0.1:34501/artifact: expected a complete chunked message, received 3 bytes (Premature EOF)"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mCaught ja[24mva[4m.[24mi[4mo.IOExc[24mep[4mti[24mon [4m(P[24mr[4mem[24ma[4mture EOF) wh[24mi[4mle[24m [4mdownl[24mo[4mading[24m http://127.0.0.1:34501/artifact"[49m
+[306]   [42m+   value = "[4mIn[24mva[4ml[24mi[4md r[24me[4ms[24mpon[4mse[24m [4mf[24mra[4mm[24mi[4mng[24m [4mfr[24mo[4mm[24m http://127.0.0.1:34501/artif[4mact: expected [24ma[4m [24mc[4momple[24mt[4me chunked message, received 3 bytes (Premature EOF)[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$12[39m([91mRcours4BlankMemberTests.scala[39m:[91m449[39m)
+[306] [32m+[39m coursier.cache.Rcours4BlankMemberTests.blank only resume remains temporary until its closing chunk [2m11ms[0m  
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding preserves invalid range rejection [2m28ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:37229/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:37229[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m,
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:37229[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid Content-Range 'bytes 2-4/5' from http://127.0.0.1:37229/artifact: expected bytes starting at 3 and ending at the complete response length"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Invalid Content-Range 'bytes 2-4/5' from http://127.0.0.1:37229/artifact: expected bytes starting at 3 and ending at the complete resp[24mon[4ms[24me[4m length"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$17[39m([91mRcours4BlankMemberTests.scala[39m:[91m464[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.blank only full response replaces a saved prefix [2m34ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:38287/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:38287[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m9L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:38287/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- Right(value = ArraySeq([4m97, 98, 9[24m9[4m, 9[24m7, 98, 99, 100, 101, 102))[49m
+[306]   [42m+ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mbytesAre[39m([91mRcours4BlankMemberTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91msuccessfulDownloadIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$18[39m([91mRcours4BlankMemberTests.scala[39m:[91m468[39m)
+[306] [32m+[39m coursier.cache.Rcours4BlankMemberTests.blank only encoding accepts an empty complete artifact [2m20ms[0m  
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.unknown coding amid blanks cannot resume a prefix [2m23ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:43519/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:43519[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:43519/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]   [36mexpected[39m: [32mString[39m = [32m"Unsupported Content-Encoding ', ,bogus, ,' from http://127.0.0.1:43519/artifact: expected identity, gzip, or deflate"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]   [41m- [4mN[24mone[49m
+[306]   [42m+ [4mSome([49m[24m
+[306]   [42m+ [4m  value = "Unsupported Content-Encoding ', ,bogus, ,' fr[24mo[4mm http://127.0.0.1:43519/artifact: expected ide[24mn[4mtity, gzip, or deflat[24me[4m"[49m[24m
+[306]   [42m+ [4m)[49m[24m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mdownloadErrorIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$20[39m([91mRcours4BlankMemberTests.scala[39m:[91m478[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.a repeated blank field must not hide an earlier unknown coding [2m15ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:42607/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:42607[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:42607/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$21[39m([91mRcours4BlankMemberTests.scala[39m:[91m482[39m)
+[306] [31mX[39m coursier.cache.Rcours4BlankMemberTests.a repeated blank field must not hide an earlier gzip coding [2m36ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:37983/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m75[39m,
+[306]         [32m76[39m,
+[306]         [32m74[39m,
+[306]         [32m78[39m,
+[306]         [32m73[39m,
+[306]         [32m77[39m,
+[306]         [32m3[39m,
+[306]         [32m0[39m,
+[306]         [32m-17[39m,
+[306]         [32m57[39m,
+[306]         [32m-114[39m,
+[306]         [32m75[39m,
+[306]         [32m6[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- Right([49m
+[306]   [41m- [4m  [24mvalue = ArraySeq([49m
+[306]   [41m- [4m    31,[49m[24m
+[306]   [41m- [4m    -11[24m7,[49m
+[306]   [41m- [4m  [24m [4m [24m8,[49m
+[306]   [41m- [4m   [24m [4m0[24m,[49m
+[306]   [41m- [4m  [24m [4m [24m0[4m,[49m[24m
+[306]   [41m- [4m    [24m0,[49m
+[306]   [41m- [4m   [24m [4m0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    -[24m1[4m,[49m[24m
+[306]   [41m- [4m    75,[49m[24m
+[306]   [41m- [4m    76,[49m[24m
+[306]   [41m- [4m    74,[49m[24m
+[306]   [41m- [4m    78,[49m[24m
+[306]   [41m- [4m    73,[49m[24m
+[306]   [41m- [4m    77,[49m[24m
+[306]   [41m- [4m    3,[49m[24m
+[306]   [41m- [4m    [24m0[4m,[49m[24m
+[306]   [41m- [4m    -[24m1[4m7,[49m[24m
+[306]   [41m- [4m    57[24m,[49m
+[306]   [41m- [4m  [24m [4m -1[24m1[4m4,[49m[24m
+[306]   [41m- [4m    75,[49m[24m
+[306]   [41m- [4m    6,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    [24m0[49m
+[306]   [41m- [4m  [24m)[49m
+[306]   [41m- )[49m
+[306]   [42m+ Right(value = ArraySeq([4m9[24m7, [4m9[24m8, [4m99[24m, [4m1[24m00, 101, 10[4m2[24m))[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91mbytesAre[39m([91mRcours4BlankMemberTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91msuccessfulDownloadIs[39m([91mRcours4BlankMemberTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.Rcours4BlankMemberTests$.[91m$anonfun$tests$25[39m([91mRcours4BlankMemberTests.scala[39m:[91m489[39m)
+[306] Tests: 26, Passed: 6, Failed: 20
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...rs4BlankMemberTests =============== 98s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 20 tests failed: 
+  coursier.cache.Rcours3DecoderEndTests coursier.cache.Rcours3DecoderEndTests.a corrupt outer gzip trailer cannot hide behind inner deflate EOF
+  coursier.cache.Rcours3DecoderEndTests coursier.cache.Rcours3DecoderEndTests.a corrupt outer deflate checksum cannot hide behind inner gzip EOF
+  coursier.cache.Rcours3DecoderEndTests coursier.cache.Rcours3DecoderEndTests.an incomplete outer gzip trailer cannot hide behind inner deflate EOF
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.repeated content encoding fields decode all listed layers
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.an incomplete second gzip member header cannot publish the first member
+  and 15 more ...

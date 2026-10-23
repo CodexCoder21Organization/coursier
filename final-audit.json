@@ -1,0 +1,78 @@
+{
+  "comparedCases": 26,
+  "introducedDefectCases": [],
+  "inheritedDefectCases": [
+    "coursier.cache.Rcours3DecoderEndTests.a corrupt outer gzip trailer cannot hide behind inner deflate EOF",
+    "coursier.cache.Rcours3DecoderEndTests.an incomplete outer gzip trailer cannot hide behind inner deflate EOF",
+    "coursier.cache.Rcours3ReviewTests.repeated content encoding fields decode all listed layers",
+    "coursier.cache.Rcours3ReviewTests.an incomplete second gzip member header cannot publish the first member",
+    "coursier.cache.Rcours3ReviewTests.streaming gzip reports decoded progress before the next compressed fragment",
+    "coursier.cache.Rcours3ReviewTests.a repeated coding field cannot hide an unsupported earlier coding",
+    "coursier.cache.Rcours4BlankMemberTests.a repeated blank field must not hide an earlier unknown coding",
+    "coursier.cache.Rcours4BlankMemberTests.a repeated blank field must not hide an earlier gzip coding"
+  ],
+  "inheritedDefectGroups": 4,
+  "verdicts": {
+    "A": "APPROVE",
+    "introduced": 0,
+    "inherited": 4,
+    "B": "GAPS 4",
+    "C": "FAIL: one documented main-test contract edit"
+  },
+  "gateCounts": {
+    "head-review": {
+      "phase": "head-review",
+      "cases": 10,
+      "pass": 4,
+      "fail": 6,
+      "errors": 0,
+      "skips": 0,
+      "firstAttempts": 10,
+      "qualifiedEvents": 10,
+      "retries": 0,
+      "maxObservedJavaProcesses": 1
+    },
+    "head-blank": {
+      "phase": "head-blank",
+      "cases": 16,
+      "pass": 14,
+      "fail": 2,
+      "errors": 0,
+      "skips": 0,
+      "firstAttempts": 16,
+      "qualifiedEvents": 16,
+      "retries": 0,
+      "maxObservedJavaProcesses": 2
+    },
+    "head-a1": {
+      "phase": "head-a1",
+      "cases": 8,
+      "pass": 8,
+      "fail": 0,
+      "errors": 0,
+      "skips": 0,
+      "firstAttempts": 8,
+      "qualifiedEvents": 8,
+      "retries": 0,
+      "maxObservedJavaProcesses": 2
+    },
+    "main-comparison": {
+      "phase": "main-comparison",
+      "cases": 26,
+      "pass": 6,
+      "fail": 20,
+      "errors": 0,
+      "skips": 0,
+      "firstAttempts": 26,
+      "qualifiedEvents": 26,
+      "retries": 0,
+      "maxObservedJavaProcesses": 2
+    }
+  },
+  "totalFirstAttempts": 60,
+  "totalRetries": 0,
+  "totalErrors": 0,
+  "totalSkips": 0,
+  "reviewEditsToExistingTests": 0,
+  "recorderQualification": "First head phase used recovered recorder with incomplete later-child traversal; structural direct Mill bound was two JVMs. Later phases use corrected recorder and observe at most two."
+}

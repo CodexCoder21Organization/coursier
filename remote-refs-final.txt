@@ -1,0 +1,5 @@
+6fa47c3435700763a1d2fc82dd7399d0012184a6	refs/heads/fix/FCOURS2-download-length-integrity
+f7ac8c67dbe757d9129cfa453a37f2867bd1272d	refs/heads/main
+ab8909ee9c43b2835ec412959642c86c7768c07b	refs/heads/wip/FCOURS5-evidence-20261023
+c3c1ef6e9f0fc5964ed7016e82f615fa099b1b74	refs/heads/wip/RCOURS3-evidence-20261023
+91bb068cab726f9441f87741d165d81327412a97	refs/heads/wip/RCOURS4-evidence-20261023

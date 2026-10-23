@@ -1,0 +1,196 @@
+{
+  "phase": "main-comparison",
+  "cases": 26,
+  "pass": 6,
+  "fail": 20,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 26,
+  "qualifiedEvents": 26,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding after blanks is rejected",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.04"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding before blanks is rejected",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.13"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding between supported and blank members is rejected",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.035"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding allows a complete fixed resume",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.031"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves short fixed resume rejection",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.017"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves complete chunked resume",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.015"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves short chunked resume rejection",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.028"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves overlong chunked resume rejection",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.019"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves missing chunk terminator rejection",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.021"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only resume remains temporary until its closing chunk",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.011"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves invalid range rejection",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.028"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only full response replaces a saved prefix",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.034"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding accepts an empty complete artifact",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.02"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding amid blanks cannot resume a prefix",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.023"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "a repeated blank field must not hide an earlier unknown coding",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.015"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "a repeated blank field must not hide an earlier gzip coding",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.036"
+    },
+    {
+      "suite": "coursier.cache.Rcours3DecoderEndTests",
+      "name": "a corrupt outer gzip trailer cannot hide behind inner deflate EOF",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "1.322"
+    },
+    {
+      "suite": "coursier.cache.Rcours3DecoderEndTests",
+      "name": "a corrupt outer deflate checksum cannot hide behind inner gzip EOF",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.119"
+    },
+    {
+      "suite": "coursier.cache.Rcours3DecoderEndTests",
+      "name": "an incomplete outer gzip trailer cannot hide behind inner deflate EOF",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.071"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "empty content encoding means an unencoded body",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.594"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "empty list elements do not change identity encoding",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "1.334"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "repeated content encoding fields decode all listed layers",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "1.158"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "an incomplete second gzip member header cannot publish the first member",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.03"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "an incomplete inner gzip trailer is rejected through an outer deflate layer",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.051"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "streaming gzip reports decoded progress before the next compressed fragment",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "30.083"
+    },
+    {
+      "suite": "coursier.cache.Rcours3ReviewTests",
+      "name": "a repeated coding field cannot hide an unsupported earlier coding",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.023"
+    }
+  ]
+}

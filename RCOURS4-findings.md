@@ -8,8 +8,8 @@ Main: f7ac8c67dbe757d9129cfa453a37f2867bd1272d
 ## Plan
 - [completed] Read full brief, required documentation, fresh clone README and DEVELOP; verify PR, rebase locally and compare current main.
 - [completed] Trace final diff, retrieve independent registers, define blank-member boundary probes and audit invariants.
-- [in progress] Run independent register and blank-member probes with one attempt per case; compare inherited cases with main using identical real-server sources.
-- [pending] Review test comprehensiveness and compliance; scan and push evidence at milestones; verify remote SHAs and process cleanup; deliver A/B/C.
+- [completed] Run independent register and blank-member probes with one attempt per case; compare inherited cases with main using identical real-server sources.
+- [completed] Review test comprehensiveness and compliance; scan and push evidence at milestones; verify remote SHAs and process cleanup; deliver A/B/C.
 
 ## Scope and reading
 OBSERVED: Read full-RCOURS4.md; it has no Addendum headings at startup. OBSERVED: README.md and DEVELOP.md describe Mill/Scala, no scripts/test.bash and no root AGENTS.md. OBSERVED: Retrieved PHILOSOPHY.md and architecture/TESTING.md through authenticated GitHub API; copies are retained here. OBSERVED: Read remote RCOURS3 and FCOURS5 findings, test sources and launchers. INFER: Plain utest with Mill is the correct local single-attempt gate; kompile execute/maxTestAttempts does not apply to this repository.
@@ -48,3 +48,76 @@ OBSERVED: New errors include the artifact URL and full offending header or expec
 2026-10-23 05:15:24 UTC — OBSERVED: Sixteen new head probes complete in 16 first attempts: 14 pass / 2 fail, no errors/skips/retries; corrected descendant recorder observes exactly two JVMs at maximum. OBSERVED: Unknown-first/middle/last names all reject with complete original-field errors; all ten blank-only identity/resume/framing cases and the unknown-name resume case pass. OBSERVED: Only repeated blank final fields hiding an earlier bogus or gzip coding fail, both candidates for inherited A2 pending identical main run. OBSERVED: Previous result checkpoint verified local=remote=cf1dc8dd6d35299d3d2e59b67e29bfd5b7e48799. INFER: Next checkpoint is eight official A1 cases, then a fresh main comparison over the unchanged independent and new probes.
 
 2026-10-23 05:16:06 UTC — OBSERVED: Eight final official A1 cases pass 8/8 in 8 first attempts, zero retries/errors/skips; exact XML/event audit and maximum observed Java count 2 saved. OBSERVED: Boundary checkpoint verified local=remote=3cf9adfb8dd4abaaa953924b1e2f4167ab9818bf. OBSERVED: Main comparison is starting on a new local review/RCOURS4-main branch containing only the three independent test files over origin/main, with no production change. INFER: Next checkpoint is 26-case main XML confirming introduced versus inherited classifications, followed by final findings and process cleanup.
+
+2026-10-23 05:19:40 UTC — OBSERVED: Main comparison completes 26 first attempts: 6 pass / 20 fail, no errors/skips/retries, at most two observed JVMs. OBSERVED: Original review register is 2 pass / 5 fail on main; decoder-ending register 0 pass / 3 fail; blank-member register 4 pass / 12 fail. OBSERVED: All eight head-failing case keys also fail main; no case passes main and fails head. OBSERVED: Both A1 original cases pass both main and final head. OBSERVED: Previous checkpoint verified local=remote=91bb068cab726f9441f87741d165d81327412a97. INFER: A is APPROVE with 0 introduced and 4 inherited groups; B retains 4 inherited coverage gaps; C fails only the literal no-edited-main-tests item already inventoried. INFER: Next checkpoint is final source/remote verification and numeric-PID process cleanup, then scanned evidence push.
+
+## Final verdicts
+
+**A: APPROVE — introduced 0, inherited 4. B: GAPS 4 (all inherited). C: FAIL under the brief's literal no-edited-main-tests requirement; all other named compliance checks pass.**
+
+PR https://github.com/CodexCoder21Organization/coursier/pull/7 remains OPEN at https://github.com/CodexCoder21Organization/coursier/commit/6fa47c3435700763a1d2fc82dd7399d0012184a6 . Main remains https://github.com/CodexCoder21Organization/coursier/commit/f7ac8c67dbe757d9129cfa453a37f2867bd1272d . The first local rebase was a no-op and current main has no new overlapping commits; its buffer-size prerequisite does not supersede the PR. Product branch was not changed or pushed by this review.
+
+### A: introduced-versus-main register
+
+Both original A1 real-server cases now PASS: `Content-Encoding:` with an exact six-byte body and `Content-Encoding: , identity, ,` with the same body. Source is byte-identical to RCOURS3's independent register. The final official eight-case A1 register also passes 8/8 first attempts. The standards reading is recorded in rfc-reading.md, with RFC 9110 sections 5.6.1.2 and 8.4.
+
+New single-field probes `, ,BoGuS`, `bogus, ,`, and `, identity, ,br, ,gzip, ,` all reject with the complete original header and no cached/temporary bytes; unknown names amid blanks cannot resume a prefix either. Blank-only `, , ,` correctly completes a fixed and chunked 206, rejects short fixed/chunked and overlong chunked suffixes, rejects an absent chunk terminator and an invalid range, waits for the closing chunk before publishing, handles an empty artifact, and replaces a prefix with a full 200. All 14 cases pass on the final head.
+
+| Existing group | Current real-server reproduction and wrong behavior | Current head / main | Classification |
+|---|---|---|---|
+| A2 repeated encoding fields | Two gzip field lines with gzip(gzip(abcdef)) decode only the final field. Unknown then identity is accepted. New variants unknown then blank-only and gzip then blank-only likewise ignore the earlier field; the latter caches gzip bytes. | All four assertions FAIL on both | Inherited header-selection defect; one group |
+| A3 later gzip member header | Complete gzip(abc) plus five bytes of the next member header, exact wire Content-Length, publishes only abc. | FAIL / FAIL | Inherited |
+| A4 gzip fragment progress | Real sync-flushed abc within one gzip member is held until logger progress; BufferedInputStream requests the next fragment before reporting the first. The fixed 30-second latch gate fails. | FAIL / FAIL | Inherited |
+| A5 outer gzip completion | Content-Encoding deflate,gzip with gzip(deflate(abcdef)), corrupt final trailer or four missing trailer bytes with exact wire length, is accepted. Inner EOF is followed by raw framing drain instead of completion of every decoder. | Both assertions FAIL on both | Inherited acceptance; main stores the encoded representation while head decodes it, so this does not claim main already supported stacked decoding |
+
+A2 points to [Downloader.scala:269](https://github.com/CodexCoder21Organization/coursier/blob/6fa47c3435700763a1d2fc82dd7399d0012184a6/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala#L269): `getContentEncoding` selects one field before list parsing. A3 and A5 point to decoder construction and [the raw finish call](https://github.com/CodexCoder21Organization/coursier/blob/6fa47c3435700763a1d2fc82dd7399d0012184a6/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala#L361). A4 points to the decoded BufferedInputStream wrapper. Full response definitions, exact assertions, failures and stack traces are retained in the Scala sources and corresponding XML/logs; no console stacks were copied into the report.
+
+The new repeated-blank variants were rejected by the earlier PR parser because of its empty-member bug, but they also fail on main. Against the requested main baseline they are inherited A2, not newly introduced defects. Correctly removing empty members does not erase any nonempty coding within a single field.
+
+### B: test comprehensiveness
+
+Against architecture/TESTING.md, A1 is covered through the public FileCache API with real loopback servers, OS-assigned ports, isolated temporary cache directories, exact full-byte/full-message assertions and final/temporary state checks. The filesystem is real because FileCache takes java.io.File and this review exercises its actual cache publication and persisted-prefix behavior. Faults are forced by exact response bytes or latch ordering, not machine-dependent load. Success, rejection, decoding, prefix handling and ownership/publication are exercised; tests do not call private helpers or use reflection/mocks.
+
+The four remaining missing regression groups in the PR suite are precisely A2–A5 above. The new blank-only combinations do not add an unrelated coverage group: the passing empty-field identity path is the same normalized empty list, while the two failing repeated-field variants belong to A2. B is therefore GAPS 4 overall, all deliberately assigned by the brief to the separate inherited follow-up. This does not turn A's introduced-defect verdict into a request to widen this PR.
+
+### C: compliance and every existing-test edit
+
+Review itself: zero existing test or assertion edits, zero production edits, zero PR changes. Three independent test files were added only on local review branches and copied to this evidence branch.
+
+PR versus main: `DownloadBufferCapacityTests.scala:267` changes existing test `other content encodings retain the default maximum` to `deflate content encoding retains the default maximum`. Before: three raw bytes advertised as custom, expecting those raw bytes and length 3. After: real deflate bytes, expecting the original decoded three bytes and compressed wire length. Exact default-buffer observation, capacity bounds, full-body and stream-close assertions remain. The PR body explicitly inventories and justifies this correction because unsupported names are now rejected; it is not hidden assertion weakening. However it is an edited main test, so the brief's literal C checklist is FAIL. The main and final source copies plus reviewed-diff.patch prove the before/after. A separate zero-length/zero-byte-read case was added without changing another main assertion.
+
+Within the PR-added framing suite, FCOURS5 renames `unknown and empty encodings cannot publish response bytes` to `unknown encodings cannot publish response bytes`; the values custom/br/gzip-custom are unchanged, the empty-string rejection moves to a positive exact-body/publication/cleanup case, and eight A1 cases are added. This corrects the wrong empty-field contract exposed by A1; it is not a main-test edit. No diagnostic golden literals were changed. No main test was deleted, disabled, weakened or given a longer timeout or fewer iterations. Added code contains no reflection or mocks; error messages include the URL and full input/count values, and error assertions retain full text.
+
+### Exact gates and attempt audit
+
+| Gate | PASS | FAIL | First attempts | Retries / errors / skips |
+|---|---:|---:|---:|---|
+| Final head: unchanged RCOURS3 review + decoder endings | 4 | 6 | 10 | 0 / 0 / 0 |
+| Final head: new blank-member boundaries | 14 | 2 | 16 | 0 / 0 / 0 |
+| Final head: official final A1 cases | 8 | 0 | 8 | 0 / 0 / 0 |
+| Main: identical three independent registers | 6 | 20 | 26 | 0 / 0 / 0 |
+| Total case executions | 32 | 28 | 60 | 0 / 0 / 0 |
+
+Each XML testcase has exactly one qualified utest result event; no retry mixin exists, and utest 0.9.1 Executor.utestWrap invokes runBody once. The runner's command-attempt counter was not used as evidence of per-test attempts. The first setup failure had no compiled test or utest event and is preserved separately; it is not counted in these gates or as a test retry. All actual gates finished without a deadline and none exited 137 or -9. No full suite or remote run was requested or run; CI remains with the orchestrator. The direct no-server Mill worker uses at most one build JVM and one test JVM sequentially, requiring no more-than-two-JVM slot; corrected process recording observes a maximum of two in later phases. The earlier recording gap and setup correction are disclosed in tool-challenge.md.
+
+### Brief closure
+
+- A independent register, A1 confirmation and blank-member hunt: DONE, proved by paired XML/events and final-audit.json; introduced 0 and inherited 4.
+- B coverage review: DONE, four inherited gaps identified with real-server tests and full evidence.
+- C compliance review: DONE, one literal checklist violation documented with exact before/after; other named checks pass.
+- Evidence milestones: DONE through scanned pushes; final remote verification and cleanup are recorded below.
+- Product changes, merges, queue entries, deployments, artifact publications, check re-requests and handoff-cli: none. No requested review item remains unfinished. A2–A5 are left unchanged because the brief expressly assigns them to another follow-up.
+
+2026-10-23 05:20:44 UTC — OBSERVED: Fresh PR verification is OPEN at the requested 6fa47c3435700763a1d2fc82dd7399d0012184a6; remote main still equals f7ac8c67dbe757d9129cfa453a37f2867bd1272d. OBSERVED: Final attempt audit verifies 60 first attempts, 32 pass / 28 fail across both versions, zero retries/errors/skips and no introduced head-failing case. OBSERVED: Cleanup verified all recorded owned PIDs stopped and inspected the requested ps output in memory, without storing command lines; no process needed termination. OBSERVED: Final brief Addendum check found no headings. INFER: All requested review work is complete; next checkpoint is final scanned evidence push and remote equality verification.
+
+## Verified remote refs before final evidence commit
+
+```text
+6fa47c3435700763a1d2fc82dd7399d0012184a6	refs/heads/fix/FCOURS2-download-length-integrity
+f7ac8c67dbe757d9129cfa453a37f2867bd1272d	refs/heads/main
+ab8909ee9c43b2835ec412959642c86c7768c07b	refs/heads/wip/FCOURS5-evidence-20261023
+c3c1ef6e9f0fc5964ed7016e82f615fa099b1b74	refs/heads/wip/RCOURS3-evidence-20261023
+91bb068cab726f9441f87741d165d81327412a97	refs/heads/wip/RCOURS4-evidence-20261023
+```
+
+OBSERVED: Evidence branch wip/RCOURS4-evidence-20261023 last verified local=remote=91bb068cab726f9441f87741d165d81327412a97 before the final comparison/closure checkpoint. OBSERVED: The final evidence push and its equal local/remote SHA are printed in the final message; each earlier push equality is recorded above.
