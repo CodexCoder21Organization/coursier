@@ -267,10 +267,16 @@ object DownloadBufferCapacityTests extends TestSuite {
       assert(observation.reads.exists(_.arrayLength == 3))
     }
 
-    test("other content encodings retain the default maximum") {
+    test("deflate content encoding retains the default maximum") {
       val expectedBody = Array[Byte](11, 22, 33)
-      val observation  = downloadScenario(expectedBody, Some(3L), Some("custom"), None)
-      assertScenario(observation, expectedBody, 3L, CacheDefaults.bufferSize)
+      val encoded      = new ByteArrayOutputStream()
+      val deflate      = new java.util.zip.DeflaterOutputStream(encoded)
+      deflate.write(expectedBody)
+      deflate.close()
+      val compressed = encoded.toByteArray
+      val observation =
+        downloadScenario(compressed, Some(compressed.length.toLong), Some("deflate"), None)
+      assertScenario(observation, expectedBody, compressed.length.toLong, CacheDefaults.bufferSize)
       assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
     }
 
@@ -299,6 +305,14 @@ object DownloadBufferCapacityTests extends TestSuite {
       val observation  = downloadScenario(expectedBody, Some(0L), None, None)
       assertScenario(observation, expectedBody, 0L, 1)
       assert(observation.reads.exists(_.arrayLength == 1))
+    }
+
+    test("known empty response requests zero bytes from the response stream") {
+      val expectedBody = Array.empty[Byte]
+      val observation  = downloadScenario(expectedBody, Some(0L), None, None)
+      assertScenario(observation, expectedBody, 0L, 1)
+      assert(observation.reads.map(_.requestedLength) == List(0))
+      assert(observation.reads.map(_.arrayLength) == List(1))
     }
 
     test("known body larger than configured maximum uses at most that maximum") {

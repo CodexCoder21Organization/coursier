@@ -113,9 +113,13 @@ object CacheUrl {
   def url(s: String): URL =
     new URL(null, s, handlerFor(s, Nil).orNull)
 
-  def url(s: String, customHandlerFactory: Option[URLStreamHandlerFactory], classLoaders: Seq[ClassLoader] = Nil): URL = {
+  def url(
+    s: String,
+    customHandlerFactory: Option[URLStreamHandlerFactory],
+    classLoaders: Seq[ClassLoader] = Nil
+  ): URL = {
     val protocol = s.takeWhile(_ != ':')
-    
+
     // Try custom handler factory first
     val customHandler = customHandlerFactory.flatMap { factory =>
       try Some(factory.createURLStreamHandler(protocol))
@@ -123,10 +127,10 @@ object CacheUrl {
         case _: Exception => None
       }
     }
-    
+
     // Fall back to existing logic if no custom handler or custom handler failed
     val handler = customHandler.orElse(handlerFor(s, classLoaders))
-    
+
     new URL(null, s, handler.orNull)
   }
 
@@ -223,28 +227,84 @@ object CacheUrl {
         (followHttpsToHttpRedirections && isHttps && redirToHttp)
       }
 
-  private def rangeResOpt(conn: URLConnection, alreadyDownloaded: Long): Option[Boolean] =
-    if (alreadyDownloaded > 0L)
-      conn match {
-        case conn0: HttpURLConnection =>
+  private[coursier] def responseLength(conn: URLConnection, url: String): Option[Long] = {
+    val chunked = Option(conn.getHeaderField("Transfer-Encoding"))
+      .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
+    if (chunked) None
+    else
+      Option(conn.getHeaderField("Content-Length")) match {
+        case Some(value) =>
+          val length = if (value.nonEmpty && value.forall(c => c >= '0' && c <= '9'))
+            Try(value.toLong).toOption
+          else None
+          Some(length.getOrElse {
+            throw new ArtifactError.DownloadError(
+              s"Invalid Content-Length '$value' from $url: expected a non-negative 64-bit decimal length",
+              None
+            )
+          })
+        case None => Option(conn.getContentLengthLong).filter(_ >= 0L)
+      }
+  }
+
+  private val ContentRange = "(?i)bytes ([0-9]+)-([0-9]+)/([0-9]+)".r
+
+  private[coursier] def contentRangeLength(
+    conn: URLConnection,
+    alreadyDownloaded: Long,
+    url: String
+  ): Option[Long] =
+    if (!responseCode(conn).contains(partialContentResponseCode)) None
+    else {
+      val value = Option(conn.getHeaderField("Content-Range")).getOrElse {
+        throw new ArtifactError.DownloadError(
+          s"Missing Content-Range from $url: expected bytes starting at $alreadyDownloaded",
+          None
+        )
+      }
+      val range = value match {
+        case ContentRange(start, end, total) =>
+          for {
+            start0 <- Try(start.toLong).toOption
+            end0   <- Try(end.toLong).toOption
+            total0 <- Try(total.toLong).toOption
+            if start0 == alreadyDownloaded && end0 >= start0 && total0 > 0L && end0 == total0 - 1L
+          } yield end0 - start0 + 1L
+        case _ => None
+      }
+      val declaredLength = responseLength(conn, url)
+      Some(range.filter(length => declaredLength.forall(_ == length)).getOrElse {
+        throw new ArtifactError.DownloadError(
+          s"Invalid Content-Range '$value' from $url: expected bytes starting at $alreadyDownloaded and ending at the complete response length",
+          None
+        )
+      })
+    }
+
+  private def rangeResOpt(
+    conn: URLConnection,
+    alreadyDownloaded: Long,
+    initialUrl: String
+  ): Option[Boolean] =
+    conn match {
+      case conn0: HttpURLConnection =>
+        if (alreadyDownloaded > 0L)
           conn0.setRequestProperty("Range", s"bytes=$alreadyDownloaded-")
 
-          val startOver = {
-            val isPartial = conn0.getResponseCode == partialContentResponseCode ||
-              conn0.getResponseCode == invalidPartialContentResponseCode
-            isPartial && {
-              val hasMatchingHeader = Option(conn0.getHeaderField("Content-Range"))
-                .exists(_.startsWith(s"bytes $alreadyDownloaded-"))
-              !hasMatchingHeader
-            }
-          }
-
-          Some(startOver)
-        case _ =>
-          None
-      }
-    else
-      None
+        if (conn0.getResponseCode == partialContentResponseCode) {
+          contentRangeLength(conn0, alreadyDownloaded, initialUrl)
+          if (alreadyDownloaded > 0L) Some(false) else None
+        }
+        else if (
+          alreadyDownloaded > 0L && conn0.getResponseCode == invalidPartialContentResponseCode
+        ) {
+          val hasMatchingHeader = Option(conn0.getHeaderField("Content-Range"))
+            .exists(_.startsWith(s"bytes $alreadyDownloaded-"))
+          Some(!hasMatchingHeader)
+        }
+        else None
+      case _ => None
+    }
 
   private def is4xx(conn: URLConnection): Boolean =
     conn match {
@@ -356,7 +416,7 @@ object CacheUrl {
         }
         initialize(conn, authOpt, sslSocketFactoryOpt, hostnameVerifierOpt, method)
 
-        val rangeResOpt0 = rangeResOpt(conn, alreadyDownloaded)
+        val rangeResOpt0 = rangeResOpt(conn, alreadyDownloaded, initialUrl)
 
         rangeResOpt0 match {
           case Some(true) =>
