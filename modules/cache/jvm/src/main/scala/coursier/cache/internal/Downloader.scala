@@ -251,9 +251,9 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
-          for (code <- respCodeOpt if code != 200 && code != 206)
+          for (code <- respCodeOpt if code / 100 != 2 || code == 204 || code == 205)
             throw new ArtifactError.DownloadError(
-              s"Unexpected HTTP status $code from $url: expected 200 or 206 with an artifact body",
+              s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body",
               None
             )
 
@@ -320,7 +320,8 @@ import scala.util.control.NonFatal
             try {
               // Decode in reverse application order, while counting the framed response bytes.
               for (encoding <- encodings.reverse)
-                in = encoding match {
+                in = Downloader.withDecodingError(contentEncoding.get, url, response) {
+                  encoding match {
                   case "gzip" => new GZIPInputStream(in, downloadBufferSize)
                   case "deflate" =>
                     new InflaterInputStream(in, new Inflater(), downloadBufferSize) {
@@ -330,7 +331,10 @@ import scala.util.control.NonFatal
                         finally inf.end()
                     }
                   case _ => in // identity was validated above
+                  }
                 }
+              if (!uncompressed)
+                in = new Downloader.DecodingInputStream(in, contentEncoding.get, url, response)
               // A buffered stream can prefetch past the remaining length on the last read.
               if (expectedLength.isEmpty)
                 in = new BufferedInputStream(in, downloadBufferSize)
@@ -356,13 +360,6 @@ import scala.util.control.NonFatal
                 response.finish(downloadBufferSize)
               }
               finally out.close()
-            }
-            catch {
-              case error: IOException if !uncompressed =>
-                throw new ArtifactError.DownloadError(
-                  s"Invalid Content-Encoding '${contentEncoding.get}' from $url: expected a complete decoded body, received ${response.count} response bytes (${Option(error.getMessage).getOrElse(error.getClass.getName)})",
-                  Some(error)
-                )
             }
             finally in.close()
 
@@ -890,9 +887,11 @@ object Downloader {
         val n =
           try underlying.read(bytes, offset, size)
           catch {
-            case error: IOException if chunked =>
+            case error: IOException =>
+              val framing = if (chunked) "a complete chunked message"
+              else expectedLength.fold("a complete response body")(n => s"$n bytes")
               throw new ArtifactError.DownloadError(
-                s"Invalid response framing from $url: expected a complete chunked message, received $count0 bytes (${Option(error.getMessage).getOrElse(error.getClass.getName)})",
+                s"Invalid response framing from $url: expected $framing, received $count0 bytes (${Option(error.getMessage).getOrElse(error.getClass.getName)})",
                 Some(error)
               )
           }
@@ -926,6 +925,33 @@ object Downloader {
     }
 
     override def close(): Unit = underlying.close()
+  }
+
+  private def withDecodingError[T](
+    encoding: String,
+    url: String,
+    response: ResponseInputStream
+  )(f: => T): T =
+    try f
+    catch {
+      case error: IOException =>
+        throw new ArtifactError.DownloadError(
+          s"Invalid Content-Encoding '$encoding' from $url: expected a complete decoded body, received ${response.count} response bytes (${Option(error.getMessage).getOrElse(error.getClass.getName)})",
+          Some(error)
+        )
+    }
+
+  private final class DecodingInputStream(
+    underlying: InputStream,
+    encoding: String,
+    url: String,
+    response: ResponseInputStream
+  ) extends FilterInputStream(underlying) {
+    override def read(): Int =
+      withDecodingError(encoding, url, response)(underlying.read())
+
+    override def read(bytes: Array[Byte], offset: Int, length: Int): Int =
+      withDecodingError(encoding, url, response)(underlying.read(bytes, offset, length))
   }
 
   private def readFullyTo(
