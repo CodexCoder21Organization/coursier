@@ -844,5 +844,12 @@ object DownloadResponseFramingTests extends TestSuite {
       assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
       successfulDownloadIs(o, body)
     }
+
+    test("unfollowed redirects retain their complete response body") {
+      for (code <- Seq(301, 302, 303, 307, 308)) {
+        val o = scenario(List(fixed("6", body, status = s"$code Redirect Body")))
+        successfulDownloadIs(o, body)
+      }
+    }
   }
 }
