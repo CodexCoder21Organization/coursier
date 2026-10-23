@@ -251,7 +251,7 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
-          for (code <- respCodeOpt if code / 100 != 2 || code == 204 || code == 205)
+          for (code <- respCodeOpt if code < 400 && (code / 100 != 2 || code == 204 || code == 205))
             throw new ArtifactError.DownloadError(
               s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body",
               None
@@ -312,6 +312,7 @@ import scala.util.control.NonFatal
             url,
             rangeLength.orElse(responseLength),
             bounded = responseLength.nonEmpty,
+            encoded = !uncompressed,
             chunked = Option(conn.getHeaderField("Transfer-Encoding"))
               .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
           )
@@ -864,6 +865,7 @@ object Downloader {
     url: String,
     expectedLength: Option[Long],
     bounded: Boolean,
+    encoded: Boolean,
     chunked: Boolean
   ) extends InputStream {
     private var count0 = 0L
@@ -917,7 +919,9 @@ object Downloader {
     // gzip uses available() to decide whether another member may follow its trailer.
     // Even when the next chunk has not arrived, it must read through the message ending.
     override def available(): Int =
-      if (ended || (bounded && expectedLength.contains(count0))) 0 else 1
+      if (ended || (bounded && expectedLength.contains(count0))) 0
+      else if (encoded) 1
+      else underlying.available()
 
     def finish(bufferSize: Int): Unit = {
       val buffer = new Array[Byte](bufferSize)
