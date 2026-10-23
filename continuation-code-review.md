@@ -1,0 +1,15 @@
+# Independent code review pass
+
+Reviewed the production diff from main f7ac8c67 to 8bde0ca15 after implementation, separately from writing the guard. Read README.md, DEVELOP.md, complete PHILOSOPHY.md and TESTING.md, RCOURS findings.md and all three real-server sources, and the recovered FCOURS2 baseline/fixed XML audits. No new product defect found in this pass.
+
+OBSERVED: The mechanism is the previous unbounded bulk read followed by treating EOF as success and an unconditional temporary-file rename. The new loop keeps a response-relative Long count, bounds each positive read by min(buffer size, expected minus count), throws DownloadError on early EOF, and reaches publication only after exact completion. The fixed-length path bypasses BufferedInputStream, whose refill could otherwise fetch beyond the remaining frame.
+
+OBSERVED: DownloadError is caught inside doDownload, the output and input close through finally, and the invalid temporary file is removed under the structure lock. The returned Left is a completed result, so Retry.retryOpt does not retry it. The preexisting retry paths for lock ownership and selected thrown transport errors are unchanged. New malformed length/range failures return this same explicit error path. ConnectionBuilder closes its connection when range validation throws before ownership transfers to Downloader.
+
+OBSERVED: A 206 must carry a complete numeric Content-Range beginning at the saved prefix; total is positive, end equals total minus one, and present Content-Length equals the suffix size. Numeric conversion uses Try.toLong, and these constraints keep end-start+1 and offset+length inside Long.MaxValue. A full 200 now returns partialDownload=false, so the existing output open truncates the saved prefix. Range request, redirect and authentication handling preserve the original artifact URL for errors.
+
+OBSERVED: Chunked Transfer-Encoding removes Content-Length from the framing calculation. Ordinary close-delimited bodies retain EOF completion. Encoded bodies keep the configured buffer and are not bounded by the compressed wire length; the gzip progress test observes the outer decoded copy increments. The non-positive buffer guard runs before opening the input/output and returns the exact descriptive error. A declared zero length makes only a zero-byte read with a one-byte backing array, then closes and publishes empty content without a progress callback.
+
+INFER: The planned additional multi-read truncation and zero-byte request tests close the independent test review's two gaps without changing any preexisting test. Existing HTTP 416 recovery is outside the 206 framing failure being changed; it is unchanged and no newly rejected framing error uses it. Rejection of unknown range totals is deliberate for an open-ended artifact request, since that response cannot prove the artifact is complete.
+
+Plan: [x] compare all production changes; [x] trace connection/file/stream ownership; [x] check overflow and encoded framing; [x] trace error propagation and retries; [ ] bind final test additions and gate results in final review audit.

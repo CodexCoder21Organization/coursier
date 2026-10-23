@@ -1,0 +1,3379 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="57" failures="33" errors="0" skipped="0" time="1.638">
+        <testsuite name="coursier.cache.DownloadBufferCapacityTests" tests="14" failures="1" errors="0" skipped="0" time="0.896" timestamp="2026-10-23T01:15:00">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known tiny response does not request an oversized transfer buffer" time="0.402">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known 199 byte POM uses its response length" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known one byte response uses a one byte buffer" time="0.034">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="identity response uses its uncompressed length" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="mixed case identity response uses its uncompressed length" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="other content encodings retain the default maximum" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known responses at the default boundary stay bounded" time="0.105">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known empty response keeps read buffers at one byte or less" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known empty response requests zero bytes from the response stream" time="0.074">
+          <failure message="assert(observation.reads.map(_.requestedLength) == List(0))
+observation: ScenarioObservation = ScenarioObservation(
+  downloadedBody = Array(),
+  servedResponses = 1,
+  openedStreams = 1,
+  closedStreams = 1,
+  remainingStreams = 0,
+  reads = List(ReadObservation(advertisedLength = 0L, requestedLength = 1, arrayLength = 1))
+)
+observation.reads.map(_.requestedLength) != List(0):
+- List(1)
++ List(0)
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.reads.map(_.requestedLength) == List(0))
+observation: ScenarioObservation = ScenarioObservation(
+  downloadedBody = Array(),
+  servedResponses = 1,
+  openedStreams = 1,
+  closedStreams = 1,
+  remainingStreams = 0,
+  reads = List(ReadObservation(advertisedLength = 0L, requestedLength = 1, arrayLength = 1))
+)
+observation.reads.map(_.requestedLength) != List(0):
+- List(1)
++ List(0)
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadBufferCapacityTests$.$anonfun$tests$46(DownloadBufferCapacityTests.scala:308)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="known body larger than configured maximum uses at most that maximum" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="unknown chunked response retains the default maximum" time="0.108">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="unknown identity response retains the default maximum" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="gzip response with known encoded length returns all decoded bytes" time="0.026">
+          
+        </testcase><testcase classname="coursier.cache.DownloadBufferCapacityTests" name="partial response resumes from the persisted prefix with a bounded read buffer" time="0.034">
+          
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.DownloadLengthIntegrityTests" tests="43" failures="32" errors="0" skipped="0" time="0.742" timestamp="2026-10-23T01:15:00">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="zero buffer size is rejected before creating a temporary file" time="0.045">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36329/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:36329/artifact
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36329
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:36329/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid download buffer size 0 for http://127.0.0.1:36329/artifact: expected a positive size&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:36329/artifact&quot;
++   value = &quot;Invalid download buffer size 0 for http://127.0.0.1:36329/artifact: expected a positive size&quot;
+  )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36329/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:36329/artifact
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36329
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:36329/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid download buffer size 0 for http://127.0.0.1:36329/artifact: expected a positive size&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:36329/artifact&quot;
++   value = &quot;Invalid download buffer size 0 for http://127.0.0.1:36329/artifact: expected a positive size&quot;
+  )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$2(DownloadLengthIntegrityTests.scala:333)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="negative buffer size is rejected before creating a temporary file" time="0.02">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:39453/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:39453/artifact
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39453
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:39453/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid download buffer size -1 for http://127.0.0.1:39453/artifact: expected a positive size&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:39453/artifact&quot;
++   value = &quot;Invalid download buffer size -1 for http://127.0.0.1:39453/artifact: expected a positive size&quot;
+  )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:39453/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:39453/artifact
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39453
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:39453/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid download buffer size -1 for http://127.0.0.1:39453/artifact: expected a positive size&quot;
+errorMessage(observation) != Some(expected):
+  Some(
+-   value = &quot;Caught java.lang.IllegalArgumentException (Buffer size &lt;= 0) while downloading http://127.0.0.1:39453/artifact&quot;
++   value = &quot;Invalid download buffer size -1 for http://127.0.0.1:39453/artifact: expected a positive size&quot;
+  )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$4(DownloadLengthIntegrityTests.scala:342)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short fixed-length response does not publish a partial artifact" time="0.018">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36789/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36789
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:36789/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:36789/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:36789/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36789/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36789
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:36789/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:36789/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:36789/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$6(DownloadLengthIntegrityTests.scala:350)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="empty body with positive fixed length is an incomplete response" time="0.015">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40065/artifact&quot;,
+  result = Right(value = Array()),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40065
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:40065/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:40065/artifact: expected 9 bytes, received 0 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:40065/artifact: expected 9 bytes, received 0 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40065/artifact&quot;,
+  result = Right(value = Array()),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40065
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:40065/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:40065/artifact: expected 9 bytes, received 0 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:40065/artifact: expected 9 bytes, received 0 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$9(DownloadLengthIntegrityTests.scala:358)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short fixed-length response counts bytes across multiple reads" time="0.012">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:45279/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:45279
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(2L, 4L, 6L),
+  downloadResults = List((&quot;http://127.0.0.1:45279/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:45279/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:45279/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:45279/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:45279
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(2L, 4L, 6L),
+  downloadResults = List((&quot;http://127.0.0.1:45279/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:45279/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:45279/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$12(DownloadLengthIntegrityTests.scala:366)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="partial body remains temporary until the connection reaches EOF" time="0.019">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44469/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44469
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44469/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = Some(
+    value = FileState(
+      finalExists = false,
+      temporaryExists = true,
+      temporaryBytes = Array(97, 98, 99, 100, 101, 102)
+    )
+  )
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:44469/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:44469/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44469/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44469
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44469/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = Some(
+    value = FileState(
+      finalExists = false,
+      temporaryExists = true,
+      temporaryBytes = Array(97, 98, 99, 100, 101, 102)
+    )
+  )
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:44469/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:44469/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$19(DownloadLengthIntegrityTests.scala:390)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="exact fixed-length response publishes all bytes" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="zero length response ignores trailing bytes" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="fragmented fixed-length response does not expose bytes after its length" time="0.025">
+          <failure message="assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38293/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:38293
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(2L, 5L),
+  downloadResults = List((&quot;http://127.0.0.1:38293/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: Array[Byte] = Array(97, 98, 99)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(value = ArraySeq(97, 98, 99, 100, 101))
++ Right(value = ArraySeq(97, 98, 99))
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38293/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:38293
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(2L, 5L),
+  downloadResults = List((&quot;http://127.0.0.1:38293/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: Array[Byte] = Array(97, 98, 99)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(value = ArraySeq(97, 98, 99, 100, 101))
++ Right(value = ArraySeq(97, 98, 99))
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.bytesAre(DownloadLengthIntegrityTests.scala:293)
+    at coursier.cache.DownloadLengthIntegrityTests$.successfulDownloadIs(DownloadLengthIntegrityTests.scala:296)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$30(DownloadLengthIntegrityTests.scala:418)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="two byte buffer stays within the framed length after a fragmented read" time="0.017">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="close-delimited response reads through connection close" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="chunked framing takes precedence over a conflicting content length" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="gzip known length decodes fully with bounded progress increments" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="mixed case identity encoding is accepted" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="mixed case identity encoding still enforces a short length" time="0.019">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44911/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44911
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44911/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:44911/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:44911/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44911/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44911
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44911/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:44911/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:44911/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$60(DownloadLengthIntegrityTests.scala:501)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="negative content length is rejected" time="0.016">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:46169/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:46169
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:46169/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length '-1' from http://127.0.0.1:46169/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length '-1' from http://127.0.0.1:46169/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:46169/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:46169
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:46169/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length '-1' from http://127.0.0.1:46169/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length '-1' from http://127.0.0.1:46169/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$62(DownloadLengthIntegrityTests.scala:509)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="non-decimal content length is rejected" time="0.014">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:37743/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37743
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:37743/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length 'abc' from http://127.0.0.1:37743/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length 'abc' from http://127.0.0.1:37743/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:37743/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37743
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:37743/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length 'abc' from http://127.0.0.1:37743/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length 'abc' from http://127.0.0.1:37743/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$64(DownloadLengthIntegrityTests.scala:517)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing content length is rejected" time="0.018">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44223/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44223
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44223/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length '9223372036854775808' from http://127.0.0.1:44223/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length '9223372036854775808' from http://127.0.0.1:44223/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44223/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44223
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44223/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length '9223372036854775808' from http://127.0.0.1:44223/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length '9223372036854775808' from http://127.0.0.1:44223/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$66(DownloadLengthIntegrityTests.scala:525)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="empty content length is rejected" time="0.017">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:33333/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:33333
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:33333/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length '' from http://127.0.0.1:33333/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length '' from http://127.0.0.1:33333/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:33333/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:33333
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:33333/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Length '' from http://127.0.0.1:33333/artifact: expected a non-negative 64-bit decimal length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Length '' from http://127.0.0.1:33333/artifact: expected a non-negative 64-bit decimal length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$68(DownloadLengthIntegrityTests.scala:533)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length at Int max reports the received byte count" time="0.014">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36307/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36307
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:36307/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:36307/artifact: expected 2147483647 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:36307/artifact: expected 2147483647 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36307/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:36307
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:36307/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:36307/artifact: expected 2147483647 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:36307/artifact: expected 2147483647 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$70(DownloadLengthIntegrityTests.scala:541)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length above Int max reports the received byte count" time="0.006">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:34351/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:34351
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:34351/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:34351/artifact: expected 2147483648 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:34351/artifact: expected 2147483648 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:34351/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:34351
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:34351/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:34351/artifact: expected 2147483648 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:34351/artifact: expected 2147483648 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$72(DownloadLengthIntegrityTests.scala:549)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="five gigabyte content length reports the received byte count" time="0.012">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41051/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:41051
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:41051/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:41051/artifact: expected 5368709120 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:41051/artifact: expected 5368709120 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41051/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:41051
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:41051/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:41051/artifact: expected 5368709120 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:41051/artifact: expected 5368709120 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$74(DownloadLengthIntegrityTests.scala:557)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="Long max content length reports the received byte count" time="0.016">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44145/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44145
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44145/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:44145/artifact: expected 9223372036854775807 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:44145/artifact: expected 9223372036854775807 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:44145/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:44145
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:44145/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:44145/artifact: expected 9223372036854775807 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:44145/artifact: expected 9223372036854775807 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$76(DownloadLengthIntegrityTests.scala:565)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="redirect body length does not replace the final response length" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short final response after redirect reports the original artifact URL" time="0.022">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40035/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40035
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /final HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40035
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40035/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:40035/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:40035/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40035/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40035
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /final HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:40035
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40035/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:40035/artifact: expected 9 bytes, received 6 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:40035/artifact: expected 9 bytes, received 6 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$82(DownloadLengthIntegrityTests.scala:591)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="valid range response resumes the existing prefix" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="valid range response can frame the suffix without content length" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response with an incorrect start is rejected without restarting" time="0.019">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:45523/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:45523
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:45523
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:45523/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 2-5/6' from http://127.0.0.1:45523/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 2-5/6' from http://127.0.0.1:45523/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:45523/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:45523
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:45523
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:45523/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 2-5/6' from http://127.0.0.1:45523/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 2-5/6' from http://127.0.0.1:45523/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$94(DownloadLengthIntegrityTests.scala:628)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response without content range is rejected" time="0.013">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:33121/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:33121
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:33121
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:33121/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Missing Content-Range from http://127.0.0.1:33121/artifact: expected bytes starting at 3&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Missing Content-Range from http://127.0.0.1:33121/artifact: expected bytes starting at 3&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:33121/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:33121
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:33121
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:33121/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Missing Content-Range from http://127.0.0.1:33121/artifact: expected bytes starting at 3&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Missing Content-Range from http://127.0.0.1:33121/artifact: expected bytes starting at 3&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$97(DownloadLengthIntegrityTests.scala:639)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="malformed content range is rejected with its exact value" time="0.014">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:42307/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:42307
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:42307
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:42307/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'items 3-5/6' from http://127.0.0.1:42307/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'items 3-5/6' from http://127.0.0.1:42307/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:42307/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:42307
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:42307
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:42307/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'items 3-5/6' from http://127.0.0.1:42307/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'items 3-5/6' from http://127.0.0.1:42307/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$100(DownloadLengthIntegrityTests.scala:651)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range end mismatch is rejected" time="0.013">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43953/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:43953
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:43953/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-4/6' from http://127.0.0.1:43953/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-4/6' from http://127.0.0.1:43953/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43953/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:43953
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:43953/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-4/6' from http://127.0.0.1:43953/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-4/6' from http://127.0.0.1:43953/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$102(DownloadLengthIntegrityTests.scala:662)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range total mismatch is rejected" time="0.013">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:35119/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:35119
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:35119/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/99' from http://127.0.0.1:35119/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/99' from http://127.0.0.1:35119/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:35119/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:35119
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:35119/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/99' from http://127.0.0.1:35119/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/99' from http://127.0.0.1:35119/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$104(DownloadLengthIntegrityTests.scala:673)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="unknown range total is rejected" time="0.02">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40399/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:40399
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40399/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/*' from http://127.0.0.1:40399/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/*' from http://127.0.0.1:40399/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:40399/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:40399
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:40399/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/*' from http://127.0.0.1:40399/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/*' from http://127.0.0.1:40399/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$106(DownloadLengthIntegrityTests.scala:684)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range ending at or beyond the total is rejected" time="0.031">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:42995/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102, 120)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:42995
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(7L),
+  downloadResults = List((&quot;http://127.0.0.1:42995/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-6/6' from http://127.0.0.1:42995/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-6/6' from http://127.0.0.1:42995/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:42995/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102, 120)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:42995
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(7L),
+  downloadResults = List((&quot;http://127.0.0.1:42995/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-6/6' from http://127.0.0.1:42995/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-6/6' from http://127.0.0.1:42995/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$108(DownloadLengthIntegrityTests.scala:695)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range start is rejected" time="0.029">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:37977/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:37977
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37977
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:37977/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 9223372036854775808-9223372036854775809/9223372036854775810' from http://127.0.0.1:37977/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 9223372036854775808-9223372036854775809/9223372036854775810' from http://127.0.0.1:37977/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:37977/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:37977
+Connection: keep-alive
+
+&quot;&quot;&quot;,
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:37977
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:37977/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 9223372036854775808-9223372036854775809/9223372036854775810' from http://127.0.0.1:37977/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 9223372036854775808-9223372036854775809/9223372036854775810' from http://127.0.0.1:37977/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$110(DownloadLengthIntegrityTests.scala:706)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range end is rejected" time="0.018">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38545/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:38545
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:38545/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-9223372036854775808/9223372036854775810' from http://127.0.0.1:38545/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-9223372036854775808/9223372036854775810' from http://127.0.0.1:38545/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:38545/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:38545
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:38545/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-9223372036854775808/9223372036854775810' from http://127.0.0.1:38545/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-9223372036854775808/9223372036854775810' from http://127.0.0.1:38545/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$112(DownloadLengthIntegrityTests.scala:717)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="overflowing range total is rejected" time="0.019">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:33127/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:33127
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:33127/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/9223372036854775808' from http://127.0.0.1:33127/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/9223372036854775808' from http://127.0.0.1:33127/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:33127/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:33127
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(6L),
+  downloadResults = List((&quot;http://127.0.0.1:33127/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/9223372036854775808' from http://127.0.0.1:33127/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/9223372036854775808' from http://127.0.0.1:33127/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$114(DownloadLengthIntegrityTests.scala:728)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="content length conflicting with range is rejected" time="0.024">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36773/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102, 120)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:36773
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(7L),
+  downloadResults = List((&quot;http://127.0.0.1:36773/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:36773/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:36773/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:36773/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101, 102, 120)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:36773
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(7L),
+  downloadResults = List((&quot;http://127.0.0.1:36773/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:36773/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:36773/artifact: expected bytes starting at 3 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$116(DownloadLengthIntegrityTests.scala:739)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="unsolicited range response must start at byte zero" time="0.015">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:39843/artifact&quot;,
+  result = Right(value = Array(100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39843
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:39843/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:39843/artifact: expected bytes starting at 0 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:39843/artifact: expected bytes starting at 0 and ending at the complete response length&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:39843/artifact&quot;,
+  result = Right(value = Array(100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:39843
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(3L),
+  downloadResults = List((&quot;http://127.0.0.1:39843/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:39843/artifact: expected bytes starting at 0 and ending at the complete response length&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:39843/artifact: expected bytes starting at 0 and ending at the complete response length&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$118(DownloadLengthIntegrityTests.scala:747)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="range response from byte zero can satisfy a full download" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="server ignoring range with a full response replaces the prefix" time="0.021">
+          <failure message="assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41975/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:41975
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(9L),
+  downloadResults = List((&quot;http://127.0.0.1:41975/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(value = ArraySeq(97, 98, 99, 97, 98, 99, 100, 101, 102))
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41975/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 97, 98, 99, 100, 101, 102)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:41975
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(9L),
+  downloadResults = List((&quot;http://127.0.0.1:41975/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Right(value = ArraySeq(97, 98, 99, 97, 98, 99, 100, 101, 102))
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.bytesAre(DownloadLengthIntegrityTests.scala:293)
+    at coursier.cache.DownloadLengthIntegrityTests$.successfulDownloadIs(DownloadLengthIntegrityTests.scala:296)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$124(DownloadLengthIntegrityTests.scala:765)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short range response with content length removes its temporary file" time="0.01">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43999/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:43999
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(5L),
+  downloadResults = List((&quot;http://127.0.0.1:43999/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:43999/artifact: expected 3 bytes, received 2 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:43999/artifact: expected 3 bytes, received 2 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:43999/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:43999
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(5L),
+  downloadResults = List((&quot;http://127.0.0.1:43999/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:43999/artifact: expected 3 bytes, received 2 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:43999/artifact: expected 3 bytes, received 2 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$127(DownloadLengthIntegrityTests.scala:776)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase><testcase classname="coursier.cache.DownloadLengthIntegrityTests" name="short range response uses content range length when content length is absent" time="0.023">
+          <failure message="assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41045/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:41045
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(5L),
+  downloadResults = List((&quot;http://127.0.0.1:41045/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:41045/artifact: expected 3 bytes, received 2 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:41045/artifact: expected 3 bytes, received 2 bytes&quot;
++ )
+" type="utest.AssertionError">
+          utest.AssertionError: assert(errorMessage(observation) == Some(expected))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:41045/artifact&quot;,
+  result = Right(value = Array(97, 98, 99, 100, 101)),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Range: bytes=3-
+Host: 127.0.0.1:41045
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(5L),
+  downloadResults = List((&quot;http://127.0.0.1:41045/artifact&quot;, true)),
+  finalExists = true,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None
+)
+expected: String = &quot;Incomplete response from http://127.0.0.1:41045/artifact: expected 3 bytes, received 2 bytes&quot;
+errorMessage(observation) != Some(expected):
+- None
++ Some(
++   value = &quot;Incomplete response from http://127.0.0.1:41045/artifact: expected 3 bytes, received 2 bytes&quot;
++ )
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadLengthIntegrityTests$.downloadErrorIs(DownloadLengthIntegrityTests.scala:309)
+    at coursier.cache.DownloadLengthIntegrityTests$.$anonfun$tests$130(DownloadLengthIntegrityTests.scala:787)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite>
+      </testsuites>
