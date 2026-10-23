@@ -2,7 +2,7 @@ Review RCOURS of https://github.com/CodexCoder21Organization/coursier/pull/6 rep
 
 Response bytes are now checked before decoding and before the temporary file is promoted into the cache. Fixed-length reads stay within their declared framing; range counts are also checked against actual response bytes, and chunked responses must consume their closing chunk even after the range count or decoder reaches its ending. Mixed-case range units are accepted. Gzip and deflate coding names are case-insensitive, supported stacked codings decode in reverse order, and unsupported codings are rejected. Encoded partial responses cannot append to a saved decoded prefix.
 
-No-body responses, including an unsolicited 304 to an unconditional GET, cannot publish an artifact. Body-bearing successful statuses remain accepted, and existing HTTP error reporting remains intact. Every rejected download removes its temporary bytes before releasing ownership. Encoding errors are limited to decoder operations; file-output and response-framing errors retain their own cause and full values.
+No-body responses, including an unsolicited 304 to an unconditional GET, cannot publish an artifact. Body-bearing successful statuses remain accepted, and existing HTTP error reporting remains intact. Every rejected download removes its temporary bytes before releasing ownership. Uncompressed close-delimited bodies retain progress between fragments; only decoder lookahead probes for the framing end. Encoding errors are limited to decoder operations; file-output and response-framing errors retain their own cause and full values.
 
 Main remains at https://github.com/CodexCoder21Organization/coursier/commit/f7ac8c67dbe757d9129cfa453a37f2867bd1272d, which contains the earlier buffer-sizing change. It does not supersede this PR's length/range validation or this round's framing/encoding fixes.
 
@@ -10,8 +10,9 @@ Validation (all local, real loopback HTTP servers and isolated cache directories
 
 - A1–A7 fail on the original 7ab7bfff implementation in single attempts; both A5 stream-cleanup cases fail independently. Initial boundary register: 6 pass / 18 fail in 24 attempts. Expanded original-implementation register plus buffer suite: 20 pass / 27 fail in 47 attempts.
 - Independent review found a valid 203 rejection and output I/O mislabeled as encoding errors: both fail first, then pass after correction. The portable full native-output-error assertion also fails with the broad encoding catch restored (34 pass / 1 fail in 35 first attempts).
-- FINAL_REPEAT_COUNTS
+- All 37 new framing scenarios, 43 length scenarios and 14 buffer scenarios pass 30/30: 94 cases per round, 2,820 first attempts, zero retries, failures, errors or skips on [head 33d5f18b8](https://github.com/CodexCoder21Organization/coursier/commit/33d5f18b8b83bac51c91c683f339f8fe9515451d).
 - CACHE_MODULE_COUNTS
+- Compatibility checks additionally reproduce and fix the exact existing 500-error text and progress for a close-delimited body held between fragments; the unchanged location-ownership error test also flips from failing to passing (targeted register 37 pass / 3 fail before, 40/40 after).
 - All six RCOURS2 coverage groups are closed: range-unit case; chunked range endings/excess bytes; no-body status/HEAD metadata; other/mixed-case codings; real stream-error cleanup; concurrent same-file callers during rejection and ownership release.
 - Independent test-coverage and code-review passes are saved with the evidence. The native file-error assertion uses a real failing filesystem open to obtain the complete platform error, with no platform skip or substring assertion.
 

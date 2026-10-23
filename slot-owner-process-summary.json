@@ -1,0 +1,62 @@
+[
+  {
+    "pid": 34663,
+    "state": "S",
+    "executable": "java",
+    "cwdMatchesOwner": true
+  },
+  {
+    "pid": 37016,
+    "state": "S",
+    "executable": "bash",
+    "cwdMatchesOwner": false
+  },
+  {
+    "pid": 37019,
+    "state": "S",
+    "executable": "bash",
+    "cwdMatchesOwner": false
+  },
+  {
+    "pid": 37022,
+    "state": "S",
+    "executable": "node",
+    "cwdMatchesOwner": false
+  },
+  {
+    "pid": 37054,
+    "state": "S",
+    "executable": "codex",
+    "cwdMatchesOwner": false
+  },
+  {
+    "pid": 59302,
+    "state": "S",
+    "executable": "python3",
+    "cwdMatchesOwner": true
+  },
+  {
+    "pid": 59319,
+    "state": "S",
+    "executable": "java",
+    "cwdMatchesOwner": true
+  },
+  {
+    "pid": 89445,
+    "state": "S",
+    "executable": "bash",
+    "cwdMatchesOwner": true
+  },
+  {
+    "pid": 89450,
+    "state": "S",
+    "executable": "bash",
+    "cwdMatchesOwner": true
+  },
+  {
+    "pid": 90142,
+    "state": "S",
+    "executable": "bash",
+    "cwdMatchesOwner": true
+  }
+]

@@ -53,3 +53,30 @@ Evidence checkpoint verified: local and remote wip/FCOURS4-evidence-20261023 bot
 2026-10-23 02:26:09 UTC — OBSERVED: Compatibility baseline completed40 first attempts:37pass/3fail, at the full500error case, progress-gated unknown-length case, and unchanged FileCacheLocationOwnershipTests.independent locations after an owner error. OBSERVED: The500guard now leaves4xx/5xx to the existing JDK/error path, and uncompressed raw availability delegates to the real stream; encoded decoder lookahead still checks message endings. OBSERVED: Identical targeted40cases now pass40/40 first attempts with zero retries. OBSERVED: Independent reviewer cleared both deltas at54ca4daea0fab025e1554991034c464ecd56cfae; final33d5f18b8b83bac51c91c683f339f8fe9515451d differs only by formatting the new cases. OBSERVED: Final gate is37new framing+43length+14buffer=94cases per round,15 rounds clean so far. OBSERVED: PR OPEN/CLEAN at original remote7ab7bfff; no Addendum headings. INFER: Next checkpoint is30final rounds and the requested locked cache-module run.
 
 2026-10-23 02:30:11 UTC — OBSERVED: Final head33d5f18b8b83bac51c91c683f339f8fe9515451d completed30/30 x94=2,820 first attempts, no failures/retries/errors/skips. OBSERVED: Every XML has94unique cases, every scenario has30runs, and every invocation has94qualified test events plus94separate summary renderings. OBSERVED: Final independent review read in full and all findings closed with before/after proofs; existing ownership500error assertion remains unchanged. OBSERVED: Cache-module waiter restarted, retaining its original three-hour acquisition deadline of2026-10-23 04:59:12UTC; the slot is still owned byI419j and no module attempt has started. OBSERVED: Evidence checkpointcf3bf07d4198aae1078dcfc6910354d2acf4e662 verified local=remote; no Addendum headings. INFER: Remaining gate is the complete cache module, then final rebase/push and PR-description update.
+
+2026-10-23 02:35:08 UTC — OBSERVED: Slot ownerI419j still has matching running processes, including two Java processes; only a sanitized PID/state/executable summary was saved, never process arguments. OBSERVED: No cache-module test attempt has started, and the queued runner retains the original04:59:12UTC deadline. OBSERVED: Final audit and source checkpoint local=remote=e399a02619778f561a6c7966370d042c28520400. OBSERVED: No Addendum headings at the last brief check. INFER: The lock is active, so it remains held by its owner; next checkpoint is slot release and the module result.
+
+## Brief completion audit (before module slot)
+| Item | State and proof |
+|---|---|
+| Initial rebase / main overlap | DONE: initial branch up to date on main f7ac8c67, earlier buffer sizing only; no equivalent of this integrity change. |
+| A1 | DONE: mixed-case Content-Range test fails on 7ab7bfff; final test 30/30. |
+| A2 | DONE: missing chunk terminator after range count fails on 7ab7bfff; final test 30/30. |
+| A3 | DONE: extra chunked range data fails on 7ab7bfff; final test 30/30. |
+| A4 | DONE: unsolicited 304 fails on 7ab7bfff; no-body/HEAD/2xx/HTTP-error coverage passes 30/30. |
+| A5 | DONE: separate cut-off chunked and gzip cleanup tests each fail on 7ab7bfff; final tests 30/30, no temporary bytes. |
+| A6 | DONE: short deflate response fails on 7ab7bfff; final test 30/30, including raw length and decoder endings. |
+| A7 | DONE: mixed-case gzip decoding fails on 7ab7bfff; final test 30/30. |
+| Six B coverage groups | DONE: 6/6 mapped in independent review; 37 new public-API real-server scenarios in final register. |
+| Existing-test edit proof | DONE: only custom-to-real-deflate buffer scenario changed; fails on original implementation, passes 30/30. New portable full-error assertion also fails with its fix restored to the bad broad catch (34/35 before). |
+| Independent coverage/code review | DONE: all concerns resolved; parent read review in full. |
+| Repeated gate | DONE: final94cases x30=2,820 first attempts, zero retries/errors/failures/skips. |
+| Complete cache module | PENDING: locked resource gate; no test attempt started. |
+| Final rebase, OPEN check, PR push/description | PENDING: follows passing cache-module gate. |
+| Evidence and cleanup | Source/log checkpoints scanned and pushed; final module evidence and process cleanup remain. |
+
+2026-10-23 02:40:46 UTC — OBSERVED: Cache module remains queued behind activeI419j; its coordination log was updated at02:36:12UTC, so the owner is still producing output. OBSERVED: No new test or build command is running in this lane while queued. OBSERVED: No Addendum headings. INFER: Next checkpoint remains the slot release and module result; no code or assertion change is planned.
+
+2026-10-23 02:49:17 UTC — OBSERVED: The cache-module slot remains occupied by I419j; no module command has started and no test attempt was repeated. OBSERVED: The original slot-acquisition deadline remains 04:59:12 UTC. OBSERVED: No Addendum headings. INFER: The next checkpoint is still the slot release and first cache-module result.
+
+2026-10-23 02:58:59 UTC — OBSERVED: I419j released the shared slot; F191b acquired it before this lane’s next acquisition attempt. OBSERVED: Cache module remains queued with zero attempts and the unchanged 04:59:12 UTC deadline. OBSERVED: PR freshly verified OPEN/CLEAN at remote7ab7bfffb49123f9f73c45791e41b6c1ae056e7a; final local product head remains33d5f18b8b83bac51c91c683f339f8fe9515451d. OBSERVED: No Addendum headings. INFER: All independent work is complete; the only execution hold is the required module slot, followed by final push and description update.
