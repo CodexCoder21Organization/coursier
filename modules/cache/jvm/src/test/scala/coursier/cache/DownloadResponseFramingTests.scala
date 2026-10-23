@@ -51,7 +51,8 @@ object DownloadResponseFramingTests extends TestSuite {
     temporaryExists: Boolean,
     temporaryBytes: Array[Byte],
     pendingState: Option[FileState],
-    allResults: List[Either[ArtifactError, Array[Byte]]]
+    allResults: List[Either[ArtifactError, Array[Byte]]],
+    temporaryPath: String
   )
 
   private final class RecordingLogger() extends CacheLogger {
@@ -151,7 +152,8 @@ object DownloadResponseFramingTests extends TestSuite {
     cap: Int = CacheDefaults.bufferSize,
     inspectWhilePaused: Option[(Long, CountDownLatch)] = None,
     clientCount: Int = 1,
-    joinBeforeBody: Boolean = false
+    joinBeforeBody: Boolean = false,
+    temporaryDirectory: Boolean = false
   ): Observation = {
     var directory: Path                    = null
     var server: ServerSocket               = null
@@ -250,6 +252,8 @@ object DownloadResponseFramingTests extends TestSuite {
         .withLogger(logger)
       val finalFile     = cache.localFile(url)
       val temporaryFile = CachePath.temporaryFile(finalFile)
+      if (temporaryDirectory)
+        Files.createDirectories(temporaryFile.toPath)
       if (prefix.nonEmpty) {
         Files.createDirectories(temporaryFile.toPath.getParent)
         Files.write(temporaryFile.toPath, prefix)
@@ -288,7 +292,8 @@ object DownloadResponseFramingTests extends TestSuite {
         observedFileState.temporaryExists,
         observedFileState.temporaryBytes,
         pendingState,
-        results
+        results,
+        temporaryFile.toString
       )
     }
     finally {
@@ -787,6 +792,20 @@ object DownloadResponseFramingTests extends TestSuite {
         cap = 1
       )
       successfulDownloadIs(o, Array.emptyByteArray)
+    }
+
+    test("body bearing successful statuses retain their complete artifact bytes") {
+      for (code <- Seq(201, 202, 203, 207)) {
+        val o = scenario(List(fixed("6", body, status = s"$code Complete Body")))
+        successfulDownloadIs(o, body)
+      }
+    }
+
+    test("encoded download output error is not reported as a coding error") {
+      val compressed = gzipBytes(body)
+      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "gzip"))),
+        temporaryDirectory = true)
+      downloadErrorIs(o, s"Caught java.nio.file.FileSystemException (${o.temporaryPath}: Is a directory) while downloading ${o.url}")
     }
   }
 }
