@@ -373,7 +373,7 @@ object DownloadResponseFramingTests extends TestSuite {
     s"Missing Content-Range from $url: expected bytes starting at $start"
 
   private def statusMessage(url: String, code: Int): String =
-    s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body"
+    s"Unexpected HTTP status $code from $url: expected a response with an artifact body"
 
   private def chunkedMessage(url: String, received: Long): String =
     s"Invalid response framing from $url: expected a complete chunked message, received $received bytes (Premature EOF)"

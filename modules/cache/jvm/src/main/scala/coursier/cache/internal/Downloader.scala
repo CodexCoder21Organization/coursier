@@ -251,9 +251,9 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
-          for (code <- respCodeOpt if code < 400 && (code / 100 != 2 || code == 204 || code == 205))
+          for (code <- respCodeOpt if code / 100 == 1 || code == 204 || code == 205 || code == 304)
             throw new ArtifactError.DownloadError(
-              s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body",
+              s"Unexpected HTTP status $code from $url: expected a response with an artifact body",
               None
             )
 
