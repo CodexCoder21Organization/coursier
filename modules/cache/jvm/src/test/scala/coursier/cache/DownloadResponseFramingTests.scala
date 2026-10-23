@@ -56,7 +56,12 @@ object DownloadResponseFramingTests extends TestSuite {
 
   private final class RecordingLogger() extends CacheLogger {
     val watchingOwner = new CountDownLatch(1)
-    override def downloadLength(url: String, totalLength: Long, alreadyDownloaded: Long, watching: Boolean): Unit =
+    override def downloadLength(
+      url: String,
+      totalLength: Long,
+      alreadyDownloaded: Long,
+      watching: Boolean
+    ): Unit =
       if (watching) watchingOwner.countDown()
 
     private val lock             = new Object
@@ -148,17 +153,17 @@ object DownloadResponseFramingTests extends TestSuite {
     clientCount: Int = 1,
     joinBeforeBody: Boolean = false
   ): Observation = {
-    var directory: Path                  = null
-    var server: ServerSocket             = null
-    var serverWorker: ExecutorService    = null
-    var downloadWorkers: ExecutorService = null
+    var directory: Path                    = null
+    var server: ServerSocket               = null
+    var serverWorker: ExecutorService      = null
+    var downloadWorkers: ExecutorService   = null
     var connectionWorkers: ExecutorService = null
-    val handlers = ListBuffer.empty[Future[Unit]]
-    var serving: Future[Unit]            = null
-    val stopping                         = new java.util.concurrent.atomic.AtomicBoolean(false)
-    val sockets                          = ConcurrentHashMap.newKeySet[Socket]()
-    val requests                         = ListBuffer.empty[String]
-    val logger                           = new RecordingLogger()
+    val handlers                           = ListBuffer.empty[Future[Unit]]
+    var serving: Future[Unit]              = null
+    val stopping                           = new java.util.concurrent.atomic.AtomicBoolean(false)
+    val sockets                            = ConcurrentHashMap.newKeySet[Socket]()
+    val requests                           = ListBuffer.empty[String]
+    val logger                             = new RecordingLogger()
 
     var serverExecutionContext: ExecutionContext = null
 
@@ -195,39 +200,41 @@ object DownloadResponseFramingTests extends TestSuite {
             }
           accepted.foreach { socket =>
             val handler = Future {
-            sockets.add(socket)
-            try {
-              val requestText = readRequest(socket)
-              requests.synchronized(requests += requestText)
-              val isHead = requestText.startsWith("HEAD ")
-              val index = if (isHead) 0 else requestIndex.getAndIncrement()
-              val originalReply = if (index < replies.length) replies(index) else fallbackReply
-              val reply = if (isHead) originalReply.copy(chunks = Nil, pauseAfterFirstChunk = None) else originalReply
-              val output = socket.getOutputStream
-              output.write(rawHeaders(reply))
-              output.flush()
-              if (joinBeforeBody && !isHead)
-                assert(logger.watchingOwner.await(30, TimeUnit.SECONDS))
-              reply.chunks.zipWithIndex.foreach { case (chunk, index) =>
-                output.write(chunk)
+              sockets.add(socket)
+              try {
+                val requestText = readRequest(socket)
+                requests.synchronized(requests += requestText)
+                val isHead        = requestText.startsWith("HEAD ")
+                val index         = if (isHead) 0 else requestIndex.getAndIncrement()
+                val originalReply = if (index < replies.length) replies(index) else fallbackReply
+                val reply = if (isHead)
+                  originalReply.copy(chunks = Nil, pauseAfterFirstChunk = None)
+                else originalReply
+                val output = socket.getOutputStream
+                output.write(rawHeaders(reply))
                 output.flush()
-                if (index == 0)
-                  reply.pauseAfterFirstChunk.foreach { gate =>
-                    if (!logger.awaitProgressAtLeast(gate.atLeast, 30.seconds))
-                      throw new IllegalStateException(
-                        s"Timed out waiting for download progress to reach ${gate.atLeast}"
-                      )
-                    if (!gate.release.await(30, TimeUnit.SECONDS))
-                      throw new IllegalStateException(
-                        "Timed out waiting for the test to release the response"
-                      )
-                  }
+                if (joinBeforeBody && !isHead)
+                  assert(logger.watchingOwner.await(30, TimeUnit.SECONDS))
+                reply.chunks.zipWithIndex.foreach { case (chunk, index) =>
+                  output.write(chunk)
+                  output.flush()
+                  if (index == 0)
+                    reply.pauseAfterFirstChunk.foreach { gate =>
+                      if (!logger.awaitProgressAtLeast(gate.atLeast, 30.seconds))
+                        throw new IllegalStateException(
+                          s"Timed out waiting for download progress to reach ${gate.atLeast}"
+                        )
+                      if (!gate.release.await(30, TimeUnit.SECONDS))
+                        throw new IllegalStateException(
+                          "Timed out waiting for the test to release the response"
+                        )
+                    }
+                }
               }
-            }
-            finally {
-              socket.close()
-              sockets.remove(socket)
-            }
+              finally {
+                socket.close()
+                sockets.remove(socket)
+              }
             }(connectionExecutionContext)
             handlers.synchronized(handlers += handler)
           }
@@ -248,7 +255,7 @@ object DownloadResponseFramingTests extends TestSuite {
         Files.write(temporaryFile.toPath, prefix)
       }
 
-      val downloads = List.fill(clientCount)(cache.file(Artifact(url)).run.future()(cache.ec))
+      val downloads   = List.fill(clientCount)(cache.file(Artifact(url)).run.future()(cache.ec))
       val downloading = downloads.head
       val pendingState = inspectWhilePaused.map { case (target, release) =>
         if (!logger.awaitProgressAtLeast(target, 30.seconds))
@@ -261,7 +268,8 @@ object DownloadResponseFramingTests extends TestSuite {
         state
       }
 
-      val results = downloads.map(f => Await.result(f, 30.seconds).map(file => Files.readAllBytes(file.toPath)))
+      val results =
+        downloads.map(f => Await.result(f, 30.seconds).map(file => Files.readAllBytes(file.toPath)))
       val result = results.head
 
       stopServer()
@@ -293,25 +301,24 @@ object DownloadResponseFramingTests extends TestSuite {
           Await.result(serving, 30.seconds)
       }
       finally
-        try {
+        try
           if (connectionWorkers != null) {
             connectionWorkers.shutdownNow()
             assert(connectionWorkers.awaitTermination(10, TimeUnit.SECONDS))
           }
-        }
-        finally
-        try
-          if (serverWorker != null) {
-            serverWorker.shutdownNow()
-            assert(serverWorker.awaitTermination(10, TimeUnit.SECONDS))
-          }
         finally
           try
-            if (downloadWorkers != null) {
-              downloadWorkers.shutdownNow()
-              assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+            if (serverWorker != null) {
+              serverWorker.shutdownNow()
+              assert(serverWorker.awaitTermination(10, TimeUnit.SECONDS))
             }
-          finally if (directory != null) os.remove.all(os.Path(directory))
+          finally
+            try
+              if (downloadWorkers != null) {
+                downloadWorkers.shutdownNow()
+                assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
+              }
+            finally if (directory != null) os.remove.all(os.Path(directory))
     }
   }
 
@@ -362,14 +369,14 @@ object DownloadResponseFramingTests extends TestSuite {
 
   private def gzipBytes(bytes: Array[Byte]): Array[Byte] = {
     val output = new ByteArrayOutputStream()
-    val gzip = new GZIPOutputStream(output)
+    val gzip   = new GZIPOutputStream(output)
     gzip.write(bytes)
     gzip.close()
     output.toByteArray
   }
 
   private def deflateBytes(bytes: Array[Byte]): Array[Byte] = {
-    val output = new ByteArrayOutputStream()
+    val output  = new ByteArrayOutputStream()
     val deflate = new java.util.zip.DeflaterOutputStream(output)
     deflate.write(bytes)
     deflate.close()
@@ -382,7 +389,8 @@ object DownloadResponseFramingTests extends TestSuite {
 
   val tests = Tests {
     test("valid mixed case range unit completes the artifact") {
-      val o = scenario(List(partial(Some("ByTeS 3-5/6"), Some("3"), body.drop(3))), prefix = body.take(3))
+      val o =
+        scenario(List(partial(Some("ByTeS 3-5/6"), Some("3"), body.drop(3))), prefix = body.take(3))
       successfulDownloadIs(o, body)
     }
 
@@ -399,43 +407,69 @@ object DownloadResponseFramingTests extends TestSuite {
 
     test("cut off gzip response removes temporary bytes") {
       val output = new ByteArrayOutputStream()
-      val gzip = new GZIPOutputStream(output)
+      val gzip   = new GZIPOutputStream(output)
       gzip.write(body)
       gzip.close()
       val compressed = output.toByteArray
-      val o = scenario(List(fixed(compressed.length.toString, compressed.dropRight(4), Seq("Content-Encoding" -> "gzip"))))
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed.dropRight(4),
+        Seq("Content-Encoding" -> "gzip")
+      )))
       downloadErrorIs(o, incompleteMessage(o.url, compressed.length, compressed.length - 4))
     }
 
     test("short other encoded response cannot publish partial bytes") {
-      val output = new ByteArrayOutputStream()
+      val output  = new ByteArrayOutputStream()
       val deflate = new java.util.zip.DeflaterOutputStream(output)
       deflate.write(body)
       deflate.close()
       val compressed = output.toByteArray
-      val o = scenario(List(fixed(compressed.length.toString, compressed.dropRight(2), Seq("Content-Encoding" -> "deflate"))))
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed.dropRight(2),
+        Seq("Content-Encoding" -> "deflate")
+      )))
       downloadErrorIs(o, incompleteMessage(o.url, compressed.length, compressed.length - 2))
     }
 
     test("correct mixed case gzip decodes the body") {
       val output = new ByteArrayOutputStream()
-      val gzip = new GZIPOutputStream(output)
+      val gzip   = new GZIPOutputStream(output)
       gzip.write(body)
       gzip.close()
       val compressed = output.toByteArray
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "GZip"))))
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "GZip")
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("chunked range obeys its content range without content length") {
       val wire = "3\r\ndef\r\n0\r\n\r\n".getBytes(ISO_8859_1)
-      val o = scenario(List(response("206 Partial Content", Seq("Transfer-Encoding" -> "chunked", "Content-Range" -> "bytes 3-5/6"), List(wire))), prefix = body.take(3))
+      val o = scenario(
+        List(response(
+          "206 Partial Content",
+          Seq("Transfer-Encoding" -> "chunked", "Content-Range" -> "bytes 3-5/6"),
+          List(wire)
+        )),
+        prefix = body.take(3)
+      )
       successfulDownloadIs(o, body)
     }
 
     test("short chunked range cannot publish a partial artifact") {
       val wire = "2\r\nde\r\n0\r\n\r\n".getBytes(ISO_8859_1)
-      val o = scenario(List(response("206 Partial Content", Seq("Transfer-Encoding" -> "chunked", "Content-Range" -> "bytes 3-5/6"), List(wire))), prefix = body.take(3))
+      val o = scenario(
+        List(response(
+          "206 Partial Content",
+          Seq("Transfer-Encoding" -> "chunked", "Content-Range" -> "bytes 3-5/6"),
+          List(wire)
+        )),
+        prefix = body.take(3)
+      )
       downloadErrorIs(o, incompleteMessage(o.url, 3L, 2L))
     }
 
@@ -445,17 +479,22 @@ object DownloadResponseFramingTests extends TestSuite {
     }
 
     test("correct deflate body decodes without comparing decoded and wire lengths") {
-      val output = new ByteArrayOutputStream()
+      val output  = new ByteArrayOutputStream()
       val deflate = new java.util.zip.DeflaterOutputStream(output)
       deflate.write(body)
       deflate.close()
       val compressed = output.toByteArray
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "deflate"))))
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "deflate")
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("concurrent callers never publish the same short artifact") {
-      val o = scenario(List(fixed("9", body), fixed("9", body)), clientCount = 2, joinBeforeBody = true)
+      val o =
+        scenario(List(fixed("9", body), fixed("9", body)), clientCount = 2, joinBeforeBody = true)
       assert(o.allResults.size == 2)
       assert(o.allResults.map(_.left.toOption.map(_.message)) ==
         List.fill(2)(Some(incompleteMessage(o.url, 9, 6))))
@@ -472,18 +511,24 @@ object DownloadResponseFramingTests extends TestSuite {
     }
 
     test("HEAD metadata length does not require response bytes") {
-      val server = com.sun.net.httpserver.HttpServer.create(new java.net.InetSocketAddress("127.0.0.1", 0), 0)
-      server.createContext("/artifact", exchange => {
-        assert(exchange.getRequestMethod == "HEAD")
-        exchange.getResponseHeaders.set("Content-Length", "6")
-        exchange.sendResponseHeaders(200, -1L)
-        exchange.close()
-      })
+      val server =
+        com.sun.net.httpserver.HttpServer.create(new java.net.InetSocketAddress("127.0.0.1", 0), 0)
+      server.createContext(
+        "/artifact",
+        exchange => {
+          assert(exchange.getRequestMethod == "HEAD")
+          exchange.getResponseHeaders.set("Content-Length", "6")
+          exchange.sendResponseHeaders(200, -1L)
+          exchange.close()
+        }
+      )
       server.start()
       var connection: java.net.HttpURLConnection = null
       try {
         val url = s"http://127.0.0.1:${server.getAddress.getPort}/artifact"
-        connection = ConnectionBuilder(url).withMethod("HEAD").connection().asInstanceOf[java.net.HttpURLConnection]
+        connection = ConnectionBuilder(
+          url
+        ).withMethod("HEAD").connection().asInstanceOf[java.net.HttpURLConnection]
         assert(connection.getResponseCode == 200)
         assert(connection.getContentLengthLong == 6L)
         assert(connection.getInputStream.read() == -1)
@@ -495,22 +540,49 @@ object DownloadResponseFramingTests extends TestSuite {
     }
 
     test("chunked range must consume the closing chunk before publishing") {
-      val o = scenario(List(response("206 Partial Content", Seq("Transfer-Encoding" -> "chunked",
-        "Content-Range" -> "bytes 3-5/6"), List(chunk(body.drop(3), closing = false)))), prefix = body.take(3))
+      val o = scenario(
+        List(response(
+          "206 Partial Content",
+          Seq(
+            "Transfer-Encoding" -> "chunked",
+            "Content-Range"     -> "bytes 3-5/6"
+          ),
+          List(chunk(body.drop(3), closing = false))
+        )),
+        prefix = body.take(3)
+      )
       downloadErrorIs(o, chunkedMessage(o.url, 3))
     }
 
     test("chunked range rejects data beyond its stated range") {
-      val o = scenario(List(response("206 Partial Content", Seq("Transfer-Encoding" -> "chunked",
-        "Content-Range" -> "bytes 3-5/6"), List(chunk("defXYZ".getBytes(UTF_8))))), prefix = body.take(3))
+      val o = scenario(
+        List(response(
+          "206 Partial Content",
+          Seq(
+            "Transfer-Encoding" -> "chunked",
+            "Content-Range"     -> "bytes 3-5/6"
+          ),
+          List(chunk("defXYZ".getBytes(UTF_8)))
+        )),
+        prefix = body.take(3)
+      )
       downloadErrorIs(o, s"Overlong response from ${o.url}: expected 3 bytes, received 6 bytes")
     }
 
     test("range data stays temporary until the closing chunk arrives") {
       val release = new CountDownLatch(1)
-      val reply = Reply("206 Partial Content", Seq("Transfer-Encoding" -> "chunked",
-        "Content-Range" -> "bytes 3-5/6"), List(chunk(body.drop(3), closing = false),
-        "0\r\n\r\n".getBytes(ISO_8859_1)), Some(ProgressGate(6, release)))
+      val reply = Reply(
+        "206 Partial Content",
+        Seq(
+          "Transfer-Encoding" -> "chunked",
+          "Content-Range"     -> "bytes 3-5/6"
+        ),
+        List(
+          chunk(body.drop(3), closing = false),
+          "0\r\n\r\n".getBytes(ISO_8859_1)
+        ),
+        Some(ProgressGate(6, release))
+      )
       val o = scenario(List(reply), prefix = body.take(3), inspectWhilePaused = Some((6, release)))
       val pending = o.pendingState.get
       assert(!pending.finalExists)
@@ -521,7 +593,10 @@ object DownloadResponseFramingTests extends TestSuite {
 
     test("no body status with a saved prefix is rejected and cleaned") {
       for (code <- Seq(204, 205, 304)) {
-        val o = scenario(List(response(s"$code No Body", Seq("Content-Length" -> "6"), Nil)), prefix = body.take(3))
+        val o = scenario(
+          List(response(s"$code No Body", Seq("Content-Length" -> "6"), Nil)),
+          prefix = body.take(3)
+        )
         downloadErrorIs(o, statusMessage(o.url, code))
         assert(o.requests.count(_.startsWith("GET ")) == 1)
       }
@@ -529,104 +604,175 @@ object DownloadResponseFramingTests extends TestSuite {
 
     test("unknown and empty encodings cannot publish response bytes") {
       for (encoding <- Seq("custom", "br", "gzip, custom", "")) {
-        val o = scenario(List(fixed("6", body, Seq("Content-Encoding" -> encoding))), prefix = body.take(3))
+        val o = scenario(
+          List(fixed("6", body, Seq("Content-Encoding" -> encoding))),
+          prefix = body.take(3)
+        )
         downloadErrorIs(o, unsupportedMessage(o.url, encoding))
       }
     }
 
     test("mixed case deflate is decoded") {
-      val output = new ByteArrayOutputStream()
+      val output  = new ByteArrayOutputStream()
       val deflate = new java.util.zip.DeflaterOutputStream(output)
       deflate.write(body)
       deflate.close()
       val compressed = output.toByteArray
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "DeFlAtE"))))
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "DeFlAtE")
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("chunked gzip validates the closing chunk after its trailer") {
       val compressed = gzipBytes(body)
-      val o = scenario(List(response("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "GZip"),
-        List(chunk(compressed, closing = false)))))
+      val o = scenario(List(response(
+        "200 OK",
+        Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "GZip"),
+        List(chunk(compressed, closing = false))
+      )))
       downloadErrorIs(o, chunkedMessage(o.url, compressed.length))
     }
 
     test("valid chunked gzip is decoded through the closing chunk") {
-      val o = scenario(List(response("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gZiP"),
-        List(chunk(gzipBytes(body))))))
+      val o = scenario(List(response(
+        "200 OK",
+        Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gZiP"),
+        List(chunk(gzipBytes(body)))
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("complete framing cannot hide an incomplete gzip trailer") {
       val compressed = gzipBytes(body).dropRight(4)
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "gzip"))))
-      downloadErrorIs(o, s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (java.io.EOFException)")
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "gzip")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (java.io.EOFException)"
+      )
     }
 
     test("invalid gzip header removes a saved temporary prefix") {
-      val o = scenario(List(fixed("6", body, Seq("Content-Encoding" -> "gzip"))), prefix = body.take(3))
-      downloadErrorIs(o, s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received 2 response bytes (Not in GZIP format)")
+      val o =
+        scenario(List(fixed("6", body, Seq("Content-Encoding" -> "gzip"))), prefix = body.take(3))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received 2 response bytes (Not in GZIP format)"
+      )
     }
 
     test("encoded resume cannot append decoded bytes to an earlier representation") {
       val compressed = gzipBytes(body.drop(3))
-      val o = scenario(List(response("206 Partial Content", Seq("Content-Length" -> compressed.length.toString,
-        "Content-Range" -> s"bytes 3-${compressed.length + 2}/${compressed.length + 3}", "Content-Encoding" -> "gzip"),
-        List(compressed))), prefix = body.take(3))
-      downloadErrorIs(o, s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received 'gzip'")
+      val o = scenario(
+        List(response(
+          "206 Partial Content",
+          Seq(
+            "Content-Length"   -> compressed.length.toString,
+            "Content-Range"    -> s"bytes 3-${compressed.length + 2}/${compressed.length + 3}",
+            "Content-Encoding" -> "gzip"
+          ),
+          List(compressed)
+        )),
+        prefix = body.take(3)
+      )
+      downloadErrorIs(
+        o,
+        s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received 'gzip'"
+      )
     }
 
     test("gzip decoder completion still checks the declared response length") {
       val compressed = gzipBytes(body)
-      val o = scenario(List(fixed((compressed.length + 5).toString, compressed, Seq("Content-Encoding" -> "gzip"))))
+      val o = scenario(List(fixed(
+        (compressed.length + 5).toString,
+        compressed,
+        Seq("Content-Encoding" -> "gzip")
+      )))
       downloadErrorIs(o, incompleteMessage(o.url, compressed.length + 5, compressed.length))
     }
 
     test("deflate decoder completion still checks the declared response length") {
       val compressed = deflateBytes(body)
-      val o = scenario(List(fixed((compressed.length + 5).toString, compressed, Seq("Content-Encoding" -> "deflate"))))
+      val o = scenario(List(fixed(
+        (compressed.length + 5).toString,
+        compressed,
+        Seq("Content-Encoding" -> "deflate")
+      )))
       downloadErrorIs(o, incompleteMessage(o.url, compressed.length + 5, compressed.length))
     }
 
     test("chunked deflate validates the closing chunk after decoding") {
       val compressed = deflateBytes(body)
-      val o = scenario(List(response("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "deflate"),
-        List(chunk(compressed, closing = false)))))
+      val o = scenario(List(response(
+        "200 OK",
+        Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "deflate"),
+        List(chunk(compressed, closing = false))
+      )))
       downloadErrorIs(o, chunkedMessage(o.url, compressed.length))
     }
 
     test("valid chunked deflate is decoded through the closing chunk") {
-      val o = scenario(List(response("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "deflate"),
-        List(chunk(deflateBytes(body))))))
+      val o = scenario(List(response(
+        "200 OK",
+        Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "deflate"),
+        List(chunk(deflateBytes(body)))
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("mixed case stacked content codings decode in reverse order") {
       val compressed = deflateBytes(gzipBytes(body))
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "GZip, DeFlAtE"))))
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "GZip, DeFlAtE")
+      )))
       successfulDownloadIs(o, body)
     }
 
     test("corrupt gzip trailer cannot publish decoded data") {
       val compressed = gzipBytes(body)
       compressed(compressed.length - 1) = 0xff.toByte
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "gzip"))))
-      downloadErrorIs(o, s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (Corrupt GZIP trailer)")
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "gzip")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (Corrupt GZIP trailer)"
+      )
     }
 
     test("corrupt deflate checksum cannot publish decoded data") {
       val compressed = deflateBytes(body)
       compressed(compressed.length - 1) = (compressed.last ^ 0xff).toByte
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "deflate"))))
-      downloadErrorIs(o, s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (incorrect data check)")
+      val o = scenario(List(fixed(
+        compressed.length.toString,
+        compressed,
+        Seq("Content-Encoding" -> "deflate")
+      )))
+      downloadErrorIs(
+        o,
+        s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (incorrect data check)"
+      )
     }
 
     test("gzip members in separate chunks all decode before publication") {
       val release = new CountDownLatch(1)
-      val reply = Reply("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gzip"),
+      val reply = Reply(
+        "200 OK",
+        Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gzip"),
         List(chunk(gzipBytes(body.take(3)), closing = false), chunk(gzipBytes(body.drop(3)))),
-        Some(ProgressGate(3, release)))
-      val o = scenario(List(reply), inspectWhilePaused = Some((3, release)))
+        Some(ProgressGate(3, release))
+      )
+      val o       = scenario(List(reply), inspectWhilePaused = Some((3, release)))
       val pending = o.pendingState.get
       assert(!pending.finalExists)
       assert(pending.temporaryExists)
@@ -636,7 +782,10 @@ object DownloadResponseFramingTests extends TestSuite {
 
     test("empty encoded body with one byte buffer still validates its trailer") {
       val compressed = gzipBytes(Array.emptyByteArray)
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "GZIP"))), cap = 1)
+      val o = scenario(
+        List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "GZIP"))),
+        cap = 1
+      )
       successfulDownloadIs(o, Array.emptyByteArray)
     }
   }

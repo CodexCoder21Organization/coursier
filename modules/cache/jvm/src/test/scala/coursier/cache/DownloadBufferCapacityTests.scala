@@ -269,12 +269,13 @@ object DownloadBufferCapacityTests extends TestSuite {
 
     test("deflate content encoding retains the default maximum") {
       val expectedBody = Array[Byte](11, 22, 33)
-      val encoded = new ByteArrayOutputStream()
-      val deflate = new java.util.zip.DeflaterOutputStream(encoded)
+      val encoded      = new ByteArrayOutputStream()
+      val deflate      = new java.util.zip.DeflaterOutputStream(encoded)
       deflate.write(expectedBody)
       deflate.close()
       val compressed = encoded.toByteArray
-      val observation = downloadScenario(compressed, Some(compressed.length.toLong), Some("deflate"), None)
+      val observation =
+        downloadScenario(compressed, Some(compressed.length.toLong), Some("deflate"), None)
       assertScenario(observation, expectedBody, compressed.length.toLong, CacheDefaults.bufferSize)
       assert(observation.reads.exists(_.arrayLength == CacheDefaults.bufferSize))
     }

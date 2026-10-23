@@ -208,7 +208,7 @@ import scala.util.control.NonFatal
       val alreadyDownloaded = tmp.length()
 
       var conn: URLConnection = null
-      var completed = false
+      var completed           = false
 
       val authenticationOpt =
         artifact.authentication match {
@@ -269,7 +269,11 @@ import scala.util.control.NonFatal
           val contentEncoding = Option(conn.getContentEncoding)
           val encodings = contentEncoding.toList.flatMap(_.split(",", -1))
             .map(_.trim.toLowerCase(Locale.ROOT))
-          if (encodings.exists(coding => coding != "identity" && coding != "gzip" && coding != "deflate"))
+          if (
+            encodings.exists(coding =>
+              coding != "identity" && coding != "gzip" && coding != "deflate"
+            )
+          )
             throw new ArtifactError.DownloadError(
               s"Unsupported Content-Encoding '${contentEncoding.get}' from $url: expected identity, gzip, or deflate",
               None
@@ -393,14 +397,13 @@ import scala.util.control.NonFatal
         case error: ArtifactError.DownloadError => Left(error)
       }
       finally
-        try {
+        try
           if (conn != null)
             CacheUrl.closeConn(conn)
-        }
         finally if (!completed)
-          CacheLocks.withStructureLock(location) {
-            Files.deleteIfExists(tmp.toPath)
-          }
+            CacheLocks.withStructureLock(location) {
+              Files.deleteIfExists(tmp.toPath)
+            }
     }
 
     def checkDownload(
@@ -867,7 +870,7 @@ object Downloader {
     chunked: Boolean
   ) extends InputStream {
     private var count0 = 0L
-    private var ended = false
+    private var ended  = false
     private val single = new Array[Byte](1)
 
     def count: Long = count0
