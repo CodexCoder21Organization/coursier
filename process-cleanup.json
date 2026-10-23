@@ -1,0 +1,9 @@
+{
+  "liveOwned": [],
+  "ownedZombies": [],
+  "matchingUnrecordedPids": [],
+  "ownedPidCount": 155,
+  "psCheckRan": true,
+  "rawProcessOutputSaved": false,
+  "memoryEvents": "low 0\nhigh 0\nmax 801768\noom 8\noom_kill 2\noom_group_kill 0\n"
+}

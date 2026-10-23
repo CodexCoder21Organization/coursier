@@ -3,13 +3,13 @@
 ## Plan
 - [x] Fresh clone; branch from current main; compare merged response-buffer change and read prior evidence.
 - [x] Import real-loopback reproductions and add applicable gap cases; measure single-attempt baseline.
-- [ ] Fix framing checks, bounded copy and temporary-file cleanup; confirm all new cases pass 30/30.
-- [ ] Run existing cache-module tests, review tests and code, rebase, push product branch and open PR.
-- [ ] Audit attempts, scan/push evidence and verify remote SHAs; verify process cleanup.
+- [x] Fix framing checks, bounded copy and temporary-file cleanup; all new cases pass 30/30.
+- [x] Run existing cache-module tests, review tests and code, rebase, push product branch and open PR.
+- [x] Audit attempts, scan/push evidence and verify remote SHAs; verify process cleanup.
 
 ## Reading
 - Repository README.md and DEVELOP.md; no AGENTS.md exists.
-- DocumentationRepository PHILOSOPHY.md and architecture/TESTING.md (reading in progress).
+- DocumentationRepository PHILOSOPHY.md and architecture/TESTING.md (read in full).
 - RCOURS evidence at b8928faa: findings.md (the requested RCOURS-findings.md is actually named findings.md), RcoursResponseTests.scala, RcoursPausedResponseTests.scala, RcoursFragmentedLengthTests.scala, utest-retry-audit.md and run-command.py.
 
 ## Progress
@@ -44,8 +44,8 @@ Plan (2026-10-23):
 - [x] Fresh recursive clone into FCOURS3-coursier-20261020; recover cf396aba and rebase onto origin/main; read prior evidence and required documents.
 - [x] Confirm buffer-boundary failures in one attempt each; add guard and preserve the existing empty-body read assertion without editing it.
 - [x] Run final expanded 57-case register 30 times, auditing attempts, and the complete cache module with single attempts.
-- [ ] Independently review tests and product diff, rebase, verify, push product branch, and open the requested PR.
-- [ ] Scan and push evidence, verify remote SHAs, and audit process cleanup.
+- [x] Independently review tests and product diff, rebase, verify, push product branch, and open the requested PR.
+- [x] Scan and push evidence, verify remote SHAs, and audit process cleanup.
 
 2026-10-23T01:06:43.145166+00:00 — OBSERVED: Fresh clone switched to fix/FCOURS2-download-length-integrity from origin/wip/FCOURS2-download-length-integrity-20261022 at cf396abac and rebased without changes onto origin/main f7ac8c67dbe757d9129cfa453a37f2867bd1272d. OBSERVED: https://github.com/CodexCoder21Organization/coursier/pull/6 is MERGED at main's current commit; no PR exists for the requested new branch. OBSERVED: Read README.md, DEVELOP.md, complete PHILOSOPHY.md and TESTING.md, and recovered FCOURS2 findings, baseline audits and retry audit; RCOURS findings are named findings.md, not RCOURS-findings.md. OBSERVED: The full FCOURS3 brief contains a Continuation addendum dated 2026-10-22 22:30 UTC, read in full; no heading beginning exactly “## Addendum” exists. INFER: Main covers buffer capacity only; bounded reads, early EOF rejection and invalid range rejection remain required. INFER: The buffer-boundary failure mechanism is allocation with a non-positive configured size, and its reproducer is the two committed public FileCache cases; next checkpoint is a fresh single-attempt failing run and then the minimal guard.
 
@@ -62,3 +62,17 @@ Plan (2026-10-23):
 2026-10-23T01:18:51.975723+00:00 — OBSERVED: Final module attempt audit confirms149 XML cases,149 exact terminal log entries and149 first attempts, with zero retries/errors/failures/skips; the one terminal line interleaved with a test's stdout is matched by its exact case-name-and-duration suffix. OBSERVED: Both new review scenarios are proven to fail on main with the fix removed; the independent review verifies their bytes match final source exactly. OBSERVED: The product tree is clean, with only README, two production files, one new test suite and one added standalone scenario in the existing buffer suite changed relative to main. INFER: The final thirty-run controller is progressing without failures; next checkpoint is the final aggregate and requested PR creation.
 
 2026-10-23T01:21:07.770734+00:00 — OBSERVED: Prior module/review evidence local and remote both 7ff5a1aaaf4d7a17a63b3c86859387f6bc3174f1. OBSERVED: Final register on unchanged product 7ab7bfffb49123f9f73c45791e41b6c1ae056e7a passes 1710/1710 first attempts across 30 separate invocations, each of 43 integrity plus 14 capacity scenarios passing 30/30, with zero retries, errors, failures or skips. OBSERVED: Each invocation has 57 unique XML cases and one terminal execution line per case, and the source hash and product HEAD match across all invocations. OBSERVED: No pending additional review finding remains; code review and independent test review are complete. INFER: All five RCOURS coverage groups are addressed, and next checkpoint is the last cache-module run immediately after the mandatory pre-PR rebase, then PR creation and final cleanup.
+
+2026-10-23T01:24:04.672193+00:00 — OBSERVED: Gate evidence local and remote both 9fed20ce757114ecfa45abaf15d54ab0f00a5811. OBSERVED: Mandatory pre-PR rebase left product HEAD unchanged at 7ab7bfffb49123f9f73c45791e41b6c1ae056e7a; the complete cache module then passes 149/149 with 149 first attempts, zero retries/errors/skips, and one XML case plus one exact terminal log entry per case. OBSERVED: https://github.com/CodexCoder21Organization/coursier/pull/7 is OPEN on that HEAD targeting main; its required opening sentence and final Claude Code attribution were verified from the actual GitHub description. OBSERVED: kotlin.build (remote) is COMPLETED/SUCCESS; no informational check was awaited. OBSERVED: The required ps/grep cleanup audit reports 155 recorded process identities, zero live owned processes, zero owned zombies and zero unrecorded matching processes; no raw process command lines were saved. OBSERVED: memory.events oom_kill remains 2 and no lane test command exited 137. INFER: All requested implementation and verification work is complete; the final checkpoint is the evidence scan/push, remote equality check, and one final cleanup confirmation.
+
+## Final brief audit
+
+- DONE: Recover and rebase the continuation onto current main; main's f7ac8c67 contains the merged response buffer cap only and does not supersede the length checks, proven by 33 failures / 24 passes / 57 first attempts with final tests and unchanged main production.
+- DONE: Bring forward RCOURS immediate EOF, held EOF and progress-gated over-read reproductions, plus all five listed coverage groups. Both additional review tests fail at the intended assertions on main.
+- DONE: Reject short downloads before publication, remove their temporary files, bound every read, validate resumed framing and return descriptive errors without a new attempt. Final register: 57 cases x 30 invocations = 1710/1710 first attempts, zero retries/errors/failures/skips.
+- DONE: Preserve existing cache behavior, proven by the final complete cache module 149/149 (149 first attempts, zero retries). The prior 147-case gate also passed before adding the two review scenarios.
+- DONE: Keep existing test assertions, waits and iteration counts unchanged. The only insertion into an existing test file adds one standalone 8-line zero-read scenario, changing the suite from 13 to 14 cases. No preexisting scenario was edited or replaced; DownloadLengthIntegrityTests is a new 43-case suite.
+- DONE: Independent test review and separate code review completed, with both coverage findings addressed before final gates and no remaining finding.
+- DONE: Open the requested PR with the exact motivation and attribution, verify it OPEN with the required remote check green, and leave it unmerged. No artifact was published, no deployment or handoff command run, no check re-requested, and no remote run submitted manually.
+- DONE: Evidence is checkpointed on wip/FCOURS2-evidence-20261022 after the requested scan; product branch fix/FCOURS2-download-length-integrity matches its remote at 7ab7bfffb49123f9f73c45791e41b6c1ae056e7a. Final equality proof is printed with the final push.
+- DONE: No unfinished brief item remains. The complete-repository suite was not run, per the brief's module-only gate; CI confirms the required remote check. Process cleanup is confirmed with numeric identities and the required live ps/grep check.
