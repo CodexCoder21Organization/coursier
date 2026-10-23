@@ -13,3 +13,21 @@
 2026-10-23T08:15:53.164283+00:00 — OBSERVED: Packaging-command checkpoint push verified local and remote HEAD both 7ea25ad22dd76a23cc9d0f962eb17b06d916ae17. INFER: Next checkpoint remains completed build and proof before the seven uploads.
 
 2026-10-23T08:16:54.688715+00:00 — OBSERVED: The only build invocation returned exit 0; all 21 packaging outputs from unchanged source 3788263a were staged with SHA-256 values in local-artifacts.json. OBSERVED: POM coordinates and every dependency among the seven selected modules use buffer5. OBSERVED: All 179 cache class entries equal their raw local compiled classes; Downloader.class, Downloader$.class, CacheUrl.class and CacheUrl$.class differ from buffer4; ResponseInputStream and DecodingInputStream classes are new. OBSERVED: Both packaged Scala sources equal git source bytes from 3788263a; incomplete/overlong/framing message markers exist in ResponseInputStream. OBSERVED: cgroup oom_kill remains 2; no test or consumer was edited. INFER: Next checkpoint is immediate absence checks, exactly seven publisher invocations and 21 downloaded matches.
+
+2026-10-23T08:17:09.438705+00:00 — OBSERVED: Completed-build checkpoint push verified local and remote HEAD both b628868142667d01c557d11b85d2796a62165b2d. INFER: Next checkpoint is seven verified publications, each guarded by fresh absence checks.
+
+2026-10-23T08:17:34.391998+00:00 — OBSERVED: Published io.get-coursier:cache-util:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:17:46.976717+00:00 — OBSERVED: Published io.get-coursier:coursier-paths:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:18:00.011983+00:00 — OBSERVED: Published io.get-coursier:coursier-util_2.13:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:18:13.297238+00:00 — OBSERVED: Published io.get-coursier:coursier-core_2.13:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:18:24.988383+00:00 — OBSERVED: Published io.get-coursier:coursier-cache_2.13:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:18:36.179278+00:00 — OBSERVED: Published io.get-coursier:coursier-proxy-setup:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:18:47.891394+00:00 — OBSERVED: Published io.get-coursier:coursier_2.13:2.1.31-buffer5 once with exit 0 after immediate directory/binary/POM/source 404 checks and metadata absence. OBSERVED: All three downloaded SHA-256 values equal the local build. INFER: Next checkpoint is the remaining module uploads or final class proof.
+
+2026-10-23T08:20:20.511832+00:00 — OBSERVED: Seven publisher invocations returned exit 0 without retries; all 21 downloaded binary/POM/source files match their local hashes. OBSERVED: All 179 downloaded cache classes equal local compiled and staged classes; four existing class hashes differ from buffer4 and two framing classes are newly present. OBSERVED: Independent audit passed all seven coordinates, 28 immediate HTTP 404 checks, seven immediate metadata absence checks and 21 actual file comparisons. INFER: Next checkpoint is the publication evidence push followed by final process cleanup.

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "version": "2.1.31-buffer5",
+  "modules": 7,
+  "publisherInvocations": 7,
+  "publisherRetries": 0,
+  "filesVerified": 21,
+  "filesMismatched": 0,
+  "immediate404Checks": 28,
+  "metadataAbsenceChecks": 7,
+  "compiledCacheClassMatches": 179,
+  "existingClassDifferencesFromBuffer4": 4,
+  "newFramingClasses": 2
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "module": "cache-util",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/cache-util/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:32.271027+00:00",
+    "versions": [
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  },
+  {
+    "module": "coursier-paths",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-paths/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:32.719726+00:00",
+    "versions": [
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  },
+  {
+    "module": "coursier-util_2.13",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:33.004176+00:00",
+    "versions": [
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  },
+  {
+    "module": "coursier-core_2.13",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:33.349522+00:00",
+    "versions": [
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  },
+  {
+    "module": "coursier-cache_2.13",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:33.615180+00:00",
+    "versions": [
+      "2.1.31-buffer1",
+      "2.1.31-buffer2",
+      "2.1.31-buffer3",
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  },
+  {
+    "module": "coursier-proxy-setup",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:33.807984+00:00",
+    "versions": [
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  },
+  {
+    "module": "coursier_2.13",
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier_2.13/maven-metadata.xml",
+    "checkedAtUtc": "2026-10-23T08:19:34.087636+00:00",
+    "versions": [
+      "2.1.31-buffer4",
+      "2.1.31-buffer5"
+    ]
+  }
+]

@@ -1,0 +1,163 @@
+{
+  "cache-util": {
+    "checkedAtUtc": "2026-10-23T08:17:10.907631+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer5/cache-util-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer5/cache-util-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer5/cache-util-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/cache-util/maven-metadata.xml"
+  },
+  "coursier-paths": {
+    "checkedAtUtc": "2026-10-23T08:17:12.927202+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer5/coursier-paths-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer5/coursier-paths-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer5/coursier-paths-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-paths/maven-metadata.xml"
+  },
+  "coursier-util_2.13": {
+    "checkedAtUtc": "2026-10-23T08:17:14.151949+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer5/coursier-util_2.13-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer5/coursier-util_2.13-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer5/coursier-util_2.13-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/maven-metadata.xml"
+  },
+  "coursier-core_2.13": {
+    "checkedAtUtc": "2026-10-23T08:17:15.563063+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer5/coursier-core_2.13-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer5/coursier-core_2.13-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer5/coursier-core_2.13-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/maven-metadata.xml"
+  },
+  "coursier-cache_2.13": {
+    "checkedAtUtc": "2026-10-23T08:17:17.053574+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer5/coursier-cache_2.13-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer5/coursier-cache_2.13-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer5/coursier-cache_2.13-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/maven-metadata.xml"
+  },
+  "coursier-proxy-setup": {
+    "checkedAtUtc": "2026-10-23T08:17:18.129152+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer5/coursier-proxy-setup-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer5/coursier-proxy-setup-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer5/coursier-proxy-setup-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/maven-metadata.xml"
+  },
+  "coursier_2.13": {
+    "checkedAtUtc": "2026-10-23T08:17:19.510884+00:00",
+    "checks": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer5/",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer5/coursier_2.13-2.1.31-buffer5-sources.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer5/coursier_2.13-2.1.31-buffer5.jar",
+        "status": 404
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer5/coursier_2.13-2.1.31-buffer5.pom",
+        "status": 404
+      }
+    ],
+    "metadataHasVersion": false,
+    "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier_2.13/maven-metadata.xml"
+  }
+}
