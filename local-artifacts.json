@@ -1,0 +1,170 @@
+[
+  {
+    "coordinate": "io.get-coursier:cache-util:2.1.31-buffer5",
+    "file": "cache-util-2.1.31-buffer5.jar",
+    "millTask": "cache-util.jar",
+    "buildOutput": "out/cache-util/jar.dest/out.jar",
+    "size": 1899,
+    "sha256": "1092b1b287a0077fb505dad41555c47a1016a4c8eb0f0a50c601a719f51b931b"
+  },
+  {
+    "coordinate": "io.get-coursier:cache-util:2.1.31-buffer5",
+    "file": "cache-util-2.1.31-buffer5.pom",
+    "millTask": "cache-util.pom",
+    "buildOutput": "out/cache-util/pom.dest/cache-util-2.1.31-buffer5.pom",
+    "size": 1287,
+    "sha256": "5c50156a082c860e98285151d72475077ab2e6c18ea61e6aa8766758c9d77f59"
+  },
+  {
+    "coordinate": "io.get-coursier:cache-util:2.1.31-buffer5",
+    "file": "cache-util-2.1.31-buffer5-sources.jar",
+    "millTask": "cache-util.sourceJar",
+    "buildOutput": "out/cache-util/sourceJar.dest/out.jar",
+    "size": 1499,
+    "sha256": "25abdac51bbd8c442da1d531251063f940aaa0308f142a5140039a61df45b328"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-paths:2.1.31-buffer5",
+    "file": "coursier-paths-2.1.31-buffer5.jar",
+    "millTask": "paths.jar",
+    "buildOutput": "out/paths/jar.dest/out-shaded.jar",
+    "size": 47396,
+    "sha256": "6ca3ed0756e19ad72e14dcdebe6b5a7706d20cf524115ea535b59e844061e776"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-paths:2.1.31-buffer5",
+    "file": "coursier-paths-2.1.31-buffer5.pom",
+    "millTask": "paths.pom",
+    "buildOutput": "out/paths/pom.dest/coursier-paths-2.1.31-buffer5.pom",
+    "size": 1680,
+    "sha256": "bd3855d5eabb38f83fc31916393cecda9db884a97a78bba2329634ca4edb0587"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-paths:2.1.31-buffer5",
+    "file": "coursier-paths-2.1.31-buffer5-sources.jar",
+    "millTask": "paths.sourceJar",
+    "buildOutput": "out/paths/sourceJar.dest/out.jar",
+    "size": 11691,
+    "sha256": "1c85102838fa13ea46088822e854cf677ef8485de07a4f30033182f988c443ef"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-util_2.13:2.1.31-buffer5",
+    "file": "coursier-util_2.13-2.1.31-buffer5.jar",
+    "millTask": "util.jvm.2.13.16.jar",
+    "buildOutput": "out/util/jvm/2.13.16/jar.dest/out-shaded.jar",
+    "size": 600753,
+    "sha256": "9bc8e42c08a5a313dfbb8a676996927840cce7645b88a781518080a4686567c9"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-util_2.13:2.1.31-buffer5",
+    "file": "coursier-util_2.13-2.1.31-buffer5.pom",
+    "millTask": "util.jvm.2.13.16.pom",
+    "buildOutput": "out/util/jvm/2.13.16/pom.dest/coursier-util_2.13-2.1.31-buffer5.pom",
+    "size": 1916,
+    "sha256": "1e4055c12afeb506dcaeb712979833f857605d8919e4bba0c9d2aa7dfed8b69f"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-util_2.13:2.1.31-buffer5",
+    "file": "coursier-util_2.13-2.1.31-buffer5-sources.jar",
+    "millTask": "util.jvm.2.13.16.sourceJar",
+    "buildOutput": "out/util/jvm/2.13.16/sourceJar.dest/out.jar",
+    "size": 11179,
+    "sha256": "d49e6b2b65853cca2abedffa158cdaa8bec58830d8c8d83eefa86c5d0bb1a7a6"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-core_2.13:2.1.31-buffer5",
+    "file": "coursier-core_2.13-2.1.31-buffer5.jar",
+    "millTask": "core.jvm.2.13.16.jar",
+    "buildOutput": "out/core/jvm/2.13.16/jar.dest/out-shaded.jar",
+    "size": 1812810,
+    "sha256": "c0a2d1e2a4a37f38477856ea683c046de3357b203e876bcf2824f3f90547c5b6"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-core_2.13:2.1.31-buffer5",
+    "file": "coursier-core_2.13-2.1.31-buffer5.pom",
+    "millTask": "core.jvm.2.13.16.pom",
+    "buildOutput": "out/core/jvm/2.13.16/pom.dest/coursier-core_2.13-2.1.31-buffer5.pom",
+    "size": 2725,
+    "sha256": "657f097dd385d1ee2929a3d1a49e0a0cc236aa4babdd63291c683415ca2bee9e"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-core_2.13:2.1.31-buffer5",
+    "file": "coursier-core_2.13-2.1.31-buffer5-sources.jar",
+    "millTask": "core.jvm.2.13.16.sourceJar",
+    "buildOutput": "out/core/jvm/2.13.16/sourceJar.dest/out.jar",
+    "size": 109222,
+    "sha256": "4874ff4238c2bed9e84854abdddbfe2078c15bf6050fd849a72bfdb79442e7d4"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-cache_2.13:2.1.31-buffer5",
+    "file": "coursier-cache_2.13-2.1.31-buffer5.jar",
+    "millTask": "cache.jvm.2.13.16.jar",
+    "buildOutput": "out/cache/jvm/2.13.16/jar.dest/out.jar",
+    "size": 466058,
+    "sha256": "cdad657fecc7bea36dd1303a4ba8167cef28b8873758802a65a3c2772b20ed5c"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-cache_2.13:2.1.31-buffer5",
+    "file": "coursier-cache_2.13-2.1.31-buffer5.pom",
+    "millTask": "cache.jvm.2.13.16.pom",
+    "buildOutput": "out/cache/jvm/2.13.16/pom.dest/coursier-cache_2.13-2.1.31-buffer5.pom",
+    "size": 3591,
+    "sha256": "99025a8b0b487474c56f3dfa7e3c51728cdb925b736f3a3ff6b1df785999fb58"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-cache_2.13:2.1.31-buffer5",
+    "file": "coursier-cache_2.13-2.1.31-buffer5-sources.jar",
+    "millTask": "cache.jvm.2.13.16.sourceJar",
+    "buildOutput": "out/cache/jvm/2.13.16/sourceJar.dest/out.jar",
+    "size": 60940,
+    "sha256": "5010bba5d796e9fff5759dc367e3854ffb1fe3d111fbc7ffa67ea128be0a2bd1"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-proxy-setup:2.1.31-buffer5",
+    "file": "coursier-proxy-setup-2.1.31-buffer5.jar",
+    "millTask": "proxy-setup.jar",
+    "buildOutput": "out/proxy-setup/jar.dest/out.jar",
+    "size": 6863,
+    "sha256": "9fd14c4ba99b2a3a2fdb6adc58e6e6c29212c9dd79a06bbbd5f9255f47b9ff62"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-proxy-setup:2.1.31-buffer5",
+    "file": "coursier-proxy-setup-2.1.31-buffer5.pom",
+    "millTask": "proxy-setup.pom",
+    "buildOutput": "out/proxy-setup/pom.dest/coursier-proxy-setup-2.1.31-buffer5.pom",
+    "size": 1317,
+    "sha256": "f1b69d477702043f80724513c942464f6bd4e50f056ac74cbe9a60e16645a50c"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-proxy-setup:2.1.31-buffer5",
+    "file": "coursier-proxy-setup-2.1.31-buffer5-sources.jar",
+    "millTask": "proxy-setup.sourceJar",
+    "buildOutput": "out/proxy-setup/sourceJar.dest/out.jar",
+    "size": 3506,
+    "sha256": "9c820b7617c6416248e4775c2ed8a0a64e604aac1d303f47d8249a1957096b3a"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier_2.13:2.1.31-buffer5",
+    "file": "coursier_2.13-2.1.31-buffer5.jar",
+    "millTask": "coursier.jvm.2.13.16.jar",
+    "buildOutput": "out/coursier/jvm/2.13.16/jar.dest/out-shaded.jar",
+    "size": 1158779,
+    "sha256": "77192fb41b8c9db1118bf1baa9aba64384a676bcd4620843caaae048464ffcee"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier_2.13:2.1.31-buffer5",
+    "file": "coursier_2.13-2.1.31-buffer5.pom",
+    "millTask": "coursier.jvm.2.13.16.pom",
+    "buildOutput": "out/coursier/jvm/2.13.16/pom.dest/coursier_2.13-2.1.31-buffer5.pom",
+    "size": 3136,
+    "sha256": "d91134328ff29e378e91156197070f79f78dc5fc3723ae51da0f5e423de35bdd"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier_2.13:2.1.31-buffer5",
+    "file": "coursier_2.13-2.1.31-buffer5-sources.jar",
+    "millTask": "coursier.jvm.2.13.16.sourceJar",
+    "buildOutput": "out/coursier/jvm/2.13.16/sourceJar.dest/out.jar",
+    "size": 59242,
+    "sha256": "02e667d01b09b15dca2fdee0bfd210f48d7bb836ddc92acb6568f072fbeb79b1"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "source": "3788263afb4b8977cfd5ebc2a557de566e0c801c",
+  "originMain": "3788263afb4b8977cfd5ebc2a557de566e0c801c",
+  "sourceTree": "701d35bf0779282ec0c5a5e03f8c35ff6706763b",
+  "localTag": "3788263afb4b8977cfd5ebc2a557de566e0c801c",
+  "sourceStatus": "",
+  "buildInvocations": 1,
+  "buildRetries": 0,
+  "buildExitCode": 0,
+  "packagingTargets": 21,
+  "stagedFileCount": 21,
+  "compiledCacheClassesVerified": 179,
+  "existingChangedClasses": 4,
+  "newFramingClasses": 2,
+  "testsRun": 0,
+  "testRetries": 0,
+  "existingTestEdits": [],
+  "reasonNoTests": "The publication brief names no targeted test gate and prohibits unnamed/full-suite runs.",
+  "cgroupOomKillAfterBuild": 2
+}
