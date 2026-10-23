@@ -803,9 +803,14 @@ object DownloadResponseFramingTests extends TestSuite {
 
     test("encoded download output error is not reported as a coding error") {
       val compressed = gzipBytes(body)
-      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "gzip"))),
-        temporaryDirectory = true)
-      downloadErrorIs(o, s"Caught java.nio.file.FileSystemException (${o.temporaryPath}: Is a directory) while downloading ${o.url}")
+      val o = scenario(
+        List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "gzip"))),
+        temporaryDirectory = true
+      )
+      downloadErrorIs(
+        o,
+        s"Caught java.nio.file.FileSystemException (${o.temporaryPath}: Is a directory) while downloading ${o.url}"
+      )
     }
   }
 }

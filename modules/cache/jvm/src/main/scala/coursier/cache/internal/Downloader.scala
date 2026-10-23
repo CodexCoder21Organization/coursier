@@ -322,15 +322,15 @@ import scala.util.control.NonFatal
               for (encoding <- encodings.reverse)
                 in = Downloader.withDecodingError(contentEncoding.get, url, response) {
                   encoding match {
-                  case "gzip" => new GZIPInputStream(in, downloadBufferSize)
-                  case "deflate" =>
-                    new InflaterInputStream(in, new Inflater(), downloadBufferSize) {
-                      // InflaterInputStream does not end an explicitly supplied inflater.
-                      override def close(): Unit =
-                        try super.close()
-                        finally inf.end()
-                    }
-                  case _ => in // identity was validated above
+                    case "gzip" => new GZIPInputStream(in, downloadBufferSize)
+                    case "deflate" =>
+                      new InflaterInputStream(in, new Inflater(), downloadBufferSize) {
+                        // InflaterInputStream does not end an explicitly supplied inflater.
+                        override def close(): Unit =
+                          try super.close()
+                          finally inf.end()
+                      }
+                    case _ => in // identity was validated above
                   }
                 }
               if (!uncompressed)
