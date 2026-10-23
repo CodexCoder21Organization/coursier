@@ -1,0 +1,212 @@
+=============== cache.jvm[2.13.16].test.testOnly coursier.cache.Rcours3ReviewTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS3-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.empty content encoding means an unencoded body [2m519ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:46057/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding '' from http://127.0.0.1:46057/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:46057[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:46057/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactE[24mrr[4mor$Downlo[24ma[4mdError: download [24me[4mrror:[24m [4mUnsupported[24m [4mContent-Encoding ''[24m [4mfrom http://[24m1[4m27.[24m0[4m.0.1:46[24m0[4m57/artifact: expected identity[24m, [4mgzip[24m, [4mor deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97,[24m [4m98,[24m [4m99,[24m 100, [4m101[24m, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91mbytesAre[39m([91mRcours3ReviewTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91msuccessfulDownloadIs[39m([91mRcours3ReviewTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$2[39m([91mRcours3ReviewTests.scala[39m:[91m407[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.empty list elements do not change identity encoding [2m53ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:36189/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding ', identity, ,' from http://127.0.0.1:36189/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:36189[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:36189/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]       [33mLeft[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = [4mcoursier.cache.[24mA[4mrtifactError$DownloadEr[24mr[4mo[24mr[4m: downlo[24ma[4md [24me[4mrror: Unsupported Content-Encoding '[24m, [4midentity[24m, ,[4m'[24m [4mfrom http://[24m1[4m27.[24m0[4m.[24m0[4m.1:36189/artifact: expected identity[24m, [4mgzip[24m, [4mor deflate[49m[24m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = Arra[4myS[24me[4mq(97[24m, [4m98[24m, [4m99[24m, 100, [4m101[24m, [4m102)[24m)[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91mbytesAre[39m([91mRcours3ReviewTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91msuccessfulDownloadIs[39m([91mRcours3ReviewTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$3[39m([91mRcours3ReviewTests.scala[39m:[91m412[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.repeated content encoding fields decode all listed layers [2m72ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:40603/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m75[39m,
+[306]         [32m76[39m,
+[306]         [32m74[39m,
+[306]         [32m78[39m,
+[306]         [32m73[39m,
+[306]         [32m77[39m,
+[306]         [32m3[39m,
+[306]         [32m0[39m,
+[306]         [32m-17[39m,
+[306]         [32m57[39m,
+[306]         [32m-114[39m,
+[306]         [32m75[39m,
+[306]         [32m6[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mArray[39m[[32mByte[39m] = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)
+[306]   [36mobservation.result.map(_.toSeq) != Right(expected.toSeq)[39m:
+[306]   [41m- Right([49m
+[306]   [41m- [4m  [24mvalue = ArraySeq([49m
+[306]   [41m- [4m    31,[49m[24m
+[306]   [41m- [4m    -11[24m7,[49m
+[306]   [41m- [4m  [24m [4m [24m8,[49m
+[306]   [41m- [4m   [24m [4m0[24m,[49m
+[306]   [41m- [4m  [24m [4m [24m0[4m,[49m[24m
+[306]   [41m- [4m    [24m0,[49m
+[306]   [41m- [4m   [24m [4m0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    -[24m1[4m,[49m[24m
+[306]   [41m- [4m    75,[49m[24m
+[306]   [41m- [4m    76,[49m[24m
+[306]   [41m- [4m    74,[49m[24m
+[306]   [41m- [4m    78,[49m[24m
+[306]   [41m- [4m    73,[49m[24m
+[306]   [41m- [4m    77,[49m[24m
+[306]   [41m- [4m    3,[49m[24m
+[306]   [41m- [4m    [24m0[4m,[49m[24m
+[306]   [41m- [4m    -[24m1[4m7,[49m[24m
+[306]   [41m- [4m    57[24m,[49m
+[306]   [41m- [4m  [24m [4m -1[24m1[4m4,[49m[24m
+[306]   [41m- [4m    75,[49m[24m
+[306]   [41m- [4m    6,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    0,[49m[24m
+[306]   [41m- [4m    [24m0[49m
+[306]   [41m- [4m  [24m)[49m
+[306]   [41m- )[49m
+[306]   [42m+ Right(value = ArraySeq([4m9[24m7, [4m9[24m8, [4m99[24m, [4m1[24m00, 101, 10[4m2[24m))[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91mbytesAre[39m([91mRcours3ReviewTests.scala[39m:[91m340[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91msuccessfulDownloadIs[39m([91mRcours3ReviewTests.scala[39m:[91m343[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$4[39m([91mRcours3ReviewTests.scala[39m:[91m419[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.an incomplete second gzip member header cannot publish the first member [2m38ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:33241/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:33241[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m3L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:33241/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$5[39m([91mRcours3ReviewTests.scala[39m:[91m425[39m)
+[306] [32m+[39m coursier.cache.Rcours3ReviewTests.an incomplete inner gzip trailer is rejected through an outer deflate layer [2m26ms[0m  
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.streaming gzip reports decoded progress before the next compressed fragment [2m30023ms[0m 
+[306]   [91m[4mjava.lang.IllegalStateException[39m[24m: Timed out waiting for download progress to reach 3
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$scenario$11[39m([91mRcours3ReviewTests.scala[39m:[91m276[39m)
+[306]     [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91mscenario[39m([91mRcours3ReviewTests.scala[39m:[91m273[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$13[39m([91mRcours3ReviewTests.scala[39m:[91m451[39m)
+[306] [31mX[39m coursier.cache.Rcours3ReviewTests.a repeated coding field cannot hide an unsupported earlier coding [2m19ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:45769/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:45769[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m6L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:45769/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m))),
+[306]     outputErrorMessage = [32mNone[39m
+[306]   )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3ReviewTests$.[91m$anonfun$tests$16[39m([91mRcours3ReviewTests.scala[39m:[91m461[39m)
+[306] Tests: 7, Passed: 1, Failed: 6
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t....Rcours3ReviewTests =============== 47s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 6 tests failed: 
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.empty content encoding means an unencoded body
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.empty list elements do not change identity encoding
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.repeated content encoding fields decode all listed layers
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.an incomplete second gzip member header cannot publish the first member
+  coursier.cache.Rcours3ReviewTests coursier.cache.Rcours3ReviewTests.streaming gzip reports decoded progress before the next compressed fragment
+  and 1 more ...

@@ -1,0 +1,11 @@
+{
+  "phase": "head-existing",
+  "cases": 95,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "uniqueCases": 95,
+  "qualifiedEvents": 95,
+  "runner": "plain utest 0.9.1 TestSuite; no utestWrap override or retry mixin",
+  "attemptsPerCase": 1
+}
