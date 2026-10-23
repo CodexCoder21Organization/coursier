@@ -313,7 +313,6 @@ import scala.util.control.NonFatal
             url,
             rangeLength.orElse(responseLength),
             bounded = responseLength.nonEmpty,
-            encoded = !uncompressed,
             chunked = Option(conn.getHeaderField("Transfer-Encoding"))
               .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
           )
@@ -331,7 +330,8 @@ import scala.util.control.NonFatal
                 }
               if (!uncompressed)
                 in = new Downloader.DecodingInputStream(in, contentEncoding.get, url, response)
-              // A buffered stream can prefetch past the remaining length on the last read.
+              // Buffer only unencoded unknown-length bodies: buffering decoded data can wait
+              // for another compressed fragment before reporting bytes that are already decoded.
               if (uncompressed && expectedLength.isEmpty)
                 in = new BufferedInputStream(in, downloadBufferSize)
 
@@ -897,7 +897,6 @@ object Downloader {
     url: String,
     expectedLength: Option[Long],
     bounded: Boolean,
-    encoded: Boolean,
     chunked: Boolean
   ) extends InputStream {
     private var count0 = 0L
@@ -948,11 +947,8 @@ object Downloader {
         n
       }
 
-    // gzip uses available() to decide whether another member may follow its trailer.
-    // Even when the next chunk has not arrived, it must read through the message ending.
     override def available(): Int =
       if (ended || (bounded && expectedLength.contains(count0))) 0
-      else if (encoded) 1
       else underlying.available()
 
     def finish(bufferSize: Int): Unit = {
