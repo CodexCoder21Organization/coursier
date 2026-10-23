@@ -39,7 +39,7 @@ index 40c097342..a9e9b9c68 100644
    private[coursier] def contentRangeLength(
      conn: URLConnection,
 diff --git a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
-index 52704c45c..747a86e45 100644
+index 52704c45c..b86d4b4d7 100644
 --- a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
 +++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
 @@ -7,7 +7,7 @@ import java.nio.file.{AccessDeniedException, Files, StandardCopyOption, Standard
@@ -63,9 +63,9 @@ index 52704c45c..747a86e45 100644
          else if (respCodeOpt.contains(401))
            Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
          else {
-+          for (code <- respCodeOpt if code < 400 && (code / 100 != 2 || code == 204 || code == 205))
++          for (code <- respCodeOpt if code / 100 == 1 || code == 204 || code == 205 || code == 304)
 +            throw new ArtifactError.DownloadError(
-+              s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body",
++              s"Unexpected HTTP status $code from $url: expected a response with an artifact body",
 +              None
 +            )
 +
@@ -329,10 +329,10 @@ index 10b7db571..db72d34a0 100644
  
 diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
 new file mode 100644
-index 000000000..b9d40a941
+index 000000000..5059b6973
 --- /dev/null
 +++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
-@@ -0,0 +1,848 @@
+@@ -0,0 +1,855 @@
 +package coursier.cache
 +
 +import java.io.ByteArrayOutputStream
@@ -708,7 +708,7 @@ index 000000000..b9d40a941
 +    s"Missing Content-Range from $url: expected bytes starting at $start"
 +
 +  private def statusMessage(url: String, code: Int): String =
-+    s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body"
++    s"Unexpected HTTP status $code from $url: expected a response with an artifact body"
 +
 +  private def chunkedMessage(url: String, received: Long): String =
 +    s"Invalid response framing from $url: expected a complete chunked message, received $received bytes (Premature EOF)"
@@ -1178,6 +1178,13 @@ index 000000000..b9d40a941
 +      assert(pending.temporaryExists)
 +      assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
 +      successfulDownloadIs(o, body)
++    }
++
++    test("unfollowed redirects retain their complete response body") {
++      for (code <- Seq(301, 302, 303, 307, 308)) {
++        val o = scenario(List(fixed("6", body, status = s"$code Redirect Body")))
++        successfulDownloadIs(o, body)
++      }
 +    }
 +  }
 +}

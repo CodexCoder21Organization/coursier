@@ -1,0 +1,252 @@
+=============== cache.jvm[2.13.16].test.testOnly...cache.FileCacheRedirectionTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS4-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact [2m355ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes [2m26ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length [2m30ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact [2m48ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download [2m43ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes [2m86ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned [2m30ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unknown and empty encodings cannot publish response bytes [2m27ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes [2m34ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unfollowed redirects retain their complete response body [2m56ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.301 [2m1223ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.302 [2m54ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.304 [2m32ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.307 [2m36ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.308 [2m20ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToHttps [2m400ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.enabled [2m127ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled [2m46ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.enabled [2m87ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled [2m54ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabled [2m42ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabledAllRealms [2m29ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.0 [2m27ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.1 [2m31ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabled [2m60ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms [2m33ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds [2m30ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.disabled [2m19ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled [2m32ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms [2m28ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds [2m25ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled [2m20ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabled [2m22ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms [2m23ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds [2m22ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.disabled [2m15ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabled [2m34ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabledAllRealms [2m78ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.disabled [2m70ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabled [2m95ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabledAllRealms [2m43ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.disabled [2m33ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.0 [2m56ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.1 [2m118ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabledAllRealms [2m49ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.disabled [2m25ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.0 [2m139ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.1 [2m33ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file https [2m78ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file http [2m37ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file https [2m45ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file http [2m24ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.0 [2m15ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.1 [2m13ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.2 [2m26ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should not stackoverflow.0 [2m5801ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.0 [2m118ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.1 [2m49ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.0 [2m174ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1 [2m108ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.decodeGzip [2m93ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authThenNotFound [2m137ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.custom protocols.unknown [2m11ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.custom protocols.with classloader [2m43ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.simple.0 [2m13ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.simple.1 [2m8ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.simple.2 [2m5ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-256 [2m35ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-1 [2m15ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.MD5 [2m13ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.lastModifiedEx [2m48ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.stored digests work - SHA1 [2m4ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.stored digests work - MD5 [2m2ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.stored digests should not be stored outside of cache [2m3ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.wrong stored digest should delete file in cache [2m8ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.un-escape characters in file URL [2m5ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.does not accept redundant path elements like .. or . [2m0ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.cache.FileCacheRedirectionTests [2m10241ms[0m
+[306]   - redirections [2m10028ms[0m
+[306]     - httpToHttp [2m1365ms[0m
+[306]       [32m+[39m 301 [2m1223ms[0m  
+[306]       [32m+[39m 302 [2m54ms[0m  
+[306]       [32m+[39m 304 [2m32ms[0m  
+[306]       [32m+[39m 307 [2m36ms[0m  
+[306]       [32m+[39m 308 [2m20ms[0m  
+[306]     [32m+[39m httpsToHttps [2m400ms[0m  
+[306]     - httpToHttps [2m173ms[0m
+[306]       [32m+[39m enabled [2m127ms[0m  
+[306]       [32m+[39m disabled [2m46ms[0m  
+[306]     - httpToAuthHttps [2m141ms[0m
+[306]       [32m+[39m enabled [2m87ms[0m  
+[306]       [32m+[39m disabled [2m54ms[0m  
+[306]     - httpToAuthHttp [2m129ms[0m
+[306]       [32m+[39m enabled [2m42ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m29ms[0m  
+[306]       - disabled [2m58ms[0m
+[306]         [32m+[39m 0 [2m27ms[0m  
+[306]         [32m+[39m 1 [2m31ms[0m  
+[306]     - authHttpToAuthHttp [2m329ms[0m
+[306]       - oldRfc2617 [2m142ms[0m
+[306]         [32m+[39m enabled [2m60ms[0m  
+[306]         [32m+[39m enabledAllRealms [2m33ms[0m  
+[306]         [32m+[39m enabledSeveralCreds [2m30ms[0m  
+[306]         [32m+[39m disabled [2m19ms[0m  
+[306]       - rfc7617WithCharset [2m105ms[0m
+[306]         [32m+[39m enabled [2m32ms[0m  
+[306]         [32m+[39m enabledAllRealms [2m28ms[0m  
+[306]         [32m+[39m enabledSeveralCreds [2m25ms[0m  
+[306]         [32m+[39m disabled [2m20ms[0m  
+[306]       - beyondRfc7617 [2m82ms[0m
+[306]         [32m+[39m enabled [2m22ms[0m  
+[306]         [32m+[39m enabledAllRealms [2m23ms[0m  
+[306]         [32m+[39m enabledSeveralCreds [2m22ms[0m  
+[306]         [32m+[39m disabled [2m15ms[0m  
+[306]     - httpsToAuthHttps [2m182ms[0m
+[306]       [32m+[39m enabled [2m34ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m78ms[0m  
+[306]       [32m+[39m disabled [2m70ms[0m  
+[306]     - authHttpsToAuthHttps [2m171ms[0m
+[306]       [32m+[39m enabled [2m95ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m43ms[0m  
+[306]       [32m+[39m disabled [2m33ms[0m  
+[306]     - authHttpToNoAuthHttps [2m248ms[0m
+[306]       - enabled [2m174ms[0m
+[306]         [32m+[39m 0 [2m56ms[0m  
+[306]         [32m+[39m 1 [2m118ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m49ms[0m  
+[306]       [32m+[39m disabled [2m25ms[0m  
+[306]     - credentialFile [2m172ms[0m
+[306]       [32m+[39m 0 [2m139ms[0m  
+[306]       [32m+[39m 1 [2m33ms[0m  
+[306]     - randomCase [2m184ms[0m
+[306]       [32m+[39m cred file https [2m78ms[0m  
+[306]       [32m+[39m cred file http [2m37ms[0m  
+[306]       [32m+[39m conf file https [2m45ms[0m  
+[306]       [32m+[39m conf file http [2m24ms[0m  
+[306]     - maxRedirects [2m5855ms[0m
+[306]       - should be followed [2m54ms[0m
+[306]         [32m+[39m 0 [2m15ms[0m  
+[306]         [32m+[39m 1 [2m13ms[0m  
+[306]         [32m+[39m 2 [2m26ms[0m  
+[306]       - should not stackoverflow [2m5801ms[0m
+[306]         [32m+[39m 0 [2m5801ms[0m  
+[306]     - passCredentialsOnRedirect [2m449ms[0m
+[306]       - enabled [2m167ms[0m
+[306]         [32m+[39m 0 [2m118ms[0m  
+[306]         [32m+[39m 1 [2m49ms[0m  
+[306]       - disabled [2m282ms[0m
+[306]         [32m+[39m 0 [2m174ms[0m  
+[306]         [32m+[39m 1 [2m108ms[0m  
+[306]     [32m+[39m decodeGzip [2m93ms[0m  
+[306]     [32m+[39m authThenNotFound [2m137ms[0m  
+[306]   - custom protocols [2m54ms[0m
+[306]     [32m+[39m unknown [2m11ms[0m  
+[306]     [32m+[39m with classloader [2m43ms[0m  
+[306]   - checksums [2m89ms[0m
+[306]     - simple [2m26ms[0m
+[306]       [32m+[39m 0 [2m13ms[0m  
+[306]       [32m+[39m 1 [2m8ms[0m  
+[306]       [32m+[39m 2 [2m5ms[0m  
+[306]     - fromHeader [2m63ms[0m
+[306]       [32m+[39m SHA-256 [2m35ms[0m  
+[306]       [32m+[39m SHA-1 [2m15ms[0m  
+[306]       [32m+[39m MD5 [2m13ms[0m  
+[306]   [32m+[39m lastModifiedEx [2m48ms[0m  
+[306]   [32m+[39m stored digests work - SHA1 [2m4ms[0m  
+[306]   [32m+[39m stored digests work - MD5 [2m2ms[0m  
+[306]   [32m+[39m stored digests should not be stored outside of cache [2m3ms[0m  
+[306]   [32m+[39m wrong stored digest should delete file in cache [2m8ms[0m  
+[306]   [32m+[39m un-escape characters in file URL [2m5ms[0m  
+[306]   [32m+[39m does not accept redundant path elements like .. or . [2m0ms[0m  
+[306] - coursier.cache.DownloadResponseFramingTests [2m1082ms[0m
+[306]   [32m+[39m valid mixed case range unit completes the artifact [2m355ms[0m  
+[306]   [32m+[39m unsolicited 304 cannot publish an empty artifact [2m26ms[0m  
+[306]   [32m+[39m cut off chunked response removes temporary bytes [2m26ms[0m  
+[306]   [32m+[39m cut off gzip response removes temporary bytes [2m23ms[0m  
+[306]   [32m+[39m short other encoded response cannot publish partial bytes [2m13ms[0m  
+[306]   [32m+[39m correct mixed case gzip decodes the body [2m20ms[0m  
+[306]   [32m+[39m chunked range obeys its content range without content length [2m30ms[0m  
+[306]   [32m+[39m short chunked range cannot publish a partial artifact [2m9ms[0m  
+[306]   [32m+[39m empty close delimited response is a valid empty artifact [2m11ms[0m  
+[306]   [32m+[39m correct deflate body decodes without comparing decoded and wire lengths [2m7ms[0m  
+[306]   [32m+[39m concurrent callers never publish the same short artifact [2m48ms[0m  
+[306]   [32m+[39m concurrent callers share one correct artifact download [2m43ms[0m  
+[306]   [32m+[39m HEAD metadata length does not require response bytes [2m86ms[0m  
+[306]   [32m+[39m chunked range must consume the closing chunk before publishing [2m13ms[0m  
+[306]   [32m+[39m chunked range rejects data beyond its stated range [2m16ms[0m  
+[306]   [32m+[39m range data stays temporary until the closing chunk arrives [2m15ms[0m  
+[306]   [32m+[39m no body status with a saved prefix is rejected and cleaned [2m30ms[0m  
+[306]   [32m+[39m unknown and empty encodings cannot publish response bytes [2m27ms[0m  
+[306]   [32m+[39m mixed case deflate is decoded [2m11ms[0m  
+[306]   [32m+[39m chunked gzip validates the closing chunk after its trailer [2m9ms[0m  
+[306]   [32m+[39m valid chunked gzip is decoded through the closing chunk [2m11ms[0m  
+[306]   [32m+[39m complete framing cannot hide an incomplete gzip trailer [2m12ms[0m  
+[306]   [32m+[39m invalid gzip header removes a saved temporary prefix [2m10ms[0m  
+[306]   [32m+[39m encoded resume cannot append decoded bytes to an earlier representation [2m19ms[0m  
+[306]   [32m+[39m gzip decoder completion still checks the declared response length [2m12ms[0m  
+[306]   [32m+[39m deflate decoder completion still checks the declared response length [2m7ms[0m  
+[306]   [32m+[39m chunked deflate validates the closing chunk after decoding [2m10ms[0m  
+[306]   [32m+[39m valid chunked deflate is decoded through the closing chunk [2m15ms[0m  
+[306]   [32m+[39m mixed case stacked content codings decode in reverse order [2m12ms[0m  
+[306]   [32m+[39m corrupt gzip trailer cannot publish decoded data [2m5ms[0m  
+[306]   [32m+[39m corrupt deflate checksum cannot publish decoded data [2m12ms[0m  
+[306]   [32m+[39m gzip members in separate chunks all decode before publication [2m14ms[0m  
+[306]   [32m+[39m empty encoded body with one byte buffer still validates its trailer [2m6ms[0m  
+[306]   [32m+[39m body bearing successful statuses retain their complete artifact bytes [2m34ms[0m  
+[306]   [32m+[39m encoded download output error is not reported as a coding error [2m15ms[0m  
+[306]   [32m+[39m HTTP error responses retain their complete original download error [2m7ms[0m  
+[306]   [32m+[39m close delimited response reports progress before its next body fragment [2m7ms[0m  
+[306]   [32m+[39m unfollowed redirects retain their complete response body [2m56ms[0m  
+[306] 
+[306] Tests: 105, Passed: 105, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...ileCacheRedirectionTests =============== 30s

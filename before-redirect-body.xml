@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="105" failures="4" errors="0" skipped="0" time="6.817">
+        <testsuite name="coursier.cache.DownloadResponseFramingTests" tests="38" failures="1" errors="0" skipped="0" time="0.692" timestamp="2026-10-23T03:04:56">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid mixed case range unit completes the artifact" time="0.227">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unsolicited 304 cannot publish an empty artifact" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off chunked response removes temporary bytes" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="cut off gzip response removes temporary bytes" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short other encoded response cannot publish partial bytes" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct mixed case gzip decodes the body" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range obeys its content range without content length" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="short chunked range cannot publish a partial artifact" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty close delimited response is a valid empty artifact" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="correct deflate body decodes without comparing decoded and wire lengths" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers never publish the same short artifact" time="0.04">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="concurrent callers share one correct artifact download" time="0.04">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HEAD metadata length does not require response bytes" time="0.052">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range must consume the closing chunk before publishing" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked range rejects data beyond its stated range" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="range data stays temporary until the closing chunk arrives" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="no body status with a saved prefix is rejected and cleaned" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unknown and empty encodings cannot publish response bytes" time="0.027">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case deflate is decoded" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked gzip validates the closing chunk after its trailer" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked gzip is decoded through the closing chunk" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="complete framing cannot hide an incomplete gzip trailer" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="invalid gzip header removes a saved temporary prefix" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded resume cannot append decoded bytes to an earlier representation" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip decoder completion still checks the declared response length" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="deflate decoder completion still checks the declared response length" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="chunked deflate validates the closing chunk after decoding" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="valid chunked deflate is decoded through the closing chunk" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="mixed case stacked content codings decode in reverse order" time="0.004">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt gzip trailer cannot publish decoded data" time="0.005">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="corrupt deflate checksum cannot publish decoded data" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="gzip members in separate chunks all decode before publication" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="empty encoded body with one byte buffer still validates its trailer" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="body bearing successful statuses retain their complete artifact bytes" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="encoded download output error is not reported as a coding error" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="HTTP error responses retain their complete original download error" time="0.008">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="close delimited response reports progress before its next body fragment" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.DownloadResponseFramingTests" name="unfollowed redirects retain their complete response body" time="0.058">
+          <failure message="assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:35683/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 301 from http://127.0.0.1:35683/artifact: expected a successful response with an artifact body
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:35683
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:35683/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Left(
+      value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 301 from http://127.0.0.1:35683/artifact: expected a successful response with an artifact body
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Left(
+-   value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 301 from http://127.0.0.1:35683/artifact: expected a successful response with an artifact body
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+" type="utest.AssertionError">
+          utest.AssertionError: assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
+observation: Observation = Observation(
+  url = &quot;http://127.0.0.1:35683/artifact&quot;,
+  result = Left(
+    value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 301 from http://127.0.0.1:35683/artifact: expected a successful response with an artifact body
+  ),
+  requests = List(
+    &quot;&quot;&quot;GET /artifact HTTP/1.1
+User-Agent: Coursier/2.0
+Accept: */*
+Host: 127.0.0.1:35683
+Connection: keep-alive
+
+&quot;&quot;&quot;
+  ),
+  progress = List(),
+  downloadResults = List((&quot;http://127.0.0.1:35683/artifact&quot;, false)),
+  finalExists = false,
+  temporaryExists = false,
+  temporaryBytes = Array(),
+  pendingState = None,
+  allResults = List(
+    Left(
+      value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 301 from http://127.0.0.1:35683/artifact: expected a successful response with an artifact body
+    )
+  ),
+  outputErrorMessage = None
+)
+expected: Array[Byte] = Array(97, 98, 99, 100, 101, 102)
+observation.result.map(_.toSeq) != Right(expected.toSeq):
+- Left(
+-   value = coursier.cache.ArtifactError$DownloadError: download error: Unexpected HTTP status 301 from http://127.0.0.1:35683/artifact: expected a successful response with an artifact body
+- )
++ Right(value = ArraySeq(97, 98, 99, 100, 101, 102))
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.DownloadResponseFramingTests$.bytesAre(DownloadResponseFramingTests.scala:340)
+    at coursier.cache.DownloadResponseFramingTests$.successfulDownloadIs(DownloadResponseFramingTests.scala:343)
+    at coursier.cache.DownloadResponseFramingTests$.$anonfun$tests$72(DownloadResponseFramingTests.scala:851)
+    at scala.runtime.java8.JFunction1$mcVI$sp.apply(JFunction1$mcVI$sp.scala:18)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at coursier.cache.DownloadResponseFramingTests$.$anonfun$tests$71(DownloadResponseFramingTests.scala:849)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.framework.TestCallTree.run(Model.scala:43)
+    at utest.framework.TestCallTree.run(Model.scala:41)
+    at utest.TestRunner$.$anonfun$runAsync$5(TestRunner.scala:74)
+    at utest.framework.Executor.utestWrap(Executor.scala:12)
+    at utest.framework.Executor.utestWrap$(Executor.scala:10)
+    at utest.TestSuite.utestWrap(TestSuite.scala:12)
+    at utest.TestRunner$.$anonfun$runAsync$4(TestRunner.scala:71)
+    at utest.framework.StackMarker$.dropOutside(StackMarker.scala:13)
+    at utest.TestRunner$.$anonfun$runAsync$2(TestRunner.scala:71)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:171)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$3(TestRunner.scala:175)
+    at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+    at utest.framework.ExecutionContext$RunNow$.execute(ExecutionContext.scala:16)
+    at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+    at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+    at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:312)
+    at scala.concurrent.impl.Promise$DefaultPromise.flatMap(Promise.scala:176)
+    at utest.TestRunner$.$anonfun$evaluateFutureTree$2(TestRunner.scala:175)
+    at scala.collection.immutable.ArraySeq.foldLeft(ArraySeq.scala:222)
+    at utest.TestRunner$.evaluateFutureTree(TestRunner.scala:174)
+    at utest.TestRunner$.runAsync(TestRunner.scala:99)
+    at utest.runner.BaseRunner.runSuite(BaseRunner.scala:180)
+    at utest.runner.BaseRunner.$anonfun$makeTask$1(BaseRunner.scala:192)
+    at utest.runner.Task.execute(Task.scala:20)
+    at mill.testrunner.TestRunnerUtils$.executeTasks(TestRunnerUtils.scala:163)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4(TestRunnerUtils.scala:244)
+    at mill.testrunner.TestRunnerUtils$.$anonfun$runTasks$4$adapted(TestRunnerUtils.scala:243)
+    at scala.collection.immutable.List.foreach(List.scala:334)
+    at mill.testrunner.TestRunnerUtils$.runTasks(TestRunnerUtils.scala:243)
+    at mill.testrunner.TestRunnerUtils$.runTestFramework0(TestRunnerUtils.scala:268)
+    at mill.testrunner.TestRunnerMain0$.main0(TestRunnerMain0.scala:40)
+    at mill.testrunner.TestRunnerMain0.main0(TestRunnerMain0.scala:-1)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke(Method.java:580)
+    at mill.testrunner.entrypoint.TestRunnerMain.main(TestRunnerMain.java:42)
+        </failure>
+        </testcase>
+      </testsuite><testsuite name="coursier.cache.FileCacheRedirectionTests" tests="67" failures="3" errors="0" skipped="0" time="6.125" timestamp="2026-10-23T03:04:56">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.301" time="0.662">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.302" time="0.033">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.304" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.307" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttp.308" time="0.024">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToHttps" time="0.223">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttps.enabled" time="0.08">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToHttps.disabled" time="0.034">
+          <failure message="assert(res == expectedRes)
+res: Either[String, String] = Left(
+  value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:43203/redirect: expected a successful response with an artifact body&quot;
+)
+expectedRes: Right[Nothing, String] = Right(value = &quot;redirecting&quot;)
+res != expectedRes:
+- Left(
+-   value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:43203/redirect: expected a successful response with an artifact body&quot;
+- )
++ Right(value = &quot;redirecting&quot;)
+" type="utest.AssertionError">
+          utest.AssertionError: assert(res == expectedRes)
+res: Either[String, String] = Left(
+  value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:43203/redirect: expected a successful response with an artifact body&quot;
+)
+expectedRes: Right[Nothing, String] = Right(value = &quot;redirecting&quot;)
+res != expectedRes:
+- Left(
+-   value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:43203/redirect: expected a successful response with an artifact body&quot;
+- )
++ Right(value = &quot;redirecting&quot;)
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$expect$1(FileCacheRedirectionTests.scala:48)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$expect$1$adapted(FileCacheRedirectionTests.scala:43)
+    at coursier.cache.TestUtil$.withTmpDir0(TestUtil.scala:163)
+    at coursier.cache.FileCacheRedirectionTests$.expect(FileCacheRedirectionTests.scala:43)
+    at coursier.cache.FileCacheRedirectionTests$.expect(FileCacheRedirectionTests.scala:59)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$24(FileCacheRedirectionTests.scala:185)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$24$adapted(FileCacheRedirectionTests.scala:181)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$20(FileCacheRedirectionTests.scala:164)
+    at coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+    at apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+    at delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+    at use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+    at map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+    at make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+    at make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+        </failure>
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttps.enabled" time="0.085">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttps.disabled" time="0.023">
+          <failure message="assert(res == expectedRes)
+res: Either[String, String] = Left(
+  value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:34967/auth-redirect: expected a successful response with an artifact body&quot;
+)
+expectedRes: Right[Nothing, String] = Right(value = &quot;redirecting&quot;)
+res != expectedRes:
+- Left(
+-   value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:34967/auth-redirect: expected a successful response with an artifact body&quot;
+- )
++ Right(value = &quot;redirecting&quot;)
+" type="utest.AssertionError">
+          utest.AssertionError: assert(res == expectedRes)
+res: Either[String, String] = Left(
+  value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:34967/auth-redirect: expected a successful response with an artifact body&quot;
+)
+expectedRes: Right[Nothing, String] = Right(value = &quot;redirecting&quot;)
+res != expectedRes:
+- Left(
+-   value = &quot;download error: Unexpected HTTP status 307 from http://127.0.0.1:34967/auth-redirect: expected a successful response with an artifact body&quot;
+- )
++ Right(value = &quot;redirecting&quot;)
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$expect$1(FileCacheRedirectionTests.scala:48)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$expect$1$adapted(FileCacheRedirectionTests.scala:43)
+    at coursier.cache.TestUtil$.withTmpDir0(TestUtil.scala:163)
+    at coursier.cache.FileCacheRedirectionTests$.expect(FileCacheRedirectionTests.scala:43)
+    at coursier.cache.FileCacheRedirectionTests$.expect(FileCacheRedirectionTests.scala:59)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$33(FileCacheRedirectionTests.scala:246)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$33$adapted(FileCacheRedirectionTests.scala:242)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$28(FileCacheRedirectionTests.scala:220)
+    at coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+    at apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+    at delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+    at use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+    at map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+    at make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+    at make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+        </failure>
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.enabled" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.enabledAllRealms" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.disabled.0" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpToAuthHttp.disabled.1" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.enabled" time="0.018">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds" time="0.021">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.oldRfc2617.disabled" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled" time="0.022">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds" time="0.019">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.enabled" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToAuthHttp.beyondRfc7617.disabled" time="0.012">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToAuthHttps.enabled" time="0.034">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToAuthHttps.enabledAllRealms" time="0.064">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.httpsToAuthHttps.disabled" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpsToAuthHttps.enabled" time="0.029">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpsToAuthHttps.enabledAllRealms" time="0.122">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpsToAuthHttps.disabled" time="0.062">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.enabled.0" time="0.071">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.enabled.1" time="0.074">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.enabledAllRealms" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authHttpToNoAuthHttps.disabled" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.credentialFile.0" time="0.071">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.credentialFile.1" time="0.023">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.cred file https" time="0.069">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.cred file http" time="0.015">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.conf file https" time="0.032">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.randomCase.conf file http" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should be followed.0" time="0.014">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should be followed.1" time="0.013">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should be followed.2" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.maxRedirects.should not stackoverflow.0" time="3.407">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.enabled.0" time="0.083">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.enabled.1" time="0.059">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.disabled.0" time="0.061">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.passCredentialsOnRedirect.disabled.1" time="0.025">
+          <failure message="assert(res == expectedRes)
+res: Either[String, String] = Left(
+  value = &quot;download error: Unexpected HTTP status 307 from https://127.0.0.1:39005/redirect: expected a successful response with an artifact body&quot;
+)
+expectedRes: Right[Nothing, String] = Right(value = &quot;redirecting&quot;)
+res != expectedRes:
+- Left(
+-   value = &quot;download error: Unexpected HTTP status 307 from https://127.0.0.1:39005/redirect: expected a successful response with an artifact body&quot;
+- )
++ Right(value = &quot;redirecting&quot;)
+" type="utest.AssertionError">
+          utest.AssertionError: assert(res == expectedRes)
+res: Either[String, String] = Left(
+  value = &quot;download error: Unexpected HTTP status 307 from https://127.0.0.1:39005/redirect: expected a successful response with an artifact body&quot;
+)
+expectedRes: Right[Nothing, String] = Right(value = &quot;redirecting&quot;)
+res != expectedRes:
+- Left(
+-   value = &quot;download error: Unexpected HTTP status 307 from https://127.0.0.1:39005/redirect: expected a successful response with an artifact body&quot;
+- )
++ Right(value = &quot;redirecting&quot;)
+
+    at utest.asserts.Util$.$anonfun$makeAssertError$1(Util.scala:26)
+    at utest.framework.StackMarker$.dropInside(StackMarker.scala:11)
+    at utest.asserts.Util$.makeAssertError(Util.scala:25)
+    at utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$expect$1(FileCacheRedirectionTests.scala:48)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$expect$1$adapted(FileCacheRedirectionTests.scala:43)
+    at coursier.cache.TestUtil$.withTmpDir0(TestUtil.scala:163)
+    at coursier.cache.FileCacheRedirectionTests$.expect(FileCacheRedirectionTests.scala:43)
+    at coursier.cache.FileCacheRedirectionTests$.expect(FileCacheRedirectionTests.scala:52)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$174(FileCacheRedirectionTests.scala:1024)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$174$adapted(FileCacheRedirectionTests.scala:1019)
+    at coursier.cache.FileCacheRedirectionTests$.$anonfun$tests$159(FileCacheRedirectionTests.scala:969)
+    at coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+    at apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+    at delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+    at use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+    at map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+    at make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+    at make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+        </failure>
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.decodeGzip" time="0.085">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="redirections.authThenNotFound" time="0.032">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="custom protocols.unknown" time="0.002">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="custom protocols.with classloader" time="0.01">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.simple.0" time="0.009">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.simple.1" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.simple.2" time="0.002">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.fromHeader.SHA-256" time="0.02">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.fromHeader.SHA-1" time="0.011">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="checksums.fromHeader.MD5" time="0.016">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="lastModifiedEx" time="0.025">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="stored digests work - SHA1" time="0.007">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="stored digests work - MD5" time="0.002">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="stored digests should not be stored outside of cache" time="0.001">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="wrong stored digest should delete file in cache" time="0.006">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="un-escape characters in file URL" time="0.002">
+          
+        </testcase><testcase classname="coursier.cache.FileCacheRedirectionTests" name="does not accept redundant path elements like .. or ." time="0.0">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

@@ -1,0 +1,11 @@
+{
+  "cases": 186,
+  "firstAttempts": 186,
+  "retries": 0,
+  "failed": [
+    "coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled",
+    "coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled",
+    "coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1"
+  ],
+  "passed": 183
+}

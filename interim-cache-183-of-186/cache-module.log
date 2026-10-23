@@ -1,0 +1,674 @@
+============================== cache.jvm[2.13.16].test ==============================
+[306/306] cache.jvm[2.13.16].test.test
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DigestBasedCacheTests.simple [2m402ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known tiny response does not request an oversized transfer buffer [2m211ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known 199 byte POM uses its response length [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known one byte response uses a one byte buffer [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.identity response uses its uncompressed length [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.mixed case identity response uses its uncompressed length [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.deflate content encoding retains the default maximum [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known responses at the default boundary stay bounded [2m102ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known empty response keeps read buffers at one byte or less [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known empty response requests zero bytes from the response stream [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.known body larger than configured maximum uses at most that maximum [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.unknown chunked response retains the default maximum [2m75ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.unknown identity response retains the default maximum [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.gzip response with known encoded length returns all decoded bytes [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadBufferCapacityTests.partial response resumes from the persisted prefix with a bounded read buffer [2m26ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] DOWNLOAD_BUFFER_CPU smallNs=260000000 largeNs=290000000 ratio=1.1153846153846154
+[306] 
+[306] [32m+[39m coursier.cache.DownloadBufferCostTests.small bodies do not initialize the buffer element by element [2m8270ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file [2m70ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response [2m24ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short fixed-length response counts bytes across multiple reads [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes [2m12ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected [2m3ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count [2m4ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected [2m33ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero [2m24ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix [2m20ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent [2m15ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact [2m78ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body [2m45ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length [2m18ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact [2m46ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download [2m56ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range [2m24ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned [2m24ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.unknown and empty encodings cannot publish response bytes [2m45ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk [2m9ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer [2m16ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length [2m14ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length [2m17ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk [2m5ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order [2m6ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data [2m10ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data [2m7ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication [2m11ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer [2m8ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes [2m34ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error [2m15ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error [2m44ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment [2m42ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations [2m13ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error [2m10ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner [2m45ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.301 [2m3522ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.302 [2m41ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.304 [2m48ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.307 [2m78ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.308 [2m56ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToHttps [2m547ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.enabled [2m142ms[0m  
+[306] [31mX[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled [2m169ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]   [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]     value = [32m"download error: Unexpected HTTP status 307 from http://127.0.0.1:41271/redirect: expected a successful response with an artifact body"[39m
+[306]   )
+[306]   [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]   [36mres != expectedRes[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = "[4mdownload e[24mr[4mror: Unexpect[24med[4m HTTP status 307 from http://127.0.0.1:41271/red[24mir[4mect: [24me[4mxpe[24mct[4med a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m59[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$24[39m([91mFileCacheRedirectionTests.scala[39m:[91m185[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$24$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m181[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$20[39m([91mFileCacheRedirectionTests.scala[39m:[91m164[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]     [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]     [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.enabled [2m366ms[0m  
+[306] [31mX[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled [2m135ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]   [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]     value = [32m"download error: Unexpected HTTP status 307 from http://127.0.0.1:37171/auth-redirect: expected a successful response with an artifact body"[39m
+[306]   )
+[306]   [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]   [36mres != expectedRes[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = "[4mdownload error: Unexpected HTTP status 307 from http://127.0.0.1:37171/auth-[24mredirect[4m: expected a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m59[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$33[39m([91mFileCacheRedirectionTests.scala[39m:[91m246[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$33$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$28[39m([91mFileCacheRedirectionTests.scala[39m:[91m220[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]     [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]     [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabled [2m105ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabledAllRealms [2m38ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.0 [2m61ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.1 [2m44ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabled [2m110ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms [2m48ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds [2m107ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.disabled [2m30ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled [2m52ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms [2m40ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds [2m58ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled [2m29ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabled [2m49ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms [2m51ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds [2m43ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.disabled [2m32ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabled [2m104ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabledAllRealms [2m117ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.disabled [2m82ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabled [2m82ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabledAllRealms [2m113ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.disabled [2m89ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.0 [2m126ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.1 [2m146ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabledAllRealms [2m162ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.disabled [2m66ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.0 [2m135ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.1 [2m107ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file https [2m171ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file http [2m80ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file https [2m228ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file http [2m121ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.0 [2m52ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.1 [2m71ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.2 [2m78ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should not stackoverflow.0 [2m7500ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.0 [2m273ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.1 [2m45ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.0 [2m155ms[0m  
+[306] [31mX[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1 [2m186ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]   [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]     value = [32m"download error: Unexpected HTTP status 307 from https://127.0.0.1:44171/redirect: expected a successful response with an artifact body"[39m
+[306]   )
+[306]   [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]   [36mres != expectedRes[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = "[4mdownload error: Unexpected HTTP status 307 from https://127.0.0.1:44171/[24mredir[4mect: [24me[4mxpe[24mct[4med a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m52[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$174[39m([91mFileCacheRedirectionTests.scala[39m:[91m1024[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$174$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m1019[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$159[39m([91mFileCacheRedirectionTests.scala[39m:[91m969[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]     [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]     [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.decodeGzip [2m154ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.redirections.authThenNotFound [2m105ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.custom protocols.unknown [2m19ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.custom protocols.with classloader [2m44ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.simple.0 [2m26ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.simple.1 [2m8ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.simple.2 [2m5ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-256 [2m80ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-1 [2m36ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.MD5 [2m56ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.lastModifiedEx [2m46ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.stored digests work - SHA1 [2m6ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.stored digests work - MD5 [2m41ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.stored digests should not be stored outside of cache [2m4ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.wrong stored digest should delete file in cache [2m5ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.un-escape characters in file URL [2m7ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheRedirectionTests.does not accept redundant path elements like .. or . [2m0ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheRetrySettingsTests.explicit retry settings govern same-file waiting [2m142ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.FileCacheTests.check for updates once [2m76ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheTests.check extra artifact.0 [2m86ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheTests.check extra artifact.1 [2m42ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheTests.check extra artifact.2 [2m75ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheTests.check extra artifact.3 [2m52ms[0m  
+[306] [32m+[39m coursier.cache.FileCacheTests.check extra artifact.4 [2m33ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.simple.0 [2m2ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.simple.1 [2m0ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.0 [2m29ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.1 [2m0ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.default [2m0ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.noDefault [2m0ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.2 [2m0ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.3 [2m0ms[0m  
+[306] [32m+[39m coursier.parse.CachePolicyParserTests.several.4 [2m0ms[0m  
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.paths.UtilTests.createDirectories fine with sym links [2m4ms[0m  
+[306] [32m+[39m coursier.paths.UtilTests.property expansion.simple [2m2ms[0m  
+[306] [32m+[39m coursier.paths.UtilTests.property expansion.substitution [2m0ms[0m  
+[306] [32m+[39m coursier.paths.UtilTests.property expansion.optional value [2m0ms[0m  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.paths.UtilTests [2m6ms[0m
+[306]   [32m+[39m createDirectories fine with sym links [2m4ms[0m  
+[306]   - property expansion [2m2ms[0m
+[306]     [32m+[39m simple [2m2ms[0m  
+[306]     [32m+[39m substitution [2m0ms[0m  
+[306]     [32m+[39m optional value [2m0ms[0m  
+[306] - coursier.parse.CachePolicyParserTests [2m31ms[0m
+[306]   - simple [2m2ms[0m
+[306]     [32m+[39m 0 [2m2ms[0m  
+[306]     [32m+[39m 1 [2m0ms[0m  
+[306]   - several [2m29ms[0m
+[306]     [32m+[39m 0 [2m29ms[0m  
+[306]     [32m+[39m 1 [2m0ms[0m  
+[306]     [32m+[39m default [2m0ms[0m  
+[306]     [32m+[39m noDefault [2m0ms[0m  
+[306]     [32m+[39m 2 [2m0ms[0m  
+[306]     [32m+[39m 3 [2m0ms[0m  
+[306]     [32m+[39m 4 [2m0ms[0m  
+[306] - coursier.cache.FileCacheTests [2m364ms[0m
+[306]   [32m+[39m check for updates once [2m76ms[0m  
+[306]   - check extra artifact [2m288ms[0m
+[306]     [32m+[39m 0 [2m86ms[0m  
+[306]     [32m+[39m 1 [2m42ms[0m  
+[306]     [32m+[39m 2 [2m75ms[0m  
+[306]     [32m+[39m 3 [2m52ms[0m  
+[306]     [32m+[39m 4 [2m33ms[0m  
+[306] - coursier.cache.FileCacheRetrySettingsTests [2m142ms[0m
+[306]   [32m+[39m explicit retry settings govern same-file waiting [2m142ms[0m  
+[306] - coursier.cache.FileCacheRedirectionTests [2m16932ms[0m
+[306]   - redirections [2m16549ms[0m
+[306]     - httpToHttp [2m3745ms[0m
+[306]       [32m+[39m 301 [2m3522ms[0m  
+[306]       [32m+[39m 302 [2m41ms[0m  
+[306]       [32m+[39m 304 [2m48ms[0m  
+[306]       [32m+[39m 307 [2m78ms[0m  
+[306]       [32m+[39m 308 [2m56ms[0m  
+[306]     [32m+[39m httpsToHttps [2m547ms[0m  
+[306]     - httpToHttps [2m311ms[0m
+[306]       [32m+[39m enabled [2m142ms[0m  
+[306]       [31mX[39m disabled [2m169ms[0m 
+[306]         [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]         [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]           value = [32m"download error: Unexpected HTTP status 307 from http://127.0.0.1:41271/redirect: expected a successful response with an artifact body"[39m
+[306]         )
+[306]         [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]         [36mres != expectedRes[39m:
+[306]         [41m- [4mLef[24mt([49m
+[306]         [41m- [4m  [24mvalue = "[4mdownload e[24mr[4mror: Unexpect[24med[4m HTTP status 307 from http://127.0.0.1:41271/red[24mir[4mect: [24me[4mxpe[24mct[4med a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]         [41m- )[49m
+[306]         [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]           [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]           [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m59[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$24[39m([91mFileCacheRedirectionTests.scala[39m:[91m185[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$24$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m181[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$20[39m([91mFileCacheRedirectionTests.scala[39m:[91m164[39m)
+[306]           [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]           [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]           [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]           [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]           [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]           [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]           [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     - httpToAuthHttps [2m501ms[0m
+[306]       [32m+[39m enabled [2m366ms[0m  
+[306]       [31mX[39m disabled [2m135ms[0m 
+[306]         [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]         [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]           value = [32m"download error: Unexpected HTTP status 307 from http://127.0.0.1:37171/auth-redirect: expected a successful response with an artifact body"[39m
+[306]         )
+[306]         [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]         [36mres != expectedRes[39m:
+[306]         [41m- [4mLef[24mt([49m
+[306]         [41m- [4m  [24mvalue = "[4mdownload error: Unexpected HTTP status 307 from http://127.0.0.1:37171/auth-[24mredirect[4m: expected a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]         [41m- )[49m
+[306]         [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]           [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]           [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m59[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$33[39m([91mFileCacheRedirectionTests.scala[39m:[91m246[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$33$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m242[39m)
+[306]           [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$28[39m([91mFileCacheRedirectionTests.scala[39m:[91m220[39m)
+[306]           [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]           [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]           [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]           [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]           [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]           [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]           [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     - httpToAuthHttp [2m248ms[0m
+[306]       [32m+[39m enabled [2m105ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m38ms[0m  
+[306]       - disabled [2m105ms[0m
+[306]         [32m+[39m 0 [2m61ms[0m  
+[306]         [32m+[39m 1 [2m44ms[0m  
+[306]     - authHttpToAuthHttp [2m649ms[0m
+[306]       - oldRfc2617 [2m295ms[0m
+[306]         [32m+[39m enabled [2m110ms[0m  
+[306]         [32m+[39m enabledAllRealms [2m48ms[0m  
+[306]         [32m+[39m enabledSeveralCreds [2m107ms[0m  
+[306]         [32m+[39m disabled [2m30ms[0m  
+[306]       - rfc7617WithCharset [2m179ms[0m
+[306]         [32m+[39m enabled [2m52ms[0m  
+[306]         [32m+[39m enabledAllRealms [2m40ms[0m  
+[306]         [32m+[39m enabledSeveralCreds [2m58ms[0m  
+[306]         [32m+[39m disabled [2m29ms[0m  
+[306]       - beyondRfc7617 [2m175ms[0m
+[306]         [32m+[39m enabled [2m49ms[0m  
+[306]         [32m+[39m enabledAllRealms [2m51ms[0m  
+[306]         [32m+[39m enabledSeveralCreds [2m43ms[0m  
+[306]         [32m+[39m disabled [2m32ms[0m  
+[306]     - httpsToAuthHttps [2m303ms[0m
+[306]       [32m+[39m enabled [2m104ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m117ms[0m  
+[306]       [32m+[39m disabled [2m82ms[0m  
+[306]     - authHttpsToAuthHttps [2m284ms[0m
+[306]       [32m+[39m enabled [2m82ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m113ms[0m  
+[306]       [32m+[39m disabled [2m89ms[0m  
+[306]     - authHttpToNoAuthHttps [2m500ms[0m
+[306]       - enabled [2m272ms[0m
+[306]         [32m+[39m 0 [2m126ms[0m  
+[306]         [32m+[39m 1 [2m146ms[0m  
+[306]       [32m+[39m enabledAllRealms [2m162ms[0m  
+[306]       [32m+[39m disabled [2m66ms[0m  
+[306]     - credentialFile [2m242ms[0m
+[306]       [32m+[39m 0 [2m135ms[0m  
+[306]       [32m+[39m 1 [2m107ms[0m  
+[306]     - randomCase [2m600ms[0m
+[306]       [32m+[39m cred file https [2m171ms[0m  
+[306]       [32m+[39m cred file http [2m80ms[0m  
+[306]       [32m+[39m conf file https [2m228ms[0m  
+[306]       [32m+[39m conf file http [2m121ms[0m  
+[306]     - maxRedirects [2m7701ms[0m
+[306]       - should be followed [2m201ms[0m
+[306]         [32m+[39m 0 [2m52ms[0m  
+[306]         [32m+[39m 1 [2m71ms[0m  
+[306]         [32m+[39m 2 [2m78ms[0m  
+[306]       - should not stackoverflow [2m7500ms[0m
+[306]         [32m+[39m 0 [2m7500ms[0m  
+[306]     - passCredentialsOnRedirect [2m659ms[0m
+[306]       - enabled [2m318ms[0m
+[306]         [32m+[39m 0 [2m273ms[0m  
+[306]         [32m+[39m 1 [2m45ms[0m  
+[306]       - disabled [2m341ms[0m
+[306]         [32m+[39m 0 [2m155ms[0m  
+[306]         [31mX[39m 1 [2m186ms[0m 
+[306]           [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]           [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]             value = [32m"download error: Unexpected HTTP status 307 from https://127.0.0.1:44171/redirect: expected a successful response with an artifact body"[39m
+[306]           )
+[306]           [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]           [36mres != expectedRes[39m:
+[306]           [41m- [4mLef[24mt([49m
+[306]           [41m- [4m  [24mvalue = "[4mdownload error: Unexpected HTTP status 307 from https://127.0.0.1:44171/[24mredir[4mect: [24me[4mxpe[24mct[4med a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]           [41m- )[49m
+[306]           [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]             [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]             [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m52[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$174[39m([91mFileCacheRedirectionTests.scala[39m:[91m1024[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$174$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m1019[39m)
+[306]             [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$159[39m([91mFileCacheRedirectionTests.scala[39m:[91m969[39m)
+[306]             [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]             [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]             [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]             [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]             [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]             [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]             [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [32m+[39m decodeGzip [2m154ms[0m  
+[306]     [32m+[39m authThenNotFound [2m105ms[0m  
+[306]   - custom protocols [2m63ms[0m
+[306]     [32m+[39m unknown [2m19ms[0m  
+[306]     [32m+[39m with classloader [2m44ms[0m  
+[306]   - checksums [2m211ms[0m
+[306]     - simple [2m39ms[0m
+[306]       [32m+[39m 0 [2m26ms[0m  
+[306]       [32m+[39m 1 [2m8ms[0m  
+[306]       [32m+[39m 2 [2m5ms[0m  
+[306]     - fromHeader [2m172ms[0m
+[306]       [32m+[39m SHA-256 [2m80ms[0m  
+[306]       [32m+[39m SHA-1 [2m36ms[0m  
+[306]       [32m+[39m MD5 [2m56ms[0m  
+[306]   [32m+[39m lastModifiedEx [2m46ms[0m  
+[306]   [32m+[39m stored digests work - SHA1 [2m6ms[0m  
+[306]   [32m+[39m stored digests work - MD5 [2m41ms[0m  
+[306]   [32m+[39m stored digests should not be stored outside of cache [2m4ms[0m  
+[306]   [32m+[39m wrong stored digest should delete file in cache [2m5ms[0m  
+[306]   [32m+[39m un-escape characters in file URL [2m7ms[0m  
+[306]   [32m+[39m does not accept redundant path elements like .. or . [2m0ms[0m  
+[306] - coursier.cache.FileCacheLocationOwnershipTests [2m68ms[0m
+[306]   [32m+[39m independent locations [2m13ms[0m  
+[306]   [32m+[39m independent locations after an owner error [2m10ms[0m  
+[306]   [32m+[39m same location joins its owner [2m45ms[0m  
+[306] - coursier.cache.DownloadResponseFramingTests [2m778ms[0m
+[306]   [32m+[39m valid mixed case range unit completes the artifact [2m78ms[0m  
+[306]   [32m+[39m unsolicited 304 cannot publish an empty artifact [2m23ms[0m  
+[306]   [32m+[39m cut off chunked response removes temporary bytes [2m14ms[0m  
+[306]   [32m+[39m cut off gzip response removes temporary bytes [2m23ms[0m  
+[306]   [32m+[39m short other encoded response cannot publish partial bytes [2m13ms[0m  
+[306]   [32m+[39m correct mixed case gzip decodes the body [2m45ms[0m  
+[306]   [32m+[39m chunked range obeys its content range without content length [2m18ms[0m  
+[306]   [32m+[39m short chunked range cannot publish a partial artifact [2m10ms[0m  
+[306]   [32m+[39m empty close delimited response is a valid empty artifact [2m14ms[0m  
+[306]   [32m+[39m correct deflate body decodes without comparing decoded and wire lengths [2m17ms[0m  
+[306]   [32m+[39m concurrent callers never publish the same short artifact [2m46ms[0m  
+[306]   [32m+[39m concurrent callers share one correct artifact download [2m56ms[0m  
+[306]   [32m+[39m HEAD metadata length does not require response bytes [2m8ms[0m  
+[306]   [32m+[39m chunked range must consume the closing chunk before publishing [2m14ms[0m  
+[306]   [32m+[39m chunked range rejects data beyond its stated range [2m24ms[0m  
+[306]   [32m+[39m range data stays temporary until the closing chunk arrives [2m16ms[0m  
+[306]   [32m+[39m no body status with a saved prefix is rejected and cleaned [2m24ms[0m  
+[306]   [32m+[39m unknown and empty encodings cannot publish response bytes [2m45ms[0m  
+[306]   [32m+[39m mixed case deflate is decoded [2m11ms[0m  
+[306]   [32m+[39m chunked gzip validates the closing chunk after its trailer [2m16ms[0m  
+[306]   [32m+[39m valid chunked gzip is decoded through the closing chunk [2m9ms[0m  
+[306]   [32m+[39m complete framing cannot hide an incomplete gzip trailer [2m16ms[0m  
+[306]   [32m+[39m invalid gzip header removes a saved temporary prefix [2m8ms[0m  
+[306]   [32m+[39m encoded resume cannot append decoded bytes to an earlier representation [2m10ms[0m  
+[306]   [32m+[39m gzip decoder completion still checks the declared response length [2m14ms[0m  
+[306]   [32m+[39m deflate decoder completion still checks the declared response length [2m17ms[0m  
+[306]   [32m+[39m chunked deflate validates the closing chunk after decoding [2m7ms[0m  
+[306]   [32m+[39m valid chunked deflate is decoded through the closing chunk [2m5ms[0m  
+[306]   [32m+[39m mixed case stacked content codings decode in reverse order [2m6ms[0m  
+[306]   [32m+[39m corrupt gzip trailer cannot publish decoded data [2m10ms[0m  
+[306]   [32m+[39m corrupt deflate checksum cannot publish decoded data [2m7ms[0m  
+[306]   [32m+[39m gzip members in separate chunks all decode before publication [2m11ms[0m  
+[306]   [32m+[39m empty encoded body with one byte buffer still validates its trailer [2m8ms[0m  
+[306]   [32m+[39m body bearing successful statuses retain their complete artifact bytes [2m34ms[0m  
+[306]   [32m+[39m encoded download output error is not reported as a coding error [2m15ms[0m  
+[306]   [32m+[39m HTTP error responses retain their complete original download error [2m44ms[0m  
+[306]   [32m+[39m close delimited response reports progress before its next body fragment [2m42ms[0m  
+[306] - coursier.cache.DownloadLengthIntegrityTests [2m608ms[0m
+[306]   [32m+[39m zero buffer size is rejected before creating a temporary file [2m70ms[0m  
+[306]   [32m+[39m negative buffer size is rejected before creating a temporary file [2m7ms[0m  
+[306]   [32m+[39m short fixed-length response does not publish a partial artifact [2m11ms[0m  
+[306]   [32m+[39m empty body with positive fixed length is an incomplete response [2m24ms[0m  
+[306]   [32m+[39m short fixed-length response counts bytes across multiple reads [2m11ms[0m  
+[306]   [32m+[39m partial body remains temporary until the connection reaches EOF [2m10ms[0m  
+[306]   [32m+[39m exact fixed-length response publishes all bytes [2m10ms[0m  
+[306]   [32m+[39m zero length response ignores trailing bytes [2m12ms[0m  
+[306]   [32m+[39m fragmented fixed-length response does not expose bytes after its length [2m19ms[0m  
+[306]   [32m+[39m two byte buffer stays within the framed length after a fragmented read [2m9ms[0m  
+[306]   [32m+[39m close-delimited response reads through connection close [2m8ms[0m  
+[306]   [32m+[39m chunked framing takes precedence over a conflicting content length [2m9ms[0m  
+[306]   [32m+[39m gzip known length decodes fully with bounded progress increments [2m17ms[0m  
+[306]   [32m+[39m mixed case identity encoding is accepted [2m7ms[0m  
+[306]   [32m+[39m mixed case identity encoding still enforces a short length [2m6ms[0m  
+[306]   [32m+[39m negative content length is rejected [2m3ms[0m  
+[306]   [32m+[39m non-decimal content length is rejected [2m14ms[0m  
+[306]   [32m+[39m overflowing content length is rejected [2m5ms[0m  
+[306]   [32m+[39m empty content length is rejected [2m9ms[0m  
+[306]   [32m+[39m content length at Int max reports the received byte count [2m13ms[0m  
+[306]   [32m+[39m content length above Int max reports the received byte count [2m11ms[0m  
+[306]   [32m+[39m five gigabyte content length reports the received byte count [2m4ms[0m  
+[306]   [32m+[39m Long max content length reports the received byte count [2m18ms[0m  
+[306]   [32m+[39m redirect body length does not replace the final response length [2m23ms[0m  
+[306]   [32m+[39m short final response after redirect reports the original artifact URL [2m17ms[0m  
+[306]   [32m+[39m valid range response resumes the existing prefix [2m6ms[0m  
+[306]   [32m+[39m valid range response can frame the suffix without content length [2m19ms[0m  
+[306]   [32m+[39m range response with an incorrect start is rejected without restarting [2m13ms[0m  
+[306]   [32m+[39m range response without content range is rejected [2m13ms[0m  
+[306]   [32m+[39m malformed content range is rejected with its exact value [2m10ms[0m  
+[306]   [32m+[39m range end mismatch is rejected [2m33ms[0m  
+[306]   [32m+[39m range total mismatch is rejected [2m17ms[0m  
+[306]   [32m+[39m unknown range total is rejected [2m11ms[0m  
+[306]   [32m+[39m range ending at or beyond the total is rejected [2m7ms[0m  
+[306]   [32m+[39m overflowing range start is rejected [2m14ms[0m  
+[306]   [32m+[39m overflowing range end is rejected [2m5ms[0m  
+[306]   [32m+[39m overflowing range total is rejected [2m15ms[0m  
+[306]   [32m+[39m content length conflicting with range is rejected [2m14ms[0m  
+[306]   [32m+[39m unsolicited range response must start at byte zero [2m24ms[0m  
+[306]   [32m+[39m range response from byte zero can satisfy a full download [2m16ms[0m  
+[306]   [32m+[39m server ignoring range with a full response replaces the prefix [2m20ms[0m  
+[306]   [32m+[39m short range response with content length removes its temporary file [2m9ms[0m  
+[306]   [32m+[39m short range response uses content range length when content length is absent [2m15ms[0m  
+[306] - coursier.cache.DownloadBufferCostTests [2m8270ms[0m
+[306]   [32m+[39m small bodies do not initialize the buffer element by element [2m8270ms[0m  
+[306] - coursier.cache.DownloadBufferCapacityTests [2m540ms[0m
+[306]   [32m+[39m known tiny response does not request an oversized transfer buffer [2m211ms[0m  
+[306]   [32m+[39m known 199 byte POM uses its response length [2m9ms[0m  
+[306]   [32m+[39m known one byte response uses a one byte buffer [2m11ms[0m  
+[306]   [32m+[39m identity response uses its uncompressed length [2m12ms[0m  
+[306]   [32m+[39m mixed case identity response uses its uncompressed length [2m13ms[0m  
+[306]   [32m+[39m deflate content encoding retains the default maximum [2m18ms[0m  
+[306]   [32m+[39m known responses at the default boundary stay bounded [2m102ms[0m  
+[306]   [32m+[39m known empty response keeps read buffers at one byte or less [2m12ms[0m  
+[306]   [32m+[39m known empty response requests zero bytes from the response stream [2m8ms[0m  
+[306]   [32m+[39m known body larger than configured maximum uses at most that maximum [2m20ms[0m  
+[306]   [32m+[39m unknown chunked response retains the default maximum [2m75ms[0m  
+[306]   [32m+[39m unknown identity response retains the default maximum [2m9ms[0m  
+[306]   [32m+[39m gzip response with known encoded length returns all decoded bytes [2m14ms[0m  
+[306]   [32m+[39m partial response resumes from the persisted prefix with a bounded read buffer [2m26ms[0m  
+[306] - coursier.cache.DigestBasedCacheTests [2m402ms[0m
+[306]   [32m+[39m simple [2m402ms[0m  
+[306] ----------------------------------- Failures -----------------------------------
+[306] [31mX[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled [2m169ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]   [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]     value = [32m"download error: Unexpected HTTP status 307 from http://127.0.0.1:41271/redirect: expected a successful response with an artifact body"[39m
+[306]   )
+[306]   [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]   [36mres != expectedRes[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = "[4mdownload e[24mr[4mror: Unexpect[24med[4m HTTP status 307 from http://127.0.0.1:41271/red[24mir[4mect: [24me[4mxpe[24mct[4med a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m59[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$24[39m([91mFileCacheRedirectionTests.scala[39m:[91m185[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$24$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m181[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$20[39m([91mFileCacheRedirectionTests.scala[39m:[91m164[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]     [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]     [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306] [31mX[39m coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled [2m135ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]   [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]     value = [32m"download error: Unexpected HTTP status 307 from http://127.0.0.1:37171/auth-redirect: expected a successful response with an artifact body"[39m
+[306]   )
+[306]   [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]   [36mres != expectedRes[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = "[4mdownload error: Unexpected HTTP status 307 from http://127.0.0.1:37171/auth-[24mredirect[4m: expected a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m59[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$33[39m([91mFileCacheRedirectionTests.scala[39m:[91m246[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$33$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m242[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$28[39m([91mFileCacheRedirectionTests.scala[39m:[91m220[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]     [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]     [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306] [31mX[39m coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1 [2m186ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(res == expectedRes)
+[306]   [36mres[39m: [32mEither[39m[[32mString[39m, [32mString[39m] = [33mLeft[39m(
+[306]     value = [32m"download error: Unexpected HTTP status 307 from https://127.0.0.1:44171/redirect: expected a successful response with an artifact body"[39m
+[306]   )
+[306]   [36mexpectedRes[39m: [32mRight[39m[[32mNothing[39m, [32mString[39m] = [33mRight[39m(value = [32m"redirecting"[39m)
+[306]   [36mres != expectedRes[39m:
+[306]   [41m- [4mLef[24mt([49m
+[306]   [41m- [4m  [24mvalue = "[4mdownload error: Unexpected HTTP status 307 from https://127.0.0.1:44171/[24mredir[4mect: [24me[4mxpe[24mct[4med a successful response w[24mi[4mth a[24mn[4m artifact body[24m"[49m
+[306]   [41m- )[49m
+[306]   [42m+ [4mRigh[24mt(value = "redirectin[4mg[24m")[49m
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1[39m([91mFileCacheRedirectionTests.scala[39m:[91m48[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$expect$1$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91mwithTmpDir0[39m([91mTestUtil.scala[39m:[91m163[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m43[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91mexpect[39m([91mFileCacheRedirectionTests.scala[39m:[91m52[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$174[39m([91mFileCacheRedirectionTests.scala[39m:[91m1024[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$174$adapted[39m([91mFileCacheRedirectionTests.scala[39m:[91m1019[39m)
+[306]     [31mcoursier.cache.FileCacheRedirectionTests$.[91m$anonfun$tests$159[39m([91mFileCacheRedirectionTests.scala[39m:[91m969[39m)
+[306]     [31mcoursier.cache.TestUtil$.[91m$anonfun$withHttpServer$2[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mapply @ coursier.cache.TestUtil$.[91m$anonfun$withHttpServer$1[39m([91mTestUtil.scala[39m:[91m94[39m)
+[306]     [31mdelay @ org.http4s.blaze.server.BlazeServerBuilder.[91mlogStart$1[39m([91mBlazeServerBuilder.scala[39m:[91m417[39m)
+[306]     [31muse @ coursier.cache.TestUtil$.[91mwithHttpServer[39m([91mTestUtil.scala[39m:[91m92[39m)
+[306]     [31mmap @ org.http4s.blaze.server.BlazeServerBuilder.[91mmkServerChannel$1[39m([91mBlazeServerBuilder.scala[39m:[91m410[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306]     [31mmake @ org.http4s.blaze.server.BlazeServerBuilder.[91mresource[39m([91mBlazeServerBuilder.scala[39m:[91m401[39m)
+[306] Tests: 186, Passed: 183, Failed: 3
+[306/306, 1 failed] ========================= cache.jvm[2.13.16].test ======================== 39s
+1 tasks failed
+cache.jvm[2.13.16].test.test 3 tests failed: 
+  coursier.cache.FileCacheRedirectionTests coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled
+  coursier.cache.FileCacheRedirectionTests coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled
+  coursier.cache.FileCacheRedirectionTests coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1

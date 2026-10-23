@@ -373,7 +373,7 @@ object DownloadResponseFramingTests extends TestSuite {
     s"Missing Content-Range from $url: expected bytes starting at $start"
 
   private def statusMessage(url: String, code: Int): String =
-    s"Unexpected HTTP status $code from $url: expected a successful response with an artifact body"
+    s"Unexpected HTTP status $code from $url: expected a response with an artifact body"
 
   private def chunkedMessage(url: String, received: Long): String =
     s"Invalid response framing from $url: expected a complete chunked message, received $received bytes (Premature EOF)"
@@ -843,6 +843,13 @@ object DownloadResponseFramingTests extends TestSuite {
       assert(pending.temporaryExists)
       assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
       successfulDownloadIs(o, body)
+    }
+
+    test("unfollowed redirects retain their complete response body") {
+      for (code <- Seq(301, 302, 303, 307, 308)) {
+        val o = scenario(List(fixed("6", body, status = s"$code Redirect Body")))
+        successfulDownloadIs(o, body)
+      }
     }
   }
 }
