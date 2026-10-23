@@ -1,0 +1,104 @@
+{
+  "checkedAtUtc": "2026-10-23T10:43:11.293918+00:00",
+  "modules": [
+    {
+      "module": "cache-util",
+      "url": "https://kotlin.directory/io/get-coursier/cache-util/maven-metadata.xml",
+      "versions": [
+        "2.1.24",
+        "2.1.25-M18",
+        "2.1.30",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6"
+      ],
+      "hasPublishedVersion": true
+    },
+    {
+      "module": "coursier-paths",
+      "url": "https://kotlin.directory/io/get-coursier/coursier-paths/maven-metadata.xml",
+      "versions": [
+        "2.1.25-M18",
+        "2.1.30",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6"
+      ],
+      "hasPublishedVersion": true
+    },
+    {
+      "module": "coursier-util_2.13",
+      "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/maven-metadata.xml",
+      "versions": [
+        "2.1.24",
+        "2.1.25-M18",
+        "2.1.30",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6",
+        "2.1.5"
+      ],
+      "hasPublishedVersion": true
+    },
+    {
+      "module": "coursier-core_2.13",
+      "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/maven-metadata.xml",
+      "versions": [
+        "2.1.24",
+        "2.1.25-M18",
+        "2.1.30",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6",
+        "2.1.5"
+      ],
+      "hasPublishedVersion": true
+    },
+    {
+      "module": "coursier-cache_2.13",
+      "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/maven-metadata.xml",
+      "versions": [
+        "2.1.24",
+        "2.1.25-M18",
+        "2.1.30",
+        "2.1.31-buffer1",
+        "2.1.31-buffer2",
+        "2.1.31-buffer3",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6",
+        "2.1.5"
+      ],
+      "hasPublishedVersion": true
+    },
+    {
+      "module": "coursier-proxy-setup",
+      "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/maven-metadata.xml",
+      "versions": [
+        "2.1.24",
+        "2.1.25-M18",
+        "2.1.25-M26",
+        "2.1.30",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6"
+      ],
+      "hasPublishedVersion": true
+    },
+    {
+      "module": "coursier_2.13",
+      "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/maven-metadata.xml",
+      "versions": [
+        "2.1.24",
+        "2.1.25-M18",
+        "2.1.25-M26",
+        "2.1.30",
+        "2.1.31-buffer4",
+        "2.1.31-buffer5",
+        "2.1.31-buffer6",
+        "2.1.5"
+      ],
+      "hasPublishedVersion": true
+    }
+  ]
+}

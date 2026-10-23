@@ -1,0 +1,394 @@
+[
+  {
+    "coordinate": "io.get-coursier:cache-util:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:41:21.594752+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/cache-util-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/cache-util-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/cache-util-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/cache-util/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:41:21.594794+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/cache-util-2.1.31-buffer6-sources.jar",
+        "file": "cache-util-2.1.31-buffer6-sources.jar",
+        "size": 1501,
+        "localSha256": "872a7d90f2dcb338985948476d01bc9e07508d1a59cad83a3efec6773f8027ff",
+        "downloadedSha256": "872a7d90f2dcb338985948476d01bc9e07508d1a59cad83a3efec6773f8027ff",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/cache-util-2.1.31-buffer6.jar",
+        "file": "cache-util-2.1.31-buffer6.jar",
+        "size": 1901,
+        "localSha256": "e11621d4b9fa341c0c9b90ae8b8b4dbbc338420e0bb5452d263429f9c945737a",
+        "downloadedSha256": "e11621d4b9fa341c0c9b90ae8b8b4dbbc338420e0bb5452d263429f9c945737a",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/cache-util/2.1.31-buffer6/cache-util-2.1.31-buffer6.pom",
+        "file": "cache-util-2.1.31-buffer6.pom",
+        "size": 1287,
+        "localSha256": "c78f00ca3ed6ec1fe8f0d058546e70231cb775202a2f1746cdf430e2d6be55f6",
+        "downloadedSha256": "c78f00ca3ed6ec1fe8f0d058546e70231cb775202a2f1746cdf430e2d6be55f6",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:41:45.774489+00:00"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-paths:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:41:47.584925+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/coursier-paths-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/coursier-paths-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/coursier-paths-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-paths/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:41:47.584938+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/coursier-paths-2.1.31-buffer6-sources.jar",
+        "file": "coursier-paths-2.1.31-buffer6-sources.jar",
+        "size": 11692,
+        "localSha256": "2e078977c9f377f565c025038717b84284d39afbaf43763ae4895b2fb634212a",
+        "downloadedSha256": "2e078977c9f377f565c025038717b84284d39afbaf43763ae4895b2fb634212a",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/coursier-paths-2.1.31-buffer6.jar",
+        "file": "coursier-paths-2.1.31-buffer6.jar",
+        "size": 47397,
+        "localSha256": "efbbbf1e5b783378ae57646cf7399ecc9302ba16c135730892a84ec8420dd359",
+        "downloadedSha256": "efbbbf1e5b783378ae57646cf7399ecc9302ba16c135730892a84ec8420dd359",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-paths/2.1.31-buffer6/coursier-paths-2.1.31-buffer6.pom",
+        "file": "coursier-paths-2.1.31-buffer6.pom",
+        "size": 1680,
+        "localSha256": "7ab16faf739f8eafff394c2827bddecfb748c0803430fc10cc82fc298d9570eb",
+        "downloadedSha256": "7ab16faf739f8eafff394c2827bddecfb748c0803430fc10cc82fc298d9570eb",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:41:55.137231+00:00"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-util_2.13:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:41:57.936472+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/coursier-util_2.13-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/coursier-util_2.13-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/coursier-util_2.13-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:41:57.936490+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/coursier-util_2.13-2.1.31-buffer6-sources.jar",
+        "file": "coursier-util_2.13-2.1.31-buffer6-sources.jar",
+        "size": 11179,
+        "localSha256": "1503604465cf018fa5a68d0fc4d8e9cff88bffd216af2223ce3d8903a0e1acb6",
+        "downloadedSha256": "1503604465cf018fa5a68d0fc4d8e9cff88bffd216af2223ce3d8903a0e1acb6",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/coursier-util_2.13-2.1.31-buffer6.jar",
+        "file": "coursier-util_2.13-2.1.31-buffer6.jar",
+        "size": 600753,
+        "localSha256": "df9798ba6975d4ba9fda7f788c9bad4e53c3ee4c68cd1e77a88571bcc8107d7f",
+        "downloadedSha256": "df9798ba6975d4ba9fda7f788c9bad4e53c3ee4c68cd1e77a88571bcc8107d7f",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-util_2.13/2.1.31-buffer6/coursier-util_2.13-2.1.31-buffer6.pom",
+        "file": "coursier-util_2.13-2.1.31-buffer6.pom",
+        "size": 1916,
+        "localSha256": "2fa1350f4c0d91f295380b78145d42c84138eec57697dbe7ef9229662dfac527",
+        "downloadedSha256": "2fa1350f4c0d91f295380b78145d42c84138eec57697dbe7ef9229662dfac527",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:42:05.728263+00:00"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-core_2.13:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:42:09.587725+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/coursier-core_2.13-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/coursier-core_2.13-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/coursier-core_2.13-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:42:09.587744+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/coursier-core_2.13-2.1.31-buffer6-sources.jar",
+        "file": "coursier-core_2.13-2.1.31-buffer6-sources.jar",
+        "size": 109220,
+        "localSha256": "1a9be6a421f1940c27bbacd42086fef00d34a354d42a0137f147d7f7015e70ea",
+        "downloadedSha256": "1a9be6a421f1940c27bbacd42086fef00d34a354d42a0137f147d7f7015e70ea",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/coursier-core_2.13-2.1.31-buffer6.jar",
+        "file": "coursier-core_2.13-2.1.31-buffer6.jar",
+        "size": 1812808,
+        "localSha256": "8c65eccc3bde694c69bcccfb2f301b783145b7c12463d7757f1a0c35c43065fd",
+        "downloadedSha256": "8c65eccc3bde694c69bcccfb2f301b783145b7c12463d7757f1a0c35c43065fd",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-core_2.13/2.1.31-buffer6/coursier-core_2.13-2.1.31-buffer6.pom",
+        "file": "coursier-core_2.13-2.1.31-buffer6.pom",
+        "size": 2725,
+        "localSha256": "c941a74ab1c140a1cb1ccfd7834138423543e4d90c7e786c6294554afd6e64fb",
+        "downloadedSha256": "c941a74ab1c140a1cb1ccfd7834138423543e4d90c7e786c6294554afd6e64fb",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:42:17.642183+00:00"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-cache_2.13:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:42:20.746140+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/coursier-cache_2.13-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/coursier-cache_2.13-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/coursier-cache_2.13-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:42:20.746172+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/coursier-cache_2.13-2.1.31-buffer6-sources.jar",
+        "file": "coursier-cache_2.13-2.1.31-buffer6-sources.jar",
+        "size": 62965,
+        "localSha256": "7e05acea53673ff3a0a9882f1f1df9576f248af0af2cacb33916b341d57f57de",
+        "downloadedSha256": "7e05acea53673ff3a0a9882f1f1df9576f248af0af2cacb33916b341d57f57de",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/coursier-cache_2.13-2.1.31-buffer6.jar",
+        "file": "coursier-cache_2.13-2.1.31-buffer6.jar",
+        "size": 473819,
+        "localSha256": "e581abf2e27f34f8b53c4da6ab7a54b95664d78844173368c44f475e6b2ba1e8",
+        "downloadedSha256": "e581abf2e27f34f8b53c4da6ab7a54b95664d78844173368c44f475e6b2ba1e8",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-cache_2.13/2.1.31-buffer6/coursier-cache_2.13-2.1.31-buffer6.pom",
+        "file": "coursier-cache_2.13-2.1.31-buffer6.pom",
+        "size": 3591,
+        "localSha256": "22757637b4288ed078939af495c2d54a418c3f401e9d0ce04f51b2cdd00120f7",
+        "downloadedSha256": "22757637b4288ed078939af495c2d54a418c3f401e9d0ce04f51b2cdd00120f7",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:42:29.271082+00:00"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier-proxy-setup:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:42:31.105510+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/coursier-proxy-setup-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/coursier-proxy-setup-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/coursier-proxy-setup-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:42:31.105525+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/coursier-proxy-setup-2.1.31-buffer6-sources.jar",
+        "file": "coursier-proxy-setup-2.1.31-buffer6-sources.jar",
+        "size": 3508,
+        "localSha256": "6d75c6ac9f7f4d3dc2a3864dc112f7e4fc2b2384bc62f7ee2cf6b9f8644f606b",
+        "downloadedSha256": "6d75c6ac9f7f4d3dc2a3864dc112f7e4fc2b2384bc62f7ee2cf6b9f8644f606b",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/coursier-proxy-setup-2.1.31-buffer6.jar",
+        "file": "coursier-proxy-setup-2.1.31-buffer6.jar",
+        "size": 6865,
+        "localSha256": "cbbd875b6e5bd83060696d28883279153729d75ce104e68c74e719ecd16ec65c",
+        "downloadedSha256": "cbbd875b6e5bd83060696d28883279153729d75ce104e68c74e719ecd16ec65c",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier-proxy-setup/2.1.31-buffer6/coursier-proxy-setup-2.1.31-buffer6.pom",
+        "file": "coursier-proxy-setup-2.1.31-buffer6.pom",
+        "size": 1317,
+        "localSha256": "cf4b2209854fda1f695d8ab4970a2ea945ee4bdd146505743274583e34bc05fd",
+        "downloadedSha256": "cf4b2209854fda1f695d8ab4970a2ea945ee4bdd146505743274583e34bc05fd",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:42:37.934705+00:00"
+  },
+  {
+    "coordinate": "io.get-coursier:coursier_2.13:2.1.31-buffer6",
+    "immediateAbsenceCheck": {
+      "checkedAtUtc": "2026-10-23T10:42:39.271077+00:00",
+      "checks": [
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/coursier_2.13-2.1.31-buffer6-sources.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/coursier_2.13-2.1.31-buffer6.jar",
+          "status": 404
+        },
+        {
+          "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/coursier_2.13-2.1.31-buffer6.pom",
+          "status": 404
+        }
+      ],
+      "metadataHasVersion": false,
+      "metadataUrl": "https://kotlin.directory/io/get-coursier/coursier_2.13/maven-metadata.xml"
+    },
+    "publishStartedAtUtc": "2026-10-23T10:42:39.271108+00:00",
+    "publishInvocations": 1,
+    "publishExitCode": 0,
+    "files": [
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/coursier_2.13-2.1.31-buffer6-sources.jar",
+        "file": "coursier_2.13-2.1.31-buffer6-sources.jar",
+        "size": 59242,
+        "localSha256": "88b0c14b97280573b7019a91803642f588dc34cdbc41e9b05b1bb357e631dda1",
+        "downloadedSha256": "88b0c14b97280573b7019a91803642f588dc34cdbc41e9b05b1bb357e631dda1",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/coursier_2.13-2.1.31-buffer6.jar",
+        "file": "coursier_2.13-2.1.31-buffer6.jar",
+        "size": 1158779,
+        "localSha256": "f4d41713029dc500dabe9da5b1ac0417464d49be86e0a52ac7431c5625cde5ca",
+        "downloadedSha256": "f4d41713029dc500dabe9da5b1ac0417464d49be86e0a52ac7431c5625cde5ca",
+        "match": true
+      },
+      {
+        "url": "https://kotlin.directory/io/get-coursier/coursier_2.13/2.1.31-buffer6/coursier_2.13-2.1.31-buffer6.pom",
+        "file": "coursier_2.13-2.1.31-buffer6.pom",
+        "size": 3136,
+        "localSha256": "e866672009a59bc13856a84e36bef734096c6feac5dba2079367494147e13380",
+        "downloadedSha256": "e866672009a59bc13856a84e36bef734096c6feac5dba2079367494147e13380",
+        "match": true
+      }
+    ],
+    "publishFinishedAtUtc": "2026-10-23T10:42:45.956597+00:00"
+  }
+]

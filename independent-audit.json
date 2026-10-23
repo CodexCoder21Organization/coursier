@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "version": "2.1.31-buffer6",
+  "modules": 7,
+  "publisherInvocations": 7,
+  "publisherRetries": 0,
+  "filesVerified": 21,
+  "filesMismatched": 0,
+  "immediate404Checks": 28,
+  "metadataAbsenceChecks": 7,
+  "compiledCacheClassMatches": 181,
+  "existingClassDifferencesFromBuffer5": 7,
+  "newEncodingClasses": 3
+}
