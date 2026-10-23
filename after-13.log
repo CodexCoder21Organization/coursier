@@ -1,0 +1,13 @@
+=============== cache.jvm[2.13.16].test.testOnly...serve encoded resume rejection} ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadResponseFramingTests.{empty content encoding means an unencoded body,empty list elements do not change identity encoding,empty list elements do not allow unknown encodings,only empty encoding list elements mean an unencoded body,empty list elements preserve compressed decoding,empty encoding list elements preserve length validation,empty encoding list elements preserve saved prefix handling,empty list elements preserve encoded resume rejection} 
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty content encoding means an unencoded body [2m1829ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty list elements do not change identity encoding [2m85ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty list elements do not allow unknown encodings [2m60ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.only empty encoding list elements mean an unencoded body [2m140ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty list elements preserve compressed decoding [2m190ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve length validation [2m100ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve saved prefix handling [2m141ms[0m  
+[306] [32m+[39m coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection [2m43ms[0m  
+[306] Tests: 8, Passed: 8, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...ncoded resume rejection} =============== 33s

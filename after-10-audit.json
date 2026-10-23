@@ -1,0 +1,8 @@
+{
+  "phase": "after-10",
+  "cases": 8,
+  "passes": 8,
+  "qualifiedEvents": 8,
+  "firstAttempts": 8,
+  "retries": 0
+}
