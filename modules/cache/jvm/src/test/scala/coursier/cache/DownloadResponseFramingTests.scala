@@ -255,7 +255,7 @@ object DownloadResponseFramingTests extends TestSuite {
       val expectedOutputError =
         if (temporaryDirectory) {
           Files.createDirectories(temporaryFile.toPath)
-          val error = intercept[java.io.IOException] {
+          val error = assertThrows[java.io.IOException] {
             Files.newOutputStream(temporaryFile.toPath).close()
           }
           Some(
