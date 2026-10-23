@@ -1,0 +1,29 @@
+{
+  "phase": "main-comparison",
+  "cases": 102,
+  "uniqueCases": 102,
+  "passed": 35,
+  "failed": 67,
+  "errors": 0,
+  "skips": 0,
+  "runner": "plain utest 0.9.1 with no retry wrapper; Executor executes each runBody once",
+  "attemptsPerCase": 1,
+  "groups": {
+    "coursier.cache.DownloadResponseFramingTests": {
+      "pass": 10,
+      "fail": 28
+    },
+    "coursier.cache.Rcours3BufferReviewTests": {
+      "pass": 12,
+      "fail": 2
+    },
+    "coursier.cache.Rcours3ReviewTests": {
+      "pass": 2,
+      "fail": 5
+    },
+    "coursier.cache.DownloadLengthIntegrityTests": {
+      "pass": 11,
+      "fail": 32
+    }
+  }
+}

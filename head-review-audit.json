@@ -1,0 +1,17 @@
+{
+  "phase": "head-review",
+  "cases": 7,
+  "uniqueCases": 7,
+  "passed": 1,
+  "failed": 6,
+  "errors": 0,
+  "skips": 0,
+  "runner": "plain utest 0.9.1 with no retry wrapper; Executor executes each runBody once",
+  "attemptsPerCase": 1,
+  "groups": {
+    "coursier.cache.Rcours3ReviewTests": {
+      "pass": 1,
+      "fail": 6
+    }
+  }
+}

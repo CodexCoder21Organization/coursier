@@ -1,0 +1,115 @@
+=============== cache.jvm[2.13.16].test.testOnly...er.cache.Rcours3DecoderEndTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS3-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [31mX[39m coursier.cache.Rcours3DecoderEndTests.a corrupt outer gzip trailer cannot hide behind inner deflate EOF [2m369ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:36401/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m-85[39m,
+[306]         [32m-104[39m,
+[306]         [32m-29[39m,
+[306]         [32m-19[39m,
+[306]         [32m-29[39m,
+[306]         [32m-27[39m,
+[306]         [32m-25[39m,
+[306]         [32m-23[39m,
+[306]         [32m-53[39m,
+[306]         [32m-52[39m,
+[306]         [32m-64[39m,
+[306]         [32m33[39m,
+[306]         [32m-57[39m,
+[306]         [32m20[39m,
+[306]         [32m6[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3DecoderEndTests$.[91m$anonfun$tests$2[39m([91mRcours3DecoderEndTests.scala[39m:[91m410[39m)
+[306] [31mX[39m coursier.cache.Rcours3DecoderEndTests.a corrupt outer deflate checksum cannot hide behind inner gzip EOF [2m22ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:44737/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m120[39m,
+[306]         [32m-100[39m,
+[306]         [32m-109[39m,
+[306]         [32m-17[39m,
+[306]         [32m-26[39m,
+[306]         [32m96[39m,
+[306]         [32m0[39m,
+[306]         [32m-125[39m,
+[306]         [32m-1[39m,
+[306]         [32m-34[39m,
+[306]         [32m62[39m,
+[306]         [32m94[39m,
+[306]         [32m126[39m,
+[306]         [32m-98[39m,
+[306]         [32m-66[39m,
+[306]         [32m-52[39m,
+[306]         [32m12[39m,
+[306]         [32m-17[39m,
+[306]         [32m45[39m,
+[306]         [32m-5[39m,
+[306]         [32m-68[39m,
+[306]         [32m-39[39m,
+[306]         [32m-128[39m,
+[306]         [32m2[39m,
+[306]         [32m0[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3DecoderEndTests$.[91m$anonfun$tests$6[39m([91mRcours3DecoderEndTests.scala[39m:[91m420[39m)
+[306] [31mX[39m coursier.cache.Rcours3DecoderEndTests.an incomplete outer gzip trailer cannot hide behind inner deflate EOF [2m24ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:35471/artifact"[39m,
+[306]     result = [33mRight[39m(
+[306]       value = [33mArray[39m(
+[306]         [32m31[39m,
+[306]         [32m-117[39m,
+[306]         [32m8[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m0[39m,
+[306]         [32m-1[39m,
+[306]         [32m-85[39m,
+[306]         [32m-104[39m,
+[306]         [32m-29[39m,
+[306]         [32m-19[39m,
+[306]         [32m-29[39m,
+[306]         [32m-27[39m,
+[306]         [32m-25[39m,
+[306]         [32m-23[39m,
+[306]         [32m-53[39m,
+[306]         [32m-52[39m,
+[306]         [32m-64[39m,
+[306]         [32m33[39m,
+[306]         [32m-57[39m,
+[306]         [32m20[39m,
+[306]         [32m6[39m,
+[306]   ...
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours3DecoderEndTests$.[91m$anonfun$tests$10[39m([91mRcours3DecoderEndTests.scala[39m:[91m429[39m)
+[306] Tests: 3, Passed: 0, Failed: 3
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...urs3DecoderEndTests =============== 11s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 3 tests failed: 
+  coursier.cache.Rcours3DecoderEndTests coursier.cache.Rcours3DecoderEndTests.a corrupt outer gzip trailer cannot hide behind inner deflate EOF
+  coursier.cache.Rcours3DecoderEndTests coursier.cache.Rcours3DecoderEndTests.a corrupt outer deflate checksum cannot hide behind inner gzip EOF
+  coursier.cache.Rcours3DecoderEndTests coursier.cache.Rcours3DecoderEndTests.an incomplete outer gzip trailer cannot hide behind inner deflate EOF

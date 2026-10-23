@@ -1,0 +1,15 @@
+{
+  "phase": "main-decoder-ends",
+  "cases": 3,
+  "uniqueCases": 3,
+  "passed": 0,
+  "failed": 3,
+  "errors": 0,
+  "skips": 0,
+  "attemptsPerCase": 1,
+  "tests": {
+    "a corrupt outer gzip trailer cannot hide behind inner deflate EOF": "FAIL",
+    "a corrupt outer deflate checksum cannot hide behind inner gzip EOF": "FAIL",
+    "an incomplete outer gzip trailer cannot hide behind inner deflate EOF": "FAIL"
+  }
+}

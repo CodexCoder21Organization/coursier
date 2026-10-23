@@ -1,0 +1,62 @@
+{
+  "matchedCases": 105,
+  "head": {
+    "pass": 97,
+    "fail": 8,
+    "firstAttempts": 105,
+    "retries": 0
+  },
+  "main": {
+    "pass": 35,
+    "fail": 70,
+    "firstAttempts": 105,
+    "retries": 0
+  },
+  "candidateTests": {
+    "coursier.cache.Rcours3ReviewTests.empty content encoding means an unencoded body": {
+      "head": "FAIL",
+      "main": "PASS"
+    },
+    "coursier.cache.Rcours3ReviewTests.empty list elements do not change identity encoding": {
+      "head": "FAIL",
+      "main": "PASS"
+    },
+    "coursier.cache.Rcours3ReviewTests.repeated content encoding fields decode all listed layers": {
+      "head": "FAIL",
+      "main": "FAIL"
+    },
+    "coursier.cache.Rcours3ReviewTests.an incomplete second gzip member header cannot publish the first member": {
+      "head": "FAIL",
+      "main": "FAIL"
+    },
+    "coursier.cache.Rcours3ReviewTests.an incomplete inner gzip trailer is rejected through an outer deflate layer": {
+      "head": "PASS",
+      "main": "FAIL"
+    },
+    "coursier.cache.Rcours3ReviewTests.streaming gzip reports decoded progress before the next compressed fragment": {
+      "head": "FAIL",
+      "main": "FAIL"
+    },
+    "coursier.cache.Rcours3ReviewTests.a repeated coding field cannot hide an unsupported earlier coding": {
+      "head": "FAIL",
+      "main": "FAIL"
+    },
+    "coursier.cache.Rcours3DecoderEndTests.a corrupt outer gzip trailer cannot hide behind inner deflate EOF": {
+      "main": "FAIL",
+      "head": "FAIL"
+    },
+    "coursier.cache.Rcours3DecoderEndTests.a corrupt outer deflate checksum cannot hide behind inner gzip EOF": {
+      "main": "FAIL",
+      "head": "PASS"
+    },
+    "coursier.cache.Rcours3DecoderEndTests.an incomplete outer gzip trailer cannot hide behind inner deflate EOF": {
+      "main": "FAIL",
+      "head": "FAIL"
+    }
+  },
+  "existingTestsEditedByReview": 0,
+  "readingHashes": {
+    "PHILOSOPHY.md": "be03974403d904a953de171c25d9cf1f3641faa76cb0e5c99056c9a73a8e5789",
+    "TESTING.md": "67b8b6ddc758f022c8a1b2ba7f72e0c90ec6d8bd085df1b97bf1406f62792985"
+  }
+}
