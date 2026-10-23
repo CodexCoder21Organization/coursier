@@ -7,7 +7,7 @@ import java.nio.file.{AccessDeniedException, Files, StandardCopyOption, Standard
 import java.time.Clock
 import java.util.Locale
 import java.util.concurrent.ExecutorService
-import java.util.zip.{GZIPInputStream, Inflater, InflaterInputStream}
+import java.util.zip.{Inflater, InflaterInputStream, ZipException}
 import javax.net.ssl.{HostnameVerifier, SSLSocketFactory}
 
 import coursier.cache._
@@ -266,7 +266,7 @@ import scala.util.control.NonFatal
           val responseLength  = CacheUrl.responseLength(conn, url)
           val offset          = if (partialDownload) alreadyDownloaded else 0L
           val rangeLength     = CacheUrl.contentRangeLength(conn, offset, url)
-          val contentEncoding = Option(conn.getContentEncoding)
+          val contentEncoding = Downloader.contentEncoding(conn)
           val encodings = contentEncoding.toList.flatMap(_.split(",", -1))
             .map(_.trim.toLowerCase(Locale.ROOT))
             .filter(_.nonEmpty)
@@ -313,7 +313,6 @@ import scala.util.control.NonFatal
             url,
             rangeLength.orElse(responseLength),
             bounded = responseLength.nonEmpty,
-            encoded = !uncompressed,
             chunked = Option(conn.getHeaderField("Transfer-Encoding"))
               .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
           )
@@ -324,21 +323,16 @@ import scala.util.control.NonFatal
               for (encoding <- encodings.reverse)
                 in = Downloader.withDecodingError(contentEncoding.get, url, response) {
                   encoding match {
-                    case "gzip" => new GZIPInputStream(in, downloadBufferSize)
-                    case "deflate" =>
-                      new InflaterInputStream(in, new Inflater(), downloadBufferSize) {
-                        // InflaterInputStream does not end an explicitly supplied inflater.
-                        override def close(): Unit =
-                          try super.close()
-                          finally inf.end()
-                      }
-                    case _ => in // identity was validated above
+                    case "gzip"    => new GzipInputStream(in, downloadBufferSize)
+                    case "deflate" => new Downloader.DeflateInputStream(in, downloadBufferSize)
+                    case _         => in // identity was validated above
                   }
                 }
               if (!uncompressed)
                 in = new Downloader.DecodingInputStream(in, contentEncoding.get, url, response)
-              // A buffered stream can prefetch past the remaining length on the last read.
-              if (expectedLength.isEmpty)
+              // Buffer only unencoded unknown-length bodies: buffering decoded data can wait
+              // for another compressed fragment before reporting bytes that are already decoded.
+              if (uncompressed && expectedLength.isEmpty)
                 in = new BufferedInputStream(in, downloadBufferSize)
 
               val out = CacheLocks.withStructureLock(location) {
@@ -860,13 +854,53 @@ object Downloader {
 
   private val checksumHeader = Seq("MD5", "SHA1", "SHA256")
 
+  private def contentEncoding(conn: URLConnection): Option[String] = {
+    // Indexed fields retain wire order, unlike getHeaderFields and getContentEncoding.
+    val values = Iterator.from(0)
+      .map(index => (Option(conn.getHeaderFieldKey(index)), Option(conn.getHeaderField(index))))
+      .takeWhile { case (key, value) => key.nonEmpty || value.nonEmpty }
+      .collect {
+        case (Some(key), Some(value)) if key.equalsIgnoreCase("Content-Encoding") => value
+      }
+      .toList
+    if (values.nonEmpty) Some(values.mkString(", "))
+    else Option(conn.getContentEncoding) // Custom URL connections may expose only the named field.
+  }
+
+  private final class DeflateInputStream(underlying: InputStream, bufferSize: Int)
+      extends InflaterInputStream(underlying, new Inflater(), bufferSize) {
+    private var verified = false
+
+    override def read(bytes: Array[Byte], offset: Int, length: Int): Int = {
+      val n = super.read(bytes, offset, length)
+      if (n < 0 && !verified) {
+        if (inf.needsDictionary())
+          throw new ZipException(
+            "Deflate dictionary required: expected a decoded body without a preset dictionary"
+          )
+        val remaining = inf.getRemaining
+        if (remaining > 0 || underlying.read() >= 0)
+          throw new ZipException(
+            "Unexpected trailing deflate data: expected end of encoded layer, received additional bytes"
+          )
+        // Reading the underlying decoder through EOF also verifies every outer trailer.
+        verified = true
+      }
+      n
+    }
+
+    // InflaterInputStream does not end an explicitly supplied inflater.
+    override def close(): Unit =
+      try super.close()
+      finally inf.end()
+  }
+
   /** Counts response bytes before decoding, and validates both their count and framing. */
   private final class ResponseInputStream(
     underlying: InputStream,
     url: String,
     expectedLength: Option[Long],
     bounded: Boolean,
-    encoded: Boolean,
     chunked: Boolean
   ) extends InputStream {
     private var count0 = 0L
@@ -917,11 +951,8 @@ object Downloader {
         n
       }
 
-    // gzip uses available() to decide whether another member may follow its trailer.
-    // Even when the next chunk has not arrived, it must read through the message ending.
     override def available(): Int =
       if (ended || (bounded && expectedLength.contains(count0))) 0
-      else if (encoded) 1
       else underlying.available()
 
     def finish(bufferSize: Int): Unit = {
