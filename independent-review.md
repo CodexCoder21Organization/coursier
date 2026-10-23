@@ -34,3 +34,17 @@ At `Downloader.scala:269-281`, the current parser splits with trailing empty mem
 For an absent, empty, whitespace-only, or comma-only field, the resulting `encodings` list is empty. `forall(_ == "identity")` is true for that list, so the response is treated as unencoded: response/range length checks remain enabled, `ResponseInputStream` gets `encoded = false`, and no decoder is installed (`:281-340`). That is consistent with the requested contract and avoids calling `contentEncoding.get` on this success path. Any nonempty gzip/deflate member remains in the list, so it still participates in validation, reverse-order decoding, encoded framing, and the saved-prefix rejection. Unknown nonempty values remain rejected before the body is read.
 
 I found no parser-flow regression from the proposed filter. This review did not run builds or tests, per the assignment.
+
+## Final recheck: commit `6fa47c343`
+
+### Final test-completeness verdict: pass
+
+The earlier resume-coverage gap is closed by `empty list elements preserve encoded resume rejection` at `DownloadResponseFramingTests.scala:674-690`. It sends `Content-Encoding: , GZip, ,` with a saved three-byte prefix and a 206 response whose Content-Length matches the compressed wire range. It asserts the full original header in the encoded-resume error. The shared `downloadErrorIs` assertion also checks that the final and temporary files are absent and that the download is recorded as failed. The supplied baseline result fails on the old unsupported-encoding message, which confirms the test detects the original parser behavior.
+
+The final diff from `ac74fa03a` touches only `Downloader.scala` and `DownloadResponseFramingTests.scala`. It contains the requested parser filter and the A1 test changes; I found no unrelated edits.
+
+### Final code-review verdict: pass
+
+The parser change at `Downloader.scala:270-272` is exactly the planned `.filter(_.nonEmpty)` after trimming and lowercasing. The new encoded-resume test verifies that a nonempty supported coding remains encoded despite surrounding empty members, while the error retains the original header value. The review findings above stand; no further A1 issue was found.
+
+No builds or tests were run during this recheck.

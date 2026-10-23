@@ -4,8 +4,8 @@ PR: https://github.com/CodexCoder21Organization/coursier/pull/7
 
 ## Plan
 - [completed] Read required sources, clone fresh, rebase PR onto current main and check overlap.
-- [in progress] Add A1 loopback tests, record single-attempt failure on ac74fa03, checkpoint evidence.
-- [pending] Filter trimmed empty list members, run each new case 30 times and targeted register once, review tests and implementation.
+- [completed] Add A1 loopback tests, record single-attempt failure on ac74fa03, checkpoint evidence.
+- [in progress] Filter trimmed empty list members, run each new case 30 times and targeted register once, review tests and implementation.
 - [pending] Rebase, push PR branch, update description, scan/push evidence, verify remote SHAs and process cleanup.
 
 ## Scope
@@ -34,3 +34,7 @@ DownloadResponseFramingTests: rename `unknown and empty encodings cannot publish
 | Final artifact; published by successful download owner | Exact complete body visible; no temporary entry after success or error | Existing public FileCache observation helpers for every new case |
 
 2026-10-23 04:06:46 UTC — OBSERVED: Four additional A1 boundary cases fail on baseline at their full-byte/full-message assertions. OBSERVED: The newly authored encoded-resume setup initially used a three-byte Content-Range with a longer compressed wire body; corrected the setup to use the exact compressed wire length, matching the existing encoded-resume case. OBSERVED: Its full expected-message assertion is unchanged; a fresh single-attempt baseline run of that corrected case is in progress and the earlier setup failure is preserved in before-boundaries.xml. INFER: Next checkpoint is its proper unsupported-encoding failure followed by the parser fix; the setup run is additional development evidence, not a retry of a gate.
+
+2026-10-23 04:07:58 UTC — OBSERVED: Corrected encoded-resume baseline fails once at DownloadResponseFramingTests.scala:356 because it receives Unsupported Content-Encoding rather than the complete encoded-resume rejection message; no range/setup error or timeout occurs. OBSERVED: Evidence checkpoint 2aae0db1de6ca6cbd4e9d53000020bba9257e2b2 verified local=remote. OBSERVED: Added the single post-trim .filter(_.nonEmpty) production line and launched the sequential 30-repeat plus 103-case register gate under the memory-slot wrapper. OBSERVED: No Addendum headings. INFER: The gate may wait on the other lane holding the memory slot; next checkpoint is first green run then repeat totals.
+
+2026-10-23 04:09:38 UTC — OBSERVED: Final independent test-completeness and code-review verdicts are PASS after adding the encoded-resume boundary; final local diff touches only Downloader.scala and DownloadResponseFramingTests.scala. OBSERVED: Product commit is 6fa47c3435700763a1d2fc82dd7399d0012184a6 and main is unchanged. OBSERVED: Gate wrapper is waiting for the memory slot held by F188d, with its three-hour acquisition deadline and EXIT release trap; no test is running in this lane during that wait. OBSERVED: README already documents supported and unsupported codings and requires no change for this parser correction. INFER: Next checkpoint is first green eight-case run after lock acquisition.

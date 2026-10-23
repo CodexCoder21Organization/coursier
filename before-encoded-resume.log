@@ -1,0 +1,46 @@
+=============== cache.jvm[2.13.16].test.testOnly...eserve encoded resume rejection ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FCOURS5-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] =============== cache.jvm[2.13.16].test.t...encoded resume rejection =============== 60s
+[306] cache.jvm[2.13.16].test.testOnly 1s 0/1 completed.
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection 
+[306] [31mX[39m coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection [2m1669ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:40785/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Unsupported Content-Encoding ', GZip, ,' from http://127.0.0.1:40785/artifact: expected identity, gzip, or deflate
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:40785[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:40785/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Cannot resume encoded response from http://127.0.0.1:40785/artifact: expected identity encoding for saved prefix of 3 bytes, received ', GZip, ,'"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mU[24mn[4msupp[24mo[4mr[24mte[4md[24m [4mCont[24men[4mt-En[24mcod[4ming[24m [4m', GZi[24mp[4m, ,'[24m from http://127.0.0.1:40785/artifact: expected identity[4m,[24m g[4mzip,[24m or def[4mla[24mte"[49m
+[306]   [42m+   value = "[4mCa[24mn[4mn[24mot[4m r[24me[4msume[24m encod[4med[24m [4mres[24mp[4monse[24m from http://127.0.0.1:40785/artifact: expected identity [4mencodin[24mg [4mf[24mor [4msave[24md[4m pr[24mef[4mix of 3 by[24mte[4ms, received ', GZip, ,'[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91mdownloadErrorIs[39m([91mDownloadResponseFramingTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadResponseFramingTests$.[91m$anonfun$tests$55[39m([91mDownloadResponseFramingTests.scala[39m:[91m688[39m)
+[306] Tests: 1, Passed: 0, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...ed resume rejection =============== 64s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.DownloadResponseFramingTests coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection

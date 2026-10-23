@@ -1,0 +1,100 @@
+diff --git a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+index b86d4b4d7..bb430774a 100644
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+@@ -269,6 +269,7 @@ import scala.util.control.NonFatal
+           val contentEncoding = Option(conn.getContentEncoding)
+           val encodings = contentEncoding.toList.flatMap(_.split(",", -1))
+             .map(_.trim.toLowerCase(Locale.ROOT))
++            .filter(_.nonEmpty)
+           if (
+             encodings.exists(coding =>
+               coding != "identity" && coding != "gzip" && coding != "deflate"
+diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
+index 5059b6973..92f9b61d1 100644
+--- a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
++++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala
+@@ -616,8 +616,81 @@ object DownloadResponseFramingTests extends TestSuite {
+       }
+     }
+ 
+-    test("unknown and empty encodings cannot publish response bytes") {
+-      for (encoding <- Seq("custom", "br", "gzip, custom", "")) {
++    test("empty content encoding means an unencoded body") {
++      val o = scenario(List(fixed("6", body, Seq("Content-Encoding" -> ""))))
++      successfulDownloadIs(o, body)
++    }
++
++    test("empty list elements do not change identity encoding") {
++      val o = scenario(List(fixed("6", body, Seq("Content-Encoding" -> ", identity, ,"))))
++      successfulDownloadIs(o, body)
++    }
++
++    test("empty list elements do not allow unknown encodings") {
++      val o = scenario(List(fixed("6", body, Seq("Content-Encoding" -> ", bogus"))))
++      downloadErrorIs(o, unsupportedMessage(o.url, ", bogus"))
++    }
++
++    test("only empty encoding list elements mean an unencoded body") {
++      for (encoding <- Seq(" ", ",", ", , ,")) {
++        val o = scenario(List(fixed("6", body, Seq("Content-Encoding" -> encoding))))
++        successfulDownloadIs(o, body)
++      }
++    }
++
++    test("empty list elements preserve compressed decoding") {
++      for ((encoding, compressed) <- Seq(
++        ", GZip, ," -> gzipBytes(body),
++        ", DeFlAtE, ," -> deflateBytes(body),
++        ", gzip, , deflate, ," -> deflateBytes(gzipBytes(body))
++      )) {
++        val o = scenario(List(fixed(
++          compressed.length.toString,
++          compressed,
++          Seq("Content-Encoding" -> encoding)
++        )))
++        successfulDownloadIs(o, body)
++      }
++    }
++
++    test("empty encoding list elements preserve length validation") {
++      for (encoding <- Seq("", ", identity, ,")) {
++        val o = scenario(List(fixed("9", body, Seq("Content-Encoding" -> encoding))))
++        downloadErrorIs(o, incompleteMessage(o.url, 9L, 6L))
++      }
++    }
++
++    test("empty encoding list elements preserve saved prefix handling") {
++      for (encoding <- Seq("", ", identity, ,")) {
++        val reply = partial(Some("bytes 3-5/6"), Some("3"), body.drop(3))
++        val o = scenario(
++          List(reply.copy(headers = reply.headers :+ ("Content-Encoding" -> encoding))),
++          prefix = body.take(3)
++        )
++        successfulDownloadIs(o, body)
++      }
++    }
++
++    test("empty list elements preserve encoded resume rejection") {
++      val encoding   = ", GZip, ,"
++      val compressed = gzipBytes(body.drop(3))
++      val reply = partial(
++        Some(s"bytes 3-${compressed.length + 2}/${compressed.length + 3}"),
++        Some(compressed.length.toString),
++        compressed
++      )
++      val o = scenario(
++        List(reply.copy(headers = reply.headers :+ ("Content-Encoding" -> encoding))),
++        prefix = body.take(3)
++      )
++      downloadErrorIs(
++        o,
++        s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received '$encoding'"
++      )
++    }
++
++    test("unknown encodings cannot publish response bytes") {
++      for (encoding <- Seq("custom", "br", "gzip, custom")) {
+         val o = scenario(
+           List(fixed("6", body, Seq("Content-Encoding" -> encoding))),
+           prefix = body.take(3)
