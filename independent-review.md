@@ -1,6 +1,6 @@
 # Independent review: FCOURS5 A1
 
-Scope: the seven A1 regression cases in commit `261ad06fd`, based on `ac74fa03a`, and the proposed one-line parser change in `modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala`. A2–A5 were excluded as requested.
+Scope: the seven A1 regression cases in commit [261ad06fd](https://github.com/CodexCoder21Organization/coursier/commit/261ad06fdec8917c55b9c473280fb2384700f9e3), based on [ac74fa03a](https://github.com/CodexCoder21Organization/coursier/commit/ac74fa03ab018e66a67f293dbae7a4fe3a7bd367), and the proposed one-line parser change in `modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala`. A2–A5 were excluded as requested.
 
 ## Review steps
 
@@ -35,13 +35,13 @@ For an absent, empty, whitespace-only, or comma-only field, the resulting `encod
 
 I found no parser-flow regression from the proposed filter. This review did not run builds or tests, per the assignment.
 
-## Final recheck: commit `6fa47c343`
+## Final recheck: commit [6fa47c343](https://github.com/CodexCoder21Organization/coursier/commit/6fa47c3435700763a1d2fc82dd7399d0012184a6)
 
 ### Final test-completeness verdict: pass
 
 The earlier resume-coverage gap is closed by `empty list elements preserve encoded resume rejection` at `DownloadResponseFramingTests.scala:674-690`. It sends `Content-Encoding: , GZip, ,` with a saved three-byte prefix and a 206 response whose Content-Length matches the compressed wire range. It asserts the full original header in the encoded-resume error. The shared `downloadErrorIs` assertion also checks that the final and temporary files are absent and that the download is recorded as failed. The supplied baseline result fails on the old unsupported-encoding message, which confirms the test detects the original parser behavior.
 
-The final diff from `ac74fa03a` touches only `Downloader.scala` and `DownloadResponseFramingTests.scala`. It contains the requested parser filter and the A1 test changes; I found no unrelated edits.
+The final diff from [ac74fa03a](https://github.com/CodexCoder21Organization/coursier/commit/ac74fa03ab018e66a67f293dbae7a4fe3a7bd367) touches only `Downloader.scala` and `DownloadResponseFramingTests.scala`. It contains the requested parser filter and the A1 test changes; I found no unrelated edits.
 
 ### Final code-review verdict: pass
 
