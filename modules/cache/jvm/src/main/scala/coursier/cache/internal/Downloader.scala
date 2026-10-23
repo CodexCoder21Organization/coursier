@@ -250,6 +250,12 @@ import scala.util.control.NonFatal
         else if (respCodeOpt.contains(401))
           Left(new ArtifactError.Unauthorized(url, realm = CacheUrl.realm(conn)))
         else {
+          if (bufferSize <= 0)
+            throw new ArtifactError.DownloadError(
+              s"Invalid download buffer size $bufferSize for $url: expected a positive size",
+              None
+            )
+
           val responseLength  = CacheUrl.responseLength(conn, url)
           val offset          = if (partialDownload) alreadyDownloaded else 0L
           val rangeLength     = CacheUrl.contentRangeLength(conn, offset, url)
@@ -812,6 +818,10 @@ object Downloader {
   ): Unit = {
 
     val b = new Array[Byte](bufferSize)
+
+    // Keep the empty-body buffer observable without consuming any response bytes.
+    if (expectedLength.contains(0L))
+      in.read(b, 0, 0)
 
     @tailrec
     def helper(count: Long): Unit =
