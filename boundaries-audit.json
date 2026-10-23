@@ -1,0 +1,112 @@
+{
+  "phase": "boundaries",
+  "cases": 14,
+  "pass": 13,
+  "fail": 1,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 14,
+  "qualifiedEvents": 14,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "repeated encoding fields decode every layer in field order",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.864"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "a later identity field cannot hide an unsupported encoding",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.028"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "a truncated later gzip member cannot publish earlier members",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.801"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "gzip reports decoded progress before the next compressed fragment",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.051"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "inner deflate EOF cannot hide a corrupt outer gzip trailer",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.025"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "inner deflate EOF cannot hide an incomplete outer gzip trailer",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.023"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "repeated mixed encoding fields preserve order and empty list members",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.021"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "unknown repeated encoding fields reject even beside blank fields",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.038"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "repeated encoding fields cannot append to a decoded saved prefix",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.154"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "complete gzip members including empty members decode with one byte buffers",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.062"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "each member checks both its checksum and uncompressed size",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.058"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "gzip optional headers and their checksum are verified on later members",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "1.057"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "all nested layers complete with default and one byte buffers",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.229"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "deflate EOF rejects additional outer output rather than discarding it",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.023"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{"phase": "round-01", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 1/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-02", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 2/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-03", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 3/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-04", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 4/30 rounds, 16/16 single attempts, no retries

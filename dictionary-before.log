@@ -1,0 +1,45 @@
+=============== cache.jvm[2.13.16].test.testOnly...pend to a decoded saved prefix} ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FINHCOURS-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadEncodingIntegrityTests.{deflate cannot complete while a preset dictionary is still required,repeated encoding fields cannot append to a decoded saved prefix} 
+[306] [31mX[39m coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required [2m840ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:42859/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Encoding 'deflate' from http://127.0.0.1:42859/artifact: expected a complete decoded body, received 14 response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mHost: 127.0.0.1:42859[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:42859/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m(
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Invalid Content-Encoding 'deflate' from http://127.0.0.1:42859/artifact: expected a complete decoded body, received 14 response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "Invalid Content-Encoding 'deflate' from http://127.0.0.1:42859/artifact: expected a complete decoded body, received 14 response bytes ([4mUn[24me[4mxpec[24mted[4m tra[24mi[4ml[24min[4mg[24m [4md[24me[4mflat[24me[4m [24md[4mata[24m: expecte[4md en[24md [4mof[24m e[4mn[24mcoded [4ml[24ma[4myer,[24m r[4mec[24me[4miv[24me[4md[24m [4ma[24md[4md[24mitiona[4ml b[24my[4mtes[24m)"[49m
+[306]   [42m+   value = "Invalid Content-Encoding 'deflate' from http://127.0.0.1:42859/artifact: expected a complete decoded body, received 14 response bytes ([4mD[24me[4mfla[24mte[4m [24mdi[4mct[24mi[4mo[24mn[4mary[24m [4mr[24me[4mquir[24med: expected [4ma[24m [4md[24mecoded [4mbody without [24ma [4mp[24mre[4ms[24me[4mt[24m di[4mc[24mtiona[4mr[24my)"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$tests$29[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m592[39m)
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix [2m54ms[0m  
+[306] Tests: 2, Passed: 1, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...coded saved prefix} =============== 23s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.DownloadEncodingIntegrityTests coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required

@@ -1,0 +1,29 @@
+=============== cache.jvm[2.13.16].test.testOnly....DownloadEncodingIntegrityTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FINHCOURS-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FINHCOURS-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order [2m1294ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding [2m19ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members [2m779ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment [2m27ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer [2m32ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer [2m18ms[0m  
+[306/306] =============== cache.jvm[2.13.16].test.t...adEncodingIntegrityTests =============== 60s
+[306] cache.jvm[2.13.16].test.testOnly 4s 0/1 completed.
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated mixed encoding fields preserve order and empty list members [2m32ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.unknown repeated encoding fields reject even beside blank fields [2m38ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix [2m24ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.complete gzip members including empty members decode with one byte buffers [2m63ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.each member checks both its checksum and uncompressed size [2m22ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip optional headers and their checksum are verified on later members [2m1712ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.all nested layers complete with default and one byte buffers [2m259ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate EOF rejects additional outer output rather than discarding it [2m52ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required [2m13ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip rejects trailing bytes that are not another complete member [2m37ms[0m  
+[306] Tests: 16, Passed: 16, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...adEncodingIntegrityTests =============== 62s

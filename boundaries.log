@@ -1,3 +1,59 @@
 =============== cache.jvm[2.13.16].test.testOnly....DownloadEncodingIntegrityTests ===============
 [202/306] cache.jvm[2.13.16].compile
 [202] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FINHCOURS-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FINHCOURS-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order [2m864ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding [2m28ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members [2m801ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment [2m51ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer [2m25ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer [2m23ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated mixed encoding fields preserve order and empty list members [2m21ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.unknown repeated encoding fields reject even beside blank fields [2m38ms[0m  
+[306] [31mX[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix [2m154ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(errorMessage(observation) == Some(expected))
+[306]   [36mobservation[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:42419/artifact"[39m,
+[306]     result = [33mLeft[39m(
+[306]       value = coursier.cache.ArtifactError$DownloadError: download error: Invalid Content-Range 'bytes 3-5/6' from http://127.0.0.1:42419/artifact: expected bytes starting at 3 and ending at the complete response length
+[306]     ),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:42419[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m(),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:42419/artifact"[39m, [32mfalse[39m)),
+[306]     finalExists = [32mfalse[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]   ...
+[306]   [36mexpected[39m: [32mString[39m = [32m"Cannot resume encoded response from http://127.0.0.1:42419/artifact: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'"[39m
+[306]   [36merrorMessage(observation) != Some(expected)[39m:
+[306]     [33mSome[39m(
+[306]   [41m-   value = "[4mInvalid [24mC[4mo[24mn[4mte[24mnt[4m-Ra[24mn[4mg[24me [4m'byt[24mes[4m 3-5/6'[24m from http://127.0.0.1:42419/artifact: expected [4mbyt[24me[4ms s[24mt[4mar[24mting[4m at[24m [4m3[24m a[4mn[24md e[4mnd[24mi[4mng[24m [4mat[24m t[4mh[24me c[4mompl[24me[4mt[24me [4mres[24mp[4monse[24m [4ml[24men[4mg[24mt[4mh[24m"[49m
+[306]   [42m+   value = "C[4ma[24mnn[4mo[24mt[4m resume e[24mn[4mcod[24me[4md[24m [4mr[24mes[4mponse[24m from http://127.0.0.1:42419/artifact: expected [4mid[24me[4mn[24mt[4mi[24mt[4my encod[24ming [4mfor[24m [4ms[24ma[4mve[24md [4mpr[24me[4mf[24mi[4mx[24m [4mof 3[24m [4mby[24mte[4ms,[24m [4mre[24mce[4miv[24me[4md[24m [4m'gzi[24mp[4m,[24m [4mid[24men[4mti[24mt[4my'[24m"[49m
+[306]     )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91mdownloadErrorIs[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m356[39m)
+[306]     [31mcoursier.cache.DownloadEncodingIntegrityTests$.[91m$anonfun$tests$16[39m([91mDownloadEncodingIntegrityTests.scala[39m:[91m496[39m)
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.complete gzip members including empty members decode with one byte buffers [2m62ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.each member checks both its checksum and uncompressed size [2m58ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip optional headers and their checksum are verified on later members [2m1057ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.all nested layers complete with default and one byte buffers [2m229ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.deflate EOF rejects additional outer output rather than discarding it [2m23ms[0m  
+[306] Tests: 14, Passed: 13, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...odingIntegrityTests =============== 52s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.DownloadEncodingIntegrityTests coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix

@@ -1,0 +1,28 @@
+{
+  "phase": "dictionary-before",
+  "cases": 2,
+  "pass": 1,
+  "fail": 1,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 2,
+  "qualifiedEvents": 2,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "deflate cannot complete while a preset dictionary is still required",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.84"
+    },
+    {
+      "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+      "name": "repeated encoding fields cannot append to a decoded saved prefix",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.054"
+    }
+  ]
+}
