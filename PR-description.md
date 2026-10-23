@@ -1,0 +1,20 @@
+Review RCOURS of https://github.com/CodexCoder21Organization/coursier/pull/6 reproduced that coursier caches a short download as a success when the server closes before the advertised Content-Length, and reads past the advertised framing; a shared cache must never store a truncated artifact.
+
+Fixed-length uncompressed downloads now bound every read by the remaining response length. Early EOF returns a descriptive error containing the artifact URL and expected and received byte counts, removes the temporary file, and leaves no published cache entry. These errors reach the caller without an extra download attempt.
+
+Resumed responses must have a valid Content-Range matching the saved prefix, complete total, and any declared Content-Length. A full 200 response replaces the prefix. Unknown-length downloads keep EOF completion, chunked framing takes precedence over Content-Length, and gzip retains the configured outer buffer size. Non-positive configured buffer sizes are rejected before creating an output file.
+
+This branch is based on [current main](https://github.com/CodexCoder21Organization/coursier/commit/f7ac8c67dbe757d9129cfa453a37f2867bd1272d), which includes the earlier buffer-sizing change. Main still accepts incomplete bodies and inconsistent ranges; the final unchanged test sources against main's production code produced 33 failures and 24 passes in 57 first attempts. This PR supplies the remaining length and framing checks.
+
+Validation uses real loopback HTTP servers and isolated cache directories:
+
+- All 57 integrity and buffer-capacity scenarios pass 30/30: 1,710 first attempts, zero retries, failures, errors, or skips. The register includes the original held-EOF and progress-gated over-read reproductions.
+- The complete JVM cache module passes 149/149 on the final head, with 149 first attempts and zero retries. Test XML and exact terminal entries were audited against the plain utest 0.9.1 executor.
+- All five coverage groups from RCOURS are addressed: malformed lengths and incomplete responses; contradictory ranges; large numeric and buffer boundaries; redirects; and the outer gzip buffer guarantee. Additional cases cover cumulative short reads, exact zero-byte reads, chunked precedence, and full-response replacement of a saved prefix.
+- An independent test review and a separate code review pass found no remaining issues after adding the cumulative-count and zero-byte-read scenarios. Both additions fail on main at their intended assertions.
+
+Existing-test changes: all previously merged test bodies, assertions, timeouts, and iteration counts are unchanged. `DownloadBufferCapacityTests.scala` grows from 13 to 14 scenarios by adding a standalone case requiring exactly one zero-byte read with a one-byte array; it does not replace or alter the existing empty-body check. `DownloadLengthIntegrityTests.scala` is a new 43-scenario suite. No reflection, mocks, visibility changes for tests, test skips, JVM tuning, or retry logic were added.
+
+[Evidence, XML, attempt audits, source copies, and reviews](https://github.com/CodexCoder21Organization/coursier/tree/wip/FCOURS2-evidence-20261022) are saved separately from the product branch. No artifact was published and this PR has not been merged. CI is left to the campaign orchestrator as requested.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)

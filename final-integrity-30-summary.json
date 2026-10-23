@@ -1,0 +1,593 @@
+{
+  "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+  "sourceSha256": "d792e0cba6f249c51611ebefd367b696d7262113dbd255b67da2a3dd11105e0a",
+  "completedRuns": 30,
+  "passed": 1710,
+  "retries": 0,
+  "runs": [
+    {
+      "iteration": 1,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 4.006104667991167
+    },
+    {
+      "iteration": 2,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 4.006459251992055
+    },
+    {
+      "iteration": 3,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 4.006283961003646
+    },
+    {
+      "iteration": 4,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 4.006674918011413
+    },
+    {
+      "iteration": 5,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.006641502011917
+    },
+    {
+      "iteration": 6,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 4.007267585009686
+    },
+    {
+      "iteration": 7,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 4.00801583500288
+    },
+    {
+      "iteration": 8,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.007981627000845
+    },
+    {
+      "iteration": 9,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.007943335993332
+    },
+    {
+      "iteration": 10,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.017361211997923
+    },
+    {
+      "iteration": 11,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.010978710997733
+    },
+    {
+      "iteration": 12,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.015970337000908
+    },
+    {
+      "iteration": 13,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.01750483700016
+    },
+    {
+      "iteration": 14,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.015728628000943
+    },
+    {
+      "iteration": 15,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.014288503996795
+    },
+    {
+      "iteration": 16,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.009699128000648
+    },
+    {
+      "iteration": 17,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.01016308600083
+    },
+    {
+      "iteration": 18,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.007916501999716
+    },
+    {
+      "iteration": 19,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.012857752997661
+    },
+    {
+      "iteration": 20,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.011046961008105
+    },
+    {
+      "iteration": 21,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.013162004004698
+    },
+    {
+      "iteration": 22,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.050626545009436
+    },
+    {
+      "iteration": 23,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.010891961006564
+    },
+    {
+      "iteration": 24,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.007377710993751
+    },
+    {
+      "iteration": 25,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.020693919999758
+    },
+    {
+      "iteration": 26,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.019388629007153
+    },
+    {
+      "iteration": 27,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 8.018744711996987
+    },
+    {
+      "iteration": 28,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 10.025089795992244
+    },
+    {
+      "iteration": 29,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.009216835009283
+    },
+    {
+      "iteration": 30,
+      "passed": 57,
+      "attempts": 57,
+      "retries": 0,
+      "head": "7ab7bfffb49123f9f73c45791e41b6c1ae056e7a",
+      "seconds": 6.012060001987265
+    }
+  ],
+  "perCase": [
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "gzip response with known encoded length returns all decoded bytes",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "identity response uses its uncompressed length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known 199 byte POM uses its response length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known body larger than configured maximum uses at most that maximum",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known empty response keeps read buffers at one byte or less",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known empty response requests zero bytes from the response stream",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known one byte response uses a one byte buffer",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known responses at the default boundary stay bounded",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "known tiny response does not request an oversized transfer buffer",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "mixed case identity response uses its uncompressed length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "other content encodings retain the default maximum",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "partial response resumes from the persisted prefix with a bounded read buffer",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "unknown chunked response retains the default maximum",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadBufferCapacityTests",
+      "name": "unknown identity response retains the default maximum",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "Long max content length reports the received byte count",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "chunked framing takes precedence over a conflicting content length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "close-delimited response reads through connection close",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "content length above Int max reports the received byte count",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "content length at Int max reports the received byte count",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "content length conflicting with range is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "empty body with positive fixed length is an incomplete response",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "empty content length is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "exact fixed-length response publishes all bytes",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "five gigabyte content length reports the received byte count",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "fragmented fixed-length response does not expose bytes after its length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "gzip known length decodes fully with bounded progress increments",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "malformed content range is rejected with its exact value",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "mixed case identity encoding is accepted",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "mixed case identity encoding still enforces a short length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "negative buffer size is rejected before creating a temporary file",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "negative content length is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "non-decimal content length is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "overflowing content length is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "overflowing range end is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "overflowing range start is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "overflowing range total is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "partial body remains temporary until the connection reaches EOF",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "range end mismatch is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "range ending at or beyond the total is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "range response from byte zero can satisfy a full download",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "range response with an incorrect start is rejected without restarting",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "range response without content range is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "range total mismatch is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "redirect body length does not replace the final response length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "server ignoring range with a full response replaces the prefix",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "short final response after redirect reports the original artifact URL",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "short fixed-length response counts bytes across multiple reads",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "short fixed-length response does not publish a partial artifact",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "short range response uses content range length when content length is absent",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "short range response with content length removes its temporary file",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "two byte buffer stays within the framed length after a fragmented read",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "unknown range total is rejected",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "unsolicited range response must start at byte zero",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "valid range response can frame the suffix without content length",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "valid range response resumes the existing prefix",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "zero buffer size is rejected before creating a temporary file",
+      "passed": 30,
+      "attempts": 30
+    },
+    {
+      "class": "coursier.cache.DownloadLengthIntegrityTests",
+      "name": "zero length response ignores trailing bytes",
+      "passed": 30,
+      "attempts": 30
+    }
+  ]
+}

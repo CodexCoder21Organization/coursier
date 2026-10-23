@@ -12,4 +12,6 @@ OBSERVED: Chunked Transfer-Encoding removes Content-Length from the framing calc
 
 INFER: The planned additional multi-read truncation and zero-byte request tests close the independent test review's two gaps without changing any preexisting test. Existing HTTP 416 recovery is outside the 206 framing failure being changed; it is unchanged and no newly rejected framing error uses it. Rejection of unknown range totals is deliberate for an open-ended artifact request, since that response cannot prove the artifact is complete.
 
-Plan: [x] compare all production changes; [x] trace connection/file/stream ownership; [x] check overflow and encoded framing; [x] trace error propagation and retries; [ ] bind final test additions and gate results in final review audit.
+Plan: [x] compare all production changes; [x] trace connection/file/stream ownership; [x] check overflow and encoded framing; [x] trace error propagation and retries; [x] bind final test additions and gate results in final review audit.
+
+Final binding: product HEAD 7ab7bfffb49123f9f73c45791e41b6c1ae056e7a adds tests only after the reviewed implementation; 57 scenarios pass 30/30 (1710 first attempts, no retries), and the full cache module passes 149/149. The new cumulative-byte and exact-zero-read tests fail against main production with identical test sources and pass after the fix. No existing assertion or timeout changed. No additional product change was needed.
