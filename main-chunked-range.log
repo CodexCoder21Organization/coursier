@@ -1,0 +1,42 @@
+=============== cache.jvm[2.13.16].test.testOnly....cache.Rcours2ChunkedRangeTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 2 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/RCOURS2-coursier-20261020/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] RCOURS2 url=http://127.0.0.1:40139/artifact result=Some(Caught java.io.IOException (Premature EOF) while downloading http://127.0.0.1:40139/artifact) bytes=None requests=1 final=false tmp=true tmpBytes=6
+[306] [32m+[39m coursier.cache.Rcours2ChunkedRangeTests.chunked range must consume the closing chunk before publishing [2m303ms[0m  
+[306] RCOURS2 url=http://127.0.0.1:45845/artifact result=None bytes=Some(9) requests=1 final=true tmp=false tmpBytes=0
+[306] [31mX[39m coursier.cache.Rcours2ChunkedRangeTests.chunked range rejects data beyond its stated range [2m36ms[0m 
+[306]   [91m[4mutest.AssertionError[39m[24m: assert(o.result.isLeft)
+[306]   [36mo[39m: [32mObservation[39m = [33mObservation[39m(
+[306]     url = [32m"http://127.0.0.1:45845/artifact"[39m,
+[306]     result = [33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m, [32m88[39m, [32m89[39m, [32m90[39m)),
+[306]     requests = [33mList[39m(
+[306]       [32m"""GET /artifact HTTP/1.1[39m
+[306]   [32mUser-Agent: Coursier/2.0[39m
+[306]   [32mAccept: */*[39m
+[306]   [32mRange: bytes=3-[39m
+[306]   [32mHost: 127.0.0.1:45845[39m
+[306]   [32mConnection: keep-alive[39m
+[306]   [32m[39m
+[306]   [32m"""[39m
+[306]     ),
+[306]     progress = [33mList[39m([32m9L[39m),
+[306]     downloadResults = [33mList[39m(([32m"http://127.0.0.1:45845/artifact"[39m, [32mtrue[39m)),
+[306]     finalExists = [32mtrue[39m,
+[306]     temporaryExists = [32mfalse[39m,
+[306]     temporaryBytes = [33mArray[39m(),
+[306]     pendingState = [32mNone[39m,
+[306]     allResults = [33mList[39m([33mRight[39m(value = [33mArray[39m([32m97[39m, [32m98[39m, [32m99[39m, [32m100[39m, [32m101[39m, [32m102[39m, [32m88[39m, [32m89[39m, [32m90[39m)))
+[306]   )
+[306]     [31mutest.asserts.Asserts$.[91massertImpl[39m([91mAsserts.scala[39m:[91m30[39m)
+[306]     [31mcoursier.cache.Rcours2ChunkedRangeTests$.[91m$anonfun$tests$5[39m([91mRcours2ChunkedRangeTests.scala[39m:[91m366[39m)
+[306] Tests: 2, Passed: 1, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...s2ChunkedRangeTests =============== 19s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.Rcours2ChunkedRangeTests coursier.cache.Rcours2ChunkedRangeTests.chunked range rejects data beyond its stated range
