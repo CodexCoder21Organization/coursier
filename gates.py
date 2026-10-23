@@ -15,7 +15,7 @@ SUITE="coursier.cache.DownloadResponseFramingTests"
 query=SUITE+".{"+",".join(names)+"}"
 def run(phase,arguments,expected):
  subprocess.run([sys.executable,str(OUT/"run-command.py"),str(ROOT),phase,
-  "./mill","--no-server","-j1","cache.jvm[2.13.16].test.testOnly",*arguments],check=True)
+  sys.executable,str(OUT/"mill-direct.py"),"--no-server","-j1","cache.jvm[2.13.16].test.testOnly",*arguments],check=True)
  result=json.loads((OUT/(phase+"-result.json")).read_text())
  reports=list((ROOT/"out/cache/jvm/2.13.16/test/testOnly.dest").rglob("*.xml"))
  assert len(reports)==1, reports

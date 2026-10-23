@@ -5,24 +5,33 @@ from datetime import datetime, timezone
 ROOT = Path(sys.argv[1]); PHASE = sys.argv[2]; COMMAND = sys.argv[3:]
 OUT = Path(__file__).resolve().parent
 owned = {}
+max_java = 0
 def processes():
     rows = {}
     for entry in Path('/proc').iterdir():
         if entry.name.isdigit():
             try:
                 fields = (entry/'stat').read_text().rsplit(')', 1)[1].split()
-                rows[int(entry.name)] = (int(fields[1]), fields[19], fields[0])
+                rows[int(entry.name)] = (int(fields[1]), fields[19], fields[0], (entry/'stat').read_text().split('(',1)[1].rsplit(')',1)[0])
             except (OSError, ValueError, IndexError): pass
     return rows
 
 def capture(child):
+    global max_java
     rows = processes(); parents = {child.pid}
     changed = True
     while changed:
         changed = False
-        for pid, (parent, start, state) in rows.items():
+        for pid, (parent, start, state, name) in rows.items():
             if (pid in parents or parent in parents) and (pid not in owned or owned[pid] != start):
                 owned[pid] = start; parents.add(pid); changed = True
+    live_java = sum(
+        1 for pid, born in owned.items()
+        if pid in rows and rows[pid][1] == born and rows[pid][2] != 'Z'
+        and rows[pid][3] == 'java'
+    )
+    max_java = max(max_java, live_java)
+    (OUT/(PHASE+'-java-count.json')).write_text(json.dumps({'maxObservedJavaProcesses':max_java})+'\n')
     (OUT/(PHASE+'-owned.json')).write_text(json.dumps(owned, indent=2)+'\n')
     return rows
 
