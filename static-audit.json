@@ -1,0 +1,29 @@
+{
+  "main": "f7ac8c67dbe757d9129cfa453a37f2867bd1272d",
+  "head": "6fa47c3435700763a1d2fc82dd7399d0012184a6",
+  "changedFiles": [
+    "M\tREADME.md",
+    "M\tmodules/cache/jvm/src/main/scala/coursier/cache/CacheUrl.scala",
+    "M\tmodules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+    "M\tmodules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala",
+    "A\tmodules/cache/jvm/src/test/scala/coursier/cache/DownloadLengthIntegrityTests.scala",
+    "A\tmodules/cache/jvm/src/test/scala/coursier/cache/DownloadResponseFramingTests.scala"
+  ],
+  "modifiedMainTestFiles": [
+    "M\tmodules/cache/jvm/src/test/scala/coursier/cache/DownloadBufferCapacityTests.scala"
+  ],
+  "addedLineScan": {
+    "reflection": false,
+    "mocks": false,
+    "skip": false,
+    "jvmTuning": false,
+    "retryWrapper": false
+  },
+  "reviewEditsToExistingTests": 0,
+  "sources": {
+    "PHILOSOPHY.md": "be03974403d904a953de171c25d9cf1f3641faa76cb0e5c99056c9a73a8e5789",
+    "TESTING.md": "67b8b6ddc758f022c8a1b2ba7f72e0c90ec6d8bd085df1b97bf1406f62792985",
+    "Rcours3ReviewTests.scala": "6adcc2907ac9461011173eb02ae3d454c739a73b8bb7446125ef1bc3a39ad2ff",
+    "Rcours3DecoderEndTests.scala": "70c01434e50f9fea0f47ce662922444469bed63a9f2622edaeb3845f9a486053"
+  }
+}
