@@ -1,0 +1,14 @@
+{
+  "cases": 105,
+  "uniqueCases": 105,
+  "passing": 101,
+  "failures": [
+    "coursier.cache.DownloadResponseFramingTests.unfollowed redirects retain their complete response body",
+    "coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled",
+    "coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled",
+    "coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1"
+  ],
+  "firstAttempts": 105,
+  "retries": 0,
+  "basis": "Plain pinned utest Executor with no retry wrapper; one XML case per unique scenario."
+}
