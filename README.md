@@ -24,14 +24,19 @@ unknown-length and encoded bodies retain the configured size.
 
 Uncompressed downloads with a declared length stop at that length and fail if the
 connection ends early. The error includes the artifact URL and expected and received
-byte counts; the incomplete temporary file is removed and never published in the cache.
+byte counts; rejected downloads remove their temporary files and never enter the cache.
 Malformed lengths are rejected. Chunked transfer framing takes precedence over a
-Content-Length header, and close-delimited responses are read until EOF.
+Content-Length header, and close-delimited responses are read until EOF. Chunked downloads
+validate the closing chunk even when a range count or a decoded body has already completed.
+Gzip and deflate responses are decoded with case-insensitive coding names; their declared
+lengths are checked against response bytes before decoding. Unsupported content codings and
+HTTP statuses without an artifact body are rejected.
 
 A resumed download appends only a valid 206 response whose Content-Range starts at
 the saved prefix, ends at the declared total, and agrees with Content-Length when
 present. Invalid or missing ranges fail without restarting the request. A full 200
-response replaces the prefix. Explicit redirects continue to use the final response's
+response replaces the prefix. Encoded partial responses cannot append to a saved decoded
+prefix. Range-unit names are case-insensitive. Explicit redirects continue to use the final response's
 length and framing.
 
 Explicit `FileCache` retry and backoff settings apply to its downloads, including

@@ -319,7 +319,12 @@ import scala.util.control.NonFatal
                 in = encoding match {
                   case "gzip" => new GZIPInputStream(in, downloadBufferSize)
                   case "deflate" =>
-                    new InflaterInputStream(in, new Inflater(), downloadBufferSize)
+                    new InflaterInputStream(in, new Inflater(), downloadBufferSize) {
+                      // InflaterInputStream does not end an explicitly supplied inflater.
+                      override def close(): Unit =
+                        try super.close()
+                        finally inf.end()
+                    }
                   case _ => in // identity was validated above
                 }
               // A buffered stream can prefetch past the remaining length on the last read.
