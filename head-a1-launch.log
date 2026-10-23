@@ -1,0 +1,4 @@
+From https://github.com/CodexCoder21Organization/coursier
+   95d1696dc..cf1dc8dd6  wip/RCOURS4-evidence-20261023 -> origin/wip/RCOURS4-evidence-20261023
+head-a1: {"deadlineReached": false, "exit": 0, "seconds": 18.18374855000002, "attempts": 1, "completedAt": "2026-10-23T05:15:27.393545+00:00"}
+{"phase": "head-a1", "cases": 8, "pass": 8, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 8, "qualifiedEvents": 8, "retries": 0, "maxObservedJavaProcesses": 2}

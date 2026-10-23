@@ -1,0 +1,70 @@
+{
+  "phase": "head-a1",
+  "cases": 8,
+  "pass": 8,
+  "fail": 0,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 8,
+  "qualifiedEvents": 8,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty content encoding means an unencoded body",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.654"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty list elements do not change identity encoding",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.036"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty list elements do not allow unknown encodings",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.031"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "only empty encoding list elements mean an unencoded body",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.121"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty list elements preserve compressed decoding",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.129"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty encoding list elements preserve length validation",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.075"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty encoding list elements preserve saved prefix handling",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.158"
+    },
+    {
+      "suite": "coursier.cache.DownloadResponseFramingTests",
+      "name": "empty list elements preserve encoded resume rejection",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.035"
+    }
+  ]
+}
