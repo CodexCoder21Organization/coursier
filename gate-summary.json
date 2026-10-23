@@ -1,0 +1,54 @@
+{
+  "head": "6903ce429a3c6015d8ee285a540ceab1ddf268b9",
+  "largeBodyTests": 3,
+  "perTestPasses": 30,
+  "largeBodyFirstAttemptPasses": 90,
+  "framingFirstAttemptPasses": 103,
+  "cacheFirstAttemptPasses": 214,
+  "totalFinalGateFirstAttemptPasses": 407,
+  "finalGateRetries": 0,
+  "finalGateErrors": 0,
+  "finalGateSkips": 0,
+  "mutation": {
+    "phase": "mutation",
+    "cases": 3,
+    "pass": 0,
+    "fail": 3,
+    "errors": 0,
+    "skips": 0,
+    "firstAttempts": 3,
+    "qualifiedEvents": 3,
+    "retries": 0,
+    "maxObservedJavaProcesses": 2,
+    "rows": [
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "large gzip body streams into the cache before the remainder arrives",
+        "result": "FAIL",
+        "attempts": 1,
+        "seconds": "30.375"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "large deflate body streams into the cache before the remainder arrives",
+        "result": "FAIL",
+        "attempts": 1,
+        "seconds": "30.126"
+      },
+      {
+        "suite": "coursier.cache.DownloadEncodingIntegrityTests",
+        "name": "large multi-member gzip streams inside a later member before the remainder arrives",
+        "result": "FAIL",
+        "attempts": 1,
+        "seconds": "30.292"
+      }
+    ]
+  },
+  "maxObservedJavaProcesses": 2,
+  "selectionLaunchesWithoutTestAttempts": 2,
+  "framingPerSuite": {
+    "coursier.cache.DownloadResponseFramingTests": 46,
+    "coursier.cache.DownloadBufferCapacityTests": 14,
+    "coursier.cache.DownloadLengthIntegrityTests": 43
+  }
+}
