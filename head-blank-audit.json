@@ -1,0 +1,126 @@
+{
+  "phase": "head-blank",
+  "cases": 16,
+  "pass": 14,
+  "fail": 2,
+  "errors": 0,
+  "skips": 0,
+  "firstAttempts": 16,
+  "qualifiedEvents": 16,
+  "retries": 0,
+  "maxObservedJavaProcesses": 2,
+  "rows": [
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding after blanks is rejected",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "2.056"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding before blanks is rejected",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.053"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding between supported and blank members is rejected",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.051"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding allows a complete fixed resume",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.41"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves short fixed resume rejection",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.025"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves complete chunked resume",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.024"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves short chunked resume rejection",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.029"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves overlong chunked resume rejection",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.015"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves missing chunk terminator rejection",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.023"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only resume remains temporary until its closing chunk",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.106"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding preserves invalid range rejection",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.044"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only full response replaces a saved prefix",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.039"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "blank only encoding accepts an empty complete artifact",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.039"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "unknown coding amid blanks cannot resume a prefix",
+      "result": "PASS",
+      "attempts": 1,
+      "seconds": "0.049"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "a repeated blank field must not hide an earlier unknown coding",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.281"
+    },
+    {
+      "suite": "coursier.cache.Rcours4BlankMemberTests",
+      "name": "a repeated blank field must not hide an earlier gzip coding",
+      "result": "FAIL",
+      "attempts": 1,
+      "seconds": "0.571"
+    }
+  ]
+}
