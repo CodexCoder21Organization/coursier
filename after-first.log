@@ -1,0 +1,14 @@
+=============== cache.jvm[2.13.16].test.testOnly....DownloadEncodingIntegrityTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 2 Scala sources to /tmp/claude-501/-code/eff1f329-f18f-4c39-ad01-4fe1302ac178/scratchpad/workspace/FINHCOURS-coursier-20261020/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order [2m828ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding [2m43ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members [2m708ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment [2m49ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer [2m65ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer [2m42ms[0m  
+[306] Tests: 6, Passed: 6, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...adEncodingIntegrityTests =============== 45s
