@@ -1,0 +1,971 @@
+diff --git a/README.md b/README.md
+index 0e877df4c..80ffeccfc 100644
+--- a/README.md
++++ b/README.md
+@@ -30,7 +30,11 @@ Content-Length header, and close-delimited responses are read until EOF. Chunked
+ validate the closing chunk even when a range count or a decoded body has already completed.
+ Gzip and deflate responses are decoded with case-insensitive coding names; their declared
+ lengths are checked against response bytes before decoding. Unsupported content codings and
+-HTTP statuses without an artifact body are rejected.
++HTTP statuses without an artifact body are rejected. Repeated Content-Encoding fields are
++combined in response order. Every gzip member and every encoding layer must finish and
++pass its integrity checks before the cache file is published; incomplete later members,
++unread outer trailers and extra encoded data are rejected. Decoded download progress is
++reported as bytes arrive, including fragments within a gzip member.
+ 
+ A resumed download appends only a valid 206 response whose Content-Range starts at
+ the saved prefix, ends at the declared total, and agrees with Content-Length when
+diff --git a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+index bb430774a..5c1211848 100644
+--- a/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala
+@@ -7,7 +7,7 @@ import java.nio.file.{AccessDeniedException, Files, StandardCopyOption, Standard
+ import java.time.Clock
+ import java.util.Locale
+ import java.util.concurrent.ExecutorService
+-import java.util.zip.{GZIPInputStream, Inflater, InflaterInputStream}
++import java.util.zip.{Inflater, InflaterInputStream, ZipException}
+ import javax.net.ssl.{HostnameVerifier, SSLSocketFactory}
+ 
+ import coursier.cache._
+@@ -266,7 +266,7 @@ import scala.util.control.NonFatal
+           val responseLength  = CacheUrl.responseLength(conn, url)
+           val offset          = if (partialDownload) alreadyDownloaded else 0L
+           val rangeLength     = CacheUrl.contentRangeLength(conn, offset, url)
+-          val contentEncoding = Option(conn.getContentEncoding)
++          val contentEncoding = Downloader.contentEncoding(conn)
+           val encodings = contentEncoding.toList.flatMap(_.split(",", -1))
+             .map(_.trim.toLowerCase(Locale.ROOT))
+             .filter(_.nonEmpty)
+@@ -313,7 +313,6 @@ import scala.util.control.NonFatal
+             url,
+             rangeLength.orElse(responseLength),
+             bounded = responseLength.nonEmpty,
+-            encoded = !uncompressed,
+             chunked = Option(conn.getHeaderField("Transfer-Encoding"))
+               .exists(_.split(",").exists(_.trim.equalsIgnoreCase("chunked")))
+           )
+@@ -324,21 +323,16 @@ import scala.util.control.NonFatal
+               for (encoding <- encodings.reverse)
+                 in = Downloader.withDecodingError(contentEncoding.get, url, response) {
+                   encoding match {
+-                    case "gzip" => new GZIPInputStream(in, downloadBufferSize)
+-                    case "deflate" =>
+-                      new InflaterInputStream(in, new Inflater(), downloadBufferSize) {
+-                        // InflaterInputStream does not end an explicitly supplied inflater.
+-                        override def close(): Unit =
+-                          try super.close()
+-                          finally inf.end()
+-                      }
+-                    case _ => in // identity was validated above
++                    case "gzip"    => new GzipInputStream(in, downloadBufferSize)
++                    case "deflate" => new Downloader.DeflateInputStream(in, downloadBufferSize)
++                    case _         => in // identity was validated above
+                   }
+                 }
+               if (!uncompressed)
+                 in = new Downloader.DecodingInputStream(in, contentEncoding.get, url, response)
+-              // A buffered stream can prefetch past the remaining length on the last read.
+-              if (expectedLength.isEmpty)
++              // Buffer only unencoded unknown-length bodies: buffering decoded data can wait
++              // for another compressed fragment before reporting bytes that are already decoded.
++              if (uncompressed && expectedLength.isEmpty)
+                 in = new BufferedInputStream(in, downloadBufferSize)
+ 
+               val out = CacheLocks.withStructureLock(location) {
+@@ -860,13 +854,53 @@ object Downloader {
+ 
+   private val checksumHeader = Seq("MD5", "SHA1", "SHA256")
+ 
++  private def contentEncoding(conn: URLConnection): Option[String] = {
++    // Indexed fields retain wire order, unlike getHeaderFields and getContentEncoding.
++    val values = Iterator.from(0)
++      .map(index => (Option(conn.getHeaderFieldKey(index)), Option(conn.getHeaderField(index))))
++      .takeWhile { case (key, value) => key.nonEmpty || value.nonEmpty }
++      .collect {
++        case (Some(key), Some(value)) if key.equalsIgnoreCase("Content-Encoding") => value
++      }
++      .toList
++    if (values.nonEmpty) Some(values.mkString(", "))
++    else Option(conn.getContentEncoding) // Custom URL connections may expose only the named field.
++  }
++
++  private final class DeflateInputStream(underlying: InputStream, bufferSize: Int)
++      extends InflaterInputStream(underlying, new Inflater(), bufferSize) {
++    private var verified = false
++
++    override def read(bytes: Array[Byte], offset: Int, length: Int): Int = {
++      val n = super.read(bytes, offset, length)
++      if (n < 0 && !verified) {
++        if (inf.needsDictionary())
++          throw new ZipException(
++            "Deflate dictionary required: expected a decoded body without a preset dictionary"
++          )
++        val remaining = inf.getRemaining
++        if (remaining > 0 || underlying.read() >= 0)
++          throw new ZipException(
++            "Unexpected trailing deflate data: expected end of encoded layer, received additional bytes"
++          )
++        // Reading the underlying decoder through EOF also verifies every outer trailer.
++        verified = true
++      }
++      n
++    }
++
++    // InflaterInputStream does not end an explicitly supplied inflater.
++    override def close(): Unit =
++      try super.close()
++      finally inf.end()
++  }
++
+   /** Counts response bytes before decoding, and validates both their count and framing. */
+   private final class ResponseInputStream(
+     underlying: InputStream,
+     url: String,
+     expectedLength: Option[Long],
+     bounded: Boolean,
+-    encoded: Boolean,
+     chunked: Boolean
+   ) extends InputStream {
+     private var count0 = 0L
+@@ -917,11 +951,8 @@ object Downloader {
+         n
+       }
+ 
+-    // gzip uses available() to decide whether another member may follow its trailer.
+-    // Even when the next chunk has not arrived, it must read through the message ending.
+     override def available(): Int =
+       if (ended || (bounded && expectedLength.contains(count0))) 0
+-      else if (encoded) 1
+       else underlying.available()
+ 
+     def finish(bufferSize: Int): Unit = {
+diff --git a/modules/cache/jvm/src/main/scala/coursier/cache/internal/GzipInputStream.scala b/modules/cache/jvm/src/main/scala/coursier/cache/internal/GzipInputStream.scala
+new file mode 100644
+index 000000000..3d8c06bb9
+--- /dev/null
++++ b/modules/cache/jvm/src/main/scala/coursier/cache/internal/GzipInputStream.scala
+@@ -0,0 +1,127 @@
++package coursier.cache.internal
++
++import java.io.{EOFException, IOException, InputStream, PushbackInputStream}
++import java.util.zip.{CRC32, DataFormatException, Inflater, ZipException}
++
++/** Streams each gzip member and requires a complete header, body and trailer for every member. */
++private[internal] final class GzipInputStream(underlying: InputStream, bufferSize: Int)
++    extends InputStream {
++  private val input  = new PushbackInputStream(underlying, bufferSize)
++  private val buffer = new Array[Byte](bufferSize)
++  private val single = new Array[Byte](1)
++  private val crc    = new CRC32()
++  private var size   = 0
++  private var ended  = false
++  private var closed = false
++
++  // Parse before allocating the inflater so a rejected header cannot retain native resources.
++  readHeader(requiredByte())
++  private val inflater = new Inflater(true)
++
++  private def requiredByte(): Int = {
++    val value = input.read()
++    if (value < 0) throw new EOFException()
++    value
++  }
++
++  private def unsignedShort(): Int = {
++    val low = requiredByte()
++    low | (requiredByte() << 8)
++  }
++
++  private def unsignedInt(): Long = {
++    val low = unsignedShort().toLong
++    low | (unsignedShort().toLong << 16)
++  }
++
++  private def readHeader(first: Int): Unit = {
++    crc.reset()
++    crc.update(first)
++    def headerByte(): Int = {
++      val value = requiredByte()
++      crc.update(value)
++      value
++    }
++    if ((first | (headerByte() << 8)) != 0x8b1f)
++      throw new ZipException("Not in GZIP format")
++    if (headerByte() != 8)
++      throw new ZipException("Unsupported compression method")
++    val flags = headerByte()
++    if ((flags & 0xe0) != 0)
++      throw new ZipException(s"Unsupported GZIP flags: $flags")
++    for (_ <- 0 until 6) headerByte() // Modification time, extra flags, operating system.
++    if ((flags & 4) != 0) {
++      val low    = headerByte()
++      val length = low | (headerByte() << 8)
++      for (_ <- 0 until length) headerByte()
++    }
++    if ((flags & 8) != 0)
++      while (headerByte() != 0) ()
++    if ((flags & 16) != 0)
++      while (headerByte() != 0) ()
++    if ((flags & 2) != 0) {
++      val expected = (crc.getValue & 0xffffL).toInt
++      if (unsignedShort() != expected)
++        throw new ZipException("Corrupt GZIP header")
++    }
++    crc.reset()
++  }
++
++  override def read(): Int = {
++    val n = read(single, 0, 1)
++    if (n < 0) -1 else single(0) & 0xff
++  }
++
++  override def read(bytes: Array[Byte], offset: Int, length: Int): Int = {
++    if (closed) throw new IOException("Stream closed")
++    if (offset < 0 || length < 0 || offset > bytes.length - length)
++      throw new IndexOutOfBoundsException()
++    if (length == 0) return 0
++    while (!ended) {
++      val n =
++        try inflater.inflate(bytes, offset, length)
++        catch {
++          case error: DataFormatException =>
++            val failure = new ZipException(Option(error.getMessage).getOrElse("Invalid gzip data"))
++            failure.initCause(error)
++            throw failure
++        }
++      if (n > 0) {
++        crc.update(bytes, offset, n)
++        // Return available decoded bytes before reading a trailer or waiting for more input.
++        return n
++      }
++      if (inflater.finished()) {
++        val remaining = inflater.getRemaining
++        if (remaining > 0)
++          input.unread(buffer, size - remaining, remaining)
++        val expectedCrc  = unsignedInt()
++        val expectedSize = unsignedInt()
++        if (expectedCrc != crc.getValue || expectedSize != (inflater.getBytesWritten & 0xffffffffL))
++          throw new ZipException("Corrupt GZIP trailer")
++        // Only EOF at a member boundary completes gzip. A started header must finish.
++        val first = input.read()
++        if (first < 0) ended = true
++        else {
++          readHeader(first)
++          inflater.reset()
++        }
++      }
++      else if (inflater.needsDictionary())
++        throw new ZipException("Unexpected gzip dictionary request")
++      else if (inflater.needsInput()) {
++        size = input.read(buffer, 0, buffer.length)
++        if (size < 0) throw new EOFException()
++        inflater.setInput(buffer, 0, size)
++      }
++    }
++    -1
++  }
++
++  override def close(): Unit =
++    if (!closed) {
++      closed = true
++      try inflater.end()
++      finally input.close()
++    }
++}
+diff --git a/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala
+new file mode 100644
+index 000000000..83f0f74da
+--- /dev/null
++++ b/modules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala
+@@ -0,0 +1,690 @@
++package coursier.cache
++
++import java.io.ByteArrayOutputStream
++import java.net.{InetAddress, ServerSocket, Socket, SocketException}
++import java.nio.charset.StandardCharsets.{ISO_8859_1, UTF_8}
++import java.nio.file.{Files, Path}
++import java.util.UUID
++import java.util.concurrent.{
++  ConcurrentHashMap,
++  CountDownLatch,
++  ExecutorService,
++  Executors,
++  TimeUnit
++}
++import java.util.zip.GZIPOutputStream
++
++import coursier.paths.CachePath
++import coursier.util.{Artifact, Task}
++import utest._
++
++import scala.collection.mutable.ListBuffer
++import scala.concurrent.{Await, ExecutionContext, Future}
++import scala.concurrent.duration._
++
++/** Real loopback HTTP responses for download framing and resume validation. */
++object DownloadEncodingIntegrityTests extends TestSuite {
++  private val body = "abcdef".getBytes(UTF_8)
++
++  private final case class ProgressGate(atLeast: Long, release: CountDownLatch)
++
++  private final case class Reply(
++    status: String,
++    headers: Seq[(String, String)],
++    chunks: List[Array[Byte]],
++    pauseAfterFirstChunk: Option[ProgressGate] = None
++  )
++
++  private final case class FileState(
++    finalExists: Boolean,
++    temporaryExists: Boolean,
++    temporaryBytes: Array[Byte]
++  )
++
++  private final case class Observation(
++    url: String,
++    result: Either[ArtifactError, Array[Byte]],
++    requests: List[String],
++    progress: List[Long],
++    downloadResults: List[(String, Boolean)],
++    finalExists: Boolean,
++    temporaryExists: Boolean,
++    temporaryBytes: Array[Byte],
++    pendingState: Option[FileState],
++    allResults: List[Either[ArtifactError, Array[Byte]]],
++    outputErrorMessage: Option[String]
++  )
++
++  private final class RecordingLogger() extends CacheLogger {
++    val watchingOwner = new CountDownLatch(1)
++    override def downloadLength(
++      url: String,
++      totalLength: Long,
++      alreadyDownloaded: Long,
++      watching: Boolean
++    ): Unit =
++      if (watching) watchingOwner.countDown()
++
++    private val lock             = new Object
++    private val progress0        = ListBuffer.empty[Long]
++    private val downloadResults0 = ListBuffer.empty[(String, Boolean)]
++    private val waiters          = ListBuffer.empty[(Long, CountDownLatch)]
++
++    def progress: List[Long] =
++      lock.synchronized(progress0.toList)
++
++    def downloadResults: List[(String, Boolean)] =
++      lock.synchronized(downloadResults0.toList)
++
++    def awaitProgressAtLeast(target: Long, timeout: FiniteDuration): Boolean = {
++      val waiter = new CountDownLatch(1)
++      val shouldWait = lock.synchronized {
++        if (progress0.exists(_ >= target)) false
++        else {
++          waiters += ((target, waiter))
++          true
++        }
++      }
++      val reached = !shouldWait || waiter.await(timeout.toMillis, TimeUnit.MILLISECONDS)
++      lock.synchronized(waiters --= waiters.filter(_._2 eq waiter))
++      reached
++    }
++
++    override def downloadProgress(url: String, downloaded: Long): Unit =
++      lock.synchronized {
++        assert(downloaded > 0L)
++        progress0 += downloaded
++        val reached = waiters.filter(_._1 <= downloaded)
++        reached.foreach(_._2.countDown())
++        waiters --= reached
++      }
++
++    override def downloadedArtifact(url: String, success: Boolean): Unit =
++      lock.synchronized(downloadResults0 += ((url, success)))
++  }
++
++  private def response(
++    status: String,
++    headers: Seq[(String, String)],
++    chunks: List[Array[Byte]]
++  ): Reply =
++    Reply(status, headers, chunks)
++
++  private def fixed(
++    length: String,
++    bytes: Array[Byte] = body,
++    extra: Seq[(String, String)] = Nil,
++    status: String = "200 OK"
++  ): Reply =
++    response(status, Seq("Content-Length" -> length) ++ extra, List(bytes))
++
++  private def partial(
++    contentRange: Option[String],
++    contentLength: Option[String],
++    bytes: Array[Byte]
++  ): Reply = {
++    val rangeHeader  = contentRange.map(value => Seq("Content-Range" -> value)).getOrElse(Nil)
++    val lengthHeader = contentLength.map(value => Seq("Content-Length" -> value)).getOrElse(Nil)
++    response("206 Partial Content", rangeHeader ++ lengthHeader, List(bytes))
++  }
++
++  private def rawHeaders(reply: Reply): Array[Byte] =
++    (s"HTTP/1.1 ${reply.status}\r\n" +
++      reply.headers.map { case (key, value) => s"$key: $value\r\n" }.mkString +
++      "Connection: close\r\n\r\n").getBytes(ISO_8859_1)
++
++  private def readRequest(socket: Socket): String = {
++    val input = socket.getInputStream
++    val bytes = new ByteArrayOutputStream()
++    var tail  = 0
++    while (tail != 0x0d0a0d0a) {
++      val next = input.read()
++      require(next >= 0, "Client closed before request headers ended")
++      bytes.write(next)
++      tail = (tail << 8) | next
++    }
++    bytes.toString("ISO-8859-1")
++  }
++
++  private def scenario(
++    replies: List[Reply],
++    prefix: Array[Byte] = Array.emptyByteArray,
++    cap: Int = CacheDefaults.bufferSize,
++    inspectWhilePaused: Option[(Long, CountDownLatch)] = None,
++    clientCount: Int = 1,
++    joinBeforeBody: Boolean = false,
++    temporaryDirectory: Boolean = false
++  ): Observation = {
++    var directory: Path                    = null
++    var server: ServerSocket               = null
++    var serverWorker: ExecutorService      = null
++    var downloadWorkers: ExecutorService   = null
++    var connectionWorkers: ExecutorService = null
++    val handlers                           = ListBuffer.empty[Future[Unit]]
++    var serving: Future[Unit]              = null
++    val stopping                           = new java.util.concurrent.atomic.AtomicBoolean(false)
++    val sockets                            = ConcurrentHashMap.newKeySet[Socket]()
++    val requests                           = ListBuffer.empty[String]
++    val logger                             = new RecordingLogger()
++
++    var serverExecutionContext: ExecutionContext = null
++
++    def fileState(finalFile: java.io.File, temporaryFile: java.io.File): FileState =
++      FileState(
++        Files.exists(finalFile.toPath),
++        Files.exists(temporaryFile.toPath),
++        if (Files.exists(temporaryFile.toPath)) Files.readAllBytes(temporaryFile.toPath)
++        else Array.emptyByteArray
++      )
++
++    def stopServer(): Unit =
++      if (server != null && stopping.compareAndSet(false, true))
++        server.close()
++
++    try {
++      directory = Files.createTempDirectory("download-length-integrity")
++      server = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"))
++      serverWorker = Executors.newSingleThreadExecutor()
++      downloadWorkers = Executors.newFixedThreadPool(2)
++      connectionWorkers = Executors.newFixedThreadPool(2)
++      val connectionExecutionContext = ExecutionContext.fromExecutor(connectionWorkers)
++      serverExecutionContext = ExecutionContext.fromExecutor(serverWorker)
++
++      val fallbackReply = fixed(body.length.toString, body)
++      serving = Future {
++        val requestIndex = new java.util.concurrent.atomic.AtomicInteger()
++        while (!stopping.get()) {
++          val accepted =
++            try Some(server.accept())
++            catch {
++              // Closing the listener releases the accept loop during teardown.
++              case _: SocketException if stopping.get() && server.isClosed => None
++            }
++          accepted.foreach { socket =>
++            val handler = Future {
++              sockets.add(socket)
++              try {
++                val requestText = readRequest(socket)
++                requests.synchronized(requests += requestText)
++                val isHead        = requestText.startsWith("HEAD ")
++                val index         = if (isHead) 0 else requestIndex.getAndIncrement()
++                val originalReply = if (index < replies.length) replies(index) else fallbackReply
++                val reply = if (isHead)
++                  originalReply.copy(chunks = Nil, pauseAfterFirstChunk = None)
++                else originalReply
++                val output = socket.getOutputStream
++                output.write(rawHeaders(reply))
++                output.flush()
++                if (joinBeforeBody && !isHead)
++                  assert(logger.watchingOwner.await(30, TimeUnit.SECONDS))
++                reply.chunks.zipWithIndex.foreach { case (chunk, index) =>
++                  output.write(chunk)
++                  output.flush()
++                  if (index == 0)
++                    reply.pauseAfterFirstChunk.foreach { gate =>
++                      if (!logger.awaitProgressAtLeast(gate.atLeast, 30.seconds))
++                        throw new IllegalStateException(
++                          s"Timed out waiting for download progress to reach ${gate.atLeast}"
++                        )
++                      if (!gate.release.await(30, TimeUnit.SECONDS))
++                        throw new IllegalStateException(
++                          "Timed out waiting for the test to release the response"
++                        )
++                    }
++                }
++              }
++              finally {
++                socket.close()
++                sockets.remove(socket)
++              }
++            }(connectionExecutionContext)
++            handlers.synchronized(handlers += handler)
++          }
++        }
++      }(serverExecutionContext)
++
++      val url = s"http://127.0.0.1:${server.getLocalPort}/artifact"
++      val cache = FileCache[Task](directory.toFile)
++        .withPool(downloadWorkers)
++        .withChecksums(Seq(None))
++        .withRetry(0)
++        .withBufferSize(cap)
++        .withLogger(logger)
++      val finalFile     = cache.localFile(url)
++      val temporaryFile = CachePath.temporaryFile(finalFile)
++      val expectedOutputError =
++        if (temporaryDirectory) {
++          Files.createDirectories(temporaryFile.toPath)
++          val error = assertThrows[java.io.IOException] {
++            Files.newOutputStream(temporaryFile.toPath).close()
++          }
++          Some(
++            s"Caught ${error.getClass.getName}${Option(error.getMessage).fold("")(" (" + _ + ")")} while downloading $url"
++          )
++        }
++        else None
++      if (prefix.nonEmpty) {
++        Files.createDirectories(temporaryFile.toPath.getParent)
++        Files.write(temporaryFile.toPath, prefix)
++      }
++
++      val downloads   = List.fill(clientCount)(cache.file(Artifact(url)).run.future()(cache.ec))
++      val downloading = downloads.head
++      val pendingState = inspectWhilePaused.map { case (target, release) =>
++        if (!logger.awaitProgressAtLeast(target, 30.seconds))
++          throw new IllegalStateException(
++            s"Timed out waiting for download progress to reach $target"
++          )
++        assert(!downloading.isCompleted)
++        val state = fileState(finalFile, temporaryFile)
++        release.countDown()
++        state
++      }
++
++      val results =
++        downloads.map(f => Await.result(f, 30.seconds).map(file => Files.readAllBytes(file.toPath)))
++      val result = results.head
++
++      stopServer()
++      Await.result(serving, 30.seconds)
++      handlers.synchronized(handlers.toList).foreach(f => Await.result(f, 30.seconds))
++
++      val observedRequests  = requests.synchronized(requests.toList)
++      val observedFileState = fileState(finalFile, temporaryFile)
++      Observation(
++        url,
++        result,
++        observedRequests,
++        logger.progress,
++        logger.downloadResults,
++        observedFileState.finalExists,
++        observedFileState.temporaryExists,
++        observedFileState.temporaryBytes,
++        pendingState,
++        results,
++        expectedOutputError
++      )
++    }
++    finally {
++      replies.flatMap(_.pauseAfterFirstChunk).foreach(_.release.countDown())
++      inspectWhilePaused.foreach(_._2.countDown())
++      try {
++        stopServer()
++        sockets.toArray(new Array[Socket](0)).foreach(_.close())
++        if (serving != null)
++          Await.result(serving, 30.seconds)
++      }
++      finally
++        try
++          if (connectionWorkers != null) {
++            connectionWorkers.shutdownNow()
++            assert(connectionWorkers.awaitTermination(10, TimeUnit.SECONDS))
++          }
++        finally
++          try
++            if (serverWorker != null) {
++              serverWorker.shutdownNow()
++              assert(serverWorker.awaitTermination(10, TimeUnit.SECONDS))
++            }
++          finally
++            try
++              if (downloadWorkers != null) {
++                downloadWorkers.shutdownNow()
++                assert(downloadWorkers.awaitTermination(10, TimeUnit.SECONDS))
++              }
++            finally if (directory != null) os.remove.all(os.Path(directory))
++    }
++  }
++
++  private def bytesAre(observation: Observation, expected: Array[Byte]): Unit =
++    assert(observation.result.map(_.toSeq) == Right(expected.toSeq))
++
++  private def successfulDownloadIs(observation: Observation, expected: Array[Byte]): Unit = {
++    bytesAre(observation, expected)
++    assert(observation.finalExists)
++    assert(!observation.temporaryExists)
++    assert(observation.temporaryBytes.isEmpty)
++    assert(observation.downloadResults.contains((observation.url, true)))
++  }
++
++  private def errorMessage(observation: Observation): Option[String] =
++    observation.result.left.toOption.collect {
++      case error: ArtifactError.DownloadError => error.message
++    }
++
++  private def downloadErrorIs(observation: Observation, expected: String): Unit = {
++    assert(errorMessage(observation) == Some(expected))
++    assert(!observation.finalExists)
++    assert(!observation.temporaryExists)
++    assert(observation.temporaryBytes.isEmpty)
++    assert(observation.downloadResults.contains((observation.url, false)))
++  }
++
++  private def incompleteMessage(url: String, expected: Long, received: Long): String =
++    s"Incomplete response from $url: expected $expected bytes, received $received bytes"
++
++  private def invalidContentLengthMessage(url: String, value: String): String =
++    s"Invalid Content-Length '$value' from $url: expected a non-negative 64-bit decimal length"
++
++  private def invalidContentRangeMessage(url: String, value: String, start: Long): String =
++    s"Invalid Content-Range '$value' from $url: expected bytes starting at $start and ending at the complete response length"
++
++  private def missingContentRangeMessage(url: String, start: Long): String =
++    s"Missing Content-Range from $url: expected bytes starting at $start"
++
++  private def statusMessage(url: String, code: Int): String =
++    s"Unexpected HTTP status $code from $url: expected a response with an artifact body"
++
++  private def chunkedMessage(url: String, received: Long): String =
++    s"Invalid response framing from $url: expected a complete chunked message, received $received bytes (Premature EOF)"
++
++  private def unsupportedMessage(url: String, encoding: String): String =
++    s"Unsupported Content-Encoding '$encoding' from $url: expected identity, gzip, or deflate"
++
++  private def gzipBytes(bytes: Array[Byte]): Array[Byte] = {
++    val output = new ByteArrayOutputStream()
++    val gzip   = new GZIPOutputStream(output)
++    gzip.write(bytes)
++    gzip.close()
++    output.toByteArray
++  }
++
++  private def deflateBytes(bytes: Array[Byte]): Array[Byte] = {
++    val output  = new ByteArrayOutputStream()
++    val deflate = new java.util.zip.DeflaterOutputStream(output)
++    deflate.write(bytes)
++    deflate.close()
++    output.toByteArray
++  }
++
++  private def chunk(bytes: Array[Byte], closing: Boolean = true): Array[Byte] =
++    (Integer.toHexString(bytes.length) + "\r\n").getBytes(ISO_8859_1) ++ bytes ++
++      (if (closing) "\r\n0\r\n\r\n" else "\r\n").getBytes(ISO_8859_1)
++
++  val tests = Tests {
++    test("repeated encoding fields decode every layer in field order") {
++      val encoded = gzipBytes(gzipBytes(body))
++      val o = scenario(List(fixed(
++        encoded.length.toString,
++        encoded,
++        Seq("Content-Encoding" -> "gzip", "Content-Encoding" -> "gzip")
++      )))
++      successfulDownloadIs(o, body)
++    }
++
++    test("a later identity field cannot hide an unsupported encoding") {
++      val encoding = "custom, identity"
++      val o = scenario(List(fixed(
++        "6",
++        body,
++        Seq("Content-Encoding" -> "custom", "Content-Encoding" -> "identity")
++      )))
++      downloadErrorIs(o, unsupportedMessage(o.url, encoding))
++    }
++
++    test("a truncated later gzip member cannot publish earlier members") {
++      val first  = gzipBytes(body.take(3))
++      val second = gzipBytes(body.drop(3))
++      // Every nonempty prefix starts a member that must finish, including its trailer.
++      for (cut <- 1 until second.length) {
++        val encoded = first ++ second.take(cut)
++        val o = scenario(List(fixed(
++          encoded.length.toString,
++          encoded,
++          Seq("Content-Encoding" -> "gzip")
++        )))
++        downloadErrorIs(
++          o,
++          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (java.io.EOFException)"
++        )
++      }
++    }
++
++    test("gzip reports decoded progress before the next compressed fragment") {
++      val encoded = new ByteArrayOutputStream()
++      val gzip    = new GZIPOutputStream(encoded, true)
++      gzip.write(body.take(3))
++      gzip.flush()
++      val first = encoded.toByteArray
++      gzip.write(body.drop(3))
++      gzip.close()
++      val last    = encoded.toByteArray.drop(first.length)
++      val release = new CountDownLatch(1)
++      val reply = Reply(
++        "200 OK",
++        Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gzip"),
++        List(chunk(first, closing = false), chunk(last)),
++        Some(ProgressGate(3, release))
++      )
++      val o       = scenario(List(reply), inspectWhilePaused = Some((3, release)))
++      val pending = o.pendingState.get
++      assert(!pending.finalExists)
++      assert(pending.temporaryExists)
++      assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
++      successfulDownloadIs(o, body)
++    }
++
++    test("inner deflate EOF cannot hide a corrupt outer gzip trailer") {
++      val encoded = gzipBytes(deflateBytes(body))
++      encoded(encoded.length - 1) = (encoded.last ^ 0xff).toByte
++      val o = scenario(List(fixed(
++        encoded.length.toString,
++        encoded,
++        Seq("Content-Encoding" -> "deflate, gzip")
++      )))
++      downloadErrorIs(
++        o,
++        s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Corrupt GZIP trailer)"
++      )
++    }
++
++    test("inner deflate EOF cannot hide an incomplete outer gzip trailer") {
++      val encoded = gzipBytes(deflateBytes(body)).dropRight(4)
++      val o = scenario(List(fixed(
++        encoded.length.toString,
++        encoded,
++        Seq("Content-Encoding" -> "deflate, gzip")
++      )))
++      downloadErrorIs(
++        o,
++        s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (java.io.EOFException)"
++      )
++    }
++
++    test("repeated mixed encoding fields preserve order and empty list members") {
++      val headers = Seq(
++        "content-encoding" -> ", gzip, ,",
++        "Content-Encoding" -> " , DeFlAtE",
++        "CONTENT-ENCODING" -> " , "
++      )
++      val encoded = deflateBytes(gzipBytes(body))
++      val o       = scenario(List(fixed(encoded.length.toString, encoded, headers)))
++      successfulDownloadIs(o, body)
++    }
++
++    test("unknown repeated encoding fields reject even beside blank fields") {
++      for (values <- Seq(Seq("custom", ", ,"), Seq("", "gzip, custom", "identity"))) {
++        val encoding = values.mkString(", ")
++        val o        = scenario(List(fixed("6", body, values.map("Content-Encoding" -> _))))
++        downloadErrorIs(o, unsupportedMessage(o.url, encoding))
++      }
++    }
++
++    test("repeated encoding fields cannot append to a decoded saved prefix") {
++      val encoded = gzipBytes(body.drop(3))
++      val o = scenario(
++        List(fixed(
++          encoded.length.toString,
++          encoded,
++          Seq(
++            "Content-Range"    -> s"bytes 3-${encoded.length + 2}/${encoded.length + 3}",
++            "Content-Encoding" -> "gzip",
++            "Content-Encoding" -> "identity"
++          ),
++          status = "206 Partial Content"
++        )),
++        prefix = body.take(3)
++      )
++      downloadErrorIs(
++        o,
++        s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received 'gzip, identity'"
++      )
++    }
++
++    test("complete gzip members including empty members decode with one byte buffers") {
++      val encoded = gzipBytes(body.take(3)) ++ gzipBytes(Array.emptyByteArray) ++
++        gzipBytes(body.drop(3))
++      for (cap <- Seq(1, CacheDefaults.bufferSize)) {
++        val o = scenario(
++          List(fixed(
++            encoded.length.toString,
++            encoded,
++            Seq("Content-Encoding" -> "gzip")
++          )),
++          cap = cap
++        )
++        successfulDownloadIs(o, body)
++      }
++    }
++
++    test("each member checks both its checksum and uncompressed size") {
++      for (trailerOffset <- Seq(8, 4)) {
++        val later = gzipBytes(body.drop(3))
++        later(later.length - trailerOffset) = (later(later.length - trailerOffset) ^ 0xff).toByte
++        val encoded = gzipBytes(body.take(3)) ++ later
++        val o = scenario(List(fixed(
++          encoded.length.toString,
++          encoded,
++          Seq("Content-Encoding" -> "gzip")
++        )))
++        downloadErrorIs(
++          o,
++          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Corrupt GZIP trailer)"
++        )
++      }
++    }
++
++    test("gzip optional headers and their checksum are verified on later members") {
++      val member = gzipBytes(body.drop(3))
++      val header = member.take(10)
++      header(3) = 0x1e.toByte // Extra field, name, comment and header checksum.
++      val optional = header ++ Array[Byte](3, 0, 11, 22, 33) ++
++        Array[Byte](110, 97, 109, 101, 0, 99, 111, 109, 109, 101, 110, 116, 0)
++      val checksum = new java.util.zip.CRC32()
++      checksum.update(optional)
++      val withChecksum =
++        optional ++ Array(checksum.getValue.toByte, (checksum.getValue >> 8).toByte)
++      val first   = gzipBytes(body.take(3))
++      val encoded = first ++ withChecksum ++ member.drop(10)
++      successfulDownloadIs(
++        scenario(
++          List(fixed(
++            encoded.length.toString,
++            encoded,
++            Seq("Content-Encoding" -> "gzip")
++          )),
++          cap = 1
++        ),
++        body
++      )
++      for (cut <- 1 until withChecksum.length) {
++        val incomplete = first ++ withChecksum.take(cut)
++        val o = scenario(List(fixed(
++          incomplete.length.toString,
++          incomplete,
++          Seq("Content-Encoding" -> "gzip")
++        )))
++        downloadErrorIs(
++          o,
++          s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${incomplete.length} response bytes (java.io.EOFException)"
++        )
++      }
++      val corrupt = withChecksum.clone()
++      corrupt(corrupt.length - 1) = (corrupt.last ^ 0xff).toByte
++      val invalid = first ++ corrupt ++ member.drop(10)
++      val o = scenario(List(fixed(
++        invalid.length.toString,
++        invalid,
++        Seq("Content-Encoding" -> "gzip")
++      )))
++      downloadErrorIs(
++        o,
++        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${invalid.length} response bytes (Corrupt GZIP header)"
++      )
++    }
++
++    test("all nested layers complete with default and one byte buffers") {
++      val encodings = Seq(
++        "deflate, gzip"       -> gzipBytes(deflateBytes(body)),
++        "gzip, deflate"       -> deflateBytes(gzipBytes(body)),
++        "gzip, gzip, deflate" -> deflateBytes(gzipBytes(gzipBytes(body))),
++        "deflate, gzip, gzip" -> gzipBytes(gzipBytes(deflateBytes(body)))
++      )
++      for ((encoding, encoded) <- encodings; cap <- Seq(1, CacheDefaults.bufferSize)) {
++        val o = scenario(
++          List(fixed(
++            encoded.length.toString,
++            encoded,
++            Seq("Content-Encoding" -> encoding)
++          )),
++          cap = cap
++        )
++        successfulDownloadIs(o, body)
++      }
++    }
++
++    test("deflate EOF rejects additional outer output rather than discarding it") {
++      val responses = Seq(
++        gzipBytes(deflateBytes(body) ++ body),
++        gzipBytes(deflateBytes(body)) ++ gzipBytes(body)
++      )
++      for (encoded <- responses) {
++        val o = scenario(List(fixed(
++          encoded.length.toString,
++          encoded,
++          Seq("Content-Encoding" -> "deflate, gzip")
++        )))
++        downloadErrorIs(
++          o,
++          s"Invalid Content-Encoding 'deflate, gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Unexpected trailing deflate data: expected end of encoded layer, received additional bytes)"
++        )
++      }
++    }
++
++    test("deflate cannot complete while a preset dictionary is still required") {
++      val output     = new ByteArrayOutputStream()
++      val compressor = new java.util.zip.Deflater()
++      val encoded =
++        try {
++          compressor.setDictionary(body)
++          val deflate = new java.util.zip.DeflaterOutputStream(output, compressor)
++          try deflate.write(body)
++          finally deflate.close()
++          output.toByteArray
++        }
++        finally compressor.end()
++      val o = scenario(List(fixed(
++        encoded.length.toString,
++        encoded,
++        Seq("Content-Encoding" -> "deflate")
++      )))
++      downloadErrorIs(
++        o,
++        s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)"
++      )
++    }
++
++    test("gzip rejects trailing bytes that are not another complete member") {
++      val encoded = gzipBytes(body) ++ body
++      val o = scenario(List(fixed(
++        encoded.length.toString,
++        encoded,
++        Seq("Content-Encoding" -> "gzip")
++      )))
++      downloadErrorIs(
++        o,
++        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Not in GZIP format)"
++      )
++    }
++  }
++}

@@ -40,3 +40,21 @@ Completed 19/30 rounds, 16/16 single attempts, no retries
 Completed 20/30 rounds, 16/16 single attempts, no retries
 {"phase": "round-21", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
 Completed 21/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-22", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 22/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-23", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 23/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-24", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 24/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-25", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 25/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-26", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 26/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-27", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 27/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-28", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 28/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-29", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 29/30 rounds, 16/16 single attempts, no retries
+{"phase": "round-30", "cases": 16, "pass": 16, "fail": 0, "errors": 0, "skips": 0, "firstAttempts": 16, "qualifiedEvents": 16, "retries": 0, "maxObservedJavaProcesses": 2}
+Completed 30/30 rounds, 16/16 single attempts, no retries

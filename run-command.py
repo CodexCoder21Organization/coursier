@@ -39,6 +39,7 @@ def capture(child):
 
 subprocess.run(['git','fetch','origin'], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
 subprocess.run(['git','rebase','origin/main'], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+head = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 memory_deadline = time.monotonic()+600
 while True:
     memory = subprocess.check_output(['free','-m'], text=True)
@@ -59,7 +60,7 @@ with (OUT/(PHASE+'.log')).open('w') as log:
         child.wait(timeout=30)
         result = {'deadlineReached':True,'exit':child.returncode}
     else: result = {'deadlineReached':False,'exit':child.wait()}
-result.update(seconds=time.monotonic()-start, attempts=1, completedAt=datetime.now(timezone.utc).isoformat())
+result.update(head=head, seconds=time.monotonic()-start, attempts=1, completedAt=datetime.now(timezone.utc).isoformat())
 if result['exit'] in (137, -9):
     (OUT/(PHASE+'-memory.events')).write_text(Path('/sys/fs/cgroup/memory.events').read_text())
 (OUT/(PHASE+'-result.json')).write_text(json.dumps(result, indent=2)+'\n')

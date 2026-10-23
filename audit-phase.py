@@ -2,7 +2,7 @@ from pathlib import Path
 import json,re,sys,xml.etree.ElementTree as ET
 root=Path(sys.argv[1]);phase=sys.argv[2];expected=int(sys.argv[3])
 p=Path(__file__).resolve().parent
-task='test' if phase=='cache' else 'testOnly'
+task='testLocal' if phase=='cache' else 'testOnly'
 reports=list((root/('out/cache/jvm/2.13.16/test/'+task+'.dest')).rglob('*.xml'))
 assert len(reports)==1,reports
 output=p/(phase+'.xml');output.write_bytes(reports[0].read_bytes())
