@@ -30,7 +30,11 @@ Content-Length header, and close-delimited responses are read until EOF. Chunked
 validate the closing chunk even when a range count or a decoded body has already completed.
 Gzip and deflate responses are decoded with case-insensitive coding names; their declared
 lengths are checked against response bytes before decoding. Unsupported content codings and
-HTTP statuses without an artifact body are rejected.
+HTTP statuses without an artifact body are rejected. Repeated Content-Encoding fields are
+combined in response order. Every gzip member and every encoding layer must finish and
+pass its integrity checks before the cache file is published; incomplete later members,
+unread outer trailers and extra encoded data are rejected. Decoded download progress is
+reported as bytes arrive, including fragments within a gzip member.
 
 A resumed download appends only a valid 206 response whose Content-Range starts at
 the saved prefix, ends at the declared total, and agrees with Content-Length when

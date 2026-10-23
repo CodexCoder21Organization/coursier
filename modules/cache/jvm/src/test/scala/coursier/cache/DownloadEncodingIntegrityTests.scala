@@ -591,5 +591,13 @@ object DownloadEncodingIntegrityTests extends TestSuite {
       downloadErrorIs(o,
         s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Deflate dictionary required: expected a decoded body without a preset dictionary)")
     }
+
+    test("gzip rejects trailing bytes that are not another complete member") {
+      val encoded = gzipBytes(body) ++ body
+      val o = scenario(List(fixed(encoded.length.toString, encoded,
+        Seq("Content-Encoding" -> "gzip"))))
+      downloadErrorIs(o,
+        s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${encoded.length} response bytes (Not in GZIP format)")
+    }
   }
 }

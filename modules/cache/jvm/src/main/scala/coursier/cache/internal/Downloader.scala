@@ -874,6 +874,10 @@ object Downloader {
     override def read(bytes: Array[Byte], offset: Int, length: Int): Int = {
       val n = super.read(bytes, offset, length)
       if (n < 0 && !verified) {
+        if (inf.needsDictionary())
+          throw new ZipException(
+            "Deflate dictionary required: expected a decoded body without a preset dictionary"
+          )
         val remaining = inf.getRemaining
         if (remaining > 0 || underlying.read() >= 0)
           throw new ZipException(
