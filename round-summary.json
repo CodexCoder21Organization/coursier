@@ -1,0 +1,9 @@
+{
+  "firstAttemptPasses": 90,
+  "retries": 0,
+  "perTest": {
+    "large gzip body streams into the cache before the remainder arrives": 30,
+    "large deflate body streams into the cache before the remainder arrives": 30,
+    "large multi-member gzip streams inside a later member before the remainder arrives": 30
+  }
+}

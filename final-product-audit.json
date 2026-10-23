@@ -1,0 +1,22 @@
+{
+  "head": "6903ce429a3c6015d8ee285a540ceab1ddf268b9",
+  "main": "3788263afb4b8977cfd5ebc2a557de566e0c801c",
+  "productDiffFromOriginalPR": [
+    "57\t0\tmodules/cache/jvm/src/test/scala/coursier/cache/DownloadEncodingIntegrityTests.scala"
+  ],
+  "production": [
+    {
+      "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala",
+      "sha256": "32d7d34c85b5b1d988930a5d2743fa50dea1669410ef2f43acfec0d37a0bacad",
+      "matchesOriginalPR": true
+    },
+    {
+      "path": "modules/cache/jvm/src/main/scala/coursier/cache/internal/GzipInputStream.scala",
+      "sha256": "94d6d88e086b7e9b4638398d1b1ae2578d7e1df21bd8f9196ad31eb3e091eeaa",
+      "matchesOriginalPR": true
+    }
+  ],
+  "existingTestOrAssertionEdits": [],
+  "readmeChangeRequired": false,
+  "progressTotalsChanged": false
+}
