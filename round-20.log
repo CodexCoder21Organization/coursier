@@ -1,0 +1,8 @@
+=============== cache.jvm[2.13.16].test.testOnly...r before the remainder arrives} ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306]  Running Tests coursier.cache.DownloadEncodingIntegrityTests.{large gzip body streams into the cache before the remainder arrives,large deflate body streams into the cache before the remainder arrives,large multi-member gzip streams inside a later member before the remainder arrives} 
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.large gzip body streams into the cache before the remainder arrives [2m634ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.large deflate body streams into the cache before the remainder arrives [2m173ms[0m  
+[306] [32m+[39m coursier.cache.DownloadEncodingIntegrityTests.large multi-member gzip streams inside a later member before the remainder arrives [2m168ms[0m  
+[306] Tests: 3, Passed: 3, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...re the remainder arrives} =============== 6s

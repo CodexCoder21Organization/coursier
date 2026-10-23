@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="3" failures="0" errors="0" skipped="0" time="1.057">
+        <testsuite name="coursier.cache.DownloadEncodingIntegrityTests" tests="3" failures="0" errors="0" skipped="0" time="1.057" timestamp="2026-10-23T10:00:21">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="large gzip body streams into the cache before the remainder arrives" time="0.723">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="large deflate body streams into the cache before the remainder arrives" time="0.166">
+          
+        </testcase><testcase classname="coursier.cache.DownloadEncodingIntegrityTests" name="large multi-member gzip streams inside a later member before the remainder arrives" time="0.168">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>
