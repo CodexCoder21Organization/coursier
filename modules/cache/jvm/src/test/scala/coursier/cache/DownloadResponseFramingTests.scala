@@ -368,6 +368,14 @@ object DownloadResponseFramingTests extends TestSuite {
     output.toByteArray
   }
 
+  private def deflateBytes(bytes: Array[Byte]): Array[Byte] = {
+    val output = new ByteArrayOutputStream()
+    val deflate = new java.util.zip.DeflaterOutputStream(output)
+    deflate.write(bytes)
+    deflate.close()
+    output.toByteArray
+  }
+
   private def chunk(bytes: Array[Byte], closing: Boolean = true): Array[Byte] =
     (Integer.toHexString(bytes.length) + "\r\n").getBytes(ISO_8859_1) ++ bytes ++
       (if (closing) "\r\n0\r\n\r\n" else "\r\n").getBytes(ISO_8859_1)
@@ -566,6 +574,70 @@ object DownloadResponseFramingTests extends TestSuite {
         "Content-Range" -> s"bytes 3-${compressed.length + 2}/${compressed.length + 3}", "Content-Encoding" -> "gzip"),
         List(compressed))), prefix = body.take(3))
       downloadErrorIs(o, s"Cannot resume encoded response from ${o.url}: expected identity encoding for saved prefix of 3 bytes, received 'gzip'")
+    }
+
+    test("gzip decoder completion still checks the declared response length") {
+      val compressed = gzipBytes(body)
+      val o = scenario(List(fixed((compressed.length + 5).toString, compressed, Seq("Content-Encoding" -> "gzip"))))
+      downloadErrorIs(o, incompleteMessage(o.url, compressed.length + 5, compressed.length))
+    }
+
+    test("deflate decoder completion still checks the declared response length") {
+      val compressed = deflateBytes(body)
+      val o = scenario(List(fixed((compressed.length + 5).toString, compressed, Seq("Content-Encoding" -> "deflate"))))
+      downloadErrorIs(o, incompleteMessage(o.url, compressed.length + 5, compressed.length))
+    }
+
+    test("chunked deflate validates the closing chunk after decoding") {
+      val compressed = deflateBytes(body)
+      val o = scenario(List(response("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "deflate"),
+        List(chunk(compressed, closing = false)))))
+      downloadErrorIs(o, chunkedMessage(o.url, compressed.length))
+    }
+
+    test("valid chunked deflate is decoded through the closing chunk") {
+      val o = scenario(List(response("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "deflate"),
+        List(chunk(deflateBytes(body))))))
+      successfulDownloadIs(o, body)
+    }
+
+    test("mixed case stacked content codings decode in reverse order") {
+      val compressed = deflateBytes(gzipBytes(body))
+      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "GZip, DeFlAtE"))))
+      successfulDownloadIs(o, body)
+    }
+
+    test("corrupt gzip trailer cannot publish decoded data") {
+      val compressed = gzipBytes(body)
+      compressed(compressed.length - 1) = 0xff.toByte
+      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "gzip"))))
+      downloadErrorIs(o, s"Invalid Content-Encoding 'gzip' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (Corrupt GZIP trailer)")
+    }
+
+    test("corrupt deflate checksum cannot publish decoded data") {
+      val compressed = deflateBytes(body)
+      compressed(compressed.length - 1) = (compressed.last ^ 0xff).toByte
+      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "deflate"))))
+      downloadErrorIs(o, s"Invalid Content-Encoding 'deflate' from ${o.url}: expected a complete decoded body, received ${compressed.length} response bytes (incorrect data check)")
+    }
+
+    test("gzip members in separate chunks all decode before publication") {
+      val release = new CountDownLatch(1)
+      val reply = Reply("200 OK", Seq("Transfer-Encoding" -> "chunked", "Content-Encoding" -> "gzip"),
+        List(chunk(gzipBytes(body.take(3)), closing = false), chunk(gzipBytes(body.drop(3)))),
+        Some(ProgressGate(3, release)))
+      val o = scenario(List(reply), inspectWhilePaused = Some((3, release)))
+      val pending = o.pendingState.get
+      assert(!pending.finalExists)
+      assert(pending.temporaryExists)
+      assert(pending.temporaryBytes.toSeq == body.take(3).toSeq)
+      successfulDownloadIs(o, body)
+    }
+
+    test("empty encoded body with one byte buffer still validates its trailer") {
+      val compressed = gzipBytes(Array.emptyByteArray)
+      val o = scenario(List(fixed(compressed.length.toString, compressed, Seq("Content-Encoding" -> "GZIP"))), cap = 1)
+      successfulDownloadIs(o, Array.emptyByteArray)
     }
   }
 }
