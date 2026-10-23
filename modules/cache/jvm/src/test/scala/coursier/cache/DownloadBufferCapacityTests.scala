@@ -301,6 +301,14 @@ object DownloadBufferCapacityTests extends TestSuite {
       assert(observation.reads.exists(_.arrayLength == 1))
     }
 
+    test("known empty response requests zero bytes from the response stream") {
+      val expectedBody = Array.empty[Byte]
+      val observation  = downloadScenario(expectedBody, Some(0L), None, None)
+      assertScenario(observation, expectedBody, 0L, 1)
+      assert(observation.reads.map(_.requestedLength) == List(0))
+      assert(observation.reads.map(_.arrayLength) == List(1))
+    }
+
     test("known body larger than configured maximum uses at most that maximum") {
       val configuredMaximum = 8192
       val expectedBody =

@@ -360,6 +360,19 @@ object DownloadLengthIntegrityTests extends TestSuite {
       assert(observation.progress.isEmpty)
     }
 
+    test("short fixed-length response counts bytes across multiple reads") {
+      val observation = scenario(List(fixed("9", body)), cap = 2)
+
+      downloadErrorIs(observation, incompleteMessage(observation.url, 9L, 6L))
+      assert(observation.requests.size == 1)
+      assert(observation.progress.size >= 3)
+      assert(observation.progress.last == 6L)
+      val deltas = (0L +: observation.progress).zip(observation.progress).map {
+        case (before, after) => after - before
+      }
+      assert(deltas.forall(delta => delta > 0L && delta <= 2L))
+    }
+
     test("partial body remains temporary until the connection reaches EOF") {
       val release = new CountDownLatch(1)
       val reply = fixed("9", body.take(6)).copy(
