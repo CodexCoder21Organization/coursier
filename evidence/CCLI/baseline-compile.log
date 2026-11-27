@@ -1,0 +1,239 @@
+[info] compiling 126 Scala sources and 2 Java sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/cli/compile.dest/classes ...
+[error] -- [E006] Not Found Error: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli/src/main/scala/coursier/cli/fetch/Fetch.scala:101:124 
+[error] 101 |        val cache = initialParams.resolve.cache.cache(pool, initialParams.resolve.output.logger()).withCustomHandlerFactory(customHandlerFactory)
+[error]     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^
+[error]     |                                       Not found: customHandlerFactory
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] one error found
+cli.compile failed
+[info] compiling 17 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/cli-tests/compile.dest/classes ...
+[warn] -- [E129] Potential Issue Warning: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli-tests/src/main/scala/coursier/clitests/AboutTests.scala:82:3 
+[warn] 82 |  }
+[warn]    |   ^
+[warn]    |   A pure expression does nothing in statement position
+[warn]    |
+[warn]    | longer explanation available when compiling with `-explain`
+[warn] -- [E129] Potential Issue Warning: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli-tests/src/main/scala/coursier/clitests/BootstrapTests.scala:1142:3 
+[warn] 1142 |  }
+[warn]      |   ^
+[warn]      |   A pure expression does nothing in statement position
+[warn]      |
+[warn]      | longer explanation available when compiling with `-explain`
+[warn] two warnings found
+[info] done compiling
+[info] compiling 51 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/core/js/2.12.20/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/core/shared/src/main/scala/coursier/core/Dependency.scala:14:2: value overrides in class Dependency is deprecated (since 2.1.23): Use overridesMap instead
+[warn] @data(apply = false, settersCallApply = true) class Dependency(
+[warn]  ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/core/shared/src/main/scala/coursier/core/Resolution.scala:1148:2: value bomDependencies in class Resolution is deprecated (since 2.1.18): Use boms instead
+[warn] @data class Resolution(
+[warn]  ^
+[warn] two warnings found
+[info] done compiling
+[info] compiling 51 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/core/js/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 53 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/core/jvm/2.12.20/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/core/shared/src/main/scala/coursier/core/Dependency.scala:14:2: value overrides in class Dependency is deprecated (since 2.1.23): Use overridesMap instead
+[warn] @data(apply = false, settersCallApply = true) class Dependency(
+[warn]  ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/core/shared/src/main/scala/coursier/core/Resolution.scala:1148:2: value bomDependencies in class Resolution is deprecated (since 2.1.18): Use boms instead
+[warn] @data class Resolution(
+[warn]  ^
+[warn] two warnings found
+[info] done compiling
+[info] compiling 39 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/coursier/js/2.12.20/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/js/src/main/scala/coursier/PlatformResolve.scala:3:22: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn] import coursier.core.Repository
+[warn]                      ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Repositories.scala:4:23: imported `MavenRepository` is permanently hidden by definition of value MavenRepository in package coursier
+[warn] import coursier.maven.MavenRepository
+[warn]                       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:8:3: imported `BomDependency` is permanently hidden by definition of value BomDependency in package coursier
+[warn]   BomDependency,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:10:3: imported `Dependency` is permanently hidden by definition of object Dependency in package coursier
+[warn]   Dependency,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:13:3: imported `Module` is permanently hidden by definition of object Module in package coursier
+[warn]   Module,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:14:3: imported `ModuleName` is permanently hidden by definition of value ModuleName in package coursier
+[warn]   ModuleName,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:15:3: imported `Organization` is permanently hidden by definition of value Organization in package coursier
+[warn]   Organization,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:16:3: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn]   Repository,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:17:3: imported `Resolution` is permanently hidden by definition of object Resolution in package coursier
+[warn]   Resolution,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:18:3: imported `ResolutionProcess` is permanently hidden by definition of value ResolutionProcess in package coursier
+[warn]   ResolutionProcess,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:19:3: imported `VariantSelector` is permanently hidden by definition of value VariantSelector in package coursier
+[warn]   VariantSelector
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:29:52: imported `VersionConstraint` is permanently hidden by definition of value VersionConstraint in package coursier
+[warn] import coursier.version.{ConstraintReconciliation, VersionConstraint, VersionParse}
+[warn]                                                    ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Versions.scala:4:23: imported `Module` is permanently hidden by definition of object Module in package coursier
+[warn] import coursier.core.{Module, Repository}
+[warn]                       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Versions.scala:4:31: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn] import coursier.core.{Module, Repository}
+[warn]                               ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:200:7: value mirrorConfFiles in class Resolve is deprecated (since 2.1.25): Use MirrorConfFile(...), call mirrors() on it, and set mirrors instead
+[warn]       mirrorConfFiles.flatMap(_.mirrors()) ++
+[warn]       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:201:7: value confFiles in class Resolve is deprecated (since 2.1.25): For mirrors, use Resolve.confFileMirrors and set mirrors instead; for repositories, use Resolve.confFileRepositories and set repositories
+[warn]       confFiles.flatMap(Resolve.confFileMirrors)
+[warn]       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:37:2: value mirrorConfFiles in class Resolve is deprecated (since 2.1.25): Use MirrorConfFile(...), call mirrors() on it, and set mirrors instead
+[warn] @data class Resolve[F[_]](
+[warn]  ^
+[warn] 17 warnings found
+[info] done compiling
+[info] compiling 39 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/coursier/js/2.13.16/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:200:7: value mirrorConfFiles in class Resolve is deprecated (since 2.1.25): Use MirrorConfFile(...), call mirrors() on it, and set mirrors instead
+[warn]       mirrorConfFiles.flatMap(_.mirrors()) ++
+[warn]       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:201:7: value confFiles in class Resolve is deprecated (since 2.1.25): For mirrors, use Resolve.confFileMirrors and set mirrors instead; for repositories, use Resolve.confFileRepositories and set repositories
+[warn]       confFiles.flatMap(Resolve.confFileMirrors)
+[warn]       ^
+[warn] two warnings found
+[info] done compiling
+[info] compiling 48 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/coursier/jvm/2.12.20/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/CoursierEnv.scala:4:22: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn] import coursier.core.Repository
+[warn]                      ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:8:3: imported `BomDependency` is permanently hidden by definition of value BomDependency in package coursier
+[warn]   BomDependency,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:9:3: imported `Classifier` is permanently hidden by definition of value Classifier in package coursier
+[warn]   Classifier,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:10:3: imported `Dependency` is permanently hidden by definition of object Dependency in package coursier
+[warn]   Dependency,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:12:3: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn]   Repository,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:13:3: imported `Resolution` is permanently hidden by definition of object Resolution in package coursier
+[warn]   Resolution,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:14:3: imported `ResolutionProcess` is permanently hidden by definition of value ResolutionProcess in package coursier
+[warn]   ResolutionProcess,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:15:3: imported `Type` is permanently hidden by definition of value Type in package coursier
+[warn]   Type,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/Fetch.scala:17:3: imported `VariantSelector` is permanently hidden by definition of value VariantSelector in package coursier
+[warn]   VariantSelector
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/LocalRepositories.scala:6:23: imported `MavenRepository` is permanently hidden by definition of value MavenRepository in package coursier
+[warn] import coursier.maven.MavenRepository
+[warn]                       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/PlatformResolve.scala:6:22: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn] import coursier.core.Repository
+[warn]                      ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Repositories.scala:4:23: imported `MavenRepository` is permanently hidden by definition of value MavenRepository in package coursier
+[warn] import coursier.maven.MavenRepository
+[warn]                       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:29:52: imported `VersionConstraint` is permanently hidden by definition of value VersionConstraint in package coursier
+[warn] import coursier.version.{ConstraintReconciliation, VersionConstraint, VersionParse}
+[warn]                                                    ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:8:3: imported `BomDependency` is permanently hidden by definition of value BomDependency in package coursier
+[warn]   BomDependency,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:10:3: imported `Dependency` is permanently hidden by definition of object Dependency in package coursier
+[warn]   Dependency,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:13:3: imported `Module` is permanently hidden by definition of object Module in package coursier
+[warn]   Module,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:14:3: imported `ModuleName` is permanently hidden by definition of value ModuleName in package coursier
+[warn]   ModuleName,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:15:3: imported `Organization` is permanently hidden by definition of value Organization in package coursier
+[warn]   Organization,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:16:3: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn]   Repository,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:17:3: imported `Resolution` is permanently hidden by definition of object Resolution in package coursier
+[warn]   Resolution,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:18:3: imported `ResolutionProcess` is permanently hidden by definition of value ResolutionProcess in package coursier
+[warn]   ResolutionProcess,
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:19:3: imported `VariantSelector` is permanently hidden by definition of value VariantSelector in package coursier
+[warn]   VariantSelector
+[warn]   ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Versions.scala:4:23: imported `Module` is permanently hidden by definition of object Module in package coursier
+[warn] import coursier.core.{Module, Repository}
+[warn]                       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Versions.scala:4:31: imported `Repository` is permanently hidden by definition of value Repository in package coursier
+[warn] import coursier.core.{Module, Repository}
+[warn]                               ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:200:7: value mirrorConfFiles in class Resolve is deprecated (since 2.1.25): Use MirrorConfFile(...), call mirrors() on it, and set mirrors instead
+[warn]       mirrorConfFiles.flatMap(_.mirrors()) ++
+[warn]       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:201:7: value confFiles in class Resolve is deprecated (since 2.1.25): For mirrors, use Resolve.confFileMirrors and set mirrors instead; for repositories, use Resolve.confFileRepositories and set repositories
+[warn]       confFiles.flatMap(Resolve.confFileMirrors)
+[warn]       ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/shared/src/main/scala/coursier/Resolve.scala:37:2: value mirrorConfFiles in class Resolve is deprecated (since 2.1.25): Use MirrorConfFile(...), call mirrors() on it, and set mirrors instead
+[warn] @data class Resolve[F[_]](
+[warn]  ^
+[warn] 27 warnings found
+[info] done compiling
+[info] compiling 6 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/env/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 7 Scala sources and 5 Java sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/jvm/2.12.20/compile.dest/classes ...
+[warn] source value 8 is obsolete and will be removed in a future release
+[warn] target value 8 is obsolete and will be removed in a future release
+[warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[info] done compiling
+[info] compiling 20 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/launcher/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 31 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/install/2.12.20/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/install/src/main/scala/coursier/install/InstallDir.scala:328:15: match may not be exhaustive.
+[warn] It would fail on the following inputs: (Ar, None), (Ar, Some(_)), (Xz, None), (Xz, Some(_))
+[warn]               (a.archiveType, a.pathInArchiveOpt) match {
+[warn]               ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/install/src/main/scala/coursier/install/AppDescriptor.scala:162:36: method artifacts in object Artifacts is deprecated (since 2.1.25): Use artifacts0 instead
+[warn]         val l = coursier.Artifacts.artifacts(
+[warn]                                    ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/install/src/main/scala/coursier/install/InstallDir.scala:25:2: value os in class InstallDir is deprecated (since 2.1.0-M4): ignored, use platform instead
+[warn] @data class InstallDir(
+[warn]  ^
+[warn] three warnings found
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/cats/js/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/cats/js/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/cats/jvm/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/cats/jvm/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/scalaz/js/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/scalaz/js/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/scalaz/jvm/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/interop/scalaz/jvm/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/launcher-native_04/compile.dest/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/sbt-maven-repository/js/2.12.20/compile.dest/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/sbt-maven-repository/js/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/sbt-maven-repository/jvm/2.12.20/compile.dest/classes ...
+[info] done compiling
+1 tasks failed
+cli.compile Compilation failed

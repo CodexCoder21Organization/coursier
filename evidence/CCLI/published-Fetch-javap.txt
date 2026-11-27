@@ -1,0 +1,896 @@
+Compiled from "Fetch.scala"
+public final class coursier.cli.fetch.Fetch$ extends coursier.cli.CoursierCommand<coursier.cli.fetch.FetchOptions> {
+  public static final coursier.cli.fetch.Fetch$ MODULE$;
+
+  private coursier.cli.fetch.Fetch$();
+    Code:
+       0: aload_0
+       1: getstatic     #37                 // Field coursier/cli/fetch/FetchOptions$.MODULE$:Lcoursier/cli/fetch/FetchOptions$;
+       4: invokevirtual #41                 // Method coursier/cli/fetch/FetchOptions$.parser:()Lcaseapp/core/parser/Parser;
+       7: getstatic     #37                 // Field coursier/cli/fetch/FetchOptions$.MODULE$:Lcoursier/cli/fetch/FetchOptions$;
+      10: invokevirtual #45                 // Method coursier/cli/fetch/FetchOptions$.help:()Lcaseapp/core/help/Help;
+      13: invokespecial #48                 // Method coursier/cli/CoursierCommand."<init>":(Lcaseapp/core/parser/Parser;Lcaseapp/core/help/Help;)V
+      16: return
+
+  public static {};
+    Code:
+       0: new           #2                  // class coursier/cli/fetch/Fetch$
+       3: dup
+       4: invokespecial #52                 // Method "<init>":()V
+       7: putstatic     #54                 // Field MODULE$:Lcoursier/cli/fetch/Fetch$;
+      10: return
+
+  private java.lang.Object writeReplace();
+    Code:
+       0: new           #58                 // class scala/runtime/ModuleSerializationProxy
+       3: dup
+       4: ldc           #2                  // class coursier/cli/fetch/Fetch$
+       6: invokespecial #61                 // Method scala/runtime/ModuleSerializationProxy."<init>":(Ljava/lang/Class;)V
+       9: areturn
+
+  public scala.Function1 task(coursier.cli.fetch.FetchParams, java.util.concurrent.ExecutorService, scala.collection.immutable.Seq<java.lang.String>, java.io.PrintStream, java.io.PrintStream, scala.Option<java.net.URLStreamHandlerFactory>);
+    Code:
+       0: getstatic     #75                 // Field coursier/cli/resolve/Resolve$.MODULE$:Lcoursier/cli/resolve/Resolve$;
+       3: aload_1
+       4: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+       7: aload_2
+       8: getstatic     #87                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: getstatic     #90                 // Field java/lang/System.err:Ljava/io/PrintStream;
+      14: aload_3
+      15: aload_1
+      16: invokevirtual #94                 // Method coursier/cli/fetch/FetchParams.artifact:()Lcoursier/cli/params/ArtifactParams;
+      19: invokevirtual #100                // Method coursier/cli/params/ArtifactParams.force:()Z
+      22: getstatic     #75                 // Field coursier/cli/resolve/Resolve$.MODULE$:Lcoursier/cli/resolve/Resolve$;
+      25: invokevirtual #104                // Method coursier/cli/resolve/Resolve$.task$default$7:()I
+      28: getstatic     #75                 // Field coursier/cli/resolve/Resolve$.MODULE$:Lcoursier/cli/resolve/Resolve$;
+      31: invokevirtual #107                // Method coursier/cli/resolve/Resolve$.task$default$8:()Z
+      34: invokevirtual #110                // Method coursier/cli/resolve/Resolve$.task:(Lcoursier/cli/resolve/SharedResolveParams;Ljava/util/concurrent/ExecutorService;Ljava/io/PrintStream;Ljava/io/PrintStream;Lscala/collection/immutable/Seq;ZIZ)Lscala/Function1;
+      37: astore        7
+      39: aload_1
+      40: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      43: invokevirtual #116                // Method coursier/cli/resolve/SharedResolveParams.output:()Lcoursier/cli/params/OutputParams;
+      46: invokevirtual #122                // Method coursier/cli/params/OutputParams.logger:()Lcoursier/cache/CacheLogger;
+      49: astore        8
+      51: aload_1
+      52: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      55: invokevirtual #126                // Method coursier/cli/resolve/SharedResolveParams.cache:()Lcoursier/cli/params/CacheParams;
+      58: aload_2
+      59: aload         8
+      61: aload_1
+      62: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      65: invokevirtual #126                // Method coursier/cli/resolve/SharedResolveParams.cache:()Lcoursier/cli/params/CacheParams;
+      68: invokevirtual #132                // Method coursier/cli/params/CacheParams.cache$default$3:()Lscala/Option;
+      71: invokevirtual #135                // Method coursier/cli/params/CacheParams.cache:(Ljava/util/concurrent/ExecutorService;Lcoursier/cache/CacheLogger;Lscala/Option;)Lcoursier/cache/FileCache;
+      74: astore        9
+      76: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+      79: aload         7
+      81: aload_1
+      82: invokedynamic #162,  0            // InvokeDynamic #0:apply:(Lcoursier/cli/fetch/FetchParams;)Lscala/Function1;
+      87: invokevirtual #166                // Method coursier/util/Task$.map$extension:(Lscala/Function1;Lscala/Function1;)Lscala/Function1;
+      90: astore        10
+      92: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+      95: aload         10
+      97: aload_0
+      98: aload         9
+     100: aload_1
+     101: invokedynamic #176,  0            // InvokeDynamic #1:apply:(Lcoursier/cli/fetch/Fetch$;Lcoursier/cache/FileCache;Lcoursier/cli/fetch/FetchParams;)Lscala/Function1;
+     106: invokevirtual #179                // Method coursier/util/Task$.flatMap$extension:(Lscala/Function1;Lscala/Function1;)Lscala/Function1;
+     109: areturn
+
+  public java.io.PrintStream task$default$4();
+    Code:
+       0: getstatic     #87                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: areturn
+
+  public java.io.PrintStream task$default$5();
+    Code:
+       0: getstatic     #90                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       3: areturn
+
+  public scala.Option<java.net.URLStreamHandlerFactory> task$default$6();
+    Code:
+       0: getstatic     #197                // Field scala/None$.MODULE$:Lscala/None$;
+       3: areturn
+
+  public java.lang.String group();
+    Code:
+       0: getstatic     #204                // Field coursier/cli/CommandGroup$.MODULE$:Lcoursier/cli/CommandGroup$;
+       3: invokevirtual #206                // Method coursier/cli/CommandGroup$.resolve:()Ljava/lang/String;
+       6: areturn
+
+  public void run(coursier.cli.fetch.FetchOptions, caseapp.core.RemainingArgs);
+    Code:
+       0: aconst_null
+       1: invokestatic  #215                // Method scala/runtime/ObjectRef.create:(Ljava/lang/Object;)Lscala/runtime/ObjectRef;
+       4: astore_3
+       5: getstatic     #220                // Field coursier/cli/fetch/FetchParams$.MODULE$:Lcoursier/cli/fetch/FetchParams$;
+       8: aload_1
+       9: invokevirtual #223                // Method coursier/cli/fetch/FetchParams$.apply:(Lcoursier/cli/fetch/FetchOptions;)Lcats/data/Validated;
+      12: invokevirtual #227                // Method cats/data/Validated.toEither:()Lscala/util/Either;
+      15: invokevirtual #232                // Method scala/util/Either.toOption:()Lscala/Option;
+      18: aload_1
+      19: aload_2
+      20: invokedynamic #243,  0            // InvokeDynamic #2:apply:(Lcoursier/cli/fetch/FetchOptions;Lcaseapp/core/RemainingArgs;)Lscala/Function0;
+      25: aload_3
+      26: aload_1
+      27: aload_2
+      28: invokedynamic #253,  0            // InvokeDynamic #3:apply:(Lscala/runtime/ObjectRef;Lcoursier/cli/fetch/FetchOptions;Lcaseapp/core/RemainingArgs;)Lscala/Function1;
+      33: invokevirtual #259                // Method scala/Option.fold:(Lscala/Function0;Lscala/Function1;)Ljava/lang/Object;
+      36: checkcast     #261                // class scala/Tuple2
+      39: astore        5
+      41: aload         5
+      43: ifnull        79
+      46: aload         5
+      48: invokevirtual #264                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      51: checkcast     #266                // class coursier/cli/fetch/FetchOptions
+      54: astore        6
+      56: aload         5
+      58: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+      61: checkcast     #271                // class scala/collection/immutable/Seq
+      64: astore        7
+      66: getstatic     #276                // Field scala/Tuple2$.MODULE$:Lscala/Tuple2$;
+      69: aload         6
+      71: aload         7
+      73: invokevirtual #279                // Method scala/Tuple2$.apply:(Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple2;
+      76: goto          89
+      79: new           #281                // class scala/MatchError
+      82: dup
+      83: aload         5
+      85: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      88: athrow
+      89: astore        4
+      91: aload         4
+      93: invokevirtual #264                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      96: checkcast     #266                // class coursier/cli/fetch/FetchOptions
+      99: astore        8
+     101: aload         4
+     103: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+     106: checkcast     #271                // class scala/collection/immutable/Seq
+     109: astore        9
+     111: getstatic     #220                // Field coursier/cli/fetch/FetchParams$.MODULE$:Lcoursier/cli/fetch/FetchParams$;
+     114: aload         8
+     116: invokevirtual #223                // Method coursier/cli/fetch/FetchParams$.apply:(Lcoursier/cli/fetch/FetchOptions;)Lcats/data/Validated;
+     119: astore        11
+     121: aload         11
+     123: instanceof    #10                 // class cats/data/Validated$Invalid
+     126: ifeq          166
+     129: aload         11
+     131: checkcast     #10                 // class cats/data/Validated$Invalid
+     134: invokevirtual #287                // Method cats/data/Validated$Invalid.e:()Ljava/lang/Object;
+     137: checkcast     #289                // class cats/data/NonEmptyList
+     140: astore        12
+     142: aload         12
+     144: invokevirtual #293                // Method cats/data/NonEmptyList.toList:()Lscala/collection/immutable/List;
+     147: invokedynamic #304,  0            // InvokeDynamic #4:applyVoid:()Lscala/runtime/function/JProcedure1;
+     152: invokevirtual #310                // Method scala/collection/immutable/List.foreach:(Lscala/Function1;)V
+     155: getstatic     #315                // Field scala/sys/package$.MODULE$:Lscala/sys/package$;
+     158: iconst_1
+     159: invokevirtual #319                // Method scala/sys/package$.exit:(I)Lscala/runtime/Nothing$;
+     162: athrow
+     163: nop
+     164: nop
+     165: athrow
+     166: aload         11
+     168: instanceof    #15                 // class cats/data/Validated$Valid
+     171: ifeq          192
+     174: aload         11
+     176: checkcast     #15                 // class cats/data/Validated$Valid
+     179: invokevirtual #322                // Method cats/data/Validated$Valid.a:()Ljava/lang/Object;
+     182: checkcast     #77                 // class coursier/cli/fetch/FetchParams
+     185: astore        13
+     187: aload         13
+     189: goto          202
+     192: new           #281                // class scala/MatchError
+     195: dup
+     196: aload         11
+     198: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     201: athrow
+     202: astore        10
+     204: aload_3
+     205: getfield      #326                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     208: checkcast     #328                // class java/util/concurrent/ExecutorService
+     211: ifnonnull     235
+     214: aload_3
+     215: getstatic     #333                // Field coursier/util/Sync$.MODULE$:Lcoursier/util/Sync$;
+     218: aload         10
+     220: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+     223: invokevirtual #126                // Method coursier/cli/resolve/SharedResolveParams.cache:()Lcoursier/cli/params/CacheParams;
+     226: invokevirtual #336                // Method coursier/cli/params/CacheParams.parallel:()I
+     229: invokevirtual #340                // Method coursier/util/Sync$.fixedThreadPool:(I)Ljava/util/concurrent/ExecutorService;
+     232: putfield      #326                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     235: getstatic     #345                // Field scala/concurrent/ExecutionContext$.MODULE$:Lscala/concurrent/ExecutionContext$;
+     238: aload_3
+     239: getfield      #326                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     242: checkcast     #328                // class java/util/concurrent/ExecutorService
+     245: invokevirtual #349                // Method scala/concurrent/ExecutionContext$.fromExecutorService:(Ljava/util/concurrent/ExecutorService;)Lscala/concurrent/ExecutionContextExecutorService;
+     248: astore        14
+     250: aload_0
+     251: aload         10
+     253: aload_3
+     254: getfield      #326                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+     257: checkcast     #328                // class java/util/concurrent/ExecutorService
+     260: aload         9
+     262: aload_0
+     263: invokevirtual #351                // Method task$default$4:()Ljava/io/PrintStream;
+     266: aload_0
+     267: invokevirtual #353                // Method task$default$5:()Ljava/io/PrintStream;
+     270: aload_0
+     271: invokevirtual #355                // Method task$default$6:()Lscala/Option;
+     274: invokevirtual #357                // Method task:(Lcoursier/cli/fetch/FetchParams;Ljava/util/concurrent/ExecutorService;Lscala/collection/immutable/Seq;Ljava/io/PrintStream;Ljava/io/PrintStream;Lscala/Option;)Lscala/Function1;
+     277: astore        15
+     279: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+     282: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+     285: aload         15
+     287: invokevirtual #361                // Method coursier/util/Task$.attempt$extension:(Lscala/Function1;)Lscala/Function1;
+     290: invokevirtual #364                // Method coursier/util/Task$.PlatformTaskOps:(Lscala/Function1;)Lcoursier/util/PlatformTaskCompanion$PlatformTaskOps;
+     293: iconst_1
+     294: aload         14
+     296: invokevirtual #368                // Method coursier/util/PlatformTaskCompanion$PlatformTaskOps.unsafeRun:(ZLscala/concurrent/ExecutionContext;)Ljava/lang/Object;
+     299: checkcast     #229                // class scala/util/Either
+     302: astore        18
+     304: aload         18
+     306: instanceof    #370                // class scala/util/Left
+     309: ifeq          436
+     312: aload         18
+     314: checkcast     #370                // class scala/util/Left
+     317: invokevirtual #373                // Method scala/util/Left.value:()Ljava/lang/Object;
+     320: checkcast     #375                // class java/lang/Throwable
+     323: astore        19
+     325: aload         19
+     327: instanceof    #377                // class coursier/cli/resolve/ResolveException
+     330: ifeq          377
+     333: aload         19
+     335: checkcast     #377                // class coursier/cli/resolve/ResolveException
+     338: astore        20
+     340: aload         10
+     342: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+     345: invokevirtual #116                // Method coursier/cli/resolve/SharedResolveParams.output:()Lcoursier/cli/params/OutputParams;
+     348: invokevirtual #380                // Method coursier/cli/params/OutputParams.verbosity:()I
+     351: iconst_1
+     352: if_icmpgt     377
+     355: getstatic     #385                // Field coursier/cli/resolve/Output$.MODULE$:Lcoursier/cli/resolve/Output$;
+     358: aload         20
+     360: invokevirtual #388                // Method coursier/cli/resolve/ResolveException.message:()Ljava/lang/String;
+     363: invokevirtual #391                // Method coursier/cli/resolve/Output$.errPrintln:(Ljava/lang/String;)V
+     366: getstatic     #315                // Field scala/sys/package$.MODULE$:Lscala/sys/package$;
+     369: iconst_1
+     370: invokevirtual #319                // Method scala/sys/package$.exit:(I)Lscala/runtime/Nothing$;
+     373: athrow
+     374: nop
+     375: nop
+     376: athrow
+     377: aload         19
+     379: instanceof    #393                // class coursier/error/FetchError
+     382: ifeq          429
+     385: aload         19
+     387: checkcast     #393                // class coursier/error/FetchError
+     390: astore        21
+     392: aload         10
+     394: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+     397: invokevirtual #116                // Method coursier/cli/resolve/SharedResolveParams.output:()Lcoursier/cli/params/OutputParams;
+     400: invokevirtual #380                // Method coursier/cli/params/OutputParams.verbosity:()I
+     403: iconst_1
+     404: if_icmpgt     429
+     407: getstatic     #385                // Field coursier/cli/resolve/Output$.MODULE$:Lcoursier/cli/resolve/Output$;
+     410: aload         21
+     412: invokevirtual #396                // Method coursier/error/FetchError.getMessage:()Ljava/lang/String;
+     415: invokevirtual #391                // Method coursier/cli/resolve/Output$.errPrintln:(Ljava/lang/String;)V
+     418: getstatic     #315                // Field scala/sys/package$.MODULE$:Lscala/sys/package$;
+     421: iconst_1
+     422: invokevirtual #319                // Method scala/sys/package$.exit:(I)Lscala/runtime/Nothing$;
+     425: athrow
+     426: nop
+     427: nop
+     428: athrow
+     429: aload         19
+     431: astore        22
+     433: aload         22
+     435: athrow
+     436: aload         18
+     438: instanceof    #398                // class scala/util/Right
+     441: ifeq          462
+     444: aload         18
+     446: checkcast     #398                // class scala/util/Right
+     449: invokevirtual #399                // Method scala/util/Right.value:()Ljava/lang/Object;
+     452: checkcast     #401                // class scala/Tuple4
+     455: astore        23
+     457: aload         23
+     459: goto          472
+     462: new           #281                // class scala/MatchError
+     465: dup
+     466: aload         18
+     468: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     471: athrow
+     472: astore        17
+     474: aload         17
+     476: ifnull        494
+     479: aload         17
+     481: invokevirtual #404                // Method scala/Tuple4._4:()Ljava/lang/Object;
+     484: checkcast     #271                // class scala/collection/immutable/Seq
+     487: astore        24
+     489: aload         24
+     491: goto          504
+     494: new           #281                // class scala/MatchError
+     497: dup
+     498: aload         17
+     500: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     503: athrow
+     504: astore        16
+     506: getstatic     #409                // Field scala/Console$.MODULE$:Lscala/Console$;
+     509: invokevirtual #411                // Method scala/Console$.out:()Ljava/io/PrintStream;
+     512: invokevirtual #416                // Method java/io/PrintStream.flush:()V
+     515: aload         16
+     517: invokeinterface #419,  1          // InterfaceMethod scala/collection/immutable/Seq.isEmpty:()Z
+     522: ifeq          531
+     525: ldc_w         #421                // String
+     528: goto          592
+     531: aload_1
+     532: invokevirtual #424                // Method coursier/cli/fetch/FetchOptions.classpath:()Z
+     535: ifeq          572
+     538: aload         16
+     540: invokedynamic #433,  0            // InvokeDynamic #5:apply:()Lscala/Function1;
+     545: invokeinterface #437,  2          // InterfaceMethod scala/collection/immutable/Seq.map:(Lscala/Function1;)Ljava/lang/Object;
+     550: checkcast     #439                // class scala/collection/IterableOnceOps
+     553: getstatic     #445                // Field java/io/File.pathSeparator:Ljava/lang/String;
+     556: invokeinterface #449,  2          // InterfaceMethod scala/collection/IterableOnceOps.mkString:(Ljava/lang/String;)Ljava/lang/String;
+     561: invokestatic  #452                // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+     564: invokedynamic #464,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     569: goto          592
+     572: aload         16
+     574: invokedynamic #469,  0            // InvokeDynamic #7:apply:()Lscala/Function1;
+     579: invokeinterface #437,  2          // InterfaceMethod scala/collection/immutable/Seq.map:(Lscala/Function1;)Ljava/lang/Object;
+     584: checkcast     #439                // class scala/collection/IterableOnceOps
+     587: invokeinterface #471,  1          // InterfaceMethod scala/collection/IterableOnceOps.mkString:()Ljava/lang/String;
+     592: astore        25
+     594: getstatic     #476                // Field scala/Predef$.MODULE$:Lscala/Predef$;
+     597: aload         25
+     599: invokevirtual #479                // Method scala/Predef$.print:(Ljava/lang/Object;)V
+     602: return
+
+  public void run(java.lang.Object, caseapp.core.RemainingArgs);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #266                // class coursier/cli/fetch/FetchOptions
+       5: aload_2
+       6: invokevirtual #507                // Method run:(Lcoursier/cli/fetch/FetchOptions;Lcaseapp/core/RemainingArgs;)V
+       9: return
+
+  private static final boolean $anonfun$1();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static final scala.Tuple3 task$$anonfun$1(coursier.cli.fetch.FetchParams, scala.Tuple4);
+    Code:
+       0: aload_1
+       1: astore_3
+       2: aload_3
+       3: ifnull        53
+       6: aload_3
+       7: invokevirtual #510                // Method scala/Tuple4._1:()Ljava/lang/Object;
+      10: checkcast     #512                // class coursier/core/Resolution
+      13: astore        4
+      15: aload_3
+      16: invokevirtual #513                // Method scala/Tuple4._2:()Ljava/lang/Object;
+      19: checkcast     #255                // class scala/Option
+      22: astore        5
+      24: aload_3
+      25: invokevirtual #516                // Method scala/Tuple4._3:()Ljava/lang/Object;
+      28: checkcast     #255                // class scala/Option
+      31: astore        6
+      33: aload_3
+      34: astore        7
+      36: getstatic     #521                // Field scala/Tuple4$.MODULE$:Lscala/Tuple4$;
+      39: aload         7
+      41: aload         4
+      43: aload         5
+      45: aload         6
+      47: invokevirtual #524                // Method scala/Tuple4$.apply:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple4;
+      50: goto          62
+      53: new           #281                // class scala/MatchError
+      56: dup
+      57: aload_3
+      58: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      61: athrow
+      62: astore_2
+      63: aload_2
+      64: invokevirtual #510                // Method scala/Tuple4._1:()Ljava/lang/Object;
+      67: checkcast     #401                // class scala/Tuple4
+      70: astore        8
+      72: aload_2
+      73: invokevirtual #513                // Method scala/Tuple4._2:()Ljava/lang/Object;
+      76: checkcast     #512                // class coursier/core/Resolution
+      79: astore        9
+      81: aload_2
+      82: invokevirtual #516                // Method scala/Tuple4._3:()Ljava/lang/Object;
+      85: checkcast     #255                // class scala/Option
+      88: astore        10
+      90: aload_2
+      91: invokevirtual #404                // Method scala/Tuple4._4:()Ljava/lang/Object;
+      94: checkcast     #255                // class scala/Option
+      97: astore        11
+      99: getstatic     #529                // Field coursier/Artifacts$.MODULE$:Lcoursier/Artifacts$;
+     102: aload         9
+     104: aload_0
+     105: invokevirtual #94                 // Method coursier/cli/fetch/FetchParams.artifact:()Lcoursier/cli/params/ArtifactParams;
+     108: invokevirtual #533                // Method coursier/cli/params/ArtifactParams.classifiers:()Lscala/collection/immutable/Set;
+     111: aload_0
+     112: invokevirtual #94                 // Method coursier/cli/fetch/FetchParams.artifact:()Lcoursier/cli/params/ArtifactParams;
+     115: invokevirtual #537                // Method coursier/cli/params/ArtifactParams.attributes:()Lscala/collection/immutable/Seq;
+     118: getstatic     #542                // Field scala/Some$.MODULE$:Lscala/Some$;
+     121: aload_0
+     122: invokevirtual #94                 // Method coursier/cli/fetch/FetchParams.artifact:()Lcoursier/cli/params/ArtifactParams;
+     125: invokevirtual #545                // Method coursier/cli/params/ArtifactParams.mainArtifacts:()Z
+     128: invokestatic  #551                // Method scala/runtime/BoxesRunTime.boxToBoolean:(Z)Ljava/lang/Boolean;
+     131: invokevirtual #554                // Method scala/Some$.apply:(Ljava/lang/Object;)Lscala/Some;
+     134: getstatic     #542                // Field scala/Some$.MODULE$:Lscala/Some$;
+     137: aload_0
+     138: invokevirtual #94                 // Method coursier/cli/fetch/FetchParams.artifact:()Lcoursier/cli/params/ArtifactParams;
+     141: invokevirtual #557                // Method coursier/cli/params/ArtifactParams.artifactTypes:()Lscala/collection/immutable/Set;
+     144: invokevirtual #554                // Method scala/Some$.apply:(Ljava/lang/Object;)Lscala/Some;
+     147: aload_0
+     148: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+     151: invokevirtual #560                // Method coursier/cli/resolve/SharedResolveParams.classpathOrder:()Lscala/Option;
+     154: invokedynamic #567,  0            // InvokeDynamic #8:apply:()Lscala/Function0;
+     159: invokevirtual #571                // Method scala/Option.getOrElse:(Lscala/Function0;)Ljava/lang/Object;
+     162: invokestatic  #575                // Method scala/runtime/BoxesRunTime.unboxToBoolean:(Ljava/lang/Object;)Z
+     165: invokevirtual #579                // Method coursier/Artifacts$.artifacts0:(Lcoursier/core/Resolution;Lscala/collection/immutable/Set;Lscala/collection/immutable/Seq;Lscala/Option;Lscala/Option;Z)Lscala/collection/immutable/Seq;
+     168: astore        12
+     170: getstatic     #584                // Field scala/Tuple3$.MODULE$:Lscala/Tuple3$;
+     173: aload_1
+     174: aload         8
+     176: aload         12
+     178: invokevirtual #587                // Method scala/Tuple3$.apply:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple3;
+     181: areturn
+
+  private static final coursier.util.Artifact task$$anonfun$2$$anonfun$1(scala.Tuple3);
+    Code:
+       0: aload_0
+       1: invokevirtual #599                // Method scala/Tuple3._3:()Ljava/lang/Object;
+       4: checkcast     #601                // class coursier/util/Artifact
+       7: areturn
+
+  private static final coursier.util.Artifact $anonfun$2(scala.Tuple3);
+    Code:
+       0: aload_0
+       1: invokevirtual #599                // Method scala/Tuple3._3:()Ljava/lang/Object;
+       4: checkcast     #601                // class coursier/util/Artifact
+       7: areturn
+
+  private static final scala.Tuple2 $anonfun$3(scala.Tuple3);
+    Code:
+       0: aload_0
+       1: astore_1
+       2: aload_1
+       3: ifnull        31
+       6: aload_1
+       7: invokevirtual #608                // Method scala/Tuple3._1:()Ljava/lang/Object;
+      10: checkcast     #610                // class coursier/core/Dependency
+      13: astore_2
+      14: aload_1
+      15: invokevirtual #611                // Method scala/Tuple3._2:()Ljava/lang/Object;
+      18: checkcast     #229                // class scala/util/Either
+      21: astore_3
+      22: getstatic     #276                // Field scala/Tuple2$.MODULE$:Lscala/Tuple2$;
+      25: aload_2
+      26: aload_3
+      27: invokevirtual #279                // Method scala/Tuple2$.apply:(Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple2;
+      30: areturn
+      31: new           #281                // class scala/MatchError
+      34: dup
+      35: aload_1
+      36: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      39: athrow
+
+  private static final boolean $anonfun$4(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: astore_1
+       2: aload_1
+       3: ifnull        24
+       6: aload_1
+       7: invokevirtual #264                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      10: checkcast     #601                // class coursier/util/Artifact
+      13: astore_2
+      14: aload_1
+      15: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+      18: checkcast     #255                // class scala/Option
+      21: astore_3
+      22: iconst_1
+      23: ireturn
+      24: iconst_0
+      25: ireturn
+
+  private static final boolean $anonfun$5$$anonfun$1$$anonfun$1(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: astore_1
+       2: aload_1
+       3: ifnull        24
+       6: aload_1
+       7: invokevirtual #264                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      10: checkcast     #610                // class coursier/core/Dependency
+      13: astore_2
+      14: aload_1
+      15: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+      18: checkcast     #229                // class scala/util/Either
+      21: astore_3
+      22: iconst_1
+      23: ireturn
+      24: iconst_0
+      25: ireturn
+
+  private static final scala.Tuple4 $anonfun$5$$anonfun$1$$anonfun$2(coursier.util.Artifact, scala.Option, scala.Tuple2);
+    Code:
+       0: aload_2
+       1: astore_3
+       2: aload_3
+       3: ifnull        37
+       6: aload_3
+       7: invokevirtual #264                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      10: checkcast     #610                // class coursier/core/Dependency
+      13: astore        4
+      15: aload_3
+      16: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+      19: checkcast     #229                // class scala/util/Either
+      22: astore        5
+      24: getstatic     #521                // Field scala/Tuple4$.MODULE$:Lscala/Tuple4$;
+      27: aload         4
+      29: aload         5
+      31: aload_0
+      32: aload_1
+      33: invokevirtual #524                // Method scala/Tuple4$.apply:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple4;
+      36: areturn
+      37: new           #281                // class scala/MatchError
+      40: dup
+      41: aload_3
+      42: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      45: athrow
+
+  private static final scala.collection.IterableOnce $anonfun$5$$anonfun$1(coursier.util.Artifact, scala.Option, scala.collection.immutable.Seq);
+    Code:
+       0: aload_2
+       1: invokedynamic #636,  0            // InvokeDynamic #9:apply:()Lscala/Function1;
+       6: invokeinterface #640,  2          // InterfaceMethod scala/collection/immutable/Seq.withFilter:(Lscala/Function1;)Lscala/collection/WithFilter;
+      11: aload_0
+      12: aload_1
+      13: invokedynamic #648,  0            // InvokeDynamic #10:apply:(Lcoursier/util/Artifact;Lscala/Option;)Lscala/Function1;
+      18: invokevirtual #651                // Method scala/collection/WithFilter.map:(Lscala/Function1;)Ljava/lang/Object;
+      21: checkcast     #653                // class scala/collection/IterableOnce
+      24: areturn
+
+  private static final scala.collection.IterableOnce $anonfun$5(scala.collection.immutable.Map, scala.Tuple2);
+    Code:
+       0: aload_1
+       1: astore_2
+       2: aload_2
+       3: ifnull        58
+       6: aload_2
+       7: invokevirtual #264                // Method scala/Tuple2._1:()Ljava/lang/Object;
+      10: checkcast     #601                // class coursier/util/Artifact
+      13: astore_3
+      14: aload_2
+      15: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+      18: checkcast     #255                // class scala/Option
+      21: astore        4
+      23: getstatic     #661                // Field scala/Option$.MODULE$:Lscala/Option$;
+      26: aload_0
+      27: aload_3
+      28: invokeinterface #667,  2          // InterfaceMethod scala/collection/immutable/Map.get:(Ljava/lang/Object;)Lscala/Option;
+      33: invokevirtual #671                // Method scala/Option$.option2Iterable:(Lscala/Option;)Lscala/collection/Iterable;
+      36: invokeinterface #676,  1          // InterfaceMethod scala/collection/Iterable.toSeq:()Lscala/collection/immutable/Seq;
+      41: aload_3
+      42: aload         4
+      44: invokedynamic #682,  0            // InvokeDynamic #11:apply:(Lcoursier/util/Artifact;Lscala/Option;)Lscala/Function1;
+      49: invokeinterface #685,  2          // InterfaceMethod scala/collection/immutable/Seq.flatMap:(Lscala/Function1;)Ljava/lang/Object;
+      54: checkcast     #271                // class scala/collection/immutable/Seq
+      57: areturn
+      58: new           #281                // class scala/MatchError
+      61: dup
+      62: aload_2
+      63: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      66: athrow
+
+  private static final java.nio.file.Path task$$anonfun$2$$anonfun$2$$anonfun$1(scala.collection.immutable.Seq, coursier.core.Resolution, scala.collection.immutable.Seq, java.nio.file.Path);
+    Code:
+       0: aload_0
+       1: invokedynamic #697,  0            // InvokeDynamic #12:apply:()Lscala/Function1;
+       6: invokedynamic #702,  0            // InvokeDynamic #13:apply:()Lscala/Function1;
+      11: invokeinterface #706,  3          // InterfaceMethod scala/collection/immutable/Seq.groupMap:(Lscala/Function1;Lscala/Function1;)Lscala/collection/immutable/Map;
+      16: astore        4
+      18: getstatic     #711                // Field coursier/cli/fetch/JsonReport$.MODULE$:Lcoursier/cli/fetch/JsonReport$;
+      21: aload_1
+      22: aload_2
+      23: invokedynamic #715,  0            // InvokeDynamic #14:apply:()Lscala/Function1;
+      28: invokeinterface #640,  2          // InterfaceMethod scala/collection/immutable/Seq.withFilter:(Lscala/Function1;)Lscala/collection/WithFilter;
+      33: aload         4
+      35: invokedynamic #723,  0            // InvokeDynamic #15:apply:(Lscala/collection/immutable/Map;)Lscala/Function1;
+      40: invokevirtual #724                // Method scala/collection/WithFilter.flatMap:(Lscala/Function1;)Ljava/lang/Object;
+      43: checkcast     #271                // class scala/collection/immutable/Seq
+      46: getstatic     #711                // Field coursier/cli/fetch/JsonReport$.MODULE$:Lcoursier/cli/fetch/JsonReport$;
+      49: invokevirtual #727                // Method coursier/cli/fetch/JsonReport$.report$default$3:()Z
+      52: invokevirtual #731                // Method coursier/cli/fetch/JsonReport$.report:(Lcoursier/core/Resolution;Lscala/collection/immutable/Seq;Z)Ljava/lang/String;
+      55: astore        5
+      57: aload_3
+      58: aload         5
+      60: getstatic     #737                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      63: invokevirtual #741                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+      66: iconst_0
+      67: anewarray     #743                // class java/nio/file/OpenOption
+      70: invokestatic  #749                // Method java/nio/file/Files.write:(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+      73: areturn
+
+  private final scala.Tuple4 task$$anonfun$2$$anonfun$2$$anonfun$2(coursier.core.Resolution, scala.Option, scala.Option, scala.collection.immutable.Seq, java.lang.Object);
+    Code:
+       0: aload         5
+       2: astore        6
+       4: getstatic     #521                // Field scala/Tuple4$.MODULE$:Lscala/Tuple4$;
+       7: aload_1
+       8: aload_2
+       9: aload_3
+      10: aload         4
+      12: new           #18                 // class coursier/cli/fetch/Fetch$$anon$1
+      15: dup
+      16: invokespecial #758                // Method coursier/cli/fetch/Fetch$$anon$1."<init>":()V
+      19: invokeinterface #762,  2          // InterfaceMethod scala/collection/immutable/Seq.collect:(Lscala/PartialFunction;)Ljava/lang/Object;
+      24: invokevirtual #524                // Method scala/Tuple4$.apply:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple4;
+      27: areturn
+
+  private final scala.Function1 task$$anonfun$2$$anonfun$2(coursier.cli.fetch.FetchParams, scala.collection.immutable.Seq, coursier.core.Resolution, scala.Option, scala.Option, scala.collection.immutable.Seq);
+    Code:
+       0: aload_1
+       1: invokevirtual #773                // Method coursier/cli/fetch/FetchParams.jsonOutputOpt:()Lscala/Option;
+       4: astore        8
+       6: aload         8
+       8: instanceof    #775                // class scala/Some
+      11: ifeq          54
+      14: aload         8
+      16: checkcast     #775                // class scala/Some
+      19: invokevirtual #776                // Method scala/Some.value:()Ljava/lang/Object;
+      22: checkcast     #778                // class java/nio/file/Path
+      25: astore        9
+      27: new           #780                // class coursier/util/Task
+      30: dup
+      31: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+      34: aload_2
+      35: aload_3
+      36: aload         6
+      38: aload         9
+      40: invokedynamic #788,  0            // InvokeDynamic #16:apply:(Lscala/collection/immutable/Seq;Lcoursier/core/Resolution;Lscala/collection/immutable/Seq;Ljava/nio/file/Path;)Lscala/Function0;
+      45: invokevirtual #792                // Method coursier/util/Task$.delay:(Lscala/Function0;)Lscala/Function1;
+      48: invokespecial #794                // Method coursier/util/Task."<init>":(Lscala/Function1;)V
+      51: goto          94
+      54: getstatic     #197                // Field scala/None$.MODULE$:Lscala/None$;
+      57: aload         8
+      59: invokevirtual #799                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      62: ifeq          84
+      65: new           #780                // class coursier/util/Task
+      68: dup
+      69: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+      72: getstatic     #805                // Field scala/runtime/BoxedUnit.UNIT:Lscala/runtime/BoxedUnit;
+      75: invokevirtual #809                // Method coursier/util/Task$.point:(Ljava/lang/Object;)Lscala/Function1;
+      78: invokespecial #794                // Method coursier/util/Task."<init>":(Lscala/Function1;)V
+      81: goto          94
+      84: new           #281                // class scala/MatchError
+      87: dup
+      88: aload         8
+      90: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+      93: athrow
+      94: astore        7
+      96: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+      99: aload         7
+     101: ifnonnull     108
+     104: aconst_null
+     105: goto          116
+     108: aload         7
+     110: checkcast     #780                // class coursier/util/Task
+     113: invokevirtual #811                // Method coursier/util/Task.value:()Lscala/Function1;
+     116: aload_0
+     117: aload_3
+     118: aload         4
+     120: aload         5
+     122: aload         6
+     124: invokedynamic #819,  0            // InvokeDynamic #17:apply:(Lcoursier/cli/fetch/Fetch$;Lcoursier/core/Resolution;Lscala/Option;Lscala/Option;Lscala/collection/immutable/Seq;)Lscala/Function1;
+     129: invokevirtual #166                // Method coursier/util/Task$.map$extension:(Lscala/Function1;Lscala/Function1;)Lscala/Function1;
+     132: areturn
+
+  private java.lang.Object task$$anonfun$2$$anonfun$adapted$1(coursier.cli.fetch.FetchParams, scala.collection.immutable.Seq, coursier.core.Resolution, scala.Option, scala.Option, scala.collection.immutable.Seq);
+    Code:
+       0: new           #780                // class coursier/util/Task
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: aload         4
+      10: aload         5
+      12: aload         6
+      14: invokespecial #828                // Method task$$anonfun$2$$anonfun$2:(Lcoursier/cli/fetch/FetchParams;Lscala/collection/immutable/Seq;Lcoursier/core/Resolution;Lscala/Option;Lscala/Option;Lscala/collection/immutable/Seq;)Lscala/Function1;
+      17: invokespecial #794                // Method coursier/util/Task."<init>":(Lscala/Function1;)V
+      20: areturn
+
+  private final scala.Function1 task$$anonfun$2(coursier.cache.FileCache, coursier.cli.fetch.FetchParams, scala.Tuple3);
+    Code:
+       0: aload_3
+       1: astore        4
+       3: aload         4
+       5: ifnull        164
+       8: aload         4
+      10: invokevirtual #611                // Method scala/Tuple3._2:()Ljava/lang/Object;
+      13: checkcast     #401                // class scala/Tuple4
+      16: astore        5
+      18: aload         4
+      20: invokevirtual #608                // Method scala/Tuple3._1:()Ljava/lang/Object;
+      23: checkcast     #401                // class scala/Tuple4
+      26: astore        6
+      28: aload         5
+      30: ifnull        164
+      33: aload         5
+      35: invokevirtual #510                // Method scala/Tuple4._1:()Ljava/lang/Object;
+      38: checkcast     #512                // class coursier/core/Resolution
+      41: astore        7
+      43: aload         5
+      45: invokevirtual #513                // Method scala/Tuple4._2:()Ljava/lang/Object;
+      48: checkcast     #255                // class scala/Option
+      51: astore        8
+      53: aload         5
+      55: invokevirtual #516                // Method scala/Tuple4._3:()Ljava/lang/Object;
+      58: checkcast     #255                // class scala/Option
+      61: astore        9
+      63: aload         4
+      65: invokevirtual #599                // Method scala/Tuple3._3:()Ljava/lang/Object;
+      68: checkcast     #271                // class scala/collection/immutable/Seq
+      71: astore        10
+      73: getstatic     #529                // Field coursier/Artifacts$.MODULE$:Lcoursier/Artifacts$;
+      76: aload         10
+      78: invokedynamic #836,  0            // InvokeDynamic #18:apply:()Lscala/Function1;
+      83: invokeinterface #437,  2          // InterfaceMethod scala/collection/immutable/Seq.map:(Lscala/Function1;)Ljava/lang/Object;
+      88: checkcast     #838                // class scala/collection/SeqOps
+      91: invokeinterface #841,  1          // InterfaceMethod scala/collection/SeqOps.distinct:()Ljava/lang/Object;
+      96: checkcast     #271                // class scala/collection/immutable/Seq
+      99: aload_1
+     100: getstatic     #846                // Field scala/runtime/ScalaRunTime$.MODULE$:Lscala/runtime/ScalaRunTime$;
+     103: iconst_0
+     104: anewarray     #848                // class coursier/cache/Cache
+     107: invokevirtual #852                // Method scala/runtime/ScalaRunTime$.wrapRefArray:([Ljava/lang/Object;)Lscala/collection/immutable/ArraySeq;
+     110: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+     113: invokevirtual #856                // Method coursier/util/Task$.sync:()Lcoursier/util/Sync;
+     116: invokevirtual #860                // Method coursier/Artifacts$.fetchArtifacts:(Lscala/collection/immutable/Seq;Lcoursier/cache/Cache;Lscala/collection/immutable/Seq;Lcoursier/util/Sync;)Ljava/lang/Object;
+     119: astore        12
+     121: aload         12
+     123: ifnonnull     130
+     126: aconst_null
+     127: goto          138
+     130: aload         12
+     132: checkcast     #780                // class coursier/util/Task
+     135: invokevirtual #811                // Method coursier/util/Task.value:()Lscala/Function1;
+     138: astore        11
+     140: getstatic     #140                // Field coursier/util/Task$.MODULE$:Lcoursier/util/Task$;
+     143: aload         11
+     145: aload_0
+     146: aload_2
+     147: aload         10
+     149: aload         7
+     151: aload         8
+     153: aload         9
+     155: invokedynamic #868,  0            // InvokeDynamic #19:apply:(Lcoursier/cli/fetch/Fetch$;Lcoursier/cli/fetch/FetchParams;Lscala/collection/immutable/Seq;Lcoursier/core/Resolution;Lscala/Option;Lscala/Option;)Lscala/Function1;
+     160: invokevirtual #179                // Method coursier/util/Task$.flatMap$extension:(Lscala/Function1;Lscala/Function1;)Lscala/Function1;
+     163: areturn
+     164: new           #281                // class scala/MatchError
+     167: dup
+     168: aload         4
+     170: invokespecial #284                // Method scala/MatchError."<init>":(Ljava/lang/Object;)V
+     173: athrow
+
+  private java.lang.Object task$$anonfun$adapted$1(coursier.cache.FileCache, coursier.cli.fetch.FetchParams, scala.Tuple3);
+    Code:
+       0: new           #780                // class coursier/util/Task
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokespecial #874                // Method task$$anonfun$2:(Lcoursier/cache/FileCache;Lcoursier/cli/fetch/FetchParams;Lscala/Tuple3;)Lscala/Function1;
+      11: invokespecial #794                // Method coursier/util/Task."<init>":(Lscala/Function1;)V
+      14: areturn
+
+  private static final scala.Tuple2 $anonfun$6(coursier.cli.fetch.FetchOptions, caseapp.core.RemainingArgs);
+    Code:
+       0: getstatic     #276                // Field scala/Tuple2$.MODULE$:Lscala/Tuple2$;
+       3: aload_0
+       4: aload_1
+       5: invokevirtual #879                // Method caseapp/core/RemainingArgs.all:()Lscala/collection/immutable/Seq;
+       8: invokevirtual #279                // Method scala/Tuple2$.apply:(Ljava/lang/Object;Ljava/lang/Object;)Lscala/Tuple2;
+      11: areturn
+
+  private static final coursier.cli.fetch.FetchOptions $anonfun$8(coursier.cli.fetch.FetchOptions, coursier.install.RawAppDescriptor);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #887                // Method coursier/cli/fetch/FetchOptions.addApp:(Lcoursier/install/RawAppDescriptor;)Lcoursier/cli/fetch/FetchOptions;
+       5: areturn
+
+  private static final scala.Tuple2 $anonfun$7(scala.runtime.ObjectRef, coursier.cli.fetch.FetchOptions, caseapp.core.RemainingArgs, coursier.cli.fetch.FetchParams);
+    Code:
+       0: aload_3
+       1: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+       4: invokevirtual #896                // Method coursier/cli/resolve/SharedResolveParams.repositories:()Lcoursier/cli/params/RepositoryParams;
+       7: invokevirtual #900                // Method coursier/cli/params/RepositoryParams.repositories:()Lscala/collection/immutable/Seq;
+      10: astore        4
+      12: aload_3
+      13: invokevirtual #904                // Method coursier/cli/fetch/FetchParams.channel:()Lcoursier/cli/install/SharedChannelParams;
+      16: invokevirtual #909                // Method coursier/cli/install/SharedChannelParams.channels:()Lscala/collection/immutable/Seq;
+      19: astore        5
+      21: aload_0
+      22: getstatic     #333                // Field coursier/util/Sync$.MODULE$:Lcoursier/util/Sync$;
+      25: aload_3
+      26: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      29: invokevirtual #126                // Method coursier/cli/resolve/SharedResolveParams.cache:()Lcoursier/cli/params/CacheParams;
+      32: invokevirtual #336                // Method coursier/cli/params/CacheParams.parallel:()I
+      35: invokevirtual #340                // Method coursier/util/Sync$.fixedThreadPool:(I)Ljava/util/concurrent/ExecutorService;
+      38: putfield      #326                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      41: aload_3
+      42: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      45: invokevirtual #126                // Method coursier/cli/resolve/SharedResolveParams.cache:()Lcoursier/cli/params/CacheParams;
+      48: aload_0
+      49: getfield      #326                // Field scala/runtime/ObjectRef.elem:Ljava/lang/Object;
+      52: checkcast     #328                // class java/util/concurrent/ExecutorService
+      55: aload_3
+      56: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      59: invokevirtual #116                // Method coursier/cli/resolve/SharedResolveParams.output:()Lcoursier/cli/params/OutputParams;
+      62: invokevirtual #122                // Method coursier/cli/params/OutputParams.logger:()Lcoursier/cache/CacheLogger;
+      65: aload_3
+      66: invokevirtual #81                 // Method coursier/cli/fetch/FetchParams.resolve:()Lcoursier/cli/resolve/SharedResolveParams;
+      69: invokevirtual #126                // Method coursier/cli/resolve/SharedResolveParams.cache:()Lcoursier/cli/params/CacheParams;
+      72: invokevirtual #132                // Method coursier/cli/params/CacheParams.cache$default$3:()Lscala/Option;
+      75: invokevirtual #135                // Method coursier/cli/params/CacheParams.cache:(Ljava/util/concurrent/ExecutorService;Lcoursier/cache/CacheLogger;Lscala/Option;)Lcoursier/cache/FileCache;
+      78: astore        6
+      80: getstatic     #914                // Field coursier/install/Channels$.MODULE$:Lcoursier/install/Channels$;
+      83: aload         5
+      85: aload         4
+      87: aload         6
+      89: invokevirtual #917                // Method coursier/install/Channels$.apply:(Lscala/collection/immutable/Seq;Lscala/collection/immutable/Seq;Lcoursier/cache/Cache;)Lcoursier/install/Channels;
+      92: astore        7
+      94: getstatic     #75                 // Field coursier/cli/resolve/Resolve$.MODULE$:Lcoursier/cli/resolve/Resolve$;
+      97: aload_1
+      98: aload_2
+      99: invokevirtual #879                // Method caseapp/core/RemainingArgs.all:()Lscala/collection/immutable/Seq;
+     102: aload         7
+     104: invokedynamic #926,  0            // InvokeDynamic #20:apply:()Lscala/Function2;
+     109: invokevirtual #930                // Method coursier/cli/resolve/Resolve$.handleApps:(Ljava/lang/Object;Lscala/collection/immutable/Seq;Lcoursier/install/Channels;Lscala/Function2;)Lscala/Tuple2;
+     112: astore        8
+     114: aload         8
+     116: areturn
+
+  private static final void $anonfun$9(java.lang.String);
+    Code:
+       0: getstatic     #385                // Field coursier/cli/resolve/Output$.MODULE$:Lcoursier/cli/resolve/Output$;
+       3: aload_0
+       4: invokevirtual #391                // Method coursier/cli/resolve/Output$.errPrintln:(Ljava/lang/String;)V
+       7: return
+
+  private static final java.lang.String $anonfun$10(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+       4: checkcast     #441                // class java/io/File
+       7: invokevirtual #937                // Method java/io/File.toString:()Ljava/lang/String;
+      10: areturn
+
+  private static final java.lang.String $anonfun$11(scala.Tuple2);
+    Code:
+       0: aload_0
+       1: invokevirtual #269                // Method scala/Tuple2._2:()Ljava/lang/Object;
+       4: checkcast     #441                // class java/io/File
+       7: invokevirtual #937                // Method java/io/File.toString:()Ljava/lang/String;
+      10: invokestatic  #452                // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      13: invokedynamic #464,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      18: areturn
+
+  private static java.lang.Object $deserializeLambda$(java.lang.invoke.SerializedLambda);
+    Code:
+       0: aload_0
+       1: invokedynamic #950,  0            // InvokeDynamic #21:lambdaDeserialize:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;
+       6: areturn
+}
