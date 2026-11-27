@@ -1,0 +1,62 @@
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:108:    public static Path lockFile(Path path) {
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:109:        return path.getParent().resolve(path.getFileName().toString() + ".lock");
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:112:    public static File lockFile(File file) {
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:113:        return new File(file.getParentFile(), file.getName() + ".lock");
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:155:    public static <V> V withStructureLock(File cache, Callable<V> callable) throws Exception {
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:163:                return withStructureLockOnce(cache, callable);
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:173:        return withStructureLockOnce(cache, callable);
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:176:    private static <V> V withStructureLockOnce(File cache, Callable<V> callable) throws Exception {
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:179:        //   return withStructureLock(cache.toPath(), callable);
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:186:            File lockFile = new File(cache, ".structure.lock");
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:187:            Util.createDirectories(lockFile.toPath().getParent());
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:192:                    out = new FileOutputStream(lockFile);
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:200:                        lock = out.getChannel().lock();
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:215:                        lockFile.delete();
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:227:    public static <V> V withStructureLock(Path cache, Callable<V> callable) throws Exception {
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:235:                return withStructureLockOnce(cache, callable);
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:245:        return withStructureLockOnce(cache, callable);
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:248:    private static <V> V withStructureLockOnce(Path cache, Callable<V> callable) throws Exception {
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:253:            Path lockFile = cache.resolve(".structure.lock");
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:254:            Util.createDirectories(lockFile.getParent());
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:261:                            lockFile,
+workspace/coursier/modules/paths/src/main/java/coursier/paths/CachePath.java:273:                        lock = channel.lock();
+workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/internal/FetchCache.scala:21:  def lockFile(key: FetchCache.Key): Path =
+workspace/coursier/modules/coursier/jvm/src/main/scala/coursier/internal/FetchCache.scala:55:    CacheLocks.withLockOr(
+workspace/coursier/modules/bootstrap-launcher/src/main/java/coursier/bootstrap/launcher/Download.java:170:                final File lockFile = CachePath.lockFile(tmpDest);
+workspace/coursier/modules/bootstrap-launcher/src/main/java/coursier/bootstrap/launcher/Download.java:175:                    try (FileOutputStream out = CachePath.withStructureLock(cacheDir, () -> {
+workspace/coursier/modules/bootstrap-launcher/src/main/java/coursier/bootstrap/launcher/Download.java:177:                        coursier.paths.Util.createDirectories(lockFile.toPath().getParent());
+workspace/coursier/modules/bootstrap-launcher/src/main/java/coursier/bootstrap/launcher/Download.java:180:                        return new FileOutputStream(lockFile);
+workspace/coursier/modules/bootstrap-launcher/src/main/java/coursier/bootstrap/launcher/Download.java:183:                        try (FileLock lock = out.getChannel().tryLock()) {
+workspace/coursier/modules/bootstrap-launcher/src/main/java/coursier/bootstrap/launcher/Download.java:196:                                    lockFile.delete();
+workspace/coursier/modules/archive-cache/src/main/scala/coursier/cache/ArchiveCache.scala:172:        val archiveType1: ArchiveType = CacheLocks.withLockOr(location, dir)(
+workspace/coursier/modules/install/src/main/scala/coursier/install/InfoFile.scala:20:  private[coursier] def lockFilePath       = "META-INF/coursier/lock-file"
+workspace/coursier/modules/install/src/main/scala/coursier/install/InfoFile.scala:112:    val lockFileEntry = {
+workspace/coursier/modules/install/src/main/scala/coursier/install/InfoFile.scala:113:      val e = new ZipEntry(lockFilePath)
+workspace/coursier/modules/install/src/main/scala/coursier/install/InfoFile.scala:142:    Seq(descEntry, lockFileEntry) ++ sourceEntryOpt.toSeq ++ sharedLockFileEntryOpt.toSeq
+workspace/coursier/modules/install/src/main/scala/coursier/install/InfoFile.scala:156:      val lockEntryOpt       = Option(f.getEntry(lockFilePath))
+workspace/coursier/modules/install/src/main/scala/coursier/install/Updatable.scala:106:    CacheLocks.withLockOr(baseDir.toFile, dest.toFile)(Some(get), Some(None))
+workspace/coursier/modules/install/src/main/scala/coursier/install/Updatable.scala:129:      CacheLocks.withLockOr(baseDir.toFile, dest.toFile)(Some(get), Some(None))
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/DigestBasedCache.scala:29:      CacheLocks.withLockOr(location.toFile, path.toFile, retry)(
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala:338:              val out = CacheLocks.withStructureLock(location) {
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala:375:          CacheLocks.withStructureLock(location) {
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala:397:            CacheLocks.withStructureLock(location) {
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/internal/Downloader.scala:504:          CacheLocks.withLockOr(location, file, retry)(
+workspace/coursier/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheTests.scala:153:                (os.sub / "dir" / "foo.module.lock")  -> "",
+workspace/coursier/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheTests.scala:155:                (os.sub / "dir" / "foo.pom.lock")     -> ""
+workspace/coursier/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheTests.scala:182:                (os.sub / "dir" / "foo.module.lock")   -> "",
+workspace/coursier/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheTests.scala:184:                (os.sub / "dir" / "foo.pom.lock")      -> ""
+workspace/coursier/modules/cache/jvm/src/test/scala/coursier/cache/FileCacheTests.scala:206:                (os.sub / "dir" / "foo.pom.lock")     -> ""
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:22:  def withStructureLock[T](cache: File)(f: => T): T =
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:23:    CachePath.withStructureLock(cache, new Callable[T] { def call() = f })
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:25:  def withStructureLock[T](cache: Path)(f: => T): T =
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:26:    CachePath.withStructureLock(cache, new Callable[T] { def call() = f })
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:28:  def withLockOr[T](
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:35:    withLockOr(
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:41:  def withLockOr[T](
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:50:    val lockFile = CachePath.lockFile(file).toPath
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:54:    withStructureLock(cache) {
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:55:      Util.createDirectories(lockFile.getParent)
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:58:          lockFile,
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:79:            try channel.tryLock()
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:124:  def withLockFor[T](
+workspace/coursier/modules/cache/jvm/src/main/scala/coursier/cache/CacheLocks.scala:128:    withLockOr(cache, file)(f, Some(Left(new ArtifactError.Locked(file))))
