@@ -13,8 +13,8 @@ import scala.concurrent.duration._
   * Used by [[SharedDownloadOwnershipTests]]: cross-process download ownership is coordinated with
   * file locks, which a single JVM cannot contend for against itself.
   *
-  * Arguments: cache location, artifact URL. Prints `OK <length> bytes, SHA-256 <digest>` of the returned file and exits 0, or
-  * prints `ERROR <description>` and exits 1.
+  * Arguments: cache location, artifact URL. Prints `OK <length> bytes, SHA-256 <digest>` of the
+  * returned file and exits 0, or prints `ERROR <description>` and exits 1.
   */
 object SharedDownloadOwnershipProcess {
   def main(args: Array[String]): Unit = {
@@ -49,7 +49,7 @@ object SharedDownloadOwnershipProcess {
         Await.result(cache.file(Artifact(url)).run.future()(cache.ec), 120.seconds) match {
           case Left(error) => s"ERROR ${error.describe}"
           case Right(file) =>
-            val bytes = Files.readAllBytes(file.toPath)
+            val bytes  = Files.readAllBytes(file.toPath)
             val sha256 = java.security.MessageDigest.getInstance("SHA-256").digest(bytes)
             s"OK ${bytes.length} bytes, SHA-256 ${sha256.map(b => f"${b & 0xff}%02x").mkString}"
         }

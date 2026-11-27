@@ -16,8 +16,8 @@ import scala.collection.mutable.ListBuffer
   *
   * Each download caller runs in its own JVM ([[SharedDownloadOwnershipProcess]]), because the
   * ownership being tested is coordinated through file locks, which a JVM does not contend for
-  * against itself. The test HTTP server holds and releases responses to force one exact
-  * ordering, and records every request so the test can observe which processes download.
+  * against itself. The test HTTP server holds and releases responses to force one exact ordering,
+  * and records every request so the test can observe which processes download.
   */
 object SharedDownloadOwnershipTests extends TestSuite {
 
@@ -29,7 +29,9 @@ object SharedDownloadOwnershipTests extends TestSuite {
   private def nextEvent(events: LinkedBlockingQueue[String], awaited: String): String = {
     val event = events.poll(60, TimeUnit.SECONDS)
     if (event == null)
-      throw new java.lang.AssertionError(s"The test server saw no request within 60 seconds while waiting for $awaited")
+      throw new java.lang.AssertionError(
+        s"The test server saw no request within 60 seconds while waiting for $awaited"
+      )
     event
   }
 
@@ -41,13 +43,13 @@ object SharedDownloadOwnershipTests extends TestSuite {
       val server        = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0)
       val serverWorkers = Executors.newCachedThreadPool()
       // Every request the server receives, in order: "HEAD" or "GET <n>".
-      val events        = new LinkedBlockingQueue[String]
-      val gets          = new AtomicInteger
-      val getsInFlight  = new AtomicInteger
+      val events          = new LinkedBlockingQueue[String]
+      val gets            = new AtomicInteger
+      val getsInFlight    = new AtomicInteger
       val maxGetsInFlight = new AtomicInteger
-      val releaseFirst  = new CountDownLatch(1)
-      val releaseSecond = new CountDownLatch(1)
-      val processes     = ListBuffer.empty[(String, Process, Path)]
+      val releaseFirst    = new CountDownLatch(1)
+      val releaseSecond   = new CountDownLatch(1)
+      val processes       = ListBuffer.empty[(String, Process, Path)]
       server.setExecutor(serverWorkers)
       server.createContext(
         "/artifact",
@@ -162,7 +164,10 @@ object SharedDownloadOwnershipTests extends TestSuite {
             process.waitFor(30, TimeUnit.SECONDS)
           }
           if (Files.exists(output))
-            System.err.println(s"process $name output: " + new String(Files.readAllBytes(output), StandardCharsets.UTF_8).trim)
+            System.err.println(s"process $name output: " + new String(
+              Files.readAllBytes(output),
+              StandardCharsets.UTF_8
+            ).trim)
         }
         server.stop(0)
         serverWorkers.shutdownNow()
