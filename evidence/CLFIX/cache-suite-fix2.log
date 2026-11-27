@@ -1,0 +1,501 @@
+============================== cache.jvm[2.13.16].test ==============================
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.test
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DigestBasedCacheTests.simple 154ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadBufferCapacityTests.known tiny response does not request an oversized transfer buffer 114ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known 199 byte POM uses its response length 7ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known one byte response uses a one byte buffer 6ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.identity response uses its uncompressed length 9ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.mixed case identity response uses its uncompressed length 6ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.deflate content encoding retains the default maximum 14ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known responses at the default boundary stay bounded 104ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known empty response keeps read buffers at one byte or less 6ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known empty response requests zero bytes from the response stream 7ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known body larger than configured maximum uses at most that maximum 7ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.unknown chunked response retains the default maximum 68ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.unknown identity response retains the default maximum 7ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.gzip response with known encoded length returns all decoded bytes 8ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.partial response resumes from the persisted prefix with a bounded read buffer 12ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] DOWNLOAD_BUFFER_CPU smallNs=290000000 largeNs=260000000 ratio=0.896551724137931
+[306] 
+[306] + coursier.cache.DownloadBufferCostTests.small bodies do not initialize the buffer element by element 7422ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadEncodingIntegrityTests.large gzip body streams into the cache before the remainder arrives 134ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.large deflate body streams into the cache before the remainder arrives 102ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.large multi-member gzip streams inside a later member before the remainder arrives 105ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order 12ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding 10ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members 126ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment 5ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer 4ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer 3ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.repeated mixed encoding fields preserve order and empty list members 4ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.unknown repeated encoding fields reject even beside blank fields 6ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix 3ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.complete gzip members including empty members decode with one byte buffers 15ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.each member checks both its checksum and uncompressed size 8ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.gzip optional headers and their checksum are verified on later members 150ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.all nested layers complete with default and one byte buffers 38ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.deflate EOF rejects additional outer output rather than discarding it 7ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required 7ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.gzip rejects trailing bytes that are not another complete member 4ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file 8ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short fixed-length response counts bytes across multiple reads 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close 6ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments 6ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length 11ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected 2ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent 3ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact 8ms  
+[306] + coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact 37ms  
+[306] + coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download 37ms  
+[306] + coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned 8ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty content encoding means an unencoded body 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements do not change identity encoding 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements do not allow unknown encodings 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.only empty encoding list elements mean an unencoded body 8ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements preserve compressed decoding 9ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve length validation 6ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve saved prefix handling 6ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.unknown encodings cannot publish response bytes 8ms  
+[306] + coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes 10ms  
+[306] + coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment 2ms  
+[306] + coursier.cache.DownloadResponseFramingTests.unfollowed redirects retain their complete response body 14ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheLocationOwnershipTests.independent locations 7ms  
+[306] + coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error 6ms  
+[306] + coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner 39ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.301 805ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.302 27ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.304 19ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.307 18ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.308 17ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToHttps 235ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.enabled 90ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled 23ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.enabled 104ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled 21ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabled 23ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabledAllRealms 20ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.0 18ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.1 19ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabled 21ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms 23ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds 23ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.disabled 12ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled 25ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms 25ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds 19ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled 12ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabled 17ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms 14ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds 17ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.disabled 10ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabled 70ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabledAllRealms 60ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.disabled 57ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabled 32ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabledAllRealms 60ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.disabled 55ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.0 61ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.1 62ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabledAllRealms 60ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.disabled 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.0 30ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.1 26ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file https 72ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file http 19ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file https 71ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file http 17ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.0 12ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.1 22ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.2 16ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should not stackoverflow.0 3019ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.0 123ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.1 14ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.0 55ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1 50ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.decodeGzip 55ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authThenNotFound 9ms  
+[306] + coursier.cache.FileCacheRedirectionTests.custom protocols.unknown 2ms  
+[306] + coursier.cache.FileCacheRedirectionTests.custom protocols.with classloader 6ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.simple.0 6ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.simple.1 3ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.simple.2 3ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-256 9ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-1 5ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.MD5 4ms  
+[306] + coursier.cache.FileCacheRedirectionTests.lastModifiedEx 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.stored digests work - SHA1 2ms  
+[306] + coursier.cache.FileCacheRedirectionTests.stored digests work - MD5 2ms  
+[306] + coursier.cache.FileCacheRedirectionTests.stored digests should not be stored outside of cache 2ms  
+[306] + coursier.cache.FileCacheRedirectionTests.wrong stored digest should delete file in cache 3ms  
+[306] + coursier.cache.FileCacheRedirectionTests.un-escape characters in file URL 1ms  
+[306] + coursier.cache.FileCacheRedirectionTests.does not accept redundant path elements like .. or . 0ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheRetrySettingsTests.explicit retry settings govern same-file waiting 73ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheTests.check for updates once 13ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.0 10ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.1 7ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.2 9ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.3 8ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.4 6ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:34545/artifact) while downloading http://127.0.0.1:34545/artifact
+[306] process B output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] + coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner 845ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.parse.CachePolicyParserTests.simple.0 0ms  
+[306] + coursier.parse.CachePolicyParserTests.simple.1 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.0 2ms  
+[306] + coursier.parse.CachePolicyParserTests.several.1 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.default 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.noDefault 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.2 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.3 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.4 0ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.paths.UtilTests.createDirectories fine with sym links 1ms  
+[306] + coursier.paths.UtilTests.property expansion.simple 2ms  
+[306] + coursier.paths.UtilTests.property expansion.substitution 0ms  
+[306] + coursier.paths.UtilTests.property expansion.optional value 0ms  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.paths.UtilTests 3ms
+[306]   + createDirectories fine with sym links 1ms  
+[306]   - property expansion 2ms
+[306]     + simple 2ms  
+[306]     + substitution 0ms  
+[306]     + optional value 0ms  
+[306] - coursier.parse.CachePolicyParserTests 2ms
+[306]   - simple 0ms
+[306]     + 0 0ms  
+[306]     + 1 0ms  
+[306]   - several 2ms
+[306]     + 0 2ms  
+[306]     + 1 0ms  
+[306]     + default 0ms  
+[306]     + noDefault 0ms  
+[306]     + 2 0ms  
+[306]     + 3 0ms  
+[306]     + 4 0ms  
+[306] - coursier.cache.SharedDownloadOwnershipTests 845ms
+[306]   + a process arriving after a failed owner waits for the current owner 845ms  
+[306] - coursier.cache.FileCacheTests 53ms
+[306]   + check for updates once 13ms  
+[306]   - check extra artifact 40ms
+[306]     + 0 10ms  
+[306]     + 1 7ms  
+[306]     + 2 9ms  
+[306]     + 3 8ms  
+[306]     + 4 6ms  
+[306] - coursier.cache.FileCacheRetrySettingsTests 73ms
+[306]   + explicit retry settings govern same-file waiting 73ms  
+[306] - coursier.cache.FileCacheRedirectionTests 5862ms
+[306]   - redirections 5799ms
+[306]     - httpToHttp 886ms
+[306]       + 301 805ms  
+[306]       + 302 27ms  
+[306]       + 304 19ms  
+[306]       + 307 18ms  
+[306]       + 308 17ms  
+[306]     + httpsToHttps 235ms  
+[306]     - httpToHttps 113ms
+[306]       + enabled 90ms  
+[306]       + disabled 23ms  
+[306]     - httpToAuthHttps 125ms
+[306]       + enabled 104ms  
+[306]       + disabled 21ms  
+[306]     - httpToAuthHttp 80ms
+[306]       + enabled 23ms  
+[306]       + enabledAllRealms 20ms  
+[306]       - disabled 37ms
+[306]         + 0 18ms  
+[306]         + 1 19ms  
+[306]     - authHttpToAuthHttp 218ms
+[306]       - oldRfc2617 79ms
+[306]         + enabled 21ms  
+[306]         + enabledAllRealms 23ms  
+[306]         + enabledSeveralCreds 23ms  
+[306]         + disabled 12ms  
+[306]       - rfc7617WithCharset 81ms
+[306]         + enabled 25ms  
+[306]         + enabledAllRealms 25ms  
+[306]         + enabledSeveralCreds 19ms  
+[306]         + disabled 12ms  
+[306]       - beyondRfc7617 58ms
+[306]         + enabled 17ms  
+[306]         + enabledAllRealms 14ms  
+[306]         + enabledSeveralCreds 17ms  
+[306]         + disabled 10ms  
+[306]     - httpsToAuthHttps 187ms
+[306]       + enabled 70ms  
+[306]       + enabledAllRealms 60ms  
+[306]       + disabled 57ms  
+[306]     - authHttpsToAuthHttps 147ms
+[306]       + enabled 32ms  
+[306]       + enabledAllRealms 60ms  
+[306]       + disabled 55ms  
+[306]     - authHttpToNoAuthHttps 198ms
+[306]       - enabled 123ms
+[306]         + 0 61ms  
+[306]         + 1 62ms  
+[306]       + enabledAllRealms 60ms  
+[306]       + disabled 15ms  
+[306]     - credentialFile 56ms
+[306]       + 0 30ms  
+[306]       + 1 26ms  
+[306]     - randomCase 179ms
+[306]       + cred file https 72ms  
+[306]       + cred file http 19ms  
+[306]       + conf file https 71ms  
+[306]       + conf file http 17ms  
+[306]     - maxRedirects 3069ms
+[306]       - should be followed 50ms
+[306]         + 0 12ms  
+[306]         + 1 22ms  
+[306]         + 2 16ms  
+[306]       - should not stackoverflow 3019ms
+[306]         + 0 3019ms  
+[306]     - passCredentialsOnRedirect 242ms
+[306]       - enabled 137ms
+[306]         + 0 123ms  
+[306]         + 1 14ms  
+[306]       - disabled 105ms
+[306]         + 0 55ms  
+[306]         + 1 50ms  
+[306]     + decodeGzip 55ms  
+[306]     + authThenNotFound 9ms  
+[306]   - custom protocols 8ms
+[306]     + unknown 2ms  
+[306]     + with classloader 6ms  
+[306]   - checksums 30ms
+[306]     - simple 12ms
+[306]       + 0 6ms  
+[306]       + 1 3ms  
+[306]       + 2 3ms  
+[306]     - fromHeader 18ms
+[306]       + SHA-256 9ms  
+[306]       + SHA-1 5ms  
+[306]       + MD5 4ms  
+[306]   + lastModifiedEx 15ms  
+[306]   + stored digests work - SHA1 2ms  
+[306]   + stored digests work - MD5 2ms  
+[306]   + stored digests should not be stored outside of cache 2ms  
+[306]   + wrong stored digest should delete file in cache 3ms  
+[306]   + un-escape characters in file URL 1ms  
+[306]   + does not accept redundant path elements like .. or . 0ms  
+[306] - coursier.cache.FileCacheLocationOwnershipTests 52ms
+[306]   + independent locations 7ms  
+[306]   + independent locations after an owner error 6ms  
+[306]   + same location joins its owner 39ms  
+[306] - coursier.cache.DownloadResponseFramingTests 254ms
+[306]   + valid mixed case range unit completes the artifact 8ms  
+[306]   + unsolicited 304 cannot publish an empty artifact 4ms  
+[306]   + cut off chunked response removes temporary bytes 3ms  
+[306]   + cut off gzip response removes temporary bytes 3ms  
+[306]   + short other encoded response cannot publish partial bytes 3ms  
+[306]   + correct mixed case gzip decodes the body 3ms  
+[306]   + chunked range obeys its content range without content length 3ms  
+[306]   + short chunked range cannot publish a partial artifact 5ms  
+[306]   + empty close delimited response is a valid empty artifact 4ms  
+[306]   + correct deflate body decodes without comparing decoded and wire lengths 3ms  
+[306]   + concurrent callers never publish the same short artifact 37ms  
+[306]   + concurrent callers share one correct artifact download 37ms  
+[306]   + HEAD metadata length does not require response bytes 4ms  
+[306]   + chunked range must consume the closing chunk before publishing 3ms  
+[306]   + chunked range rejects data beyond its stated range 3ms  
+[306]   + range data stays temporary until the closing chunk arrives 3ms  
+[306]   + no body status with a saved prefix is rejected and cleaned 8ms  
+[306]   + empty content encoding means an unencoded body 3ms  
+[306]   + empty list elements do not change identity encoding 3ms  
+[306]   + empty list elements do not allow unknown encodings 2ms  
+[306]   + only empty encoding list elements mean an unencoded body 8ms  
+[306]   + empty list elements preserve compressed decoding 9ms  
+[306]   + empty encoding list elements preserve length validation 6ms  
+[306]   + empty encoding list elements preserve saved prefix handling 6ms  
+[306]   + empty list elements preserve encoded resume rejection 2ms  
+[306]   + unknown encodings cannot publish response bytes 8ms  
+[306]   + mixed case deflate is decoded 2ms  
+[306]   + chunked gzip validates the closing chunk after its trailer 2ms  
+[306]   + valid chunked gzip is decoded through the closing chunk 3ms  
+[306]   + complete framing cannot hide an incomplete gzip trailer 2ms  
+[306]   + invalid gzip header removes a saved temporary prefix 2ms  
+[306]   + encoded resume cannot append decoded bytes to an earlier representation 2ms  
+[306]   + gzip decoder completion still checks the declared response length 2ms  
+[306]   + deflate decoder completion still checks the declared response length 2ms  
+[306]   + chunked deflate validates the closing chunk after decoding 3ms  
+[306]   + valid chunked deflate is decoded through the closing chunk 2ms  
+[306]   + mixed case stacked content codings decode in reverse order 5ms  
+[306]   + corrupt gzip trailer cannot publish decoded data 3ms  
+[306]   + corrupt deflate checksum cannot publish decoded data 3ms  
+[306]   + gzip members in separate chunks all decode before publication 3ms  
+[306]   + empty encoded body with one byte buffer still validates its trailer 4ms  
+[306]   + body bearing successful statuses retain their complete artifact bytes 10ms  
+[306]   + encoded download output error is not reported as a coding error 4ms  
+[306]   + HTTP error responses retain their complete original download error 3ms  
+[306]   + close delimited response reports progress before its next body fragment 2ms  
+[306]   + unfollowed redirects retain their complete response body 14ms  
+[306] - coursier.cache.DownloadLengthIntegrityTests 173ms
+[306]   + zero buffer size is rejected before creating a temporary file 8ms  
+[306]   + negative buffer size is rejected before creating a temporary file 3ms  
+[306]   + short fixed-length response does not publish a partial artifact 4ms  
+[306]   + empty body with positive fixed length is an incomplete response 5ms  
+[306]   + short fixed-length response counts bytes across multiple reads 4ms  
+[306]   + partial body remains temporary until the connection reaches EOF 4ms  
+[306]   + exact fixed-length response publishes all bytes 4ms  
+[306]   + zero length response ignores trailing bytes 3ms  
+[306]   + fragmented fixed-length response does not expose bytes after its length 4ms  
+[306]   + two byte buffer stays within the framed length after a fragmented read 4ms  
+[306]   + close-delimited response reads through connection close 6ms  
+[306]   + chunked framing takes precedence over a conflicting content length 3ms  
+[306]   + gzip known length decodes fully with bounded progress increments 6ms  
+[306]   + mixed case identity encoding is accepted 3ms  
+[306]   + mixed case identity encoding still enforces a short length 4ms  
+[306]   + negative content length is rejected 3ms  
+[306]   + non-decimal content length is rejected 3ms  
+[306]   + overflowing content length is rejected 4ms  
+[306]   + empty content length is rejected 3ms  
+[306]   + content length at Int max reports the received byte count 5ms  
+[306]   + content length above Int max reports the received byte count 4ms  
+[306]   + five gigabyte content length reports the received byte count 4ms  
+[306]   + Long max content length reports the received byte count 4ms  
+[306]   + redirect body length does not replace the final response length 11ms  
+[306]   + short final response after redirect reports the original artifact URL 5ms  
+[306]   + valid range response resumes the existing prefix 4ms  
+[306]   + valid range response can frame the suffix without content length 4ms  
+[306]   + range response with an incorrect start is rejected without restarting 3ms  
+[306]   + range response without content range is rejected 4ms  
+[306]   + malformed content range is rejected with its exact value 4ms  
+[306]   + range end mismatch is rejected 5ms  
+[306]   + range total mismatch is rejected 2ms  
+[306]   + unknown range total is rejected 3ms  
+[306]   + range ending at or beyond the total is rejected 3ms  
+[306]   + overflowing range start is rejected 3ms  
+[306]   + overflowing range end is rejected 4ms  
+[306]   + overflowing range total is rejected 3ms  
+[306]   + content length conflicting with range is rejected 3ms  
+[306]   + unsolicited range response must start at byte zero 3ms  
+[306]   + range response from byte zero can satisfy a full download 4ms  
+[306]   + server ignoring range with a full response replaces the prefix 3ms  
+[306]   + short range response with content length removes its temporary file 4ms  
+[306]   + short range response uses content range length when content length is absent 3ms  
+[306] - coursier.cache.DownloadEncodingIntegrityTests 743ms
+[306]   + large gzip body streams into the cache before the remainder arrives 134ms  
+[306]   + large deflate body streams into the cache before the remainder arrives 102ms  
+[306]   + large multi-member gzip streams inside a later member before the remainder arrives 105ms  
+[306]   + repeated encoding fields decode every layer in field order 12ms  
+[306]   + a later identity field cannot hide an unsupported encoding 10ms  
+[306]   + a truncated later gzip member cannot publish earlier members 126ms  
+[306]   + gzip reports decoded progress before the next compressed fragment 5ms  
+[306]   + inner deflate EOF cannot hide a corrupt outer gzip trailer 4ms  
+[306]   + inner deflate EOF cannot hide an incomplete outer gzip trailer 3ms  
+[306]   + repeated mixed encoding fields preserve order and empty list members 4ms  
+[306]   + unknown repeated encoding fields reject even beside blank fields 6ms  
+[306]   + repeated encoding fields cannot append to a decoded saved prefix 3ms  
+[306]   + complete gzip members including empty members decode with one byte buffers 15ms  
+[306]   + each member checks both its checksum and uncompressed size 8ms  
+[306]   + gzip optional headers and their checksum are verified on later members 150ms  
+[306]   + all nested layers complete with default and one byte buffers 38ms  
+[306]   + deflate EOF rejects additional outer output rather than discarding it 7ms  
+[306]   + deflate cannot complete while a preset dictionary is still required 7ms  
+[306]   + gzip rejects trailing bytes that are not another complete member 4ms  
+[306] - coursier.cache.DownloadBufferCostTests 7422ms
+[306]   + small bodies do not initialize the buffer element by element 7422ms  
+[306] - coursier.cache.DownloadBufferCapacityTests 375ms
+[306]   + known tiny response does not request an oversized transfer buffer 114ms  
+[306]   + known 199 byte POM uses its response length 7ms  
+[306]   + known one byte response uses a one byte buffer 6ms  
+[306]   + identity response uses its uncompressed length 9ms  
+[306]   + mixed case identity response uses its uncompressed length 6ms  
+[306]   + deflate content encoding retains the default maximum 14ms  
+[306]   + known responses at the default boundary stay bounded 104ms  
+[306]   + known empty response keeps read buffers at one byte or less 6ms  
+[306]   + known empty response requests zero bytes from the response stream 7ms  
+[306]   + known body larger than configured maximum uses at most that maximum 7ms  
+[306]   + unknown chunked response retains the default maximum 68ms  
+[306]   + unknown identity response retains the default maximum 7ms  
+[306]   + gzip response with known encoded length returns all decoded bytes 8ms  
+[306]   + partial response resumes from the persisted prefix with a bounded read buffer 12ms  
+[306] - coursier.cache.DigestBasedCacheTests 154ms
+[306]   + simple 154ms  
+[306] 
+[306] Tests: 215, Passed: 215, Failed: 0
+[306/306] ============================== cache.jvm[2.13.16].test ============================= 24s
+exit=0

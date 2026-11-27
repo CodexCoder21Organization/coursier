@@ -1,0 +1,772 @@
+============================== cache.jvm[2.13.16].test ==============================
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.test
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DigestBasedCacheTests.simple 1416ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadBufferCapacityTests.known tiny response does not request an oversized transfer buffer 68ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known 199 byte POM uses its response length 9ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known one byte response uses a one byte buffer 8ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.identity response uses its uncompressed length 12ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.mixed case identity response uses its uncompressed length 8ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.deflate content encoding retains the default maximum 13ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known responses at the default boundary stay bounded 89ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known empty response keeps read buffers at one byte or less 9ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known empty response requests zero bytes from the response stream 10ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.known body larger than configured maximum uses at most that maximum 16ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.unknown chunked response retains the default maximum 69ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.unknown identity response retains the default maximum 11ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.gzip response with known encoded length returns all decoded bytes 11ms  
+[306] + coursier.cache.DownloadBufferCapacityTests.partial response resumes from the persisted prefix with a bounded read buffer 16ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] DOWNLOAD_BUFFER_CPU smallNs=290000000 largeNs=200000000 ratio=0.6896551724137931
+[306] 
+[306] + coursier.cache.DownloadBufferCostTests.small bodies do not initialize the buffer element by element 8059ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadEncodingIntegrityTests.large gzip body streams into the cache before the remainder arrives 125ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.large deflate body streams into the cache before the remainder arrives 118ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.large multi-member gzip streams inside a later member before the remainder arrives 118ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields decode every layer in field order 6ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.a later identity field cannot hide an unsupported encoding 5ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.a truncated later gzip member cannot publish earlier members 105ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.gzip reports decoded progress before the next compressed fragment 5ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide a corrupt outer gzip trailer 4ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.inner deflate EOF cannot hide an incomplete outer gzip trailer 4ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.repeated mixed encoding fields preserve order and empty list members 4ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.unknown repeated encoding fields reject even beside blank fields 8ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.repeated encoding fields cannot append to a decoded saved prefix 4ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.complete gzip members including empty members decode with one byte buffers 9ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.each member checks both its checksum and uncompressed size 9ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.gzip optional headers and their checksum are verified on later members 141ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.all nested layers complete with default and one byte buffers 33ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.deflate EOF rejects additional outer output rather than discarding it 12ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.deflate cannot complete while a preset dictionary is still required 5ms  
+[306] + coursier.cache.DownloadEncodingIntegrityTests.gzip rejects trailing bytes that are not another complete member 6ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadLengthIntegrityTests.zero buffer size is rejected before creating a temporary file 13ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.negative buffer size is rejected before creating a temporary file 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short fixed-length response does not publish a partial artifact 6ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.empty body with positive fixed length is an incomplete response 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short fixed-length response counts bytes across multiple reads 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.partial body remains temporary until the connection reaches EOF 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.exact fixed-length response publishes all bytes 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.zero length response ignores trailing bytes 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.fragmented fixed-length response does not expose bytes after its length 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.two byte buffer stays within the framed length after a fragmented read 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.close-delimited response reads through connection close 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.chunked framing takes precedence over a conflicting content length 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.gzip known length decodes fully with bounded progress increments 8ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding is accepted 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.mixed case identity encoding still enforces a short length 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.negative content length is rejected 2ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.non-decimal content length is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing content length is rejected 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.empty content length is rejected 7ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.content length at Int max reports the received byte count 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.content length above Int max reports the received byte count 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.five gigabyte content length reports the received byte count 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.Long max content length reports the received byte count 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.redirect body length does not replace the final response length 6ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short final response after redirect reports the original artifact URL 8ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.valid range response resumes the existing prefix 7ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.valid range response can frame the suffix without content length 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range response with an incorrect start is rejected without restarting 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range response without content range is rejected 6ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.malformed content range is rejected with its exact value 5ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range end mismatch is rejected 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range total mismatch is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.unknown range total is rejected 2ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range ending at or beyond the total is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing range start is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing range end is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.overflowing range total is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.content length conflicting with range is rejected 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.unsolicited range response must start at byte zero 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.range response from byte zero can satisfy a full download 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.server ignoring range with a full response replaces the prefix 4ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short range response with content length removes its temporary file 3ms  
+[306] + coursier.cache.DownloadLengthIntegrityTests.short range response uses content range length when content length is absent 4ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.DownloadResponseFramingTests.valid mixed case range unit completes the artifact 9ms  
+[306] + coursier.cache.DownloadResponseFramingTests.unsolicited 304 cannot publish an empty artifact 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.cut off chunked response removes temporary bytes 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.cut off gzip response removes temporary bytes 6ms  
+[306] + coursier.cache.DownloadResponseFramingTests.short other encoded response cannot publish partial bytes 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.correct mixed case gzip decodes the body 6ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked range obeys its content range without content length 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.short chunked range cannot publish a partial artifact 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty close delimited response is a valid empty artifact 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.correct deflate body decodes without comparing decoded and wire lengths 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.concurrent callers never publish the same short artifact 37ms  
+[306] + coursier.cache.DownloadResponseFramingTests.concurrent callers share one correct artifact download 42ms  
+[306] + coursier.cache.DownloadResponseFramingTests.HEAD metadata length does not require response bytes 9ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked range must consume the closing chunk before publishing 15ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked range rejects data beyond its stated range 7ms  
+[306] + coursier.cache.DownloadResponseFramingTests.range data stays temporary until the closing chunk arrives 6ms  
+[306] + coursier.cache.DownloadResponseFramingTests.no body status with a saved prefix is rejected and cleaned 14ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty content encoding means an unencoded body 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements do not change identity encoding 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements do not allow unknown encodings 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.only empty encoding list elements mean an unencoded body 15ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements preserve compressed decoding 18ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve length validation 9ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty encoding list elements preserve saved prefix handling 9ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty list elements preserve encoded resume rejection 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.unknown encodings cannot publish response bytes 12ms  
+[306] + coursier.cache.DownloadResponseFramingTests.mixed case deflate is decoded 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked gzip validates the closing chunk after its trailer 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.valid chunked gzip is decoded through the closing chunk 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.complete framing cannot hide an incomplete gzip trailer 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.invalid gzip header removes a saved temporary prefix 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.encoded resume cannot append decoded bytes to an earlier representation 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.gzip decoder completion still checks the declared response length 6ms  
+[306] + coursier.cache.DownloadResponseFramingTests.deflate decoder completion still checks the declared response length 8ms  
+[306] + coursier.cache.DownloadResponseFramingTests.chunked deflate validates the closing chunk after decoding 10ms  
+[306] + coursier.cache.DownloadResponseFramingTests.valid chunked deflate is decoded through the closing chunk 8ms  
+[306] + coursier.cache.DownloadResponseFramingTests.mixed case stacked content codings decode in reverse order 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.corrupt gzip trailer cannot publish decoded data 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.corrupt deflate checksum cannot publish decoded data 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.gzip members in separate chunks all decode before publication 5ms  
+[306] + coursier.cache.DownloadResponseFramingTests.empty encoded body with one byte buffer still validates its trailer 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.body bearing successful statuses retain their complete artifact bytes 15ms  
+[306] + coursier.cache.DownloadResponseFramingTests.encoded download output error is not reported as a coding error 7ms  
+[306] + coursier.cache.DownloadResponseFramingTests.HTTP error responses retain their complete original download error 3ms  
+[306] + coursier.cache.DownloadResponseFramingTests.close delimited response reports progress before its next body fragment 4ms  
+[306] + coursier.cache.DownloadResponseFramingTests.unfollowed redirects retain their complete response body 20ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheLocationOwnershipTests.independent locations 17ms  
+[306] + coursier.cache.FileCacheLocationOwnershipTests.independent locations after an owner error 11ms  
+[306] + coursier.cache.FileCacheLocationOwnershipTests.same location joins its owner 44ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.301 1153ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.302 27ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.304 22ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.307 23ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttp.308 44ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToHttps 300ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.enabled 105ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToHttps.disabled 44ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.enabled 161ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttps.disabled 30ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabled 49ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.enabledAllRealms 18ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.0 23ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpToAuthHttp.disabled.1 14ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabled 28ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledAllRealms 22ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.enabledSeveralCreds 24ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.oldRfc2617.disabled 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabled 26ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledAllRealms 19ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.enabledSeveralCreds 24ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.rfc7617WithCharset.disabled 11ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabled 24ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledAllRealms 16ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.enabledSeveralCreds 26ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToAuthHttp.beyondRfc7617.disabled 13ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabled 44ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.enabledAllRealms 68ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.httpsToAuthHttps.disabled 62ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabled 75ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.enabledAllRealms 27ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpsToAuthHttps.disabled 18ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.0 76ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabled.1 74ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.enabledAllRealms 26ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authHttpToNoAuthHttps.disabled 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.0 52ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.credentialFile.1 25ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file https 67ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.cred file http 25ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file https 71ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.randomCase.conf file http 19ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.0 14ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.1 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should be followed.2 16ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.maxRedirects.should not stackoverflow.0 7178ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.0 49ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.enabled.1 42ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.0 112ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.passCredentialsOnRedirect.disabled.1 48ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.decodeGzip 136ms  
+[306] + coursier.cache.FileCacheRedirectionTests.redirections.authThenNotFound 107ms  
+[306] + coursier.cache.FileCacheRedirectionTests.custom protocols.unknown 11ms  
+[306] + coursier.cache.FileCacheRedirectionTests.custom protocols.with classloader 44ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.simple.0 33ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.simple.1 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.simple.2 13ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-256 30ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.SHA-1 20ms  
+[306] + coursier.cache.FileCacheRedirectionTests.checksums.fromHeader.MD5 17ms  
+[306] + coursier.cache.FileCacheRedirectionTests.lastModifiedEx 33ms  
+[306] + coursier.cache.FileCacheRedirectionTests.stored digests work - SHA1 16ms  
+[306] + coursier.cache.FileCacheRedirectionTests.stored digests work - MD5 15ms  
+[306] + coursier.cache.FileCacheRedirectionTests.stored digests should not be stored outside of cache 8ms  
+[306] + coursier.cache.FileCacheRedirectionTests.wrong stored digest should delete file in cache 9ms  
+[306] + coursier.cache.FileCacheRedirectionTests.un-escape characters in file URL 8ms  
+[306] + coursier.cache.FileCacheRedirectionTests.does not accept redundant path elements like .. or . 0ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheRetrySettingsTests.explicit retry settings govern same-file waiting 84ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheTests.check for updates once 82ms  
+[306] FileCacheTests.scala:128 expected: List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306] FileCacheTests.scala:129 inCache: ArraySeq(
+[306]   (dir/.foo.pom.checked, ""),
+[306]   (dir/foo.module.lock, ""),
+[306]   (dir/foo.pom, "the pom"),
+[306]   (dir/foo.pom.lock, "")
+[306] )
+[306] X coursier.cache.FileCacheTests.check extra artifact.0 114ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq(
+[306]     (dir/.foo.pom.checked, ""),
+[306]     (dir/foo.module.lock, ""),
+[306]     (dir/foo.pom, "the pom"),
+[306]     (dir/foo.pom.lock, "")
+[306]   )
+[306]   expected != inCache:
+[306]   - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   + ArraySeq(
+[306]   +   (dir/.foo.pom.checked, ""),
+[306]   +   (dir/foo.module.lock, ""),
+[306]   +   (dir/foo.pom, "the pom"),
+[306]   +   (dir/foo.pom.lock, "")
+[306]   + )
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$18(FileCacheTests.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$18$adapted(FileCacheTests.scala:136)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$17(FileCacheTests.scala:136)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$17$adapted(FileCacheTests.scala:135)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] FileCacheTests.scala:128 expected: List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306] FileCacheTests.scala:129 inCache: ArraySeq(
+[306]   (dir/.foo.module.error, ""),
+[306]   (dir/.foo.pom.checked, ""),
+[306]   (dir/foo.module.lock, ""),
+[306]   (dir/foo.pom, "the pom"),
+[306]   (dir/foo.pom.lock, "")
+[306] )
+[306] X coursier.cache.FileCacheTests.check extra artifact.1 34ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq(
+[306]     (dir/.foo.module.error, ""),
+[306]     (dir/.foo.pom.checked, ""),
+[306]     (dir/foo.module.lock, ""),
+[306]     (dir/foo.pom, "the pom"),
+[306]     (dir/foo.pom.lock, "")
+[306]   )
+[306]   expected != inCache:
+[306]   - List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   + ArraySeq(
+[306]   +   (dir/.foo.module.error, ""),
+[306]   +   (dir/.foo.pom.checked, ""),
+[306]   +   (dir/foo.module.lock, ""),
+[306]   +   (dir/foo.pom, "the pom"),
+[306]   +   (dir/foo.pom.lock, "")
+[306]   + )
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$22(FileCacheTests.scala:177)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$22$adapted(FileCacheTests.scala:162)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$21(FileCacheTests.scala:162)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$21$adapted(FileCacheTests.scala:161)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] FileCacheTests.scala:128 expected: List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306] FileCacheTests.scala:129 inCache: ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306] X coursier.cache.FileCacheTests.check extra artifact.2 15ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]   expected != inCache:
+[306]   - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   + ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$26(FileCacheTests.scala:199)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$26$adapted(FileCacheTests.scala:189)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$25(FileCacheTests.scala:189)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$25$adapted(FileCacheTests.scala:188)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] + coursier.cache.FileCacheTests.check extra artifact.3 17ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.4 10ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:43735/artifact) while downloading http://127.0.0.1:43735/artifact
+[306] process B output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] + coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner 1428ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] + coursier.parse.CachePolicyParserTests.simple.0 1ms  
+[306] + coursier.parse.CachePolicyParserTests.simple.1 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.0 4ms  
+[306] + coursier.parse.CachePolicyParserTests.several.1 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.default 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.noDefault 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.2 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.3 0ms  
+[306] + coursier.parse.CachePolicyParserTests.several.4 0ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.paths.UtilTests.createDirectories fine with sym links 2ms  
+[306] + coursier.paths.UtilTests.property expansion.simple 3ms  
+[306] + coursier.paths.UtilTests.property expansion.substitution 0ms  
+[306] + coursier.paths.UtilTests.property expansion.optional value 0ms  
+[306] ----------------------------------- Results -----------------------------------
+[306] - coursier.paths.UtilTests 5ms
+[306]   + createDirectories fine with sym links 2ms  
+[306]   - property expansion 3ms
+[306]     + simple 3ms  
+[306]     + substitution 0ms  
+[306]     + optional value 0ms  
+[306] - coursier.parse.CachePolicyParserTests 5ms
+[306]   - simple 1ms
+[306]     + 0 1ms  
+[306]     + 1 0ms  
+[306]   - several 4ms
+[306]     + 0 4ms  
+[306]     + 1 0ms  
+[306]     + default 0ms  
+[306]     + noDefault 0ms  
+[306]     + 2 0ms  
+[306]     + 3 0ms  
+[306]     + 4 0ms  
+[306] - coursier.cache.SharedDownloadOwnershipTests 1428ms
+[306]   + a process arriving after a failed owner waits for the current owner 1428ms  
+[306] - coursier.cache.FileCacheTests 272ms
+[306]   + check for updates once 82ms  
+[306]   - check extra artifact 190ms
+[306]     X 0 114ms 
+[306]       utest.AssertionError: assert(expected == inCache)
+[306]       expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]       inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq(
+[306]         (dir/.foo.pom.checked, ""),
+[306]         (dir/foo.module.lock, ""),
+[306]         (dir/foo.pom, "the pom"),
+[306]         (dir/foo.pom.lock, "")
+[306]       )
+[306]       expected != inCache:
+[306]       - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]       + ArraySeq(
+[306]       +   (dir/.foo.pom.checked, ""),
+[306]       +   (dir/foo.module.lock, ""),
+[306]       +   (dir/foo.pom, "the pom"),
+[306]       +   (dir/foo.pom.lock, "")
+[306]       + )
+[306]         utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]         coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$18(FileCacheTests.scala:151)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$18$adapted(FileCacheTests.scala:136)
+[306]         coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$17(FileCacheTests.scala:136)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$17$adapted(FileCacheTests.scala:135)
+[306]         coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]         apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]         delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]         use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]         map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]         make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]         make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     X 1 34ms 
+[306]       utest.AssertionError: assert(expected == inCache)
+[306]       expected: Seq[(os.SubPath, String)] = List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]       inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq(
+[306]         (dir/.foo.module.error, ""),
+[306]         (dir/.foo.pom.checked, ""),
+[306]         (dir/foo.module.lock, ""),
+[306]         (dir/foo.pom, "the pom"),
+[306]         (dir/foo.pom.lock, "")
+[306]       )
+[306]       expected != inCache:
+[306]       - List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]       + ArraySeq(
+[306]       +   (dir/.foo.module.error, ""),
+[306]       +   (dir/.foo.pom.checked, ""),
+[306]       +   (dir/foo.module.lock, ""),
+[306]       +   (dir/foo.pom, "the pom"),
+[306]       +   (dir/foo.pom.lock, "")
+[306]       + )
+[306]         utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]         coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$22(FileCacheTests.scala:177)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$22$adapted(FileCacheTests.scala:162)
+[306]         coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$21(FileCacheTests.scala:162)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$21$adapted(FileCacheTests.scala:161)
+[306]         coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]         apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]         delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]         use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]         map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]         make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]         make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     X 2 15ms 
+[306]       utest.AssertionError: assert(expected == inCache)
+[306]       expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]       inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]       expected != inCache:
+[306]       - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]       + ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]         utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]         coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$26(FileCacheTests.scala:199)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$26$adapted(FileCacheTests.scala:189)
+[306]         coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$25(FileCacheTests.scala:189)
+[306]         coursier.cache.FileCacheTests$.$anonfun$tests$25$adapted(FileCacheTests.scala:188)
+[306]         coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]         apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]         delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]         use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]         map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]         make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]         make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     + 3 17ms  
+[306]     + 4 10ms  
+[306] - coursier.cache.FileCacheRetrySettingsTests 84ms
+[306]   + explicit retry settings govern same-file waiting 84ms  
+[306] - coursier.cache.FileCacheRedirectionTests 10994ms
+[306]   - redirections 10722ms
+[306]     - httpToHttp 1269ms
+[306]       + 301 1153ms  
+[306]       + 302 27ms  
+[306]       + 304 22ms  
+[306]       + 307 23ms  
+[306]       + 308 44ms  
+[306]     + httpsToHttps 300ms  
+[306]     - httpToHttps 149ms
+[306]       + enabled 105ms  
+[306]       + disabled 44ms  
+[306]     - httpToAuthHttps 191ms
+[306]       + enabled 161ms  
+[306]       + disabled 30ms  
+[306]     - httpToAuthHttp 104ms
+[306]       + enabled 49ms  
+[306]       + enabledAllRealms 18ms  
+[306]       - disabled 37ms
+[306]         + 0 23ms  
+[306]         + 1 14ms  
+[306]     - authHttpToAuthHttp 248ms
+[306]       - oldRfc2617 89ms
+[306]         + enabled 28ms  
+[306]         + enabledAllRealms 22ms  
+[306]         + enabledSeveralCreds 24ms  
+[306]         + disabled 15ms  
+[306]       - rfc7617WithCharset 80ms
+[306]         + enabled 26ms  
+[306]         + enabledAllRealms 19ms  
+[306]         + enabledSeveralCreds 24ms  
+[306]         + disabled 11ms  
+[306]       - beyondRfc7617 79ms
+[306]         + enabled 24ms  
+[306]         + enabledAllRealms 16ms  
+[306]         + enabledSeveralCreds 26ms  
+[306]         + disabled 13ms  
+[306]     - httpsToAuthHttps 174ms
+[306]       + enabled 44ms  
+[306]       + enabledAllRealms 68ms  
+[306]       + disabled 62ms  
+[306]     - authHttpsToAuthHttps 120ms
+[306]       + enabled 75ms  
+[306]       + enabledAllRealms 27ms  
+[306]       + disabled 18ms  
+[306]     - authHttpToNoAuthHttps 191ms
+[306]       - enabled 150ms
+[306]         + 0 76ms  
+[306]         + 1 74ms  
+[306]       + enabledAllRealms 26ms  
+[306]       + disabled 15ms  
+[306]     - credentialFile 77ms
+[306]       + 0 52ms  
+[306]       + 1 25ms  
+[306]     - randomCase 182ms
+[306]       + cred file https 67ms  
+[306]       + cred file http 25ms  
+[306]       + conf file https 71ms  
+[306]       + conf file http 19ms  
+[306]     - maxRedirects 7223ms
+[306]       - should be followed 45ms
+[306]         + 0 14ms  
+[306]         + 1 15ms  
+[306]         + 2 16ms  
+[306]       - should not stackoverflow 7178ms
+[306]         + 0 7178ms  
+[306]     - passCredentialsOnRedirect 251ms
+[306]       - enabled 91ms
+[306]         + 0 49ms  
+[306]         + 1 42ms  
+[306]       - disabled 160ms
+[306]         + 0 112ms  
+[306]         + 1 48ms  
+[306]     + decodeGzip 136ms  
+[306]     + authThenNotFound 107ms  
+[306]   - custom protocols 55ms
+[306]     + unknown 11ms  
+[306]     + with classloader 44ms  
+[306]   - checksums 128ms
+[306]     - simple 61ms
+[306]       + 0 33ms  
+[306]       + 1 15ms  
+[306]       + 2 13ms  
+[306]     - fromHeader 67ms
+[306]       + SHA-256 30ms  
+[306]       + SHA-1 20ms  
+[306]       + MD5 17ms  
+[306]   + lastModifiedEx 33ms  
+[306]   + stored digests work - SHA1 16ms  
+[306]   + stored digests work - MD5 15ms  
+[306]   + stored digests should not be stored outside of cache 8ms  
+[306]   + wrong stored digest should delete file in cache 9ms  
+[306]   + un-escape characters in file URL 8ms  
+[306]   + does not accept redundant path elements like .. or . 0ms  
+[306] - coursier.cache.FileCacheLocationOwnershipTests 72ms
+[306]   + independent locations 17ms  
+[306]   + independent locations after an owner error 11ms  
+[306]   + same location joins its owner 44ms  
+[306] - coursier.cache.DownloadResponseFramingTests 384ms
+[306]   + valid mixed case range unit completes the artifact 9ms  
+[306]   + unsolicited 304 cannot publish an empty artifact 3ms  
+[306]   + cut off chunked response removes temporary bytes 3ms  
+[306]   + cut off gzip response removes temporary bytes 6ms  
+[306]   + short other encoded response cannot publish partial bytes 3ms  
+[306]   + correct mixed case gzip decodes the body 6ms  
+[306]   + chunked range obeys its content range without content length 4ms  
+[306]   + short chunked range cannot publish a partial artifact 4ms  
+[306]   + empty close delimited response is a valid empty artifact 5ms  
+[306]   + correct deflate body decodes without comparing decoded and wire lengths 4ms  
+[306]   + concurrent callers never publish the same short artifact 37ms  
+[306]   + concurrent callers share one correct artifact download 42ms  
+[306]   + HEAD metadata length does not require response bytes 9ms  
+[306]   + chunked range must consume the closing chunk before publishing 15ms  
+[306]   + chunked range rejects data beyond its stated range 7ms  
+[306]   + range data stays temporary until the closing chunk arrives 6ms  
+[306]   + no body status with a saved prefix is rejected and cleaned 14ms  
+[306]   + empty content encoding means an unencoded body 4ms  
+[306]   + empty list elements do not change identity encoding 3ms  
+[306]   + empty list elements do not allow unknown encodings 4ms  
+[306]   + only empty encoding list elements mean an unencoded body 15ms  
+[306]   + empty list elements preserve compressed decoding 18ms  
+[306]   + empty encoding list elements preserve length validation 9ms  
+[306]   + empty encoding list elements preserve saved prefix handling 9ms  
+[306]   + empty list elements preserve encoded resume rejection 3ms  
+[306]   + unknown encodings cannot publish response bytes 12ms  
+[306]   + mixed case deflate is decoded 4ms  
+[306]   + chunked gzip validates the closing chunk after its trailer 4ms  
+[306]   + valid chunked gzip is decoded through the closing chunk 4ms  
+[306]   + complete framing cannot hide an incomplete gzip trailer 5ms  
+[306]   + invalid gzip header removes a saved temporary prefix 5ms  
+[306]   + encoded resume cannot append decoded bytes to an earlier representation 4ms  
+[306]   + gzip decoder completion still checks the declared response length 6ms  
+[306]   + deflate decoder completion still checks the declared response length 8ms  
+[306]   + chunked deflate validates the closing chunk after decoding 10ms  
+[306]   + valid chunked deflate is decoded through the closing chunk 8ms  
+[306]   + mixed case stacked content codings decode in reverse order 5ms  
+[306]   + corrupt gzip trailer cannot publish decoded data 5ms  
+[306]   + corrupt deflate checksum cannot publish decoded data 4ms  
+[306]   + gzip members in separate chunks all decode before publication 5ms  
+[306]   + empty encoded body with one byte buffer still validates its trailer 4ms  
+[306]   + body bearing successful statuses retain their complete artifact bytes 15ms  
+[306]   + encoded download output error is not reported as a coding error 7ms  
+[306]   + HTTP error responses retain their complete original download error 3ms  
+[306]   + close delimited response reports progress before its next body fragment 4ms  
+[306]   + unfollowed redirects retain their complete response body 20ms  
+[306] - coursier.cache.DownloadLengthIntegrityTests 196ms
+[306]   + zero buffer size is rejected before creating a temporary file 13ms  
+[306]   + negative buffer size is rejected before creating a temporary file 4ms  
+[306]   + short fixed-length response does not publish a partial artifact 6ms  
+[306]   + empty body with positive fixed length is an incomplete response 4ms  
+[306]   + short fixed-length response counts bytes across multiple reads 5ms  
+[306]   + partial body remains temporary until the connection reaches EOF 5ms  
+[306]   + exact fixed-length response publishes all bytes 5ms  
+[306]   + zero length response ignores trailing bytes 5ms  
+[306]   + fragmented fixed-length response does not expose bytes after its length 5ms  
+[306]   + two byte buffer stays within the framed length after a fragmented read 5ms  
+[306]   + close-delimited response reads through connection close 5ms  
+[306]   + chunked framing takes precedence over a conflicting content length 4ms  
+[306]   + gzip known length decodes fully with bounded progress increments 8ms  
+[306]   + mixed case identity encoding is accepted 5ms  
+[306]   + mixed case identity encoding still enforces a short length 4ms  
+[306]   + negative content length is rejected 2ms  
+[306]   + non-decimal content length is rejected 3ms  
+[306]   + overflowing content length is rejected 4ms  
+[306]   + empty content length is rejected 7ms  
+[306]   + content length at Int max reports the received byte count 5ms  
+[306]   + content length above Int max reports the received byte count 3ms  
+[306]   + five gigabyte content length reports the received byte count 4ms  
+[306]   + Long max content length reports the received byte count 3ms  
+[306]   + redirect body length does not replace the final response length 6ms  
+[306]   + short final response after redirect reports the original artifact URL 8ms  
+[306]   + valid range response resumes the existing prefix 7ms  
+[306]   + valid range response can frame the suffix without content length 4ms  
+[306]   + range response with an incorrect start is rejected without restarting 4ms  
+[306]   + range response without content range is rejected 6ms  
+[306]   + malformed content range is rejected with its exact value 5ms  
+[306]   + range end mismatch is rejected 4ms  
+[306]   + range total mismatch is rejected 3ms  
+[306]   + unknown range total is rejected 2ms  
+[306]   + range ending at or beyond the total is rejected 3ms  
+[306]   + overflowing range start is rejected 3ms  
+[306]   + overflowing range end is rejected 3ms  
+[306]   + overflowing range total is rejected 3ms  
+[306]   + content length conflicting with range is rejected 3ms  
+[306]   + unsolicited range response must start at byte zero 3ms  
+[306]   + range response from byte zero can satisfy a full download 4ms  
+[306]   + server ignoring range with a full response replaces the prefix 4ms  
+[306]   + short range response with content length removes its temporary file 3ms  
+[306]   + short range response uses content range length when content length is absent 4ms  
+[306] - coursier.cache.DownloadEncodingIntegrityTests 721ms
+[306]   + large gzip body streams into the cache before the remainder arrives 125ms  
+[306]   + large deflate body streams into the cache before the remainder arrives 118ms  
+[306]   + large multi-member gzip streams inside a later member before the remainder arrives 118ms  
+[306]   + repeated encoding fields decode every layer in field order 6ms  
+[306]   + a later identity field cannot hide an unsupported encoding 5ms  
+[306]   + a truncated later gzip member cannot publish earlier members 105ms  
+[306]   + gzip reports decoded progress before the next compressed fragment 5ms  
+[306]   + inner deflate EOF cannot hide a corrupt outer gzip trailer 4ms  
+[306]   + inner deflate EOF cannot hide an incomplete outer gzip trailer 4ms  
+[306]   + repeated mixed encoding fields preserve order and empty list members 4ms  
+[306]   + unknown repeated encoding fields reject even beside blank fields 8ms  
+[306]   + repeated encoding fields cannot append to a decoded saved prefix 4ms  
+[306]   + complete gzip members including empty members decode with one byte buffers 9ms  
+[306]   + each member checks both its checksum and uncompressed size 9ms  
+[306]   + gzip optional headers and their checksum are verified on later members 141ms  
+[306]   + all nested layers complete with default and one byte buffers 33ms  
+[306]   + deflate EOF rejects additional outer output rather than discarding it 12ms  
+[306]   + deflate cannot complete while a preset dictionary is still required 5ms  
+[306]   + gzip rejects trailing bytes that are not another complete member 6ms  
+[306] - coursier.cache.DownloadBufferCostTests 8059ms
+[306]   + small bodies do not initialize the buffer element by element 8059ms  
+[306] - coursier.cache.DownloadBufferCapacityTests 349ms
+[306]   + known tiny response does not request an oversized transfer buffer 68ms  
+[306]   + known 199 byte POM uses its response length 9ms  
+[306]   + known one byte response uses a one byte buffer 8ms  
+[306]   + identity response uses its uncompressed length 12ms  
+[306]   + mixed case identity response uses its uncompressed length 8ms  
+[306]   + deflate content encoding retains the default maximum 13ms  
+[306]   + known responses at the default boundary stay bounded 89ms  
+[306]   + known empty response keeps read buffers at one byte or less 9ms  
+[306]   + known empty response requests zero bytes from the response stream 10ms  
+[306]   + known body larger than configured maximum uses at most that maximum 16ms  
+[306]   + unknown chunked response retains the default maximum 69ms  
+[306]   + unknown identity response retains the default maximum 11ms  
+[306]   + gzip response with known encoded length returns all decoded bytes 11ms  
+[306]   + partial response resumes from the persisted prefix with a bounded read buffer 16ms  
+[306] - coursier.cache.DigestBasedCacheTests 1416ms
+[306]   + simple 1416ms  
+[306] ----------------------------------- Failures -----------------------------------
+[306] X coursier.cache.FileCacheTests.check extra artifact.0 114ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq(
+[306]     (dir/.foo.pom.checked, ""),
+[306]     (dir/foo.module.lock, ""),
+[306]     (dir/foo.pom, "the pom"),
+[306]     (dir/foo.pom.lock, "")
+[306]   )
+[306]   expected != inCache:
+[306]   - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   + ArraySeq(
+[306]   +   (dir/.foo.pom.checked, ""),
+[306]   +   (dir/foo.module.lock, ""),
+[306]   +   (dir/foo.pom, "the pom"),
+[306]   +   (dir/foo.pom.lock, "")
+[306]   + )
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$18(FileCacheTests.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$18$adapted(FileCacheTests.scala:136)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$17(FileCacheTests.scala:136)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$17$adapted(FileCacheTests.scala:135)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] X coursier.cache.FileCacheTests.check extra artifact.1 34ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq(
+[306]     (dir/.foo.module.error, ""),
+[306]     (dir/.foo.pom.checked, ""),
+[306]     (dir/foo.module.lock, ""),
+[306]     (dir/foo.pom, "the pom"),
+[306]     (dir/foo.pom.lock, "")
+[306]   )
+[306]   expected != inCache:
+[306]   - List((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   + ArraySeq(
+[306]   +   (dir/.foo.module.error, ""),
+[306]   +   (dir/.foo.pom.checked, ""),
+[306]   +   (dir/foo.module.lock, ""),
+[306]   +   (dir/foo.pom, "the pom"),
+[306]   +   (dir/foo.pom.lock, "")
+[306]   + )
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$22(FileCacheTests.scala:177)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$22$adapted(FileCacheTests.scala:162)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$21(FileCacheTests.scala:162)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$21$adapted(FileCacheTests.scala:161)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] X coursier.cache.FileCacheTests.check extra artifact.2 15ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]   expected != inCache:
+[306]   - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   + ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$26(FileCacheTests.scala:199)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$26$adapted(FileCacheTests.scala:189)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$25(FileCacheTests.scala:189)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$25$adapted(FileCacheTests.scala:188)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] Tests: 215, Passed: 212, Failed: 3
+[306/306, 1 failed] ========================= cache.jvm[2.13.16].test ======================== 36s
+1 tasks failed
+cache.jvm[2.13.16].test.test 3 tests failed: 
+  coursier.cache.FileCacheTests coursier.cache.FileCacheTests.check extra artifact.0
+  coursier.cache.FileCacheTests coursier.cache.FileCacheTests.check extra artifact.1
+  coursier.cache.FileCacheTests coursier.cache.FileCacheTests.check extra artifact.2
+exit=1

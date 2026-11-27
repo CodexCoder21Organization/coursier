@@ -1,0 +1,126 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.SharedDownloadOwnershipTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheTests.check for updates once 1245ms  
+[306] FileCacheTests.scala:128 expected: List(
+[306]   (dir/.foo.pom.checked, ""),
+[306]   (dir/foo.module.lock, ""),
+[306]   (dir/foo.pom, "the pom"),
+[306]   (dir/foo.pom.lock, "")
+[306] )
+[306] FileCacheTests.scala:129 inCache: ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306] X coursier.cache.FileCacheTests.check extra artifact.0 101ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List(
+[306]     (dir/.foo.pom.checked, ""),
+[306]     (dir/foo.module.lock, ""),
+[306]     (dir/foo.pom, "the pom"),
+[306]     (dir/foo.pom.lock, "")
+[306]   )
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   expected != inCache:
+[306]   - List(
+[306]   -   (dir/.foo.pom.checked, ""),
+[306]   -   (dir/foo.module.lock, ""),
+[306]   -   (dir/foo.pom, "the pom"),
+[306]   -   (dir/foo.pom.lock, "")
+[306]   - )
+[306]   + ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$18(FileCacheTests.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$18$adapted(FileCacheTests.scala:136)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$17(FileCacheTests.scala:136)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$17$adapted(FileCacheTests.scala:135)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] FileCacheTests.scala:128 expected: List(
+[306]   (dir/.foo.module.error, ""),
+[306]   (dir/.foo.pom.checked, ""),
+[306]   (dir/foo.module.lock, ""),
+[306]   (dir/foo.pom, "the pom"),
+[306]   (dir/foo.pom.lock, "")
+[306] )
+[306] FileCacheTests.scala:129 inCache: ArraySeq((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306] X coursier.cache.FileCacheTests.check extra artifact.1 45ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List(
+[306]     (dir/.foo.module.error, ""),
+[306]     (dir/.foo.pom.checked, ""),
+[306]     (dir/foo.module.lock, ""),
+[306]     (dir/foo.pom, "the pom"),
+[306]     (dir/foo.pom.lock, "")
+[306]   )
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   expected != inCache:
+[306]   - List(
+[306]   -   (dir/.foo.module.error, ""),
+[306]   -   (dir/.foo.pom.checked, ""),
+[306]   -   (dir/foo.module.lock, ""),
+[306]   -   (dir/foo.pom, "the pom"),
+[306]   -   (dir/foo.pom.lock, "")
+[306]   - )
+[306]   + ArraySeq((dir/.foo.module.error, ""), (dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$22(FileCacheTests.scala:179)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$22$adapted(FileCacheTests.scala:164)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$21(FileCacheTests.scala:164)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$21$adapted(FileCacheTests.scala:163)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] FileCacheTests.scala:128 expected: List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306] FileCacheTests.scala:129 inCache: ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306] X coursier.cache.FileCacheTests.check extra artifact.2 23ms 
+[306]   utest.AssertionError: assert(expected == inCache)
+[306]   expected: Seq[(os.SubPath, String)] = List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]   inCache: IndexedSeq[(os.SubPath, String)] = ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]   expected != inCache:
+[306]   - List((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"), (dir/foo.pom.lock, ""))
+[306]   + ArraySeq((dir/.foo.pom.checked, ""), (dir/foo.pom, "the pom"))
+[306]     utest.asserts.Asserts$.assertImpl(Asserts.scala:30)
+[306]     coursier.cache.FileCacheTests$.validateCacheState$1(FileCacheTests.scala:131)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$26(FileCacheTests.scala:203)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$26$adapted(FileCacheTests.scala:193)
+[306]     coursier.cache.TestUtil$.withTmpDir(TestUtil.scala:151)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$25(FileCacheTests.scala:193)
+[306]     coursier.cache.FileCacheTests$.$anonfun$tests$25$adapted(FileCacheTests.scala:192)
+[306]     coursier.cache.TestUtil$.$anonfun$withHttpServer$2(TestUtil.scala:94)
+[306]     apply @ coursier.cache.TestUtil$.$anonfun$withHttpServer$1(TestUtil.scala:94)
+[306]     delay @ org.http4s.blaze.server.BlazeServerBuilder.logStart$1(BlazeServerBuilder.scala:417)
+[306]     use @ coursier.cache.TestUtil$.withHttpServer(TestUtil.scala:92)
+[306]     map @ org.http4s.blaze.server.BlazeServerBuilder.mkServerChannel$1(BlazeServerBuilder.scala:410)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306]     make @ org.http4s.blaze.server.BlazeServerBuilder.resource(BlazeServerBuilder.scala:401)
+[306] + coursier.cache.FileCacheTests.check extra artifact.3 26ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.4 18ms  
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:45483/artifact) while downloading http://127.0.0.1:45483/artifact
+[306] process B output: ERROR download error: Caught java.nio.file.NoSuchFileException (/tmp/shared-download-ownership7223602594396372412/cache/http/127.0.0.1%3A45483/.artifact.part -> /tmp/shared-download-ownership7223602594396372412/cache/http/127.0.0.1%3A45483/artifact) while downloading http://127.0.0.1:45483/artifact
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] X coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner 1165ms 
+[306]   java.lang.AssertionError: A process that arrived while another process owned the download started its own download of the same cache file (server request: GET 3, downloads in progress at once: 2); at most one process may download a given file at a time
+[306]     coursier.cache.SharedDownloadOwnershipTests$.$anonfun$tests$2(SharedDownloadOwnershipTests.scala:140)
+[306] Tests: 7, Passed: 3, Failed: 4
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...nloadOwnershipTests =============== 10s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 4 tests failed: 
+  coursier.cache.FileCacheTests coursier.cache.FileCacheTests.check extra artifact.0
+  coursier.cache.FileCacheTests coursier.cache.FileCacheTests.check extra artifact.1
+  coursier.cache.FileCacheTests coursier.cache.FileCacheTests.check extra artifact.2
+  coursier.cache.SharedDownloadOwnershipTests coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner

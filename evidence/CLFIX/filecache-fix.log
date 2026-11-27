@@ -1,0 +1,14 @@
+================= cache.jvm[2.13.16].test.testOnly coursier.cache.FileCacheTests =================
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] + coursier.cache.FileCacheTests.check for updates once 1224ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.0 49ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.1 41ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.2 36ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.3 29ms  
+[306] + coursier.cache.FileCacheTests.check extra artifact.4 34ms  
+[306] Tests: 6, Passed: 6, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...ier.cache.FileCacheTests =============== 12s
