@@ -2,7 +2,7 @@ package coursier.cache
 
 import java.io.{File, IOException}
 import java.nio.channels.{FileChannel, FileLock, OverlappingFileLockException}
-import java.nio.file.{AccessDeniedException, Files, Path, StandardOpenOption}
+import java.nio.file.{AccessDeniedException, Path, StandardOpenOption}
 import java.util.concurrent.{Callable, ConcurrentHashMap}
 
 import coursier.cache.internal.Retry
@@ -95,14 +95,14 @@ object CacheLocks {
           else
             try Some(f)
             finally {
+              // The lock file is left in place. Processes waiting for this lock already hold
+              // channels on it; deleting it by name would let a waiter lock the unnamed file
+              // while a newly arriving process creates and locks a new file of the same name,
+              // so that both would own the same download.
               lock.release()
               lock = null
               channel.close()
               channel = null
-              try Files.deleteIfExists(lockFile)
-              catch {
-                case _: AccessDeniedException if Properties.isWin =>
-              }
             }
         }
         finally if (lock != null)
