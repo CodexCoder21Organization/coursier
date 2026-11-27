@@ -1,0 +1,3 @@
+COURSIER_REPOSITORIES=None
+actual 107 expected 107
+Only difference is repository prefix: True
