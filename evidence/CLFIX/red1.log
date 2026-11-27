@@ -1,0 +1,17 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.SharedDownloadOwnershipTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 17 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:42167/artifact) while downloading http://127.0.0.1:42167/artifact
+[306] process B output: OK 0726456483a2c1e0ff1e3d5c7b9ab9d8f71635547392b1d0ef0e2d4c6b8aa9c8e70625446382a1c0dffe1d3c5b7a99b8d7f61534537291b0cfee0d2c4b6a89a8c7e60524436281a0bfdefd1c3b5a7998b7d6f51433527190afceed0c2b4a6988a7c6e504234261809fbeddfc1b3a597897b6d5f4133251708faecdec0b2a496887a6c5e4032241607f9ebddcfb1a39587796b5d4f31231506f8eadcceb0a29486786a5c4e30221405f7e9dbcdbfa1938577695b4d3f211304f6e8
+[306] process C output: OK 0726456483a2c1e0ff1e3d5c7b9ab9d8f71635547392b1d0ef0e2d4c6b8aa9c8e70625446382a1c0dffe1d3c5b7a99b8d7f61534537291b0cfee0d2c4b6a89a8c7e60524436281a0bfdefd1c3b5a7998b7d6f51433527190afceed0c2b4a6988a7c6e504234261809fbeddfc1b3a597897b6d5f4133251708faecdec0b2a496887a6c5e4032241607f9ebddcfb1a39587796b5d4f31231506f8eadcceb0a29486786a5c4e30221405f7e9dbcdbfa1938577695b4d3f211304f6e8
+d7c9bbad9f81736557493b2d1f00f2e4d6c8baac9e80726456483a2c1e0ff1e3d5c7b9ab9d8f71635547392b1d0ef0e2d4c6b8aa9c8e70625446382a1c0dffe1d3c5b7a99b8d7f61534537291b0cfee0d2c4b6a89a8c7e60524436281a0bfdefd1c3b5a7998b7d6f51433527190afceed0c2b4a6988a7c6e504234261809fbeddfc1b3a597897b6d5f4133251708faecdec0b2a496887a6c5e4032241607f9ebddcfb1a39587796b5d4f31231506f8eadcceb0a29486786a5c4e30221405f7e9dbcdbfa193857769
+d7c9bbad9f81736557493b2d1f00f2e4d6c8baac9e8
+[306]     coursier.cache.SharedDownloadOwnershipTests$.$anonfun$tests$2(SharedDownloadOwnershipTests.scala:136)
+[306] Tests: 1, Passed: 0, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...nloadOwnershipTests =============== 29s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.SharedDownloadOwnershipTests coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner

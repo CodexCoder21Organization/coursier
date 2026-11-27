@@ -1,0 +1,12 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.SharedDownloadOwnershipTests ===============
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:32801/artifact) while downloading http://127.0.0.1:32801/artifact
+[306] process B output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] + coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner 1268ms  
+[306] Tests: 1, Passed: 1, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...redDownloadOwnershipTests =============== 8s

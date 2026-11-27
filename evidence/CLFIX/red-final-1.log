@@ -1,0 +1,17 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.SharedDownloadOwnershipTests ===============
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 2 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/coursier/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:34661/artifact) while downloading http://127.0.0.1:34661/artifact
+[306] process B output: ERROR download error: Caught java.nio.file.NoSuchFileException (/tmp/shared-download-ownership11746792618839492820/cache/http/127.0.0.1%3A34661/.artifact.part -> /tmp/shared-download-ownership11746792618839492820/cache/http/127.0.0.1%3A34661/artifact) while downloading http://127.0.0.1:34661/artifact
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] X coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner 1351ms 
+[306]   java.lang.AssertionError: A process that arrived while another process owned the download started its own download of the same cache file (server request: GET 3, downloads in progress at once: 2); at most one process may download a given file at a time
+[306]     coursier.cache.SharedDownloadOwnershipTests$.$anonfun$tests$2(SharedDownloadOwnershipTests.scala:138)
+[306] Tests: 1, Passed: 0, Failed: 1
+[306/306, 1 failed] =============== cache.jvm[2.13.16].t...wnloadOwnershipTests =============== 8s
+1 tasks failed
+cache.jvm[2.13.16].test.testOnly 1 tests failed: 
+  coursier.cache.SharedDownloadOwnershipTests coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner

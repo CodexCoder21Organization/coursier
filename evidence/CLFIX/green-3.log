@@ -1,0 +1,9 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.SharedDownloadOwnershipTests ===============
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:33933/artifact) while downloading http://127.0.0.1:33933/artifact
+[306] process B output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] + coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner 1088ms  
+[306] Tests: 1, Passed: 1, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...redDownloadOwnershipTests =============== 3s
