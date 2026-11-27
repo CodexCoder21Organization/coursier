@@ -1,0 +1,14 @@
+fatal: no tag exactly matches '1975fb3aaa562210db23600db2797827972b46d9'
+fatal: no tag exactly matches '1975fb3aaa562210db23600db2797827972b46d9'
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/launcher/2.13.16/compile.dest/classes ...
+[info] done compiling
+fatal: no tag exactly matches '1975fb3aaa562210db23600db2797827972b46d9'
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/core/jvm/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/cli/test/compile.dest/classes ...
+[info] done compiling
+-------------------------------- Running Tests --------------------------------
+Downloading file:/tmp/coursier-fetch-handler-17121606603379393292/original.jar
+Downloaded file:/tmp/coursier-fetch-handler-17121606603379393292/original.jar
+[32m+[39m coursier.cli.FetchCustomHandlerTests.fetch artifact through caller supplied URL handler [2m672ms[0m  
+Tests: 1, Passed: 1, Failed: 0

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="1" failures="0" errors="0" skipped="0" time="0.672">
+        <testsuite name="coursier.cli.FetchCustomHandlerTests" tests="1" failures="0" errors="0" skipped="0" time="0.672" timestamp="2026-11-27T05:17:22">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cli.FetchCustomHandlerTests" name="fetch artifact through caller supplied URL handler" time="0.672">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

@@ -1,0 +1,18 @@
+[info] compiling 36 Java sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/bootstrap-launcher/compile.dest/classes ...
+[warn] source value 8 is obsolete and will be removed in a future release
+[warn] target value 8 is obsolete and will be removed in a future release
+[warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[info] done compiling
+2 JAR(s) to shade
+  /home/leslie/.cache/coursier/v1/https/maven-central.storage-download.googleapis.com/maven2/io/get-coursier/util/directories-jni/0.1.4/directories-jni-0.1.4.jar
+  /home/leslie/.cache/coursier/v1/https/maven-central.storage-download.googleapis.com/maven2/io/get-coursier/util/directories/0.1.4/directories-0.1.4.jar
+[info] compiling 126 Scala sources and 2 Java sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/cli/compile.dest/classes ...
+[error] -- [E006] Not Found Error: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli/src/main/scala/coursier/cli/fetch/Fetch.scala:101:124 
+[error] 101 |        val cache = initialParams.resolve.cache.cache(pool, initialParams.resolve.output.logger()).withCustomHandlerFactory(customHandlerFactory)
+[error]     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^
+[error]     |                                       Not found: customHandlerFactory
+[error]     |
+[error]     | longer explanation available when compiling with `-explain`
+[error] one error found
+1 tasks failed
+cli.compile Compilation failed

@@ -1,0 +1,69 @@
+fatal: no tag exactly matches '5de8486a019e6cb052271748d395d92ce88f0611'
+fatal: no tag exactly matches '5de8486a019e6cb052271748d395d92ce88f0611'
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/launcher/2.13.16/compile.dest/classes ...
+[info] done compiling
+fatal: no tag exactly matches '5de8486a019e6cb052271748d395d92ce88f0611'
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/core/jvm/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 126 Scala sources and 2 Java sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/cli/compile.dest/classes ...
+[warn] -- Deprecation Warning: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli/src/main/scala/coursier/cli/bootstrap/Bootstrap.scala:120:27 
+[warn] 120 |        coursier.Artifacts.artifacts(
+[warn]     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]     |method artifacts in object Artifacts is deprecated since 2.1.25: Use artifacts0 instead
+[warn] -- Deprecation Warning: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli/src/main/scala/coursier/cli/launch/Launch.scala:258:45 
+[warn] 258 |          val artifacts = coursier.Artifacts.artifacts(
+[warn]     |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]     |method artifacts in object Artifacts is deprecated since 2.1.25: Use artifacts0 instead
+[warn] two warnings found
+[info] done compiling
+[info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/test-cache/jvm/2.13.16/compile.dest/classes ...
+[info] done compiling
+[info] compiling 21 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/coursier/jvm/2.13.16/test/compile.dest/classes ...
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/test/scala/coursier/tests/MirrorTests.scala:39:14: method addMirrorConfFiles in class Resolve is deprecated (since 2.1.25): Unused now, parse mirror files yourself with Resolve.confFileMirrors and set mirrors instead
+[warn]             .addMirrorConfFiles(file)
+[warn]              ^
+[warn] /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/coursier/jvm/src/test/scala/coursier/tests/MirrorTests.scala:65:14: method addConfFiles in class Resolve is deprecated (since 2.1.25): For mirrors, use Resolve.confFileMirrors and set mirrors instead; for repositories, use Resolve.confFileRepositories and set repositories
+[warn]             .addConfFiles(file)
+[warn]              ^
+[warn] two warnings found
+[info] done compiling
+[info] compiling 9 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/out/cli/test/compile.dest/classes ...
+[warn] -- Deprecation Warning: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli/src/test/scala/coursier/cli/JsonReportTests.scala:361:13 
+[warn] 360 |          fetch.resolutionParams
+[warn] 361 |            .withForceVersion(
+[warn]     |          ^
+[warn]     |method withForceVersion in class ResolutionParams is deprecated since 2.1.25: Use withForceVersion0 instead
+[warn] -- Deprecation Warning: /home/leslie/.claude/lane-scratch-kc1126/work/CPUB/workspace/coursier/modules/cli/src/test/scala/coursier/cli/JsonReportTests.scala:376:13 
+[warn] 375 |          fetch.resolutionParams
+[warn] 376 |            .withForceVersion(
+[warn]     |          ^
+[warn]     |method withForceVersion in class ResolutionParams is deprecated since 2.1.25: Use withForceVersion0 instead
+[warn] two warnings found
+[info] done compiling
+-------------------------------- Running Tests --------------------------------
+[31mX[39m coursier.cli.FetchCustomHandlerTests.fetch artifact through caller supplied URL handler [2m500ms[0m 
+  [91m[4mjava.lang.Exception[39m[24m: java.net.MalformedURLException: unknown protocol: fetchtest
+    [31mcoursier.util.PlatformTaskCompanion$PlatformTaskOps.[91munsafeRun[39m([91mPlatformTaskCompanion.scala[39m:[91m49[39m)
+    [31mcoursier.cli.FetchCustomHandlerTests$.[91m$init$$$anonfun$1$$anonfun$1[39m([91mFetchCustomHandlerTests.scala[39m:[91m58[39m)
+  [91m[4mjava.net.MalformedURLException[39m[24m: unknown protocol: fetchtest
+    [31mjava.net.URL.[91m<init>[39m([91mURL.java[39m:[91m779[39m)
+    [31mjava.net.URL.[91m<init>[39m([91mURL.java[39m:[91m654[39m)
+    [31mjava.net.URL.[91m<init>[39m([91mURL.java[39m:[91m590[39m)
+    [31mcoursier.cli.resolve.Dependencies$.[91m$anonfun$2$$anonfun$1[39m([91mDependencies.scala[39m:[91m63[39m)
+    [31mscala.Option.[91mmap[39m([91mOption.scala[39m:[91m242[39m)
+    [31mcoursier.cli.resolve.Dependencies$.[91m$anonfun$2[39m([91mDependencies.scala[39m:[91m53[39m)
+    [31mscala.collection.immutable.List.[91mflatMap[39m([91mList.scala[39m:[91m294[39m)
+    [31mcoursier.cli.resolve.Dependencies$.[91mwithExtraRepo[39m([91mDependencies.scala[39m:[91m51[39m)
+    [31mcoursier.cli.resolve.Resolve$.[91m$anonfun$3[39m([91mResolve.scala[39m:[91m68[39m)
+    [31mcoursier.cli.resolve.Resolve$.[91munlift[39m([91mResolve.scala[39m:[91m55[39m)
+    [31mcoursier.cli.resolve.Resolve$.[91mdepsAndReposOrError$$anonfun$1[39m([91mResolve.scala[39m:[91m70[39m)
+    [31mscala.util.Try$.[91mapply[39m([91mTry.scala[39m:[91m217[39m)
+    [31mcoursier.cli.resolve.Resolve$.[91mlift[39m([91mResolve.scala[39m:[91m52[39m)
+    [31mcoursier.cli.resolve.Resolve$.[91mdepsAndReposOrError[39m([91mResolve.scala[39m:[91m158[39m)
+    [31mcoursier.cli.resolve.Resolve$.[91mtask[39m([91mResolve.scala[39m:[91m270[39m)
+    [31mcoursier.cli.fetch.Fetch$.[91mtask[39m([91mFetch.scala[39m:[91m30[39m)
+    [31mcoursier.cli.FetchCustomHandlerTests$.[91m$init$$$anonfun$1$$anonfun$1[39m([91mFetchCustomHandlerTests.scala[39m:[91m57[39m)
+Tests: 1, Passed: 0, Failed: 1
+1 tasks failed
+cli.test.testOnly 1 tests failed: 
+  coursier.cli.FetchCustomHandlerTests coursier.cli.FetchCustomHandlerTests.fetch artifact through caller supplied URL handler
