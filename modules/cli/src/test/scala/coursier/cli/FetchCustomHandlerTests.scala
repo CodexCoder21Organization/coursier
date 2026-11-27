@@ -23,10 +23,12 @@ object FetchCustomHandlerTests extends TestSuite {
         val content  = "artifact served through a custom URL handler"
         val artifact = root / "artifact.jar"
         os.write(artifact, content)
-        val artifactUrl = "fetchtest://repository/artifact.jar"
+        val original = root / "original.jar"
+        os.write(original, "content from the default URL handler")
+        val artifactUrl = original.toIO.toURI.toASCIIString
         val factory = new URLStreamHandlerFactory {
           def createURLStreamHandler(protocol: String): URLStreamHandler =
-            if (protocol == "fetchtest")
+            if (protocol == "file")
               new URLStreamHandler {
                 protected def openConnection(url: URL): URLConnection = {
                   assert(url.toString == artifactUrl)
@@ -40,6 +42,7 @@ object FetchCustomHandlerTests extends TestSuite {
             cacheOptions = CacheOptions(
               cache = Some((root / "cache").toString),
               checksum = List("none"),
+              cacheFileArtifacts = true,
               useEnvCredentials = false
             ),
             repositoryOptions = RepositoryOptions(noDefault = true)
