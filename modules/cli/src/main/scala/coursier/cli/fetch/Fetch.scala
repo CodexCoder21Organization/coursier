@@ -98,7 +98,7 @@ object Fetch extends CoursierCommand[FetchOptions] {
         val initialRepositories = initialParams.resolve.repositories.repositories
         val channels            = initialParams.channel.channels
         pool = Sync.fixedThreadPool(initialParams.resolve.cache.parallel)
-        val cache = initialParams.resolve.cache.cache(pool, initialParams.resolve.output.logger()).withCustomHandlerFactory(customHandlerFactory)
+        val cache = initialParams.resolve.cache.cache(pool, initialParams.resolve.output.logger())
         val channels0 = Channels(channels, initialRepositories, cache)
         val res       = Resolve.handleApps(options, args.all, channels0)(_.addApp(_))
         res
