@@ -1,0 +1,513 @@
+<tests>
+  <buildrule name="build.kotlin.jvm.internal_buildscript.buildPublisherBootstrapMaven()" success="true" time="65085" output-files="106" output-bytes="104962514" executions="1"/>
+  <test file="/home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/build-kotlin-jvm/scripts/../tests/testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kts" name="build.kotlin.jvm.testResolveDependencies2SharesDownloadAfterFailedFirstFetch" success="false" time="4107">
+    <stacktrace>java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 1, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+</stacktrace>
+    <console-output>CHILD A pid=31542
+CHILD B pid=31727
+DOWNLOADS_AT B-DOWNLOADING [.publication-1.0.jar.part=65536, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+CHILD C pid=31895
+OVERLAP C-DOWNLOADING
+DOWNLOADS_AT C-DOWNLOADING [.publication-1.0.jar.part=131072, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.lock=0, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+BODY_COUNTS {/returned/A=1, /test/shared/publication/1.0/publication-1.0.jar=4, /test/shared/publication/1.0/publication-1.0.jar.sha1=2, /test/shared/publication/1.0/publication-1.0.pom=1, /test/shared/publication/1.0/publication-1.0.pom.sha1=1}
+REQUEST_COUNTS {GET /returned/A=1, GET /test/shared/publication/1.0/publication-1.0.jar=4, GET /test/shared/publication/1.0/publication-1.0.jar.sha1=2, GET /test/shared/publication/1.0/publication-1.0.pom=1, GET /test/shared/publication/1.0/publication-1.0.pom.sha1=1, HEAD /test/shared/publication/1.0/publication-1.0.jar=1}
+HTTP_EVENTS
+  A GET /test/shared/publication/1.0/publication-1.0.pom range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom bytes 0-190
+  A GET /test/shared/publication/1.0/publication-1.0.pom.sha1 range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom.sha1 bytes 0-40
+  A GET /test/shared/publication/1.0/publication-1.0.jar range=null
+  B HEAD /test/shared/publication/1.0/publication-1.0.jar range=null
+  A FIRST BODY RESET after 65536/524602
+  A GET /test/shared/publication/1.0/publication-1.0.jar.sha1 range=null
+  B GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=65536-
+  C GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=131072-
+  C SENT /test/shared/publication/1.0/publication-1.0.jar bytes 131072-524602
+  B SENT /test/shared/publication/1.0/publication-1.0.jar bytes 65536-524602
+  A SENT /test/shared/publication/1.0/publication-1.0.jar.sha1 bytes 0-40
+  A GET /test/shared/publication/1.0/publication-1.0.jar range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.jar bytes 0-524602
+  A GET /test/shared/publication/1.0/publication-1.0.jar.sha1 range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.jar.sha1 bytes 0-40
+  A GET /returned/A range=null
+  A SENT /returned/A bytes 0-1
+CHILD_LOG A exit=0
+  | An uncaught NotificationEffect bubbled up to the thread root!
+  | You can learn more about handling NotificationEffects at https://github.com/kotlin-algebraic-effects/
+  | Maven resolution (MavenPrebuilt batch) failed with a transient repository/network error on attempt 1 of 3. Retrying the fetch on a bounded schedule. Underlying error: http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar :: Connection reset [unhandled MavenResolutionTimeoutRetryWarningEffect from CoursierFetchGuard.kt:106]
+  | RETURNED A jar bytes=524602 expected=524602
+  | RETURNED A pom bytes=190 expected=190
+  | COMPLETE A
+CHILD_LOG B exit=1
+  | RETURNED B jar bytes=918132 expected=524602
+  | Exception in thread &quot;main&quot; java.lang.IllegalStateException: B returned incomplete or different jar: 918132 bytes versus 524602 published bytes.
+  | 	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.main(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:127)
+CHILD_LOG C exit=1
+  | Exception in thread &quot;main&quot; community.kotlin.coursier.fetchguard.MavenFetchFailedException: Failed to fetch Maven artifacts for MavenPrebuilt batch after 1 attempt over 452ms; coordinates=[test.shared:publication:1.0]; repositories=[http://127.0.0.1:45877/]; per-attempt failures=[attempt 1 failed after 440ms with coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar :: /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar]
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchCoursierWithBoundsAndRetries(CoursierFetchGuard.kt:103)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1842)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1828)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:635)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.materializeFetchedArtifacts(JvmBuildRules.kt:491)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.mediatePrebuiltsViaCoursier(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.resolveDependencies2(JvmBuildRules.kt:691)
+  | 	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.main(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:118)
+  | Caused by: coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursierapi.error.DownloadingArtifactsError.of(DownloadingArtifactsError.java:23)
+  | 	at coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:494)
+  | 	at coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+  | 	at coursierapi.Fetch.fetchResult(Fetch.java:239)
+  | 	at coursierapi.Fetch.fetch(Fetch.java:234)
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchWithProgressAwareBackstop$lambda$6$lambda$3(CoursierFetchGuard.kt:175)
+  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+  | 	at java.base/java.lang.Thread.run(Thread.java:1583)
+  | Caused by: coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+  | http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+  | 	at coursier.util.Task$.wrap(Task.scala:82)
+  | 	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+  | 	... 3 more
+  | Caused by: coursier.cache.ArtifactError$DownloadError: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  | 	at coursier.cache.internal.Downloader$.$anonfun$downloading$1(Downloader.scala:840)
+  | 	at coursier.cache.internal.Retry.loop$1(Retry.scala:23)
+  | 	at coursier.cache.internal.Retry.retryOpt(Retry.scala:39)
+  | 	at coursier.cache.internal.Downloader$.coursier$cache$internal$Downloader$$downloading(Downloader.scala:844)
+  | 	at coursier.cache.internal.Downloader$Blocking$.remote(Downloader.scala:438)
+  | 	at coursier.cache.internal.Downloader.$anonfun$remote$6(Downloader.scala:571)
+  | 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:687)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+  | 	... 3 more
+  | Caused by: java.nio.file.NoSuchFileException: /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar
+  | 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+  | 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+  | 	at java.base/sun.nio.fs.UnixFileSystem.move(UnixFileSystem.java:882)
+  | 	at java.base/sun.nio.fs.UnixFileSystemProvider.move(UnixFileSystemProvider.java:309)
+  | 	at java.base/java.nio.file.Files.move(Files.java:1431)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$doDownload$14(Downloader.scala:314)
+  | 	at coursier.cache.CacheLocks$$anon$1.call(CacheLocks.scala:23)
+  | 	at coursier.paths.CachePath.withStructureLockOnce(CachePath.java:208)
+  | 	at coursier.paths.CachePath.withStructureLock(CachePath.java:163)
+  | 	at coursier.cache.CacheLocks$.withStructureLock(CacheLocks.scala:23)
+  | 	at coursier.cache.internal.Downloader$Blocking$.doDownload(Downloader.scala:312)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$remote$2(Downloader.scala:433)
+  | 	at coursier.cache.CacheLocks$.loop$1(CacheLocks.scala:96)
+  | 	at coursier.cache.CacheLocks$.withLockOr(CacheLocks.scala:119)
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 1, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	... 2 more
+</console-output>
+  </test>
+  <attempt-history file="/home/leslie/.claude/lane-scratch-kc1126/work/CLFIX/build-kotlin-jvm/scripts/../tests/testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kts" name="build.kotlin.jvm.testResolveDependencies2SharesDownloadAfterFailedFirstFetch">
+    <attempt number="1" success="false" time="4107">
+      <stacktrace>java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 1, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+</stacktrace>
+      <console-output>CHILD A pid=31542
+CHILD B pid=31727
+DOWNLOADS_AT B-DOWNLOADING [.publication-1.0.jar.part=65536, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+CHILD C pid=31895
+OVERLAP C-DOWNLOADING
+DOWNLOADS_AT C-DOWNLOADING [.publication-1.0.jar.part=131072, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.lock=0, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+BODY_COUNTS {/returned/A=1, /test/shared/publication/1.0/publication-1.0.jar=4, /test/shared/publication/1.0/publication-1.0.jar.sha1=2, /test/shared/publication/1.0/publication-1.0.pom=1, /test/shared/publication/1.0/publication-1.0.pom.sha1=1}
+REQUEST_COUNTS {GET /returned/A=1, GET /test/shared/publication/1.0/publication-1.0.jar=4, GET /test/shared/publication/1.0/publication-1.0.jar.sha1=2, GET /test/shared/publication/1.0/publication-1.0.pom=1, GET /test/shared/publication/1.0/publication-1.0.pom.sha1=1, HEAD /test/shared/publication/1.0/publication-1.0.jar=1}
+HTTP_EVENTS
+  A GET /test/shared/publication/1.0/publication-1.0.pom range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom bytes 0-190
+  A GET /test/shared/publication/1.0/publication-1.0.pom.sha1 range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom.sha1 bytes 0-40
+  A GET /test/shared/publication/1.0/publication-1.0.jar range=null
+  B HEAD /test/shared/publication/1.0/publication-1.0.jar range=null
+  A FIRST BODY RESET after 65536/524602
+  A GET /test/shared/publication/1.0/publication-1.0.jar.sha1 range=null
+  B GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=65536-
+  C GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=131072-
+  C SENT /test/shared/publication/1.0/publication-1.0.jar bytes 131072-524602
+  B SENT /test/shared/publication/1.0/publication-1.0.jar bytes 65536-524602
+  A SENT /test/shared/publication/1.0/publication-1.0.jar.sha1 bytes 0-40
+  A GET /test/shared/publication/1.0/publication-1.0.jar range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.jar bytes 0-524602
+  A GET /test/shared/publication/1.0/publication-1.0.jar.sha1 range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.jar.sha1 bytes 0-40
+  A GET /returned/A range=null
+  A SENT /returned/A bytes 0-1
+CHILD_LOG A exit=0
+  | An uncaught NotificationEffect bubbled up to the thread root!
+  | You can learn more about handling NotificationEffects at https://github.com/kotlin-algebraic-effects/
+  | Maven resolution (MavenPrebuilt batch) failed with a transient repository/network error on attempt 1 of 3. Retrying the fetch on a bounded schedule. Underlying error: http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar :: Connection reset [unhandled MavenResolutionTimeoutRetryWarningEffect from CoursierFetchGuard.kt:106]
+  | RETURNED A jar bytes=524602 expected=524602
+  | RETURNED A pom bytes=190 expected=190
+  | COMPLETE A
+CHILD_LOG B exit=1
+  | RETURNED B jar bytes=918132 expected=524602
+  | Exception in thread &quot;main&quot; java.lang.IllegalStateException: B returned incomplete or different jar: 918132 bytes versus 524602 published bytes.
+  | 	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.main(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:127)
+CHILD_LOG C exit=1
+  | Exception in thread &quot;main&quot; community.kotlin.coursier.fetchguard.MavenFetchFailedException: Failed to fetch Maven artifacts for MavenPrebuilt batch after 1 attempt over 452ms; coordinates=[test.shared:publication:1.0]; repositories=[http://127.0.0.1:45877/]; per-attempt failures=[attempt 1 failed after 440ms with coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar :: /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar]
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchCoursierWithBoundsAndRetries(CoursierFetchGuard.kt:103)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1842)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1828)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:635)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.materializeFetchedArtifacts(JvmBuildRules.kt:491)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.mediatePrebuiltsViaCoursier(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.resolveDependencies2(JvmBuildRules.kt:691)
+  | 	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.main(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:118)
+  | Caused by: coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursierapi.error.DownloadingArtifactsError.of(DownloadingArtifactsError.java:23)
+  | 	at coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:494)
+  | 	at coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+  | 	at coursierapi.Fetch.fetchResult(Fetch.java:239)
+  | 	at coursierapi.Fetch.fetch(Fetch.java:234)
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchWithProgressAwareBackstop$lambda$6$lambda$3(CoursierFetchGuard.kt:175)
+  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+  | 	at java.base/java.lang.Thread.run(Thread.java:1583)
+  | Caused by: coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+  | http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+  | 	at coursier.util.Task$.wrap(Task.scala:82)
+  | 	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+  | 	... 3 more
+  | Caused by: coursier.cache.ArtifactError$DownloadError: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar) while downloading http://127.0.0.1:45877/test/shared/publication/1.0/publication-1.0.jar
+  | 	at coursier.cache.internal.Downloader$.$anonfun$downloading$1(Downloader.scala:840)
+  | 	at coursier.cache.internal.Retry.loop$1(Retry.scala:23)
+  | 	at coursier.cache.internal.Retry.retryOpt(Retry.scala:39)
+  | 	at coursier.cache.internal.Downloader$.coursier$cache$internal$Downloader$$downloading(Downloader.scala:844)
+  | 	at coursier.cache.internal.Downloader$Blocking$.remote(Downloader.scala:438)
+  | 	at coursier.cache.internal.Downloader.$anonfun$remote$6(Downloader.scala:571)
+  | 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:687)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+  | 	... 3 more
+  | Caused by: java.nio.file.NoSuchFileException: /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/.publication-1.0.jar.part -&gt; /tmp/jvm-test-scratch-cd2abc2c-d98f-4c25-8603-738b6c9dd34d/shared-download-after-failure-8629747056603323272/downloads/http/127.0.0.1%3A45877/test/shared/publication/1.0/publication-1.0.jar
+  | 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+  | 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+  | 	at java.base/sun.nio.fs.UnixFileSystem.move(UnixFileSystem.java:882)
+  | 	at java.base/sun.nio.fs.UnixFileSystemProvider.move(UnixFileSystemProvider.java:309)
+  | 	at java.base/java.nio.file.Files.move(Files.java:1431)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$doDownload$14(Downloader.scala:314)
+  | 	at coursier.cache.CacheLocks$$anon$1.call(CacheLocks.scala:23)
+  | 	at coursier.paths.CachePath.withStructureLockOnce(CachePath.java:208)
+  | 	at coursier.paths.CachePath.withStructureLock(CachePath.java:163)
+  | 	at coursier.cache.CacheLocks$.withStructureLock(CacheLocks.scala:23)
+  | 	at coursier.cache.internal.Downloader$Blocking$.doDownload(Downloader.scala:312)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$remote$2(Downloader.scala:433)
+  | 	at coursier.cache.CacheLocks$.loop$1(CacheLocks.scala:96)
+  | 	at coursier.cache.CacheLocks$.withLockOr(CacheLocks.scala:119)
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 1, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	... 2 more
+</console-output>
+    </attempt>
+    <attempt number="2" success="false" time="4062">
+      <stacktrace>java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 0, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+</stacktrace>
+      <console-output>CHILD A pid=32476
+CHILD B pid=32621
+DOWNLOADS_AT B-DOWNLOADING [.publication-1.0.jar.part=65536, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+CHILD C pid=32788
+OVERLAP C-DOWNLOADING
+DOWNLOADS_AT C-DOWNLOADING [.publication-1.0.jar.part=131072, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.lock=0, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+BODY_COUNTS {/returned/A=1, /returned/B=1, /test/shared/publication/1.0/publication-1.0.jar=3, /test/shared/publication/1.0/publication-1.0.jar.sha1=1, /test/shared/publication/1.0/publication-1.0.pom=1, /test/shared/publication/1.0/publication-1.0.pom.sha1=1}
+REQUEST_COUNTS {GET /returned/A=1, GET /returned/B=1, GET /test/shared/publication/1.0/publication-1.0.jar=3, GET /test/shared/publication/1.0/publication-1.0.jar.sha1=1, GET /test/shared/publication/1.0/publication-1.0.pom=1, GET /test/shared/publication/1.0/publication-1.0.pom.sha1=1, HEAD /test/shared/publication/1.0/publication-1.0.jar=1}
+HTTP_EVENTS
+  A GET /test/shared/publication/1.0/publication-1.0.pom range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom bytes 0-190
+  A GET /test/shared/publication/1.0/publication-1.0.pom.sha1 range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom.sha1 bytes 0-40
+  A GET /test/shared/publication/1.0/publication-1.0.jar range=null
+  B HEAD /test/shared/publication/1.0/publication-1.0.jar range=null
+  A FIRST BODY RESET after 65536/524602
+  B GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=65536-
+  A GET /test/shared/publication/1.0/publication-1.0.jar.sha1 range=null
+  C GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=131072-
+  C SENT /test/shared/publication/1.0/publication-1.0.jar bytes 131072-524602
+  B SENT /test/shared/publication/1.0/publication-1.0.jar bytes 65536-524602
+  A SENT /test/shared/publication/1.0/publication-1.0.jar.sha1 bytes 0-40
+  B GET /returned/B range=null
+  B SENT /returned/B bytes 0-1
+  A GET /returned/A range=null
+  A SENT /returned/A bytes 0-1
+CHILD_LOG A exit=0
+  | An uncaught NotificationEffect bubbled up to the thread root!
+  | You can learn more about handling NotificationEffects at https://github.com/kotlin-algebraic-effects/
+  | Maven resolution (MavenPrebuilt batch) failed with a transient repository/network error on attempt 1 of 3. Retrying the fetch on a bounded schedule. Underlying error: http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar :: Connection reset [unhandled MavenResolutionTimeoutRetryWarningEffect from CoursierFetchGuard.kt:106]
+  | RETURNED A jar bytes=524602 expected=524602
+  | RETURNED A pom bytes=190 expected=190
+  | COMPLETE A
+CHILD_LOG B exit=0
+  | RETURNED B jar bytes=524602 expected=524602
+  | RETURNED B pom bytes=190 expected=190
+  | COMPLETE B
+CHILD_LOG C exit=1
+  | Exception in thread &quot;main&quot; community.kotlin.coursier.fetchguard.MavenFetchFailedException: Failed to fetch Maven artifacts for MavenPrebuilt batch after 1 attempt over 472ms; coordinates=[test.shared:publication:1.0]; repositories=[http://127.0.0.1:39151/]; per-attempt failures=[attempt 1 failed after 467ms with coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar :: /tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part]
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchCoursierWithBoundsAndRetries(CoursierFetchGuard.kt:103)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1842)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1828)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:635)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.materializeFetchedArtifacts(JvmBuildRules.kt:491)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.mediatePrebuiltsViaCoursier(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.resolveDependencies2(JvmBuildRules.kt:691)
+  | 	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.main(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:118)
+  | Caused by: coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursierapi.error.DownloadingArtifactsError.of(DownloadingArtifactsError.java:23)
+  | 	at coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:494)
+  | 	at coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+  | 	at coursierapi.Fetch.fetchResult(Fetch.java:239)
+  | 	at coursierapi.Fetch.fetch(Fetch.java:234)
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchWithProgressAwareBackstop$lambda$6$lambda$3(CoursierFetchGuard.kt:175)
+  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+  | 	at java.base/java.lang.Thread.run(Thread.java:1583)
+  | Caused by: coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+  | http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+  | 	at coursier.util.Task$.wrap(Task.scala:82)
+  | 	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+  | 	... 3 more
+  | Caused by: coursier.cache.ArtifactError$DownloadError: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39151/test/shared/publication/1.0/publication-1.0.jar
+  | 	at coursier.cache.internal.Downloader$.$anonfun$downloading$1(Downloader.scala:840)
+  | 	at coursier.cache.internal.Retry.loop$1(Retry.scala:23)
+  | 	at coursier.cache.internal.Retry.retryOpt(Retry.scala:39)
+  | 	at coursier.cache.internal.Downloader$.coursier$cache$internal$Downloader$$downloading(Downloader.scala:844)
+  | 	at coursier.cache.internal.Downloader$Blocking$.remote(Downloader.scala:438)
+  | 	at coursier.cache.internal.Downloader.$anonfun$remote$6(Downloader.scala:571)
+  | 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:687)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+  | 	... 3 more
+  | Caused by: java.nio.file.NoSuchFileException: /tmp/jvm-test-scratch-85dd6c7e-baa1-4196-9dfa-8267c38a36cc/shared-download-after-failure-17455787042058759274/downloads/http/127.0.0.1%3A39151/test/shared/publication/1.0/.publication-1.0.jar.part
+  | 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+  | 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+  | 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+  | 	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261)
+  | 	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+  | 	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$doDownload$10(Downloader.scala:283)
+  | 	at coursier.cache.CacheLocks$$anon$1.call(CacheLocks.scala:23)
+  | 	at coursier.paths.CachePath.withStructureLockOnce(CachePath.java:208)
+  | 	at coursier.paths.CachePath.withStructureLock(CachePath.java:163)
+  | 	at coursier.cache.CacheLocks$.withStructureLock(CacheLocks.scala:23)
+  | 	at coursier.cache.internal.Downloader$Blocking$.doDownload(Downloader.scala:280)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$remote$2(Downloader.scala:433)
+  | 	at coursier.cache.CacheLocks$.loop$1(CacheLocks.scala:96)
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 0, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	... 2 more
+</console-output>
+    </attempt>
+    <attempt number="3" success="false" time="3676">
+      <stacktrace>java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 0, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+</stacktrace>
+      <console-output>CHILD A pid=33375
+CHILD B pid=33502
+DOWNLOADS_AT B-DOWNLOADING [.publication-1.0.jar.part=65536, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+CHILD C pid=33631
+OVERLAP C-DOWNLOADING
+DOWNLOADS_AT C-DOWNLOADING [.publication-1.0.jar.part=131072, .publication-1.0.pom.checked=0, .publication-1.0.pom.sha1.checked=0, .publication-1.0.pom__sha1.computed=20, publication-1.0.jar.lock=0, publication-1.0.jar.sha1.lock=0, publication-1.0.pom.sha1=40, publication-1.0.pom=190]
+BODY_COUNTS {/returned/A=1, /returned/B=1, /test/shared/publication/1.0/publication-1.0.jar=3, /test/shared/publication/1.0/publication-1.0.jar.sha1=1, /test/shared/publication/1.0/publication-1.0.pom=1, /test/shared/publication/1.0/publication-1.0.pom.sha1=1}
+REQUEST_COUNTS {GET /returned/A=1, GET /returned/B=1, GET /test/shared/publication/1.0/publication-1.0.jar=3, GET /test/shared/publication/1.0/publication-1.0.jar.sha1=1, GET /test/shared/publication/1.0/publication-1.0.pom=1, GET /test/shared/publication/1.0/publication-1.0.pom.sha1=1, HEAD /test/shared/publication/1.0/publication-1.0.jar=1}
+HTTP_EVENTS
+  A GET /test/shared/publication/1.0/publication-1.0.pom range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom bytes 0-190
+  A GET /test/shared/publication/1.0/publication-1.0.pom.sha1 range=null
+  A SENT /test/shared/publication/1.0/publication-1.0.pom.sha1 bytes 0-40
+  A GET /test/shared/publication/1.0/publication-1.0.jar range=null
+  B HEAD /test/shared/publication/1.0/publication-1.0.jar range=null
+  A FIRST BODY RESET after 65536/524602
+  A GET /test/shared/publication/1.0/publication-1.0.jar.sha1 range=null
+  B GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=65536-
+  C GET /test/shared/publication/1.0/publication-1.0.jar range=bytes=131072-
+  C SENT /test/shared/publication/1.0/publication-1.0.jar bytes 131072-524602
+  B SENT /test/shared/publication/1.0/publication-1.0.jar bytes 65536-524602
+  A SENT /test/shared/publication/1.0/publication-1.0.jar.sha1 bytes 0-40
+  B GET /returned/B range=null
+  B SENT /returned/B bytes 0-1
+  A GET /returned/A range=null
+  A SENT /returned/A bytes 0-1
+CHILD_LOG A exit=0
+  | An uncaught NotificationEffect bubbled up to the thread root!
+  | You can learn more about handling NotificationEffects at https://github.com/kotlin-algebraic-effects/
+  | Maven resolution (MavenPrebuilt batch) failed with a transient repository/network error on attempt 1 of 3. Retrying the fetch on a bounded schedule. Underlying error: http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.net.SocketException (Connection reset) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar :: Connection reset [unhandled MavenResolutionTimeoutRetryWarningEffect from CoursierFetchGuard.kt:106]
+  | RETURNED A jar bytes=524602 expected=524602
+  | RETURNED A pom bytes=190 expected=190
+  | COMPLETE A
+CHILD_LOG B exit=0
+  | RETURNED B jar bytes=524602 expected=524602
+  | RETURNED B pom bytes=190 expected=190
+  | COMPLETE B
+CHILD_LOG C exit=1
+  | Exception in thread &quot;main&quot; community.kotlin.coursier.fetchguard.MavenFetchFailedException: Failed to fetch Maven artifacts for MavenPrebuilt batch after 1 attempt over 363ms; coordinates=[test.shared:publication:1.0]; repositories=[http://127.0.0.1:39817/]; per-attempt failures=[attempt 1 failed after 359ms with coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  |  :: Error fetching artifacts:
+  | http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  |  :: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar :: /tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part]
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchCoursierWithBoundsAndRetries(CoursierFetchGuard.kt:103)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1842)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.fetchCoursierWithBoundsAndRetries(JvmBuildRules.kt:1828)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:635)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt$mediatePrebuiltsViaCoursier$resolution$3.invoke(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.materializeFetchedArtifacts(JvmBuildRules.kt:491)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.mediatePrebuiltsViaCoursier(JvmBuildRules.kt:628)
+  | 	at build.kotlin.jvm.JvmBuildRulesKt.resolveDependencies2(JvmBuildRules.kt:691)
+  | 	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.main(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:118)
+  | Caused by: coursierapi.error.DownloadingArtifactsError: http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursierapi.error.DownloadingArtifactsError.of(DownloadingArtifactsError.java:23)
+  | 	at coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:494)
+  | 	at coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+  | 	at coursierapi.Fetch.fetchResult(Fetch.java:239)
+  | 	at coursierapi.Fetch.fetch(Fetch.java:234)
+  | 	at community.kotlin.coursier.fetchguard.CoursierFetchGuardKt.fetchWithProgressAwareBackstop$lambda$6$lambda$3(CoursierFetchGuard.kt:175)
+  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+  | 	at java.base/java.lang.Thread.run(Thread.java:1583)
+  | Caused by: coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+  | http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  | 
+  | 	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+  | 	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+  | 	at coursier.util.Task$.wrap(Task.scala:82)
+  | 	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+  | 	... 3 more
+  | Caused by: coursier.cache.ArtifactError$DownloadError: download error: Caught java.nio.file.NoSuchFileException (/tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part) while downloading http://127.0.0.1:39817/test/shared/publication/1.0/publication-1.0.jar
+  | 	at coursier.cache.internal.Downloader$.$anonfun$downloading$1(Downloader.scala:840)
+  | 	at coursier.cache.internal.Retry.loop$1(Retry.scala:23)
+  | 	at coursier.cache.internal.Retry.retryOpt(Retry.scala:39)
+  | 	at coursier.cache.internal.Downloader$.coursier$cache$internal$Downloader$$downloading(Downloader.scala:844)
+  | 	at coursier.cache.internal.Downloader$Blocking$.remote(Downloader.scala:438)
+  | 	at coursier.cache.internal.Downloader.$anonfun$remote$6(Downloader.scala:571)
+  | 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:687)
+  | 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+  | 	... 3 more
+  | Caused by: java.nio.file.NoSuchFileException: /tmp/jvm-test-scratch-d272f946-91f7-4880-bb1b-c58bdc00b017/shared-download-after-failure-15526197298129111224/downloads/http/127.0.0.1%3A39817/test/shared/publication/1.0/.publication-1.0.jar.part
+  | 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+  | 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+  | 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+  | 	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261)
+  | 	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+  | 	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$doDownload$10(Downloader.scala:283)
+  | 	at coursier.cache.CacheLocks$$anon$1.call(CacheLocks.scala:23)
+  | 	at coursier.paths.CachePath.withStructureLockOnce(CachePath.java:208)
+  | 	at coursier.paths.CachePath.withStructureLock(CachePath.java:163)
+  | 	at coursier.cache.CacheLocks$.withStructureLock(CacheLocks.scala:23)
+  | 	at coursier.cache.internal.Downloader$Blocking$.doDownload(Downloader.scala:280)
+  | 	at coursier.cache.internal.Downloader$Blocking$.$anonfun$remote$2(Downloader.scala:433)
+  | 	at coursier.cache.CacheLocks$.loop$1(CacheLocks.scala:96)
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at community.kotlin.kompile.testrunner.bootstrap.BootstrapRunner.main(BootstrapRunner.java:449)
+Caused by: java.lang.IllegalStateException: Every resolver must return complete JAR/POM bytes; exit codes A,B,C = [0, 0, 1] (see CHILD_LOG above).
+	at build.kotlin.jvm.TestResolveDependencies2SharesDownloadAfterFailedFirstFetchKt.testResolveDependencies2SharesDownloadAfterFailedFirstFetch(testResolveDependencies2SharesDownloadAfterFailedFirstFetch.kt:328)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at kompile.TestRunner.executeTest(TestRunner.kt:248)
+	at kompile.PreparedTestRunner.executeTest(TestRunner.kt:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	... 2 more
+</console-output>
+    </attempt>
+  </attempt-history>
+</tests>
