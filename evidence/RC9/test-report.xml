@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="1" failures="0" errors="0" skipped="0" time="0.828">
+        <testsuite name="coursier.cache.SharedDownloadOwnershipTests" tests="1" failures="0" errors="0" skipped="0" time="0.828" timestamp="2026-11-27T04:41:14">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cache.SharedDownloadOwnershipTests" name="a process arriving after a failed owner waits for the current owner" time="0.828">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>

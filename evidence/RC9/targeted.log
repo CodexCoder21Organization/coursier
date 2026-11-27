@@ -1,0 +1,57 @@
+=============== cache.jvm[2.13.16].test.testOnly...he.SharedDownloadOwnershipTests ===============
+[mill-build/build.mill-61/65] compile
+[mill-build/build.mill-61] [info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/mill-build/mill-build/compile.dest/classes ...
+[mill-build/build.mill-61] [info] done compiling
+[build.mill-61/65] compile
+[build.mill-61] [info] compiling 41 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/mill-build/compile.dest/classes ...
+[build.mill-61] [warn] /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/mill-build/src/coursierbuild/Shading.scala:83:39: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest: T[JarManifest] = Task {
+[build.mill-61] [warn]                                       ^
+[build.mill-61] [warn] /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/mill-build/src/coursierbuild/Workers.scala:18:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/health-check")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/mill-build/src/coursierbuild/Workers.scala:90:29: constructor URL in class URL is deprecated (since 20)
+[build.mill-61] [warn]       val url0            = new java.net.URL(s"$url/com/abc/test/0.1/test-0.1.pom.sha1")
+[build.mill-61] [warn]                             ^
+[build.mill-61] [warn] /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/build.mill:846:23: class JarManifest in package api is deprecated (since Mill 0.12.10): Use mill.uitl.JarManifest instead
+[build.mill-61] [warn]   def manifest = Task {
+[build.mill-61] [warn]                       ^
+[build.mill-61] [warn] four warnings found
+[build.mill-61] [info] done compiling
+[079/306] mill.scalalib.ZincWorkerModule.worker
+[079] Compiling compiler interface...
+[112/306] util.jvm[2.13.16].compile
+[112] [info] compiling 16 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/util/jvm/2.13.16/compile.dest/classes ...
+[112] [info] done compiling
+[137/306] paths.compile
+[137] [info] compiling 5 Java sources to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/paths/compile.dest/classes ...
+[137] [warn] source value 8 is obsolete and will be removed in a future release
+[137] [warn] target value 8 is obsolete and will be removed in a future release
+[137] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[137] [info] done compiling
+[162/306] cache-util.compile
+[162] [info] compiling 1 Java source to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/cache-util/compile.dest/classes ...
+[162] [warn] source value 8 is obsolete and will be removed in a future release
+[162] [warn] target value 8 is obsolete and will be removed in a future release
+[162] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[162] [info] done compiling
+[202/306] cache.jvm[2.13.16].compile
+[202] [info] compiling 43 Scala sources and 1 Java source to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/cache/jvm/2.13.16/compile.dest/classes ...
+[202] [warn] source value 8 is obsolete and will be removed in a future release
+[202] [warn] target value 8 is obsolete and will be removed in a future release
+[202] [warn] To suppress warnings about obsolete options, use -Xlint:-options.
+[202] [info] done compiling
+[260/306] custom-protocol-for-test.compile
+[260] [info] compiling 1 Scala source to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/custom-protocol-for-test/compile.dest/classes ...
+[260] [info] done compiling
+[290/306] cache.jvm[2.13.16].test.compile
+[290] [info] compiling 17 Scala sources to /home/leslie/.claude/lane-scratch-kc1126/work/RC9/workspace/coursier/out/cache/jvm/2.13.16/test/compile.dest/classes ...
+[290] [info] done compiling
+[306/306] cache.jvm[2.13.16].test.testOnly
+[306] -------------------------------- Running Tests --------------------------------
+[306] process A output: ERROR download error: Caught java.io.IOException (Server returned HTTP response code: 500 for URL: http://127.0.0.1:45933/artifact) while downloading http://127.0.0.1:45933/artifact
+[306] process B output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] process C output: OK 4096 bytes, SHA-256 d41d438c379110c7f7b2c561b1f04f26c1b4549110791f8e022f48974280c13e
+[306] [32m+[39m coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner [2m828ms[0m  
+[306] Tests: 1, Passed: 1, Failed: 0
+[306/306] =============== cache.jvm[2.13.16].test.t...edDownloadOwnershipTests =============== 56s

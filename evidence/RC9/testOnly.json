@@ -1,0 +1,15 @@
+{
+    "value": [
+        "Tests: 1, Passed: 1, Failed: 0",
+        [
+            {
+                "fullyQualifiedName": "coursier.cache.SharedDownloadOwnershipTests",
+                "selector": "coursier.cache.SharedDownloadOwnershipTests.a process arriving after a failed owner waits for the current owner",
+                "duration": 828,
+                "status": "Success"
+            }
+        ]
+    ],
+    "valueHash": 274772989,
+    "inputsHash": -641371551
+}
