@@ -150,7 +150,9 @@ object FileCacheTests extends TestSuite {
             validateCacheState(serverUri, cache)(
               Seq(
                 (os.sub / "dir" / ".foo.pom.checked") -> "",
-                (os.sub / "dir" / "foo.pom")          -> "the pom"
+                (os.sub / "dir" / "foo.module.lock")  -> "",
+                (os.sub / "dir" / "foo.pom")          -> "the pom",
+                (os.sub / "dir" / "foo.pom.lock")     -> ""
               )
             )
           }
@@ -177,7 +179,9 @@ object FileCacheTests extends TestSuite {
               Seq(
                 (os.sub / "dir" / ".foo.module.error") -> "",
                 (os.sub / "dir" / ".foo.pom.checked")  -> "",
-                (os.sub / "dir" / "foo.pom")           -> "the pom"
+                (os.sub / "dir" / "foo.module.lock")   -> "",
+                (os.sub / "dir" / "foo.pom")           -> "the pom",
+                (os.sub / "dir" / "foo.pom.lock")      -> ""
               )
             )
           }
@@ -198,7 +202,8 @@ object FileCacheTests extends TestSuite {
             validateCacheState(serverUri, cache)(
               Seq(
                 (os.sub / "dir" / ".foo.pom.checked") -> "",
-                (os.sub / "dir" / "foo.pom")          -> "the pom"
+                (os.sub / "dir" / "foo.pom")          -> "the pom",
+                (os.sub / "dir" / "foo.pom.lock")     -> ""
               )
             )
 
