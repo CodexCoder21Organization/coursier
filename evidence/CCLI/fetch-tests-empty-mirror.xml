@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests="28" failures="0" errors="0" skipped="0" time="29.88">
+        <testsuite name="coursier.cli.FetchTests" tests="28" failures="0" errors="0" skipped="0" time="29.88" timestamp="2026-11-27T05:21:31">
+        <properties>
+        
+      </properties>
+        <testcase classname="coursier.cli.FetchTests" name="get all files" time="0.889">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="fetch default files" time="0.457">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="fetch dependencies from file" time="0.043">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="fail fetching dependencies from file with invalid content" time="0.017">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="fail fetching dependencies from non-existing file" time="0.002">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Underscore and source classifier should fetch default and source files" time="0.22">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Default and source options should fetch default and source files" time="0.014">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="scalafmt-cli fetch should discover all main classes" time="2.67">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="scalafix-cli fetch should discover all main classes" time="5.109">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="ammonite fetch should discover all main classes" time="2.072">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="sssio fetch should discover all main classes" time="3.891">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="local file dep url should have coursier-fetch-test.jar and cached for second run" time="0.028">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="external dep url with forced version should throw an error" time="0.002">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="external dep url on higher version should fetch junit-4.12.jar" time="0.041">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Bad pom resolve should succeed with retry" time="0.271">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Bad pom sha-1 resolve should succeed with retry" time="0.211">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Bad jar resolve should succeed with retry" time="0.313">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Bad jar sha-1 resolve should succeed with retry" time="0.235">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Wrong range partial artifact resolve should succeed with retry" time="0.267">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="fail because of resolution" time="1.45">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="fail to resolve, but try to fetch artifacts anyway" time="5.92">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="not delete file in local Maven repo" time="0.223">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="Scala version range should work with fully cross-versioned dependencies" time="3.812">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="sbt-plugin-example-diamond.0.1.0" time="0.951">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="sbt-plugin-example-diamond.0.2.0" time="0.136">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="sbt-plugin-example-diamond.0.3.0" time="0.166">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="sbt-plugin-example-diamond.0.4.0" time="0.26">
+          
+        </testcase><testcase classname="coursier.cli.FetchTests" name="sbt-plugin-example-diamond.0.5.0" time="0.21">
+          
+        </testcase>
+      </testsuite>
+      </testsuites>
