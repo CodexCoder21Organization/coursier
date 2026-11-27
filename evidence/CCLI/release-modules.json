@@ -1,0 +1,232 @@
+{
+  "archive-cache[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-archive-cache_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "archive-cache[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-archive-cache_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cache.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "fetch-js_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cache.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "fetch-js_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cache.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cache_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cache.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cache_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cache-util.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "cache-util",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cli.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cli_3",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "cli-tests.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "cli-tests_3",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "core.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-core_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "core.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-core_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "core.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-core_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "core.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-core_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "coursier.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "coursier.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "coursier.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "coursier.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "docker[3.3.6].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-docker_3",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "env[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-env_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "env[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-env_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "exec.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-exec",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "install[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-install_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "install[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-install_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.cats.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cats-interop_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.cats.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cats-interop_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.cats.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cats-interop_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.cats.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-cats-interop_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.scalaz.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-scalaz-interop_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.scalaz.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-scalaz-interop_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.scalaz.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-scalaz-interop_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "interop.scalaz.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-scalaz-interop_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-jvm_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-jvm_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "launcher[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-launcher_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "launcher[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-launcher_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "launcher-native_04.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-launcher-native_0.4_3",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "paths.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-paths",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "proxy-setup.artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-proxy-setup",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "sbt-maven-repository.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-sbt-maven-repository_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "sbt-maven-repository.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-sbt-maven-repository_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "sbt-maven-repository.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-sbt-maven-repository_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "sbt-maven-repository.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-sbt-maven-repository_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "util.js[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-util_sjs1_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "util.js[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-util_sjs1_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "util.jvm[2.12.20].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-util_2.12",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  },
+  "util.jvm[2.13.16].artifactMetadata": {
+    "group": "io.get-coursier",
+    "id": "coursier-util_2.13",
+    "version": "2.1.25-M17-45-4d5a7d3d0-SNAPSHOT"
+  }
+}
